@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/pngs/:path*", "destination": "https://pngs-worker.volter1996.workers.dev/pngs/:path*" }
+    { "source": "/pngs/:path*", "destination": "https://pngs-worker.volter1996.workers.dev/pngs/:path*" },
+    { "source": "/:any*/pngs/:path*", "destination": "https://pngs-worker.volter1996.workers.dev/pngs/:path*" }
   ]
 }
