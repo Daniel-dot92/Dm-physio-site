@@ -1,0 +1,20 @@
+﻿# builds & deps
+node_modules/
+.next/
+dist/
+build/
+
+# големи медии (временно  ще ги сервираме от CDN)
+pngs/
+*.mp4
+*.mov
+*.mkv
+*.webm
+
+# архиви и др.
+*.zip
+*.rar
+*.7z
+*.log
+.DS_Store
+Thumbs.db

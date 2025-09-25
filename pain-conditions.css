@@ -1,0 +1,736 @@
+/* ========================================================= */
+/* NEW MODERN STYLES FOR "PAIN CONDITIONS" main page */
+/* ========================================================= */
+
+/* ... (непроменен код до тук) ... */
+
+
+.pain-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Текстовият блок да е отдолу */
+    padding: 15px; /* Намаляваме padding-а на бутона */
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    overflow: hidden; /* Важно, за да не излиза медията извън бутона */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    
+    /* Променено: Премахваме фиксираната височина тук,
+       за да позволим на съдържанието да я определя,
+       или я управляваме чрез padding-top на pain-button-media */
+    /* height: 280px;  */
+}
+
+.pain-button:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    background-color: #f8f8f8;
+}
+
+.pain-button-media {
+    position: absolute; /* Позиционираме го абсолютно спрямо .pain-button */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* **Ключово: Заема цялата височина на родителя** */
+    display: flex;
+    justify-content: center; /* Центрира медията хоризонтално */
+    align-items: center; /* Центрира медията вертикално */
+    overflow: hidden; /* **Важно: Скрива всяко преливане** */
+}
+
+.pain-img,
+.pain-gif {
+    /* **Ключово: Запълват целия .pain-button-media контейнер** */
+    width: 100%; 
+    height: 100%;
+    
+    /* **Променено: Използвайте 'cover' за еднакви размери, ако не ви притеснява изрязване,
+                  или 'contain' + background за празни пространства** */
+    object-fit: cover; /* Или 'contain', но 'cover' прави размерите по-еднакви визуално */
+    
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    position: absolute; /* Позициониране спрямо .pain-button-media */
+}
+
+.pain-gif {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.pain-button:hover .pain-img {
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.pain-button:hover .pain-gif {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.pain-button-text {
+    position: relative;
+    z-index: 10;
+    background-color: #007777;
+    padding: 6px 12px; /* Намаляваме padding-а на текста */
+    border-radius: 5px;
+    font-size: 1.5em; /* Намаляваме размера на шрифта на текста */
+    font-weight: 700;
+    color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+    width: 100%; /* Уверете се, че текстът заема цялата ширина */
+    box-sizing: border-box; /* Важно за padding */
+}
+
+.pain-button:hover .pain-button-text {
+    background-color: #3614f1;
+    color: white;
+}
+
+/* ... (останалата част от кода ви, включително media queries, остава непроменена) ... */
+
+/* Модифицирани стилове за .pain-buttons-grid и .pain-button за десктоп */
+.pain-buttons-grid {
+    display: grid;
+    /* Увеличете minmax() стойността за още по-големи бутони. */
+    /* Примерно 300px или дори повече, ако искате наистина големи. */
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); /* Променено 2fr на 1fr, за да не е твърде агресивно разтягане */
+    gap: 30px; /* Увеличете разстоянието между бутоните */
+    max-width: 2500px; /* Увеличете максималната ширина на цялата решетка, ако е необходимо */
+    margin: 0 auto; /* Центриране на грида */
+    padding: 40px; /* Този padding може да е твърде голям за някои дизайни, преценете */
+    box-sizing: border-box; /* Важно за padding */
+}
+
+.pain-button {
+    /* Запазваме предишните настройки за стил и сянка */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #000000; 
+    background-color: #f9f9f9; 
+    border-radius: 15px; /* Леко увеличен радиус */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+    overflow: hidden; 
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    /* Задаваме фиксирана височина на бутона за десктоп, ако това е целта. */
+    /* Ако искате да се адаптира, премахнете height: */
+    height: 350px; /* Примерно фиксирана височина за десктоп */
+}
+
+/* ... (останалите стилове за pain-button:hover остават) ... */
+
+
+.pain-button-media {
+    position: relative; /* Променено на relative, за да може да заема място */
+    width: 100%; 
+    padding-top: 105%; /* **Ключово: Прави контейнера пропорционален (4:3 съотношение)** */
+    /* Можете да изберете друго съотношение, напр. 100% за квадрат, 56.25% за 16:9 */
+    overflow: hidden;
+    /* Добавяме и фон за по-сигурно, ако 'object-fit: contain' остави празно */
+    background-color: #f0f0f0; /* Лек фон, ако медията не покрие цялата област */
+}
+
+.pain-button-media .static-img,
+.pain-button-media .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10 0%;
+    height: 100%;
+    object-fit: cover; /* **Важно: Запълва контейнера, може да изреже части** */
+    /* Ако искате цялото изображение/видео да се вижда, използвайте 'contain',
+       но тогава може да има празно пространство в pain-button-media */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* ... (останалата част от кода остава непроменена) ... */
+
+
+/* --- Адаптивност за по-малки екрани --- */
+/* Важно: прегледайте височините и font-size в тези медия заявки. */
+/* Ако pain-button-media има padding-top (пропорционална височина), */
+/* може да се наложи да промените и height на .pain-button. */
+
+@media (max-width: 991px) and (min-width: 768px) { /* За средни екрани (таблети): 3 колони */
+    .pain-buttons-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        padding: 0px; /* Добавяме padding за мобилни, ако горният е твърде голям */
+    }
+    .pain-button {
+        height: 250px; /* Ако ползвате фиксирана височина */
+    }
+    /* ... */
+}
+
+@media (max-width: 767px) and (min-width: 480px) { /* За малки таблети и големи телефони: 2 колони */
+    .pain-buttons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0px;
+    }
+    .pain-button {
+        height: 220px; /* Ако ползвате фиксирана височина */
+    }
+    /* ... */
+}
+
+@media (max-width: 479px) { /* За най-малки екрани (телефони): 1 колона */
+    .pain-buttons-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 0px;
+    }
+    .pain-button {
+        height: 200px; /* Ако ползвате фиксирана височина */
+        padding: 0px;
+    }
+    /* ... */
+}
+@media (max-width: 1400px) {
+    .pain-buttons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        padding: 0px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .pain-buttons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        padding: 0px;
+    }
+    .pain-button-text {
+        font-size: 1.3em;
+        padding: 0px;
+    }
+}
+
+@media (max-width: 992px) {
+    .pain-buttons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+        padding: 0px;
+    }
+    .pain-button-text {
+        font-size: 1.2em;
+        padding: 18px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pain-buttons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 0px;
+    }
+    .pain-explanation {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+    .pain-button-text {
+        font-size: 1.1em;
+        padding: 15px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .pain-buttons-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0px;
+    }
+    .pain-explanation {
+        font-size: 1.8em;
+        line-height: 1.4em;
+    }
+    .pain-button-text {
+        font-size: 1em;
+        padding: 12px 8px;
+    }
+}
+@media (max-width: 1400px) {
+    .pain-buttons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        padding: 0px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .pain-buttons-grid {
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px;
+        padding: 0 px;
+    }
+    .pain-button {
+        height: auto; 
+        min-height: 320px; /* Увеличена минимална височина */
+    }
+    .pain-button-media {
+        /* КЛЮЧОВА ПРОМЯНА: 1:1 съотношение */
+        padding-top: 100%; 
+    }
+    .pain-button-text {
+        font-size: 1.3em;
+        padding: 15px 10px;
+    }
+    .pain-explanation {
+        font-size: 2.8em;
+        margin-bottom: 35px;
+    }
+}
+
+@media (max-width: 992px) {
+    .pain-buttons-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+        padding: 0 px;
+    }
+    .pain-button {
+        min-height: 280px; /* Увеличена минимална височина */
+    }
+    .pain-button-media {
+        /* КЛЮЧОВА ПРОМЯНА: 1:1 съотношение */
+        padding-top: 100%; 
+    }
+    .pain-button-text {
+        font-size: 1.2em;
+        padding: 12px 8px;
+    }
+    .pain-explanation {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pain-buttons-grid {
+        grid-template-columns: 1fr; 
+        gap: 15px;
+        padding: 0px; 
+    }
+    .pain-button {
+        height: auto; 
+        min-height: 250px; /* Увеличена минимална височина */
+    }
+    .pain-button-media {
+        /* КЛЮЧОВА ПРОМЯНА: 1:1 съотношение */
+        padding-top: 100%; 
+        margin-bottom: 15px; 
+    }
+    .pain-button-text {
+        font-size: 1.1em;
+        padding: 10px 6px;
+    }
+    .pain-explanation {
+        font-size: 2em;
+        line-height: 1.4em;
+        margin-bottom: 25px;
+    }
+    .back-button {
+        padding: 15px 30px;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 479px) {
+    .pain-buttons-grid {
+        gap: 10px;
+        padding: 0 10px;
+    }
+    .pain-button {
+        min-height: 220px; /* Увеличена минимална височина */
+        padding: 10px;
+    }
+    .pain-button-media {
+        /* КЛЮЧОВА ПРОМЯНА: 1:1 съотношение */
+        padding-top: 100%; 
+        margin-bottom: 10px;
+    }
+    .pain-button-text {
+        font-size: 0.9em;
+        padding: 8px 5px;
+    }
+    .pain-explanation {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+    .back-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+}
+/* --- Къде е болката? --- */
+#pain-conditions-intro{padding:2px 0}
+#pain-conditions-intro h2{font-size:clamp(28px,3.2vw,40px);line-height:1.2;margin:0 0 8px}
+#pain-conditions-intro .pain-explanation{color:#64748b;max-width:900px;margin:0 0 22px}
+
+/* --- Секция: Къде е болката? --- */
+.hero-subpage {
+  padding:64px 0 40px;
+  background:
+    radial-gradient(700px 300px at 12% 0%, rgba(34,197,94,.07), transparent 60%),
+    radial-gradient(520px 240px at 88% 18%, rgba(2,132,199,.06), transparent 60%);
+}
+
+.pci-title{
+  margin:0 0 10px;
+  font-size:clamp(28px,4.2vw,40px);
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:-.01em;
+  color:var(--text);
+  text-align:center;
+}
+
+.pci-intro{
+  margin:8px auto 14px;
+  max-width:76ch;
+  font-size:clamp(16px,2.2vw,18px);
+  color:#334155;
+  line-height:1.75;
+  text-align:center;
+}
+.pci-intro .pci-accent{ color:var(--green); font-weight:700; }
+
+.pci-helper{
+  text-align:center;
+  color:#64748b;
+  font-size:14px;
+  margin:0 0 18px;
+}
+footer {
+  font-size: 25px;          /* по-едър базов текст */
+  line-height: 1.6;
+  background: #f9f9f9;
+  padding: 40px 20px;
+  color: #222;
+}
+
+footer h2 {
+  font-size: 2 rem;        /* ~25px */
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+footer .contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer .social-links img {
+  width: 80px;              /* по-големи социални икони */
+  height: 80px;
+  object-fit: contain;
+}
+
+footer .icon {
+  width: 60px;              /* по-големи иконки за телефон/часовник/адрес */
+  height: 60px;
+  flex-shrink: 0;
+}
+
+footer .contact-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+footer .work-hours span,
+footer .address-item span,
+footer .contact-item span {
+  font-size: 1.05rem;       /* малко по-едър от базовия */
+}
+
+footer .footer-links {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  footer {
+    font-size: 16px;
+  }
+  footer .contact-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+  footer iframe {
+    width: 100% !important;
+    height: 220px !important;
+  }
+}
+/* ===== FOOTER – layout и визия като на скрийншота ===== */
+footer{
+  background:#f3f5f7;
+  padding: 40px 0 28px;
+  color:#0f172a;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+footer .contact-section{ max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+/* Три колони: карта (фиксирана), център (икони), дясно (телефон/час/адрес) */
+footer .contact-container{
+  display: grid;
+  grid-template-columns: 360px 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* --- ЛЯВО: карта --- */
+footer .contact-left .map iframe{
+  width: 360px; height: 260px;
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  background:#e9eef3;
+  display:block;
+}
+
+/* --- ЦЕНТЪР: заглавие + социални --- */
+footer .contact-center{ text-align: center; }
+footer .contact-center h2{
+  margin: 0 0 14px;
+  font-size: 2rem;        /* ~32px */
+  font-weight: 800;
+}
+footer .social-links{
+  display: inline-flex;
+  gap: 14px;
+}
+footer .social-links a{ display:inline-flex; }
+footer .social-links img{
+  width: 64px; height: 64px;   /* едри социални икони */
+  object-fit: contain; display:block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
+  border-radius: 8px;
+}
+
+/* --- ДЯСНО: телефон голям, работно време, адрес --- */
+footer .contact-right{ }
+footer .contact-item{ display:flex; gap:12px; align-items:center; margin-bottom: 16px; }
+footer .icon{ width: 48px; height: 48px; object-fit: contain; flex:0 0 48px; }
+
+footer .contact-item.phone .icon{ width: 54px; height: 54px; }
+footer .contact-item.phone span{
+  font-size: 2.2rem;      /* ~35px */
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+footer .work-hours .icon{ width: 54px; height: 54px; }
+footer .address-item .icon{ width: 48px; height: 48px; }
+
+footer .map-link{
+  color:#0b66ff;
+  text-decoration: underline;
+}
+footer .map-link:hover{ text-decoration: none; }
+
+/* Долен ред с линкове */
+footer .footer-links{
+  margin-top: 22px; text-align:center; font-size: 1.05rem;
+}
+footer .footer-links a{ color:#0b66ff; }
+
+/* --- Responsive --- */
+@media (max-width: 1024px){
+  footer .contact-container{
+    grid-template-columns: 320px 1fr;    /* карта + комбинирана дясна колона */
+    grid-auto-rows: auto;
+  }
+  footer .contact-center{ order: 2; }
+  footer .contact-right{ order: 3; }
+  footer .contact-left .map iframe{ width: 320px; height: 230px; }
+}
+@media (max-width: 768px){
+  footer{ font-size: 16px; }
+  footer .contact-container{ grid-template-columns: 1fr; gap: 22px; }
+  footer .contact-left .map iframe{ width: 100%; height: 220px; }
+  footer .social-links img{ width: 56px; height: 56px; }
+  footer .contact-item.phone span{ font-size: 1.9rem; }
+}
+
+.page-content {
+  padding-top: 70px; /* колкото е височината на header-а */
+}
+/* ====== UX подобрения и ефекти за фуутъра ====== */
+
+/* 1) Глобални променливи за цветове и сенки */
+:root{
+  --f-accent: #0b66ff;
+  --f-ink: #0f172a;
+  --f-bg: #f3f5f7;
+  --f-soft-shadow: 0 8px 24px rgba(15, 23, 42, .08);
+  --f-ring: 0 0 0 3px rgba(11,102,255,.18);
+}
+
+/* 2) Плавни преходи по подразбиране за кликаеми неща */
+footer a, 
+footer .social-links a,
+footer .contact-item,
+footer .map-link,
+footer .footer-links a,
+footer .contact-item span,
+footer .icon,
+footer .social-links img{
+  transition: 
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease,
+    opacity .25s ease,
+    color .25s ease,
+    background-color .25s ease;
+}
+
+/* 3) Социални икони – „изплуване“ + меко сияние */
+footer .social-links a{
+  position: relative;
+  border-radius: 10px;
+  outline: none;
+}
+footer .social-links a:hover,
+footer .social-links a:focus-visible{
+  transform: translateY(-4px) scale(1.03);
+}
+footer .social-links a:hover img,
+footer .social-links a:focus-visible img{
+  filter: drop-shadow(0 8px 18px rgba(11,102,255,.25));
+}
+footer .social-links a:active{
+  transform: translateY(-1px) scale(.99);
+}
+
+/* 4) Контакт редове – фина карта при ховър */
+footer .contact-item{
+  border-radius: 14px;
+  padding: 8px 10px;
+}
+footer .contact-item:hover{
+  background: rgba(11,102,255,.06);
+  box-shadow: var(--f-soft-shadow);
+}
+footer .contact-item .icon{
+  transition: transform .25s ease;
+}
+footer .contact-item:hover .icon{
+  transform: scale(1.06) rotate(-2deg);
+}
+
+/* 5) Телефон – акцент при ховър (лек „пулс“) */
+@keyframes f-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+footer .contact-item.phone:hover span{
+  color: var(--f-accent);
+  animation: f-pulse .8s ease-in-out;
+}
+
+/* 6) Линкове долу – анимирано подчертаване */
+footer .footer-links a{
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+}
+footer .footer-links a:hover,
+footer .footer-links a:focus-visible{
+  color: var(--f-accent);
+  background-size: 100% 2px;    /* от центъра към краищата */
+}
+
+/* 7) Линк към карта – „индикатор“ при ховър */
+footer .map-link{
+  position: relative;
+}
+footer .map-link::after{
+  content:"↗";
+  margin-left: .35em;
+  opacity: .0;
+  transition: transform .25s ease, opacity .25s ease;
+}
+footer .map-link:hover::after,
+footer .map-link:focus-visible::after{
+  opacity: .9;
+  transform: translateY(-1px);
+}
+
+/* 8) Карта – фино издигане на iframe при ховър */
+footer .contact-left .map iframe{
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+footer .contact-left .map iframe:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+}
+
+/* 9) Фокус стилове за достъпност */
+footer a:focus-visible{
+  box-shadow: var(--f-ring);
+  border-radius: 10px;
+}
+
+/* 10) „Back to top“ бутон за фуутър (скрива се на мобилно) */
+footer .back-to-top{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: white;
+  box-shadow: var(--f-soft-shadow);
+  font-weight: 700;
+}
+footer .back-to-top:hover{ transform: translateY(-3px); }
+@media (max-width: 768px){
+  footer .back-to-top{ display:none; }
+}
+
+/* 11) Тъмна тема (автоматично) */
+@media (prefers-color-scheme: dark){
+  :root{
+    --f-bg:#0b1220;
+    --f-ink:#e5e7eb;
+  }
+  footer{
+    background: var(--f-bg);
+    color: var(--f-ink);
+  }
+  footer .footer-links a,
+  footer .map-link{ color: var(--f-accent); }
+  footer .social-links img{ filter: drop-shadow(0 2px 6px rgba(0,0,0,.6)); }
+  footer .contact-item:hover{ background: rgba(11,102,255,.14); }
+}
+
+/* 12) Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  * { animation: none !important; transition: none !important; }
+}

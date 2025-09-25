@@ -1,0 +1,123 @@
+/* === FIX: изолиране на топ бара от глобалния header/nav === */
+
+/* 1) Спиране на глобалните header-правила върху top-bar */
+header.top-bar {
+  background: #ffffff;          /* твоя палитра за топ бара */
+  color: #0f172a;
+  padding: 0;                   /* маха 20px от глобалния header */
+  text-align: left;             /* маха центрирането */
+  box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* 2) Съдържание в ред: лого вляво, меню вдясно */
+.top-bar .top-bar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* 3) Лого */
+.top-bar .logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+.top-bar .main-logo {
+  height: 48px;                 /* нагласи според нуждите */
+  width: auto;
+  display: block;
+}
+
+/* 4) Меню – зануляване на глобалния nav ul margin и подредба в ред */
+.top-bar .main-nav ul {
+  list-style: none;
+  margin: 0;                    /* override на nav ul { margin:15px ... } */
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.top-bar .main-nav a {
+  color: #0f172a;               /* или #006666, ако искаш */
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: background .2s ease, transform .2s ease;
+}
+.top-bar .main-nav a:hover {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+
+/* 5) Хамбургер – скрит по подразбиране (десктоп), показва се само на мобилно */
+.hamburger-menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  font-size: 22px;
+  line-height: 1;
+  padding: 6px;
+  cursor: pointer;
+}
+
+/* 6) Dropdown (ако ползваш .dropdown/.dropdown-content) */
+.top-bar .dropdown {
+  position: relative;
+}
+.top-bar .dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(2,6,23,.12);
+  padding: 8px;
+  display: none;
+  z-index: 1001; /* над бара */
+}
+.top-bar .dropdown:hover .dropdown-content {
+  display: block;
+}
+.top-bar .dropdown-content a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #0f172a;
+  font-weight: 600;
+}
+.top-bar .dropdown-content a:hover { background:#f8fafc }
+
+/* 7) Мобилен режим: показваме хамбургера, крием менюто до отваряне */
+@media (max-width: 768px) {
+  .hamburger-menu-toggle { display: inline-flex; align-items: center; }
+  .top-bar .main-nav { display: none; }
+  .top-bar .main-nav.is-open {          /* добавяш/махаш is-open с JS */
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 10px 24px rgba(2,6,23,.12);
+  }
+  .top-bar .main-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+  .top-bar .dropdown-content {
+    position: static; display: block; box-shadow: none; border: 0; padding: 0;
+  }
+}

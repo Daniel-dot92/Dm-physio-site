@@ -1,0 +1,728 @@
+/* ===== DM PHYSIO – Procedure Page (Light Style + 1:1 media) ===== */
+
+/* ---- Променливи ---- */
+:root{
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --muted: #64748b;
+  --text: #1e293b;
+  --brand: #16a34a;   /* зелено */
+  --accent: #0ea5e9;  /* синьо */
+  --radius-lg: 16px;
+  --shadow: 0 6px 16px rgba(0,0,0,.06);
+  --container: 1200px;
+
+  /* page layout */
+  --container-max: 1300px;
+  --page-padding: 20px;
+  --sidebar-width: 320px;
+
+  /* footer UX vars */
+  --f-accent: #0b66ff;
+  --f-ink: #0f172a;
+  --f-bg: #f3f5f7;
+  --f-soft-shadow: 0 8px 24px rgba(15, 23, 42, .08);
+  --f-ring: 0 0 0 3px rgba(11,102,255,.18);
+}
+
+/* ---- Основни стилове ---- */
+body{
+  margin:0;
+  font:16px/1.6 "Segoe UI", Roboto, Arial, sans-serif;
+  background:#f9fafb;
+  color:var(--text);
+}
+img, video{display:block; max-width:100%; height:auto}
+
+/* ---- Контейнер ---- */
+.container{
+  width:min(100%, var(--container));
+  margin-inline:auto;
+  padding:0 18px;
+}
+
+/* ---- Секции ---- */
+.section-green{
+  background:linear-gradient(180deg, #f0fdf4 0%, #ecfdf5 100%);
+  padding:50px 0;
+}
+.section-light-grey{
+  background:#f3f4f6;
+  padding:50px 0;
+}
+
+/* ---- Заглавия ---- */
+h2{font-size:clamp(24px, 3vw, 32px); margin:0 0 10px}
+h3{font-size:clamp(18px, 2.2vw, 22px); margin:6px 0 10px}
+
+/* ---- Journey Steps ---- */
+.journey-steps-wrapper{
+  display:grid;
+  gap:30px;
+}
+.journey-step{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:20px;
+  background:var(--surface);
+  border:1px solid #e2e8f0;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow);
+  padding:20px;
+  align-items:center;
+  text-align:left;
+}
+.journey-step.right-aligned .journey-image{order:2}
+.journey-step.right-aligned .journey-content{order:1}
+
+/* ---- Изображения / видеа ---- */
+.image-container{
+  position:relative;
+  aspect-ratio:1/1;       /* квадрат 1:1 */
+  overflow:hidden;
+  border-radius:var(--radius-lg);
+  background:#f1f5f9;
+}
+.image-container img,
+.image-container video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.image-container .hover-img{
+  position:absolute; inset:0;
+  opacity:0; transition:.3s;
+}
+.image-container:hover .hover-img{opacity:1}
+.image-container:hover .static-img{opacity:0}
+
+/* ---- Съдържание ---- */
+.step-label{
+  display:inline-block;
+  background:#dcfce7;
+  color:#166534;
+  font-weight:600;
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+.step-duration{color:#16a34a; margin-right:6px; font-weight:600}
+.step-highlights{list-style:none; margin:12px 0 0; padding:0; display:grid; gap:6px}
+.step-highlights li{display:flex; gap:8px; align-items:center; color:#334155}
+
+/* ---- CTA ---- */
+.book-button{
+  display:inline-block;
+  margin-top:30px;
+  background:linear-gradient(90deg, var(--brand), var(--accent));
+  color:#fff;
+  padding:14px 24px;
+  border-radius:999px;
+  font-weight:700;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  transition:.2s;
+}
+.book-button:hover{transform:translateY(-2px); text-decoration:none}
+
+/* ---- Page layout (content + sidebar) ---- */
+.page-content{
+  display:grid;
+  grid-template-columns: minmax(0, 1fr) var(--sidebar-width); /* съдържание + sidebar */
+  gap:30px;
+  max-width:var(--container-max);
+  margin:0 auto;
+  padding:var(--page-padding);
+  align-items:start;
+  overflow:visible; /* sticky работи */
+  padding-top:70px; /* колкото е височината на header-а */
+}
+.page-content > *:not(.sidebar-conditions){ grid-column:1; }
+.procedure-journey{ grid-column:1; grid-row:1; } /* държи секцията на ред 1 */
+
+/* ==== Sidebar (Свързани състояния) ==== */
+.sidebar-conditions{
+  grid-column:2; grid-row:1;
+  align-self:start;
+  background:#ffffff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+  padding:18px;
+  position:sticky;
+  top:0;                  /* sticky към началото на .page-content */
+}
+.sidebar-conditions h3{
+  margin-top:0;
+  font-size:18px;
+  font-weight:700;
+  color:#111827;
+  margin-bottom:14px;
+  border-bottom:2px solid #e5e7eb;
+  padding-bottom:6px;
+}
+.pain-buttons-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+.pain-button{
+  display:block;
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  padding:10px 14px;
+  border-radius:8px;
+  font-size:15px;
+  color:#111827;
+  font-weight:500;
+  text-align:center;
+  transition:all .2s ease;
+}
+.pain-button:hover{
+  background:#ecfdf5;
+  border-color:#16a34a;
+  color:#166534;
+  text-decoration:none;
+}
+
+/* ---- Responsive ---- */
+@media(max-width:900px){
+  .journey-step{grid-template-columns:1fr}
+}
+@media(max-width: 992px){
+  .page-content{ grid-template-columns:1fr; }
+  .sidebar-conditions{
+    position:static; top:auto;
+    grid-column:1; grid-row:auto;
+    margin-top:16px;
+  }
+}
+
+/* ==== FAQ / Акордеон ==== */
+.details-accordion{
+  padding:40px 0;
+  background:#f5f5f5;
+  font-family:Arial, sans-serif;
+}
+.details-accordion h2{
+  text-align:center;
+  margin-bottom:20px;
+  color:#2e7d32; /* Тъмно зелено */
+}
+.accordion{ max-width:800px; margin:0 auto; }
+.accordion-item{
+  border:1px solid #2e7d32;
+  border-radius:6px;
+  margin-bottom:10px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+.accordion-header{
+  width:100%;
+  text-align:left;
+  padding:15px 20px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  border:none;
+  background:#4caf50; /* Зелен */
+  color:white;
+  transition:background 0.3s ease;
+}
+.accordion-header:hover{ background:#388e3c; }
+.accordion-header.active{ background:#2e7d32; }
+.accordion-content{
+  max-height:0;
+  overflow:hidden;
+  padding:0 20px;
+  background:#f9fff9; /* леко зеленикаво */
+  transition:max-height 0.4s ease, padding 0.3s ease;
+}
+.accordion-content p,
+.accordion-content ul{
+  margin:15px 0;
+  color:#333;
+}
+.accordion-content ul li{
+  text-align:left;
+  margin-bottom:8px;
+  position:relative;
+  padding-left:0px;
+}
+
+/* Секция със зелен фон – ефекти */
+.section-green{
+  color:#000000;
+  padding:60px 20px;
+  text-align:center;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+.section-green:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* чек-иконки (fallback ако няма inline стилове) */
+.step-highlights li{ display:flex; align-items:flex-start; gap:8px; }
+.step-highlights .check{
+  display:inline-block;
+  width:1.15em; height:1.15em; line-height:1.15em;
+  border-radius:50%;
+  border:2px solid #2e7d32;
+  position:relative; top:2px; flex:0 0 auto;
+}
+.step-highlights .check::after{
+  content:"✔";
+  position:absolute; inset:0; text-align:center;
+  font-size:.8em; color:#2e7d32;
+}
+
+/* ===== FOOTER – layout и визия (grid версия) ===== */
+footer{
+  background:var(--f-bg);
+  padding:40px 0 28px;
+  color:var(--f-ink);
+  font-size:18px;
+  line-height:1.6;
+}
+footer .contact-section{ max-width:1200px; margin:0 auto; padding:0 16px; }
+
+footer .contact-container{
+  display:grid;
+  grid-template-columns:360px 1fr 1.2fr; /* карта | център | дясно */
+  gap:40px;
+  align-items:start;
+}
+
+/* карта */
+footer .contact-left .map iframe{
+  width:360px; height:260px;
+  border:0;
+  border-radius:14px;
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
+  background:#e9eef3;
+  display:block;
+}
+
+/* център */
+footer .contact-center{ text-align:center; }
+footer .contact-center h2{
+  margin:0 0 14px;
+  font-size:2rem;        /* фиксирано: 2rem */
+  font-weight:800;
+}
+footer .social-links{ display:inline-flex; gap:14px; }
+footer .social-links a{ display:inline-flex; }
+footer .social-links img{
+  width:64px; height:64px;
+  object-fit:contain; display:block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
+  border-radius:8px;
+}
+
+/* дясно */
+footer .contact-item{ display:flex; gap:12px; align-items:center; margin-bottom:16px; }
+footer .icon{ width:48px; height:48px; object-fit:contain; flex:0 0 48px; }
+footer .contact-item.phone .icon{ width:54px; height:54px; }
+footer .contact-item.phone span{
+  font-size:2.2rem;      /* ~35px */
+  font-weight:800;
+  letter-spacing:.5px;
+}
+footer .work-hours .icon{ width:54px; height:54px; }
+footer .address-item .icon{ width:48px; height:48px; }
+
+footer .map-link{ color:var(--f-accent); text-decoration:underline; }
+footer .map-link:hover{ text-decoration:none; }
+
+footer .footer-links{
+  margin-top:22px; text-align:center; font-size:1.05rem;
+}
+footer .footer-links a{ color:var(--f-accent); }
+
+/* --- Responsive за FOOTER --- */
+@media (max-width: 1024px){
+  footer .contact-container{
+    grid-template-columns:320px 1fr;    /* карта + комбинирана колона */
+    grid-auto-rows:auto;
+  }
+  footer .contact-center{ order:2; }
+  footer .contact-right{ order:3; }
+  footer .contact-left .map iframe{ width:320px; height:230px; }
+}
+@media (max-width: 768px){
+  footer{ font-size:16px; }
+  footer .contact-container{ grid-template-columns:1fr; gap:22px; }
+  footer .contact-left .map iframe{ width:100%; height:220px; }
+  footer .social-links img{ width:56px; height:56px; }
+  footer .contact-item.phone span{ font-size:1.9rem; }
+}
+
+/* ====== UX подобрения и ефекти за фуутъра ====== */
+footer a, 
+footer .social-links a,
+footer .contact-item,
+footer .map-link,
+footer .footer-links a,
+footer .contact-item span,
+footer .icon,
+footer .social-links img{
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease,
+    opacity .25s ease,
+    color .25s ease,
+    background-color .25s ease;
+}
+footer .social-links a{ position:relative; border-radius:10px; outline:none; }
+footer .social-links a:hover,
+footer .social-links a:focus-visible{ transform: translateY(-4px) scale(1.03); }
+footer .social-links a:hover img,
+footer .social-links a:focus-visible img{ filter: drop-shadow(0 8px 18px rgba(11,102,255,.25)); }
+footer .social-links a:active{ transform: translateY(-1px) scale(.99); }
+
+footer .contact-item{ border-radius:14px; padding:8px 10px; }
+footer .contact-item:hover{
+  background: rgba(11,102,255,.06);
+  box-shadow: var(--f-soft-shadow);
+}
+footer .contact-item .icon{ transition: transform .25s ease; }
+footer .contact-item:hover .icon{ transform: scale(1.06) rotate(-2deg); }
+
+@keyframes f-pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
+footer .contact-item.phone:hover span{
+  color: var(--f-accent);
+  animation: f-pulse .8s ease-in-out;
+}
+
+footer .footer-links a{
+  position:relative;
+  text-decoration:none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+}
+footer .footer-links a:hover,
+footer .footer-links a:focus-visible{
+  color: var(--f-accent);
+  background-size: 100% 2px;
+}
+
+footer .map-link{ position:relative; }
+footer .map-link::after{
+  content:"↗";
+  margin-left:.35em;
+  opacity:.0;
+  transition: transform .25s ease, opacity .25s ease;
+}
+footer .map-link:hover::after,
+footer .map-link:focus-visible::after{
+  opacity:.9;
+  transform: translateY(-1px);
+}
+footer .contact-left .map iframe{ transition: transform .3s ease, box-shadow .3s ease; }
+footer .contact-left .map iframe:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+}
+footer a:focus-visible{ box-shadow: var(--f-ring); border-radius:10px; }
+footer .back-to-top{
+  display:inline-flex; align-items:center; gap:.5rem;
+  margin-top:10px; padding:10px 14px; border-radius:999px;
+  background:white; box-shadow: var(--f-soft-shadow); font-weight:700;
+}
+footer .back-to-top:hover{ transform: translateY(-3px); }
+@media (max-width: 768px){ footer .back-to-top{ display:none; } }
+
+/* 11) Тъмна тема (автоматично) */
+@media (prefers-color-scheme: dark){
+  footer{
+    background: #0b1220;
+    color: #e5e7eb;
+  }
+  footer .footer-links a,
+  footer .map-link{ color: var(--f-accent); }
+  footer .social-links img{ filter: drop-shadow(0 2px 6px rgba(0,0,0,.6)); }
+  footer .contact-item:hover{ background: rgba(11,102,255,.14); }
+}
+
+/* 12) Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  * { animation: none !important; transition: none !important; }
+}
+
+/* === MOBILE: wider white cards & bigger media === */
+@media (max-width: 768px){
+  /* Контейнерът – малки отстъпи, центриран */
+  .container{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Белите карти (journey-step) */
+  .journey-step{
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 12px;       /* смени на 0 ако искаш edge-to-edge */
+    padding: 18px 14px;
+  }
+
+  /* Медии – квадрат 1:1 и по-големи */
+  .image-container{
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    margin: 0;
+    border-radius: 12px;
+  }
+  .image-container img,
+  .image-container video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* FAQ секции – да не излизат от екрана */
+  .details-accordion .container{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .accordion{
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* Бутонът – широк и центриран */
+  .book-button{
+    display:block;
+    width: 100%;
+    max-width: 520px;
+    margin: 14px auto 0;
+    padding: 14px 18px;
+    font-size: 1.06rem;
+  }
+}
+
+/* === MOBILE: Step 2 – image first, text after === */
+@media (max-width: 900px){
+  /* Вторият .journey-step в списъка (Етап 2) */
+  .journey-steps-wrapper .journey-step:nth-child(2) .journey-image{
+    order: 1 !important;   /* снимката отгоре */
+  }
+  .journey-steps-wrapper .journey-step:nth-child(2) .journey-content{
+    order: 2 !important;   /* текстът отдолу */
+  }
+}
+/* ===== MOBILE FIX PACK ===== */
+
+/* 1) Никой елемент да не „излиза“ вдясно */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* 2) Контейнери – център и равни отстъпи */
+@media (max-width: 768px){
+  .container,
+  .section-green .container,
+  .details-accordion .container{
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* 3) Картите да са винаги центрирани и с една колона */
+@media (max-width: 1300px){
+  .journey-step{
+    grid-template-columns: 1fr !important;
+    align-items: start;
+    justify-items: stretch;
+    width: 100%;
+    max-width: 780px;          /* „рамка“ за четимост */
+    margin: 0 auto;            /* центриране */
+    padding: 18px 14px;
+    border-radius: 12px;
+  }
+  .journey-image{ width: 100%; }
+}
+
+/* 4) По-големи медии – квадрат 1:1 на мобилно */
+@media (max-width: 768px){
+  .image-container{
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    margin: 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .image-container img,
+  .image-container video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* 5) Етап 2 – снимката да е отгоре само на мобилно */
+@media (max-width: 900px){
+  .journey-steps-wrapper .journey-step:nth-child(2) .journey-image{
+    order: 1 !important;
+  }
+  .journey-steps-wrapper .journey-step:nth-child(2) .journey-content{
+    order: 2 !important;
+  }
+}
+
+/* 6) Бутонът „Запази час“ — широк и центриран */
+@media (max-width: 768px){
+  .book-button{
+    display:block;
+    width: 100%;
+    max-width: 520px;
+    margin: 14px auto 0;
+    padding: 14px 18px;
+    font-size: 1.06rem;
+  }
+}
+
+/* 7) FAQ – без преливане */
+@media (max-width: 768px){
+  .accordion{
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+/* === HERO заглавие и интро текст === */
+.procedure-journey h2{
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 10px;
+  color: #166534; /* тъмно зелено */
+  letter-spacing: -0.5px;
+}
+
+.procedure-journey h3{
+  font-size: clamp(18px, 3.5vw, 24px);
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 18px;
+  color: #0ea5e9; /* синьо акцент */
+}
+
+.procedure-preamble{
+  max-width: 780px;
+  margin: 0 auto 36px; /* центрира и дава въздух */
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center;
+  color: #334155;
+  padding: 0 12px;
+}
+/* ===== MOBILE-ONLY RIGHT-GAP FIX (≤768px) ===== */
+@media (max-width: 768px){
+
+  /* 0) Никакво хоризонтално преливане */
+  html, body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden !important;
+  }
+
+  /* 1) Top bar: 100% вместо 100vw, без преливане */
+  .tb-header,
+  .tb-inner,
+  .tb-nav{
+    width:100% !important;
+    max-width:100% !important;
+    overflow-x:hidden !important;
+    left:0; right:0;
+  }
+  .tb-header, .tb-inner{
+    min-width:0 !important;
+    transform:none !important; /* ако някъде има translate */
+  }
+
+  /* менюта/дропдауни да не избутват хоризонтално */
+  .tb-menu,
+  .tb-drop-menu{
+    max-width:100% !important;
+    overflow-x:hidden !important;
+  }
+
+  /* 2) Основните контейнери — никога извън екрана */
+  .page-content,
+  .procedure-journey,
+  .section-green .container,
+  .details-accordion .container,
+  .journey-step,
+  .accordion,
+  .sidebar-conditions,
+  footer .contact-section{
+    max-width:100% !important;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* 3) Секциите със сенки/радиуси */
+  .section-green,
+  .details-accordion{
+    overflow:hidden;
+  }
+
+  /* 4) iOS notch safe-area (ако се ползва) */
+  :root{
+    --safe-right: env(safe-area-inset-right, 0px);
+    --safe-left:  env(safe-area-inset-left, 0px);
+  }
+  .tb-header, .tb-inner{
+    padding-left:max(0px, var(--safe-left));
+    padding-right:max(0px, var(--safe-right));
+  }
+}
+/* MOBILE: по-широки карти в процедурата */
+@media (max-width: 768px){
+  /* махаме падингите на контейнера само за тази секция */
+  .procedure-journey.section-green > .container{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: none;
+  }
+
+  /* картите – запълват цялата ширина */
+  .procedure-journey .journey-step{
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;        /* маха рамката по ръбовете */
+    padding: 20px 16px;      /* вътрешно отстояние за четимост */
+  }
+
+  /* изображенията също без рамки */
+  .procedure-journey .image-container{
+    width: 100%;
+    border-radius: 0;
+  }
+
+  /* бутонът – широк */
+  .procedure-journey .book-button{
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 16px 0 0;
+    padding: 16px 18px;
+    font-size: 1.1rem;
+  }
+}
+.journey-step{
+  /* align-items:center;  махни/презапиши това */
+  align-items:start; /* <-- за да стои .journey-image горе */
+}
+.journey-image{ align-self:start; } /* допълнителна гаранция */

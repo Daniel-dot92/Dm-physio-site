@@ -1,0 +1,2499 @@
+/* Общи стилове за контейнер и секции */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+    overflow: hidden; /* За да избегнем проблеми с плаващи елементи */
+}
+
+.section-title {
+    font-size: 2.8em;
+    font-weight: 700;
+    color: #005662; /* Тъмно тюркоазено */
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-size: 1.2em;
+    color: #555;
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Бутони */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.primary-button {
+    background-color: #00796b; /* Тюркоазено зелено */
+    color: #fff;
+    border: 2px solid #00796b;
+    box-shadow: 0 4px 10px rgba(0, 121, 107, 0.3);
+}
+
+.primary-button:hover {
+    background-color: #005f54;
+    border-color: #005f54;
+    box-shadow: 0 6px 15px rgba(0, 121, 107, 0.4);
+}
+
+.outline-button {
+    background-color: transparent;
+    color: #00796b;
+    border: 2px solid #00796b;
+}
+
+.outline-button:hover {
+    background-color: #e0f2f1; /* Светло тюркоазено */
+    color: #005f54;
+    border-color: #005f54;
+}
+
+.button i {
+    margin-right: 8px;
+}
+
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, #e0f7fa, #b2ebf2); /* Светлосиньо-тюркоазен градиент */
+    color: #005662;
+ 
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+.hero-text-content h1 {
+    
+    font-size: 3.5em;
+    font-weight: 800;
+    margin-bottom: 0px;
+    line-height: 1.2;
+}
+.hero-text-content h2 {
+    color: #162175;
+    margin-top: 0;
+    font-size: 5em;
+    font-weight: 600;
+    margin-bottom: 0px;
+    line-height: 1.2;
+    /* Добавяне на черен контур */
+    text-shadow: 
+        -1px -1px 0 #ffffff,  /* Горен ляв */
+         1px -1px 0 #ffffff,  /* Горен десен */
+        -1px  1px 0 #ffffff,  /* Долен ляв */
+         1px  1px 0 #ffffff;  /* Долен десен */
+}
+.hero-text-content p {
+    font-size: 1.4em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Intro Section */
+.intro-section {
+    background-color: #fff;
+}
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+    .intro-text-content h2 {
+        font-size: 2.8em;
+        font-weight: 700;
+        color: #005662;
+        margin-bottom: 20px;
+    }
+
+.intro-text-content p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 25px;
+    margin-right: ;
+}
+
+.info-box {
+    background-color: #e3f2fd; /* Светлосиньо */
+    border-left: 5px solid #2196f3; /* Тъмно синьо */
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    color: #1a237e;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.info-box i {
+    color: #2196f3;
+    font-size: 1.8em;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Reasons Section */
+.reasons-section {
+    background-color: #f0f8ff; /* Много светло синьо */
+}
+
+.reason-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.reason-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reason-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.reason-card .icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background-color: #e0f7fa; /* Светло тюркоазено */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px auto;
+}
+
+.reason-card .icon-wrapper i {
+    font-size: 2.5em;
+    color: #00796b; /* Тюркоазено зелено */
+}
+
+.reason-card h3 {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #005662;
+    margin-bottom: 15px;
+}
+
+.reason-card p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.7;
+}
+
+
+
+
+/* Treatment Section */
+.treatment-section {
+    background: linear-gradient(to right, #e0f2f1, #c8e6c9); /* Светлозелен-тюркоазен градиент */
+}
+
+.treatment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.treatment-text-content {
+    width: 100%;
+    max-width: 600px; /* Ограничаваме ширината за по-добро четене */
+    text-align: center; /* Центрираме заглавията */
+}
+
+.treatment-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 35px;
+    border: 1px solid #b2dfdb; /* По-светло тюркоазено */
+    text-align: left; /* Текста в картата е ляво подравнен */
+}
+
+.treatment-card h3 {
+    font-size: 2em;
+    font-weight: 700;
+    color: #005662;
+    margin-bottom: 25px;
+    text-align: center; /* Заглавието на картата е центрирано */
+}
+
+.checkmark-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.checkmark-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.15em;
+    color: #333;
+}
+
+.checkmark-list i {
+    color: #00796b;
+    font-size: 1.5em;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.treatment-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .hero-container,
+    .intro-container,
+    .treatment-container {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .hero-text-content,
+    .intro-text-content,
+    .treatment-text-content {
+        width: 50%;
+    }
+
+    .hero-image,
+    .intro-image,
+    .treatment-image {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end; /* За изображенията отдясно */
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .hero-text-content h1 {
+        font-size: 4em;
+    }
+    .hero-text-content p {
+        font-size: 1.5em;
+    }
+
+    .intro-text-content h2 {
+        font-size: 3.2em;
+    }
+
+    .treatment-image {
+        order: 2; /* За да е изображението отдясно */
+    }
+    .treatment-text-content {
+        order: 1; /* За да е текста отляво */
+        text-align: left;
+    }
+    .treatment-card h3 {
+        text-align: left; /* Заглавието на картата да е ляво подравнено */
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-text-content h1 {
+        font-size: 4.5em;
+    }
+    .hero-text-content p {
+        font-size: 1.6em;
+    }
+    .intro-text-content h2 {
+        font-size: 3.5em;
+    }
+
+}
+
+@media (max-width: 767px) {
+    section {
+        padding: 60px 0;
+    }
+    .section-title {
+        font-size: 2em;
+    }
+    .section-subtitle {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+    
+    }
+    .hero-text-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-text-content p {
+        font-size: 1.1em;
+    }
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .intro-section {
+        padding: 40px 0;
+    }
+    .intro-text-content h2 {
+        font-size: 2.2em;
+    }
+    .intro-text-content p {
+        font-size: 1em;
+    }
+    .info-box {
+        font-size: 0.9em;
+        padding: 15px;
+    }
+    .info-box i {
+        font-size: 1.5em;
+    }
+
+    .reason-card {
+        padding: 25px;
+    }
+    .reason-card .icon-wrapper {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+    .reason-card .icon-wrapper i {
+        font-size: 2em;
+    }
+    .reason-card h3 {
+        font-size: 1.5em;
+    }
+    .reason-card p {
+        font-size: 0.95em;
+    }
+
+
+    .treatment-section {
+        padding: 60px 0;
+    }
+    .treatment-container {
+        flex-direction: column;
+    }
+    .treatment-text-content {
+        width: 100%;
+        max-width: none;
+    }
+    .treatment-card {
+        padding: 25px;
+    }
+    .treatment-card h3 {
+        font-size: 1.8em;
+    }
+    .checkmark-list li {
+        font-size: 1em;
+    }
+
+/* Добавете тези стилове във вашия CSS файл, например temple-headache.css */
+
+.image-container {
+    position: relative;
+    /* Други стилове за контейнера, като ширина, височина, border-radius и box-shadow */
+    width: 50%; /* Примерна ширина, адаптирайте според нуждите */
+    max-width: 500px; /* Максимална ширина */
+    height: auto; /* Височината ще се адаптира */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.image-container .static-img {
+    opacity: 1;
+}
+
+.image-container .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.image-container:hover .static-img {
+    opacity: 0;
+}
+
+.image-container:hover .hover-img {
+    opacity: 1;
+}
+/* Добавете/променете тези стилове във вашия CSS файл */
+
+.image-container {
+    position: relative;
+    width: 50%; /* Примерна ширина, адаптирайте според нуждите */
+    max-width: 500px; /* Максимална ширина */
+    height: auto; /* Височината ще се адаптира */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.image-container img,
+.image-container video { /* Прилагаме общи стилове и за видеото */
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.image-container .static-img {
+    opacity: 1;
+}
+
+.image-container .hover-video { /* Променен клас */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Първоначално скрито */
+    pointer-events: none; /* Гарантира, че кликването ще минава през него, ако има други елементи отдолу */
+}
+
+.image-container:hover .static-img {
+    opacity: 0;
+}
+
+.image-container:hover .hover-video { /* Показваме видеото при ховър */
+    opacity: 1;
+}
+/* Добавете/променете тези стилове във вашия CSS файл */
+
+.image-container {
+    position: relative;
+    /* Можете да добавите специфични ширини/височини за този контейнер, ако е необходимо */
+    width: 100%; /* Примерна ширина, адаптирайте според нуждите */
+    max-width: 600px; /* Максимална ширина */
+    height: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.image-container img,
+.image-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.image-container .static-img {
+    opacity: 1;
+}
+
+.image-container .hover-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none; /* Позволява кликване през видеото, ако има други елементи отдолу */
+}
+
+.image-container:hover .static-img {
+    opacity: 0;
+}
+
+.image-container:hover .hover-video {
+    opacity: 1;
+}
+/* Основен стил за контейнера на изображението/видеото */
+.intro-image.image-container {
+    position: relative; /* Важно за позиционирането на наслагващите се изображения/видео */
+    width: 500px; /* Задайте желаната ширина. Можете да използвате и % като 100% за адаптивност */
+    height: auto; /* Височината ще се адаптира спрямо ширината и пропорциите на съдържанието */
+    max-width: 100%; /* Гарантира, че няма да излиза извън родителския елемент */
+    overflow: hidden; /* Скрива всяко преливащо съдържание */
+    border-radius: 8px; /* Леко заоблени ъгли, по желание */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Лека сянка за по-добър визуален ефект */
+}
+
+/* Стилизиране на изображенията и видеото вътре в контейнера */
+.intro-image.image-container img,
+.intro-image.image-container video {
+    width: 100%; /* Гарантира, че изображението/видеото запълва контейнера */
+    height: auto; /* Поддържа пропорциите */
+    display: block; /* Премахва допълнителното пространство под елементите */
+    transition: opacity 0.4s ease-in-out; /* Плавен преход при показване/скриване */
+}
+
+/* Стил за статичното изображение (показва се по подразбиране) */
+.intro-image.image-container .static-img {
+    opacity: 1; /* Видимо по подразбиране */
+}
+
+/* Стил за видеото при ховър (скрито по подразбиране) */
+.intro-image.image-container .hover-video {
+    position: absolute; /* Позиционира видеото върху статичното изображение */
+    top: 0;
+    left: 0;
+    opacity: 0; /* Скрито по подразбиране */
+    pointer-events: none; /* Гарантира, че събитията с мишката преминават през видеото, когато е скрито */
+}
+
+/* Ефект при посочване с мишката върху контейнера */
+.intro-image.image-container:hover .static-img {
+    opacity: 0; /* Скрива статичното изображение при ховър */
+}
+
+.intro-image.image-container:hover .hover-video {
+    opacity: 1; /* Показва видеото при ховър */
+}
+
+
+
+/* Общи стилове за всеки информационен блок */
+.info-block {
+    flex: 1; /* Позволява на блоковете да растат и свиват */
+    min-width: 280px; /* Минимална ширина преди да се преместят на нов ред */
+    padding: 20px;
+    border-radius: 8px; /* Заоблени ъгли */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Лека сянка */
+    background-color: #f9f9f9; /* Светъл фон */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стилизиране на заглавието в блока */
+.info-block .block-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.info-block .block-header i {
+    font-size: 20px; /* Размер на иконата */
+    margin-right: 10px;
+}
+
+.info-block .block-header h4 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Специфични стилове за блока "Анатомия и захващане" */
+.anatomy-block {
+    border-left: 5px solid #007bff; /* Синя лява граница */
+}
+
+.anatomy-block .block-header i {
+    color: #007bff; /* Синя икона */
+}
+
+.anatomy-block p {
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+/* Стилизиране на функцията в сиво поле */
+.function-box {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #e2e6ea; /* Светло сив фон */
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: #555;
+    border-left: 3px solid #6c757d; /* Тъмно сива лява граница */
+}
+
+/* Специфични стилове за блока "Характер на болката" */
+.pain-char-block {
+    border-left: 5px solid #dc3545; /* Червена лява граница */
+}
+
+.pain-char-block .block-header i {
+    color: #dc3545; /* Червена икона */
+}
+
+.pain-char-block ul {
+    list-style: none; /* Премахва стандартните точки на списъка */
+    padding: 0;
+    margin: 0;
+}
+
+.pain-char-block ul li {
+    padding-left: 25px; /* Място за персонализирана икона */
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.pain-char-block ul li:last-child {
+    margin-bottom: 0;
+}
+
+.pain-char-block ul li::before {
+    content: "\2022"; /* Символ за точка (bullet) */
+    color: #dc3545; /* Червена точка */
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Стилизиране на подчертания текст */
+.highlight {
+    font-weight: bold;
+    color: #007bff; /* Синьо за подчертан текст */
+}
+
+
+
+/* --- Стилизиране на секцията за възпаление --- */
+
+.inflammation-section {
+    padding: 50px 40px; /* Отстояние отгоре/отдолу и отстрани */
+    background-color:#e3f2fd; /* Светъл фон за секцията */
+    text-align: center; /* Центрира заглавията */
+    margin-bottom: 0px;
+}
+
+.inflammation-section .section-title {
+    margin-bottom: 10px;
+    font-size: 3em; 
+}
+
+.inflammation-section .section-subtitle {
+    color: #555555;
+    margin-bottom: 40px;
+    font-size: 1.1em; /* Малко по-малък шрифт за подзаглавието */
+    line-height: 1.5;
+}
+
+.inflammation-section .container {
+    max-width: 1100px; /* Настройте според нуждите си */
+    margin: 0 auto;
+}
+
+/* --- Стилизиране на стъпките за възпаление --- */
+
+.inflammation-steps-grid {
+    display: flex;
+    justify-content: center; /* Центрира стъпките хоризонтално */
+    align-items: stretch; /* Подравнява елементите така, че да имат еднаква височина */
+    gap: 20px; /* Разстояние между елементите */
+}
+
+.step-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 25px 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    width: 320px; 
+    flex-shrink: 0; 
+    flex-grow: 1; 
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; /* Може да активирате, ако искате съдържанието да е разпределено */
+    height: auto; 
+    min-height: 280px; /* ПРОМЯНА: Намалена минимална височина, тъй като текстът е по-кратък */
+    position: relative;
+    text-align: center; /* ПРОМЯНА: Връщаме центрирането на текста в картата */
+}
+
+.step-number {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%; 
+    background-color: #007bff; 
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em; 
+    font-weight: bold;
+    margin-bottom: 20px; 
+}
+
+/* Цветове за стъпките */
+.step-one .step-number { background-color: #007bff; } 
+.step-two .step-number { background-color: #28a745; } 
+.step-three .step-number { background-color: #dc3545; } 
+
+.step-one { border: 1px solid #cce5ff; } 
+.step-two { border: 1px solid #d4edda; } 
+.step-three { border: 1px solid #f8d7da; } 
+
+.step-card h3 {
+    font-size: 1.6em; 
+    color: #333;
+    margin-top: 0; 
+    margin-bottom: 15px;
+    text-align: center; 
+    width: 100%; 
+}
+
+.step-card p {
+    font-size: 1em; 
+    color: #444; 
+    line-height: 1.6; /* Малко намалено междуредие */
+    text-align: center; /* ПРОМЯНА: Връщаме центрирането на параграфа */
+    margin-bottom: 15px; 
+    flex-grow: 1; /* Позволява на параграфа да заеме наличното място */
+}
+
+/* Стилизиране на списъци вътре в параграфите - тези стилове вече не са нужни, ако няма UL/LI в HTML */
+/*
+.step-card p ul {
+    list-style: disc; 
+    padding-left: 20px; 
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.step-card p ul li {
+    margin-bottom: 8px; 
+}
+*/
+
+/* Стилизиране на удебеления текст */
+.step-card p .highlight {
+    font-weight: bold;
+    color: #000; 
+}
+
+/* Икони вътре в стъпките */
+.step-icon {
+    font-size: 2.5em; 
+    margin-top: auto; 
+    margin-bottom: 0px; 
+    color: #6c757d; 
+}
+
+.step-one .step-icon { color: #007bff; }
+.step-two .step-icon { color: #28a745; }
+.step-three .step-icon { color: #dc3545; }
+
+/* Стилизиране на стрелките между стъпките */
+.arrow-separator {
+    font-size: 2.8em; 
+    color: #6c757d; 
+    margin: 0 15px; 
+    align-self: center; 
+}
+
+/* Адаптивен дизайн */
+@media (max-width: 992px) {
+    .inflammation-steps-grid {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .arrow-separator {
+        transform: rotate(90deg); 
+        margin: 20px 0; 
+    }
+    .step-card {
+        width: 80%; 
+        max-width: 450px; 
+        height: auto; 
+        min-height: auto; 
+    }
+    .inflammation-section .section-title {
+        font-size: 2.5em;
+    }
+    .inflammation-section .section-subtitle {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .inflammation-section {
+        padding: 40px 20px; 
+    }
+    .step-card {
+        width: 90%; 
+        padding: 20px 15px;
+    }
+    .step-card h3 {
+        font-size: 1.4em;
+    }
+    .step-card p {
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+    /* Списковите стилове вече не са нужни */
+    /*
+    .step-card p ul {
+        padding-left: 15px;
+    }
+    .step-card p ul li {
+        margin-bottom: 5px;
+    }
+    */
+    .arrow-separator {
+        font-size: 2.2em;
+        margin: 15px 0;
+    }
+    .inflammation-section .section-title {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .inflammation-section {
+        padding: 30px 15px;
+    }
+    .step-card {
+        width: 100%; 
+        padding: 15px 10px;
+    }
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+    .step-card h3 {
+        font-size: 1.1em;
+    }
+    .step-card p {
+        font-size: 0.85em;
+        line-height: 1.5;
+    }
+    /* Списковите стилове вече не са нужни */
+    /*
+    .step-card p ul {
+        padding-left: 10px;
+    }
+    .step-card p ul li {
+        margin-bottom: 3px;
+    }
+    */
+    .step-icon {
+        font-size: 2em;
+        margin-top: 15px;
+    }
+    .arrow-separator {
+        font-size: 1.8em;
+        margin: 10px 0;
+    }
+    .inflammation-section .section-title {
+        font-size: 1.8em;
+    }
+    .inflammation-section .section-subtitle {
+        font-size: 0.9em;
+    }
+}
+/* --- Стили за кинезитерапия слайдер бутони --- */
+.kinesitherapy-slider-container {
+    width: 100%;
+    max-width: 1920px; /* Увеличена максимална ширина до 1920px (full HD) */
+    margin: 0 auto; /* Центрира контейнера хоризонтално */
+    
+    overflow: hidden; /* Скрива съдържанието, което излиза извън границите */
+    position: relative; /* Необходим за позициониране на стрелките */
+    padding: 0px 0; /* Отстояние отгоре и отдолу */
+    text-align: center; /* Центрира заглавия и други инлайн елементи */
+}
+
+.kinesitherapy-slider-track {
+    display: flex; /* Позволява на елементите да се подреждат в един ред */
+    transition: transform 0.3s ease-in-out; /* Анимация при превъртане на слайдера */
+}
+
+.kinesitherapy-button {
+    /* ПРОМЯНА: Изчислява ширината за 5 елемента на ред на големи екрани */
+    flex: 0 0 calc(20% - 20px); /* (100% / 5) - (2 * 10px марджин) */
+    margin: 0 10px; /* Добавя хоризонтален марджин от 10px между бутоните */
+    display: flex;
+    flex-direction: column; /* Подрежда съдържанието вертикално */
+    align-items: center; /* Центрира съдържанието по хоризонтала */
+    justify-content: flex-start; /* Започва съдържанието отгоре */
+    text-align: center;
+    text-decoration: none; /* Премахва подчертаването на линка */
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.2s ease; /* Плавен преход при hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: auto; /* Височината се адаптира към съдържанието */
+    min-height: 200px; /* Минимална височина на бутона */
+}
+
+.kinesitherapy-button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px); /* Леко повдигане при hover */
+}
+
+.kinesitherapy-button-media {
+    width: 100%;
+    position: relative; /* Необходим за абсолютно позиционираните img/video */
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    /* Създава квадратен контейнер за медията (aspect ratio) */
+    padding-bottom: 100%; /* Височината е 100% от ширината */
+    height: 0; /* Важно: нулира височината, за да работи padding-bottom */
+    margin-bottom: 10px;
+}
+
+.kinesitherapy-img,
+.kinesitherapy-video { /* Селектира както img, така и video елементите */
+    position: absolute; /* Позиционира ги вътре в родителя (media) */
+    top: 0;
+    left: 0;
+    width: 100%; /* Запълва ширината на контейнера */
+    height: 100%; /* Запълва височината на контейнера */
+    object-fit: contain; /* Запазва съотношението и гарантира, че цялото съдържание е видимо, без изрязване */
+    transition: opacity 0.3s ease; /* Плавен преход за видимост */
+}
+
+.kinesitherapy-video {
+    opacity: 0; /* Видеото е скрито по подразбиране */
+}
+
+.kinesitherapy-button:hover .kinesitherapy-img {
+    opacity: 0; /* Изображението изчезва при hover */
+}
+
+.kinesitherapy-button:hover .kinesitherapy-video {
+    opacity: 1; /* Видеото се появява при hover */
+}
+
+.kinesitherapy-button-text {
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 1.4;
+    flex-grow: 1; /* Позволява на текста да заеме останалото пространство */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word; /* Позволява на дълги думи да се пренасят */
+    padding-top: 0 px;
+}
+
+/* Стили за стрелките на слайдера */
+.slider-arrow {
+    position: absolute;
+    top: 50%; /* Центрира по вертикала */
+    transform: translateY(-50%); /* Коригира точното центриране */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачен фон */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10; /* Гарантира, че стрелките са над слайдера */
+    font-size: 2em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    user-select: none; /* Предотвратява маркиране на текст */
+}
+
+.slider-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* По-тъмен фон при hover */
+}
+
+.prev-arrow {
+    left: 10px; /* Позиционира лявата стрелка */
+}
+
+.next-arrow {
+    right: 10px; /* Позиционира дясната стрелка */
+}
+
+/* Адаптивни стилове за слайдера */
+
+/* За екрани до 1200px (повечето лаптопи) - 4 бутона на ред */
+@media (max-width: 1200px) {
+    .kinesitherapy-button {
+        flex: 0 0 calc(25% - 20px); /* (100% / 4) - (2 * 10px марджин) */
+    }
+}
+
+/* За екрани до 1024px (по-големи таблети) - 3 бутона на ред */
+@media (max-width: 1024px) {
+    .kinesitherapy-button {
+        flex: 0 0 calc(33.333% - 20px); /* (100% / 3) - (2 * 10px марджин) */
+    }
+    .kinesitherapy-button-media {
+        padding-bottom: 100%; /* Запазва квадратно съотношение */
+    }
+    .kinesitherapy-button-text {
+        font-size: 1.1em;
+    }
+}
+
+/* За екрани до 768px (по-малки таблети и големи телефони) - 2 бутона на ред */
+@media (max-width: 768px) {
+    .kinesitherapy-button {
+        flex: 0 0 calc(50% - 20px); /* (100% / 2) - (2 * 10px марджин) */
+    }
+    .kinesitherapy-button-media {
+        padding-bottom: 100%; /* Запазва квадратно съотношение */
+    }
+    .kinesitherapy-button-text {
+        font-size: 1em;
+    }
+}
+
+/* За екрани до 480px (мобилни телефони) - 1 бутон на ред */
+@media (max-width: 480px) {
+    .kinesitherapy-button {
+        flex: 0 0 calc(100% - 20px); /* (100% / 1) - (2 * 10px марджин) */
+    }
+    .kinesitherapy-button-media {
+        padding-bottom: 100%; /* Запазва квадратно съотношение */
+    }
+    .kinesitherapy-button-text {
+        font-size: 0.9em;
+    }
+    .slider-arrow {
+        padding: 5px 8px;
+        font-size: 1.2em;
+    }
+}
+
+    .info-block {
+        width: 100%;
+        text-align: left; /* Подравнява текста вляво */
+        padding: 20px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .info-block .block-header {
+        text-align: left; /* Уверете се, че заглавията на блоковете също са вляво */
+    }
+
+    .info-block p,
+    .info-block ul {
+        text-align: left; /* Подравнява параграфите и списъците вляво */
+        padding-left: 0; /* Премахнете всякакви автоматични леви отстъпи на списъци */
+    }
+    .info-block ul li {
+        list-style-position: inside; /* Уверете се, че маркерите на списъка са вътре */
+    }
+
+    .function-box {
+        text-align: left; /* Подравнява текста във function-box вляво */
+    }
+
+/* Десктоп стилове */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-image {
+    width: 40%; /* Намалена ширина на контейнера */
+    max-width: 450px;
+}
+
+.hero-image img,
+.hero-image video {
+    width: 100%;
+    height: auto;
+}
+
+/* Мобилни стилове */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image {
+        width: 80%; /* По-голямо на мобилен, за да се вижда добре */
+        margin-top: 20px;
+    }
+}
+/* Общи стилове */
+:root {
+    --primary-color: #20c997;
+    --secondary-color: #f0f4f8;
+    --text-color: #333;
+    --light-text-color: #666;
+    --card-bg: #fff;
+    --border-color: #d1d5db;
+}
+
+.inflammation-section {
+    padding: 60px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+    margin-bottom: 50px;
+}
+
+/* Стилове за времевата линия */
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--border-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1; /* По-безопасно е да се използва -1, за да е зад всички елементи */
+}
+
+.timeline-step {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.step-number-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.step-content, .step-media {
+    flex: 1;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.step-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Тази ширина може да създаде проблеми на по-големи екрани, може да я премахнете или да я направите по-гъвкава */
+    height: 100%;
+}
+
+.step-card h3 {
+  color: #005662;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Съотношение 1:1 за медията */
+.hernia-step-media {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.hernia-step-media:hover {
+    transform: scale(1.03);
+}
+
+.hernia-step-media img,
+.hernia-step-media video {
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.hernia-step-media .hover-hernia-video {
+    opacity: 0;
+}
+
+.hernia-step-media:hover .static-hernia-img {
+    opacity: 0;
+}
+
+.hernia-step-media:hover .hover-hernia-video {
+    opacity: 1;
+}
+
+/* Обръщане на реда за редуване на елементите */
+.timeline-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Адаптивен дизайн за мобилни устройства */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .timeline-container::after {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-step {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+
+    .timeline-step:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .step-content, .step-media {
+        width: 100%;
+        padding: 0 0 0 50px;
+        margin-bottom: 20px;
+    }
+
+    .step-number-container {
+        left: 20px;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    .hernia-step-media {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: 1 / 1;
+        margin: 0;
+    }
+}
+/* Общи стилове и променливи */
+:root {
+    --primary-color: #005662;
+    --secondary-color: #f0f4f8;
+    --text-color: #333;
+    --light-text-color: #666;
+    --card-bg: #fff;
+    --border-color: #d1d5db;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.inflammation-section {
+    padding: 60px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+    margin-bottom: 50px;
+}
+
+/* Стилове за времевата линия */
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0px 0;
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--border-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.timeline-step {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.step-number-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.step-content, .step-media {
+    flex: 1;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.step-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    max-width: 400px;
+}
+
+.step-card h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Задава съотношение 1:1 на контейнера за медия */
+.hernia-step-media {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1; /* Това гарантира съотношение 1:1 */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+/* Гарантира, че изображението и видеото ще паснат идеално в контейнера, без да се изрязват */
+.hernia-step-media img,
+.hernia-step-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ключовото свойство, за да не се изрязват */
+    position: absolute;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Обръщане на реда за редуване на елементите */
+.timeline-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Адаптивен дизайн за мобилни устройства */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .timeline-container::after {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-step {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+
+    .timeline-step:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .step-content, .step-media {
+        width: 100%;
+        padding: 0; /* Премахваме ненужния padding, за да спрем изместването */
+        margin-bottom: 20px;
+    }
+
+    .step-number-container {
+        left: 0px;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    .step-card {
+        max-width: none;
+        width: calc(100% - 50px); /* Правим картата да се побере, като отчитаме мястото за линията на времето */
+        margin-left: 50px;
+    }
+
+    .hernia-step-media {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: 1 / 1;
+        margin: 0;
+        padding-left: 50px; /* Добавяме отстъп, за да се подравни с текста */
+    }
+}
+/*
+ * Задава съотношение 1:1 на контейнера за медия
+ */
+.hernia-step-media {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  /* Ключово: Прави контейнера квадратен */
+  aspect-ratio: 1 / 1; 
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+/*
+ * Гарантира, че изображението и видеото ще паснат идеално в контейнера
+ */
+.hernia-step-media img,
+.hernia-step-media video {
+  width: 100%;
+  height: 100%;
+  /* Ключово: Запълва контейнера, без да се изрязва съдържанието */
+  object-fit: contain; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+/* ... (Останалата част от кода остава непроменена) ... */
+
+.step-content, .step-media {
+    flex: 1;
+    /* Намаляваме стандартния padding, за да осигурим по-малко разстояние */
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* ... (Останалата част от кода за .step-card, .hernia-step-media и т.н. остава непроменена) ... */
+
+/* Обръщане на реда за редуване на елементите */
+.timeline-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Изместване на текстовия блок при четните стъпки */
+.timeline-step:nth-child(even) .step-content {
+    margin-left: 30px;
+}
+
+/* НОВО: Изместване на медийния блок при нечетните стъпки */
+.timeline-step:nth-child(odd) .step-media {
+    margin-left: 30px;
+}
+
+/* ... (Останалата част от кода за адаптивен дизайн остава непроменена) ... */
+/* ... (Останалата част от кода остава непроменена) ... */
+
+/* Обръщане на реда за редуване на елементите */
+.timeline-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Изместване на текстовия блок (който е отляво при четните стъпки) */
+.timeline-step:nth-child(even) .step-card {
+    margin-left: 80px;
+}
+
+/* Изместване на медийния блок (който е отляво при нечетните стъпки) */
+.timeline-step:nth-child(odd) .hernia-step-media {
+    margin-left: 80px;
+}
+
+/* ... (Останалата част от кода за адаптивен дизайн остава непроменена) ... */
+/* ... (Вашият код за десктоп версиите остава непроменен) ... */
+
+/* ========================================================= */
+/* Адаптивен дизайн за мобилни устройства */
+/* ========================================================= */
+@media (max-width: 768px) {
+    .section-title,
+    .section-subtitle {
+        text-align: center;
+    }
+
+    .timeline-container {
+        position: relative;
+    }
+
+    .timeline-container::after {
+        /* Скриваме вертикалната линия за мобилни устройства */
+        display: none;
+    }
+
+    .timeline-step {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .timeline-step:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .step-content, .step-media {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    .step-card {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .hernia-step-media {
+        width: 100%;
+        max-width: 400px;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto;
+    }
+    
+    /* Скриваме номерата на стъпките, тъй като няма вертикална линия, около която да са разположени */
+    .step-number-container {
+        display: none;
+    }
+    
+    /* Премахваме специфичните маргини от десктоп */
+    .timeline-step:nth-child(even) .step-card,
+    .timeline-step:nth-child(odd) .hernia-step-media {
+        margin-left: 0;
+    }
+}
+/* Alternative Healing Section Styles */
+.healing-section.alternative-style {
+    padding: 0px 20px;
+    background-color: #eef4f7;
+    text-align: center;
+}
+
+.healing-section.alternative-style .section-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #005662;
+    margin-bottom: 15px;
+}
+
+.healing-section.alternative-style .section-subtitle {
+    font-size: 1.3rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.healing-section.alternative-style .healing-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.healing-section.alternative-style .healing-step {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.1);
+    padding: 20px 30px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.healing-section.alternative-style .healing-step::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
+    transition: all 0.5s ease;
+    z-index: 0;
+}
+
+.healing-section.alternative-style .healing-step:hover::before {
+    top: 0;
+}
+
+.healing-section.alternative-style .healing-step > * {
+    position: relative;
+    z-index: 1;
+}
+
+.healing-section.alternative-style .step-icon-circle {
+    width: 80px;
+    height: 80px;
+    background: #3498db;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    transition: background-color 0.4s ease;
+}
+
+.healing-section.alternative-style .healing-step:hover .step-icon-circle {
+    background-color: #2ecc71;
+}
+
+.healing-section.alternative-style .step-icon-circle i {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.healing-section.alternative-style .healing-step h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.healing-section.alternative-style .healing-step p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 0;
+}
+
+.healing-section.alternative-style .highlight {
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .healing-section.alternative-style .healing-steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .healing-section.alternative-style .healing-step {
+        max-width: none;
+    }
+}   
+.section-title {
+    text-align: center;
+    color: #005662;
+    /* Optional: To ensure it looks good on different screens, you might want to adjust font size */
+    font-size: 2em;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5em;
+    }
+}
+.info-box {
+  background: #fff3f3; /* светло червен фон */
+  border-left: 6px solid #e63946; /* червена лента за акцент */
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.info-box i {
+  font-size: 1.5rem;
+  color: #e63946; /* ярко червено за иконата */
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.info-box p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.info-box strong {
+  color: #b71c1c; /* по-тъмен червен акцент */
+  font-weight: 700;
+}
+
+.info-box em {
+  font-style: italic;
+  color: #d32f2f;
+}
+/* PAIN STORY SECTION STYLES */
+.pain-story-section {
+  background: #f9fafb;
+  padding: 4rem 2rem;
+}
+
+.pain-story-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pain-story-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.pain-story-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  color: #444;
+}
+
+.pain-story-text .pain-highlight {
+  color: #d9534f; /* червен акцент */
+  font-weight: 600;
+}
+
+/* Info box */
+.pain-story-text .pain-info-box {
+  background: #fff;
+  border-left: 4px solid #0077b6;
+  padding: 1rem 1.5rem;
+  margin-top: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.pain-story-text .pain-info-box i {
+  color: #0077b6;
+  font-size: 1.4rem;
+  margin-top: 0.2rem;
+}
+
+.pain-story-text .pain-info-box p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Image / video */
+.pain-story-media {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.pain-story-media:hover {
+  transform: scale(1.02);
+}
+
+.pain-story-media img,
+.pain-story-media video {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .pain-story-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* Мобилно: по-широка healing секция */
+@media (max-width: 768px) {
+  .healing-section.alternative-style {
+    padding-left: 8px;   /* по-малки странични отстояния */
+    padding-right: 8px;
+  }
+
+  /* махаме ограниченията и вътрешните падинги на контейнера в тази секция */
+  .healing-section.alternative-style > .container {
+    max-width: none;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* картите да се разтягат на 100% вместо да са центрирани и по-тесни */
+  .healing-section.alternative-style .healing-steps-grid {
+    grid-template-columns: 1fr;
+    justify-items: stretch;   /* вместо center */
+    gap: 16px;
+  }
+
+  .healing-section.alternative-style .healing-step {
+    width: 100%;
+  }
+}
+footer {
+  font-size: 25px;          /* по-едър базов текст */
+  line-height: 1.6;
+  background: #f9f9f9;
+  padding: 40px 20px;
+  color: #222;
+}
+
+footer h2 {
+  font-size: 2 rem;        /* ~25px */
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+footer .contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer .social-links img {
+  width: 80px;              /* по-големи социални икони */
+  height: 80px;
+  object-fit: contain;
+}
+
+footer .icon {
+  width: 60px;              /* по-големи иконки за телефон/часовник/адрес */
+  height: 60px;
+  flex-shrink: 0;
+}
+
+footer .contact-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+footer .work-hours span,
+footer .address-item span,
+footer .contact-item span {
+  font-size: 1.05rem;       /* малко по-едър от базовия */
+}
+
+footer .footer-links {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  footer {
+    font-size: 16px;
+  }
+  footer .contact-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+  footer iframe {
+    width: 100% !important;
+    height: 220px !important;
+  }
+}
+/* ===== FOOTER – layout и визия като на скрийншота ===== */
+footer{
+  background:#f3f5f7;
+  padding: 40px 0 28px;
+  color:#0f172a;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+footer .contact-section{ max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+/* Три колони: карта (фиксирана), център (икони), дясно (телефон/час/адрес) */
+footer .contact-container{
+  display: grid;
+  grid-template-columns: 360px 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* --- ЛЯВО: карта --- */
+footer .contact-left .map iframe{
+  width: 360px; height: 260px;
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  background:#e9eef3;
+  display:block;
+}
+
+/* --- ЦЕНТЪР: заглавие + социални --- */
+footer .contact-center{ text-align: center; }
+footer .contact-center h2{
+  margin: 0 0 14px;
+  font-size: 2rem;        /* ~32px */
+  font-weight: 800;
+}
+footer .social-links{
+  display: inline-flex;
+  gap: 14px;
+}
+footer .social-links a{ display:inline-flex; }
+footer .social-links img{
+  width: 64px; height: 64px;   /* едри социални икони */
+  object-fit: contain; display:block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
+  border-radius: 8px;
+}
+
+/* --- ДЯСНО: телефон голям, работно време, адрес --- */
+footer .contact-right{ }
+footer .contact-item{ display:flex; gap:12px; align-items:center; margin-bottom: 16px; }
+footer .icon{ width: 48px; height: 48px; object-fit: contain; flex:0 0 48px; }
+
+footer .contact-item.phone .icon{ width: 54px; height: 54px; }
+footer .contact-item.phone span{
+  font-size: 2.2rem;      /* ~35px */
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+footer .work-hours .icon{ width: 54px; height: 54px; }
+footer .address-item .icon{ width: 48px; height: 48px; }
+
+footer .map-link{
+  color:#0b66ff;
+  text-decoration: underline;
+}
+footer .map-link:hover{ text-decoration: none; }
+
+/* Долен ред с линкове */
+footer .footer-links{
+  margin-top: 22px; text-align:center; font-size: 1.05rem;
+}
+footer .footer-links a{ color:#0b66ff; }
+
+/* --- Responsive --- */
+@media (max-width: 1024px){
+  footer .contact-container{
+    grid-template-columns: 320px 1fr;    /* карта + комбинирана дясна колона */
+    grid-auto-rows: auto;
+  }
+  footer .contact-center{ order: 2; }
+  footer .contact-right{ order: 3; }
+  footer .contact-left .map iframe{ width: 320px; height: 230px; }
+}
+@media (max-width: 768px){
+  footer{ font-size: 16px; }
+  footer .contact-container{ grid-template-columns: 1fr; gap: 22px; }
+  footer .contact-left .map iframe{ width: 100%; height: 220px; }
+  footer .social-links img{ width: 56px; height: 56px; }
+  footer .contact-item.phone span{ font-size: 1.9rem; }
+}
+
+
+/* ====== UX подобрения и ефекти за фуутъра ====== */
+
+/* 1) Глобални променливи за цветове и сенки */
+:root{
+  --f-accent: #0b66ff;
+  --f-ink: #0f172a;
+  --f-bg: #f3f5f7;
+  --f-soft-shadow: 0 8px 24px rgba(15, 23, 42, .08);
+  --f-ring: 0 0 0 3px rgba(11,102,255,.18);
+}
+
+/* 2) Плавни преходи по подразбиране за кликаеми неща */
+footer a, 
+footer .social-links a,
+footer .contact-item,
+footer .map-link,
+footer .footer-links a,
+footer .contact-item span,
+footer .icon,
+footer .social-links img{
+  transition: 
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease,
+    opacity .25s ease,
+    color .25s ease,
+    background-color .25s ease;
+}
+
+/* 3) Социални икони – „изплуване“ + меко сияние */
+footer .social-links a{
+  position: relative;
+  border-radius: 10px;
+  outline: none;
+}
+footer .social-links a:hover,
+footer .social-links a:focus-visible{
+  transform: translateY(-4px) scale(1.03);
+}
+footer .social-links a:hover img,
+footer .social-links a:focus-visible img{
+  filter: drop-shadow(0 8px 18px rgba(11,102,255,.25));
+}
+footer .social-links a:active{
+  transform: translateY(-1px) scale(.99);
+}
+
+/* 4) Контакт редове – фина карта при ховър */
+footer .contact-item{
+  border-radius: 14px;
+  padding: 8px 10px;
+}
+footer .contact-item:hover{
+  background: rgba(11,102,255,.06);
+  box-shadow: var(--f-soft-shadow);
+}
+footer .contact-item .icon{
+  transition: transform .25s ease;
+}
+footer .contact-item:hover .icon{
+  transform: scale(1.06) rotate(-2deg);
+}
+
+/* 5) Телефон – акцент при ховър (лек „пулс“) */
+@keyframes f-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+footer .contact-item.phone:hover span{
+  color: var(--f-accent);
+  animation: f-pulse .8s ease-in-out;
+}
+
+/* 6) Линкове долу – анимирано подчертаване */
+footer .footer-links a{
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+}
+footer .footer-links a:hover,
+footer .footer-links a:focus-visible{
+  color: var(--f-accent);
+  background-size: 100% 2px;    /* от центъра към краищата */
+}
+
+/* 7) Линк към карта – „индикатор“ при ховър */
+footer .map-link{
+  position: relative;
+}
+footer .map-link::after{
+  content:"↗";
+  margin-left: .35em;
+  opacity: .0;
+  transition: transform .25s ease, opacity .25s ease;
+}
+footer .map-link:hover::after,
+footer .map-link:focus-visible::after{
+  opacity: .9;
+  transform: translateY(-1px);
+}
+
+/* 8) Карта – фино издигане на iframe при ховър */
+footer .contact-left .map iframe{
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+footer .contact-left .map iframe:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+}
+
+/* 9) Фокус стилове за достъпност */
+footer a:focus-visible{
+  box-shadow: var(--f-ring);
+  border-radius: 10px;
+}
+
+/* 10) „Back to top“ бутон за фуутър (скрива се на мобилно) */
+footer .back-to-top{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: white;
+  box-shadow: var(--f-soft-shadow);
+  font-weight: 700;
+}
+footer .back-to-top:hover{ transform: translateY(-3px); }
+@media (max-width: 768px){
+  footer .back-to-top{ display:none; }
+}
+
+/* 11) Тъмна тема (автоматично) */
+@media (prefers-color-scheme: dark){
+  :root{
+    --f-bg:#0b1220;
+    --f-ink:#e5e7eb;
+  }
+  footer{
+    background: var(--f-bg);
+    color: var(--f-ink);
+  }
+  footer .footer-links a,
+  footer .map-link{ color: var(--f-accent); }
+  footer .social-links img{ filter: drop-shadow(0 2px 6px rgba(0,0,0,.6)); }
+  footer .contact-item:hover{ background: rgba(11,102,255,.14); }
+}
+@media (max-width: 768px) {
+  .step-card {
+    width: 100%;         /* заема цялата ширина */
+    max-width: none;     /* премахва ограничението от 800px */
+    padding: 22px 20px;  /* можеш да оставиш както е или да коригираш */
+  }
+
+  .step-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .step-card p {
+    font-size: 1rem;
+  }
+}
+/* FINAL FIX — Мобилно подравняване на стъпките */
+@media (max-width: 768px) {
+  /* 1) Контейнери на двата блока */
+  .step-content,
+  .step-media {
+    
+    margin: 0 !important;
+    width: 100% !important;
+  }
+}
+/* ===== Mobile-only: make 1:1 image & video bigger and square ===== */
+@media (max-width: 768px){
+  .hero-section .container.hero-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  /* square, larger media block */
+  .hero-section .hero-image.image-container{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;     /* 1:1 квадрат */
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  /* fill the square */
+  .hero-section .hero-image.image-container .static-img,
+  .hero-section .hero-image.image-container .hover-video{
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* без черни ленти */
+    display: block;
+  }
+}
+
+/* ===== Optional: full-bleed on mobile (edge-to-edge) =====
+@media (max-width: 768px){
+  .hero-section .hero-image.image-container{
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    border-radius: 0;
+  }
+}
+*/
+/* ==== Само за името на мускула (h3) ==== */
+/* Постави в края на CSS-а, за да override-не старите правила */
+.muscle-anatomy-section .muscle-item h3{
+  margin: 0 0 10px;
+  padding-left: 20px;            /* ако НЯМАш ляв акцент-лента на .muscle-item, махни това */
+  font-weight: 800;
+  font-size: clamp(1.05rem, 0.7vw + 1rem, 1.35rem);
+  line-height: 1.22;
+  letter-spacing: .2px;
+  color: #0f172a;                /* slate-900 */
+  text-wrap: balance;
+  position: relative;
+}
+
+/* Елегантна цветна линия под заглавието (без промяна в HTML) */
+.muscle-anatomy-section .muscle-item h3::after{
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #06b6d4, #22c55e);
+  opacity: .9;
+}
+
+/* Тъмен режим */
+@media (prefers-color-scheme: dark){
+  .muscle-anatomy-section .muscle-item h3{
+    color: #3573f0;              /* zinc-200 */
+  }
+}
+/* --- CTA под слайдера --- */
+.procedures-section .procedures-cta-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top: 16px;      /* разстояние под слайдера */
+}
+
+/* Цветове (лесно за брандинг) */
+.procedures-cta{
+  --cta1: #67d8fd;       /* основен – зелено */
+  --cta2: #01ff91;       /* вторичен – по-тъмен тон */
+  --ink:  #07381f;       /* цвят на текста/иконата */
+  --ring: rgba(27, 187, 109, .35);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: var(--ink);
+  background: linear-gradient(135deg, var(--cta1), var(--cta2));
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow:
+    0 10px 24px rgba(58, 255, 170, 0.18),
+    inset 0 1px 0 rgba(255,255,255,.25);
+  transform: translateZ(0);
+  transition:
+    transform .14s ease,
+    box-shadow .14s ease,
+    filter .14s ease;
+  overflow: hidden;
+  will-change: transform, box-shadow, filter;
+  cursor: pointer;
+}
+
+/* Иконата да не „скача“ */
+.procedures-cta-icon{
+  flex: 0 0 auto;
+  opacity: .95;
+}
+
+/* Sheen ефект при hover (минаващ отблясък) */
+.procedures-cta::before{
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background:
+    linear-gradient(120deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
+  transform: translateX(-120%) rotate(8deg);
+  transition: transform .6s ease;
+  pointer-events: none;
+}
+.procedures-cta:hover::before{ transform: translateX(120%) rotate(8deg); }
+
+/* Леко издигане и по-силен glow при hover */
+.procedures-cta:hover{
+  transform: translateY(-1px);
+  filter: saturate(1.05);
+  box-shadow:
+    0 14px 32px rgba(167, 95, 0, 0.25),
+    inset 0 1px 0 rgba(255,255,255,.3);
+}
+
+/* Натискане (active) */
+.procedures-cta:active{
+  transform: translateY(0);
+  box-shadow:
+    0 8px 18px rgba(212, 32, 32, 0.2),
+    inset 0 0 0 rgba(255,255,255,0);
+}
+
+/* Достъпност при клавиатура (focus-visible ring) */
+.procedures-cta:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 4px var(--ring),
+    0 12px 26px rgba(52, 221, 254, 0.22);
+}
+
+/* Респонсив: приятно отстояние от секцията на мобилни */
+@media (max-width: 640px){
+  .procedures-section .procedures-cta-wrap{ margin-top: 14px; }
+  .procedures-cta{ padding: 12px 16px; border-radius: 12px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .procedures-cta,
+  .procedures-cta::before{
+    transition: none;
+  }
+}
+/* Цветове (лесно сменяеми) */
+:root{
+  --badge-color: #0ea5e9;                 /* основен цвят (Sky-500) */
+  --badge-outline: rgba(14,165,233,.22);  /* външен ринг */
+  --badge-bg: rgba(14,165,233,.06);       /* фон */
+  --badge-shadow: rgba(14,165,233,.08);   /* вътрешна сянка */
+}
+
+.timeline-step .step-number-container{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: .5rem .9rem;
+  min-width: 140px;
+
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+/* Мобилна версия: скриване на баджа */
+@media (max-width: 640px){
+  .timeline-step .step-number-container{
+    display: none !important;
+  }
+}

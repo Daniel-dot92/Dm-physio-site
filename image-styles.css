@@ -1,0 +1,1367 @@
+/* --- image-styles.css --- */
+
+/* Стили за изображенията в секцията "Видове болки" */
+.conditions-grid .image-container {
+    width: 310px;
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.conditions-grid .image-container img {
+    width: 105%;
+    height: 105%;
+    object-fit: cover; /* Запазено е cover, тъй като така е във вашето условие за този раздел */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Стили за изображенията в секцията "Нашите кинезитерапевтични процедури" */
+.procedure-card .image-container {
+    width: 310px;
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: -30px; /* Коригирано на 'px' */
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.procedure-card .image-container img {
+    width: 105%;
+    height: 105%;
+    object-fit: contain; /* Запазено е contain, както е във вашето условие */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Общи стилове за ховър ефекта (прилагат се за всички .image-container, ако е необходимо) */
+/* Важно: Тези стилове ще се приложат към *всички* елементи с клас .image-container,
+   включително и тези в .conditions-grid и .procedure-card, освен ако не са
+   по-специфично дефинирани другаде. Уверете се, че това е желаното поведение. */
+.image-container .static-img {
+    opacity: 1;
+    /* Няма нужда от z-index тук, ако не се наслагват по друг начин */
+}
+
+.image-container .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 105%;
+    height: 105%;
+    object-fit: cover; /* Обикновено GIF-овете за ховър са cover */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    /* Няма нужда от z-index тук, ако не се наслагват по друг начин */
+}
+
+.image-container:hover .static-img {
+    opacity: 0;
+}
+
+.image-container:hover .hover-img {
+    opacity: 1;
+}
+
+/* Корекции за картовите елементи, за да се адаптират към по-големите изображения и да центрират съдържанието */
+.condition-card,
+.procedure-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    margin: 15px;
+}
+
+.condition-card h4,
+.procedure-card h3 {
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-size: 1.6em;
+}
+
+.condition-card p,
+.procedure-card p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+    flex-grow: 1;
+    font-size: 1.05em;
+}
+
+
+/* --- Responsive Adjustments for Main Image Containers --- */
+@media (max-width: 1200px) {
+    .conditions-grid .image-container {
+        width: 230px;
+        height: 230px;
+    }
+    .procedure-card .image-container {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 992px) {
+    .conditions-grid .image-container {
+        width: 210px;
+        height: 210px;
+    }
+    .procedure-card .image-container {
+        width: 250px;
+        height: 250px;
+    }
+    .condition-card,
+    .procedure-card {
+        padding: 20px;
+        margin: 10px;
+    }
+    .condition-card h4,
+    .procedure-card h3 {
+        font-size: 1.4em;
+    }
+    .condition-card p,
+    .procedure-card p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .conditions-grid .image-container {
+        width: 190px;
+        height: 190px;
+    }
+    .procedure-card .image-container {
+        width: 220px;
+        height: 220px;
+    }
+    .condition-card h4 {
+        font-size: 1.3em;
+    }
+    .procedure-card h3 {
+        font-size: 1.5em;
+    }
+    .condition-card p,
+    .procedure-card p {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 576px) {
+    .conditions-grid .image-container {
+        width: 170px;
+        height: 170px;
+    }
+    .procedure-card .image-container {
+        width: 200px;
+        height: 200px;
+    }
+    .condition-card,
+    .procedure-card {
+        padding: 15px;
+        margin: 8px;
+    }
+    .condition-card h4 {
+        font-size: 1.2em;
+    }
+    .procedure-card h3 {
+        font-size: 1.4em;
+    }
+    .condition-card p,
+    .procedure-card p {
+        font-size: 0.9em;
+    }
+    .small-action-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+/* --- Стили за кинезитерапия слайдер бутони --- */
+.kinesitherapy-slider-container {
+    width: 100%; /* Променяме на 100% или конкретна max-width */
+    max-width: 1400px; /* Например, ако искате да не е по-широк от 1200px */
+    margin: 0 ; /* Това центрира блок елемент хоризонтално */
+    
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    /* align-items: center; <-- Може да премахнете, ако не е flex/grid контейнер */
+    /* Ако вътрешното съдържание трябва да е центрирано, добавете text-align: center; */
+    text-align: center; /* Центрира inline елементи и текст вътре */
+}
+
+.kinesitherapy-slider-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.kinesitherapy-button {
+    flex: 0 0 calc(25% - 20px);
+    margin: 0 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: auto;
+    min-height: 200px;
+}
+
+.kinesitherapy-button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+.kinesitherapy-button-media {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    /* **ПРОМЯНА ТУК:** Увеличена стойност за по-голям размер */
+    padding-bottom: 85%; /* Пример: Увеличено от 75% на 85% */
+    height: 0;
+    margin-bottom: 10px;
+}
+
+.kinesitherapy-img,
+.kinesitherapy-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.kinesitherapy-gif {
+    opacity: 0;
+}
+
+.kinesitherapy-button:hover .kinesitherapy-img {
+    opacity: 0;
+}
+
+.kinesitherapy-button:hover .kinesitherapy-gif {
+    opacity: 1;
+}
+
+.kinesitherapy-button-text {
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 1.4;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+    padding-top: 5px;
+}
+
+/* Стили за стрелките */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 2em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-arrow {
+    left: 10px;
+}
+
+.next-arrow {
+    right: 10px;
+}
+
+@media (max-width: 1024px) {
+    .kinesitherapy-button {
+        flex: 0 0 calc(33.333% - 20px);
+    }
+    .kinesitherapy-button-media {
+        width: 100%;
+        height: 0;
+        /* **ПРОМЯНА ТУК:** Увеличена стойност за по-голям размер на мобилни */
+        padding-bottom: 85%; /* Пример: Увеличено от 75% на 85% */
+    }
+    .kinesitherapy-button-text {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .kinesitherapy-button {
+        flex: 0 0 calc(50% - 20px);
+    }
+    .kinesitherapy-button-media {
+        width: 100%;
+        height: 0;
+        /* **ПРОМЯНА ТУК:** Увеличена стойност за по-голям размер на мобилни */
+        padding-bottom: 85%; /* Пример: Увеличено от 75% на 85% */
+    }
+    .kinesitherapy-button-text {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .kinesitherapy-button {
+        flex: 0 0 calc(100% - 20px);
+    }
+    .kinesitherapy-button-media {
+        width: 100%;
+        height: 0;
+        /* **ПРОМЯНА ТУК:** Увеличена стойност за по-голям размер на мобилни */
+        padding-bottom: 90%; /* Може да се наложи още по-голямо за малки екрани, 90% */
+    }
+    .kinesitherapy-button-text {
+        font-size: 0.9em;
+    }
+    .slider-arrow {
+        padding: 5px 8px;
+        font-size: 1.2em;
+    }
+}
+
+/* CSS за ограничаване на текста в .collapsible-text до 5 реда */
+.collapsible-text p {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* padding-bottom: 10px; */ /* Закоментирано, ако не е необходимо */
+}
+
+/* CSS за стилизиране на бутона "Научи повече" */
+.learn-more-button {
+    display: block;
+    width: fit-content;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: var(--primary-color, #28a745);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.learn-more-button:hover {
+    background-color: var(--primary-hover-color, #218838);
+}
+
+/* Ако искате цялата област с информацията (без бутона за Calendly) да е кликаема */
+.procedure-card .procedure-details-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.procedure-card .procedure-details-link:hover {
+    /* Добавете стилове при ховър, ако искате */
+}
+
+.price-duration {
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Увери се, че book-button също е display: block, ако искаш да е под price-duration */
+.book-button {
+    text-align: center;
+    font-size: large;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Общи стилове за контейнера */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Секции с различни фонове */
+.section-white {
+    background-color: #ffffff;
+    padding: 60px 20px;
+}
+
+.section-light-grey {
+    background-color: #f8f8f8;
+    padding: 60px 20px;
+}
+
+.section-green {
+    background-color: #e6f7e6;
+    padding: 60px 20px;
+}
+
+.section-green-dark {
+    background-color: #2a6f2a;
+    color: #fff;
+    padding: 60px 20px;
+}
+
+.section-green-dark h2,
+.section-green-dark p {
+    color: #fff;
+}
+
+
+/* Hero секция */
+.details-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../pngs/details-hero-bg.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details-hero h1 {
+    font-size: 3.2em;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.details-hero .hero-subtitle {
+    font-size: 1.4em;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Въвеждаща секция */
+.details-intro {
+    padding: 40px 20px;
+    font-size: 1.2em;
+    line-height: 1.7;
+    text-align: center;
+    color: #555;
+}
+
+/* Стъпки на процедурата (Grid) */
+.details-procedure-steps h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #2a6f2a;
+    margin-bottom: 40px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.step-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.step-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+.step-card h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.step-card p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.main-image-placeholder {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.main-procedure-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Секция за ползи (Grid) */
+.details-benefits h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #2a6f2a;
+    margin-bottom: 40px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.benefit-item {
+    background-color: #f1fef1;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.benefit-item p {
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.benefit-item p strong {
+    color: #2a6f2a;
+}
+
+
+/* Акордеон стилове */
+.accordion {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 20px;
+    background-color: #e6f7e6;
+    color: #2a6f2a;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header::after {
+    content: '+';
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-header::after {
+    content: '-';
+    transform: rotate(0deg);
+}
+
+.accordion-header:hover {
+    background-color: #d9eed9;
+}
+
+.accordion-item.active .accordion-header {
+    background-color: #2a6f2a;
+    color: #fff;
+}
+
+.accordion-content {
+    max-height: 0;
+    padding: 0 20px;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    background-color: #fff;
+}
+
+.accordion-content p {
+    padding: 15px 0;
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.accordion-content ul {
+    padding: 15px 20px 15px 45px;
+    margin: 0;
+    list-style-type: disc;
+    color: #555;
+}
+
+.accordion-content ul li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+
+/* Call to Action секция */
+.details-call-to-action {
+    text-align: center;
+}
+
+.details-call-to-action h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+}
+
+.details-call-to-action p {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.book-button.large-button {
+    display: inline-block;
+    padding: 18px 40px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.3em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.book-button.large-button:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Общи стилове за текст центриране */
+.text-center {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* --- Responsive Design (Media Queries for various sections) --- */
+@media (max-width: 992px) {
+    .details-hero h1 {
+        font-size: 2.5em;
+    }
+    .details-hero .hero-subtitle {
+        font-size: 1.2em;
+    }
+    .details-procedure-steps h2,
+    .details-benefits h2 {
+        font-size: 2em;
+    }
+    .main-procedure-image {
+        max-width: 95%;
+    }
+    .details-call-to-action h2 {
+        font-size: 2.2em;
+    }
+    .details-call-to-action p {
+        font-size: 1.2em;
+    }
+    .book-button.large-button {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-white,
+    .section-light-grey,
+    .section-green,
+    .section-green-dark,
+    .details-hero {
+        padding: 40px 15px;
+    }
+    .details-hero h1 {
+        font-size: 2em;
+    }
+    .details-hero .hero-subtitle {
+        font-size: 1em;
+    }
+    .steps-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    .step-card,
+    .benefit-item,
+    .accordion-item {
+        margin-bottom: 20px;
+    }
+    .details-procedure-steps h2,
+    .details-benefits h2 {
+        font-size: 1.8em;
+    }
+    .step-card img {
+        width: 70px;
+        height: 70px;
+    }
+    .step-card h3 {
+        font-size: 1.4em;
+    }
+    .accordion-header {
+        font-size: 1.1em;
+        padding: 15px;
+    }
+    .accordion-content p,
+    .accordion-content ul li {
+        font-size: 0.95em;
+    }
+    .details-call-to-action h2 {
+        font-size: 1.8em;
+    }
+    .details-call-to-action p {
+        font-size: 1em;
+    }
+    .book-button.large-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}
+
+/* --- Procedure Journey Section --- */
+.procedure-journey {
+    padding: var(--section-padding);
+    background-color: var(--light-green);
+    overflow: hidden;
+}
+
+.procedure-journey h2 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 2.8em;
+    color: #006986;
+    margin-bottom: 0px;
+}
+
+.procedure-preamble {
+    font-size: 1.2em;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto -20px auto;
+    line-height: 1.7;
+    color: var(--medium-text);
+}
+
+/* Wrapper for all steps - creates the vertical timeline */
+.journey-steps-wrapper {
+    margin-bottom: 0;
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Vertical line in the middle */
+.journey-steps-wrapper::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--primary-green);
+    transform: translateX(-50%);
+    z-index: 0;
+    opacity: 0.2;
+}
+
+/* Each individual step card */
+.journey-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px; /* Запазете това, ако искате разстояние между стъпките */
+    position: relative;
+    z-index: 1;
+
+    /* Animation for fade-in on scroll */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.journey-step.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* The circular dot on the timeline */
+.journey-step::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-green);
+    border: 4px solid var(--white-bg);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--light-green);
+}
+
+/* Journey Step Images with GIF Hover - Full Size (ПОСЛЕДНА И ВАЛИДНА ВЕРСИЯ) */
+.journey-step .journey-image {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    perspective: 1000px;
+    transition: transform 0.5s ease;
+}
+
+.journey-step .journey-image::before {
+    content: '';
+    display: block;
+    /* **ПРОМЯНА ТУК:** Увеличена стойност за по-голям размер */
+    padding-top: 130%; /* Пример: Увеличено от 56.25% на 66.25% (за 16:9 + 10%) */
+    height: 0;
+}
+
+/* Base style for both static and hover images/videos within .journey-image */
+.journey-step .journey-image .static-img,
+.journey-step .journey-image .hover-img {
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow-strong);
+    border: 5px solid var(--white-bg);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden;
+}
+
+/* Static image style (default visible) */
+.journey-step .journey-image .static-img {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Hover image (MP4) style (default hidden) */
+.journey-step .journey-image .hover-img {
+    opacity: 0;
+    z-index: 1;
+    transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+/* On hover, swap images with a flip effect */
+.journey-step .journey-image:hover .static-img {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.journey-step .journey-image:hover .hover-img {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotateY(0deg);
+}
+
+/* Content block for each step */
+.journey-step .journey-content {
+    flex: 1;
+    padding: 30px 40px;
+    background-color: var(--white-bg);
+    border-radius: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    box-shadow: 0 8px 20px var(--shadow-medium);
+    margin: 0 40px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid var(--border-color);
+}
+
+.journey-content h3 {
+    font-size: 2.2em;
+    color: var(--primary-green);
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.journey-content p {
+    font-size: 1.15em;
+    line-height: 1.7;
+    color: var(--medium-text);
+    margin-bottom: 15px;
+}
+
+/* New Style for 'Етап #' Label */
+.step-label {
+    display: inline-block;
+    background-color: #158bac;
+    color: #d9eed9;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+}
+
+.step-label:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.step-duration {
+    display: block;
+    font-size: 1em;
+    font-weight: normal;
+    color: var(--medium-text);
+    margin-top: 5px;
+    text-transform: none;
+}
+
+.step-highlights {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+}
+
+.step-highlights li {
+    font-size: 1.05em;
+    color: var(--dark-text);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.step-highlights li i {
+    color: var(--primary-green);
+    margin-right: 12px;
+    font-size: 1.3em;
+    line-height: 1.5;
+}
+
+/* Positioning for left and right aligned steps */
+.journey-step.left-aligned {
+    flex-direction: row;
+    margin-top: 0; /* Последна и валидна дефиниция */
+    margin-bottom: 80px; /* Запазете това, ако искате разстояние между стъпките */
+}
+
+.journey-step.right-aligned {
+    flex-direction: row-reverse;
+    margin-top: 0; /* Последна и валидна дефиниция */
+    margin-bottom: 80px; /* Запазете това, ако искате разстояние между стъпките */
+}
+
+/* --- Responsive Design for Procedure Journey (Media Queries) --- */
+@media (max-width: 992px) {
+    .procedure-journey h2 {
+        font-size: 2.2em;
+    }
+    .procedure-preamble {
+        font-size: 1.1em;
+        margin-bottom: 40px;
+    }
+
+    /* Adjust timeline line position for smaller screens */
+    .journey-steps-wrapper::before {
+        left: 20px;
+    }
+
+    /* Stack elements vertically on smaller screens */
+    .journey-step {
+        flex-direction: column;
+        margin-bottom: 60px; /* Коригирано, ако имаше дубликат */
+        align-items: flex-start;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Adjust dot position for stacked layout */
+    .journey-step::after {
+        left: 20px;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 0 2px var(--light-green);
+    }
+
+    /* Responsive Adjustments for Journey Step Images */
+    .journey-step .journey-image {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .journey-step .journey-image::before {
+        /* **ПРОМЯНА ТУК:** Увеличена стойност за по-голям размер на мобилни */
+        padding-top: 75%; /* Пример: Увеличено от 65% на 75% */
+        height: 0;
+    }
+
+    .journey-step .journey-image .static-img,
+    .journey-step .journey-image .hover-img {
+        height: 100%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        object-fit: contain;
+        width: 100%;
+    }
+
+    /* On mobile, only show static image initially (no flip effect on hover) */
+    .journey-step .journey-image .static-img {
+        opacity: 1;
+        display: block;
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }
+
+    .journey-step .journey-image .hover-img {
+        display: none;
+        opacity: 0;
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }
+
+    .journey-step .journey-content {
+        width: calc(100% - 40px);
+        margin: 0 0 0 0px;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .journey-content h3 {
+        font-size: 1.8em;
+    }
+    .journey-content p {
+        font-size: 1.05em;
+    }
+    .step-label {
+        font-size: 1.2em;
+        padding: 8px 20px;
+        margin-bottom: 15px;
+        transform: rotate(0deg);
+    }
+    .step-highlights li {
+        font-size: 0.95em;
+    }
+    .step-highlights li i {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .procedure-journey {
+        padding: 50px 15px;
+    }
+    .procedure-journey h2 {
+        font-size: 1.8em;
+    }
+    .procedure-preamble {
+        font-size: 0.95em;
+        margin-bottom: 30px;
+    }
+    /* Journey step image specific for smaller screens */
+    .journey-step .journey-image {
+        /* Няма нужда от height тук, `::before` контролира височината */
+    }
+    .journey-step .journey-image::before {
+        /* **ПРОМЯНА ТУК:** Увеличена стойност за по-голям размер на мобилни */
+        padding-top: 80%; /* Пример: Увеличено от 70% на 80% */
+        height: 0;
+    }
+
+    .journey-step .journey-content {
+        padding: 15px;
+        width: calc(100% - 30px);
+        margin-left: 30px;
+    }
+    .journey-step::after {
+        left: 15px;
+    }
+    .journey-steps-wrapper::before {
+        left: 15px;
+    }
+}
+/* --- image-styles.css --- */
+
+/* ... (запазваме всички други стилове както са в предходния отговор) ... */
+
+/* Прилагаме margin-top: 0 и margin-bottom: 0 на конкретни "картови" елементи */
+.condition-card,
+.procedure-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    /* margin: 15px;  <-- Ако запазите това, то ще добави 15px от всички страни */
+    margin-top: 0;    /* **Изрично зададено на 0** */
+    margin-bottom: 0; /* **Изрично зададено на 0** */
+    margin-left: 15px; /* Ако искате само страничен марджин, регулирайте */
+    margin-right: 15px;/* Ако искате само страничен марджин, регулирайте */
+}
+
+/* ... (продължаваме с всички други стилове докрай) ... */
+
+/* --- Procedure Journey Section (в края на файла, където е дефиниран journey-step) --- */
+
+/* Each individual step card */
+.journey-step {
+    display: flex;
+    align-items: center;
+    /* margin-bottom: 80px; <-- Ако запазите това, то ще създаде разстояние между стъпките */
+    margin-top: 0;    /* **Изрично зададено на 0** */
+    margin-bottom: 0; /* **Изрично зададено на 0** */
+    position: relative;
+    z-index: 1;
+
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Positioning for left and right aligned steps */
+.journey-step.left-aligned {
+    flex-direction: row;
+    margin-top: 0;    /* **Изрично зададено на 0 (дубликат, но за яснота)** */
+    margin-bottom: 0; /* **Изрично зададено на 0 (дубликат, но за яснота)** */
+}
+
+.journey-step.right-aligned {
+    flex-direction: row-reverse;
+    margin-top: 0;    /* **Изрично зададено на 0 (дубликат, но за яснота)** */
+    margin-bottom: 0; /* **Изрично зададено на 0 (дубликат, но за яснота)** */
+}
+
+
+/* --- Responsive Design for Procedure Journey (Media Queries) --- */
+@media (max-width: 992px) {
+    /* ... (всички останали стилове за @media 992px) ... */
+    .journey-step {
+        flex-direction: column;
+        margin-bottom: 0; /* **Коригирано на 0 за мобилни** */
+        margin-top: 0;    /* **Коригирано на 0 за мобилни** */
+        align-items: flex-start;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.details-accordion h2 {
+    font-size: 2.8em;
+    color: #158bac;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+/* Медия заявки за адаптивност */
+@media (max-width: 992px) {
+    .details-accordion h2 {
+        font-size: 2.4em;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .details-accordion h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .details-accordion h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    /* --- image-styles.css --- */
+
+/* Стили за изображенията в секцията "Видове болки" */
+.conditions-grid .image-container {
+    width: 310px;
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 15px solid #ccc; /* Добавена/редактирана рамка директно тук */
+}
+
+/* Стили за изображенията в секцията "Нашите кинезитерапевтични процедури" */
+.procedure-card .image-container {
+    width: 310px;
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: -30px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 20px solid #ccc; /* Добавена/редактирана рамка директно тук */
+}
+
+/* ... (продължаваме с общите стилове за ховър ефекта и корекциите за картовите елементи) ... */
+
+
+/* Journey Step Images with GIF Hover - Full Size (ПОСЛЕДНА И ВАЛИДНА ВЕРСИЯ) */
+.journey-step .journey-image {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    perspective: 1000px;
+    transition: transform 0.5s ease;
+}
+
+.journey-step .journey-image::before {
+    content: '';
+    display: block;
+    padding-top: 130%;
+    height: 0;
+}
+
+/* Base style for both static and hover images/videos within .journey-image */
+.journey-step .journey-image .static-img,
+.journey-step .journey-image .hover-img {
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow-strong);
+    border: 20px solid #ccc; /* Променена съществуващата рамка */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden;
+}
+
+/* Static image style (default visible) */
+.journey-step .journey-image .static-img {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Hover image (MP4) style (default hidden) */
+.journey-step .journey-image .hover-img {
+    opacity: 0;
+    z-index: 1;
+    transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+/* On hover, swap images with a flip effect */
+.journey-step .journey-image:hover .static-img {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.journey-step .journey-image:hover .hover-img {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotateY(0deg);
+}
+
+/* ... (продължаваме с journey-content, step-label и т.н.) ... */
+
+
+/* --- Стили за кинезитерапия слайдер бутони --- */
+.kinesitherapy-button-media {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 20px solid #ccc; /* Променена съществуващата рамка */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    padding-bottom: 85%;
+    height: 0;
+    margin-bottom: 10px;
+}
+/* ... (останалата част от файла) ... */

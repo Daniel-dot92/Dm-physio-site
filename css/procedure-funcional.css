@@ -1,0 +1,166 @@
+    /* Основен layout */
+    .page-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    }
+
+    /* Сайдбарът (лявата страна) */
+    .sidebar-conditions {
+    flex: 0 0 300px; /* фиксирана ширина */
+    background: #f7f7f7;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 20px; /* sticky при скрол */
+    height: fit-content;
+    }
+
+    .sidebar-conditions h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+    }
+
+    .pain-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    }
+
+    /* Основното съдържание (дясната страна) */
+    .procedure-journey {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .procedure-journey h2 {
+        margin-top: 20px;
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: #222;
+    }
+
+    .procedure-preamble {
+    
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: #444;
+    }
+
+    .journey-steps-wrapper {
+    margin-bottom: 40px;
+    
+    }
+
+
+    .journey-step {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    }
+
+    .journey-image {
+    flex: 0 0 300px;
+    position: relative;
+    }
+
+    .journey-image img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    }
+
+    .journey-image .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .3s;
+    }
+
+    .journey-image:hover .hover-img {
+    opacity: 1;
+    }
+
+    .journey-content {
+    flex: 1;
+    margin-top: -18px; /* намали или увеличи според ефекта */
+    }
+
+
+    .step-duration {
+    font-size: 14px;
+    color: #888;
+    font-weight: 500;
+    }
+    .step-time2 {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    z-index: 5; /* извежда ги над hover-img */
+    }
+
+    .step-time2 {
+    width: 300px;        /* колкото е .journey-image */
+    margin: 10px auto;   /* центрира под картинката */
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #222;
+    }
+/* Нови класове, за да няма конфликт */
+.procedure-media {
+  flex: 0 0 300px;       /* същата ширина като преди */
+  position: relative;
+  margin: 0;             /* фигура без допълнителни марджини */
+}
+
+.procedure-media .media-static,
+.procedure-media .media-anim {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+.procedure-media .media-anim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;   /* важно: GIF-ът не „закрива“ нищо */
+}
+
+.procedure-media:hover .media-anim {
+  opacity: 1;
+}
+
+.media-caption {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+}
+
+/* по избор: ако искаш същия външен вид като .journey-image */
+.journey-step {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}

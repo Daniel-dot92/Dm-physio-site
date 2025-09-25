@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Нерви и Мускули — Глава | DM Physio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Външен стилов файл според изискването -->
+  <link rel="stylesheet" href="/css/nerves-muscles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>Нерви и Мускули <span class="sub">— Глава</span></h1>
+      <p class="lead">Две изчистени колони: вляво <strong>мускули</strong>, вдясно <strong>нерви</strong>. Всяка медия е 1:1 с видео, което се пуска при задържане.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="two">
+      <!-- Лява колона: Мускули на главата (само една плочка) -->
+      <div class="pane">
+        <h2 class="h2">Мускули — Глава</h2>
+        <figure class="media-square" data-media>
+          <img class="poster" src="assets/head-muscles.jpg" alt="Анатомия на мускулите на главата" width="1000" height="1000" loading="lazy">
+          <video class="hover-video" preload="metadata" playsinline muted>
+            <source src="assets/head-muscles.mp4" type="video/mp4" />
+          </video>
+        </figure>
+        <ul class="mini">
+          <li>Тензионно главоболие</li>
+          <li>TMJ (челюстни оплаквания)</li>
+          <li>Оципитално напрежение</li>
+        </ul>
+        <a class="btn" href="/muscles/head.html">Виж материалите за мускули</a>
+      </div>
+
+      <!-- Дясна колона: Нерви на главата (само една плочка) -->
+      <div class="pane">
+        <h2 class="h2">Нерви — Глава</h2>
+        <figure class="media-square" data-media>
+          <img class="poster" src="assets/head-nerves.jpg" alt="Схема на нервите на главата" width="1000" height="1000" loading="lazy">
+          <video class="hover-video" preload="metadata" playsinline muted>
+            <source src="assets/head-nerves.mp4" type="video/mp4" />
+          </video>
+        </figure>
+        <ul class="mini">
+          <li>Мигрена</li>
+          <li>Невралгия на троичния нерв</li>
+          <li>Оципитална невралгия</li>
+        </ul>
+        <a class="btn" href="/nerves/head.html">Виж материалите за нерви</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Прост контрол за пускане/спиране на видеото при hover/focus
+    document.querySelectorAll('[data-media]').forEach(box=>{
+      const video = box.querySelector('video');
+      if(!video) return;
+      function play(){
+        box.classList.add('playing');
+        video.currentTime = 0;
+        const p = video.play(); if(p && p.catch) p.catch(()=>{});
+      }
+      function stop(){
+        box.classList.remove('playing');
+        video.pause(); video.currentTime = 0;
+      }
+      const host = box.closest('.pane') || box;
+      host.addEventListener('mouseenter', play);
+      host.addEventListener('mouseleave', stop);
+      host.addEventListener('focusin', play);
+      host.addEventListener('focusout', stop);
+      host.addEventListener('touchstart', ()=>{ play(); setTimeout(stop, 2000); }, {passive:true});
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ box.classList.add('reduced-motion'); }
+    });
+  </script>
+</body>
+</html>
