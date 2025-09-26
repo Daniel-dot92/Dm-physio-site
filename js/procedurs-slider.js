@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Клас за управление на всеки слайдер
+﻿document.addEventListener('DOMContentLoaded', () => {
+    // РљР»Р°СЃ Р·Р° СѓРїСЂР°РІР»РµРЅРёРµ РЅР° РІСЃРµРєРё СЃР»Р°Р№РґРµСЂ
     class KinesitherapySlider {
         constructor(container) {
             this.container = container;
@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateButtonWidths() {
             if (this.buttons.length === 0) return;
 
-            // Изчисляваме правилния гап, като вземем предвид марджините.
-            // Тъй като в CSS използваме `margin: 0 10px;`, общият хоризонтален марджин е 20px.
+            // РР·С‡РёСЃР»СЏРІР°РјРµ РїСЂР°РІРёР»РЅРёСЏ РіР°Рї, РєР°С‚Рѕ РІР·РµРјРµРј РїСЂРµРґРІРёРґ РјР°СЂРґР¶РёРЅРёС‚Рµ.
+            // РўСЉР№ РєР°С‚Рѕ РІ CSS РёР·РїРѕР»Р·РІР°РјРµ `margin: 0 10px;`, РѕР±С‰РёСЏС‚ С…РѕСЂРёР·РѕРЅС‚Р°Р»РµРЅ РјР°СЂРґР¶РёРЅ Рµ 20px.
             const gapPerButton = 20; 
             const buttonWidth = `calc(${100 / this.itemsPerSlide}% - ${gapPerButton}px)`;
             
@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSliderPosition() {
             if (this.buttons.length === 0) return;
 
-            // Преизчисляваме офсета на базата на текущата широчина на бутона
-            // и зададения марджин.
+            // РџСЂРµРёР·С‡РёСЃР»СЏРІР°РјРµ РѕС„СЃРµС‚Р° РЅР° Р±Р°Р·Р°С‚Р° РЅР° С‚РµРєСѓС‰Р°С‚Р° С€РёСЂРѕС‡РёРЅР° РЅР° Р±СѓС‚РѕРЅР°
+            // Рё Р·Р°РґР°РґРµРЅРёСЏ РјР°СЂРґР¶РёРЅ.
             const firstButton = this.buttons[0];
-            const buttonCalculatedWidth = firstButton.offsetWidth; // Получаваме реалната изчислена ширина на бутона
-            const totalItemWidth = buttonCalculatedWidth + 20; // бутон + 10px ляв + 10px десен марджин
+            const buttonCalculatedWidth = firstButton.offsetWidth; // РџРѕР»СѓС‡Р°РІР°РјРµ СЂРµР°Р»РЅР°С‚Р° РёР·С‡РёСЃР»РµРЅР° С€РёСЂРёРЅР° РЅР° Р±СѓС‚РѕРЅР°
+            const totalItemWidth = buttonCalculatedWidth + 20; // Р±СѓС‚РѕРЅ + 10px Р»СЏРІ + 10px РґРµСЃРµРЅ РјР°СЂРґР¶РёРЅ
 
             const offset = -this.currentIndex * totalItemWidth;
             this.sliderTrack.style.transform = `translateX(${offset}px)`;
@@ -125,21 +125,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Инициализация на ВСИЧКИ слайдери
+    // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РЅР° Р’РЎРР§РљР СЃР»Р°Р№РґРµСЂРё
     const sliderInstances = [];
     const sliderContainers = document.querySelectorAll('.kinesitherapy-slider-container');
     sliderContainers.forEach(container => {
         sliderInstances.push(new KinesitherapySlider(container));
     });
 
-    // ЕДИН ГЛОБАЛЕН resize listener за всички слайдери
+    // Р•Р”РРќ Р“Р›РћР‘РђР›Р•Рќ resize listener Р·Р° РІСЃРёС‡РєРё СЃР»Р°Р№РґРµСЂРё
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
             sliderInstances.forEach(instance => {
-                instance.updateItemsPerSlide(); // Всеки инстанс се обновява
+                instance.updateItemsPerSlide(); // Р’СЃРµРєРё РёРЅСЃС‚Р°РЅСЃ СЃРµ РѕР±РЅРѕРІСЏРІР°
             });
-        }, 250); // Изчакай 250ms след спиране на ресайза
+        }, 250); // РР·С‡Р°РєР°Р№ 250ms СЃР»РµРґ СЃРїРёСЂР°РЅРµ РЅР° СЂРµСЃР°Р№Р·Р°
     });
 });

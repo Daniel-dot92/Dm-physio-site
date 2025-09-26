@@ -1,8 +1,8 @@
-/*********************************************************
+﻿/*********************************************************
  * LIGHT THEME + SIDE LAYOUT (media left, details right) *
  *********************************************************/
 
-/* Светъл фон за секцията */
+/* РЎРІРµС‚СЉР» С„РѕРЅ Р·Р° СЃРµРєС†РёСЏС‚Р° */
 .muscle-anatomy-section {
   --bg: #f7f9fc;
   --card: #ffffff;
@@ -24,7 +24,7 @@
   padding-bottom: clamp(28px, 3.2vw, 48px);
 }
 
-/* Заглавие – тъмен към бранд градиент */
+/* Р—Р°РіР»Р°РІРёРµ вЂ“ С‚СЉРјРµРЅ РєСЉРј Р±СЂР°РЅРґ РіСЂР°РґРёРµРЅС‚ */
 .muscle-anatomy-section .section-title {
   background: linear-gradient(90deg, #0f172a, #1f2937 50%, #2563eb);
   -webkit-background-clip: text;
@@ -33,14 +33,14 @@
   filter: none;
 }
 
-/* Мрежата от карти */
+/* РњСЂРµР¶Р°С‚Р° РѕС‚ РєР°СЂС‚Рё */
 .muscle-anatomy-section .muscle-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(16px, 2vw, 24px);
 }
 
-/* Карта на мускул: две колони – ляво медия, дясно детайли */
+/* РљР°СЂС‚Р° РЅР° РјСѓСЃРєСѓР»: РґРІРµ РєРѕР»РѕРЅРё вЂ“ Р»СЏРІРѕ РјРµРґРёСЏ, РґСЏСЃРЅРѕ РґРµС‚Р°Р№Р»Рё */
 .muscle-anatomy-section .muscle-item {
   background: var(--card);
   border: 1px solid var(--border);
@@ -54,7 +54,7 @@
   align-items: start;
 }
 
-/* Заглавия вътре в картата */
+/* Р—Р°РіР»Р°РІРёСЏ РІСЉС‚СЂРµ РІ РєР°СЂС‚Р°С‚Р° */
 .muscle-anatomy-section .muscle-item > h3,
 .muscle-anatomy-section .muscle-item > h4 {
   grid-column: 1 / -1;
@@ -62,7 +62,7 @@
 }
 .muscle-anatomy-section .muscle-item > h4 { color: var(--muted); }
 
-/* ===== Ляво: медия ===== */
+/* ===== Р›СЏРІРѕ: РјРµРґРёСЏ ===== */
 .muscle-anatomy-section .muscle-media {
   position: relative;
   aspect-ratio: 4/3;
@@ -85,9 +85,9 @@
 .muscle-anatomy-section .muscle-media:hover .static-muscle-img,
 .muscle-anatomy-section .muscle-media:focus-within .static-muscle-img { opacity: 0; }
 
-/* Малък бейдж "Видео" (по-светъл) */
+/* РњР°Р»СЉРє Р±РµР№РґР¶ "Р’РёРґРµРѕ" (РїРѕ-СЃРІРµС‚СЉР») */
 .muscle-anatomy-section .muscle-media::before {
-  content: "Видео ▶";
+  content: "Р’РёРґРµРѕ в–¶";
   position: absolute; left: 10px; top: 10px;
   font-size: 12px; padding: 6px 10px;
   border-radius: 999px;
@@ -98,23 +98,23 @@
   z-index: 3;
 }
 
-/* ===== Дясно: детайли (залепени вдясно) ===== */
+/* ===== Р”СЏСЃРЅРѕ: РґРµС‚Р°Р№Р»Рё (Р·Р°Р»РµРїРµРЅРё РІРґСЏСЃРЅРѕ) ===== */
 .muscle-anatomy-section .muscle-details {
   display: flex;
-  flex-direction: column;      /* ЕДНО ПОД ДРУГО */
+  flex-direction: column;      /* Р•Р”РќРћ РџРћР” Р”Р РЈР“Рћ */
   gap: clamp(10px, 1.2vw, 14px);
-  align-self: stretch;         /* разтяга колоната по височина на медията */
-  justify-content: flex-start; /* залепено в началото */
+  align-self: stretch;         /* СЂР°Р·С‚СЏРіР° РєРѕР»РѕРЅР°С‚Р° РїРѕ РІРёСЃРѕС‡РёРЅР° РЅР° РјРµРґРёСЏС‚Р° */
+  justify-content: flex-start; /* Р·Р°Р»РµРїРµРЅРѕ РІ РЅР°С‡Р°Р»РѕС‚Рѕ */
 }
 
-/* Вътрешната решетка става ЕДНА колона, за да са едно под друго */
+/* Р’СЉС‚СЂРµС€РЅР°С‚Р° СЂРµС€РµС‚РєР° СЃС‚Р°РІР° Р•Р”РќРђ РєРѕР»РѕРЅР°, Р·Р° РґР° СЃР° РµРґРЅРѕ РїРѕРґ РґСЂСѓРіРѕ */
 .muscle-anatomy-section .muscle-info-grid {
   display: grid;
-  grid-template-columns: 1fr;  /* <-- ключово: една колона */
+  grid-template-columns: 1fr;  /* <-- РєР»СЋС‡РѕРІРѕ: РµРґРЅР° РєРѕР»РѕРЅР° */
   gap: clamp(10px, 1.2vw, 14px);
 }
 
-/* Инфо-блок (Анатомия / Характер на болката) */
+/* РРЅС„Рѕ-Р±Р»РѕРє (РђРЅР°С‚РѕРјРёСЏ / РҐР°СЂР°РєС‚РµСЂ РЅР° Р±РѕР»РєР°С‚Р°) */
 .muscle-anatomy-section .info-block {
   background: #ffffff;
   border: 1px solid var(--border);
@@ -147,21 +147,21 @@
   font-size: 14px;
 }
 
-/* Списък с болката */
+/* РЎРїРёСЃСЉРє СЃ Р±РѕР»РєР°С‚Р° */
 .muscle-anatomy-section .pain-char-block ul {
   margin: .4rem 0 0; padding-left: 1.1rem; display: grid; gap: 6px;
 }
 .muscle-anatomy-section .pain-char-block li { line-height: 1.55; color: var(--text); }
 .muscle-anatomy-section .pain-char-block ul li::marker { color: #f59e0b; }
 
-/* Дребни полирания */
+/* Р”СЂРµР±РЅРё РїРѕР»РёСЂР°РЅРёСЏ */
 .muscle-anatomy-section .container { border-top: 1px solid var(--border); padding-top: clamp(16px, 2vw, 24px); }
 .muscle-anatomy-section .muscle-item + .muscle-item { margin-top: 2px; }
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .muscle-anatomy-section .muscle-item {
-    grid-template-columns: 1fr; /* стек (медия отгоре, детайли отдолу) */
+    grid-template-columns: 1fr; /* СЃС‚РµРє (РјРµРґРёСЏ РѕС‚РіРѕСЂРµ, РґРµС‚Р°Р№Р»Рё РѕС‚РґРѕР»Сѓ) */
   }
   .muscle-anatomy-section .muscle-media { aspect-ratio: 16/10; }
 }
@@ -171,82 +171,82 @@
     transition: opacity .2s linear;
   }
 }
-/* Ограничаваме ширината на контейнера */
+/* РћРіСЂР°РЅРёС‡Р°РІР°РјРµ С€РёСЂРёРЅР°С‚Р° РЅР° РєРѕРЅС‚РµР№РЅРµСЂР° */
 .muscle-anatomy-section .container {
-  max-width: 1000px;   /* можеш да пробваш и 900px */
+  max-width: 1000px;   /* РјРѕР¶РµС€ РґР° РїСЂРѕР±РІР°С€ Рё 900px */
   margin: 0 auto;
   padding-left: 16px;
   padding-right: 16px;
 }
 
-/* Правим медията (снимка + видео) квадрат 1:1 */
+/* РџСЂР°РІРёРј РјРµРґРёСЏС‚Р° (СЃРЅРёРјРєР° + РІРёРґРµРѕ) РєРІР°РґСЂР°С‚ 1:1 */
 .muscle-anatomy-section .muscle-media {
-  aspect-ratio: 1 / 1;     /* квадрат */
-  max-width: 320px;        /* за да не е прекалено голямо */
+  aspect-ratio: 1 / 1;     /* РєРІР°РґСЂР°С‚ */
+  max-width: 320px;        /* Р·Р° РґР° РЅРµ Рµ РїСЂРµРєР°Р»РµРЅРѕ РіРѕР»СЏРјРѕ */
   margin: 0 auto;
 }
 
-/* При мобилен изглед – медията пак квадрат, но по-малка */
+/* РџСЂРё РјРѕР±РёР»РµРЅ РёР·РіР»РµРґ вЂ“ РјРµРґРёСЏС‚Р° РїР°Рє РєРІР°РґСЂР°С‚, РЅРѕ РїРѕ-РјР°Р»РєР° */
 @media (max-width: 768px) {
   .muscle-anatomy-section .muscle-media {
     max-width: 260px;
   }
 }
-/* ====== FIX: ВИДЕО/СНИМКА ДА НЕ "ИЗЧЕЗВАТ" ====== */
+/* ====== FIX: Р’РР”Р•Рћ/РЎРќРРњРљРђ Р”Рђ РќР• "РР—Р§Р•Р—Р’РђРў" ====== */
 
-/* По-тесен контейнер за секцията */
+/* РџРѕ-С‚РµСЃРµРЅ РєРѕРЅС‚РµР№РЅРµСЂ Р·Р° СЃРµРєС†РёСЏС‚Р° */
 .muscle-anatomy-section .container {
-  max-width: 1000px;     /* ако искаш още по-тясно: 900px */
+  max-width: 1000px;     /* Р°РєРѕ РёСЃРєР°С€ РѕС‰Рµ РїРѕ-С‚СЏСЃРЅРѕ: 900px */
   margin: 0 auto;
   padding-left: 16px;
   padding-right: 16px;
 }
 
-/* Картата: лява колона за медията с фиксирана ширина, дясна – еластична */
+/* РљР°СЂС‚Р°С‚Р°: Р»СЏРІР° РєРѕР»РѕРЅР° Р·Р° РјРµРґРёСЏС‚Р° СЃ С„РёРєСЃРёСЂР°РЅР° С€РёСЂРёРЅР°, РґСЏСЃРЅР° вЂ“ РµР»Р°СЃС‚РёС‡РЅР° */
 .muscle-anatomy-section .muscle-item {
   display: grid;
-  grid-template-columns: 450px minmax(0, 1fr); /* 320px стабилна медия */
+  grid-template-columns: 450px minmax(0, 1fr); /* 320px СЃС‚Р°Р±РёР»РЅР° РјРµРґРёСЏ */
   gap: clamp(12px, 1.5vw, 16px);
   align-items: start;
 }
 
-/* Квадрат 1:1 за медията + гарантирана ширина */
+/* РљРІР°РґСЂР°С‚ 1:1 Р·Р° РјРµРґРёСЏС‚Р° + РіР°СЂР°РЅС‚РёСЂР°РЅР° С€РёСЂРёРЅР° */
 .muscle-anatomy-section .muscle-media {
   position: relative;
-  width: 100%;           /* запълва 320px колоната */
-  max-width: 450px;      /* съответства на лявата колона */
-  aspect-ratio: 1 / 1;   /* квадрат */
+  width: 100%;           /* Р·Р°РїСЉР»РІР° 320px РєРѕР»РѕРЅР°С‚Р° */
+  max-width: 450px;      /* СЃСЉРѕС‚РІРµС‚СЃС‚РІР° РЅР° Р»СЏРІР°С‚Р° РєРѕР»РѕРЅР° */
+  aspect-ratio: 1 / 1;   /* РєРІР°РґСЂР°С‚ */
   overflow: hidden;
   border-radius: 14px;
   border: 1px solid var(--border, #e5e7eb);
-  background: #f3f4f6;   /* светъл фон, да се вижда дори при липса на кадър */
+  background: #f3f4f6;   /* СЃРІРµС‚СЉР» С„РѕРЅ, РґР° СЃРµ РІРёР¶РґР° РґРѕСЂРё РїСЂРё Р»РёРїСЃР° РЅР° РєР°РґСЉСЂ */
 }
 
-/* Вътрешните слоеве (снимка/видео) да запълват квадрата */
+/* Р’СЉС‚СЂРµС€РЅРёС‚Рµ СЃР»РѕРµРІРµ (СЃРЅРёРјРєР°/РІРёРґРµРѕ) РґР° Р·Р°РїСЉР»РІР°С‚ РєРІР°РґСЂР°С‚Р° */
 .muscle-anatomy-section .muscle-media > img,
 .muscle-anatomy-section .muscle-media > video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;     /* без черни ленти */
+  object-fit: cover;     /* Р±РµР· С‡РµСЂРЅРё Р»РµРЅС‚Рё */
   display: block;
   transition: opacity .3s ease, transform .3s ease, filter .3s ease;
 }
 
-/* По подразбиране: снимката се вижда, видеото е скрито */
+/* РџРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ: СЃРЅРёРјРєР°С‚Р° СЃРµ РІРёР¶РґР°, РІРёРґРµРѕС‚Рѕ Рµ СЃРєСЂРёС‚Рѕ */
 .muscle-anatomy-section .muscle-media .static-muscle-img { opacity: 1; z-index: 1; }
 .muscle-anatomy-section .muscle-media .hover-muscle-video { opacity: 0; z-index: 2; }
 
-/* При hover/focus: показваме видеото */
+/* РџСЂРё hover/focus: РїРѕРєР°Р·РІР°РјРµ РІРёРґРµРѕС‚Рѕ */
 .muscle-anatomy-section .muscle-media:hover .hover-muscle-video,
 .muscle-anatomy-section .muscle-media:focus-within .hover-muscle-video { opacity: 1; }
 .muscle-anatomy-section .muscle-media:hover .static-muscle-img,
 .muscle-anatomy-section .muscle-media:focus-within .static-muscle-img { opacity: 0; }
 
-/* Малък бейдж "Видео" – видим върху светъл фон */
+/* РњР°Р»СЉРє Р±РµР№РґР¶ "Р’РёРґРµРѕ" вЂ“ РІРёРґРёРј РІСЉСЂС…Сѓ СЃРІРµС‚СЉР» С„РѕРЅ */
 .muscle-anatomy-section .muscle-media::before {
-  content: "Видео ▶";
+  content: "Р’РёРґРµРѕ в–¶";
   position: absolute; left: 10px; top: 10px;
   font-size: 12px; padding: 6px 10px;
   border-radius: 999px;
@@ -256,27 +256,27 @@
   z-index: 3;
 }
 
-/* Детайлите вдясно – едно под друго, „залепени“ за медията */
+/* Р”РµС‚Р°Р№Р»РёС‚Рµ РІРґСЏСЃРЅРѕ вЂ“ РµРґРЅРѕ РїРѕРґ РґСЂСѓРіРѕ, вЂћР·Р°Р»РµРїРµРЅРёвЂњ Р·Р° РјРµРґРёСЏС‚Р° */
 .muscle-anatomy-section .muscle-details {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  align-self: stretch;      /* същата височина като медията при достатъчно съдържание */
+  align-self: stretch;      /* СЃСЉС‰Р°С‚Р° РІРёСЃРѕС‡РёРЅР° РєР°С‚Рѕ РјРµРґРёСЏС‚Р° РїСЂРё РґРѕСЃС‚Р°С‚СЉС‡РЅРѕ СЃСЉРґСЉСЂР¶Р°РЅРёРµ */
 }
 .muscle-anatomy-section .muscle-info-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Анатомия и Болка – вертикално */
+  grid-template-columns: 1fr; /* РђРЅР°С‚РѕРјРёСЏ Рё Р‘РѕР»РєР° вЂ“ РІРµСЂС‚РёРєР°Р»РЅРѕ */
   gap: 12px;
 }
 
-/* Мобилен изглед: стекваме, но пазим квадрат 1:1 */
+/* РњРѕР±РёР»РµРЅ РёР·РіР»РµРґ: СЃС‚РµРєРІР°РјРµ, РЅРѕ РїР°Р·РёРј РєРІР°РґСЂР°С‚ 1:1 */
 @media (max-width: 900px) {
   .muscle-anatomy-section .muscle-item {
-    grid-template-columns: 1fr;         /* медия отгоре, текст отдолу */
+    grid-template-columns: 1fr;         /* РјРµРґРёСЏ РѕС‚РіРѕСЂРµ, С‚РµРєСЃС‚ РѕС‚РґРѕР»Сѓ */
   }
   .muscle-anatomy-section .muscle-media {
-    max-width: 280px;                    /* малко по-малък квадрат */
-    margin: 0 auto;                      /* центриране */
+    max-width: 280px;                    /* РјР°Р»РєРѕ РїРѕ-РјР°Р»СЉРє РєРІР°РґСЂР°С‚ */
+    margin: 0 auto;                      /* С†РµРЅС‚СЂРёСЂР°РЅРµ */
   }
 }
 /* Alternative Healing Section Styles */
@@ -392,7 +392,7 @@
     }
 } 
 footer {
-  font-size: 25px;          /* по-едър базов текст */
+  font-size: 25px;          /* РїРѕ-РµРґСЉСЂ Р±Р°Р·РѕРІ С‚РµРєСЃС‚ */
   line-height: 1.6;
   background: #f9f9f9;
   padding: 40px 20px;
@@ -416,13 +416,13 @@ footer .contact-container {
 }
 
 footer .social-links img {
-  width: 80px;              /* по-големи социални икони */
+  width: 80px;              /* РїРѕ-РіРѕР»РµРјРё СЃРѕС†РёР°Р»РЅРё РёРєРѕРЅРё */
   height: 80px;
   object-fit: contain;
 }
 
 footer .icon {
-  width: 60px;              /* по-големи иконки за телефон/часовник/адрес */
+  width: 60px;              /* РїРѕ-РіРѕР»РµРјРё РёРєРѕРЅРєРё Р·Р° С‚РµР»РµС„РѕРЅ/С‡Р°СЃРѕРІРЅРёРє/Р°РґСЂРµСЃ */
   height: 60px;
   flex-shrink: 0;
 }
@@ -437,7 +437,7 @@ footer .contact-item {
 footer .work-hours span,
 footer .address-item span,
 footer .contact-item span {
-  font-size: 1.05rem;       /* малко по-едър от базовия */
+  font-size: 1.05rem;       /* РјР°Р»РєРѕ РїРѕ-РµРґСЉСЂ РѕС‚ Р±Р°Р·РѕРІРёСЏ */
 }
 
 footer .footer-links {
@@ -461,7 +461,7 @@ footer .footer-links {
     height: 220px !important;
   }
 }
-/* ===== FOOTER – layout и визия като на скрийншота ===== */
+/* ===== FOOTER вЂ“ layout Рё РІРёР·РёСЏ РєР°С‚Рѕ РЅР° СЃРєСЂРёР№РЅС€РѕС‚Р° ===== */
 footer{
   background:#f3f5f7;
   padding: 40px 0 28px;
@@ -472,7 +472,7 @@ footer{
 
 footer .contact-section{ max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 
-/* Три колони: карта (фиксирана), център (икони), дясно (телефон/час/адрес) */
+/* РўСЂРё РєРѕР»РѕРЅРё: РєР°СЂС‚Р° (С„РёРєСЃРёСЂР°РЅР°), С†РµРЅС‚СЉСЂ (РёРєРѕРЅРё), РґСЏСЃРЅРѕ (С‚РµР»РµС„РѕРЅ/С‡Р°СЃ/Р°РґСЂРµСЃ) */
 footer .contact-container{
   display: grid;
   grid-template-columns: 360px 1fr 1.2fr;
@@ -480,7 +480,7 @@ footer .contact-container{
   align-items: start;
 }
 
-/* --- ЛЯВО: карта --- */
+/* --- Р›РЇР’Рћ: РєР°СЂС‚Р° --- */
 footer .contact-left .map iframe{
   width: 360px; height: 260px;
   border: 0;
@@ -490,7 +490,7 @@ footer .contact-left .map iframe{
   display:block;
 }
 
-/* --- ЦЕНТЪР: заглавие + социални --- */
+/* --- Р¦Р•РќРўРЄР : Р·Р°РіР»Р°РІРёРµ + СЃРѕС†РёР°Р»РЅРё --- */
 footer .contact-center{ text-align: center; }
 footer .contact-center h2{
   margin: 0 0 14px;
@@ -503,13 +503,13 @@ footer .social-links{
 }
 footer .social-links a{ display:inline-flex; }
 footer .social-links img{
-  width: 64px; height: 64px;   /* едри социални икони */
+  width: 64px; height: 64px;   /* РµРґСЂРё СЃРѕС†РёР°Р»РЅРё РёРєРѕРЅРё */
   object-fit: contain; display:block;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
   border-radius: 8px;
 }
 
-/* --- ДЯСНО: телефон голям, работно време, адрес --- */
+/* --- Р”РЇРЎРќРћ: С‚РµР»РµС„РѕРЅ РіРѕР»СЏРј, СЂР°Р±РѕС‚РЅРѕ РІСЂРµРјРµ, Р°РґСЂРµСЃ --- */
 footer .contact-right{ }
 footer .contact-item{ display:flex; gap:12px; align-items:center; margin-bottom: 16px; }
 footer .icon{ width: 48px; height: 48px; object-fit: contain; flex:0 0 48px; }
@@ -530,7 +530,7 @@ footer .map-link{
 }
 footer .map-link:hover{ text-decoration: none; }
 
-/* Долен ред с линкове */
+/* Р”РѕР»РµРЅ СЂРµРґ СЃ Р»РёРЅРєРѕРІРµ */
 footer .footer-links{
   margin-top: 22px; text-align:center; font-size: 1.05rem;
 }
@@ -539,7 +539,7 @@ footer .footer-links a{ color:#0b66ff; }
 /* --- Responsive --- */
 @media (max-width: 1024px){
   footer .contact-container{
-    grid-template-columns: 320px 1fr;    /* карта + комбинирана дясна колона */
+    grid-template-columns: 320px 1fr;    /* РєР°СЂС‚Р° + РєРѕРјР±РёРЅРёСЂР°РЅР° РґСЏСЃРЅР° РєРѕР»РѕРЅР° */
     grid-auto-rows: auto;
   }
   footer .contact-center{ order: 2; }
@@ -555,9 +555,9 @@ footer .footer-links a{ color:#0b66ff; }
 }
 
 
-/* ====== UX подобрения и ефекти за фуутъра ====== */
+/* ====== UX РїРѕРґРѕР±СЂРµРЅРёСЏ Рё РµС„РµРєС‚Рё Р·Р° С„СѓСѓС‚СЉСЂР° ====== */
 
-/* 1) Глобални променливи за цветове и сенки */
+/* 1) Р“Р»РѕР±Р°Р»РЅРё РїСЂРѕРјРµРЅР»РёРІРё Р·Р° С†РІРµС‚РѕРІРµ Рё СЃРµРЅРєРё */
 :root{
   --f-accent: #0b66ff;
   --f-ink: #0f172a;
@@ -566,7 +566,7 @@ footer .footer-links a{ color:#0b66ff; }
   --f-ring: 0 0 0 3px rgba(11,102,255,.18);
 }
 
-/* 2) Плавни преходи по подразбиране за кликаеми неща */
+/* 2) РџР»Р°РІРЅРё РїСЂРµС…РѕРґРё РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ Р·Р° РєР»РёРєР°РµРјРё РЅРµС‰Р° */
 footer a, 
 footer .social-links a,
 footer .contact-item,
@@ -584,7 +584,7 @@ footer .social-links img{
     background-color .25s ease;
 }
 
-/* 3) Социални икони – „изплуване“ + меко сияние */
+/* 3) РЎРѕС†РёР°Р»РЅРё РёРєРѕРЅРё вЂ“ вЂћРёР·РїР»СѓРІР°РЅРµвЂњ + РјРµРєРѕ СЃРёСЏРЅРёРµ */
 footer .social-links a{
   position: relative;
   border-radius: 10px;
@@ -602,7 +602,7 @@ footer .social-links a:active{
   transform: translateY(-1px) scale(.99);
 }
 
-/* 4) Контакт редове – фина карта при ховър */
+/* 4) РљРѕРЅС‚Р°РєС‚ СЂРµРґРѕРІРµ вЂ“ С„РёРЅР° РєР°СЂС‚Р° РїСЂРё С…РѕРІСЉСЂ */
 footer .contact-item{
   border-radius: 14px;
   padding: 8px 10px;
@@ -618,7 +618,7 @@ footer .contact-item:hover .icon{
   transform: scale(1.06) rotate(-2deg);
 }
 
-/* 5) Телефон – акцент при ховър (лек „пулс“) */
+/* 5) РўРµР»РµС„РѕРЅ вЂ“ Р°РєС†РµРЅС‚ РїСЂРё С…РѕРІСЉСЂ (Р»РµРє вЂћРїСѓР»СЃвЂњ) */
 @keyframes f-pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.03); }
@@ -628,7 +628,7 @@ footer .contact-item.phone:hover span{
   animation: f-pulse .8s ease-in-out;
 }
 
-/* 6) Линкове долу – анимирано подчертаване */
+/* 6) Р›РёРЅРєРѕРІРµ РґРѕР»Сѓ вЂ“ Р°РЅРёРјРёСЂР°РЅРѕ РїРѕРґС‡РµСЂС‚Р°РІР°РЅРµ */
 footer .footer-links a{
   position: relative;
   text-decoration: none;
@@ -640,15 +640,15 @@ footer .footer-links a{
 footer .footer-links a:hover,
 footer .footer-links a:focus-visible{
   color: var(--f-accent);
-  background-size: 100% 2px;    /* от центъра към краищата */
+  background-size: 100% 2px;    /* РѕС‚ С†РµРЅС‚СЉСЂР° РєСЉРј РєСЂР°РёС‰Р°С‚Р° */
 }
 
-/* 7) Линк към карта – „индикатор“ при ховър */
+/* 7) Р›РёРЅРє РєСЉРј РєР°СЂС‚Р° вЂ“ вЂћРёРЅРґРёРєР°С‚РѕСЂвЂњ РїСЂРё С…РѕРІСЉСЂ */
 footer .map-link{
   position: relative;
 }
 footer .map-link::after{
-  content:"↗";
+  content:"в†—";
   margin-left: .35em;
   opacity: .0;
   transition: transform .25s ease, opacity .25s ease;
@@ -659,7 +659,7 @@ footer .map-link:focus-visible::after{
   transform: translateY(-1px);
 }
 
-/* 8) Карта – фино издигане на iframe при ховър */
+/* 8) РљР°СЂС‚Р° вЂ“ С„РёРЅРѕ РёР·РґРёРіР°РЅРµ РЅР° iframe РїСЂРё С…РѕРІСЉСЂ */
 footer .contact-left .map iframe{
   transition: transform .3s ease, box-shadow .3s ease;
 }
@@ -668,13 +668,13 @@ footer .contact-left .map iframe:hover{
   box-shadow: 0 12px 28px rgba(0,0,0,.12);
 }
 
-/* 9) Фокус стилове за достъпност */
+/* 9) Р¤РѕРєСѓСЃ СЃС‚РёР»РѕРІРµ Р·Р° РґРѕСЃС‚СЉРїРЅРѕСЃС‚ */
 footer a:focus-visible{
   box-shadow: var(--f-ring);
   border-radius: 10px;
 }
 
-/* 10) „Back to top“ бутон за фуутър (скрива се на мобилно) */
+/* 10) вЂћBack to topвЂњ Р±СѓС‚РѕРЅ Р·Р° С„СѓСѓС‚СЉСЂ (СЃРєСЂРёРІР° СЃРµ РЅР° РјРѕР±РёР»РЅРѕ) */
 footer .back-to-top{
   display:inline-flex;
   align-items:center;
@@ -691,7 +691,7 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
   footer .back-to-top{ display:none; }
 }
 
-/* 11) Тъмна тема (автоматично) */
+/* 11) РўСЉРјРЅР° С‚РµРјР° (Р°РІС‚РѕРјР°С‚РёС‡РЅРѕ) */
 @media (prefers-color-scheme: dark){
   :root{
     --f-bg:#0b1220;

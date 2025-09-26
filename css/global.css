@@ -1,11 +1,11 @@
-/* === FIX: изолиране на топ бара от глобалния header/nav === */
+﻿/* === FIX: РёР·РѕР»РёСЂР°РЅРµ РЅР° С‚РѕРї Р±Р°СЂР° РѕС‚ РіР»РѕР±Р°Р»РЅРёСЏ header/nav === */
 
-/* 1) Спиране на глобалните header-правила върху top-bar */
+/* 1) РЎРїРёСЂР°РЅРµ РЅР° РіР»РѕР±Р°Р»РЅРёС‚Рµ header-РїСЂР°РІРёР»Р° РІСЉСЂС…Сѓ top-bar */
 header.top-bar {
-  background: #ffffff;          /* твоя палитра за топ бара */
+  background: #ffffff;          /* С‚РІРѕСЏ РїР°Р»РёС‚СЂР° Р·Р° С‚РѕРї Р±Р°СЂР° */
   color: #0f172a;
-  padding: 0;                   /* маха 20px от глобалния header */
-  text-align: left;             /* маха центрирането */
+  padding: 0;                   /* РјР°С…Р° 20px РѕС‚ РіР»РѕР±Р°Р»РЅРёСЏ header */
+  text-align: left;             /* РјР°С…Р° С†РµРЅС‚СЂРёСЂР°РЅРµС‚Рѕ */
   box-shadow: 0 1px 6px rgba(0,0,0,.06);
   position: sticky;
   top: 0;
@@ -13,7 +13,7 @@ header.top-bar {
   border-bottom: 1px solid #e2e8f0;
 }
 
-/* 2) Съдържание в ред: лого вляво, меню вдясно */
+/* 2) РЎСЉРґСЉСЂР¶Р°РЅРёРµ РІ СЂРµРґ: Р»РѕРіРѕ РІР»СЏРІРѕ, РјРµРЅСЋ РІРґСЏСЃРЅРѕ */
 .top-bar .top-bar-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -24,28 +24,28 @@ header.top-bar {
   gap: 16px;
 }
 
-/* 3) Лого */
+/* 3) Р›РѕРіРѕ */
 .top-bar .logo-link {
   display: inline-flex;
   align-items: center;
 }
 .top-bar .main-logo {
-  height: 48px;                 /* нагласи според нуждите */
+  height: 48px;                 /* РЅР°РіР»Р°СЃРё СЃРїРѕСЂРµРґ РЅСѓР¶РґРёС‚Рµ */
   width: auto;
   display: block;
 }
 
-/* 4) Меню – зануляване на глобалния nav ul margin и подредба в ред */
+/* 4) РњРµРЅСЋ вЂ“ Р·Р°РЅСѓР»СЏРІР°РЅРµ РЅР° РіР»РѕР±Р°Р»РЅРёСЏ nav ul margin Рё РїРѕРґСЂРµРґР±Р° РІ СЂРµРґ */
 .top-bar .main-nav ul {
   list-style: none;
-  margin: 0;                    /* override на nav ul { margin:15px ... } */
+  margin: 0;                    /* override РЅР° nav ul { margin:15px ... } */
   padding: 0;
   display: flex;
   align-items: center;
   gap: 20px;
 }
 .top-bar .main-nav a {
-  color: #0f172a;               /* или #006666, ако искаш */
+  color: #0f172a;               /* РёР»Рё #006666, Р°РєРѕ РёСЃРєР°С€ */
   text-decoration: none;
   font-weight: 700;
   font-size: 1rem;
@@ -58,7 +58,7 @@ header.top-bar {
   transform: translateY(-1px);
 }
 
-/* 5) Хамбургер – скрит по подразбиране (десктоп), показва се само на мобилно */
+/* 5) РҐР°РјР±СѓСЂРіРµСЂ вЂ“ СЃРєСЂРёС‚ РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ (РґРµСЃРєС‚РѕРї), РїРѕРєР°Р·РІР° СЃРµ СЃР°РјРѕ РЅР° РјРѕР±РёР»РЅРѕ */
 .hamburger-menu-toggle {
   display: none;
   background: transparent;
@@ -69,7 +69,7 @@ header.top-bar {
   cursor: pointer;
 }
 
-/* 6) Dropdown (ако ползваш .dropdown/.dropdown-content) */
+/* 6) Dropdown (Р°РєРѕ РїРѕР»Р·РІР°С€ .dropdown/.dropdown-content) */
 .top-bar .dropdown {
   position: relative;
 }
@@ -84,7 +84,7 @@ header.top-bar {
   box-shadow: 0 10px 24px rgba(2,6,23,.12);
   padding: 8px;
   display: none;
-  z-index: 1001; /* над бара */
+  z-index: 1001; /* РЅР°Рґ Р±Р°СЂР° */
 }
 .top-bar .dropdown:hover .dropdown-content {
   display: block;
@@ -98,11 +98,11 @@ header.top-bar {
 }
 .top-bar .dropdown-content a:hover { background:#f8fafc }
 
-/* 7) Мобилен режим: показваме хамбургера, крием менюто до отваряне */
+/* 7) РњРѕР±РёР»РµРЅ СЂРµР¶РёРј: РїРѕРєР°Р·РІР°РјРµ С…Р°РјР±СѓСЂРіРµСЂР°, РєСЂРёРµРј РјРµРЅСЋС‚Рѕ РґРѕ РѕС‚РІР°СЂСЏРЅРµ */
 @media (max-width: 768px) {
   .hamburger-menu-toggle { display: inline-flex; align-items: center; }
   .top-bar .main-nav { display: none; }
-  .top-bar .main-nav.is-open {          /* добавяш/махаш is-open с JS */
+  .top-bar .main-nav.is-open {          /* РґРѕР±Р°РІСЏС€/РјР°С…Р°С€ is-open СЃ JS */
     display: block;
     position: absolute;
     top: 100%;

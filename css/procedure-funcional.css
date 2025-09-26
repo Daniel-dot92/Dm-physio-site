@@ -1,4 +1,4 @@
-    /* Основен layout */
+﻿    /* РћСЃРЅРѕРІРµРЅ layout */
     .page-content {
     display: flex;
     flex-direction: row;
@@ -9,15 +9,15 @@
     margin: 0 auto;
     }
 
-    /* Сайдбарът (лявата страна) */
+    /* РЎР°Р№РґР±Р°СЂСЉС‚ (Р»СЏРІР°С‚Р° СЃС‚СЂР°РЅР°) */
     .sidebar-conditions {
-    flex: 0 0 300px; /* фиксирана ширина */
+    flex: 0 0 300px; /* С„РёРєСЃРёСЂР°РЅР° С€РёСЂРёРЅР° */
     background: #f7f7f7;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     position: sticky;
-    top: 20px; /* sticky при скрол */
+    top: 20px; /* sticky РїСЂРё СЃРєСЂРѕР» */
     height: fit-content;
     }
 
@@ -34,7 +34,7 @@
     gap: 10px;
     }
 
-    /* Основното съдържание (дясната страна) */
+    /* РћСЃРЅРѕРІРЅРѕС‚Рѕ СЃСЉРґСЉСЂР¶Р°РЅРёРµ (РґСЏСЃРЅР°С‚Р° СЃС‚СЂР°РЅР°) */
     .procedure-journey {
     flex: 1;
     background: #fff;
@@ -95,7 +95,7 @@
 
     .journey-content {
     flex: 1;
-    margin-top: -18px; /* намали или увеличи според ефекта */
+    margin-top: -18px; /* РЅР°РјР°Р»Рё РёР»Рё СѓРІРµР»РёС‡Рё СЃРїРѕСЂРµРґ РµС„РµРєС‚Р° */
     }
 
 
@@ -111,22 +111,22 @@
     font-weight: 600;
     font-size: 1rem;
     position: relative;
-    z-index: 5; /* извежда ги над hover-img */
+    z-index: 5; /* РёР·РІРµР¶РґР° РіРё РЅР°Рґ hover-img */
     }
 
     .step-time2 {
-    width: 300px;        /* колкото е .journey-image */
-    margin: 10px auto;   /* центрира под картинката */
+    width: 300px;        /* РєРѕР»РєРѕС‚Рѕ Рµ .journey-image */
+    margin: 10px auto;   /* С†РµРЅС‚СЂРёСЂР° РїРѕРґ РєР°СЂС‚РёРЅРєР°С‚Р° */
     text-align: center;
     font-weight: 600;
     font-size: 1rem;
     color: #222;
     }
-/* Нови класове, за да няма конфликт */
+/* РќРѕРІРё РєР»Р°СЃРѕРІРµ, Р·Р° РґР° РЅСЏРјР° РєРѕРЅС„Р»РёРєС‚ */
 .procedure-media {
-  flex: 0 0 300px;       /* същата ширина като преди */
+  flex: 0 0 300px;       /* СЃСЉС‰Р°С‚Р° С€РёСЂРёРЅР° РєР°С‚Рѕ РїСЂРµРґРё */
   position: relative;
-  margin: 0;             /* фигура без допълнителни марджини */
+  margin: 0;             /* С„РёРіСѓСЂР° Р±РµР· РґРѕРїСЉР»РЅРёС‚РµР»РЅРё РјР°СЂРґР¶РёРЅРё */
 }
 
 .procedure-media .media-static,
@@ -142,7 +142,7 @@
   left: 0;
   opacity: 0;
   transition: opacity .3s;
-  pointer-events: none;   /* важно: GIF-ът не „закрива“ нищо */
+  pointer-events: none;   /* РІР°Р¶РЅРѕ: GIF-СЉС‚ РЅРµ вЂћР·Р°РєСЂРёРІР°вЂњ РЅРёС‰Рѕ */
 }
 
 .procedure-media:hover .media-anim {
@@ -158,7 +158,7 @@
   color: #222;
 }
 
-/* по избор: ако искаш същия външен вид като .journey-image */
+/* РїРѕ РёР·Р±РѕСЂ: Р°РєРѕ РёСЃРєР°С€ СЃСЉС‰РёСЏ РІСЉРЅС€РµРЅ РІРёРґ РєР°С‚Рѕ .journey-image */
 .journey-step {
   display: flex;
   gap: 25px;

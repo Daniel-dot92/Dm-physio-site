@@ -1,30 +1,30 @@
-// /js/media-autoplay-cards.js
+﻿// /js/media-autoplay-cards.js
 document.addEventListener('DOMContentLoaded', () => {
   const MOBILE_QUERY = '(hover: none) and (pointer: coarse)';
   const mql = window.matchMedia(MOBILE_QUERY);
   let isMobile = mql.matches;
 
-  // Контейнери, които на десктоп трябва да PLAY само при hover:
-  // 👉 Добавени: .two-col__right .pain-buttons-vertical … и #pain-conditions-intro .pain-buttons-grid …
+  // РљРѕРЅС‚РµР№РЅРµСЂРё, РєРѕРёС‚Рѕ РЅР° РґРµСЃРєС‚РѕРї С‚СЂСЏР±РІР° РґР° PLAY СЃР°РјРѕ РїСЂРё hover:
+  // рџ‘‰ Р”РѕР±Р°РІРµРЅРё: .two-col__right .pain-buttons-vertical вЂ¦ Рё #pain-conditions-intro .pain-buttons-grid вЂ¦
   const HOVER_CONTAINERS = [
     '.card__media',
     '.pain-button-media',
     '.journey-image',
     '.image-container',
 
-    // новите ти секции (изрично, за да се закачат във всички случаи):
+    // РЅРѕРІРёС‚Рµ С‚Рё СЃРµРєС†РёРё (РёР·СЂРёС‡РЅРѕ, Р·Р° РґР° СЃРµ Р·Р°РєР°С‡Р°С‚ РІСЉРІ РІСЃРёС‡РєРё СЃР»СѓС‡Р°Рё):
     '.pain-buttons-grid .pain-button-media',
     '.pain-buttons-vertical .pain-button-media',
     '.two-col__right .pain-buttons-vertical .pain-button-media',
     '#pain-conditions-intro .pain-buttons-grid .pain-button-media',
-    // ако някъде липсва .pain-button-media, хващаме и .image-container вътре в тези секции:
+    // Р°РєРѕ РЅСЏРєСЉРґРµ Р»РёРїСЃРІР° .pain-button-media, С…РІР°С‰Р°РјРµ Рё .image-container РІСЉС‚СЂРµ РІ С‚РµР·Рё СЃРµРєС†РёРё:
     '.pain-buttons-grid .image-container',
     '.pain-buttons-vertical .image-container',
     '.two-col__right .pain-buttons-vertical .image-container',
     '#pain-conditions-intro .pain-buttons-grid .image-container'
   ].join(',');
 
-  // Намира двойката (static img, video) в даден контейнер
+  // РќР°РјРёСЂР° РґРІРѕР№РєР°С‚Р° (static img, video) РІ РґР°РґРµРЅ РєРѕРЅС‚РµР№РЅРµСЂ
   function getMediaPair(container) {
     let staticImg =
       container.querySelector('.img--static, .static-img, .kinesitherapy-img, .static-hernia-img') ||
@@ -37,21 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
     return { staticImg, video };
   }
 
-  // Подготовка на видео за мобилно autoplay (iOS/Safari)
+  // РџРѕРґРіРѕС‚РѕРІРєР° РЅР° РІРёРґРµРѕ Р·Р° РјРѕР±РёР»РЅРѕ autoplay (iOS/Safari)
   function prepVideo(v) {
     if (!v) return;
-    v.removeAttribute('autoplay');               // централен контрол
+    v.removeAttribute('autoplay');               // С†РµРЅС‚СЂР°Р»РµРЅ РєРѕРЅС‚СЂРѕР»
     v.muted = true;
     v.defaultMuted = true;
     v.setAttribute('muted', '');
     v.playsInline = true;
     v.setAttribute('playsinline', '');
     v.setAttribute('webkit-playsinline', '');
-    // По-щадящ preload, ако липсва
+    // РџРѕ-С‰Р°РґСЏС‰ preload, Р°РєРѕ Р»РёРїСЃРІР°
     if (!v.getAttribute('preload')) v.preload = 'metadata';
   }
 
-  // По-надеждно play (изчаква readyState при нужда)
+  // РџРѕ-РЅР°РґРµР¶РґРЅРѕ play (РёР·С‡Р°РєРІР° readyState РїСЂРё РЅСѓР¶РґР°)
   function safePlay(v) {
     if (!v) return;
     const doPlay = () => v.play().catch(() => {});
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // На мобилни – показва видео и скрива статичната снимка (побеждава hover CSS)
+  // РќР° РјРѕР±РёР»РЅРё вЂ“ РїРѕРєР°Р·РІР° РІРёРґРµРѕ Рё СЃРєСЂРёРІР° СЃС‚Р°С‚РёС‡РЅР°С‚Р° СЃРЅРёРјРєР° (РїРѕР±РµР¶РґР°РІР° hover CSS)
   function revealOnMobile(container, video, staticImg) {
     if (!isMobile || !video) return;
     if (staticImg) staticImg.style.setProperty('opacity', '0', 'important');
@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function hideOnMobile(container, video, staticImg) {
     if (!isMobile || !video) return;
     if (staticImg) staticImg.style.setProperty('opacity', '1', 'important');
-    // ако по дизайн видеото е "hover", го скриваме на мобилно извън екрана
+    // Р°РєРѕ РїРѕ РґРёР·Р°Р№РЅ РІРёРґРµРѕС‚Рѕ Рµ "hover", РіРѕ СЃРєСЂРёРІР°РјРµ РЅР° РјРѕР±РёР»РЅРѕ РёР·РІСЉРЅ РµРєСЂР°РЅР°
     video.style.setProperty('opacity', '0', 'important');
   }
 
-  // IntersectionObserver за мобилни (и за всички, които не са скрити от hover на десктоп)
+  // IntersectionObserver Р·Р° РјРѕР±РёР»РЅРё (Рё Р·Р° РІСЃРёС‡РєРё, РєРѕРёС‚Рѕ РЅРµ СЃР° СЃРєСЂРёС‚Рё РѕС‚ hover РЅР° РґРµСЃРєС‚РѕРї)
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const video = entry.target;
@@ -90,16 +90,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const shouldPlay = entry.isIntersecting && entry.intersectionRatio >= 0.35;
 
       if (shouldPlay) {
-        // На мобилни – разкриваме и пускаме
+        // РќР° РјРѕР±РёР»РЅРё вЂ“ СЂР°Р·РєСЂРёРІР°РјРµ Рё РїСѓСЃРєР°РјРµ
         revealOnMobile(container, video, staticImg);
 
-        // На десктоп, ако е скрито (чака hover), не го пускаме насила
+        // РќР° РґРµСЃРєС‚РѕРї, Р°РєРѕ Рµ СЃРєСЂРёС‚Рѕ (С‡Р°РєР° hover), РЅРµ РіРѕ РїСѓСЃРєР°РјРµ РЅР°СЃРёР»Р°
         if (!isMobile && visuallyHidden) return;
 
         safePlay(video);
       } else {
         if (!video.paused) video.pause();
-        // Нулирай при излизане
+        // РќСѓР»РёСЂР°Р№ РїСЂРё РёР·Р»РёР·Р°РЅРµ
         if (!video.classList.contains('no-reset-on-exit')) video.currentTime = 0;
         hideOnMobile(container, video, staticImg);
       }
@@ -110,14 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: [0, 0.2, 0.35, 0.5, 0.75, 1]
   });
 
-  // Настройва един контейнер (карта/бутон) – подготвя видео, hover за десктоп, IO и за мобилни
+  // РќР°СЃС‚СЂРѕР№РІР° РµРґРёРЅ РєРѕРЅС‚РµР№РЅРµСЂ (РєР°СЂС‚Р°/Р±СѓС‚РѕРЅ) вЂ“ РїРѕРґРіРѕС‚РІСЏ РІРёРґРµРѕ, hover Р·Р° РґРµСЃРєС‚РѕРї, IO Рё Р·Р° РјРѕР±РёР»РЅРё
   function wireContainer(container) {
     const { staticImg, video } = getMediaPair(container);
     if (!video) return;
 
     prepVideo(video);
 
-    // На десктоп – play/pause само при hover
+    // РќР° РґРµСЃРєС‚РѕРї вЂ“ play/pause СЃР°РјРѕ РїСЂРё hover
     container.addEventListener('mouseenter', () => {
       if (isMobile) return;
       if (staticImg) staticImg.style.opacity = '0';
@@ -132,9 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
       video.currentTime = 0;
     });
 
-    // IO наблюдение:
-    // - на мобилни: винаги
-    // - на десктоп: само ако е видимо по CSS (т.е. няма hover-скриване)
+    // IO РЅР°Р±Р»СЋРґРµРЅРёРµ:
+    // - РЅР° РјРѕР±РёР»РЅРё: РІРёРЅР°РіРё
+    // - РЅР° РґРµСЃРєС‚РѕРї: СЃР°РјРѕ Р°РєРѕ Рµ РІРёРґРёРјРѕ РїРѕ CSS (С‚.Рµ. РЅСЏРјР° hover-СЃРєСЂРёРІР°РЅРµ)
     const css = window.getComputedStyle(video);
     const visuallyHidden = (css.opacity === '0' || css.visibility === 'hidden');
     if (isMobile || !visuallyHidden) {
@@ -142,22 +142,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Настройва всички текущи контейнери
+  // РќР°СЃС‚СЂРѕР№РІР° РІСЃРёС‡РєРё С‚РµРєСѓС‰Рё РєРѕРЅС‚РµР№РЅРµСЂРё
   function wireAll() {
     document.querySelectorAll(HOVER_CONTAINERS).forEach(wireContainer);
   }
 
-  // Реконфигуриране при смяна мобилно/десктоп
+  // Р РµРєРѕРЅС„РёРіСѓСЂРёСЂР°РЅРµ РїСЂРё СЃРјСЏРЅР° РјРѕР±РёР»РЅРѕ/РґРµСЃРєС‚РѕРї
   function reconfigure() {
     isMobile = mql.matches;
     io.disconnect();
     wireAll();
   }
 
-  // Първоначално закачане
+  // РџСЉСЂРІРѕРЅР°С‡Р°Р»РЅРѕ Р·Р°РєР°С‡Р°РЅРµ
   wireAll();
 
-  // Ако добавяш карти динамично (напр. в сайдбар „Болкови състояния“)
+  // РђРєРѕ РґРѕР±Р°РІСЏС€ РєР°СЂС‚Рё РґРёРЅР°РјРёС‡РЅРѕ (РЅР°РїСЂ. РІ СЃР°Р№РґР±Р°СЂ вЂћР‘РѕР»РєРѕРІРё СЃСЉСЃС‚РѕСЏРЅРёСЏвЂњ)
   const mo = new MutationObserver((mutations) => {
     let needsWire = false;
     for (const m of mutations) {
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   mo.observe(document.body, { childList: true, subtree: true });
 
-  // Респонсив смяна
+  // Р РµСЃРїРѕРЅСЃРёРІ СЃРјСЏРЅР°
   if (mql.addEventListener) mql.addEventListener('change', reconfigure);
   window.addEventListener('resize', reconfigure, { passive: true });
 });

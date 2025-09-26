@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
   /* =========================
-     Calendly (без промени)
+     Calendly (Р±РµР· РїСЂРѕРјРµРЅРё)
   ========================== */
   const calendlyButtons = document.querySelectorAll('.calendly-button');
   calendlyButtons.forEach(button => {
@@ -22,19 +22,19 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* =====================================================
-     Автопускане при видимост (мобилни + десктоп)
+     РђРІС‚РѕРїСѓСЃРєР°РЅРµ РїСЂРё РІРёРґРёРјРѕСЃС‚ (РјРѕР±РёР»РЅРё + РґРµСЃРєС‚РѕРї)
   ====================================================== */
   const MOBILE_QUERY = '(hover: none) and (pointer: coarse)';
   const mql = window.matchMedia(MOBILE_QUERY);
   let isMobile = mql.matches;
 
-  // Всички видеа
+  // Р’СЃРёС‡РєРё РІРёРґРµР°
   const allVideos = Array.from(document.querySelectorAll('video'));
 
-  // Подготовка за iOS/Android + централен контрол
+  // РџРѕРґРіРѕС‚РѕРІРєР° Р·Р° iOS/Android + С†РµРЅС‚СЂР°Р»РµРЅ РєРѕРЅС‚СЂРѕР»
   allVideos.forEach(v => {
-    v.removeAttribute('autoplay');               // ние управляваме autoplay
-    v.muted = true;                              // нужно за мобилен autoplay
+    v.removeAttribute('autoplay');               // РЅРёРµ СѓРїСЂР°РІР»СЏРІР°РјРµ autoplay
+    v.muted = true;                              // РЅСѓР¶РЅРѕ Р·Р° РјРѕР±РёР»РµРЅ autoplay
     v.defaultMuted = true;
     v.setAttribute('muted', '');
     v.playsInline = true;
@@ -43,11 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!v.getAttribute('preload')) v.preload = 'metadata';
   });
 
-  // Помощни селектори
+  // РџРѕРјРѕС‰РЅРё СЃРµР»РµРєС‚РѕСЂРё
   const isProceduresVideo = (v) => !!v.closest('.kinesitherapy-button-media');
 
-  // На ДЕСКТОП: не наблюдаваме „Нашите процедури“ (те са само hover)
-  // На МОБИЛНИ: наблюдаваме всички
+  // РќР° Р”Р•РЎРљРўРћРџ: РЅРµ РЅР°Р±Р»СЋРґР°РІР°РјРµ вЂћРќР°С€РёС‚Рµ РїСЂРѕС†РµРґСѓСЂРёвЂњ (С‚Рµ СЃР° СЃР°РјРѕ hover)
+  // РќР° РњРћР‘РР›РќР: РЅР°Р±Р»СЋРґР°РІР°РјРµ РІСЃРёС‡РєРё
   let observedVideos = allVideos.filter(v => isMobile || !isProceduresVideo(v));
 
   function containerOf(videoEl) {
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
     );
   }
 
-  // Форсирано показване/скриване на мобилни (с !important — побеждава hover CSS)
+  // Р¤РѕСЂСЃРёСЂР°РЅРѕ РїРѕРєР°Р·РІР°РЅРµ/СЃРєСЂРёРІР°РЅРµ РЅР° РјРѕР±РёР»РЅРё (СЃ !important вЂ” РїРѕР±РµР¶РґР°РІР° hover CSS)
   function revealVideoOnMobile(videoEl) {
     if (!isMobile) return;
     const img = staticImgFor(videoEl);
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // По-надеждно play: изчаква данни при нужда (iOS/Safari)
+  // РџРѕ-РЅР°РґРµР¶РґРЅРѕ play: РёР·С‡Р°РєРІР° РґР°РЅРЅРё РїСЂРё РЅСѓР¶РґР° (iOS/Safari)
   function safePlay(v) {
     const doPlay = () => v.play().catch(() => {});
     if (v.readyState >= 2) {
@@ -99,32 +99,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // IO наблюдател
+  // IO РЅР°Р±Р»СЋРґР°С‚РµР»
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const v = entry.target;
       const css = window.getComputedStyle(v);
       const visuallyHidden = (css.opacity === '0' || css.visibility === 'hidden');
-      const shouldPlay = entry.isIntersecting && entry.intersectionRatio >= 0.35; // по-рано стартиране
+      const shouldPlay = entry.isIntersecting && entry.intersectionRatio >= 0.35; // РїРѕ-СЂР°РЅРѕ СЃС‚Р°СЂС‚РёСЂР°РЅРµ
 
       if (shouldPlay) {
-        // На мобилни разкриваме видеото и скриваме статичното
+        // РќР° РјРѕР±РёР»РЅРё СЂР°Р·РєСЂРёРІР°РјРµ РІРёРґРµРѕС‚Рѕ Рё СЃРєСЂРёРІР°РјРµ СЃС‚Р°С‚РёС‡РЅРѕС‚Рѕ
         revealVideoOnMobile(v);
 
-        // На десктоп – ако е скрито (чака hover), не пускаме насила
+        // РќР° РґРµСЃРєС‚РѕРї вЂ“ Р°РєРѕ Рµ СЃРєСЂРёС‚Рѕ (С‡Р°РєР° hover), РЅРµ РїСѓСЃРєР°РјРµ РЅР°СЃРёР»Р°
         if (!isMobile && visuallyHidden) return;
 
         safePlay(v);
       } else {
         if (!v.paused) v.pause();
-        // Ако искаш някои групи да НЕ се нулират, добави клас напр. .no-reset-on-exit
+        // РђРєРѕ РёСЃРєР°С€ РЅСЏРєРѕРё РіСЂСѓРїРё РґР° РќР• СЃРµ РЅСѓР»РёСЂР°С‚, РґРѕР±Р°РІРё РєР»Р°СЃ РЅР°РїСЂ. .no-reset-on-exit
         if (!v.classList.contains('no-reset-on-exit')) v.currentTime = 0;
         hideVideoOnMobile(v);
       }
     });
   }, {
     root: null,
-    rootMargin: '200px 0px',   // по-гладко засичане при скрол
+    rootMargin: '200px 0px',   // РїРѕ-РіР»Р°РґРєРѕ Р·Р°СЃРёС‡Р°РЅРµ РїСЂРё СЃРєСЂРѕР»
     threshold: [0, 0.2, 0.35, 0.5, 0.75, 1]
   });
 
@@ -136,14 +136,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   observeAll();
 
-  // Пауза на всички, когато табът е скрит
+  // РџР°СѓР·Р° РЅР° РІСЃРёС‡РєРё, РєРѕРіР°С‚Рѕ С‚Р°Р±СЉС‚ Рµ СЃРєСЂРёС‚
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       allVideos.forEach(v => { if (!v.paused) v.pause(); });
     }
   }, { passive: true });
 
-  // Преинициализация при resize и при смяна мобилен/десктоп брейкпойнт
+  // РџСЂРµРёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїСЂРё resize Рё РїСЂРё СЃРјСЏРЅР° РјРѕР±РёР»РµРЅ/РґРµСЃРєС‚РѕРї Р±СЂРµР№РєРїРѕР№РЅС‚
   function reconfigureObserver() {
     unobserveAll();
     isMobile = mql.matches;
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (mql.addEventListener) mql.addEventListener('change', reconfigureObserver);
 
   /* =====================================================
-     Hover ефекти (само за десктоп)
+     Hover РµС„РµРєС‚Рё (СЃР°РјРѕ Р·Р° РґРµСЃРєС‚РѕРї)
   ====================================================== */
 
   function addHover(containerSelector, imgSelector, videoSelector) {
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!img || !vid) return;
 
       container.addEventListener('mouseenter', () => {
-        if (isMobile) return;    // мобилните се управляват от IO
+        if (isMobile) return;    // РјРѕР±РёР»РЅРёС‚Рµ СЃРµ СѓРїСЂР°РІР»СЏРІР°С‚ РѕС‚ IO
         img.style.opacity = '0';
         vid.style.opacity = '1';
         safePlay(vid);
@@ -182,12 +182,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // Hero / Intro
   addHover('.image-container', '.static-img', '.hover-video');
 
-  // Мускули
+  // РњСѓСЃРєСѓР»Рё
   addHover('.muscle-video-centered', '.static-muscle-img', '.hover-muscle-video');
 
-  // Нашите процедури — hover само на десктоп (на мобилни ги движи IO)
+  // РќР°С€РёС‚Рµ РїСЂРѕС†РµРґСѓСЂРё вЂ” hover СЃР°РјРѕ РЅР° РґРµСЃРєС‚РѕРї (РЅР° РјРѕР±РёР»РЅРё РіРё РґРІРёР¶Рё IO)
   addHover('.kinesitherapy-button-media', '.kinesitherapy-img', '.kinesitherapy-video');
 
-  // Timeline / Hernia стъпки
+  // Timeline / Hernia СЃС‚СЉРїРєРё
   addHover('.hernia-step-media', '.static-hernia-img', '.hover-hernia-video');
 });

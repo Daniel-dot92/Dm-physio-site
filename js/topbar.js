@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   const MOBILE_MAX = 768;
@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const dropToggles = document.querySelectorAll('.tb-drop-toggle');
 
   /* ---------- SCROLL BEHAVIOR ----------
-     - при y > 0 -> става прозрачна (rgba 0.4)
-     - при y === 0 -> обратно плътна
+     - РїСЂРё y > 0 -> СЃС‚Р°РІР° РїСЂРѕР·СЂР°С‡РЅР° (rgba 0.4)
+     - РїСЂРё y === 0 -> РѕР±СЂР°С‚РЅРѕ РїР»СЉС‚РЅР°
   -------------------------------------- */
   function applyHeaderBg(){
     if (!header) return;
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // init + on scroll (с rAF)
+  // init + on scroll (СЃ rAF)
   let ticking = false;
   function onScroll(){
     if (!ticking){
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeMobileMenu(){
     nav?.classList.remove('tb-nav--open');
     document.body.classList.remove('tb-no-scroll');
-    // затваряме и всички отворени dropdown-и
+    // Р·Р°С‚РІР°СЂСЏРјРµ Рё РІСЃРёС‡РєРё РѕС‚РІРѕСЂРµРЅРё dropdown-Рё
     document.querySelectorAll('.tb-dropdown.tb-open').forEach(li => li.classList.remove('tb-open'));
     burger?.setAttribute('aria-expanded', 'false');
   }
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleMobileMenu();
   });
 
-  // затваряне при клик извън
+  // Р·Р°С‚РІР°СЂСЏРЅРµ РїСЂРё РєР»РёРє РёР·РІСЉРЅ
   document.addEventListener('click', (e) => {
     if (!isMobile() || !nav) return;
     const target = e.target;
@@ -67,29 +67,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ESC затваря
+  // ESC Р·Р°С‚РІР°СЂСЏ
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isMobile() && nav?.classList.contains('tb-nav--open')) {
       closeMobileMenu();
     }
   });
 
-  // при resize към десктоп чистим мобилното състояние
+  // РїСЂРё resize РєСЉРј РґРµСЃРєС‚РѕРї С‡РёСЃС‚РёРј РјРѕР±РёР»РЅРѕС‚Рѕ СЃСЉСЃС‚РѕСЏРЅРёРµ
   window.addEventListener('resize', () => {
     if (!isMobile()) closeMobileMenu();
   });
 
   /* ---------- MOBILE: dropdown toggle ---------- */
-/* На мобилно НЕ искаме акордеон. Позволяваме линкът да навигира. */
+/* РќР° РјРѕР±РёР»РЅРѕ РќР• РёСЃРєР°РјРµ Р°РєРѕСЂРґРµРѕРЅ. РџРѕР·РІРѕР»СЏРІР°РјРµ Р»РёРЅРєСЉС‚ РґР° РЅР°РІРёРіРёСЂР°. */
 if (dropToggles.length){
   dropToggles.forEach(a => {
     a.addEventListener('click', (e) => {
-      // ако е мобилно: не правим нищо (НЕ preventDefault), позволяваме следване на href
+      // Р°РєРѕ Рµ РјРѕР±РёР»РЅРѕ: РЅРµ РїСЂР°РІРёРј РЅРёС‰Рѕ (РќР• preventDefault), РїРѕР·РІРѕР»СЏРІР°РјРµ СЃР»РµРґРІР°РЅРµ РЅР° href
       if (isMobile()) return;
 
-      // на десктоп остава поведение тип hover/click ако го искаш
+      // РЅР° РґРµСЃРєС‚РѕРї РѕСЃС‚Р°РІР° РїРѕРІРµРґРµРЅРёРµ С‚РёРї hover/click Р°РєРѕ РіРѕ РёСЃРєР°С€
       if (a.dataset.dropdown === 'toggle'){
-        // по желание можеш да оставиш този блок за десктоп-клик
+        // РїРѕ Р¶РµР»Р°РЅРёРµ РјРѕР¶РµС€ РґР° РѕСЃС‚Р°РІРёС€ С‚РѕР·Рё Р±Р»РѕРє Р·Р° РґРµСЃРєС‚РѕРї-РєР»РёРє
         // e.preventDefault();
         const li = a.closest('.tb-dropdown');
         if (!li) return;
@@ -101,7 +101,7 @@ if (dropToggles.length){
 }
 
 
-  /* ---------- CLICK по линк: на мобилно затваря менюто ---------- */
+  /* ---------- CLICK РїРѕ Р»РёРЅРє: РЅР° РјРѕР±РёР»РЅРѕ Р·Р°С‚РІР°СЂСЏ РјРµРЅСЋС‚Рѕ ---------- */
   nav?.querySelectorAll('.tb-link, .tb-drop-link').forEach(link => {
     link.addEventListener('click', () => {
       if (isMobile() && nav.classList.contains('tb-nav--open')) {

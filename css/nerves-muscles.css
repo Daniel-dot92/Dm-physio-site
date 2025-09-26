@@ -1,4 +1,4 @@
-/* /css/nerves-muscles.css — по-малки панели */
+﻿/* /css/nerves-muscles.css вЂ” РїРѕ-РјР°Р»РєРё РїР°РЅРµР»Рё */
 :root{
   --bg:#f7f9fc;
   --ink:#0c1426;
@@ -10,7 +10,7 @@
   --gap:18px;
   --brand:#1bbb6d;
 
-  /* НОВО: контрол на размера на панела */
+  /* РќРћР’Рћ: РєРѕРЅС‚СЂРѕР» РЅР° СЂР°Р·РјРµСЂР° РЅР° РїР°РЅРµР»Р° */
   --panel-min: 320px;
   --panel-max: 420px;
 }
@@ -30,31 +30,31 @@ body{
 .hero .sub{font-weight:800}
 .lead{color:var(--muted);max-width:860px;margin:6px 0 0}
 
-/* Две колони: центрираме по-тесните панели */
+/* Р”РІРµ РєРѕР»РѕРЅРё: С†РµРЅС‚СЂРёСЂР°РјРµ РїРѕ-С‚РµСЃРЅРёС‚Рµ РїР°РЅРµР»Рё */
 .two{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:var(--gap);
   align-items:start;
-  justify-items:center;    /* НОВО */
+  justify-items:center;    /* РќРћР’Рћ */
   margin-top:12px;
 }
 @media (max-width: 900px){
   .two{grid-template-columns:1fr; justify-items:stretch}
 }
 
-/* Панел — по-малък и по-стегнат */
+/* РџР°РЅРµР» вЂ” РїРѕ-РјР°Р»СЉРє Рё РїРѕ-СЃС‚РµРіРЅР°С‚ */
 .pane{
-  width: clamp(var(--panel-min), 42vw, var(--panel-max)); /* НОВО */
+  width: clamp(var(--panel-min), 42vw, var(--panel-max)); /* РќРћР’Рћ */
   background:var(--card);
   border:1px solid var(--stroke);
   border-radius:14px;
   box-shadow:var(--shadow);
-  padding:12px;            /* по-малко от преди */
+  padding:12px;            /* РїРѕ-РјР°Р»РєРѕ РѕС‚ РїСЂРµРґРё */
 }
 .h2{margin:2px 6px 8px;font-size:clamp(17px,1.8vw,22px)}
 
-/* 1:1 медия + video hover */
+/* 1:1 РјРµРґРёСЏ + video hover */
 .media-square{
   position:relative;
   aspect-ratio:1/1;
@@ -77,11 +77,11 @@ body{
 .playing .hover-video{opacity:1}
 .playing .poster{opacity:0; transition:opacity .25s ease}
 
-/* Кратък списък */
+/* РљСЂР°С‚СЉРє СЃРїРёСЃСЉРє */
 .mini{margin:10px 0 10px 18px;padding:0}
 .mini li{margin:3px 0}
 
-/* Бутон — една идея по-малък */
+/* Р‘СѓС‚РѕРЅ вЂ” РµРґРЅР° РёРґРµСЏ РїРѕ-РјР°Р»СЉРє */
 .btn{
   display:inline-flex; align-items:center; gap:8px;
   background:var(--brand); color:#06381f;
@@ -93,7 +93,7 @@ body{
 }
 .btn:hover{transform:translateY(-1px); filter:brightness(1.02)}
 
-/* Намалени анимации */
+/* РќР°РјР°Р»РµРЅРё Р°РЅРёРјР°С†РёРё */
 @media (prefers-reduced-motion: reduce){
   .media-square .hover-video{transition:none}
 }
