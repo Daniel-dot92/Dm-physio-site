@@ -11,8 +11,8 @@
   const dropToggles = document.querySelectorAll('.tb-drop-toggle');
 
   /* ---------- SCROLL BEHAVIOR ----------
-     - РїСЂРё y > 0 -> СЃС‚Р°РІР° РїСЂРѕР·СЂР°С‡РЅР° (rgba 0.4)
-     - РїСЂРё y === 0 -> РѕР±СЂР°С‚РЅРѕ РїР»СЉС‚РЅР°
+     - ��� y > 0 -> ����� ��������� (rgba 0.4)
+     - ��� y === 0 -> ������� ������
   -------------------------------------- */
   function applyHeaderBg(){
     if (!header) return;
@@ -24,7 +24,7 @@
     }
   }
 
-  // init + on scroll (СЃ rAF)
+  // init + on scroll (� rAF)
   let ticking = false;
   function onScroll(){
     if (!ticking){
@@ -42,7 +42,7 @@
   function closeMobileMenu(){
     nav?.classList.remove('tb-nav--open');
     document.body.classList.remove('tb-no-scroll');
-    // Р·Р°С‚РІР°СЂСЏРјРµ Рё РІСЃРёС‡РєРё РѕС‚РІРѕСЂРµРЅРё dropdown-Рё
+    // ��������� � ������ �������� dropdown-�
     document.querySelectorAll('.tb-dropdown.tb-open').forEach(li => li.classList.remove('tb-open'));
     burger?.setAttribute('aria-expanded', 'false');
   }
@@ -57,7 +57,7 @@
     toggleMobileMenu();
   });
 
-  // Р·Р°С‚РІР°СЂСЏРЅРµ РїСЂРё РєР»РёРє РёР·РІСЉРЅ
+  // ��������� ��� ���� �����
   document.addEventListener('click', (e) => {
     if (!isMobile() || !nav) return;
     const target = e.target;
@@ -67,29 +67,29 @@
     }
   });
 
-  // ESC Р·Р°С‚РІР°СЂСЏ
+  // ESC �������
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isMobile() && nav?.classList.contains('tb-nav--open')) {
       closeMobileMenu();
     }
   });
 
-  // РїСЂРё resize РєСЉРј РґРµСЃРєС‚РѕРї С‡РёСЃС‚РёРј РјРѕР±РёР»РЅРѕС‚Рѕ СЃСЉСЃС‚РѕСЏРЅРёРµ
+  // ��� resize ��� ������� ������ ��������� ���������
   window.addEventListener('resize', () => {
     if (!isMobile()) closeMobileMenu();
   });
 
   /* ---------- MOBILE: dropdown toggle ---------- */
-/* РќР° РјРѕР±РёР»РЅРѕ РќР• РёСЃРєР°РјРµ Р°РєРѕСЂРґРµРѕРЅ. РџРѕР·РІРѕР»СЏРІР°РјРµ Р»РёРЅРєСЉС‚ РґР° РЅР°РІРёРіРёСЂР°. */
+/* �� ������� �� ������ ��������. ����������� ������ �� ��������. */
 if (dropToggles.length){
   dropToggles.forEach(a => {
     a.addEventListener('click', (e) => {
-      // Р°РєРѕ Рµ РјРѕР±РёР»РЅРѕ: РЅРµ РїСЂР°РІРёРј РЅРёС‰Рѕ (РќР• preventDefault), РїРѕР·РІРѕР»СЏРІР°РјРµ СЃР»РµРґРІР°РЅРµ РЅР° href
+      // ��� � �������: �� ������ ���� (�� preventDefault), ����������� �������� �� href
       if (isMobile()) return;
 
-      // РЅР° РґРµСЃРєС‚РѕРї РѕСЃС‚Р°РІР° РїРѕРІРµРґРµРЅРёРµ С‚РёРї hover/click Р°РєРѕ РіРѕ РёСЃРєР°С€
+      // �� ������� ������ ��������� ��� hover/click ��� �� �����
       if (a.dataset.dropdown === 'toggle'){
-        // РїРѕ Р¶РµР»Р°РЅРёРµ РјРѕР¶РµС€ РґР° РѕСЃС‚Р°РІРёС€ С‚РѕР·Рё Р±Р»РѕРє Р·Р° РґРµСЃРєС‚РѕРї-РєР»РёРє
+        // �� ������� ����� �� ������� ���� ���� �� �������-����
         // e.preventDefault();
         const li = a.closest('.tb-dropdown');
         if (!li) return;
@@ -101,7 +101,7 @@ if (dropToggles.length){
 }
 
 
-  /* ---------- CLICK РїРѕ Р»РёРЅРє: РЅР° РјРѕР±РёР»РЅРѕ Р·Р°С‚РІР°СЂСЏ РјРµРЅСЋС‚Рѕ ---------- */
+  /* ---------- CLICK �� ����: �� ������� ������� ������ ---------- */
   nav?.querySelectorAll('.tb-link, .tb-drop-link').forEach(link => {
     link.addEventListener('click', () => {
       if (isMobile() && nav.classList.contains('tb-nav--open')) {
@@ -110,3 +110,5 @@ if (dropToggles.length){
     });
   });
 });
+
+

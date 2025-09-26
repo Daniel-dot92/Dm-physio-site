@@ -1,4 +1,4 @@
-﻿    /* РћСЃРЅРѕРІРµРЅ layout */
+﻿    /* ������� layout */
     .page-content {
     display: flex;
     flex-direction: row;
@@ -9,15 +9,15 @@
     margin: 0 auto;
     }
 
-    /* РЎР°Р№РґР±Р°СЂСЉС‚ (Р»СЏРІР°С‚Р° СЃС‚СЂР°РЅР°) */
+    /* ��������� (������ ������) */
     .sidebar-conditions {
-    flex: 0 0 300px; /* С„РёРєСЃРёСЂР°РЅР° С€РёСЂРёРЅР° */
+    flex: 0 0 300px; /* ��������� ������ */
     background: #f7f7f7;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     position: sticky;
-    top: 20px; /* sticky РїСЂРё СЃРєСЂРѕР» */
+    top: 20px; /* sticky ��� ����� */
     height: fit-content;
     }
 
@@ -34,7 +34,7 @@
     gap: 10px;
     }
 
-    /* РћСЃРЅРѕРІРЅРѕС‚Рѕ СЃСЉРґСЉСЂР¶Р°РЅРёРµ (РґСЏСЃРЅР°С‚Р° СЃС‚СЂР°РЅР°) */
+    /* ��������� ���������� (������� ������) */
     .procedure-journey {
     flex: 1;
     background: #fff;
@@ -95,7 +95,7 @@
 
     .journey-content {
     flex: 1;
-    margin-top: -18px; /* РЅР°РјР°Р»Рё РёР»Рё СѓРІРµР»РёС‡Рё СЃРїРѕСЂРµРґ РµС„РµРєС‚Р° */
+    margin-top: -18px; /* ������ ��� ������� ������ ������ */
     }
 
 
@@ -111,22 +111,22 @@
     font-weight: 600;
     font-size: 1rem;
     position: relative;
-    z-index: 5; /* РёР·РІРµР¶РґР° РіРё РЅР°Рґ hover-img */
+    z-index: 5; /* ������� �� ��� hover-img */
     }
 
     .step-time2 {
-    width: 300px;        /* РєРѕР»РєРѕС‚Рѕ Рµ .journey-image */
-    margin: 10px auto;   /* С†РµРЅС‚СЂРёСЂР° РїРѕРґ РєР°СЂС‚РёРЅРєР°С‚Р° */
+    width: 300px;        /* ������� � .journey-image */
+    margin: 10px auto;   /* �������� ��� ���������� */
     text-align: center;
     font-weight: 600;
     font-size: 1rem;
     color: #222;
     }
-/* РќРѕРІРё РєР»Р°СЃРѕРІРµ, Р·Р° РґР° РЅСЏРјР° РєРѕРЅС„Р»РёРєС‚ */
+/* ���� �������, �� �� ���� �������� */
 .procedure-media {
-  flex: 0 0 300px;       /* СЃСЉС‰Р°С‚Р° С€РёСЂРёРЅР° РєР°С‚Рѕ РїСЂРµРґРё */
+  flex: 0 0 300px;       /* ������ ������ ���� ����� */
   position: relative;
-  margin: 0;             /* С„РёРіСѓСЂР° Р±РµР· РґРѕРїСЉР»РЅРёС‚РµР»РЅРё РјР°СЂРґР¶РёРЅРё */
+  margin: 0;             /* ������ ��� ������������ �������� */
 }
 
 .procedure-media .media-static,
@@ -142,7 +142,7 @@
   left: 0;
   opacity: 0;
   transition: opacity .3s;
-  pointer-events: none;   /* РІР°Р¶РЅРѕ: GIF-СЉС‚ РЅРµ вЂћР·Р°РєСЂРёРІР°вЂњ РЅРёС‰Рѕ */
+  pointer-events: none;   /* �����: GIF-�� �� �������� ���� */
 }
 
 .procedure-media:hover .media-anim {
@@ -158,9 +158,11 @@
   color: #222;
 }
 
-/* РїРѕ РёР·Р±РѕСЂ: Р°РєРѕ РёСЃРєР°С€ СЃСЉС‰РёСЏ РІСЉРЅС€РµРЅ РІРёРґ РєР°С‚Рѕ .journey-image */
+/* �� �����: ��� ����� ����� ������ ��� ���� .journey-image */
 .journey-step {
   display: flex;
   gap: 25px;
   align-items: flex-start;
 }
+
+

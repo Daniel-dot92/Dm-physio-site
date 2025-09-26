@@ -12,20 +12,20 @@
     const btnCancel= section.querySelector('#cancelForm');
     const sink     = section.querySelector('#hidden_gform');
 
-    // РЎРјСЏРЅР° РЅР° С‚РµРєСЃС‚Р° "РћС‚РІРѕСЂРё/РЎРєСЂРёР№ С„РѕСЂРјР°С‚Р°"
+    // ����� �� ������ "������/����� �������"
     details?.addEventListener('toggle', () => {
       if (!summaryT) return;
-      summaryT.textContent = details.open ? (summaryT.dataset.close || 'РЎРєСЂРёР№ С„РѕСЂРјР°С‚Р°')
-                                          : (summaryT.dataset.open  || 'РџСѓСЃРЅРё Р·Р°РїРёС‚РІР°РЅРµ');
+      summaryT.textContent = details.open ? (summaryT.dataset.close || '����� �������')
+                                          : (summaryT.dataset.open  || '����� ���������');
     });
 
-    // РћС‚РєР°Р·: С‡РёСЃС‚Рё Рё СЃРІРёРІР°
+    // �����: ����� � �����
     btnCancel?.addEventListener('click', () => {
       form?.reset();
       details?.removeAttribute('open');
     });
 
-    // РџРѕРјРѕС‰РЅР°: РїРѕРєР°Р·РІР°РЅРµ РЅР° СѓСЃРїРµС… + СЃРІРёРІР°РЅРµ + reset
+    // �������: ��������� �� ����� + ������� + reset
     function showSuccess() {
       details?.removeAttribute('open');
       if (success) {
@@ -36,11 +36,11 @@
       btnSend?.removeAttribute('disabled');
     }
 
-    // РЎРµСЂРёР°Р»РёР·Р°С†РёСЏ РєСЉРј application/x-www-form-urlencoded (РїРѕ-РЅР°РґРµР¶РґРЅРѕ Р·Р° Google Forms)
+    // ������������ ��� application/x-www-form-urlencoded (��-�������� �� Google Forms)
     function toUrlEncoded(fd) {
       const p = new URLSearchParams();
       for (const [k,v] of fd.entries()) p.append(k, v);
-      p.append('_ts', Date.now()); // Р°РЅС‚Рё-cache
+      p.append('_ts', Date.now()); // ����-cache
       return p.toString();
     }
 
@@ -50,11 +50,11 @@
       if (!form.checkValidity()) { form.reportValidity(); return; }
       btnSend?.setAttribute('disabled', 'true');
 
-      // 1) Р’Р·РµРјР°РјРµ СЃС‚РѕР№РЅРѕСЃС‚РёС‚Рµ РџР Р•Р”Р РєР°РєРІРѕС‚Рѕ Рё РґР° Рµ reset/Р·Р°С‚РІР°СЂСЏРЅРµ
+      // 1) ������� ����������� ����� ������� � �� � reset/���������
       const payload = toUrlEncoded(new FormData(form));
       const action  = form.action;
 
-      // 2) РџСЂР°С‰Р°РјРµ СЃ fetch (no-cors). РџСЂРё РјСЂРµР¶РѕРІР° РіСЂРµС€РєР° вЂ” С„РѕР»Р±РµРє СЃ iframe.
+      // 2) ������� � fetch (no-cors). ��� ������� ������ � ������ � iframe.
       fetch(action, {
         method: 'POST',
         mode: 'no-cors',
@@ -62,11 +62,11 @@
         body: payload
       })
       .then(() => {
-        // РќРµ РјРѕР¶РµРј РґР° С‡РµС‚РµРј РѕС‚РіРѕРІРѕСЂР° (no-cors), РЅРѕ Р·Р°СЏРІРєР°С‚Р° Рµ С‚СЂСЉРіРЅР°Р»Р° в†’ РїРѕРєР°Р·РІР°РјРµ СѓСЃРїРµС…
+        // �� ����� �� ����� �������� (no-cors), �� �������� � �������� > ��������� �����
         showSuccess();
       })
       .catch(() => {
-        // Р¤РѕР»Р±РµРє: СЃР»СѓС€Р°РјРµ onload РЅР° СЃРєСЂРёС‚РёСЏ iframe (Рё СЃ С‚Р°Р№РјРµСЂ Р·Р° РІСЃРµРєРё СЃР»СѓС‡Р°Р№)
+        // ������: ������� onload �� ������� iframe (� � ������ �� ����� ������)
         let done = false;
         const onLoadOnce = () => {
           if (done) return;
@@ -84,10 +84,12 @@
     });
   }
 
-  // РЎС‚Р°СЂС‚РёСЂР°РјРµ СЃРёРіСѓСЂРЅРѕ, Р±РµР· Р·РЅР°С‡РµРЅРёРµ РєСЉРґРµ Рµ РІРєР»СЋС‡РµРЅ СЃРєСЂРёРїС‚СЉС‚
+  // ���������� �������, ��� �������� ���� � ������� ��������
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init, { once: true });
   } else {
     init();
   }
 })();
+
+

@@ -1,9 +1,9 @@
 ﻿/* ========================================================= */
 /* NEW MODERN STYLES FOR "PAIN CONDITIONS" main page         */
-/* РљРћР Р•Р“РР РђРќРђ Р РћРџРўРРњРР—РР РђРќРђ Р’Р•Р РЎРРЇ                          */
+/* ���������� � ������������ ������                          */
 /* ========================================================= */
 
-/* --- РЎС‚РёР»Рё Р·Р° СЃРµРєС†РёСЏ СЃ РїРѕРґСЂРѕР±РЅРё Р±РѕР»РєРѕРІРё СЃСЉСЃС‚РѕСЏРЅРёСЏ (Pain Conditions Detail) --- */
+/* --- ����� �� ������ � �������� ������� ��������� (Pain Conditions Detail) --- */
 .pain-conditions-detail-section {
     padding: 60px 20px;
     background-color: #f8f8f8;
@@ -38,7 +38,7 @@ html, body {
     font-weight: 500;
 }
 
-/* --- РћСЃРЅРѕРІРµРЅ РіСЂРёРґ РєРѕРЅС‚РµР№РЅРµСЂ (Р”Р•РЎРљРўРћРџ РЎРўРР›) --- */
+/* --- ������� ���� ��������� (������� ����) --- */
 .pain-buttons-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -52,13 +52,13 @@ html, body {
     box-sizing: border-box;
 }
 
-/* --- РЎС‚РёР» Р·Р° РІСЃРµРєРё Р±СѓС‚РѕРЅ РІ РіСЂРёРґР° (Р”Р•РЎРљРўРћРџ РЎРўРР›) --- */
+/* --- ���� �� ����� ����� � ����� (������� ����) --- */
 .pain-button {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* РћРїС‚РёРјРёР·РёСЂР°РЅРѕ: С‚РµРєСЃС‚СЉС‚ Рµ РѕС‚РґРѕР»Сѓ, Р° РјРµРґРёСЏС‚Р° РѕС‚РіРѕСЂРµ */
+    justify-content: space-between; /* ������������: ������� � ������, � ������� ������ */
     text-align: center;
     text-decoration: none;
     color: #333;
@@ -70,7 +70,7 @@ html, body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
     overflow: hidden;
     height: auto;
-    min-height: 400px; /* Р—Р°РїР°Р·РІР°Рј РјРёРЅРёРјР°Р»РЅР°С‚Р° РІРёСЃРѕС‡РёРЅР° */
+    min-height: 400px; /* �������� ����������� �������� */
 }
 
 .pain-button:hover {
@@ -79,11 +79,11 @@ html, body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
 }
 
-/* --- РљРѕРЅС‚РµР№РЅРµСЂ Р·Р° РјРµРґРёСЏС‚Р° (РёР·РѕР±СЂР°Р¶РµРЅРёРµ/РІРёРґРµРѕ) --- */
+/* --- ��������� �� ������� (�����������/�����) --- */
 .pain-button-media {
-    position: relative; /* Р’СЂСЉС‰Р°Рј РЅР° relative, РЅРѕ С‰Рµ РїРѕР»Р·РІР°Рј padding-bottom Р·Р° СЃСЉРѕС‚РЅРѕС€РµРЅРёРµ */
+    position: relative; /* ������ �� relative, �� �� ������� padding-bottom �� ����������� */
     width: 100%;
-    padding-bottom: 100%; /* РљР›Р®Р§РћР’Рћ: РџСЂР°РІРё РєРѕРЅС‚РµР№РЅРµСЂР° РІРёРЅР°РіРё РєРІР°РґСЂР°С‚РµРЅ (1:1 СЃСЉРѕС‚РЅРѕС€РµРЅРёРµ) */
+    padding-bottom: 100%; /* �������: ����� ���������� ������ ��������� (1:1 �����������) */
     height: 0;
     overflow: hidden;
     border-radius: px;
@@ -92,24 +92,24 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0px; /* РЈРІРµР»РёС‡Р°РІР°Рј РѕС‚СЃС‚РѕСЏРЅРёРµС‚Рѕ РѕС‚ С‚РµРєСЃС‚Р° */
+    margin-bottom: 0px; /* ���������� ����������� �� ������ */
 }
 
-/* --- РЎС‚РёР»Рё Р·Р° static-img Рё hover-img: РёРґРµРЅС‚РёС‡РЅР° РїРѕР·РёС†РёСЏ Рё СЂР°Р·РјРµСЂ --- */
+/* --- ����� �� static-img � hover-img: ��������� ������� � ������ --- */
 .static-img,
 .hover-img {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* РљР›Р®Р§РћР’Рћ: Р¦РµРЅС‚СЂРёСЂР° РїРµСЂС„РµРєС‚РЅРѕ РјРµРґРёСЏС‚Р° */
+    transform: translate(-50%, -50%); /* �������: �������� ��������� ������� */
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Р—Р° РґР° СЃРµ РІРёР¶РґР° С†СЏР»РѕС‚Рѕ РёР·РѕР±СЂР°Р¶РµРЅРёРµ */
+    object-fit: contain; /* �� �� �� ����� ������ ����������� */
     transition: opacity 0.3s ease, transform 0.3s ease;
     display: block;
 }
 
-/* --- РџРѕРєР°Р·РІР°РЅРµ/СЃРєСЂРёРІР°РЅРµ РЅР° static-img Рё hover-img РїСЂРё hover --- */
+/* --- ���������/�������� �� static-img � hover-img ��� hover --- */
 .hover-img {
     opacity: 0;
     pointer-events: none;
@@ -124,12 +124,12 @@ html, body {
     pointer-events: auto;
 }
 
-/* --- РЎС‚РёР» Р·Р° С‚РµРєСЃС‚РѕРІРёСЏ Р±Р»РѕРє --- */
+/* --- ���� �� ��������� ���� --- */
 .pain-button-text {
     background-color: #007777;
-    padding: 30px 15px; /* РћРїС‚РёРјРёР·РёСЂР°РЅ padding */
+    padding: 30px 15px; /* ����������� padding */
     border-radius: 4px;
-    font-size: 1.8em; /* РќР°РјР°Р»РµРЅ СЂР°Р·РјРµСЂ Р·Р° РїРѕ-РґРѕР±СЂР° Р°РґР°РїС‚РёРІРЅРѕСЃС‚ */
+    font-size: 1.8em; /* ������� ������ �� ��-����� ����������� */
     font-weight: 800;
     color: #ffffff;
     line-height: 1.2;
@@ -147,7 +147,7 @@ html, body {
     color: white;
 }
 
-/* --- РЎС‚РёР»Рё Р·Р° Р±СѓС‚РѕРЅ "Р’СЃРёС‡РєРё Р±РѕР»РєРѕРІРё СЃСЉСЃС‚РѕСЏРЅРёСЏ" --- */
+/* --- ����� �� ����� "������ ������� ���������" --- */
 .button-group {
     margin-top: 40px;
 }
@@ -170,7 +170,7 @@ html, body {
 }
 
 
-/* --- РђР”РђРџРўРР’РќРћРЎРў Р—Рђ РњРћР‘РР›РќР РЈРЎРўР РћР™РЎРўР’Рђ --- */
+/* --- ����������� �� ������� ���������� --- */
 
 @media (max-width: 1400px) {
     .pain-buttons-grid {
@@ -285,7 +285,7 @@ html, body {
     }
 }
 footer {
-  font-size: 25px;          /* РїРѕ-РµРґСЉСЂ Р±Р°Р·РѕРІ С‚РµРєСЃС‚ */
+  font-size: 25px;          /* ��-���� ����� ����� */
   line-height: 1.6;
   background: #f9f9f9;
   padding: 40px 20px;
@@ -309,13 +309,13 @@ footer .contact-container {
 }
 
 footer .social-links img {
-  width: 80px;              /* РїРѕ-РіРѕР»РµРјРё СЃРѕС†РёР°Р»РЅРё РёРєРѕРЅРё */
+  width: 80px;              /* ��-������ �������� ����� */
   height: 80px;
   object-fit: contain;
 }
 
 footer .icon {
-  width: 60px;              /* РїРѕ-РіРѕР»РµРјРё РёРєРѕРЅРєРё Р·Р° С‚РµР»РµС„РѕРЅ/С‡Р°СЃРѕРІРЅРёРє/Р°РґСЂРµСЃ */
+  width: 60px;              /* ��-������ ������ �� �������/��������/����� */
   height: 60px;
   flex-shrink: 0;
 }
@@ -330,7 +330,7 @@ footer .contact-item {
 footer .work-hours span,
 footer .address-item span,
 footer .contact-item span {
-  font-size: 1.05rem;       /* РјР°Р»РєРѕ РїРѕ-РµРґСЉСЂ РѕС‚ Р±Р°Р·РѕРІРёСЏ */
+  font-size: 1.05rem;       /* ����� ��-���� �� ������� */
 }
 
 footer .footer-links {
@@ -354,7 +354,7 @@ footer .footer-links {
     height: 220px !important;
   }
 }
-/* ===== FOOTER вЂ“ layout Рё РІРёР·РёСЏ РєР°С‚Рѕ РЅР° СЃРєСЂРёР№РЅС€РѕС‚Р° ===== */
+/* ===== FOOTER � layout � ����� ���� �� ���������� ===== */
 footer{
   background:#f3f5f7;
   padding: 40px 0 28px;
@@ -365,7 +365,7 @@ footer{
 
 footer .contact-section{ max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 
-/* РўСЂРё РєРѕР»РѕРЅРё: РєР°СЂС‚Р° (С„РёРєСЃРёСЂР°РЅР°), С†РµРЅС‚СЉСЂ (РёРєРѕРЅРё), РґСЏСЃРЅРѕ (С‚РµР»РµС„РѕРЅ/С‡Р°СЃ/Р°РґСЂРµСЃ) */
+/* ��� ������: ����� (���������), ������ (�����), ����� (�������/���/�����) */
 footer .contact-container{
   display: grid;
   grid-template-columns: 360px 1fr 1.2fr;
@@ -373,7 +373,7 @@ footer .contact-container{
   align-items: start;
 }
 
-/* --- Р›РЇР’Рћ: РєР°СЂС‚Р° --- */
+/* --- ����: ����� --- */
 footer .contact-left .map iframe{
   width: 360px; height: 260px;
   border: 0;
@@ -383,7 +383,7 @@ footer .contact-left .map iframe{
   display:block;
 }
 
-/* --- Р¦Р•РќРўРЄР : Р·Р°РіР»Р°РІРёРµ + СЃРѕС†РёР°Р»РЅРё --- */
+/* --- ������: �������� + �������� --- */
 footer .contact-center{ text-align: center; }
 footer .contact-center h2{
   margin: 0 0 14px;
@@ -396,13 +396,13 @@ footer .social-links{
 }
 footer .social-links a{ display:inline-flex; }
 footer .social-links img{
-  width: 64px; height: 64px;   /* РµРґСЂРё СЃРѕС†РёР°Р»РЅРё РёРєРѕРЅРё */
+  width: 64px; height: 64px;   /* ���� �������� ����� */
   object-fit: contain; display:block;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
   border-radius: 8px;
 }
 
-/* --- Р”РЇРЎРќРћ: С‚РµР»РµС„РѕРЅ РіРѕР»СЏРј, СЂР°Р±РѕС‚РЅРѕ РІСЂРµРјРµ, Р°РґСЂРµСЃ --- */
+/* --- �����: ������� �����, ������� �����, ����� --- */
 footer .contact-right{ }
 footer .contact-item{ display:flex; gap:12px; align-items:center; margin-bottom: 16px; }
 footer .icon{ width: 48px; height: 48px; object-fit: contain; flex:0 0 48px; }
@@ -423,7 +423,7 @@ footer .map-link{
 }
 footer .map-link:hover{ text-decoration: none; }
 
-/* Р”РѕР»РµРЅ СЂРµРґ СЃ Р»РёРЅРєРѕРІРµ */
+/* ����� ��� � ������� */
 footer .footer-links{
   margin-top: 22px; text-align:center; font-size: 1.05rem;
 }
@@ -432,7 +432,7 @@ footer .footer-links a{ color:#0b66ff; }
 /* --- Responsive --- */
 @media (max-width: 1024px){
   footer .contact-container{
-    grid-template-columns: 320px 1fr;    /* РєР°СЂС‚Р° + РєРѕРјР±РёРЅРёСЂР°РЅР° РґСЏСЃРЅР° РєРѕР»РѕРЅР° */
+    grid-template-columns: 320px 1fr;    /* ����� + ����������� ����� ������ */
     grid-auto-rows: auto;
   }
   footer .contact-center{ order: 2; }
@@ -446,48 +446,48 @@ footer .footer-links a{ color:#0b66ff; }
   footer .social-links img{ width: 56px; height: 56px; }
   footer .contact-item.phone span{ font-size: 1.9rem; }
 }
-/* === Mobile-first РѕРїС‚РёРјРёР·Р°С†РёРё === */
+/* === Mobile-first ����������� === */
 
-/* РїСЂРµРґРѕС‚РІСЂР°С‚СЏРІР° РЅРµР¶РµР»Р°РЅРѕ СѓРіРѕР»РµРјСЏРІР°РЅРµ РЅР° С€СЂРёС„С‚Р° РІ iOS */
+/* ������������� �������� ����������� �� ������ � iOS */
 html { -webkit-text-size-adjust: 100%; }
 
-/* Р±РµР· С…РѕСЂРёР·РѕРЅС‚Р°Р»РµРЅ СЃРєСЂРѕР» */
+/* ��� ������������ ����� */
 html, body { overflow-x: hidden; }
 
 
 
-/* Р›РѕРіРѕС‚Рѕ РґР° РЅРµ Рµ РїСЂРµРєР°Р»РµРЅРѕ РІРёСЃРѕРєРѕ РЅР° РјРѕР±РёР»РЅРѕ */
+/* ������ �� �� � ��������� ������ �� ������� */
 @media (max-width: 768px){
   .main-logo{ width: 50px; height: auto; }
 }
 
 
 
-/* РљРѕРЅС‚РµР№РЅРµСЂСЉС‚ вЂ“ РїРѕ-С‚РµСЃРЅРё РїР°РґРёРЅРіРё РЅР° С‚РµСЃРЅРё РµРєСЂР°РЅРё */
+/* ����������� � ��-����� ������� �� ����� ������ */
 @media (max-width: 768px){
   main .container{ padding-left: 14px; padding-right: 14px; }
 }
 
-/* РљР°СЂС‚Рё/СЂРµС€РµС‚РєР°: РіР°СЂР°РЅС‚РёСЂР°РЅРѕ 1 РєРѕР»РѕРЅР° РЅР° РјРЅРѕРіРѕ С‚РµСЃРЅРё РµРєСЂР°РЅРё */
+/* �����/�������: ����������� 1 ������ �� ����� ����� ������ */
 @media (max-width: 420px){
   main .cards{ grid-template-columns: 1fr; }
 }
 
-/* РџРѕ-РјР°Р»РєРё РІРµСЂС‚РёРєР°Р»РЅРё СЂР°Р·СЃС‚РѕСЏРЅРёСЏ РЅР° РјРѕР±РёР»РЅРѕ Р·Р° РїРѕ-РґСЉР»РіРё СЃС‚СЂР°РЅРёС†Рё */
+/* ��-����� ���������� ���������� �� ������� �� ��-����� �������� */
 @media (max-width: 560px){
   main .section, main .section--alt{ padding: 28px 0; }
   main .cta{ padding: 36px 0; }
   main .hero-subpage{ padding: 48px 0 28px; }
 }
 
-/* Р‘СѓС‚РѕРЅРёС‚Рµ РІ РєР°СЂС‚РёС‚Рµ РґР° РЅРµ РёР·Р»РёР·Р°С‚ РёР·РІСЉРЅ РµРєСЂР°РЅР° */
+/* �������� � ������� �� �� ������� ����� ������ */
 main .card__actions .btn{ max-width: 100%; }
 
-/* РџРѕРЅСЏРєРѕРіР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ СЃ РїРѕР·РёС†РёРѕРЅРёСЂР°РЅРµ РјРѕРіР°С‚ РґР° РїСЂРµР»РёРІР°С‚ вЂ” РїРѕРґСЃРёРіСѓСЂСЏРІР°РјРµ */
+/* �������� ����������� � ������������� ����� �� �������� � ������������� */
 main .card__media{ overflow: hidden; }
-/* ====== UX РїРѕРґРѕР±СЂРµРЅРёСЏ Рё РµС„РµРєС‚Рё Р·Р° С„СѓСѓС‚СЉСЂР° ====== */
+/* ====== UX ���������� � ������ �� ������� ====== */
 
-/* 1) Р“Р»РѕР±Р°Р»РЅРё РїСЂРѕРјРµРЅР»РёРІРё Р·Р° С†РІРµС‚РѕРІРµ Рё СЃРµРЅРєРё */
+/* 1) �������� ���������� �� ������� � ����� */
 :root{
   --f-accent: #0b66ff;
   --f-ink: #0f172a;
@@ -496,7 +496,7 @@ main .card__media{ overflow: hidden; }
   --f-ring: 0 0 0 3px rgba(11,102,255,.18);
 }
 
-/* 2) РџР»Р°РІРЅРё РїСЂРµС…РѕРґРё РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ Р·Р° РєР»РёРєР°РµРјРё РЅРµС‰Р° */
+/* 2) ������ ������� �� ������������ �� �������� ���� */
 footer a, 
 footer .social-links a,
 footer .contact-item,
@@ -514,7 +514,7 @@ footer .social-links img{
     background-color .25s ease;
 }
 
-/* 3) РЎРѕС†РёР°Р»РЅРё РёРєРѕРЅРё вЂ“ вЂћРёР·РїР»СѓРІР°РЅРµвЂњ + РјРµРєРѕ СЃРёСЏРЅРёРµ */
+/* 3) �������� ����� � ���������� + ���� ������ */
 footer .social-links a{
   position: relative;
   border-radius: 10px;
@@ -532,7 +532,7 @@ footer .social-links a:active{
   transform: translateY(-1px) scale(.99);
 }
 
-/* 4) РљРѕРЅС‚Р°РєС‚ СЂРµРґРѕРІРµ вЂ“ С„РёРЅР° РєР°СЂС‚Р° РїСЂРё С…РѕРІСЉСЂ */
+/* 4) ������� ������ � ���� ����� ��� ����� */
 footer .contact-item{
   border-radius: 14px;
   padding: 8px 10px;
@@ -548,7 +548,7 @@ footer .contact-item:hover .icon{
   transform: scale(1.06) rotate(-2deg);
 }
 
-/* 5) РўРµР»РµС„РѕРЅ вЂ“ Р°РєС†РµРЅС‚ РїСЂРё С…РѕРІСЉСЂ (Р»РµРє вЂћРїСѓР»СЃвЂњ) */
+/* 5) ������� � ������ ��� ����� (��� �����) */
 @keyframes f-pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.03); }
@@ -558,7 +558,7 @@ footer .contact-item.phone:hover span{
   animation: f-pulse .8s ease-in-out;
 }
 
-/* 6) Р›РёРЅРєРѕРІРµ РґРѕР»Сѓ вЂ“ Р°РЅРёРјРёСЂР°РЅРѕ РїРѕРґС‡РµСЂС‚Р°РІР°РЅРµ */
+/* 6) ������� ���� � ��������� ������������ */
 footer .footer-links a{
   position: relative;
   text-decoration: none;
@@ -570,15 +570,15 @@ footer .footer-links a{
 footer .footer-links a:hover,
 footer .footer-links a:focus-visible{
   color: var(--f-accent);
-  background-size: 100% 2px;    /* РѕС‚ С†РµРЅС‚СЉСЂР° РєСЉРј РєСЂР°РёС‰Р°С‚Р° */
+  background-size: 100% 2px;    /* �� ������� ��� �������� */
 }
 
-/* 7) Р›РёРЅРє РєСЉРј РєР°СЂС‚Р° вЂ“ вЂћРёРЅРґРёРєР°С‚РѕСЂвЂњ РїСЂРё С…РѕРІСЉСЂ */
+/* 7) ���� ��� ����� � ���������� ��� ����� */
 footer .map-link{
   position: relative;
 }
 footer .map-link::after{
-  content:"в†—";
+  content:"?";
   margin-left: .35em;
   opacity: .0;
   transition: transform .25s ease, opacity .25s ease;
@@ -589,7 +589,7 @@ footer .map-link:focus-visible::after{
   transform: translateY(-1px);
 }
 
-/* 8) РљР°СЂС‚Р° вЂ“ С„РёРЅРѕ РёР·РґРёРіР°РЅРµ РЅР° iframe РїСЂРё С…РѕРІСЉСЂ */
+/* 8) ����� � ���� �������� �� iframe ��� ����� */
 footer .contact-left .map iframe{
   transition: transform .3s ease, box-shadow .3s ease;
 }
@@ -598,13 +598,13 @@ footer .contact-left .map iframe:hover{
   box-shadow: 0 12px 28px rgba(0,0,0,.12);
 }
 
-/* 9) Р¤РѕРєСѓСЃ СЃС‚РёР»РѕРІРµ Р·Р° РґРѕСЃС‚СЉРїРЅРѕСЃС‚ */
+/* 9) ����� ������� �� ���������� */
 footer a:focus-visible{
   box-shadow: var(--f-ring);
   border-radius: 10px;
 }
 
-/* 10) вЂћBack to topвЂњ Р±СѓС‚РѕРЅ Р·Р° С„СѓСѓС‚СЉСЂ (СЃРєСЂРёРІР° СЃРµ РЅР° РјРѕР±РёР»РЅРѕ) */
+/* 10) �Back to top� ����� �� ������ (������ �� �� �������) */
 footer .back-to-top{
   display:inline-flex;
   align-items:center;
@@ -621,7 +621,7 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
   footer .back-to-top{ display:none; }
 }
 
-/* 11) РўСЉРјРЅР° С‚РµРјР° (Р°РІС‚РѕРјР°С‚РёС‡РЅРѕ) */
+/* 11) ����� ���� (�����������) */
 @media (prefers-color-scheme: dark){
   :root{
     --f-bg:#0b1220;
@@ -641,3 +641,5 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
 @media (prefers-reduced-motion: reduce){
   * { animation: none !important; transition: none !important; }
 }
+
+

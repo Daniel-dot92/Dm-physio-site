@@ -1,8 +1,9 @@
 ﻿/*********************************************************
  * LIGHT THEME + SIDE LAYOUT (media left, details right) *
  *********************************************************/
+@charset "UTF-8";
 
-/* РЎРІРµС‚СЉР» С„РѕРЅ Р·Р° СЃРµРєС†РёСЏС‚Р° */
+/* ������ ��� �� �������� */
 .muscle-anatomy-section {
   --bg: #f7f9fc;
   --card: #ffffff;
@@ -24,7 +25,7 @@
   padding-bottom: clamp(28px, 3.2vw, 48px);
 }
 
-/* Р—Р°РіР»Р°РІРёРµ вЂ“ С‚СЉРјРµРЅ РєСЉРј Р±СЂР°РЅРґ РіСЂР°РґРёРµРЅС‚ */
+/* �������� � ����� ��� ����� �������� */
 .muscle-anatomy-section .section-title {
   background: linear-gradient(90deg, #0f172a, #1f2937 50%, #2563eb);
   -webkit-background-clip: text;
@@ -33,14 +34,14 @@
   filter: none;
 }
 
-/* РњСЂРµР¶Р°С‚Р° РѕС‚ РєР°СЂС‚Рё */
+/* ������� �� ����� */
 .muscle-anatomy-section .muscle-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(16px, 2vw, 24px);
 }
 
-/* РљР°СЂС‚Р° РЅР° РјСѓСЃРєСѓР»: РґРІРµ РєРѕР»РѕРЅРё вЂ“ Р»СЏРІРѕ РјРµРґРёСЏ, РґСЏСЃРЅРѕ РґРµС‚Р°Р№Р»Рё */
+/* ����� �� ������: ��� ������ � ���� �����, ����� ������� */
 .muscle-anatomy-section .muscle-item {
   background: var(--card);
   border: 1px solid var(--border);
@@ -54,7 +55,7 @@
   align-items: start;
 }
 
-/* Р—Р°РіР»Р°РІРёСЏ РІСЉС‚СЂРµ РІ РєР°СЂС‚Р°С‚Р° */
+/* �������� ����� � ������� */
 .muscle-anatomy-section .muscle-item > h3,
 .muscle-anatomy-section .muscle-item > h4 {
   grid-column: 1 / -1;
@@ -62,7 +63,7 @@
 }
 .muscle-anatomy-section .muscle-item > h4 { color: var(--muted); }
 
-/* ===== Р›СЏРІРѕ: РјРµРґРёСЏ ===== */
+/* ===== ����: ����� ===== */
 .muscle-anatomy-section .muscle-media {
   position: relative;
   aspect-ratio: 4/3;
@@ -85,9 +86,9 @@
 .muscle-anatomy-section .muscle-media:hover .static-muscle-img,
 .muscle-anatomy-section .muscle-media:focus-within .static-muscle-img { opacity: 0; }
 
-/* РњР°Р»СЉРє Р±РµР№РґР¶ "Р’РёРґРµРѕ" (РїРѕ-СЃРІРµС‚СЉР») */
+/* ����� ����� "�����" (��-������) */
 .muscle-anatomy-section .muscle-media::before {
-  content: "Р’РёРґРµРѕ в–¶";
+  content: "video";
   position: absolute; left: 10px; top: 10px;
   font-size: 12px; padding: 6px 10px;
   border-radius: 999px;
@@ -98,23 +99,23 @@
   z-index: 3;
 }
 
-/* ===== Р”СЏСЃРЅРѕ: РґРµС‚Р°Р№Р»Рё (Р·Р°Р»РµРїРµРЅРё РІРґСЏСЃРЅРѕ) ===== */
+/* ===== �����: ������� (�������� ������) ===== */
 .muscle-anatomy-section .muscle-details {
   display: flex;
-  flex-direction: column;      /* Р•Р”РќРћ РџРћР” Р”Р РЈР“Рћ */
+  flex-direction: column;      /* ���� ��� ����� */
   gap: clamp(10px, 1.2vw, 14px);
-  align-self: stretch;         /* СЂР°Р·С‚СЏРіР° РєРѕР»РѕРЅР°С‚Р° РїРѕ РІРёСЃРѕС‡РёРЅР° РЅР° РјРµРґРёСЏС‚Р° */
-  justify-content: flex-start; /* Р·Р°Р»РµРїРµРЅРѕ РІ РЅР°С‡Р°Р»РѕС‚Рѕ */
+  align-self: stretch;         /* ������� �������� �� �������� �� ������� */
+  justify-content: flex-start; /* �������� � �������� */
 }
 
-/* Р’СЉС‚СЂРµС€РЅР°С‚Р° СЂРµС€РµС‚РєР° СЃС‚Р°РІР° Р•Р”РќРђ РєРѕР»РѕРЅР°, Р·Р° РґР° СЃР° РµРґРЅРѕ РїРѕРґ РґСЂСѓРіРѕ */
+/* ���������� ������� ����� ���� ������, �� �� �� ���� ��� ����� */
 .muscle-anatomy-section .muscle-info-grid {
   display: grid;
-  grid-template-columns: 1fr;  /* <-- РєР»СЋС‡РѕРІРѕ: РµРґРЅР° РєРѕР»РѕРЅР° */
+  grid-template-columns: 1fr;  /* <-- �������: ���� ������ */
   gap: clamp(10px, 1.2vw, 14px);
 }
 
-/* РРЅС„Рѕ-Р±Р»РѕРє (РђРЅР°С‚РѕРјРёСЏ / РҐР°СЂР°РєС‚РµСЂ РЅР° Р±РѕР»РєР°С‚Р°) */
+/* ����-���� (�������� / �������� �� �������) */
 .muscle-anatomy-section .info-block {
   background: #ffffff;
   border: 1px solid var(--border);
@@ -147,21 +148,21 @@
   font-size: 14px;
 }
 
-/* РЎРїРёСЃСЉРє СЃ Р±РѕР»РєР°С‚Р° */
+/* ������ � ������� */
 .muscle-anatomy-section .pain-char-block ul {
   margin: .4rem 0 0; padding-left: 1.1rem; display: grid; gap: 6px;
 }
 .muscle-anatomy-section .pain-char-block li { line-height: 1.55; color: var(--text); }
 .muscle-anatomy-section .pain-char-block ul li::marker { color: #f59e0b; }
 
-/* Р”СЂРµР±РЅРё РїРѕР»РёСЂР°РЅРёСЏ */
+/* ������ ��������� */
 .muscle-anatomy-section .container { border-top: 1px solid var(--border); padding-top: clamp(16px, 2vw, 24px); }
 .muscle-anatomy-section .muscle-item + .muscle-item { margin-top: 2px; }
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .muscle-anatomy-section .muscle-item {
-    grid-template-columns: 1fr; /* СЃС‚РµРє (РјРµРґРёСЏ РѕС‚РіРѕСЂРµ, РґРµС‚Р°Р№Р»Рё РѕС‚РґРѕР»Сѓ) */
+    grid-template-columns: 1fr; /* ���� (����� ������, ������� ������) */
   }
   .muscle-anatomy-section .muscle-media { aspect-ratio: 16/10; }
 }
@@ -171,112 +172,127 @@
     transition: opacity .2s linear;
   }
 }
-/* РћРіСЂР°РЅРёС‡Р°РІР°РјРµ С€РёСЂРёРЅР°С‚Р° РЅР° РєРѕРЅС‚РµР№РЅРµСЂР° */
+/* ������������ �������� �� ���������� */
 .muscle-anatomy-section .container {
-  max-width: 1000px;   /* РјРѕР¶РµС€ РґР° РїСЂРѕР±РІР°С€ Рё 900px */
+  max-width: 1000px;   /* ����� �� ������� � 900px */
   margin: 0 auto;
   padding-left: 16px;
   padding-right: 16px;
 }
 
-/* РџСЂР°РІРёРј РјРµРґРёСЏС‚Р° (СЃРЅРёРјРєР° + РІРёРґРµРѕ) РєРІР°РґСЂР°С‚ 1:1 */
+/* ������ ������� (������ + �����) ������� 1:1 */
 .muscle-anatomy-section .muscle-media {
-  aspect-ratio: 1 / 1;     /* РєРІР°РґСЂР°С‚ */
-  max-width: 320px;        /* Р·Р° РґР° РЅРµ Рµ РїСЂРµРєР°Р»РµРЅРѕ РіРѕР»СЏРјРѕ */
+  aspect-ratio: 1 / 1;     /* ������� */
+  max-width: 320px;        /* �� �� �� � ��������� ������ */
   margin: 0 auto;
 }
 
-/* РџСЂРё РјРѕР±РёР»РµРЅ РёР·РіР»РµРґ вЂ“ РјРµРґРёСЏС‚Р° РїР°Рє РєРІР°РґСЂР°С‚, РЅРѕ РїРѕ-РјР°Р»РєР° */
+/* ��� ������� ������ � ������� ��� �������, �� ��-����� */
 @media (max-width: 768px) {
   .muscle-anatomy-section .muscle-media {
     max-width: 260px;
   }
 }
-/* ====== FIX: Р’РР”Р•Рћ/РЎРќРРњРљРђ Р”Рђ РќР• "РР—Р§Р•Р—Р’РђРў" ====== */
+/* ====== FIX: �����/������ �� �� "��������" ====== */
 
-/* РџРѕ-С‚РµСЃРµРЅ РєРѕРЅС‚РµР№РЅРµСЂ Р·Р° СЃРµРєС†РёСЏС‚Р° */
+/* ��-����� ��������� �� �������� */
 .muscle-anatomy-section .container {
-  max-width: 1000px;     /* Р°РєРѕ РёСЃРєР°С€ РѕС‰Рµ РїРѕ-С‚СЏСЃРЅРѕ: 900px */
+  max-width: 1000px;     /* ��� ����� ��� ��-�����: 900px */
   margin: 0 auto;
   padding-left: 16px;
   padding-right: 16px;
 }
 
-/* РљР°СЂС‚Р°С‚Р°: Р»СЏРІР° РєРѕР»РѕРЅР° Р·Р° РјРµРґРёСЏС‚Р° СЃ С„РёРєСЃРёСЂР°РЅР° С€РёСЂРёРЅР°, РґСЏСЃРЅР° вЂ“ РµР»Р°СЃС‚РёС‡РЅР° */
+/* �������: ���� ������ �� ������� � ��������� ������, ����� � ��������� */
 .muscle-anatomy-section .muscle-item {
   display: grid;
-  grid-template-columns: 450px minmax(0, 1fr); /* 320px СЃС‚Р°Р±РёР»РЅР° РјРµРґРёСЏ */
+  grid-template-columns: 450px minmax(0, 1fr); /* 320px �������� ����� */
   gap: clamp(12px, 1.5vw, 16px);
   align-items: start;
 }
 
-/* РљРІР°РґСЂР°С‚ 1:1 Р·Р° РјРµРґРёСЏС‚Р° + РіР°СЂР°РЅС‚РёСЂР°РЅР° С€РёСЂРёРЅР° */
+/* ������� 1:1 �� ������� + ����������� ������ */
 .muscle-anatomy-section .muscle-media {
   position: relative;
-  width: 100%;           /* Р·Р°РїСЉР»РІР° 320px РєРѕР»РѕРЅР°С‚Р° */
-  max-width: 450px;      /* СЃСЉРѕС‚РІРµС‚СЃС‚РІР° РЅР° Р»СЏРІР°С‚Р° РєРѕР»РѕРЅР° */
-  aspect-ratio: 1 / 1;   /* РєРІР°РґСЂР°С‚ */
+  width: 100%;           /* ������� 320px �������� */
+  max-width: 450px;      /* ����������� �� ������ ������ */
+  aspect-ratio: 1 / 1;   /* ������� */
   overflow: hidden;
   border-radius: 14px;
   border: 1px solid var(--border, #e5e7eb);
-  background: #f3f4f6;   /* СЃРІРµС‚СЉР» С„РѕРЅ, РґР° СЃРµ РІРёР¶РґР° РґРѕСЂРё РїСЂРё Р»РёРїСЃР° РЅР° РєР°РґСЉСЂ */
+  background: #f3f4f6;   /* ������ ���, �� �� ����� ���� ��� ����� �� ����� */
 }
 
-/* Р’СЉС‚СЂРµС€РЅРёС‚Рµ СЃР»РѕРµРІРµ (СЃРЅРёРјРєР°/РІРёРґРµРѕ) РґР° Р·Р°РїСЉР»РІР°С‚ РєРІР°РґСЂР°С‚Р° */
+/* ���������� ������ (������/�����) �� �������� �������� */
 .muscle-anatomy-section .muscle-media > img,
 .muscle-anatomy-section .muscle-media > video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;     /* Р±РµР· С‡РµСЂРЅРё Р»РµРЅС‚Рё */
+  object-fit: cover;     /* ��� ����� ����� */
   display: block;
   transition: opacity .3s ease, transform .3s ease, filter .3s ease;
 }
 
-/* РџРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ: СЃРЅРёРјРєР°С‚Р° СЃРµ РІРёР¶РґР°, РІРёРґРµРѕС‚Рѕ Рµ СЃРєСЂРёС‚Рѕ */
+/* �� ������������: �������� �� �����, ������� � ������ */
 .muscle-anatomy-section .muscle-media .static-muscle-img { opacity: 1; z-index: 1; }
 .muscle-anatomy-section .muscle-media .hover-muscle-video { opacity: 0; z-index: 2; }
 
-/* РџСЂРё hover/focus: РїРѕРєР°Р·РІР°РјРµ РІРёРґРµРѕС‚Рѕ */
+/* ��� hover/focus: ��������� ������� */
 .muscle-anatomy-section .muscle-media:hover .hover-muscle-video,
 .muscle-anatomy-section .muscle-media:focus-within .hover-muscle-video { opacity: 1; }
 .muscle-anatomy-section .muscle-media:hover .static-muscle-img,
 .muscle-anatomy-section .muscle-media:focus-within .static-muscle-img { opacity: 0; }
 
-/* РњР°Р»СЉРє Р±РµР№РґР¶ "Р’РёРґРµРѕ" вЂ“ РІРёРґРёРј РІСЉСЂС…Сѓ СЃРІРµС‚СЉР» С„РѕРЅ */
+/* Малък етикет "video" върху медия */
 .muscle-anatomy-section .muscle-media::before {
-  content: "Р’РёРґРµРѕ в–¶";
-  position: absolute; left: 10px; top: 10px;
-  font-size: 12px; padding: 6px 10px;
+  content: "▶ video";
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: system-ui, sans-serif;
+  padding: 5px 12px 5px 10px;
   border-radius: 999px;
-  background: rgba(255,255,255,.9);
-  border: 1px solid rgba(0,0,0,.06);
-  color: #111827;
+  background: rgba(17, 24, 39, 0.9); /* почти черен */
+  color: #fff;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);  /* лек "frosted glass" ефект */
   z-index: 3;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-/* Р”РµС‚Р°Р№Р»РёС‚Рµ РІРґСЏСЃРЅРѕ вЂ“ РµРґРЅРѕ РїРѕРґ РґСЂСѓРіРѕ, вЂћР·Р°Р»РµРїРµРЅРёвЂњ Р·Р° РјРµРґРёСЏС‚Р° */
+.muscle-anatomy-section .muscle-media:hover::before {
+  background: rgba(34, 197, 94, 0.95); /* зелено при hover */
+  transform: scale(1.05);
+}
+
+
+/* ��������� ������ � ���� ��� �����, ��������� �� ������� */
 .muscle-anatomy-section .muscle-details {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  align-self: stretch;      /* СЃСЉС‰Р°С‚Р° РІРёСЃРѕС‡РёРЅР° РєР°С‚Рѕ РјРµРґРёСЏС‚Р° РїСЂРё РґРѕСЃС‚Р°С‚СЉС‡РЅРѕ СЃСЉРґСЉСЂР¶Р°РЅРёРµ */
+  align-self: stretch;      /* ������ �������� ���� ������� ��� ���������� ���������� */
 }
 .muscle-anatomy-section .muscle-info-grid {
   display: grid;
-  grid-template-columns: 1fr; /* РђРЅР°С‚РѕРјРёСЏ Рё Р‘РѕР»РєР° вЂ“ РІРµСЂС‚РёРєР°Р»РЅРѕ */
+  grid-template-columns: 1fr; /* �������� � ����� � ���������� */
   gap: 12px;
 }
 
-/* РњРѕР±РёР»РµРЅ РёР·РіР»РµРґ: СЃС‚РµРєРІР°РјРµ, РЅРѕ РїР°Р·РёРј РєРІР°РґСЂР°С‚ 1:1 */
+/* ������� ������: ��������, �� ����� ������� 1:1 */
 @media (max-width: 900px) {
   .muscle-anatomy-section .muscle-item {
-    grid-template-columns: 1fr;         /* РјРµРґРёСЏ РѕС‚РіРѕСЂРµ, С‚РµРєСЃС‚ РѕС‚РґРѕР»Сѓ */
+    grid-template-columns: 1fr;         /* ����� ������, ����� ������ */
   }
   .muscle-anatomy-section .muscle-media {
-    max-width: 280px;                    /* РјР°Р»РєРѕ РїРѕ-РјР°Р»СЉРє РєРІР°РґСЂР°С‚ */
-    margin: 0 auto;                      /* С†РµРЅС‚СЂРёСЂР°РЅРµ */
+    max-width: 280px;                    /* ����� ��-����� ������� */
+    margin: 0 auto;                      /* ���������� */
   }
 }
 /* Alternative Healing Section Styles */
@@ -392,7 +408,7 @@
     }
 } 
 footer {
-  font-size: 25px;          /* РїРѕ-РµРґСЉСЂ Р±Р°Р·РѕРІ С‚РµРєСЃС‚ */
+  font-size: 25px;          /* ��-���� ����� ����� */
   line-height: 1.6;
   background: #f9f9f9;
   padding: 40px 20px;
@@ -416,13 +432,13 @@ footer .contact-container {
 }
 
 footer .social-links img {
-  width: 80px;              /* РїРѕ-РіРѕР»РµРјРё СЃРѕС†РёР°Р»РЅРё РёРєРѕРЅРё */
+  width: 80px;              /* ��-������ �������� ����� */
   height: 80px;
   object-fit: contain;
 }
 
 footer .icon {
-  width: 60px;              /* РїРѕ-РіРѕР»РµРјРё РёРєРѕРЅРєРё Р·Р° С‚РµР»РµС„РѕРЅ/С‡Р°СЃРѕРІРЅРёРє/Р°РґСЂРµСЃ */
+  width: 60px;              /* ��-������ ������ �� �������/��������/����� */
   height: 60px;
   flex-shrink: 0;
 }
@@ -437,7 +453,7 @@ footer .contact-item {
 footer .work-hours span,
 footer .address-item span,
 footer .contact-item span {
-  font-size: 1.05rem;       /* РјР°Р»РєРѕ РїРѕ-РµРґСЉСЂ РѕС‚ Р±Р°Р·РѕРІРёСЏ */
+  font-size: 1.05rem;       /* ����� ��-���� �� ������� */
 }
 
 footer .footer-links {
@@ -461,7 +477,7 @@ footer .footer-links {
     height: 220px !important;
   }
 }
-/* ===== FOOTER вЂ“ layout Рё РІРёР·РёСЏ РєР°С‚Рѕ РЅР° СЃРєСЂРёР№РЅС€РѕС‚Р° ===== */
+/* ===== FOOTER � layout � ����� ���� �� ���������� ===== */
 footer{
   background:#f3f5f7;
   padding: 40px 0 28px;
@@ -472,7 +488,7 @@ footer{
 
 footer .contact-section{ max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 
-/* РўСЂРё РєРѕР»РѕРЅРё: РєР°СЂС‚Р° (С„РёРєСЃРёСЂР°РЅР°), С†РµРЅС‚СЉСЂ (РёРєРѕРЅРё), РґСЏСЃРЅРѕ (С‚РµР»РµС„РѕРЅ/С‡Р°СЃ/Р°РґСЂРµСЃ) */
+/* ��� ������: ����� (���������), ������ (�����), ����� (�������/���/�����) */
 footer .contact-container{
   display: grid;
   grid-template-columns: 360px 1fr 1.2fr;
@@ -480,7 +496,7 @@ footer .contact-container{
   align-items: start;
 }
 
-/* --- Р›РЇР’Рћ: РєР°СЂС‚Р° --- */
+/* --- ����: ����� --- */
 footer .contact-left .map iframe{
   width: 360px; height: 260px;
   border: 0;
@@ -490,7 +506,7 @@ footer .contact-left .map iframe{
   display:block;
 }
 
-/* --- Р¦Р•РќРўРЄР : Р·Р°РіР»Р°РІРёРµ + СЃРѕС†РёР°Р»РЅРё --- */
+/* --- ������: �������� + �������� --- */
 footer .contact-center{ text-align: center; }
 footer .contact-center h2{
   margin: 0 0 14px;
@@ -503,13 +519,13 @@ footer .social-links{
 }
 footer .social-links a{ display:inline-flex; }
 footer .social-links img{
-  width: 64px; height: 64px;   /* РµРґСЂРё СЃРѕС†РёР°Р»РЅРё РёРєРѕРЅРё */
+  width: 64px; height: 64px;   /* ���� �������� ����� */
   object-fit: contain; display:block;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
   border-radius: 8px;
 }
 
-/* --- Р”РЇРЎРќРћ: С‚РµР»РµС„РѕРЅ РіРѕР»СЏРј, СЂР°Р±РѕС‚РЅРѕ РІСЂРµРјРµ, Р°РґСЂРµСЃ --- */
+/* --- �����: ������� �����, ������� �����, ����� --- */
 footer .contact-right{ }
 footer .contact-item{ display:flex; gap:12px; align-items:center; margin-bottom: 16px; }
 footer .icon{ width: 48px; height: 48px; object-fit: contain; flex:0 0 48px; }
@@ -530,7 +546,7 @@ footer .map-link{
 }
 footer .map-link:hover{ text-decoration: none; }
 
-/* Р”РѕР»РµРЅ СЂРµРґ СЃ Р»РёРЅРєРѕРІРµ */
+/* ����� ��� � ������� */
 footer .footer-links{
   margin-top: 22px; text-align:center; font-size: 1.05rem;
 }
@@ -539,7 +555,7 @@ footer .footer-links a{ color:#0b66ff; }
 /* --- Responsive --- */
 @media (max-width: 1024px){
   footer .contact-container{
-    grid-template-columns: 320px 1fr;    /* РєР°СЂС‚Р° + РєРѕРјР±РёРЅРёСЂР°РЅР° РґСЏСЃРЅР° РєРѕР»РѕРЅР° */
+    grid-template-columns: 320px 1fr;    /* ����� + ����������� ����� ������ */
     grid-auto-rows: auto;
   }
   footer .contact-center{ order: 2; }
@@ -555,9 +571,9 @@ footer .footer-links a{ color:#0b66ff; }
 }
 
 
-/* ====== UX РїРѕРґРѕР±СЂРµРЅРёСЏ Рё РµС„РµРєС‚Рё Р·Р° С„СѓСѓС‚СЉСЂР° ====== */
+/* ====== UX ���������� � ������ �� ������� ====== */
 
-/* 1) Р“Р»РѕР±Р°Р»РЅРё РїСЂРѕРјРµРЅР»РёРІРё Р·Р° С†РІРµС‚РѕРІРµ Рё СЃРµРЅРєРё */
+/* 1) �������� ���������� �� ������� � ����� */
 :root{
   --f-accent: #0b66ff;
   --f-ink: #0f172a;
@@ -566,7 +582,7 @@ footer .footer-links a{ color:#0b66ff; }
   --f-ring: 0 0 0 3px rgba(11,102,255,.18);
 }
 
-/* 2) РџР»Р°РІРЅРё РїСЂРµС…РѕРґРё РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ Р·Р° РєР»РёРєР°РµРјРё РЅРµС‰Р° */
+/* 2) ������ ������� �� ������������ �� �������� ���� */
 footer a, 
 footer .social-links a,
 footer .contact-item,
@@ -584,7 +600,7 @@ footer .social-links img{
     background-color .25s ease;
 }
 
-/* 3) РЎРѕС†РёР°Р»РЅРё РёРєРѕРЅРё вЂ“ вЂћРёР·РїР»СѓРІР°РЅРµвЂњ + РјРµРєРѕ СЃРёСЏРЅРёРµ */
+/* 3) �������� ����� � ���������� + ���� ������ */
 footer .social-links a{
   position: relative;
   border-radius: 10px;
@@ -602,7 +618,7 @@ footer .social-links a:active{
   transform: translateY(-1px) scale(.99);
 }
 
-/* 4) РљРѕРЅС‚Р°РєС‚ СЂРµРґРѕРІРµ вЂ“ С„РёРЅР° РєР°СЂС‚Р° РїСЂРё С…РѕРІСЉСЂ */
+/* 4) ������� ������ � ���� ����� ��� ����� */
 footer .contact-item{
   border-radius: 14px;
   padding: 8px 10px;
@@ -618,7 +634,7 @@ footer .contact-item:hover .icon{
   transform: scale(1.06) rotate(-2deg);
 }
 
-/* 5) РўРµР»РµС„РѕРЅ вЂ“ Р°РєС†РµРЅС‚ РїСЂРё С…РѕРІСЉСЂ (Р»РµРє вЂћРїСѓР»СЃвЂњ) */
+/* 5) ������� � ������ ��� ����� (��� �����) */
 @keyframes f-pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.03); }
@@ -628,7 +644,7 @@ footer .contact-item.phone:hover span{
   animation: f-pulse .8s ease-in-out;
 }
 
-/* 6) Р›РёРЅРєРѕРІРµ РґРѕР»Сѓ вЂ“ Р°РЅРёРјРёСЂР°РЅРѕ РїРѕРґС‡РµСЂС‚Р°РІР°РЅРµ */
+/* 6) ������� ���� � ��������� ������������ */
 footer .footer-links a{
   position: relative;
   text-decoration: none;
@@ -640,15 +656,15 @@ footer .footer-links a{
 footer .footer-links a:hover,
 footer .footer-links a:focus-visible{
   color: var(--f-accent);
-  background-size: 100% 2px;    /* РѕС‚ С†РµРЅС‚СЉСЂР° РєСЉРј РєСЂР°РёС‰Р°С‚Р° */
+  background-size: 100% 2px;    /* �� ������� ��� �������� */
 }
 
-/* 7) Р›РёРЅРє РєСЉРј РєР°СЂС‚Р° вЂ“ вЂћРёРЅРґРёРєР°С‚РѕСЂвЂњ РїСЂРё С…РѕРІСЉСЂ */
+/* 7) ���� ��� ����� � ���������� ��� ����� */
 footer .map-link{
   position: relative;
 }
 footer .map-link::after{
-  content:"в†—";
+  content:"?";
   margin-left: .35em;
   opacity: .0;
   transition: transform .25s ease, opacity .25s ease;
@@ -659,7 +675,7 @@ footer .map-link:focus-visible::after{
   transform: translateY(-1px);
 }
 
-/* 8) РљР°СЂС‚Р° вЂ“ С„РёРЅРѕ РёР·РґРёРіР°РЅРµ РЅР° iframe РїСЂРё С…РѕРІСЉСЂ */
+/* 8) ����� � ���� �������� �� iframe ��� ����� */
 footer .contact-left .map iframe{
   transition: transform .3s ease, box-shadow .3s ease;
 }
@@ -668,13 +684,13 @@ footer .contact-left .map iframe:hover{
   box-shadow: 0 12px 28px rgba(0,0,0,.12);
 }
 
-/* 9) Р¤РѕРєСѓСЃ СЃС‚РёР»РѕРІРµ Р·Р° РґРѕСЃС‚СЉРїРЅРѕСЃС‚ */
+/* 9) ����� ������� �� ���������� */
 footer a:focus-visible{
   box-shadow: var(--f-ring);
   border-radius: 10px;
 }
 
-/* 10) вЂћBack to topвЂњ Р±СѓС‚РѕРЅ Р·Р° С„СѓСѓС‚СЉСЂ (СЃРєСЂРёРІР° СЃРµ РЅР° РјРѕР±РёР»РЅРѕ) */
+/* 10) �Back to top� ����� �� ������ (������ �� �� �������) */
 footer .back-to-top{
   display:inline-flex;
   align-items:center;
@@ -691,7 +707,7 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
   footer .back-to-top{ display:none; }
 }
 
-/* 11) РўСЉРјРЅР° С‚РµРјР° (Р°РІС‚РѕРјР°С‚РёС‡РЅРѕ) */
+/* 11) ����� ���� (�����������) */
 @media (prefers-color-scheme: dark){
   :root{
     --f-bg:#0b1220;
@@ -706,3 +722,5 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
   footer .social-links img{ filter: drop-shadow(0 2px 6px rgba(0,0,0,.6)); }
   footer .contact-item:hover{ background: rgba(11,102,255,.14); }
 }
+
+

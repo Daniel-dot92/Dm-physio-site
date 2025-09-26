@@ -1,6 +1,6 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
   /* =========================
-     Calendly (Р±РµР· РїСЂРѕРјРµРЅРё)
+     Calendly (��� �������)
   ========================== */
   const calendlyButtons = document.querySelectorAll('.calendly-button');
   calendlyButtons.forEach(button => {
@@ -22,19 +22,19 @@
   });
 
   /* =====================================================
-     РђРІС‚РѕРїСѓСЃРєР°РЅРµ РїСЂРё РІРёРґРёРјРѕСЃС‚ (РјРѕР±РёР»РЅРё + РґРµСЃРєС‚РѕРї)
+     ����������� ��� �������� (������� + �������)
   ====================================================== */
   const MOBILE_QUERY = '(hover: none) and (pointer: coarse)';
   const mql = window.matchMedia(MOBILE_QUERY);
   let isMobile = mql.matches;
 
-  // Р’СЃРёС‡РєРё РІРёРґРµР°
+  // ������ �����
   const allVideos = Array.from(document.querySelectorAll('video'));
 
-  // РџРѕРґРіРѕС‚РѕРІРєР° Р·Р° iOS/Android + С†РµРЅС‚СЂР°Р»РµРЅ РєРѕРЅС‚СЂРѕР»
+  // ���������� �� iOS/Android + ��������� �������
   allVideos.forEach(v => {
-    v.removeAttribute('autoplay');               // РЅРёРµ СѓРїСЂР°РІР»СЏРІР°РјРµ autoplay
-    v.muted = true;                              // РЅСѓР¶РЅРѕ Р·Р° РјРѕР±РёР»РµРЅ autoplay
+    v.removeAttribute('autoplay');               // ��� ����������� autoplay
+    v.muted = true;                              // ����� �� ������� autoplay
     v.defaultMuted = true;
     v.setAttribute('muted', '');
     v.playsInline = true;
@@ -43,11 +43,11 @@
     if (!v.getAttribute('preload')) v.preload = 'metadata';
   });
 
-  // РџРѕРјРѕС‰РЅРё СЃРµР»РµРєС‚РѕСЂРё
+  // ������� ���������
   const isProceduresVideo = (v) => !!v.closest('.kinesitherapy-button-media');
 
-  // РќР° Р”Р•РЎРљРўРћРџ: РЅРµ РЅР°Р±Р»СЋРґР°РІР°РјРµ вЂћРќР°С€РёС‚Рµ РїСЂРѕС†РµРґСѓСЂРёвЂњ (С‚Рµ СЃР° СЃР°РјРѕ hover)
-  // РќР° РњРћР‘РР›РќР: РЅР°Р±Р»СЋРґР°РІР°РјРµ РІСЃРёС‡РєРё
+  // �� �������: �� ����������� ������� ��������� (�� �� ���� hover)
+  // �� �������: ����������� ������
   let observedVideos = allVideos.filter(v => isMobile || !isProceduresVideo(v));
 
   function containerOf(videoEl) {
@@ -64,7 +64,7 @@
     );
   }
 
-  // Р¤РѕСЂСЃРёСЂР°РЅРѕ РїРѕРєР°Р·РІР°РЅРµ/СЃРєСЂРёРІР°РЅРµ РЅР° РјРѕР±РёР»РЅРё (СЃ !important вЂ” РїРѕР±РµР¶РґР°РІР° hover CSS)
+  // ��������� ���������/�������� �� ������� (� !important � ��������� hover CSS)
   function revealVideoOnMobile(videoEl) {
     if (!isMobile) return;
     const img = staticImgFor(videoEl);
@@ -87,7 +87,7 @@
     }
   }
 
-  // РџРѕ-РЅР°РґРµР¶РґРЅРѕ play: РёР·С‡Р°РєРІР° РґР°РЅРЅРё РїСЂРё РЅСѓР¶РґР° (iOS/Safari)
+  // ��-�������� play: ������� ����� ��� ����� (iOS/Safari)
   function safePlay(v) {
     const doPlay = () => v.play().catch(() => {});
     if (v.readyState >= 2) {
@@ -99,32 +99,32 @@
     }
   }
 
-  // IO РЅР°Р±Р»СЋРґР°С‚РµР»
+  // IO ����������
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const v = entry.target;
       const css = window.getComputedStyle(v);
       const visuallyHidden = (css.opacity === '0' || css.visibility === 'hidden');
-      const shouldPlay = entry.isIntersecting && entry.intersectionRatio >= 0.35; // РїРѕ-СЂР°РЅРѕ СЃС‚Р°СЂС‚РёСЂР°РЅРµ
+      const shouldPlay = entry.isIntersecting && entry.intersectionRatio >= 0.35; // ��-���� ����������
 
       if (shouldPlay) {
-        // РќР° РјРѕР±РёР»РЅРё СЂР°Р·РєСЂРёРІР°РјРµ РІРёРґРµРѕС‚Рѕ Рё СЃРєСЂРёРІР°РјРµ СЃС‚Р°С‚РёС‡РЅРѕС‚Рѕ
+        // �� ������� ���������� ������� � �������� ����������
         revealVideoOnMobile(v);
 
-        // РќР° РґРµСЃРєС‚РѕРї вЂ“ Р°РєРѕ Рµ СЃРєСЂРёС‚Рѕ (С‡Р°РєР° hover), РЅРµ РїСѓСЃРєР°РјРµ РЅР°СЃРёР»Р°
+        // �� ������� � ��� � ������ (���� hover), �� ������� ������
         if (!isMobile && visuallyHidden) return;
 
         safePlay(v);
       } else {
         if (!v.paused) v.pause();
-        // РђРєРѕ РёСЃРєР°С€ РЅСЏРєРѕРё РіСЂСѓРїРё РґР° РќР• СЃРµ РЅСѓР»РёСЂР°С‚, РґРѕР±Р°РІРё РєР»Р°СЃ РЅР°РїСЂ. .no-reset-on-exit
+        // ��� ����� ����� ����� �� �� �� �������, ������ ���� ����. .no-reset-on-exit
         if (!v.classList.contains('no-reset-on-exit')) v.currentTime = 0;
         hideVideoOnMobile(v);
       }
     });
   }, {
     root: null,
-    rootMargin: '200px 0px',   // РїРѕ-РіР»Р°РґРєРѕ Р·Р°СЃРёС‡Р°РЅРµ РїСЂРё СЃРєСЂРѕР»
+    rootMargin: '200px 0px',   // ��-������ �������� ��� �����
     threshold: [0, 0.2, 0.35, 0.5, 0.75, 1]
   });
 
@@ -136,14 +136,14 @@
   }
   observeAll();
 
-  // РџР°СѓР·Р° РЅР° РІСЃРёС‡РєРё, РєРѕРіР°С‚Рѕ С‚Р°Р±СЉС‚ Рµ СЃРєСЂРёС‚
+  // ����� �� ������, ������ ����� � �����
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       allVideos.forEach(v => { if (!v.paused) v.pause(); });
     }
   }, { passive: true });
 
-  // РџСЂРµРёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїСЂРё resize Рё РїСЂРё СЃРјСЏРЅР° РјРѕР±РёР»РµРЅ/РґРµСЃРєС‚РѕРї Р±СЂРµР№РєРїРѕР№РЅС‚
+  // ���������������� ��� resize � ��� ����� �������/������� ����������
   function reconfigureObserver() {
     unobserveAll();
     isMobile = mql.matches;
@@ -154,7 +154,7 @@
   if (mql.addEventListener) mql.addEventListener('change', reconfigureObserver);
 
   /* =====================================================
-     Hover РµС„РµРєС‚Рё (СЃР°РјРѕ Р·Р° РґРµСЃРєС‚РѕРї)
+     Hover ������ (���� �� �������)
   ====================================================== */
 
   function addHover(containerSelector, imgSelector, videoSelector) {
@@ -164,7 +164,7 @@
       if (!img || !vid) return;
 
       container.addEventListener('mouseenter', () => {
-        if (isMobile) return;    // РјРѕР±РёР»РЅРёС‚Рµ СЃРµ СѓРїСЂР°РІР»СЏРІР°С‚ РѕС‚ IO
+        if (isMobile) return;    // ��������� �� ���������� �� IO
         img.style.opacity = '0';
         vid.style.opacity = '1';
         safePlay(vid);
@@ -182,12 +182,14 @@
   // Hero / Intro
   addHover('.image-container', '.static-img', '.hover-video');
 
-  // РњСѓСЃРєСѓР»Рё
+  // �������
   addHover('.muscle-video-centered', '.static-muscle-img', '.hover-muscle-video');
 
-  // РќР°С€РёС‚Рµ РїСЂРѕС†РµРґСѓСЂРё вЂ” hover СЃР°РјРѕ РЅР° РґРµСЃРєС‚РѕРї (РЅР° РјРѕР±РёР»РЅРё РіРё РґРІРёР¶Рё IO)
+  // ������ ��������� � hover ���� �� ������� (�� ������� �� ����� IO)
   addHover('.kinesitherapy-button-media', '.kinesitherapy-img', '.kinesitherapy-video');
 
-  // Timeline / Hernia СЃС‚СЉРїРєРё
+  // Timeline / Hernia ������
   addHover('.hernia-step-media', '.static-hernia-img', '.hover-hernia-video');
 });
+
+
