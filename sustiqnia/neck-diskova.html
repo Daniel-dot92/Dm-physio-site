@@ -1,23 +1,46 @@
+ето я преработена „Дискова Херния на Врата“ — същото съдържание, оптимизирани ресурси, едно Font Awesome, lazy видео без грешки и отложени скриптове. Копирай целия код:
+
+```html
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дискова Херния на Врата: Причини и Решение</title>
-    <link rel="stylesheet" href="../css/top-bar.css">
-    <link rel="stylesheet" href="../css/temple-headache.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дискова Херния на Врата: Причини и Решение</title>
+
+  <!-- Favicon (по избор, махни ако нямаш файл) -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Локални стилове -->
+  <link rel="stylesheet" href="../css/top-bar.css">
+  <link rel="stylesheet" href="../css/temple-headache.css">
+
+  <!-- Предварителни връзки -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+
+  <!-- Единствен Font Awesome (неблокиращо) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        media="print" onload="this.media='all'">
+
+  <!-- Calendly CSS (ако не ползваш вграждане, можеш да го махнеш) -->
+  <link href="https://assets.calendly.com/assets/external/widget.css"
+        rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Preload на LCP изображение (hero) -->
+  <link rel="preload" as="image"
+        href="../pngs/sustoqniq/muscles/vrat- disk hernia-Thumbnail.jpg"
+        fetchpriority="high">
 </head>
 <body>
-   
+
 <!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" />
+      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" />
     </a>
 
     <!-- Хамбургер -->
@@ -39,278 +62,285 @@
         </li>
 
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        
         <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-    </ul>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
-    <main class="page-content">
-        <section class="hero-section">
-            <div class="container hero-container">
-                <div class="hero-text-content">
-                    <h1>Дискова Херния на Врата</h1>
-                    <p>
-                        Разберете как мускулният дисбаланс във врата може да доведе до дискова херния и как тя се лекува.
-                    </p>
-                     <div class="hero-buttons">
-                        <button class="button primary-button calendly-button" data-calendly-url="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">
-                            <i class="fas fa-stethoscope"></i> Запазете час сега
-                        </button>
-                        <a href="../services.html" class="button outline-button">
-                            <i class="fas fa-lightbulb"></i> Нашите процедури
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image image-container">
-                    <img src="../pngs/sustoqniq/muscles/vrat- disk hernia-Thumbnail.jpg" alt="Изображение на дискова херния" class="static-img">
-                    <video muted loop preload="auto" class="hover-video">
-                        <source src="../pngs/sustoqniq/muscles/vrat- disk hernia.mp4" type="video/mp4">
-                        Вашият браузър не поддържа видео тага.
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <section class="intro-section">
-            <div class="container intro-container">
-                <div class="intro-text-content">
-                    <h2>Какво е дискова херния на врата?</h2>
-                    <p>
-                        Дисковата херния представлява състояние, при което мекият вътрешен център на междупрешленния диск, наречен <span class="highlight"> nucleus pulposus</span>, излиза извън своята обвивка (<span class="highlight"> annulus fibrosus</span>). Това води до натиск върху гръбначния мозък или нервни корени, причинявайки силна болка, изтръпване и слабост в ръцете и раменете. 
-                    </p>
-                    <div class="info-box">
-                        <i class="fas fa-info-circle"></i> <p>
-                            Междупрешленните дискове функционират като амортисьори между прешлените. Те осигуряват гъвкавост и помагат за поемане на натоварването.
-                        </p>
-                    </div>
-                </div>
-                <div class="intro-image image-container">
-                    <img src="../pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg" alt="Изображение на междупрешленен диск" class="static-img">
-                    <video muted loop preload="auto" class="hover-video">
-                        <source src="../pngs/sustoqniq/muscles/disk herniation- how it happen.mp4" type="video/mp4">
-                        Вашият браузър не поддържа видео тага.
-                    </video>
-                </div>
-            </div>
-        </section>
-
- <section class="inflammation-section">
-    <div class="container">
-        <h2 class="section-title">Връзката с мускулния дисбаланс</h2>
-        <p class="section-subtitle">Дисковата херния често е резултат от неравномерно натоварване на врата.</p>
-
-        <div class="timeline-container">
-            <div class="timeline-step">
-                <div class="step-content">
-                    <div class="step-card">
-                        <h3>1. Мускулен дисбаланс</h3>
-                        <p>
-                            В идеалния случай мускулите около врата и гръбначния стълб работят в хармония. При мускулен дисбаланс, някои мускули (като трапецовидните или стерноклейдомастоидеус) се скъсяват и стават прекалено напрегнати, докато други отслабват. Тази неравномерна сила дърпа врата в неправилна позиция, като главата често се накланя или се изнася напред.
-                        </p>
-                    </div>
-                </div>
-                <div class="step-number-container">1</div>
-                <div class="step-media">
-                    <div class="hernia-step-media">
-                        <img src="../pngs/sustoqniq/muscles/neck-muscle imbalance-Thumbnail.jpg" alt="Мускулен дисбаланс" class="static-hernia-img">
-                        <video muted loop preload="auto" autoplay class="hover-hernia-video">
-                            <source src="../pngs/sustoqniq/muscles/neck-muscle imbalance.mp4" type="video/mp4">
-                            Вашият браузър не поддържа видео тага.
-                        </video>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-step">
-                <div class="step-content">
-                    <div class="step-card">
-                        <h3>2. Неравномерно натоварване</h3>
-                        <p>
-                            Когато мускулите не поддържат главата симетрично, тежестта ѝ (около 5-6 кг) се разпределя неравномерно върху междупрешленните дискове. Вместо дискът да поема налягането равномерно, той бива притиснат само от едната страна. Това постоянно, асиметрично налягане постепенно уврежда външната му обвивка (фиброзния пръстен).
-                        </p>
-                    </div>
-                </div>
-                <div class="step-number-container">2</div>
-                <div class="step-media">
-                    <div class="hernia-step-media">
-                        <img src="../pngs/sustoqniq/muscles/neck- upper cross imbalanceThumbnail.jpg" alt="Неравномерно натоварване" class="static-hernia-img">
-                        <video muted loop preload="auto" autoplay class="hover-hernia-video">
-                            <source src="../pngs/sustoqniq/muscles/neck- upper cross imbalance.mp4" type="video/mp4">
-                            Вашият браузър не поддържа видео тага.
-                        </video>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-step">
-                <div class="step-content">
-                    <div class="step-card">
-                        <h3>3. Повишено налягане и херниране</h3>
-                        <p>
-                            С течение на времето, поддържаният натиск върху диска става твърде голям. Външният фиброзен пръстен не може да издържи и се разкъсва. Вътрешната, желеобразна част на диска изтича или изпъква навън, което се нарича херниране. Херниралият диск притиска близките нервни коренчета или гръбначния мозък, което причинява болка, изтръпване и слабост.
-                        </p>
-                    </div>
-                </div>
-                <div class="step-number-container">3</div>
-                <div class="step-media">
-                    <div class="hernia-step-media">
-                        <img src="../pngs/sustoqniq/muscles/disk herniation 1-Thumbnail.jpg" alt="Дискова херния" class="static-hernia-img">
-                        <video muted loop preload="auto" autoplay class="hover-hernia-video">
-                            <source src="../pngs/sustoqniq/muscles/disk herniation 1.mp4" type="video/mp4">
-                            Вашият браузър не поддържа видео тага.
-                        </video>
-                    </div>
-                </div>
-            </div>
+<main class="page-content">
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-text-content">
+        <h1>Дискова Херния на Врата</h1>
+        <p>
+          Разберете как мускулният дисбаланс във врата може да доведе до дискова херния и как тя се лекува.
+        </p>
+        <div class="hero-buttons">
+          <button class="button primary-button calendly-button" data-calendly-url="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">
+            <i class="fas fa-stethoscope"></i> Запазете час сега
+          </button>
+          <a href="../services.html" class="button outline-button">
+            <i class="fas fa-lightbulb"></i> Нашите процедури
+          </a>
         </div>
+      </div>
+      <div class="hero-image image-container">
+        <img
+          src="../pngs/sustoqniq/muscles/vrat- disk hernia-Thumbnail.jpg"
+          alt="Изображение на дискова херния"
+          class="static-img"
+          loading="eager" decoding="async" fetchpriority="high">
+        <video class="hover-video" muted loop preload="metadata" playsinline
+               poster="../pngs/sustoqniq/muscles/vrat- disk hernia-Thumbnail.jpg" aria-hidden="true">
+          <source src="../pngs/sustoqniq/muscles/vrat- disk hernia.mp4" type="video/mp4">
+          Вашият браузър не поддържа видео тага.
+        </video>
+      </div>
     </div>
-</section>
+  </section>
 
-   <section class="healing-section alternative-style">
-    <div class="container">
-        <h2 class="section-title">Как кинезитерапията лекува дискова херния?</h2>
-        <p class="section-subtitle">Нашият подход е фокусиран върху корена на проблема - мускулния дисбаланс.</p>
-
-        <div class="healing-steps-grid">
-            <div class="healing-step">
-                <div class="step-icon-circle"><i class="fas fa-hand-holding-medical"></i></div>
-                <h3>1. Премахване на натиска върху диска</h3>
-                <p>
-                    Чрез мануални и инструментални техники идентифицираме и работим върху <span class="highlight">свитите и болезнени мускули</span>. Целта е да се намали напрежението и да се освободи натискът върху гръбначния стълб, който причинява изпъкването на диска.
-                </p>
-            </div>
-            <div class="healing-step">
-                <div class="step-icon-circle"><i class="fas fa-dumbbell"></i></div>
-                <h3>2. Укрепване на стабилизиращите мускули</h3>
-                <p>
-                    След като напрежението е отстранено, преминаваме към <span class="highlight">упражнения за заздравяване</span> на мускулите, които са станали неефективни. Това възвръща правилната поддържаща функция на гръбначния стълб и предпазва от повторна травма.
-                </p>
-            </div>
-            <div class="healing-step">
-                <div class="step-icon-circle"><i class="fas fa-check-circle"></i></div>
-                <h3>3. Постигане на дългосрочен баланс</h3>
-                <p>
-                    Възстановяването на мускулния баланс води до <span class="highlight">равномерно разпределение на тежестта</span>, което облекчава диска и му позволява да се върне в първоначалното си положение. По този начин се постига трайно облекчение.
-                </p>
-            </div>
+  <!-- INTRO -->
+  <section class="intro-section">
+    <div class="container intro-container">
+      <div class="intro-text-content">
+        <h2>Какво е дискова херния на врата?</h2>
+        <p>
+          Дисковата херния представлява състояние, при което мекият вътрешен център на междупрешленния диск, наречен <span class="highlight"> nucleus pulposus</span>, излиза извън своята обвивка (<span class="highlight"> annulus fibrosus</span>). Това води до натиск върху гръбначния мозък или нервни корени, причинявайки силна болка, изтръпване и слабост в ръцете и раменете. 
+        </p>
+        <div class="info-box">
+          <i class="fas fa-info-circle"></i>
+          <p>
+            Междупрешленните дискове функционират като амортисьори между прешлените. Те осигуряват гъвкавост и помагат за поемане на натоварването.
+          </p>
         </div>
+      </div>
+      <div class="intro-image image-container">
+        <img src="../pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg" alt="Изображение на междупрешленен диск" class="static-img" loading="lazy" decoding="async">
+        <video class="hover-video" muted loop preload="metadata" playsinline
+               poster="../pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg" aria-hidden="true">
+          <source src="../pngs/sustoqniq/muscles/disk herniation- how it happen.mp4" type="video/mp4">
+          Вашият браузър не поддържа видео тага.
+        </video>
+      </div>
     </div>
-</section>  
-        <section class="conditions-section procedures-section">
-            <div class="container">
-                <h3>Процедури, които помагат при дискова херния на врата:</h3>
+  </section>
 
-                <div class="kinesitherapy-slider-container">
-                    <button class="slider-arrow prev-arrow" aria-label="Предишен слайд">❮</button>
+  <!-- TIMELINE -->
+  <section class="inflammation-section">
+    <div class="container">
+      <h2 class="section-title">Връзката с мускулния дисбаланс</h2>
+      <p class="section-subtitle">Дисковата херния често е резултат от неравномерно натоварване на врата.</p>
 
-                    <div class="kinesitherapy-slider-track">
-                        <a href="../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
-                            <div class="kinesitherapy-button-media">
-                                <img src="/pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img">
-                                <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                    <source src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
-                                    Вашият браузър не поддържа видео тага.
-                                </video>
-                            </div>
-                            <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
-                        </a>
-
-                        <a href="../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
-                            <div class="kinesitherapy-button-media">
-                                <img src="/pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img">
-                                <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                    <source src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
-                                    Вашият браузър не поддържа видео тага.
-                                </video>
-                            </div>
-                            <span class="kinesitherapy-button-text">Лечебен Масаж</span>
-                        </a>
-
-                        <a href="../procedures/masaj.deeptisue.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/1">
-                            <div class="kinesitherapy-button-media">
-                                <img src="/pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img">
-                                <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                    <source src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
-                                    Вашият браузър не поддържа видео тага.
-                                </video>
-                            </div>
-                            <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
-                        </a>
-
-                        <a href="../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
-                            <div class="kinesitherapy-button-media">
-                                <img src="/pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img">
-                                <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                    <source src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
-                                    Вашият браузър не поддържа видео тага.
-                                </video>
-                            </div>
-                            <span class="kinesitherapy-button-text">Функционална оценка</span>
-                        </a>
-
-                        <a href="../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
-                            <div class="kinesitherapy-button-media">
-                                <img src="/pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img">
-                                <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                    <source src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
-                                    Вашият браузър не поддържа видео тага.
-                                </video>
-                            </div>
-                            <span class="kinesitherapy-button-text">Упражнения</span>
-                        </a>
-
-                        <a href="../procedures/dry-needling.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/50-clone">
-                            <div class="kinesitherapy-button-media">
-                                <img src="/pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" class="kinesitherapy-img">
-                                <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                    <source src="/pngs/procedures/gif/drineedling.mp4" type="video/mp4">
-                                    Вашият браузър не поддържа видео тага.
-                                </video>
-                            </div>
-                            <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
-                        </a>
-                        
-                        <a href="../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
-                            <div class="kinesitherapy-button-media">
-                                <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img">
-                                <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                    <source src="/pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
-                                    Вашият браузър не поддържа видео тага.
-                                </video>
-                            </div>
-                            <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
-                        </a>
-                    </div>
-
-                    <button class="slider-arrow next-arrow" aria-label="Следващ слайд">❯</button>
-                </div>
-                            <!-- CTA: Виж всички процедури -->
-<div class="procedures-cta-wrap">
-  <a
-    href="/services.html"  
-    class="procedures-cta"
-    aria-label="Виж всички процедури"
-  >
-    <svg class="procedures-cta-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span>Виж всички процедури</span>
-  </a>
-</div>
+      <div class="timeline-container">
+        <div class="timeline-step">
+          <div class="step-content">
+            <div class="step-card">
+              <h3>1. Мускулен дисбаланс</h3>
+              <p>
+                В идеалния случай мускулите около врата и гръбначния стълб работят в хармония. При мускулен дисбаланс, някои мускули (като трапецовидните или стерноклейдомастоидеус) се скъсяват и стават прекалено напрегнати, докато други отслабват. Тази неравномерна сила дърпа врата в неправилна позиция, като главата често се накланя или се изнася напред.
+              </p>
             </div>
-        </section>
+          </div>
+          <div class="step-number-container">1</div>
+          <div class="step-media">
+            <div class="hernia-step-media">
+              <img src="../pngs/sustoqniq/muscles/neck-muscle imbalance-Thumbnail.jpg" alt="Мускулен дисбаланс" class="static-hernia-img" loading="lazy" decoding="async">
+              <video class="hover-hernia-video" muted loop preload="metadata" playsinline
+                     poster="../pngs/sustoqniq/muscles/neck-muscle imbalance-Thumbnail.jpg" aria-hidden="true">
+                <source src="../pngs/sustoqniq/muscles/neck-muscle imbalance.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+          </div>
+        </div>
 
-    </main>
-     <footer class="footer">
+        <div class="timeline-step">
+          <div class="step-content">
+            <div class="step-card">
+              <h3>2. Неравномерно натоварване</h3>
+              <p>
+                Когато мускулите не поддържат главата симетрично, тежестта ѝ (около 5-6 кг) се разпределя неравномерно върху междупрешленните дискове. Вместо дискът да поема налягането равномерно, той бива притиснат само от едната страна. Това постоянно, асиметрично налягане постепенно уврежда външната му обвивка (фиброзния пръстен).
+              </p>
+            </div>
+          </div>
+          <div class="step-number-container">2</div>
+          <div class="step-media">
+            <div class="hernia-step-media">
+              <img src="../pngs/sustoqniq/muscles/neck- upper cross imbalanceThumbnail.jpg" alt="Неравномерно натоварване" class="static-hernia-img" loading="lazy" decoding="async">
+              <video class="hover-hernia-video" muted loop preload="metadata" playsinline
+                     poster="../pngs/sustoqniq/muscles/neck- upper cross imbalanceThumbnail.jpg" aria-hidden="true">
+                <source src="../pngs/sustoqniq/muscles/neck- upper cross imbalance.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="step-content">
+            <div class="step-card">
+              <h3>3. Повишено налягане и херниране</h3>
+              <p>
+                С течение на времето, поддържаният натиск върху диска става твърде голям. Външният фиброзен пръстен не може да издържи и се разкъсва. Вътрешната, желеобразна част на диска изтича или изпъква навън, което се нарича херниране. Херниралият диск притиска близките нервни коренчета или гръбначния мозък, което причинява болка, изтръпване и слабост.
+              </p>
+            </div>
+          </div>
+          <div class="step-number-container">3</div>
+          <div class="step-media">
+            <div class="hernia-step-media">
+              <img src="../pngs/sustoqniq/muscles/disk herniation 1-Thumbnail.jpg" alt="Дискова херния" class="static-hernia-img" loading="lazy" decoding="async">
+              <video class="hover-hernia-video" muted loop preload="metadata" playsinline
+                     poster="../pngs/sustoqniq/muscles/disk herniation 1-Thumbnail.jpg" aria-hidden="true">
+                <source src="../pngs/sustoqniq/muscles/disk herniation 1.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEALING -->
+  <section class="healing-section alternative-style">
+    <div class="container">
+      <h2 class="section-title">Как кинезитерапията лекува дискова херния?</h2>
+      <p class="section-subtitle">Нашият подход е фокусиран върху корена на проблема - мускулния дисбаланс.</p>
+
+      <div class="healing-steps-grid">
+        <div class="healing-step">
+          <div class="step-icon-circle"><i class="fas fa-hand-holding-medical"></i></div>
+          <h3>1. Премахване на натиска върху диска</h3>
+          <p>
+            Чрез мануални и инструментални техники идентифицираме и работим върху <span class="highlight">свитите и болезнени мускули</span>. Целта е да се намали напрежението и да се освободи натискът върху гръбначния стълб, който причинява изпъкването на диска.
+          </p>
+        </div>
+        <div class="healing-step">
+          <div class="step-icon-circle"><i class="fas fa-dumbbell"></i></div>
+          <h3>2. Укрепване на стабилизиращите мускули</h3>
+          <p>
+            След като напрежението е отстранено, преминаваме към <span class="highlight">упражнения за заздравяване</span> на мускулите, които са станали неефективни. Това възвръща правилната поддържаща функция на гръбначния стълб и предпазва от повторна травма.
+          </p>
+        </div>
+        <div class="healing-step">
+          <div class="step-icon-circle"><i class="fas fa-check-circle"></i></div>
+          <h3>3. Постигане на дългосрочен баланс</h3>
+          <p>
+            Възстановяването на мускулния баланс води до <span class="highlight">равномерно разпределение на тежестта</span>, което облекчава диска и му позволява да се върне в първоначалното си положение. По този начин се постига трайно облекчение.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCEDURES / SLIDER -->
+  <section class="conditions-section procedures-section">
+    <div class="container">
+      <h3>Процедури, които помагат при дискова херния на врата:</h3>
+
+      <div class="kinesitherapy-slider-container">
+        <button class="slider-arrow prev-arrow" aria-label="Предишен слайд">❮</button>
+
+        <div class="kinesitherapy-slider-track">
+          <!-- Lazy видео с безопасен плей на hover/тап -->
+          <a href="../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/procedures/KT.PNG" aria-hidden="true">
+                <source data-src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
+          </a>
+
+          <a href="../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/massages/lecheben.PNG" aria-hidden="true">
+                <source data-src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Лечебен Масаж</span>
+          </a>
+
+          <a href="../procedures/masaj.deeptisue.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/1">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/massages/deeptissue.PNG" aria-hidden="true">
+                <source data-src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
+          </a>
+
+          <a href="../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/procedures/function.PNG" aria-hidden="true">
+                <source data-src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Функционална оценка</span>
+          </a>
+
+          <a href="../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/procedures/exercises.PNG" aria-hidden="true">
+                <source data-src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Упражнения</span>
+          </a>
+
+          <a href="../procedures/dry-needling.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/50-clone">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/procedures/gif/drineedling-Thumbnail.jpg" aria-hidden="true">
+                <source data-src="/pngs/procedures/gif/drineedling.mp4" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
+          </a>
+
+          <a href="../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" aria-hidden="true">
+                <source data-src="/pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
+          </a>
+        </div>
+
+        <button class="slider-arrow next-arrow" aria-label="Следващ слайд">❯</button>
+      </div>
+
+      <!-- CTA: Виж всички процедури -->
+      <div class="procedures-cta-wrap">
+        <a href="/services.html" class="procedures-cta" aria-label="Виж всички процедури">
+          <svg class="procedures-cta-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Виж всички процедури</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
         <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" 
-                  width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
+                  width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
@@ -319,36 +349,36 @@
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook">
+            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram">
+            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon">
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async">
           <span>0883688414</span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async">
           <div>
              <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
             <span>Събота: 09:00 - 16:00</span><br>
-            </span>Неделя: Почивка</span>
+            <span>Неделя: Почивка</span>
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -364,10 +394,66 @@
     </div>
   </section>
 </footer>
-    <script src="../js/temple-headache.js"></script>
-     <script src="/js/topbar.js"></script>
-    
-    <script src="../js/procedurs-slider.js"></script>
-    
+
+<!-- Скриптове – отложени -->
+<script src="/js/topbar.js" defer></script>
+<script src="../js/temple-headache.js" defer></script>
+<script src="../js/procedurs-slider.js" defer></script>
+
+<!-- Хелпър: безопасен hover/tap за видеата в „Процедури…“ с lazy source -->
+<script>
+  (function () {
+    function ensureVideoHasSrc(video){
+      if (!video) return;
+      if (video.currentSrc || (video.querySelector('source') && video.querySelector('source').src)) return;
+      const s = video.querySelector('source[data-src]');
+      if (s){ s.src = s.dataset.src; try{ video.load(); }catch(e){} }
+    }
+    function bindHover(card){
+      card.addEventListener('mouseenter', () => {
+        const v = card.querySelector('.kinesitherapy-video');
+        ensureVideoHasSrc(v);
+        if (!v) return;
+        v.muted = true;
+        const p = v.play();
+        if (p && p.catch) p.catch(()=>{});
+      });
+      card.addEventListener('mouseleave', () => {
+        const v = card.querySelector('.kinesitherapy-video');
+        if (!v) return;
+        v.pause();
+        try{ v.currentTime = 0; }catch(e){}
+      });
+    }
+    function bindTap(card){
+      card.addEventListener('click', (e) => {
+        const media = e.target.closest('.kinesitherapy-button-media');
+        if (!media) return; // нормален клик по линка
+        e.preventDefault();
+        const v = card.querySelector('.kinesitherapy-video');
+        if (!v) return;
+        ensureVideoHasSrc(v);
+        if (v.paused){ v.muted = true; v.play().catch(()=>{}); }
+        else { v.pause(); try{ v.currentTime = 0; }catch(e){} }
+      });
+    }
+    document.querySelectorAll('.kinesitherapy-button').forEach((card) => {
+      bindHover(card); bindTap(card);
+    });
+    if ('IntersectionObserver' in window){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(en=>{
+          if (en.isIntersecting){
+            const v = en.target.querySelector('.kinesitherapy-video');
+            ensureVideoHasSrc(v);
+            io.unobserve(en.target);
+          }
+        });
+      }, { root:null, rootMargin:'200px 0px', threshold:0 });
+      document.querySelectorAll('.kinesitherapy-button').forEach(c=>io.observe(c));
+    }
+  })();
+</script>
 </body>
 </html>
+```
