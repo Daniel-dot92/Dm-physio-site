@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мускулни болки в рамото: Причини и решения</title>
+
+    <!-- Локални CSS -->
     <link rel="stylesheet" href="../../css/top-bar.css">
     <link rel="stylesheet" href="/css/muscle.css">
     <link rel="stylesheet" href="../../css/temple-headache.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Външни CSS (неблокиращо зареждане + preconnect) -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </noscript>
 </head>
 <body>
 <!-- ======= Top bar (TB) ======= -->
@@ -17,7 +28,7 @@
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" />
+      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" fetchpriority="high" />
     </a>
 
     <!-- Хамбургер -->
@@ -65,8 +76,8 @@
                     </div>
             </div>
             <div class="hero-image image-container">
-                <img src="../../pngs/sustoqniq/muscles/scapulae-Thumbnail.jpg" alt="Изображение на мускулна болка в рамото" class="static-img">
-                <video muted loop preload="auto" class="hover-video">
+                <img src="../../pngs/sustoqniq/muscles/scapulae-Thumbnail.jpg" alt="Изображение на мускулна болка в рамото" class="static-img" loading="eager" fetchpriority="high">
+                <video muted loop preload="metadata" playsinline class="hover-video">
                     <source src="../../pngs/sustoqniq/muscles/scapulae.mp4" type="video/mp4">
                     Вашият браузър не поддържа видео тага.
                 </video>
@@ -88,8 +99,8 @@
                 </div>
             </div>
             <div class="intro-image image-container">
-                <img src="../../pngs/sustoqniq/muscles/supraspinatus-Thumbnail.jpg" alt="Анатомия на раменния пояс - статично изображение" class="static-img">
-                <video muted loop preload="auto" class="hover-video">
+                <img src="../../pngs/sustoqniq/muscles/supraspinatus-Thumbnail.jpg" alt="Анатомия на раменния пояс - статично изображение" class="static-img" loading="lazy">
+                <video muted loop preload="metadata" playsinline class="hover-video">
                     <source src="../../pngs/sustoqniq/muscles/supraspinatus.mp4" type="video/mp4">
                     Вашият браузър не поддържа видео тага.
                 </video>
@@ -151,8 +162,8 @@
             <div class="muscle-item">
                 <h3>m. deltoideus (делтоиден мускул)</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/muscle-Thumbnail.jpg" alt="Изображение на Делтоидния мускул" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/muscle-Thumbnail.jpg" alt="Изображение на Делтоидния мускул" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/muscle. deltoideus.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -191,8 +202,8 @@
             <div class="muscle-item">
                 <h3>m. supraspinatus</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/muscle-supraspinatus-1-Thumbnail.jpg" alt="Изображение на мускула supraspinatus" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/muscle-supraspinatus-1-Thumbnail.jpg" alt="Изображение на мускула supraspinatus" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/muscle-supraspinatus-1.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -230,8 +241,8 @@
             <div class="muscle-item">
                 <h3>m. infraspinatus и m. teres minor</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/muscle-infraspinatus2-Thumbnail.jpg" alt="Изображение на мускулите infraspinatus и teres minor" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/muscle-infraspinatus2-Thumbnail.jpg" alt="Изображение на мускулите infraspinatus и teres minor" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/muscle-infraspinatus2.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -269,8 +280,8 @@
             <div class="muscle-item">
                 <h3>m. subscapularis</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/muscle-subscapularis-Thumbnail.jpg" alt="Изображение на мускула subscapularis" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/muscle-subscapularis-Thumbnail.jpg" alt="Изображение на мускула subscapularis" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/muscle-subscapularis.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -308,8 +319,8 @@
             <div class="muscle-item">
                 <h3>m. levator scapulae</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/levator scapulae-1-Thumbnail.jpg" alt="Изображение на мускула levator scapulae" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/levator scapulae-1-Thumbnail.jpg" alt="Изображение на мускула levator scapulae" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/levator scapulae-1.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -346,8 +357,8 @@
             <div class="muscle-item">
                 <h3>m. rhomboideus major et minor</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/muscle-rhomboids-Thumbnail.jpg" alt="Изображение на мускула rhomboideus" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/muscle-rhomboids-Thumbnail.jpg" alt="Изображение на мускула rhomboideus" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/muscle-rhomboids.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -384,8 +395,8 @@
             <div class="muscle-item">
                 <h3>m. trapezius (трапецовиден мускул)</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/muscle-trapezius2-Thumbnail.jpg" alt="Изображение на мускула trapezius" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/muscle-trapezius2-Thumbnail.jpg" alt="Изображение на мускула trapezius" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/muscle-trapezius2.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -422,8 +433,8 @@
             <div class="muscle-item">
                 <h3>m. latissimus dorsi</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/latisimus dorsi2-Thumbnail.jpg" alt="Изображение на мускула latissimus dorsi" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/latisimus dorsi2-Thumbnail.jpg" alt="Изображение на мускула latissimus dorsi" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/latisimus dorsi2.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -460,8 +471,8 @@
             <div class="muscle-item">
                 <h3>m. pectoralis major</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/pecturalis major1-Thumbnail.jpg" alt="Изображение на мускулите pectoralis major et minor" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/pecturalis major1-Thumbnail.jpg" alt="Изображение на мускулите pectoralis major et minor" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/pecturalis major1.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -498,8 +509,8 @@
             <div class="muscle-item">
                 <h3>m. serratus anterior</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/sarratus anterior-Thumbnail.jpg" alt="Изображение на мускула serratus anterior" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/sarratus anterior-Thumbnail.jpg" alt="Изображение на мускула serratus anterior" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/sarratus anterior.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -536,8 +547,8 @@
             <div class="muscle-item">
                 <h3>m. biceps brachii</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/biceps brahi-Thumbnail.jpg" alt="Изображение на мускула biceps brachii" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/biceps brahi-Thumbnail.jpg" alt="Изображение на мускула biceps brachii" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/biceps brahi.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -574,8 +585,8 @@
             <div class="muscle-item">
                 <h3>m. triceps brachii</h3>
                 <div class="muscle-media muscle-video-centered">
-                    <img src="../../pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.jpg" alt="Изображение на мускула triceps brachii" class="static-muscle-img">
-                    <video muted loop preload="auto" class="hover-muscle-video">
+                    <img src="../../pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.jpg" alt="Изображение на мускула triceps brachii" class="static-muscle-img" loading="lazy">
+                    <video muted loop preload="metadata" playsinline class="hover-muscle-video">
                         <source src="../../pngs/sustoqniq/muscles/triceps  brachii.mp4" type="video/mp4">
                         Вашият браузър не поддържа видео тага.
                     </video>
@@ -654,8 +665,8 @@
 
                 <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
                     <div class="kinesitherapy-button-media">
-                        <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img">
-                        <video autoplay loop muted playsinline class="kinesitherapy-video">
+                        <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" loading="lazy">
+                        <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                             <source src="../../pngs/procedures/gif/KT.mp4" type="video/mp4">
                             Вашият браузър не поддържа видео тага.
                         </video>
@@ -665,8 +676,8 @@
 
                 <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
                     <div class="kinesitherapy-button-media">
-                        <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img">
-                        <video autoplay loop muted playsinline class="kinesitherapy-video">
+                        <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" loading="lazy">
+                        <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                             <source src="../../pngs/massages/gif/lecheben.mp4" type="video/mp4">
                             Вашият браузър не поддържа видео тага.
                         </video>
@@ -676,8 +687,8 @@
 
                 <a href="../../procedures/masaj.deeptisue.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/1">
                     <div class="kinesitherapy-button-media">
-                        <img src="../../pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img">
-                        <video autoplay loop muted playsinline class="kinesitherapy-video">
+                        <img src="../../pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" loading="lazy">
+                        <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                             <source src="../../pngs/massages/gif/deeptisue.mp4" type="video/mp4">
                             Вашият браузър не поддържа видео тага.
                         </video>
@@ -687,8 +698,8 @@
 
                 <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
                     <div class="kinesitherapy-button-media">
-                        <img src="../../pngs/procedures/function.PNG" alt="Масаж с Ергон" class="kinesitherapy-img">
-                        <video autoplay loop muted playsinline class="kinesitherapy-video">
+                        <img src="../../pngs/procedures/function.PNG" alt="Масаж с Ергон" class="kinesitherapy-img" loading="lazy">
+                        <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                             <source src="../../pngs/procedures/gif/funciton.mp4" type="video/mp4">
                             Вашият браузър не поддържа видео тага.
                         </video>
@@ -698,8 +709,8 @@
 
                 <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
                     <div class="kinesitherapy-button-media">
-                        <img src="../../pngs/procedures/exercises.PNG" alt="Масаж с Вендуза" class="kinesitherapy-img">
-                        <video autoplay loop muted playsinline class="kinesitherapy-video">
+                        <img src="../../pngs/procedures/exercises.PNG" alt="Масаж с Вендуза" class="kinesitherapy-img" loading="lazy">
+                        <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                             <source src="../../pngs/procedures/gif/exercieses.mp4" type="video/mp4">
                             Вашият браузър не поддържа видео тага.
                         </video>
@@ -709,8 +720,8 @@
 
                 <a href="../../procedures/dry-needling.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/50-clone">
                     <div class="kinesitherapy-button-media">
-                        <img src="../../pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" class="kinesitherapy-img">
-                        <video autoplay loop muted playsinline class="kinesitherapy-video">
+                        <img src="../../pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" class="kinesitherapy-img" loading="lazy">
+                        <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                             <source src="../../pngs/procedures/gif/drineedling.mp4" type="video/mp4">
                             Вашият браузър не поддържа видео тага.
                         </video>
@@ -720,8 +731,8 @@
 
                 <a href="../../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
                     <div class="kinesitherapy-button-media">
-                        <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img">
-                        <video autoplay loop muted playsinline class="kinesitherapy-video">
+                        <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" loading="lazy">
+                        <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                             <source src="../../pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
                             Вашият браузър не поддържа видео тага.
                         </video>
@@ -765,27 +776,27 @@
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook">
+            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram">
+            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon">
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy">
           <span>0883688414</span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy">
           <div>
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
@@ -794,7 +805,7 @@
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -811,9 +822,34 @@
   </section>
 </footer>
 
-<script src="../../js/temple-headache.js"></script> 
- <script src="/js/topbar.js"></script>
+<!-- Скриптове с defer (неблокиращи) -->
+<script src="../../js/temple-headache.js" defer></script> 
+<script src="/js/topbar.js" defer></script>
+<script src="../../js/procedurs-slider.js" defer></script>
 
-<script src="../../js/procedurs-slider.js"></script>
+<!-- Авто play/pause на видеата само когато са видими -->
+<script>
+(function() {
+  const vids = document.querySelectorAll("video");
+  vids.forEach(v => {
+    v.muted = true;
+    v.setAttribute("playsinline","");
+    v.setAttribute("webkit-playsinline","");
+    // за hero/секциите ползваме по-леко зареждане
+    if (!v.hasAttribute('preload')) v.preload = "metadata";
+  });
+
+  const play = v => v && v.paused && v.play().catch(()=>{});
+  const pause = v => v && !v.paused && v.pause();
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(({isIntersecting, target}) => {
+      if (isIntersecting) play(target); else pause(target);
+    });
+  }, { threshold: 0.35 });
+
+  vids.forEach(v => io.observe(v));
+})();
+</script>
 </body>
 </html>
