@@ -19,7 +19,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         media="print" onload="this.media='all'">
 
-  <!-- Calendly widget CSS – ако не ползваш embed JS на тази страница, можеш да махнеш -->
+  <!-- Calendly widget CSS (неблокиращо; ако не вграждаш Calendly тук, може да се премахне) -->
   <link href="https://assets.calendly.com/assets/external/widget.css"
         rel="stylesheet" media="print" onload="this.media='all'">
 
@@ -376,7 +376,9 @@
               <img src="/pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img"
                    loading="lazy" decoding="async">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/procedures/KT.PNG"></video>
+                     poster="/pngs/procedures/KT.PNG">
+                <source data-src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
+              </video>
             </div>
             <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
           </a>
@@ -387,7 +389,9 @@
               <img src="/pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img"
                    loading="lazy" decoding="async">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/massages/lecheben.PNG"></video>
+                     poster="/pngs/massages/lecheben.PNG">
+                <source data-src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
+              </video>
             </div>
             <span class="kinesitherapy-button-text">Лечебен Масаж</span>
           </a>
@@ -398,7 +402,9 @@
               <img src="/pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img"
                    loading="lazy" decoding="async">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/massages/deeptissue.PNG"></video>
+                     poster="/pngs/massages/deeptissue.PNG">
+                <source data-src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
+              </video>
             </div>
             <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
           </a>
@@ -409,7 +415,9 @@
               <img src="/pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img"
                    loading="lazy" decoding="async">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/procedures/function.PNG"></video>
+                     poster="/pngs/procedures/function.PNG">
+                <source data-src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
+              </video>
             </div>
             <span class="kinesitherapy-button-text">Функционална оценка</span>
           </a>
@@ -420,7 +428,9 @@
               <img src="/pngs/procedures/exercises.PNG" alt="Упражнения" class="kinesitherapy-img"
                    loading="lazy" decoding="async">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/procedures/exercises.PNG"></video>
+                     poster="/pngs/procedures/exercises.PNG">
+                <source data-src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
+              </video>
             </div>
             <span class="kinesitherapy-button-text">Упражнения</span>
           </a>
@@ -431,7 +441,9 @@
               <img src="/pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли"
                    class="kinesitherapy-img" loading="lazy" decoding="async">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/procedures/gif/drineedling-Thumbnail.jpg"></video>
+                     poster="/pngs/procedures/gif/drineedling-Thumbnail.jpg">
+                <source data-src="/pngs/procedures/gif/drineedling.mp4" type="video/mp4">
+              </video>
             </div>
             <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
           </a>
@@ -442,7 +454,9 @@
               <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезио тейп" class="kinesitherapy-img"
                    loading="lazy" decoding="async">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg"></video>
+                     poster="/pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg">
+                <source data-src="/pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
+              </video>
             </div>
             <span class="kinesitherapy-button-text">Кинезио тейп</span>
           </a>
@@ -513,8 +527,7 @@
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
-              Вижте на карта →
-            </a>
+              Вижте на карта →</a>
           </div>
         </div>
       </div>
@@ -528,8 +541,91 @@
 </footer>
 
 <!-- Скриптове – отложени -->
-<script src="../js/temple-headache.js" defer></script>
 <script src="/js/topbar.js" defer></script>
+<script src="../js/temple-headache.js" defer></script>
 <script src="../js/procedurs-slider.js" defer></script>
+
+<!-- Лек хелпър за hover/tap видеа в „Процедури…“ (визуално без промяна) -->
+<script>
+  (function () {
+    // Ленива инициализация на видео SRC от <source data-src="...">
+    function ensureVideoHasSrc(video) {
+      if (!video) return;
+      // ако вече има активен src => готово
+      if (video.currentSrc || (video.querySelector('source') && video.querySelector('source').src)) return;
+
+      const source = video.querySelector('source[data-src]');
+      if (source) {
+        source.src = source.dataset.src;
+        // презареждаме метаданни (много бързо)
+        try { video.load(); } catch (e) {}
+      }
+    }
+
+    // Hover play/pause за десктоп
+    function bindHoverPlayback(root) {
+      root.addEventListener('mouseenter', (e) => {
+        const btn = e.currentTarget;
+        const video = btn.querySelector('.kinesitherapy-video');
+        ensureVideoHasSrc(video);
+        if (!video) return;
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.then === 'function') {
+          playPromise.catch(()=>{ /* игнорирай блокирания */ });
+        }
+      });
+      root.addEventListener('mouseleave', (e) => {
+        const btn = e.currentTarget;
+        const video = btn.querySelector('.kinesitherapy-video');
+        if (!video) return;
+        video.pause();
+        // връщаме кадъра в началото за да стои на постера
+        try { video.currentTime = 0; } catch (e) {}
+      });
+    }
+
+    // Tap-to-play за мобилни (toggle)
+    function bindTapPlayback(root) {
+      root.addEventListener('click', (e) => {
+        // избягваме да отваря линка мигновено при първи тап – пускаме/спираме видео
+        const video = root.querySelector('.kinesitherapy-video');
+        if (!video) return;
+        // ако целта е бутона/медията – превземаме първия тап
+        if (e.target.closest('.kinesitherapy-button-media') || e.target === root) {
+          e.preventDefault();
+          ensureVideoHasSrc(video);
+          if (video.paused) {
+            video.muted = true;
+            video.play().catch(()=>{});
+          } else {
+            video.pause();
+            try { video.currentTime = 0; } catch (e) {}
+          }
+        }
+      });
+    }
+
+    // за всяко каре в слайдера: hover + tap
+    document.querySelectorAll('.kinesitherapy-button').forEach((el) => {
+      bindHoverPlayback(el);
+      bindTapPlayback(el);
+    });
+
+    // IntersectionObserver (по избор): подгответе source малко преди да влезе във viewport
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const video = entry.target.querySelector('.kinesitherapy-video');
+            ensureVideoHasSrc(video);
+            io.unobserve(entry.target);
+          }
+        });
+      }, { root: null, rootMargin: '200px 0px', threshold: 0 });
+      document.querySelectorAll('.kinesitherapy-button').forEach((card) => io.observe(card));
+    }
+  })();
+</script>
 </body>
 </html>

@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Болка в Тила и Нагоре: Причини и Решения</title>
-    <link rel="stylesheet" href="../css/top-bar.css">
-    <link rel="stylesheet" href="../css/muscle.css">
-    <link rel="stylesheet" href="../css/temple-headache.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Болка в Тила и Нагоре: Причини и Решения</title>
+
+  <!-- Networking hints -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+  <link rel="dns-prefetch" href="//assets.calendly.com">
+
+  <!-- Critical CSS: preload + swap (без FOUC) -->
+  <link rel="preload" href="../css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../css/top-bar.css"></noscript>
+
+  <link rel="preload" href="../css/muscle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../css/muscle.css"></noscript>
+
+  <link rel="preload" href="../css/temple-headache.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../css/temple-headache.css"></noscript>
+
+  <!-- Font Awesome 5 (съответства на класовете `fas ...`) -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></noscript>
+
+  <!-- Calendly widget CSS (не е критичен, но е външен) -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+  <!-- Hero LCP: подсказка към браузъра -->
+  <link rel="preload" as="image" href="../pngs/sustoqniq/muscles/ocipital pain-Thumbnail.jpg" imagesrcset="../pngs/sustoqniq/muscles/ocipital pain-Thumbnail.jpg">
 </head>
 <body>
 <!-- ======= Top bar (TB) ======= -->
@@ -17,7 +38,7 @@
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" />
+      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" decoding="async" loading="eager" fetchpriority="high">
     </a>
 
     <!-- Хамбургер -->
@@ -39,465 +60,437 @@
         </li>
 
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        
         <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-    </ul>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
-    <main class="page-content">
-        <section class="hero-section">
-            <div class="container hero-container">
-                <div class="hero-text-content">
-                    <h1>Болка в Тила </h1>
-                    <p>
-                        Разберете причините за главоболието в задната част на главата
-                    </p>
-                    <div class="hero-buttons">
-                        <button class="button primary-button calendly-button" data-calendly-url="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">
-                            <i class="fas fa-stethoscope"></i> Запазете час сега
-                        </button>
-                        <a href="../services.html" class="button outline-button">
-                            <i class="fas fa-lightbulb"></i> Нашите процедури
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image image-container">
-                    <img src="../pngs/sustoqniq/muscles/ocipital pain-Thumbnail.jpg" alt="Изображение на болка в тила" class="static-img">
-                    <video muted loop preload="auto" class="hover-video">
-                        <source src="../pngs/sustoqniq/muscles/ocipital pain.mp4" type="video/mp4">
-                        Вашият браузър не поддържа видео тага.
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <section class="intro-section">
-            <div class="container intro-container">
-                <div class="intro-text-content">
-                    <h2>Окципитално главоболие</h2>
-                    <p>
-                        Много често причината за главоболие се крие във възпалени и пренатоварени мускули на шията. Когато тези мускули се възпалят, те рефлекторно се съкращават и чрез сухожилията си упражняват опън върху местата на прикрепване в костта. Именно това опъване се интерпретира от тялото като болка. В зависимост от точната точка на залавяне, усещанията могат да варират от тъпа, натискаща тежест в тила до остри, пронизващи или пулсиращи болки, които се разпростират към слепоочията, очите или темето. 
-                    </p>
-                    <div class="info-box">
-                        <i class="fas fa-info-circle"></i> <p>
-                            
-Хроничният мускулен спазъм създава порочен кръг: възпалението поддържа спазъма, а спазъмът поддържа възпалението. Затова е важно да се прекъсне този цикъл чрез подходящо лечение и мускулна релаксация.
-                        </p>
-                    </div>
-                </div>
-                <div class="intro-image image-container">
-                    <img src="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.jpg" alt="Анатомия на врата и тила - статично изображение" class="static-img">
-                    <video muted loop preload="auto" class="hover-video">
-                        <source src="../pngs/sustoqniq/muscles/subocipital2.mp4" type="video/mp4">
-                        Вашият браузър не поддържа видео тага.
-                    </video>
-                </div>
-            </div>
-        </section>
-
-<section class="inflammation-section">
-    <div class="container">
-        <h2 class="section-title">Как и защо се получава възпалението на мускулите?</h2>
-        <p class="section-subtitle">Разберете основните етапи, които водят до мускулна болка и дискомфорт.</p>
-
-        <div class="inflammation-steps-grid">
-            <div class="step-card step-one">
-                <div class="step-number">1</div>
-                <h3>Продължително напрежение</h3>
-                <p>
-                    Мускулите в областта на тила и врата остават стегнати за дълго време поради неправилна поза (напр. при работа с компютър), емоционален стрес или физическо претоварване.
-                </p>
-                <div class="step-icon">
-                    <i class="fas fa-frown"></i> 
-                </div>
-            </div>
-
-            <i class="fas fa-arrow-right arrow-separator"></i> 
-
-            <div class="step-card step-two">
-                <div class="step-number">2</div>
-                <h3>Намален кръвоток</h3>
-                <p>
-                    Хроничното мускулно напрежение компресира кръвоносните съдове, намалявайки притока на кръв, кислород и хранителни вещества към тъканите. Това води до натрупване на метаболитни отпадъчни продукти.
-                </p>
-                <div class="step-icon">
-                    <i class="fas fa-heart-pulse"></i> 
-                </div>
-            </div>
-
-            <i class="fas fa-arrow-right arrow-separator"></i> 
-
-            <div class="step-card step-three">
-                <div class="step-number">3</div>
-                <h3>Възпаление и болка</h3>
-                <p>
-                    Натрупването на токсини и липсата на кислород предизвикват възпалителен процес, водещ до образуване на болезнени тригерни точки и спазми, които предизвикват болка, често излъчваща се към главата.
-                </p>
-                <div class="step-icon">
-                    <i class="fas fa-fire"></i> 
-                </div>
-            </div>
+<main class="page-content">
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-text-content">
+        <h1>Болка в Тила </h1>
+        <p>Разберете причините за главоболието в задната част на главата</p>
+        <div class="hero-buttons">
+          <button class="button primary-button calendly-button" data-calendly-url="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">
+            <i class="fas fa-stethoscope"></i> Запазете час сега
+          </button>
+          <a href="../services.html" class="button outline-button">
+            <i class="fas fa-lightbulb"></i> Нашите процедури
+          </a>
         </div>
-    </div>
-</section>
-
-        <section class="muscle-anatomy-section">
-            <div class="container">
-                <h1 class="section-title">Кои мускули причиняват болка в тила?</h1>
-                
-
-               <div class="muscle-grid">
-
-    <div class="muscle-item">
-        <h3>m. trapezius (горна част)</h3>
-        <div class="muscle-media muscle-video-centered">
-            <img src="../pngs/sustoqniq/muscles/trapezius2-Thumbnail.jpg" alt="Изображение на горна част на трапецовиден мускул" class="static-muscle-img">
-            <video muted loop preload="auto" class="hover-muscle-video">
-                <source src="../pngs/sustoqniq/muscles/trapezius2.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
-            </video>
-        </div>
-        <div class="muscle-details">
-            <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                    <div class="block-header">
-                        <i class="fas fa-circle"></i>
-                        <h4>Анатомия и захващане</h4>
-                    </div>
-                    <p>
-                        Горната част на трапецовидния мускул започва от <span class="highlight">тилната кост (occipital bone)</span> и <span class="highlight">шийните прешлени</span>. Влакната му се прикрепят към <span class="highlight">акромиона на лопатката</span> и страничната част на <span class="highlight">ключицата</span>.
-                    </p>
-                    <div class="function-box">
-                        <strong>Функция:</strong> Повдигане на раменете, накланяне на главата настрани, завъртане на главата.
-                    </div>
-                </div>
-
-                <div class="info-block pain-char-block">
-                    <div class="block-header">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h4>Характер на болката</h4>
-                    </div>
-                    <ul>
-                        <li><span class="highlight">Тъпа, разлята болка в тила</span> и горната част на врата</li>
-                        <li>Болка, разпространяваща се към <span class="highlight">слепоочията и челото</span></li>
-                        <li>Чувствителност при докосване в областта на раменете и врата</li>
-                        <li>Намалена подвижност на главата</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="muscle-item">
-        <h3>m. levator scapulae</h3>
-        <div class="muscle-media muscle-video-centered">
-            <img src="../pngs/sustoqniq/muscles/levator scapulae-1-Thumbnail.jpg" alt="Изображение на m. levator scapulae" class="static-muscle-img">
-            <video muted loop preload="auto" class="hover-muscle-video">
-                <source src="../pngs/sustoqniq/muscles/levator scapulae-1.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
-            </video>
-        </div>
-        <div class="muscle-details">
-            <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                    <div class="block-header">
-                        <i class="fas fa-circle"></i>
-                        <h4>Анатомия и захващане</h4>
-                    </div>
-                    <p>
-                        Този мускул започва от <span class="highlight">напречните израстъци на горните шийни прешлени (C1-C4)</span> и се прикрепя към <span class="highlight">горния медиален ръб на лопатката</span>.
-                    </p>
-                    <div class="function-box">
-                        <strong>Функция:</strong> Повдигане на лопатката, накланяне и завъртане на врата.
-                    </div>
-                </div>
-
-                <div class="info-block pain-char-block">
-                    <div class="block-header">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h4>Характер на болката</h4>
-                    </div>
-                    <ul>
-                        <li><span class="highlight">Остра болка във врата и тила</span>, често при движение на главата</li>
-                        <li>Болка, разпространяваща се към <span class="highlight">рамото и страничната част на врата</span></li>
-                        <li>"Скован врат" или усещане за заседнал врат</li>
-                        <li>Нарушен сън поради болка при смяна на позицията</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-<div class="muscle-item">
-    <h3>m. splenius capitis & cervicis</h3>
-    <h4>(m. splenius capitis и m. splenius cervicis)</h4>
-    <div class="muscle-media muscle-video-centered">
-        <img src="../pngs/sustoqniq/muscles/splenus capitis & cervicis-Thumbnail.jpg" alt="Изображение на мускулите splenius" class="static-muscle-img">
-        <video muted loop preload="auto" class="hover-muscle-video">
-            <source src="../pngs/sustoqniq/muscles/splenus capitis & cervicis.mp4" type="video/mp4">
-            Вашият браузър не поддържа видео тага.
+      </div>
+      <div class="hero-image image-container">
+        <img
+          src="../pngs/sustoqniq/muscles/ocipital pain-Thumbnail.jpg"
+          alt="Изображение на болка в тила"
+          class="static-img"
+          decoding="async"
+          loading="eager"
+          fetchpriority="high">
+        <video muted loop preload="none" class="hover-video" playsinline
+               poster="../pngs/sustoqniq/muscles/ocipital pain-Thumbnail.jpg">
+          <source src="../pngs/sustoqniq/muscles/ocipital pain.mp4" type="video/mp4">
+          Вашият браузър не поддържа видео тага.
         </video>
+      </div>
     </div>
-    <div class="muscle-details">
-        <div class="muscle-info-grid">
-            <div class="info-block anatomy-block">
-                <div class="block-header">
-                    <i class="fas fa-circle"></i>
-                    <h4>Анатомия и захващане</h4>
-                </div>
-                <p>
-                    Тези два мускула са разположени дълбоко под трапецовидния мускул, по задната част на врата. <span class="highlight">Splenius capitis</span> започва от шийните и горните гръдни прешлени и се прикрепя към <span class="highlight">мастоидния израстък</span> (зад ухото) и тилната кост. <span class="highlight">Splenius cervicis</span> започва от гръдните прешлени и се прикрепя към <span class="highlight">горните шийни прешлени</span>.
-                </p>
-                <div class="function-box">
-                    <strong>Функция:</strong> Завъртане на главата и врата настрани, накланяне на главата назад (екстензия).
-                </div>
-            </div>
+  </section>
 
-            <div class="info-block pain-char-block">
+  <section class="intro-section">
+    <div class="container intro-container">
+      <div class="intro-text-content">
+        <h2>Окципитално главоболие</h2>
+        <p>
+          Много често причината за главоболие се крие във възпалени и пренатоварени мускули на шията. Когато тези мускули се възпалят, те рефлекторно се съкращават и чрез сухожилията си упражняват опън върху местата на прикрепване в костта. Именно това опъване се интерпретира от тялото като болка. В зависимост от точната точка на залавяне, усещанията могат да варират от тъпа, натискаща тежест в тила до остри, пронизващи или пулсиращи болки, които се разпростират към слепоочията, очите или темето. 
+        </p>
+        <div class="info-box">
+          <i class="fas fa-info-circle" aria-hidden="true"></i>
+          <p>Хроничният мускулен спазъм създава порочен кръг: възпалението поддържа спазъма, а спазъмът поддържа възпалението. Затова е важно да се прекъсне този цикъл чрез подходящо лечение и мускулна релаксация.</p>
+        </div>
+      </div>
+      <div class="intro-image image-container">
+        <img src="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.jpg"
+             alt="Анатомия на врата и тила - статично изображение"
+             class="static-img"
+             decoding="async"
+             loading="lazy">
+        <video muted loop preload="none" class="hover-video" playsinline
+               poster="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.jpg">
+          <source src="../pngs/sustoqniq/muscles/subocipital2.mp4" type="video/mp4">
+          Вашият браузър не поддържа видео тага.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="inflammation-section">
+    <div class="container">
+      <h2 class="section-title">Как и защо се получава възпалението на мускулите?</h2>
+      <p class="section-subtitle">Разберете основните етапи, които водят до мускулна болка и дискомфорт.</p>
+
+      <div class="inflammation-steps-grid">
+        <div class="step-card step-one">
+          <div class="step-number">1</div>
+          <h3>Продължително напрежение</h3>
+          <p>Мускулите в областта на тила и врата остават стегнати за дълго време поради неправилна поза (напр. при работа с компютър), емоционален стрес или физическо претоварване.</p>
+          <div class="step-icon"><i class="fas fa-frown" aria-hidden="true"></i></div>
+        </div>
+
+        <i class="fas fa-arrow-right arrow-separator" aria-hidden="true"></i>
+
+        <div class="step-card step-two">
+          <div class="step-number">2</div>
+          <h3>Намален кръвоток</h3>
+          <p>Хроничното мускулно напрежение компресира кръвоносните съдове, намалявайки притока на кръв, кислород и хранителни вещества към тъканите. Това води до натрупване на метаболитни отпадъчни продукти.</p>
+          <div class="step-icon"><i class="fas fa-heart-pulse" aria-hidden="true"></i></div>
+        </div>
+
+        <i class="fas fa-arrow-right arrow-separator" aria-hidden="true"></i>
+
+        <div class="step-card step-three">
+          <div class="step-number">3</div>
+          <h3>Възпаление и болка</h3>
+          <p>Натрупването на токсини и липсата на кислород предизвикват възпалителен процес, водещ до образуване на болезнени тригерни точки и спазми, които предизвикват болка, често излъчваща се към главата.</p>
+          <div class="step-icon"><i class="fas fa-fire" aria-hidden="true"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="muscle-anatomy-section">
+    <div class="container">
+      <h1 class="section-title">Кои мускули причиняват болка в тила?</h1>
+
+      <div class="muscle-grid">
+        <div class="muscle-item">
+          <h3>m. trapezius (горна част)</h3>
+          <div class="muscle-media muscle-video-centered">
+            <img src="../pngs/sustoqniq/muscles/trapezius2-Thumbnail.jpg" alt="Изображение на горна част на трапецовиден мускул" class="static-muscle-img" decoding="async" loading="lazy">
+            <video muted loop preload="none" class="hover-muscle-video" playsinline
+                   poster="../pngs/sustoqniq/muscles/trapezius2-Thumbnail.jpg">
+              <source src="../pngs/sustoqniq/muscles/trapezius2.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <div class="muscle-details">
+            <div class="muscle-info-grid">
+              <div class="info-block anatomy-block">
                 <div class="block-header">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <h4>Характер на болката</h4>
+                  <i class="fas fa-circle" aria-hidden="true"></i>
+                  <h4>Анатомия и захващане</h4>
+                </div>
+                <p>Горната част на трапецовидния мускул започва от <span class="highlight">тилната кост (occipital bone)</span> и <span class="highlight">шийните прешлени</span>. Влакната му се прикрепят към <span class="highlight">акромиона на лопатката</span> и страничната част на <span class="highlight">ключицата</span>.</p>
+                <div class="function-box"><strong>Функция:</strong> Повдигане на раменете, накланяне на главата настрани, завъртане на главата.</div>
+              </div>
+
+              <div class="info-block pain-char-block">
+                <div class="block-header">
+                  <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                  <h4>Характер на болката</h4>
                 </div>
                 <ul>
-                    <li><span class="highlight">Остра, пробождаща болка</span> в горната част на врата и тила</li>
-                    <li>Болка, разпространяваща се към <span class="highlight">слепоочията и зад очите</span></li>
-                    <li><span class="highlight">„Пристягаща“ болка</span>, подобна на обръч около главата</li>
-                    <li>Намалена подвижност на главата, особено при завъртане</li>
+                  <li><span class="highlight">Тъпа, разлята болка в тила</span> и горната част на врата</li>
+                  <li>Болка, разпространяваща се към <span class="highlight">слепоочията и челото</span></li>
+                  <li>Чувствителност при докосване в областта на раменете и врата</li>
+                  <li>Намалена подвижност на главата</li>
                 </ul>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-    <div class="muscle-item">
-        <h3>(SCM) m. sternocleidomastoideus</h3>
-        <div class="muscle-media muscle-video-centered">
-            <img src="../pngs/sustoqniq/muscles/scm-Thumbnail.jpg" alt="Изображение на m. sternocleidomastoideus" class="static-muscle-img">
-            <video muted loop preload="auto" class="hover-muscle-video">
-                <source src="../pngs/sustoqniq/muscles/scm.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
+
+        <div class="muscle-item">
+          <h3>m. levator scapulae</h3>
+          <div class="muscle-media muscle-video-centered">
+            <img src="../pngs/sustoqniq/muscles/levator scapulae-1-Thumbnail.jpg" alt="Изображение на m. levator scapulae" class="static-muscle-img" decoding="async" loading="lazy">
+            <video muted loop preload="none" class="hover-muscle-video" playsinline
+                   poster="../pngs/sustoqniq/muscles/levator scapulae-1-Thumbnail.jpg">
+              <source src="../pngs/sustoqniq/muscles/levator scapulae-1.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
             </video>
-        </div>
-        <div class="muscle-details">
+          </div>
+          <div class="muscle-details">
             <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                    <div class="block-header">
-                        <i class="fas fa-circle"></i>
-                        <h4>Анатомия и захващане</h4>
-                    </div>
-                    <p>
-                        Разположен странично на шията, този мускул има две глави, които започват от <span class="highlight">ключицата</span> и <span class="highlight">гръдната кост (манубриум)</span>. Прикрепя се за <span class="highlight">мастоидния израстък</span> (зад ухото).
-                    </p>
-                    <div class="function-box">
-                        <strong>Функция:</strong> Завъртане и навеждане на главата, повдигане на гръдния кош при дишане.
-                    </div>
+              <div class="info-block anatomy-block">
+                <div class="block-header">
+                  <i class="fas fa-circle" aria-hidden="true"></i>
+                  <h4>Анатомия и захващане</h4>
                 </div>
+                <p>Този мускул започва от <span class="highlight">напречните израстъци на горните шийни прешлени (C1-C4)</span> и се прикрепя към <span class="highlight">горния медиален ръб на лопатката</span>.</p>
+                <div class="function-box"><strong>Функция:</strong> Повдигане на лопатката, накланяне и завъртане на врата.</div>
+              </div>
 
-                <div class="info-block pain-char-block">
-                    <div class="block-header">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h4>Характер на болката</h4>
-                    </div>
-                    <ul>
-                        <li>Болка в <span class="highlight">слепоочието и челото</span></li>
-                        <li>Болка зад <span class="highlight">окото</span> или в областта на <span class="highlight">ухото</span></li>
-                        <li>Замайване, гадене, нарушено равновесие</li>
-                        <li><span class="highlight">Болка по задната част на черепа</span></li>
-                    </ul>
+              <div class="info-block pain-char-block">
+                <div class="block-header">
+                  <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                  <h4>Характер на болката</h4>
                 </div>
+                <ul>
+                  <li><span class="highlight">Остра болка във врата и тила</span>, често при движение на главата</li>
+                  <li>Болка, разпространяваща се към <span class="highlight">рамото и страничната част на врата</span></li>
+                  <li>"Скован врат" или усещане за заседнал врат</li>
+                  <li>Нарушен сън поради болка при смяна на позицията</li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
 
-    <div class="muscle-item">
-        <h3>m. suboccipitales</h3>
-        <h4>(mm. rectus capitis, mm. obliquus capitis)</h4>
-        <div class="muscle-media muscle-video-centered">
-            <img src="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.jpg" alt="Изображение на Мускулита субокципиталес" class="static-muscle-img">
-            <video muted loop preload="auto" class="hover-muscle-video">
-                <source src="../pngs/sustoqniq/muscles/subocipital2.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
+        <div class="muscle-item">
+          <h3>m. splenius capitis &amp; cervicis</h3>
+          <h4>(m. splenius capitis и m. splenius cervicis)</h4>
+          <div class="muscle-media muscle-video-centered">
+            <img src="../pngs/sustoqniq/muscles/splenus capitis & cervicis-Thumbnail.jpg" alt="Изображение на мускулите splenius" class="static-muscle-img" decoding="async" loading="lazy">
+            <video muted loop preload="none" class="hover-muscle-video" playsinline
+                   poster="../pngs/sustoqniq/muscles/splenus capitis & cervicis-Thumbnail.jpg">
+              <source src="../pngs/sustoqniq/muscles/splenus capitis & cervicis.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
             </video>
-        </div>
-        <div class="muscle-details">
+          </div>
+          <div class="muscle-details">
             <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                    <div class="block-header">
-                        <i class="fas fa-circle"></i>
-                        <h4>Анатомия и захващане</h4>
-                    </div>
-                    <p>
-                        Малки и дълбоко разположени мускули в <span class="highlight">основата на черепа</span>, със залавяния по <span class="highlight">тилните кости и горните шийни прешлени</span>.
-                    </p>
-                    <div class="function-box">
-                        <strong>Функция:</strong> Прецизни движения на главата (накланяне, завъртане, разгъване).
-                    </div>
+              <div class="info-block anatomy-block">
+                <div class="block-header">
+                  <i class="fas fa-circle" aria-hidden="true"></i>
+                  <h4>Анатомия и захващане</h4>
                 </div>
+                <p>Тези два мускула са разположени дълбоко под трапецовидния мускул, по задната част на врата. <span class="highlight">Splenius capitis</span> започва от шийните и горните гръдни прешлени и се прикрепя към <span class="highlight">мастоидния израстък</span> (зад ухото) и тилната кост. <span class="highlight">Splenius cervicis</span> започва от гръдните прешлени и се прикрепя към <span class="highlight">горните шийни прешлени</span>.</p>
+                <div class="function-box"><strong>Функция:</strong> Завъртане на главата и врата настрани, накланяне на главата назад (екстензия).</div>
+              </div>
 
-                <div class="info-block pain-char-block">
-                    <div class="block-header">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h4>Характер на болката</h4>
-                    </div>
-                    <ul>
-                        <li>„Пробождаща“ болка <span class="highlight">в основата на черепа</span></li>
-                        <li>Болка, разпространяваща се <span class="highlight">по скалпа към очите</span></li>
-                        <li>Напрежение и скованост във врата</li>
-                        <li><span class="highlight">Главоболие тип "лента"</span> или "каска"</li>
-                    </ul>
+              <div class="info-block pain-char-block">
+                <div class="block-header">
+                  <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                  <h4>Характер на болката</h4>
                 </div>
+                <ul>
+                  <li><span class="highlight">Остра, пробождаща болка</span> в горната част на врата и тила</li>
+                  <li>Болка, разпространяваща се към <span class="highlight">слепоочията и зад очите</span></li>
+                  <li><span class="highlight">„Пристягаща“ болка</span>, подобна на обръч около главата</li>
+                  <li>Намалена подвижност на главата, особено при завъртане</li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
 
-</div>
-        </section>
-<section class="healing-section alternative-style">
+        <div class="muscle-item">
+          <h3>(SCM) m. sternocleidomastoideus</h3>
+          <div class="muscle-media muscle-video-centered">
+            <img src="../pngs/sustoqniq/muscles/scm-Thumbnail.jpg" alt="Изображение на m. sternocleidomastoideus" class="static-muscle-img" decoding="async" loading="lazy">
+            <video muted loop preload="none" class="hover-muscle-video" playsinline
+                   poster="../pngs/sustoqniq/muscles/scm-Thumbnail.jpg">
+              <source src="../pngs/sustoqniq/muscles/scm.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <div class="muscle-details">
+            <div class="muscle-info-grid">
+              <div class="info-block anatomy-block">
+                <div class="block-header">
+                  <i class="fas fa-circle" aria-hidden="true"></i>
+                  <h4>Анатомия и захващане</h4>
+                </div>
+                <p>Разположен странично на шията, този мускул има две глави, които започват от <span class="highlight">ключицата</span> и <span class="highlight">гръдната кост (манубриум)</span>. Прикрепя се за <span class="highlight">мастоидния израстък</span> (зад ухото).</p>
+                <div class="function-box"><strong>Функция:</strong> Завъртане и навеждане на главата, повдигане на гръдния кош при дишане.</div>
+              </div>
+
+              <div class="info-block pain-char-block">
+                <div class="block-header">
+                  <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                  <h4>Характер на болката</h4>
+                </div>
+                <ul>
+                  <li>Болка в <span class="highlight">слепоочието и челото</span></li>
+                  <li>Болка зад <span class="highlight">окото</span> или в областта на <span class="highlight">ухото</span></li>
+                  <li>Замайване, гадене, нарушено равновесие</li>
+                  <li><span class="highlight">Болка по задната част на черепа</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="muscle-item">
+          <h3>m. suboccipitales</h3>
+          <h4>(mm. rectus capitis, mm. obliquus capitis)</h4>
+          <div class="muscle-media muscle-video-centered">
+            <img src="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.jpg" alt="Изображение на Мускулита субокципиталес" class="static-muscle-img" decoding="async" loading="lazy">
+            <video muted loop preload="none" class="hover-muscle-video" playsinline
+                   poster="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.jpg">
+              <source src="../pngs/sustoqniq/muscles/subocipital2.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <div class="muscle-details">
+            <div class="muscle-info-grid">
+              <div class="info-block anatomy-block">
+                <div class="block-header">
+                  <i class="fas fa-circle" aria-hidden="true"></i>
+                  <h4>Анатомия и захващане</h4>
+                </div>
+                <p>Малки и дълбоко разположени мускули в <span class="highlight">основата на черепа</span>, със залавяния по <span class="highlight">тилните кости и горните шийни прешлени</span>.</p>
+                <div class="function-box"><strong>Функция:</strong> Прецизни движения на главата (накланяне, завъртане, разгъване).</div>
+              </div>
+
+              <div class="info-block pain-char-block">
+                <div class="block-header">
+                  <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                  <h4>Характер на болката</h4>
+                </div>
+                <ul>
+                  <li>„Пробождаща“ болка <span class="highlight">в основата на черепа</span></li>
+                  <li>Болка, разпространяваща се <span class="highlight">по скалпа към очите</span></li>
+                  <li>Напрежение и скованост във врата</li>
+                  <li><span class="highlight">Главоболие тип "лента"</span> или "каска"</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="healing-section alternative-style">
     <div class="container">
-        <h2 class="section-title">Как да се справим с болката в тила?</h2>
-        <p class="section-subtitle">За да премахнем болката, трябва да се фокусираме върху отпускането и балансирането на мускулите на врата и главата.</p>
+      <h2 class="section-title">Как да се справим с болката в тила?</h2>
+      <p class="section-subtitle">За да премахнем болката, трябва да се фокусираме върху отпускането и балансирането на мускулите на врата и главата.</p>
 
-        <div class="healing-steps-grid">
-            <div class="healing-step">
-                <div class="step-icon-circle"><i class="fas fa-hand-sparkles"></i></div>
-                <h3>1. Отпускане на напрегнатите мускули</h3>
-                <p>
-                    Първата стъпка е да се премахне <span class="highlight">мускулният спазъм</span>, който причинява натиск и болка. Чрез мануални техники, масажи и мобилизация, ние отпускаме напрегнатите мускули в областта на тила и врата.
-                </p>
-            </div>
-            <div class="healing-step">
-                <div class="step-icon-circle"><i class="fas fa-dumbbell"></i></div>
-                <h3>2. Укрепване и балансиране</h3>
-                <p>
-                    След като напрежението е отстранено, фокусът е върху <span class="highlight">укрепването на слабите мускули</span> и възстановяването на баланса. Това подобрява стойката и разпределението на натоварването върху мускулите на врата и раменния пояс.
-                </p>
-            </div>
-            <div class="healing-step">
-                <div class="step-icon-circle"><i class="fas fa-running"></i></div>
-                <h3>3. Повтарящи се движения и превенция</h3>
-                <p>
-                    Чрез специфични упражнения и съвети за <span class="highlight">правилна ергономия</span> в ежедневието, вие научавате как да предотвратявате бъдещи спазми и главоболия. Така се постига трайно облекчение и се подобрява качеството на живот.
-                </p>
-            </div>
+      <div class="healing-steps-grid">
+        <div class="healing-step">
+          <div class="step-icon-circle"><i class="fas fa-hand-sparkles" aria-hidden="true"></i></div>
+          <h3>1. Отпускане на напрегнатите мускули</h3>
+          <p>Първата стъпка е да се премахне <span class="highlight">мускулният спазъм</span>, който причинява натиск и болка. Чрез мануални техники, масажи и мобилизация, ние отпускаме напрегнатите мускули в областта на тила и врата.</p>
         </div>
+        <div class="healing-step">
+          <div class="step-icon-circle"><i class="fas fa-dumbbell" aria-hidden="true"></i></div>
+          <h3>2. Укрепване и балансиране</h3>
+          <p>След като напрежението е отстранено, фокусът е върху <span class="highlight">укрепването на слабите мускули</span> и възстановяването на баланса. Това подобрява стойката и разпределението на натоварването върху мускулите на врата и раменния пояс.</p>
+        </div>
+        <div class="healing-step">
+          <div class="step-icon-circle"><i class="fas fa-running" aria-hidden="true"></i></div>
+          <h3>3. Повтарящи се движения и превенция</h3>
+          <p>Чрез специфични упражнения и съвети за <span class="highlight">правилна ергономия</span> в ежедневието, вие научавате как да предотвратявате бъдещи спазми и главоболия. Така се постига трайно облекчение и се подобрява качеството на живот.</p>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="conditions-section procedures-section">
+  <section class="conditions-section procedures-section">
     <div class="container">
-        <h3>Процедури, които помагат при болка в тила и отпускат мускулите:</h3>
+      <h3>Процедури, които помагат при болка в тила и отпускат мускулите:</h3>
 
-        <div class="kinesitherapy-slider-container">
-            <button class="slider-arrow prev-arrow" aria-label="Предишен слайд">❮</button>
+      <div class="kinesitherapy-slider-container">
+        <button class="slider-arrow prev-arrow" aria-label="Предишен слайд">❮</button>
 
-            <div class="kinesitherapy-slider-track">
-
-                    <a href="../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
-                        <div class="kinesitherapy-button-media">
-                            <img src="/pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img">
-                            <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                <source src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
-                    </a>
-
-                    <a href="../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
-                        <div class="kinesitherapy-button-media">
-                            <img src="/pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img">
-                            <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                <source src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="kinesitherapy-button-text">Лечебен Масаж</span>
-                    </a>
-
-                    <a href="../procedures/masaj.deeptisue.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/1">
-                        <div class="kinesitherapy-button-media">
-                            <img src="/pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img">
-                            <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                <source src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
-                    </a>
-
-                    <a href="../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
-                        <div class="kinesitherapy-button-media">
-                            <img src="/pngs/procedures/function.PNG" alt="Масаж с Ергон" class="kinesitherapy-img">
-                            <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                <source src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
-                                Вашият браuzer не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="kinesitherapy-button-text">Функционална оценка</span>
-                    </a>
-
-                    <a href="../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
-                        <div class="kinesitherapy-button-media">
-                            <img src="/pngs/procedures/exercises.PNG" alt="Масаж с Вендуза" class="kinesitherapy-img">
-                            <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                <source src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="kinesitherapy-button-text">Упражнения</span>
-                    </a>
-
-                    <a href="../procedures/dry-needling.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/50-clone">
-                        <div class="kinesitherapy-button-media">
-                            <img src="/pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" class="kinesitherapy-img">
-                            <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                <source src="/pngs/procedures/gif/drineedling.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
-                    </a>
-
-                    <a href="../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
-                        <div class="kinesitherapy-button-media">
-                            <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img">
-                            <video autoplay loop muted playsinline class="kinesitherapy-video">
-                                <source src="/pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
-                    </a>
-
+        <div class="kinesitherapy-slider-track">
+          <a href="../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" decoding="async" loading="lazy">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="/pngs/procedures/KT.PNG">
+                <source src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
+              </video>
             </div>
+            <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
+          </a>
 
-            <button class="slider-arrow next-arrow" aria-label="Следващ слайд">❯</button>
+          <a href="../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" decoding="async" loading="lazy">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="/pngs/massages/lecheben.PNG">
+                <source src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Лечебен Масаж</span>
+          </a>
+
+          <a href="../procedures/masaj.deeptisue.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/1">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" decoding="async" loading="lazy">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="/pngs/massages/deeptissue.PNG">
+                <source src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
+          </a>
+
+          <a href="../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/function.PNG" alt="Масаж с Ергон" class="kinesitherapy-img" decoding="async" loading="lazy">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="/pngs/procedures/function.PNG">
+                <source src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Функционална оценка</span>
+          </a>
+
+          <a href="../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/exercises.PNG" alt="Масаж с Вендуза" class="kinesitherapy-img" decoding="async" loading="lazy">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="/pngs/procedures/exercises.PNG">
+                <source src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Упражнения</span>
+          </a>
+
+          <a href="../procedures/dry-needling.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/50-clone">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" class="kinesitherapy-img" decoding="async" loading="lazy">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="/pngs/procedures/gif/drineedling-Thumbnail.jpg">
+                <source src="/pngs/procedures/gif/drineedling.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
+          </a>
+
+          <a href="../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" decoding="async" loading="lazy">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="/pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg">
+                <source src="/pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
+          </a>
         </div>
-                    <!-- CTA: Виж всички процедури -->
-<div class="procedures-cta-wrap">
-  <a
-    href="/services.html"  
-    class="procedures-cta"
-    aria-label="Виж всички процедури"
-  >
-    <svg class="procedures-cta-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span>Виж всички процедури</span>
-  </a>
-</div>
-    </div>
-</section>
 
-    </main>
-    <footer class="footer">
+        <button class="slider-arrow next-arrow" aria-label="Следващ слайд">❯</button>
+      </div>
+
+      <!-- CTA: Виж всички процедури -->
+      <div class="procedures-cta-wrap">
+        <a href="/services.html" class="procedures-cta" aria-label="Виж всички процедури">
+          <svg class="procedures-cta-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Виж всички процедури</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
         <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" 
-                  width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
+                  width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
@@ -506,36 +499,36 @@
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook">
+            <img src="/pngs/social/facebook.png" alt="Facebook" decoding="async" loading="lazy">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram">
+            <img src="/pngs/social/instagram.png" alt="Instagram" decoding="async" loading="lazy">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" decoding="async" loading="lazy">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" decoding="async" loading="lazy">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon">
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" decoding="async" loading="lazy">
           <span>0883688414</span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" decoding="async" loading="lazy">
           <div>
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
             <span>Събота: 09:00 - 16:00</span><br>
-            </span>Неделя: Почивка</span>
+            <span>Неделя: Почивка</span>
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon" decoding="async" loading="lazy">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -551,9 +544,10 @@
     </div>
   </section>
 </footer>
-    <script src="../js/temple-headache.js"></script>
-     <script src="/js/topbar.js"></script>
-    
-    <script src="../js/procedurs-slider.js"></script>
+
+<!-- JS: винаги след съдържанието + defer -->
+<script src="../js/temple-headache.js" defer></script>
+<script src="/js/topbar.js" defer></script>
+<script src="../js/procedurs-slider.js" defer></script>
 </body>
 </html>
