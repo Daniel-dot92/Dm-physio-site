@@ -5,12 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Гонартроза: причини, симптоми и ефективно лечение</title>
 
-  <!-- Същите стилове и библиотеки като примерната страница -->
+  <!-- Локални стилове -->
   <link rel="stylesheet" href="../../css/top-bar.css">
   <link rel="stylesheet" href="../../css/temple-headache.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Preconnect към външни домейни -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+
+  <!-- Външни стилове (неблокиращо зареждане) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </noscript>
+
+  <!-- Preload на LCP изображението -->
+  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/gonarthrosis-Thumbnail.jpg" fetchpriority="high">
 </head>
 
 <body>
@@ -19,7 +33,7 @@
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" />
+      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" fetchpriority="high" />
     </a>
 
     <!-- Хамбургер -->
@@ -69,8 +83,8 @@
       </div>
 
       <div class="hero-image image-container">
-        <img src="/pngs/sustoqniq/muscles/gonarthrosis-Thumbnail.jpg" alt="Гонартроза - визуализация" class="static-img">
-        <video muted loop preload="auto" class="hover-video" aria-label="Визуализация на гонартроза">
+        <img src="/pngs/sustoqniq/muscles/gonarthrosis-Thumbnail.jpg" alt="Гонартроза - визуализация" class="static-img" loading="eager" decoding="async" fetchpriority="high">
+        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Визуализация на гонартроза" poster="/pngs/sustoqniq/muscles/gonarthrosis-Thumbnail.jpg">
           <source src="/pngs/sustoqniq/muscles/gonarthrosis.mp4" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
@@ -101,8 +115,8 @@
       </div>
 
       <div class="intro-image image-container">
-        <img src="/pngs/sustoqniq/muscles/gonarthrosis2-Thumbnail.jpg" alt="Натоварване в коляното при гонартроза" class="static-img">
-        <video muted loop preload="auto" class="hover-video" aria-label="Видео: натоварване при гонартроза">
+        <img src="/pngs/sustoqniq/muscles/gonarthrosis2-Thumbnail.jpg" alt="Натоварване в коляното при гонартроза" class="static-img" loading="lazy" decoding="async">
+        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Видео: натоварване при гонартроза" poster="/pngs/sustoqniq/muscles/gonarthrosis2-Thumbnail.jpg">
           <source src="/pngs/sustoqniq/muscles/gonarthrosis2.mp4" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
@@ -133,8 +147,8 @@
           <div class="step-number-container">1</div>
           <div class="step-media">
             <div class="hernia-step-media">
-              <img src="/pngs/sustoqniq/muscles/glut med knee valgus-Thumbnail.jpg" alt="Контрол на таза и коляното" class="static-hernia-img">
-              <video muted loop preload="auto" autoplay class="hover-hernia-video">
+              <img src="/pngs/sustoqniq/muscles/glut med knee valgus-Thumbnail.jpg" alt="Контрол на таза и коляното" class="static-hernia-img" loading="lazy" decoding="async">
+              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video" poster="/pngs/sustoqniq/muscles/glut med knee valgus-Thumbnail.jpg">
                 <source src="/pngs/sustoqniq/muscles/glut med knee valgus.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -156,8 +170,8 @@
           <div class="step-number-container">2</div>
           <div class="step-media">
             <div class="hernia-step-media">
-              <img src="/pngs/sustoqniq/muscles/knee pain walking-Thumbnail.jpg" alt="Задни бедрени и заключено коляно" class="static-hernia-img">
-              <video muted loop preload="auto" autoplay class="hover-hernia-video">
+              <img src="/pngs/sustoqniq/muscles/knee pain walking-Thumbnail.jpg" alt="Задни бедрени и заключено коляно" class="static-hernia-img" loading="lazy" decoding="async">
+              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video" poster="/pngs/sustoqniq/muscles/knee pain walking-Thumbnail.jpg">
                 <source src="/pngs/sustoqniq/muscles/knee pain walking.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -180,8 +194,8 @@
           <div class="step-number-container">3</div>
           <div class="step-media">
             <div class="hernia-step-media">
-              <img src="/pngs/sustoqniq/muscles/walking foot2-Thumbnail.jpg" alt="Роля на прасеца при походка" class="static-hernia-img">
-              <video muted loop preload="auto" autoplay class="hover-hernia-video">
+              <img src="/pngs/sustoqniq/muscles/walking foot2-Thumbnail.jpg" alt="Роля на прасеца при походка" class="static-hernia-img" loading="lazy" decoding="async">
+              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video" poster="/pngs/sustoqniq/muscles/walking foot2-Thumbnail.jpg">
                 <source src="/pngs/sustoqniq/muscles/walking foot2.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -265,8 +279,8 @@
         <div class="kinesitherapy-slider-track">
           <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img">
-              <video autoplay loop muted playsinline class="kinesitherapy-video">
+              <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                 <source src="../../pngs/procedures/gif/KT.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -276,8 +290,8 @@
 
           <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img">
-              <video autoplay loop muted playsinline class="kinesitherapy-video">
+              <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                 <source src="../../pngs/massages/gif/lecheben.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -287,8 +301,8 @@
 
           <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img">
-              <video autoplay loop muted playsinline class="kinesitherapy-video">
+              <img src="../../pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                 <source src="../../pngs/procedures/gif/funciton.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -298,8 +312,8 @@
 
           <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img">
-              <video autoplay loop muted playsinline class="kinesitherapy-video">
+              <img src="../../pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                 <source src="../../pngs/procedures/gif/exercieses.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -309,8 +323,8 @@
 
           <a href="../../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезиотейпинг" class="kinesitherapy-img">
-              <video autoplay loop muted playsinline class="kinesitherapy-video">
+              <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезиотейпинг" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
                 <source src="../../pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -399,9 +413,51 @@
   </section>
 </footer>
 
-<script src="../../js/temple-headache.js"></script>
- <script src="/js/topbar.js"></script>
+<!-- Скриптове – отложени -->
+<script src="../../js/temple-headache.js" defer></script>
+<script src="/js/topbar.js" defer></script>
+<script src="../../js/procedurs-slider.js" defer></script>
 
-<script src="../../js/procedurs-slider.js"></script>
+<!-- Лек контрол за видеата (hover + in-view) -->
+<script>
+(function() {
+  const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
+  const safePause = (v) => v && v.pause && v.pause();
+
+  // Уеднаквяване на video атрибутите
+  document.querySelectorAll('video').forEach(v => {
+    v.muted = true;
+    v.setAttribute('playsinline','');
+    v.preload = v.preload || 'metadata';
+  });
+
+  // Hover поведение
+  document.querySelectorAll('.image-container, .hernia-step-media').forEach(box => {
+    const vid = box.querySelector('video');
+    if (!vid) return;
+    const onEnter = () => safePlay(vid);
+    const onLeave = () => { safePause(vid); try { vid.currentTime = 0; } catch(e){} };
+    box.addEventListener('mouseenter', onEnter, {passive:true});
+    box.addEventListener('mouseleave', onLeave, {passive:true});
+    box.addEventListener('touchstart', onEnter, {passive:true});
+    box.addEventListener('touchend', onLeave, {passive:true});
+  });
+
+  // Авто-плей/пауза при видимост
+  const vids = [
+    ...document.querySelectorAll('.hover-video'),
+    ...document.querySelectorAll('.hover-hernia-video'),
+    ...document.querySelectorAll('.kinesitherapy-button .kinesitherapy-video')
+  ];
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(({isIntersecting, target}) => {
+        if (isIntersecting) safePlay(target); else safePause(target);
+      });
+    }, { threshold: 0.35 });
+    vids.forEach(v => io.observe(v));
+  }
+})();
+</script>
 </body>
 </html>
