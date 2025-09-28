@@ -5,12 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Абдоминална херния: причини, симптоми и ефективно лечение</title>
 
-  <!-- Същите стилове и библиотеки като примерната страница -->
+  <!-- Локални стилове -->
   <link rel="stylesheet" href="../../css/top-bar.css">
   <link rel="stylesheet" href="../../css/temple-headache.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Preconnect към външни ресурси -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+
+  <!-- Външни стилове неблокиращо + noscript fallback -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </noscript>
+
+  <!-- Preload на LCP изображението -->
+  <link rel="preload" as="image" href="../../pngs/sustoqniq/muscles/abdominal hernia-Thumbnail.PNG" fetchpriority="high">
+
+  <style>
+    /* позволи чупене на много дълги думи в заглавия/текст */
+    .page-content h1,
+    .hero-section h1,
+    .section-title,
+    .page-content p {
+      white-space: normal !important;
+      overflow-wrap: anywhere;   /* modern */
+      word-break: break-word;    /* уебкит/стари браузъри */
+      hyphens: auto;             /* с lang="bg" добавя „-” при нужда */
+    }
+    /* предотвратява разтягане от grid елементи */
+    .hero-container > *,
+    .intro-container > * { min-width: 0; }
+    /* безопасност: без хоризонтален скрол при крайни случаи */
+    html, body { overflow-x: hidden; }
+  </style>
 </head>
 
 <body>
@@ -19,7 +51,7 @@
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" />
+      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" fetchpriority="high" />
     </a>
 
     <!-- Хамбургер -->
@@ -63,14 +95,14 @@
                             <i class="fas fa-stethoscope"></i> Запазете час сега
                         </button>
                         <a href="/services.html" class="button outline-button">
-                            <i class="fas fa-lightbulb"></i> Нашите процедури
+                            <i class="fas fa-lightbulб"></i> Нашите процедури
                         </a>
                     </div>
       </div>
 
       <div class="hero-image image-container">
-        <img src="../../pngs/sustoqniq/muscles/abdominal hernia-Thumbnail.PNG" alt="Абдоминална херния - визуализация" class="static-img">
-        <video muted loop preload="auto" class="hover-video" aria-label="Визуализация на абдоминална херния">
+        <img src="../../pngs/sustoqniq/muscles/abdominal hernia-Thumbnail.PNG" alt="Абдоминална херния - визуализация" class="static-img" loading="eager" decoding="async" fetchpriority="high">
+        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Визуализация на абдоминална херния" poster="../../pngs/sustoqniq/muscles/abdominal hernia-Thumbnail.PNG">
           <source src="../../pngs/sustoqniq/muscles/abdominal hernia.mp4" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
@@ -100,8 +132,8 @@
       </div>
 
       <div class="intro-image image-container">
-        <img src="../../pngs/sustoqniq/muscles/abdominal hernia1-Thumbnail.jpg" alt="Анатомия на коремната стена" class="static-img">
-        <video muted loop preload="auto" class="hover-video" aria-label="Видео: анатомия на коремната стена">
+        <img src="../../pngs/sustoqniq/muscles/abdominal hernia1-Thumbnail.jpg" alt="Анатомия на коремната стена" class="static-img" loading="lazy" decoding="async">
+        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Видео: анатомия на коремната стена" poster="../../pngs/sustoqniq/muscles/abdominal hernia1-Thumbnail.jpg">
           <source src="../../pngs/sustoqniq/muscles/abdominal hernia1.mp4" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
@@ -183,8 +215,8 @@
           <div class="step-number-container">1</div>
           <div class="step-media">
             <div class="hernia-step-media">
-              <img src="../../pngs/sustoqniq/muscles/transversus abdominis-Thumbnail.jpg" alt="Напречен коремен мускул" class="static-hernia-img">
-              <video muted loop preload="auto" autoplay class="hover-hernia-video">
+              <img src="../../pngs/sustoqniq/muscles/transversus abdominis-Thumbnail.jpg" alt="Напречен коремен мускул" class="static-hernia-img" loading="lazy" decoding="async">
+              <video muted loop preload="metadata" autoplay playsinline class="hover-hernia-video" poster="../../pngs/sustoqniq/muscles/transversus abdominis-Thumbnail.jpg">
                 <source src="../../pngs/sustoqniq/muscles/transversus abdominis.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -205,8 +237,8 @@
           <div class="step-number-container">2</div>
           <div class="step-media">
             <div class="hernia-step-media">
-              <img src="../../pngs/sustoqniq/muscles/Obliques abdominis-Thumbnail.jpg" alt="Коси коремни мускули" class="static-hernia-img">
-              <video muted loop preload="auto" autoplay class="hover-hernia-video">
+              <img src="../../pngs/sustoqniq/muscles/Obliques abdominis-Thumbnail.jpg" alt="Коси коремни мускули" class="static-hernia-img" loading="lazy" decoding="async">
+              <video muted loop preload="metadata" autoplay playsinline class="hover-hernia-video" poster="../../pngs/sustoqniq/muscles/Obliques abdominis-Thumbnail.jpg">
                 <source src="../../pngs/sustoqniq/muscles/Obliques abdominis.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -227,8 +259,8 @@
           <div class="step-number-container">3</div>
           <div class="step-media">
             <div class="hernia-step-media">
-              <img src="../../pngs/sustoqniq/muscles/rectus abdominis-Thumbnail.jpg" alt="Прав коремен мускул" class="static-hernia-img">
-              <video muted loop preload="auto" autoplay class="hover-hernia-video">
+              <img src="../../pngs/sustoqniq/muscles/rectus abdominis-Thumbnail.jpg" alt="Прав коремен мускул" class="static-hernia-img" loading="lazy" decoding="async">
+              <video muted loop preload="metadata" autoplay playsinline class="hover-hernia-video" poster="../../pngs/sustoqniq/muscles/rectus abdominis-Thumbnail.jpg">
                 <source src="../../pngs/sustoqniq/muscles/rectus abdominis.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -301,8 +333,8 @@
         <div class="kinesitherapy-slider-track">
           <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img">
-              <video autoplay loop muted playsinline class="kinesitherapy-video">
+              <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/KT.PNG">
                 <source src="../../pngs/procedures/gif/KT.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -312,8 +344,8 @@
 
           <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img">
-              <video autoplay loop muted playsinline class="kinesitherapy-video">
+              <img src="../../pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/function.PNG">
                 <source src="../../pngs/procedures/gif/funciton.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -323,8 +355,8 @@
 
           <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img">
-              <video autoplay loop muted playsinline class="kinesitherapy-video">
+              <img src="../../pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/exercises.PNG">
                 <source src="../../pngs/procedures/gif/exercieses.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -334,8 +366,8 @@
 
           <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img">
-              <video autoplay loop muted playsinline class="kinesitherapy-video">
+              <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/massages/lecheben.PNG">
                 <source src="../../pngs/massages/gif/lecheben.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -345,8 +377,8 @@
 
           <a href="../../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезиотейпинг" class="kinesitherapy-img">
-              <video autoplay loop muted playsinline class="kinesitherapy-video">
+              <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезиотейпинг" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg">
                 <source src="../../pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -389,27 +421,27 @@
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook">
+            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram">
+            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon">
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async">
           <span>0883688414</span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async">
           <div>
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
@@ -418,7 +450,7 @@
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -435,9 +467,51 @@
   </section>
 </footer>
 
-<script src="../../js/temple-headache.js"></script>
- <script src="/js/topbar.js"></script>
+<!-- Скриптове (отложени) -->
+<script src="../../js/temple-headache.js" defer></script>
+<script src="/js/topbar.js" defer></script>
+<script src="../../js/procedurs-slider.js" defer></script>
 
-<script src="../../js/procedurs-slider.js"></script>
+<!-- Управление на видеата: hover + видимост -->
+<script>
+(function () {
+  const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
+  const safePause = (v) => v && v.pause && v.pause();
+
+  // Базови настройки за всички видеа
+  document.querySelectorAll('video').forEach(v => {
+    v.muted = true;
+    v.setAttribute('playsinline','');
+    if (!v.getAttribute('preload')) v.preload = 'metadata';
+  });
+
+  // Hover поведение
+  document.querySelectorAll('.image-container, .hernia-step-media, .kinesitherapy-button').forEach(box => {
+    const vid = box.querySelector('video');
+    if (!vid) return;
+    const onEnter = () => safePlay(vid);
+    const onLeave = () => { safePause(vid); try { vid.currentTime = 0; } catch(e){} };
+    box.addEventListener('mouseenter', onEnter, {passive:true});
+    box.addEventListener('mouseleave', onLeave, {passive:true});
+    box.addEventListener('touchstart', onEnter, {passive:true});
+    box.addEventListener('touchend', onLeave, {passive:true});
+  });
+
+  // Авто-плей/пауза според видимост
+  const vids = [
+    ...document.querySelectorAll('.hover-video'),
+    ...document.querySelectorAll('.hover-hernia-video'),
+    ...document.querySelectorAll('.kinesitherapy-button .kinesitherapy-video')
+  ];
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(({isIntersecting, target}) => {
+        if (isIntersecting) safePlay(target); else safePause(target);
+      });
+    }, { threshold: 0.35 });
+    vids.forEach(v => io.observe(v));
+  }
+})();
+</script>
 </body>
 </html>

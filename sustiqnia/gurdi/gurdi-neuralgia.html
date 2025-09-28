@@ -11,6 +11,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Устойчивост на дълги думи + предотвратяване на хор. скрол (без промяна в текста) -->
+  <style>
+    /* позволи чупене на много дълги думи в заглавия/текст */
+    .page-content h1,
+    .hero-section h1,
+    .section-title,
+    .page-content p {
+      white-space: normal !important;
+      overflow-wrap: anywhere;   /* modern */
+      word-break: break-word;    /* уебкит/стари браузъри */
+      hyphens: auto;             /* с lang="bg" добавя „-” при нужда */
+    }
+
+    /* предотвратява разтягане от grid елементи */
+    .hero-container > *,
+    .intro-container > * { min-width: 0; }
+
+    /* безопасност: без хоризонтален скрол при крайни случаи */
+    html, body { overflow-x: hidden; }
+  </style>
 </head>
 
 <body>
@@ -239,7 +260,7 @@
     <div class="container">
       <h3>Процедури, които помагат при невралгии в гърдите и корема:</h3>
 
-      <div class="kinesitherapy-slider-container">
+      <div class="kinesitherapy-slider-container" role="region" aria-label="Слайдер с процедури">
         <button class="slider-arrow prev-arrow" aria-label="Предишен слайд">❮</button>
 
         <div class="kinesitherapy-slider-track">
@@ -358,7 +379,7 @@
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
             <span>Събота: 09:00 - 16:00</span><br>
-            </span>Неделя: Почивка</span>
+            <span>Неделя: Почивка</span>
           </div>
         </div>
         <div class="contact-item address-item">

@@ -11,6 +11,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Устойчивост на дълги думи + предотвратяване на хор. скрол (без промяна в текста) -->
+  <style>
+    /* позволи чупене на много дълги думи в заглавия/текст */
+    .page-content h1,
+    .hero-section h1,
+    .section-title,
+    .page-content p {
+      white-space: normal !important;
+      overflow-wrap: anywhere;   /* modern */
+      word-break: break-word;    /* уебкит/стари браузъри */
+      hyphens: auto;             /* с lang="bg" добавя „-” при нужда */
+    }
+
+    /* предотвратява разтягане от grid елементи */
+    .hero-container > *,
+    .intro-container > * { min-width: 0; }
+
+    /* безопасност: без хоризонтален скрол при крайни случаи */
+    html, body { overflow-x: hidden; }
+  </style>
 </head>
 
 <body>
@@ -367,7 +388,7 @@
           <img src="/pngs/social/location.png" alt="Адрес" class="icon">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
-            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
+            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXп6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
               Вижте на карта →
             </a>
           </div>
