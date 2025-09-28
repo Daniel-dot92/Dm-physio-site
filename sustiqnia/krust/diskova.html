@@ -9,16 +9,14 @@
   <link rel="stylesheet" href="../../css/top-bar.css">
   <link rel="stylesheet" href="../../css/temple-headache.css">
 
-  <!-- Оптимизация на външни ресурси -->
+  <!-- Preconnect към външни ресурси -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
 
-  <!-- Font Awesome (неблокиращо) -->
+  <!-- Външни стилове неблокиращо + noscript fallback -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
-  <!-- Calendly widget CSS (неблокиращо) -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
-
   <noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -27,6 +25,24 @@
 
   <!-- Preload на LCP изображението (hero) -->
   <link rel="preload" as="image" href="../../pngs/sustoqniq/muscles/lower bacl disk herniation-Thumbnail.jpg" fetchpriority="high">
+
+  <style>
+    /* позволи чупене на много дълги думи в заглавия/текст */
+    .page-content h1,
+    .hero-section h1,
+    .section-title,
+    .page-content p {
+      white-space: normal !important;
+      overflow-wrap: anywhere;   /* modern */
+      word-break: break-word;    /* уебкит/стари браузъри */
+      hyphens: auto;             /* с lang="bg" добавя „-” при нужда */
+    }
+    /* предотвратява разтягане от grid елементи */
+    .hero-container > *,
+    .intro-container > * { min-width: 0; }
+    /* безопасност: без хоризонтален скрол при крайни случаи */
+    html, body { overflow-x: hidden; }
+  </style>
 </head>
 
 <body>
@@ -86,7 +102,7 @@
 
       <div class="hero-image image-container">
         <img src="../../pngs/sustoqniq/muscles/lower bacl disk herniation-Thumbnail.jpg" alt="Дискова херния на кръста - визуализация" class="static-img" loading="eager" fetchpriority="high" decoding="async">
-        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Визуализация на дискова херния на кръста">
+        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Визуализация на дискова херния на кръста" poster="../../pngs/sustoqniq/muscles/lower bacl disk herniation-Thumbnail.jpg">
           <source src="../../pngs/sustoqniq/muscles/lower bacl disk herniation.mp4" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
@@ -116,7 +132,7 @@
 
       <div class="intro-image image-container">
         <img src="../../pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg" alt="Анатомия на дискова херния на кръста" class="static-img" loading="lazy" decoding="async">
-        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Видео: анатомия на дискова херния на кръста">
+        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Видео: анатомия на дискова херния на кръста" poster="../../pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg">
           <source src="../../pngs/sustoqniq/muscles/disk herniation 1.mp4" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
@@ -146,7 +162,7 @@
           <div class="step-media">
             <div class="hernia-step-media">
               <img src="../../pngs/sustoqniq/muscles/imbalance-Thumbnail.jpg" alt="Мускулен дисбаланс в кръста" class="static-hernia-img" loading="lazy" decoding="async">
-              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video">
+              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video" poster="../../pngs/sustoqniq/muscles/imbalance-Thumbnail.jpg">
                 <source src="../../pngs/sustoqniq/muscles/imbalance.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -168,7 +184,7 @@
           <div class="step-media">
             <div class="hernia-step-media">
               <img src="../../pngs/sustoqniq/muscles/imbalance lower back-Thumbnail.jpg" alt="Неравномерно натоварване на диска" class="static-hernia-img" loading="lazy" decoding="async">
-              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video">
+              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video" poster="../../pngs/sustoqniq/muscles/imbalance lower back-Thumbnail.jpg">
                 <source src="../../pngs/sustoqniq/muscles/imbalance lower back.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -190,7 +206,7 @@
           <div class="step-media">
             <div class="hernia-step-media">
               <img src="../../pngs/sustoqniq/muscles/disk herniation back-Thumbnail.jpg" alt="Херниран диск на кръста притиска нерв" class="static-hernia-img" loading="lazy" decoding="async">
-              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video">
+              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video" poster="../../pngs/sustoqniq/muscles/disk herniation back-Thumbnail.jpg">
                 <source src="../../pngs/sustoqniq/muscles/disk herniation back.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -263,7 +279,7 @@
           <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
             <div class="kinesitherapy-button-media">
               <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" loading="lazy" decoding="async">
-              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video" poster="../../pngs/procedures/KT.PNG">
                 <source src="../../pngs/procedures/gif/KT.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -274,7 +290,7 @@
           <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
             <div class="kinesitherapy-button-media">
               <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async">
-              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video" poster="../../pngs/massages/lecheben.PNG">
                 <source src="../../pngs/massages/gif/lecheben.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -285,7 +301,7 @@
           <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
             <div class="kinesitherapy-button-media">
               <img src="../../pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img" loading="lazy" decoding="async">
-              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video" poster="../../pngs/procedures/function.PNG">
                 <source src="../../pngs/procedures/gif/funciton.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -296,7 +312,7 @@
           <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
             <div class="kinesitherapy-button-media">
               <img src="../../pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img" loading="lazy" decoding="async">
-              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video" poster="../../pngs/procedures/exercises.PNG">
                 <source src="../../pngs/procedures/gif/exercieses.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -307,7 +323,7 @@
           <a href="../../procedures/deep-tissue-massage.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-2">
             <div class="kinesitherapy-button-media">
               <img src="../../pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async">
-              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video" poster="../../pngs/massages/deeptissue.PNG">
                 <source src="../../pngs/massages/gif/deeptisue.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -318,7 +334,7 @@
           <a href="../../procedures/dry-needling.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-4">
             <div class="kinesitherapy-button-media">
               <img src="../../pngs/procedures/dry-needling.PNG" alt="Терапия със сухи игли" class="kinesitherapy-img" loading="lazy" decoding="async">
-              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video" poster="../../pngs/procedures/dry-needling.PNG">
                 <source src="../../pngs/procedures/gif/drineedling.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -416,8 +432,8 @@
 <!-- Авто play/pause на видеата при видимост + ховър -->
 <script>
 (function() {
-  const safePlay  = v => v && v.paused && v.play && v.play().catch(()=>{});
-  const safePause = v => v && !v.paused && v.pause && v.pause();
+  const safePlay  = v => v && v.play && v.play().catch(()=>{});
+  const safePause = v => v && v.pause && v.pause();
 
   // Настройки за всички видеа
   const allVideos = document.querySelectorAll('video');
@@ -428,8 +444,8 @@
     if (!v.hasAttribute('preload')) v.preload = 'metadata';
   });
 
-  // Ховър поведение за .image-container
-  document.querySelectorAll('.image-container').forEach(box => {
+  // Ховър поведение за изображения/контейнери
+  document.querySelectorAll('.image-container, .hernia-step-media, .kinesitherapy-button').forEach(box => {
     const vid = box.querySelector('video');
     if (!vid) return;
     const onEnter = () => safePlay(vid);
@@ -442,6 +458,7 @@
 
   // In-viewport play/pause за таймлайн и слайдера
   const observed = [
+    ...document.querySelectorAll('.hover-video'),
     ...document.querySelectorAll('.hernia-step-media video'),
     ...document.querySelectorAll('.kinesitherapy-button .kinesitherapy-video')
   ];
