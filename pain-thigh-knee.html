@@ -11,6 +11,16 @@
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Мини-override: снимката остава, докато видеото не е готово -->
+  <style>
+    .pain-button-media.image-container:not(.video-ready) .hover-img {
+      opacity: 0 !important; visibility: hidden !important;
+    }
+    .pain-button-media.image-container:not(.video-ready):hover .static-img {
+      opacity: 1 !important; visibility: visible !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -50,7 +60,7 @@
         <a href="/sustiqnia/krak/muskuli.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/knee muscles-Thumbnail.jpg" alt="Мускулни болки в бедрото" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/knee muscles-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/knee muscles.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -61,7 +71,7 @@
         <a href="/sustiqnia/krak/nevralgii.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/dermatoms knee-Thumbnail.jpg" alt="Невралгии на бедрото и коляното" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/dermatoms knee-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/dermatoms knee.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -72,7 +82,7 @@
         <a href="/sustiqnia/krak/meniscus.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/meniscus-Thumbnail.jpg" alt="Менискус – болка и щракане в коляното" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/meniscus-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/meniscus.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -83,7 +93,7 @@
         <a href="/sustiqnia/krak/patelofemuralpain.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/patelar pain-Thumbnail.jpg" alt="Пателофеморален болков синдром" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/patelar pain-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/patelar pain.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -94,7 +104,7 @@
         <a href="/sustiqnia/krak/vruzki.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/Licaments tear-Thumbnail.jpg" alt="Скъсани връзки на коляното" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/Licaments tear-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/Licaments tear.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -105,7 +115,7 @@
         <a href="/sustiqnia/krak/gonarthrosis.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/gonarthrosis-Thumbnail.jpg" alt="Артрит на коляното (гонартроза)" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/gonarthrosis-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/gonarthrosis.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -186,5 +196,31 @@
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script src="../pain-conditions-scripts.js"></script>
 <script src="/js/topbar.js"></script>
+
+<!-- Маркиране като video-ready при loadeddata -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.pain-button-media.image-container').forEach(box => {
+      const vid = box.querySelector('video.hover-img');
+      const img = box.querySelector('img.static-img');
+      if (!vid) return;
+
+      if (!vid.getAttribute('poster') && img) {
+        vid.setAttribute('poster', img.currentSrc || img.src);
+      }
+      vid.preload = vid.preload || 'metadata';
+      vid.muted = true; vid.defaultMuted = true;
+      vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+
+      const markReady = () => box.classList.add('video-ready');
+      if (vid.readyState >= 2) {
+        markReady();
+      } else {
+        vid.addEventListener('loadeddata', markReady, { once: true });
+        try { vid.load(); } catch (e) {}
+      }
+    });
+  });
+</script>
 </body>
 </html>

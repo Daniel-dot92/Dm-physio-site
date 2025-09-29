@@ -9,24 +9,23 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
- 
-
   <!-- Page styles -->
   <link rel="stylesheet" href="/css/styles-procedures.css"/>
   <link rel="stylesheet" href="/css/pain-conditions.css">
- <!-- Top bar styles -->
+  <!-- Top bar styles -->
   <link rel="stylesheet" href="/css/top-bar.css">
 
-
   <!-- Малък фиксиращ стил за иконите във футъра (може и в global.css) -->
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
+  <!-- Мини-override: статичната снимка остава докато видеото стане готово -->
+  <style>
+    .card__media:not(.video-ready) .img--hover { opacity: 0 !important; visibility: hidden !important; }
+    .card__media:not(.video-ready):hover .img--static { opacity: 1 !important; visibility: visible !important; }
+  </style>
 </head>
 
-
 <body>
-
-
 <!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
@@ -56,12 +55,11 @@
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
         
         <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-    </ul>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
     </nav>
   </div>
 </header>
-
 
 <main>
 
@@ -81,7 +79,6 @@
         <nav class="hero-tabs" aria-label="Категории">
           <a class="chip chip--primary" href="/kinesitherapy.html">Кинезитерапия</a>
           <a class="chip" href="/massages.html">Масажи</a>
-         
         </nav>
       </div>
     </div>
@@ -100,7 +97,7 @@
         <a href="/procedures/details-kinesitherapy.html" class="card__media-link">
           <div class="card__media">
             <img class="img img--static" src="/pngs/procedures/KT.png" alt="Кинезитерапевтична процедура" loading="lazy">
-            <video autoplay loop muted playsinline preload="none" poster="/pngs/procedures/KT.png" aria-hidden="true" class="img img--hover">
+            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/KT.png" aria-hidden="true" class="img img--hover">
               <source src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
             </video>
           </div>
@@ -123,7 +120,7 @@
         <a href="/procedures/functional-assessment.html" class="card__media-link">
           <div class="card__media">
             <img class="img img--static" src="/pngs/procedures/gif/function3-Thumbnail.jpg" alt="Функционална оценка" loading="lazy">
-            <video autoplay loop muted playsinline preload="none" poster="/pngs/procedures/function.jpg" aria-hidden="true" class="img img--hover">
+            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/function.jpg" aria-hidden="true" class="img img--hover">
               <source src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
             </video>
           </div>
@@ -145,7 +142,7 @@
         <a href="/procedures/specialized-exercises.html" class="card__media-link">
           <div class="card__media">
             <img class="img img--static" src="/pngs/procedures/exercises.png" alt="Специализирани упражнения" loading="lazy">
-            <video autoplay loop muted playsinline preload="none" poster="/pngs/procedures/exercises.png" aria-hidden="true" class="img img--hover">
+            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/exercises.png" aria-hidden="true" class="img img--hover">
               <source src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
             </video>
           </div>
@@ -184,7 +181,7 @@
         <a href="/procedures/lecheben-masaj.html" class="card__media-link" aria-label="Лечебен масаж — виж детайли">
           <div class="card__media">
             <img class="img img--static" src="/pngs/massages/lecheben.png" alt="Лечебен масаж" loading="lazy">
-            <video autoplay loop muted playsinline preload="none" poster="/pngs/massages/lecheben.png" aria-hidden="true" class="img img--hover">
+            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/lecheben.png" aria-hidden="true" class="img img--hover">
               <source src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
             </video>
           </div>
@@ -204,7 +201,7 @@
         <a href="/procedures/masaj.deeptisue.html" class="card__media-link" aria-label="Дълбокотъканен масаж — виж детайли">
           <div class="card__media">
             <img class="img img--static" src="/pngs/massages/deeptissue.png" alt="Дълбокотъканен масаж" loading="lazy">
-            <video autoplay loop muted playsinline preload="none" poster="/pngs/massages/deeptissue.png" aria-hidden="true" class="img img--hover">
+            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/deeptissue.png" aria-hidden="true" class="img img--hover">
               <source src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
             </video>
           </div>
@@ -224,7 +221,7 @@
         <a href="/procedures/masaj-celulit.html" class="card__media-link" aria-label="Антицелулитен масаж — виж детайли">
           <div class="card__media">
             <img class="img img--static" src="/pngs/massages/celulit.PNG" alt="Антицелулитен масаж" loading="lazy">
-            <video autoplay loop muted playsinline preload="none" poster="/pngs/massages/celulit.PNG" aria-hidden="true" class="img img--hover">
+            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/celulit.PNG" aria-hidden="true" class="img img--hover">
               <source src="/pngs/massages/gif/celulit.mp4" type="video/mp4">
             </video>
           </div>
@@ -245,7 +242,6 @@
     </div>
   </div>
 </section>
-
 
   <!-- FREE ADVICE (REVEAL) -->
   <section class="advice-reveal-block" id="free-advice">
@@ -389,7 +385,6 @@
 <!-- Локални скриптове -->
 <script src="/js/form.js" defer></script>
 
-
 <!-- Инжекция на Цена/Време (извън <a>) -->
 <script>
 (function(){
@@ -430,8 +425,35 @@
   });
 })();
 </script>
+
 <script src="/js/topbar.js"></script>
 <script src="/js/media-autoplay-cards.js" defer></script>
+
+<!-- Маркиране като video-ready при loadeddata -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.card__media').forEach(box => {
+      const vid = box.querySelector('video.img--hover');
+      const img = box.querySelector('img.img--static');
+      if (!vid) return;
+
+      if (!vid.getAttribute('poster') && img) {
+        vid.setAttribute('poster', img.currentSrc || img.src);
+      }
+      vid.preload = vid.preload || 'metadata';
+      vid.muted = true; vid.defaultMuted = true;
+      vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+
+      const markReady = () => box.classList.add('video-ready');
+      if (vid.readyState >= 2) {
+        markReady();
+      } else {
+        vid.addEventListener('loadeddata', markReady, { once: true });
+        try { vid.load(); } catch (e) {}
+      }
+    });
+  });
+</script>
 
 </body>
 </html>

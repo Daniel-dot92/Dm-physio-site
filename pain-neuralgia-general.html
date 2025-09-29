@@ -10,6 +10,16 @@
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Мини-override: снимката остава, докато видеото не е готово -->
+    <style>
+      .pain-button-media.image-container:not(.video-ready) .hover-img {
+        opacity: 0 !important; visibility: hidden !important;
+      }
+      .pain-button-media.image-container:not(.video-ready):hover .static-img {
+        opacity: 1 !important; visibility: visible !important;
+      }
+    </style>
 </head>
 <body>
 
@@ -58,7 +68,7 @@
         <a href="/sustiqnia/neck-radiculupatia.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="pngs/sustoqniq/muscles/neck radicolopatia 3-Thumbnail.jpg" alt="Радикулопатия на врата" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/neck radicolopatia 3-Thumbnail.jpg">
               <source src="pngs/sustoqniq/muscles/neck radicolopatia 3.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -70,7 +80,7 @@
         <a href="/sustiqnia/arm/nevralgii.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/tingling arm-Thumbnail.jpg" alt="Невралгии в ръката" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/tingling arm-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/tingling arm.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -82,7 +92,7 @@
         <a href="/sustiqnia/gurdi/gurdi-neuralgia.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/chest neuralgia-Thumbnail.jpg" alt="Интеркостална невралгия" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/chest neuralgia-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/chest neuralgia.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -94,7 +104,7 @@
         <a href="/sustiqnia/grub/nevralgii.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="pngs/sustoqniq/muscles/thoracic nerve compression-Thumbnail.jpg" alt="Невралгии в гърба" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/thoracic nerve compression-Thumbnail.jpg">
               <source src="pngs/sustoqniq/muscles/thoracic nerve compression.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -106,7 +116,7 @@
         <a href="/sustiqnia/krust/nevralgii.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/sciatica2-Thumbnail.jpg" alt="Невралгии в кръста" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/sciatica2-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/sciatica2.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -118,7 +128,7 @@
         <a href="/sustiqnia/dupe/nevralgii.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/sitting-Thumbnail.jpg" alt="Невралгии на таза" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/sitting-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/sitting.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -130,7 +140,7 @@
         <a href="/sustiqnia/krak/nevralgii.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/dermatoms knee-Thumbnail.jpg" alt="Невралгии на бедрото и коляното" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/dermatoms knee-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/dermatoms knee.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -212,5 +222,31 @@
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script src="../pain-conditions-scripts.js"></script>
 <script src="/js/topbar.js"></script>
+
+<!-- Маркиране като video-ready при loadeddata (без промяна в размери/лейаут) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.pain-button-media.image-container').forEach(box => {
+      const vid = box.querySelector('video.hover-img');
+      const img = box.querySelector('img.static-img');
+      if (!vid) return;
+
+      if (!vid.getAttribute('poster') && img) {
+        vid.setAttribute('poster', img.currentSrc || img.src);
+      }
+      vid.preload = vid.preload || 'metadata';
+      vid.muted = true; vid.defaultMuted = true;
+      vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+
+      const markReady = () => box.classList.add('video-ready');
+      if (vid.readyState >= 2) {
+        markReady();
+      } else {
+        vid.addEventListener('loadeddata', markReady, { once: true });
+        try { vid.load(); } catch(e){}
+      }
+    });
+  });
+</script>
 </body>
 </html>

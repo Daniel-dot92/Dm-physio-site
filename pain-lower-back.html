@@ -12,6 +12,16 @@
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Мини-override (поведение само): снимката стои до готовност на видеото -->
+  <style>
+    .pain-button-media.image-container:not(.video-ready) .hover-img {
+      opacity: 0 !important; visibility: hidden !important;
+    }
+    .pain-button-media.image-container:not(.video-ready):hover .static-img {
+      opacity: 1 !important; visibility: visible !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -51,7 +61,7 @@
         <a href="/sustiqnia/krust/krust-muscles.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/lower back muscles-Thumbnail.jpg" alt="Мускулни болки в кръста" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/lower back muscles-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/lower back muscles.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -62,7 +72,7 @@
         <a href="/sustiqnia/krust/nevralgii.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/sciatica2-Thumbnail.jpg" alt="Невралгии в кръста" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/sciatica2-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/sciatica2.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -73,7 +83,7 @@
         <a href="/sustiqnia/krust/diskova.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/lower bacl disk herniation-Thumbnail.jpg" alt="Дискова херния на кръста" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/lower bacl disk herniation-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/lower bacl disk herniation.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -84,7 +94,7 @@
         <a href="/sustiqnia/krust/shipove.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="pngs/sustoqniq/muscles/neck shipove-Thumbnail.jpg" alt="Шипове в кръста" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/neck shipove-Thumbnail.jpg">
               <source src="pngs/sustoqniq/muscles/neck shipove.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -95,7 +105,7 @@
         <a href="/sustiqnia/krust/piriformis.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="../pngs/sustoqniq/muscles/piriformis2-Thumbnail.jpg" alt="Синдром на пириформиса" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="../pngs/sustoqniq/muscles/piriformis2-Thumbnail.jpg">
               <source src="../pngs/sustoqniq/muscles/piriformis2.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -176,5 +186,31 @@
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script src="../pain-conditions-scripts.js"></script>
 <script src="/js/topbar.js"></script>
+
+<!-- Маркираме контейнера като video-ready при loadeddata; без промяна на размери -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.pain-button-media.image-container').forEach(box => {
+      const vid = box.querySelector('video.hover-img');
+      const img = box.querySelector('img.static-img');
+      if (!vid) return;
+
+      if (!vid.getAttribute('poster') && img) {
+        vid.setAttribute('poster', img.currentSrc || img.src);
+      }
+      vid.preload = vid.preload || 'metadata';
+      vid.muted = true; vid.defaultMuted = true;
+      vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+
+      const markReady = () => box.classList.add('video-ready');
+      if (vid.readyState >= 2) {
+        markReady();
+      } else {
+        vid.addEventListener('loadeddata', markReady, { once: true });
+        try { vid.load(); } catch(e){}
+      }
+    });
+  });
+</script>
 </body>
 </html>
