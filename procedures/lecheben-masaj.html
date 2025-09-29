@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Лечебен Масаж - ДМ ФИЗИО</title>
 
-  <!-- Неблокиращо зареждане на основния стил -->
+  <!-- Неблокиращо зареждане на стиловете -->
   <link rel="preload" href="../css/procedure.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-  <!-- Top-bar стил -->
   <link rel="preload" href="../css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../css/top-bar.css"></noscript>
+  <noscript>
+    <link rel="stylesheet" href="../css/procedure.css">
+    <link rel="stylesheet" href="../css/top-bar.css">
+  </noscript>
+
+  <!-- Преконект за Google Maps -->
+  <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
 </head>
 
 <body>
@@ -38,10 +43,9 @@
           </div>
         </li>
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        
         <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-    </ul>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
     </nav>
   </div>
 </header>
@@ -57,9 +61,9 @@
 
       <div class="journey-steps-wrapper">
         <div class="journey-step left-aligned">
-          <div class="journey-image image-container">
-            <img src="../pngs/massages/lecheben.PNG" alt="Лечебен масаж" class="static-img" decoding="async" fetchpriority="low">
-            <video class="hover-img" playsinline muted preload="none">
+          <div class="journey-image image-container" tabindex="0">
+            <img src="../pngs/massages/lecheben.PNG" alt="Лечебен масаж" class="static-img" decoding="async" fetchpriority="low" loading="lazy">
+            <video class="hover-img" playsinline muted preload="none" loop poster="../pngs/massages/lecheben.PNG" aria-hidden="true">
               <source src="../pngs/massages/gif/lecheben.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -68,8 +72,6 @@
           <div class="journey-content">
             <span class="step-label">Етап</span>
             <h3>Процедура<span class="step-duration">(60 мин.)</span></h3>
-            
-
             <p>
                Лечебният масаж може да бъде ефективен както при остри, така и при хронични състояния, като често се комбинира с кинезитерапия или други физиотерапевтични методи за постигане на максимални резултати.
             </p>
@@ -139,7 +141,7 @@
   </aside>
 </main>
 
-  <footer class="footer">
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
@@ -200,15 +202,26 @@
   </section>
 </footer>
 
+<!-- Външни скриптове (неблокиращи) -->
 <script src="/js/topbar.js" defer></script>
 
-<!-- Видео hover -->
+<!-- Видео hover: снимка до готовност + play/pause при hover -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('video.hover-img').forEach(v=>{
-    v.preload = 'none';
-    v.addEventListener('mouseenter', ()=>{ v.play().catch(()=>{}); });
-    v.addEventListener('mouseleave', ()=>{ v.pause(); v.currentTime = 0; });
+  document.querySelectorAll('.image-container').forEach(box => {
+    const vid = box.querySelector('video.hover-img');
+    const img = box.querySelector('img.static-img');
+    if (vid) {
+      vid.setAttribute('playsinline','');
+      vid.muted = true; vid.defaultMuted = true;
+      if (!vid.getAttribute('poster') && img) {
+        vid.setAttribute('poster', img.currentSrc || img.src);
+      }
+      vid.preload = 'none';
+      vid.addEventListener('mouseenter', ()=>{ vid.play().catch(()=>{}); });
+      vid.addEventListener('mouseleave', ()=>{ vid.pause(); vid.currentTime = 0; });
+    }
+    if (img) { img.setAttribute('loading','lazy'); img.setAttribute('decoding','async'); }
   });
 });
 </script>
@@ -227,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
       if (content.style.maxHeight) {
-        content.style.maxHeight = null; content.style.paddingTop = "0"; content.style.paddingBottom = "0"; content.style.marginBottom = "0";
+        content.style.maxHeight = null; c.style.paddingTop = "0"; c.style.paddingBottom = "0"; c.style.marginBottom = "0";
         this.classList.remove("active"); content.style.willChange = "auto";
       } else {
         content.style.willChange = "max-height";
@@ -240,12 +253,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<!-- Aside loader: дневно-случаен подбор + снимка→видео при hover -->
 <script>
 (function () {
-  const KEY = 'conditions_html_v3';
-  const MAX_ITEMS = 5;
   const SRC_PAGE = '/conditions.html?v=3';
+  const MAX_ITEMS = 5;
 
+  // детерминиран дневен seed (YYYY-MM-DD + път)
   function xmur3(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=(h<<13)|(h>>>19)}return function(){h=Math.imul(h^(h>>>16),2246822507);h=Math.imul(h^(h>>>13),3266489909);return (h^=h>>>16)>>>0}}
   function mulberry32(a){return function(){let t=a+=0x6D2B79F5;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296}}
   function shuffleWithRNG(arr,rng){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a;}
@@ -256,56 +270,72 @@ document.addEventListener("DOMContentLoaded", function () {
     el.setAttribute(attr, '/' + val.replace(/^\.?\//,''));
   }
 
-  function selectVaried(html){
-    const temp = document.createElement('div');
-    temp.innerHTML = html;
+  function prepareCard(card){
+    const box = card.querySelector('.image-container, .pain-button-media') || card;
+    const img = box.querySelector('img.static-img') || box.querySelector('img');
+    const vid = box.querySelector('video.hover-img') || box.querySelector('video');
+    if (vid) {
+      vid.setAttribute('preload','none');
+      vid.setAttribute('playsinline','');
+      vid.muted = true; vid.defaultMuted = true;
+      if (!vid.getAttribute('poster') && img) vid.setAttribute('poster', img.currentSrc || img.src);
+    }
+    if (img) { img.loading='lazy'; img.decoding='async'; }
+    if (box && !box.hasAttribute('tabindex')) box.setAttribute('tabindex','0');
+    return card;
+  }
 
-    // махни webm/gif източници (ако някъде са останали)
-    temp.querySelectorAll('video source').forEach(s => {
-      const src = (s.getAttribute('src')||'').toLowerCase();
-      const type = (s.getAttribute('type')||'').toLowerCase();
+  function pickRandomDaily(scope){
+    // махаме webm/gif
+    scope.querySelectorAll('video source').forEach(s=>{
+      const src=(s.getAttribute('src')||'').toLowerCase();
+      const type=(s.getAttribute('type')||'').toLowerCase();
       if (type.includes('webm') || src.endsWith('.webm') || /\/gifs?\//.test(src) || src.endsWith('.gif')) s.remove();
     });
 
-    // ако видеото няма mp4 → махни го; иначе не preload-вай
-    temp.querySelectorAll('video').forEach(v => {
-      if (!v.querySelector('source[type="video/mp4"]')) { v.remove(); return; }
-      v.removeAttribute('autoplay');
-      v.setAttribute('preload','none');
-      v.setAttribute('playsinline','');
-    });
+    // нормализиране на пътища и lazy
+    scope.querySelectorAll('img').forEach(img=>{ absolutize(img,'src'); img.loading='lazy'; img.decoding='async'; });
+    scope.querySelectorAll('video').forEach(v=>{ absolutize(v,'poster'); v.removeAttribute('autoplay'); v.setAttribute('preload','none'); v.setAttribute('playsinline',''); });
+    scope.querySelectorAll('video source').forEach(s=>absolutize(s,'src'));
+    scope.querySelectorAll('a').forEach(a=>absolutize(a,'href'));
 
-    // направи пътищата абсолютни
-    temp.querySelectorAll('img').forEach(img => absolutize(img, 'src'));
-    temp.querySelectorAll('video').forEach(v => absolutize(v, 'poster'));
-    temp.querySelectorAll('video source').forEach(s => absolutize(s, 'src'));
-    temp.querySelectorAll('a').forEach(a => absolutize(a, 'href'));
-
-    const all = [...temp.querySelectorAll('.pain-button')];
+    const all = Array.from(scope.querySelectorAll('.pain-button'));
     if (!all.length) return [];
-    const d = new Date(), seedStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}|${location.pathname}`;
+
+    const d = new Date();
+    const seedStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}|${location.pathname}`;
     const rng = mulberry32(xmur3(seedStr)());
-    const picked = shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
-
-    picked.forEach(el => el.querySelectorAll('img').forEach(img => {
-      img.loading = 'lazy'; img.decoding = 'async';
-      if (!img.width && !img.height){ img.width = 400; img.height = 225; img.style.aspectRatio = '16/9'; }
-    }));
-    return picked;
+    return shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
   }
 
-  function inject(elements){
-    const container=document.getElementById('conditions-container');
-    if(!container || !elements?.length) return;
-    elements.forEach(el=>container.appendChild(el));
+  function inject(html){
+    const container = document.getElementById('conditions-container');
+    if (!container) return false;
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    const scope = tmp.querySelector('#conditions-list') || tmp;
+    const picked = pickRandomDaily(scope);
+    if (!picked.length) return false;
+    container.innerHTML = '';
+    picked.forEach(node=>{
+      const clone = node.cloneNode(true);
+      prepareCard(clone);
+      container.appendChild(clone);
+    });
+    return true;
   }
 
-  async function fetchAndCache(){
-    const res=await fetch(SRC_PAGE,{credentials:'omit',cache:'no-store'});
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const text=await res.text();
-    sessionStorage.setItem(KEY, text);
-    return text;
+  async function fetchAndRender(){
+    try{
+      const KEY='conditions_html_v3_cache';
+      const cached = sessionStorage.getItem(KEY);
+      if (cached && inject(cached)) return;
+      const res = await fetch(SRC_PAGE, { credentials:'same-origin', cache:'no-store' });
+      if(!res.ok) throw new Error('HTTP '+res.status);
+      const html = await res.text();
+      sessionStorage.setItem(KEY, html);
+      inject(html);
+    }catch(e){ console.warn('conditions loader error:', e); }
   }
 
   function onVisible(el, cb){
@@ -317,14 +347,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   document.addEventListener('DOMContentLoaded', ()=>{
-    const target=document.getElementById('random-conditions'); if(!target) return;
-    onVisible(target, async ()=>{
-      try{
-        const cached=sessionStorage.getItem(KEY);
-        const html=cached ?? await fetchAndCache();
-        inject(selectVaried(html));
-      }catch(e){ console.warn('conditions.html error:', e); }
-    });
+    const aside=document.getElementById('random-conditions');
+    if(!aside){ fetchAndRender(); return; }
+    const r=aside.getBoundingClientRect();
+    const inView = r.top < (window.innerHeight || document.documentElement.clientHeight) && r.bottom > 0;
+    if (inView) fetchAndRender(); else onVisible(aside, fetchAndRender);
   });
 })();
 </script>

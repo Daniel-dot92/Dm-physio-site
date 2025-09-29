@@ -7,7 +7,6 @@
 
   <!-- Неблокиращо зареждане на основния стил -->
   <link rel="preload" href="../css/procedure.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
   <!-- Top-bar стил -->
   <link rel="preload" href="../css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="../css/top-bar.css"></noscript>
@@ -43,57 +42,54 @@
         </li>
 
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        
         <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-    </ul>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
 <main class="page-content">
- <section class="procedure-journey section-green">
-  <div class="container">
-    <h2>Дълбокотъканен Масаж</h2>
-    <h3>стъпка по стъпка</h3>
-    <p class="procedure-preamble">
-      Дълбокотъканният масаж е терапевтична техника, насочена към достигане на по-дълбоките слоеве на мускулната и съединителната тъкан. Той е особено ефективен за облекчаване на хронични болки, мускулни възли (т.нар. „тригерни точки“), ограничена подвижност и скованост, които често произтичат от лоша стойка, повтарящи се движения или стари травми.
-    </p>
+  <section class="procedure-journey section-green">
+    <div class="container">
+      <h2>Дълбокотъканен Масаж</h2>
+      <h3>стъпка по стъпка</h3>
+      <p class="procedure-preamble">
+        Дълбокотъканният масаж е терапевтична техника, насочена към достигане на по-дълбоките слоеве на мускулната и съединителната тъкан. Той е особено ефективен за облекчаване на хронични болки, мускулни възли (т.нар. „тригерни точки“), ограничена подвижност и скованост, които често произтичат от лоша стойка, повтарящи се движения или стари травми.
+      </p>
 
-    <div class="journey-steps-wrapper">
+      <div class="journey-steps-wrapper">
+        <!-- Етап 1: Процедура -->
+        <div class="journey-step left-aligned">
+          <div class="journey-image image-container" tabindex="0">
+            <img src="../pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="static-img" decoding="async" fetchpriority="low" loading="lazy">
+            <!-- Показва снимката (poster) до готовност на видеото -->
+            <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/massages/deeptissue.PNG" aria-hidden="true">
+              <source src="../pngs/massages/gif/deeptisue.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <div class="journey-content">
+            <h3><span class="step-duration"></span> Процедура (90 мин.)</h3>
 
-      <!-- Етап 1: Процедура -->
-      <div class="journey-step left-aligned">
-        <div class="journey-image image-container">
-          <img src="../pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="static-img" decoding="async" fetchpriority="low">
-          <video class="hover-img" playsinline muted loop preload="auto">
-            <source src="../pngs/massages/gif/deeptisue.mp4" type="video/mp4">
-            Вашият браузър не поддържа видео тага.
-          </video>
+            <p>
+              При дълбокотъканния масаж терапевтът използва бавни, но интензивни движения с по-голям натиск, за да въздейства върху мускулните влакна, фасциите и другите съединителни тъкани. Целта е да се разрушат срастванията, да се отпуснат дълбоките възли и да се възстанови нормалната функция на тъканите. Този вид масаж е изключително полезен за:
+            </p>
+            <ul class="step-highlights">
+              <li><span class="check"></span> Облекчаване на хронична болка – особено във врата, гърба и раменете.</li>
+              <li><span class="check"></span> Деактивиране на тригерни точки, които причиняват референтна болка.</li>
+              <li><span class="check"></span> Подобряване на стойката чрез освобождаване на стегнатите мускули.</li>
+              <li><span class="check"></span> Увеличаване на обхвата на движение и възстановяване на еластичността на тъканите.</li>
+              <li><span class="check"></span> Възстановяване след спортни травми – редуцира възпалението и подпомага заздравяването.</li>
+            </ul>
+            <p>
+              Въпреки че може да усетите дискомфорт в определени моменти, усещането трябва да е „терапевтична болка“ – поносима и водеща до осезаемо облекчение след сесията. Редовните процедури дават кумулативен ефект: по-леко движение, по-малко напрежение и по-добър дневен тонус.
+            </p>
+          </div>
         </div>
-        <div class="journey-content">
-          <h3><span class="step-duration"></span> Процедура (90 мин.)</h3>
 
-          <p>
-            При дълбокотъканния масаж терапевтът използва бавни, но интензивни движения с по-голям натиск, за да въздейства върху мускулните влакна, фасциите и другите съединителни тъкани. Целта е да се разрушат срастванията, да се отпуснат дълбоките възли и да се възстанови нормалната функция на тъканите. Този вид масаж е изключително полезен за:
-          </p>
-          <ul class="step-highlights">
-            <li><span class="check"></span> Облекчаване на хронична болка – особено във врата, гърба и раменете.</li>
-            <li><span class="check"></span> Деактивиране на тригерни точки, които причиняват референтна болка.</li>
-            <li><span class="check"></span> Подобряване на стойката чрез освобождаване на стегнатите мускули.</li>
-            <li><span class="check"></span> Увеличаване на обхвата на движение и възстановяване на еластичността на тъканите.</li>
-            <li><span class="check"></span> Възстановяване след спортни травми – редуцира възпалението и подпомага заздравяването.</li>
-          </ul>
-          <p>
-            Въпреки че може да усетите дискомфорт в определени моменти, усещането трябва да е „терапевтична болка“ – поносима и водеща до осезаемо облекчение след сесията. Редовните процедури дават кумулативен ефект: по-леко движение, по-малко напрежение и по-добър дневен тонус.
-          </p>
-        </div>
       </div>
-
     </div>
-  </div>
-
-
 
     <div class="container text-center">
       <p class="procedure-price">Цена: 110 лв.</p>
@@ -141,14 +137,14 @@
     </section>
   </section>
 
-  <!-- Сайдбар: Болкови състояния (условно зареждане) -->
+  <!-- Сайдбар: Болкови състояния (условно зареждане + случайни) -->
   <aside id="random-conditions" class="sidebar-conditions">
     <h3>Болкови състояния</h3>
     <div class="pain-buttons-grid" id="conditions-container"></div>
   </aside>
 </main>
 
-  <footer class="footer">
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
@@ -212,17 +208,23 @@
 <!-- Външни скриптове (неблокиращи) -->
 <script src="/js/topbar.js" defer></script>
 
-<!-- Видео: play/pause при hover -->
+<!-- Видео hover: снимка до пълно зареждане + play/pause при hover -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('img.hover-img[alt], video.hover-img').forEach(el=>{
-    if (el.tagName.toLowerCase() === 'video') {
-      const v = el;
-      v.preload = 'none';
-      v.muted = true; v.playsInline = true;
-      v.addEventListener('mouseenter', ()=>{ v.play().catch(()=>{}); });
-      v.addEventListener('mouseleave', ()=>{ v.pause(); v.currentTime = 0; });
+  document.querySelectorAll('.image-container').forEach(box => {
+    const vid = box.querySelector('video.hover-img');
+    const img = box.querySelector('img.static-img');
+    if (vid) {
+      vid.preload = 'none';
+      vid.muted = true; vid.defaultMuted = true;
+      vid.setAttribute('playsinline','');
+      if (!vid.getAttribute('poster') && img) {
+        vid.setAttribute('poster', img.currentSrc || img.src);
+      }
+      vid.addEventListener('mouseenter', ()=>{ vid.play().catch(()=>{}); });
+      vid.addEventListener('mouseleave', ()=>{ vid.pause(); vid.currentTime = 0; });
     }
+    if (img) { img.loading='lazy'; img.decoding='async'; }
   });
 });
 </script>
@@ -236,27 +238,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const content = this.parentElement.querySelector(".accordion-content");
       document.querySelectorAll(".accordion-content").forEach(c => {
         if (c !== content) {
-          c.style.maxHeight = null;
-          c.style.paddingTop = "0";
-          c.style.paddingBottom = "0";
-          c.style.marginBottom = "0";
-          c.previousElementSibling.classList.remove("active");
-          c.style.willChange = "auto";
+          c.style.maxHeight = null; c.style.paddingTop = "0"; c.style.paddingBottom = "0"; c.style.marginBottom = "0";
+          c.previousElementSibling.classList.remove("active"); c.style.willChange = "auto";
         }
       });
       if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-        content.style.paddingTop = "0";
-        content.style.paddingBottom = "0";
-        content.style.marginBottom = "0";
-        this.classList.remove("active");
-        content.style.willChange = "auto";
+        content.style.maxHeight = null; content.style.paddingTop = "0"; content.style.paddingBottom = "0"; content.style.marginBottom = "0";
+        this.classList.remove("active"); content.style.willChange = "auto";
       } else {
         content.style.willChange = "max-height";
         content.style.maxHeight = content.scrollHeight + 10 + "px";
-        content.style.paddingTop = "15px";
-        content.style.paddingBottom = "15px";
-        content.style.marginBottom = "10px";
+        content.style.paddingTop = "15px"; content.style.paddingBottom = "15px"; content.style.marginBottom = "10px";
         this.classList.add("active");
       }
     });
@@ -264,6 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<!-- Сайдбар: зареждане на conditions.html (случаен подбор + безопасни пътища + MP4 only) -->
 <script>
 (function () {
   const KEY = 'conditions_html_v3';
@@ -284,14 +277,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const temp = document.createElement('div');
     temp.innerHTML = html;
 
-    // махни webm/gif източници (ако някъде са останали)
+    // само MP4; без webm/gif
     temp.querySelectorAll('video source').forEach(s => {
       const src = (s.getAttribute('src')||'').toLowerCase();
       const type = (s.getAttribute('type')||'').toLowerCase();
       if (type.includes('webm') || src.endsWith('.webm') || /\/gifs?\//.test(src) || src.endsWith('.gif')) s.remove();
     });
 
-    // ако видеото няма mp4 → махни го; иначе не preload-вай
     temp.querySelectorAll('video').forEach(v => {
       if (!v.querySelector('source[type="video/mp4"]')) { v.remove(); return; }
       v.removeAttribute('autoplay');
@@ -299,8 +291,8 @@ document.addEventListener("DOMContentLoaded", function () {
       v.setAttribute('playsinline','');
     });
 
-    // направи пътищата абсолютни
-    temp.querySelectorAll('img').forEach(img => absolutize(img, 'src'));
+    // пътища → абсолютни; lazy изображения
+    temp.querySelectorAll('img').forEach(img => { absolutize(img, 'src'); img.loading='lazy'; img.decoding='async'; });
     temp.querySelectorAll('video').forEach(v => absolutize(v, 'poster'));
     temp.querySelectorAll('video source').forEach(s => absolutize(s, 'src'));
     temp.querySelectorAll('a').forEach(a => absolutize(a, 'href'));
@@ -311,10 +303,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const rng = mulberry32(xmur3(seedStr)());
     const picked = shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
 
-    picked.forEach(el => el.querySelectorAll('img').forEach(img => {
-      img.loading = 'lazy'; img.decoding = 'async';
-      if (!img.width && !img.height){ img.width = 400; img.height = 225; img.style.aspectRatio = '16/9'; }
-    }));
+    picked.forEach(el => {
+      const img = el.querySelector('img.static-img');
+      const vid = el.querySelector('video.hover-img');
+      if (img && !img.width && !img.height){ img.width = 400; img.height = 225; img.style.aspectRatio = '16/9'; }
+      if (vid && img && !vid.getAttribute('poster')) { vid.setAttribute('poster', img.currentSrc || img.src); }
+      if (vid) { vid.setAttribute('preload','none'); vid.setAttribute('playsinline',''); vid.muted = true; }
+    });
     return picked;
   }
 
