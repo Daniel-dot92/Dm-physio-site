@@ -2,40 +2,42 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Болка в гърба - ДМ ФИЗИО</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Болка в гърба - ДМ ФИЗИО</title>
 
-  <!-- Предварителни връзки за по-бързо зареждане -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
-  <link rel="dns-prefetch" href="https://assets.calendly.com">
+    <!-- Оригинални стилове -->
+    <link rel="stylesheet" href="../css/top-bar.css">
+    <link rel="stylesheet" href="../css/pain-conditions.css">
 
-  <!-- Preload на външни CSS, след което неблокиращо активиране -->
-  <link rel="preload" as="style" href="https://assets.calendly.com/assets/external/widget.css">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <!-- Външни ресурси (неблокиращи) -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
 
-  <!-- Локални стилове -->
-  <link rel="stylesheet" href="../css/top-bar.css">
-  <link rel="stylesheet" href="../css/pain-conditions.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Външни стилове (неблокиращо) -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          media="print" onload="this.media='all'">
 
-  <!-- Preload на LCP изображение (първата карта) -->
-  <link rel="preload" as="image" href="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" fetchpriority="high">
+    <!-- Preload за първо изображение (LCP) -->
+    <link rel="preload" as="image" href="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" fetchpriority="high">
 
-  <!-- Offset за фиксиран top bar -->
-  <style>
-    :root{ --topbar-h:76px; }
-    html{ scroll-padding-top:var(--topbar-h); }
-    .page-content{ padding-top:calc(var(--topbar-h) + 10px); }
-    @media (max-width:768px){ :root{ --topbar-h:64px; } }
-  </style>
+    <!-- Drop-in CSS: винаги показваме снимката; видеото се появява само ако е готово и само при hover -->
+    <style>
+      .image-container{ position:relative; overflow:hidden; }
+      .image-container .static-img{
+        display:block; width:100%; height:auto; opacity:1; transition:opacity .2s;
+      }
+      .image-container .hover-img{
+        position:absolute; inset:0; width:100%; height:100%;
+        object-fit:cover; opacity:0; transition:opacity .2s;
+        pointer-events:none; background:#0000;
+      }
+      .image-container.is-hover.is-ready .hover-img{ opacity:1; }
+      .image-container.is-hover.is-ready .static-img{ opacity:0; }
+    </style>
 </head>
 <body>
 <!-- ======= Top bar (TB) ======= -->
@@ -43,7 +45,7 @@
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" />
+      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" />
     </a>
 
     <!-- Хамбургер -->
@@ -67,8 +69,8 @@
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
         
         <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-      </ul>
+      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+    </ul>
     </nav>
   </div>
 </header>
@@ -78,10 +80,11 @@
     <div class="container">
       <h3>Изберете по-конкретно вашето състояние:</h3>
       <div class="pain-buttons-grid">
-        <a href="/sustiqnia/grub/muskuli-grub.html" class="pain-button" aria-label="Мускулни болки (Гръб)">
+        <a href="/sustiqnia/grub/muskuli-grub.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" alt="Мускулни болки в гърба" class="static-img" loading="eager" decoding="async" fetchpriority="high">
-            <video class="hover-img" autoplay loop muted playsinline preload="none">
+            <img src="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" alt="Мускулни болки в гърба" class="static-img">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata"
+                   poster="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg">
               <source src="pngs/sustoqniq/muscles/back muscles2.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -89,10 +92,11 @@
           <span class="pain-button-text">Мускулни болки (Гръб)</span>
         </a>
 
-        <a href="/sustiqnia/grub/nevralgii.html" class="pain-button" aria-label="Невралгии на гърба">
+        <a href="/sustiqnia/grub/nevralgii.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/sustoqniq/muscles/back nerves-Thumbnail.jpg" alt="Невралгии в гърба" class="static-img" loading="lazy" decoding="async">
-            <video class="hover-img" autoplay loop muted playsinline preload="none">
+            <img src="pngs/sustoqniq/muscles/back nerves-Thumbnail.jpg" alt="Невралгии в гърба" class="static-img">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata"
+                   poster="pngs/sustoqniq/muscles/back nerves-Thumbnail.jpg">
               <source src="pngs/sustoqniq/muscles/back nerves.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -100,10 +104,11 @@
           <span class="pain-button-text">Невралгии на гърба</span>
         </a>
 
-        <a href="/sustiqnia/grub/diskova.html" class="pain-button" aria-label="Дискова херния">
+        <a href="/sustiqnia/grub/diskova.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/sustoqniq/muscles/back disk herniation-Thumbnail.jpg" alt="Дискова херния на гърба" class="static-img" loading="lazy" decoding="async">
-            <video class="hover-img" autoplay loop muted playsinline preload="none">
+            <img src="pngs/sustoqniq/muscles/back disk herniation-Thumbnail.jpg" alt="Дискова херния на гърба" class="static-img">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata"
+                   poster="pngs/sustoqniq/muscles/back disk herniation-Thumbnail.jpg">
               <source src="pngs/sustoqniq/muscles/back disk herniation.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -111,10 +116,11 @@
           <span class="pain-button-text">Дискова херния</span>
         </a>
 
-        <a href="/sustiqnia/grub/shipove.html" class="pain-button" aria-label="Шипове">
+        <a href="/sustiqnia/grub/shipove.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/sustoqniq/muscles/neck shipove-Thumbnail.jpg" alt="Шипове на гърба" class="static-img" loading="lazy" decoding="async">
-            <video class="hover-img" autoplay loop muted playsinline preload="none">
+            <img src="pngs/sustoqniq/muscles/neck shipove-Thumbnail.jpg" alt="Шипове на гърба" class="static-img">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata"
+                   poster="pngs/sustoqniq/muscles/neck shipove-Thumbnail.jpg">
               <source src="pngs/sustoqniq/muscles/neck shipove.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -124,13 +130,13 @@
       </div>
 
       <div class="button-group">
-        <a href="pain-conditions.html" class="back-button" aria-label="← Всички болкови състояния">← Всички болкови състояния</a>
+        <a href="pain-conditions.html" class="back-button">← Всички болкови състояния</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="footer">
+ <footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
@@ -145,27 +151,27 @@
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async">
+            <img src="/pngs/social/facebook.png" alt="Facebook">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async">
+            <img src="/pngs/social/instagram.png" alt="Instagram">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async">
+            <img src="/pngs/social/Youtube.png" alt="YouTube">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async">
+            <img src="/pngs/social/tiktok.png" alt="TikTok">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async">
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon">
           <span>0883688414</span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
           <div>
              <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
@@ -174,7 +180,7 @@
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -191,22 +197,57 @@
   </section>
 </footer>
 
-<!-- Скриптове -->
-<script src="/js/media-autoplay-cards.js" defer></script>
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<script src="../pain-conditions-scripts.js" defer></script>
-<script src="/js/topbar.js" defer></script>
-
-<!-- Respect prefers-reduced-motion: stop autoplay видеа -->
+<!-- Drop-in JS: показваме видео само ако е готово; иначе остава снимката -->
 <script>
-  (function(){
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('video.hover-img').forEach(v => {
-        try { v.pause(); } catch(e){}
-        v.removeAttribute('autoplay');
-      });
+(function(){
+  const containers = document.querySelectorAll('.image-container');
+  const safePlay = v => v && v.play && v.play().catch(()=>{});
+  const safePause = v => v && v.pause && v.pause();
+
+  containers.forEach(box => {
+    const img = box.querySelector('img.static-img');
+    const vid = box.querySelector('video.hover-img');
+    if(!img || !vid) return;
+
+    vid.preload = 'metadata';
+    if(!vid.getAttribute('poster') && img.currentSrc){
+      try { vid.setAttribute('poster', img.currentSrc); } catch(e){}
     }
-  })();
+
+    const markReady = () => box.classList.add('is-ready');
+    if (vid.readyState >= 2) { markReady(); }
+    vid.addEventListener('loadeddata', markReady, { once:true });
+    vid.addEventListener('canplay', markReady, { once:true });
+
+    const onEnter = () => {
+      box.classList.add('is-hover');
+      if (box.classList.contains('is-ready')) safePlay(vid);
+    };
+    const onLeave = () => {
+      box.classList.remove('is-hover');
+      safePause(vid);
+      try { vid.currentTime = 0; } catch(e){}
+    };
+
+    box.addEventListener('mouseenter', onEnter, {passive:true});
+    box.addEventListener('mouseleave', onLeave, {passive:true});
+    box.addEventListener('touchstart', onEnter, {passive:true});
+    box.addEventListener('touchend', onLeave, {passive:true});
+    box.addEventListener('touchcancel', onLeave, {passive:true});
+  });
+
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('video.hover-img').forEach(v=>{
+      v.removeAttribute('autoplay');
+      try { v.pause(); } catch(e){}
+    });
+  }
+})();
 </script>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script src="../pain-conditions-scripts.js"></script>
+<script src="/js/topbar.js"></script>
+<script src="/js/media-autoplay-cards.js" defer></script>
 </body>
 </html>
