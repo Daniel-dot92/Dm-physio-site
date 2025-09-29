@@ -2,14 +2,53 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Болка в таза и дупето - ДМ ФИЗИО</title>
-    <link rel="stylesheet" href="../css/top-bar.css">
-    <link rel="stylesheet" href="../css/pain-conditions.css">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Болка в таза и дупето - ДМ ФИЗИО</title>
+
+  <!-- Локални стилове -->
+  <link rel="stylesheet" href="../css/top-bar.css">
+  <link rel="stylesheet" href="../css/pain-conditions.css">
+
+  <!-- Оптимизации за външни ресурси -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Външни CSS (неблокиращо) -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
+
+  <!-- Preload на първото изображение (LCP) -->
+  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/butt muscles-Thumbnail.jpg" fetchpriority="high">
+
+  <!-- OVERRIDES: гарантират, че снимката е видима до зареждане на видеото -->
+  <style>
+    .pain-button-media.image-container{ position:relative; }
+
+    .pain-button-media.image-container > img.static-img,
+    .pain-button-media.image-container > video.hover-img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:contain;
+      transform:none !important;   /* отменя translate(-50%,-50%) */
+      display:block;
+      transition:opacity .2s ease, visibility .2s ease;
+    }
+
+    /* По подразбиране – снимката е видима, видеото скрито */
+    .pain-button-media.image-container > img.static-img{ opacity:1; }
+    .pain-button-media.image-container > video.hover-img{ opacity:0; visibility:hidden; }
+
+    /* Разрешаваме hover едва след loadeddata */
+    .pain-button-media.image-container.video-ready:hover > img.static-img{ opacity:0 !important; }
+    .pain-button-media.image-container.video-ready:hover > video.hover-img{ opacity:1 !important; visibility:visible !important; }
+
+    /* Без .video-ready – никога не скривай снимката */
+    .pain-button-media.image-container:not(.video-ready) > img.static-img{ opacity:1 !important; }
+    .pain-button-media.image-container:not(.video-ready) > video.hover-img{ opacity:0 !important; visibility:hidden !important; }
+  </style>
 </head>
 <body>
 
@@ -42,8 +81,8 @@
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
         
         <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-    </ul>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
     </nav>
   </div>
 </header>
@@ -55,8 +94,8 @@
       <div class="pain-buttons-grid">
         <a href="/sustiqnia/dupe/dupe-muscles.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="/pngs/sustoqniq/muscles/butt muscles-Thumbnail.jpg" alt="Мускулни болки в таза" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <img src="/pngs/sustoqniq/muscles/butt muscles-Thumbnail.jpg" alt="Мускулни болки в таза" class="static-img" loading="eager" decoding="async" fetchpriority="high">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/butt muscles-Thumbnail.jpg" aria-hidden="true">
               <source src="/pngs/sustoqniq/muscles/butt muscles.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -66,8 +105,8 @@
 
         <a href="/sustiqnia/dupe/nevralgii.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="/pngs/sustoqniq/muscles/dermatoms legs-Thumbnail.jpg" alt="Артрит на тазобедрената става" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <img src="/pngs/sustoqniq/muscles/dermatoms legs-Thumbnail.jpg" alt="Артрит на тазобедрената става" class="static-img" loading="lazy" decoding="async">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/dermatoms legs-Thumbnail.jpg" aria-hidden="true">
               <source src="/pngs/sustoqniq/muscles/dermatoms legs.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -77,8 +116,8 @@
 
         <a href="/sustiqnia/dupe/coxartrosis.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="/pngs/sustoqniq/muscles/coxartrhrosis-Thumbnail.jpg" alt="Артрит на тазобедрената става" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <img src="/pngs/sustoqniq/muscles/coxartrhrosis-Thumbnail.jpg" alt="Артрит на тазобедрената става" class="static-img" loading="lazy" decoding="async">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/coxartrhrosis-Thumbnail.jpg" aria-hidden="true">
               <source src="/pngs/sustoqniq/muscles/coxartrhrosis.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -88,8 +127,8 @@
 
         <a href="/sustiqnia/dupe/sacroiliacpain.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="/pngs/sustoqniq/muscles/sacroiliac2-Thumbnail.jpg" alt="Сакроилиачен синдром" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <img src="/pngs/sustoqniq/muscles/sacroiliac2-Thumbnail.jpg" alt="Сакроилиачен синдром" class="static-img" loading="lazy" decoding="async">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/sacroiliac2-Thumbnail.jpg" aria-hidden="true">
               <source src="/pngs/sustoqniq/muscles/sacroiliac2.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -99,8 +138,8 @@
 
         <a href="/sustiqnia/krust/piriformis.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg" alt="Сакроилиачен синдром" class="static-img">
-            <video class="hover-img" autoplay loop muted playsinline>
+            <img src="/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg" alt="Сакроилиачен синдром" class="static-img" loading="lazy" decoding="async">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg" aria-hidden="true">
               <source src="/pngs/sustoqniq/muscles/piriformis.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -116,7 +155,7 @@
   </section>
 </main>
 
- <footer class="footer">
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
@@ -176,10 +215,33 @@
     </div>
   </section>
 </footer>
-<script src="/js/media-autoplay-cards.js" defer></script>
 
+<script src="/js/media-autoplay-cards.js" defer></script>
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script src="../pain-conditions-scripts.js"></script>
-<script src="/js/topbar.js"></script>
+<script src="../pain-conditions-scripts.js" defer></script>
+<script src="/js/topbar.js" defer></script>
+
+<!-- Активиране на hover само след зареждане на видеото -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.pain-button-media.image-container').forEach(box => {
+      const vid = box.querySelector('video');
+      const img = box.querySelector('img');
+      if (!vid) return;
+
+      if (!vid.getAttribute('poster') && img) vid.setAttribute('poster', img.currentSrc || img.src);
+      vid.preload = 'metadata';
+      vid.muted = true; vid.defaultMuted = true;
+      vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+
+      if (vid.readyState >= 2) {
+        box.classList.add('video-ready');
+      } else {
+        vid.addEventListener('loadeddata', () => box.classList.add('video-ready'), { once:true });
+        try { vid.load(); } catch (e) {}
+      }
+    });
+  });
+</script>
 </body>
 </html>

@@ -8,9 +8,36 @@
 
   <link rel="stylesheet" href="../css/top-bar.css">
   <link rel="stylesheet" href="../css/pain-conditions.css">
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+  <!-- Оптимизации за външни ресурси -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Външни CSS (неблокиращо) -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
+
+  <!-- Preload на първата картинка -->
+  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg" fetchpriority="high">
+
+  <!-- OVERRIDES: снимката остава, докато видеото не е готово -->
+  <style>
+    .pain-button-media.image-container{ position:relative; }
+    .pain-button-media.image-container > img.static-img,
+    .pain-button-media.image-container > video.hover-img{
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:contain; transform:none !important; display:block;
+      transition:opacity .2s ease, visibility .2s ease;
+    }
+    .pain-button-media.image-container > img.static-img{ opacity:1; }
+    .pain-button-media.image-container > video.hover-img{ opacity:0; visibility:hidden; }
+    .pain-button-media.image-container.video-ready:hover > img.static-img{ opacity:0 !important; }
+    .pain-button-media.image-container.video-ready:hover > video.hover-img{ opacity:1 !important; visibility:visible !important; }
+    .pain-button-media.image-container:not(.video-ready) > img.static-img{ opacity:1 !important; }
+    .pain-button-media.image-container:not(.video-ready) > video.hover-img{ opacity:0 !important; visibility:hidden !important; }
+  </style>
 </head>
 
 <body>
@@ -57,8 +84,8 @@
         <div class="pain-buttons-grid">
           <a href="/sustiqnia/gurdi/gurdi-muscles.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg" alt="Мускулни болки в гърди/корем" class="static-img">
-              <video class="hover-img" autoplay loop muted playsinline>
+              <img src="/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg" alt="Мускулни болки в гърди/корем" class="static-img" loading="eager" decoding="async" fetchpriority="high">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg" aria-hidden="true">
                 <source src="/pngs/sustoqniq/muscles/chest1.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -66,21 +93,12 @@
             <span class="pain-button-text">Мускулни болки (гърди и корем)</span>
           </a>
 
-          <a href="/sustiqnia/gurdi/Abdominal-hernia.html" class="pain-button">
-            <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/abdominal hernia-Thumbnail.PNG" alt="Абдоминални хернии" class="static-img">
-              <video class="hover-img" autoplay loop muted playsinline>
-                <source src="/pngs/sustoqniq/muscles/abdominal hernia.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <span class="pain-button-text">Абдоминални хернии</span>
-          </a>
+          
 
           <a href="/sustiqnia/gurdi/gurdi-neuralgia.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/chest neuralgia-Thumbnail.jpg" alt="Интеркостална невралгия" class="static-img">
-              <video class="hover-img" autoplay loop muted playsinline>
+              <img src="/pngs/sustoqniq/muscles/chest neuralgia-Thumbnail.jpg" alt="Интеркостална невралгия" class="static-img" loading="lazy" decoding="async">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/chest neuralgia-Thumbnail.jpg" aria-hidden="true">
                 <source src="/pngs/sustoqniq/muscles/chest neuralgia.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -90,13 +108,23 @@
 
           <a href="/sustiqnia/gurdi/outlet-syndrome.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/thoracic outlet-Thumbnail.jpg" alt="Thoracic Outlet Syndrome" class="static-img">
-              <video class="hover-img" autoplay loop muted playsinline>
+              <img src="/pngs/sustoqniq/muscles/thoracic outlet-Thumbnail.jpg" alt="Thoracic Outlet Syndrome" class="static-img" loading="lazy" decoding="async">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/thoracic outlet-Thumbnail.jpg" aria-hidden="true">
                 <source src="/pngs/sustoqniq/muscles/thoracic outlet.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
             </div>
             <span class="pain-button-text">Thoracic Outlet Syndrome</span>
+          </a>
+          <a href="/sustiqnia/gurdi/Abdominal-hernia.html" class="pain-button">
+            <div class="pain-button-media image-container">
+              <img src="/pngs/sustoqniq/muscles/abdominal hernia-Thumbnail.PNG" alt="Абдоминални хернии" class="static-img" loading="lazy" decoding="async">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/abdominal hernia-Thumbnail.PNG" aria-hidden="true">
+                <source src="/pngs/sustoqniq/muscles/abdominal hernia.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="pain-button-text">Абдоминални хернии</span>
           </a>
         </div>
 
@@ -170,7 +198,30 @@
 <script src="/js/media-autoplay-cards.js" defer></script>
   
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-  <script src="../pain-conditions-scripts.js"></script>
-  <script src="/js/topbar.js"></script>
+  <script src="../pain-conditions-scripts.js" defer></script>
+  <script src="/js/topbar.js" defer></script>
+
+<!-- Активиране на hover само след зареждане на видеото -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.pain-button-media.image-container').forEach(box => {
+      const vid = box.querySelector('video');
+      const img = box.querySelector('img');
+      if (!vid) return;
+
+      if (!vid.getAttribute('poster') && img) vid.setAttribute('poster', img.currentSrc || img.src);
+      vid.preload = 'metadata';
+      vid.muted = true; vid.defaultMuted = true;
+      vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+
+      if (vid.readyState >= 2) {
+        box.classList.add('video-ready');
+      } else {
+        vid.addEventListener('loadeddata', () => box.classList.add('video-ready'), { once:true });
+        try { vid.load(); } catch(e){}
+      }
+    });
+  });
+</script>
 </body>
 </html>
