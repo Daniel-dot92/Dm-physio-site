@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="../css/top-bar.css">
   </noscript>
 
+  <!-- Преконект за Google Maps (ускорява iframe) -->
+  <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+
   <!-- FIX: работещи check иконки (може да се премести в /css/procedure.css) -->
   <style>
     .step-highlights{list-style:none;margin:0;padding:0}
@@ -83,9 +87,10 @@
 
       <!-- Етап 1 -->
       <div class="journey-step left-aligned">
-        <div class="journey-image image-container">
+        <div class="journey-image image-container" tabindex="0">
           <img src="../pngs/procedures/function.jpg" alt="Функционална оценка и изследване" class="static-img" decoding="async" fetchpriority="low" loading="lazy">
-          <video class="hover-img" playsinline muted loop preload="none">
+          <!-- poster показва снимката до готовност на видеото -->
+          <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/procedures/function.jpg" aria-hidden="true">
             <source src="../pngs/procedures/gif/funciton.mp4" type="video/mp4">
             Вашият браузър не поддържа видео тага.
           </video>
@@ -110,9 +115,10 @@
 
       <!-- Етап 2 -->
       <div class="journey-step right-aligned">
-        <div class="journey-image image-container">
+        <div class="journey-image image-container" tabindex="0">
           <img src="../pngs/procedures/dry-needling.PNG" alt="Апликация със сухи игли" class="static-img" decoding="async" loading="lazy">
-          <video class="hover-img" playsinline muted loop preload="none">
+          <!-- poster показва снимката до готовност на видеото -->
+          <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/procedures/dry-needling.PNG" aria-hidden="true">
             <source src="../pngs/procedures/gif/drineedling.mp4" type="video/mp4">
             Вашият браузър не поддържа видео тага.
           </video>
