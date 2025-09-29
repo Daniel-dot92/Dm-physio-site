@@ -2,24 +2,36 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Болка в гърба - ДМ ФИЗИО</title>
 
-  <!-- Оригинални стилове -->
+  <!-- Локални стилове -->
   <link rel="stylesheet" href="../css/top-bar.css">
   <link rel="stylesheet" href="../css/pain-conditions.css">
 
-  <!-- Външни ресурси -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Предварителни връзки към външни домейни за по-бързо зареждане -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
 
-  <!-- Мини стил за надеждно покриване: снимката е видима, видеото е скрито докато JS го покаже -->
+  <!-- Външни CSS (неблокиращо зареждане) -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        media="print" onload="this.media='all'">
+
+  <!-- Preload на LCP изображение -->
+  <link rel="preload" as="image"
+        href="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg"
+        fetchpriority="high">
+
+  <!-- Базов стил за двойките снимка/видео: картинката е видима, видеото скрито докато JS го покаже -->
   <style>
-    .image-container{position:relative;overflow:hidden}
-    .image-container .static-img{display:block;width:100%;height:auto;opacity:1;transition:opacity .2s}
-    .image-container video.hover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .2s}
+    .image-container{position:relative;display:block;overflow:hidden}
+    .image-container .static-img{display:block;width:100%;height:auto;opacity:1;transition:opacity .2s;}
+    .image-container video.hover-img,
+    .image-container video.hover-video,
+    .image-container video.kinesitherapy-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;}
   </style>
 </head>
 <body>
@@ -65,8 +77,8 @@
       <div class="pain-buttons-grid">
         <a href="/sustiqnia/grub/muskuli-grub.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" alt="Мускулни болки в гърба" class="static-img" loading="eager" decoding="async">
-            <video class="hover-img" muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" loop>
+            <img src="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" alt="Мускулни болки в гърба" class="static-img" loading="eager" decoding="async" fetchpriority="high">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg">
               <source src="pngs/sustoqniq/muscles/back muscles2.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -77,7 +89,7 @@
         <a href="/sustiqnia/grub/nevralgii.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="pngs/sustoqniq/muscles/back nerves-Thumbnail.jpg" alt="Невралгии в гърба" class="static-img" loading="lazy" decoding="async">
-            <video class="hover-img" muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back nerves-Thumbnail.jpg" loop>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back nerves-Thumbnail.jpg">
               <source src="pngs/sustoqniq/muscles/back nerves.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -88,7 +100,7 @@
         <a href="/sustiqnia/grub/diskova.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="pngs/sustoqniq/muscles/back disk herniation-Thumbnail.jpg" alt="Дискова херния на гърба" class="static-img" loading="lazy" decoding="async">
-            <video class="hover-img" muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back disk herniation-Thumbnail.jpg" loop>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back disk herniation-Thumbnail.jpg">
               <source src="pngs/sustoqniq/muscles/back disk herniation.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -99,7 +111,7 @@
         <a href="/sustiqnia/grub/shipove.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="pngs/sustoqniq/muscles/neck shipove-Thumbnail.jpg" alt="Шипове на гърба" class="static-img" loading="lazy" decoding="async">
-            <video class="hover-img" muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/neck shipove-Thumbnail.jpg" loop>
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/neck shipove-Thumbnail.jpg">
               <source src="pngs/sustoqniq/muscles/neck shipove.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -120,8 +132,8 @@
     <div class="contact-container">
       <div class="contact-left">
         <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
-                  width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" 
+                  width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
@@ -152,7 +164,7 @@
         <div class="contact-item work-hours">
           <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
           <div>
-            <span>Работно време:</span><br>
+             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
             <span>Събота: 09:00 - 16:00</span><br>
             </span>Неделя: Почивка</span>
@@ -181,5 +193,18 @@
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script src="../pain-conditions-scripts.js"></script>
 <script src="/js/topbar.js"></script>
+
+<!-- За всеки случай: ако външният JS още не е инициранил opacity swap, пазим статичното изображение видимо -->
+<script>
+  // Нежна защита: ако видеото стане видимо преди да е готово, нека остане скрито, докато се зареди поне metadata.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.image-container video').forEach(function (v) {
+      v.addEventListener('loadeddata', function () {
+        // media-autoplay-cards.js ще управлява opacity; тук само гарантираме, че видеото може да стане видимо
+        v.style.visibility = 'visible';
+      }, { once: true });
+    });
+  });
+</script>
 </body>
 </html>
