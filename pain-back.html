@@ -2,36 +2,51 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Болка в гърба - ДМ ФИЗИО</title>
 
   <!-- Локални стилове -->
   <link rel="stylesheet" href="../css/top-bar.css">
   <link rel="stylesheet" href="../css/pain-conditions.css">
 
-  <!-- Предварителни връзки към външни домейни за по-бързо зареждане -->
+  <!-- Оптимизации за бързина -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
 
-  <!-- Външни CSS (неблокиращо зареждане) -->
+  <!-- Външни стилове (неблокиращо) -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
 
-  <!-- Preload на LCP изображение -->
-  <link rel="preload" as="image"
-        href="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg"
-        fetchpriority="high">
+  <!-- Прелоуд на LCP изображение -->
+  <link rel="preload" as="image" href="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" fetchpriority="high">
 
-  <!-- Базов стил за двойките снимка/видео: картинката е видима, видеото скрито докато JS го покаже -->
+  <!-- ===== OVERRIDES: стабилно оразмеряване и защита на снимката докато видеото не е готово ===== -->
   <style>
-    .image-container{position:relative;display:block;overflow:hidden}
-    .image-container .static-img{display:block;width:100%;height:auto;opacity:1;transition:opacity .2s;}
-    .image-container video.hover-img,
-    .image-container video.hover-video,
-    .image-container video.kinesitherapy-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;}
+    /* 1) Квадратният контейнер си остава, децата запълват целия бокс */
+    .pain-button-media.image-container{ position:relative; }
+    .pain-button-media.image-container > img.static-img,
+    .pain-button-media.image-container > video.hover-img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:contain;          /* НЕ режем нищо; ако искаш изрязване – сложи cover */
+      transform:none !important;   /* отменя translate(-50%,-50%) от глобалния CSS */
+      display:block;
+      transition:opacity .2s ease, visibility .2s ease;
+    }
+
+    /* 2) По подразбиране – снимката се вижда, видеото е скрито */
+    .pain-button-media.image-container > img.static-img{ opacity:1; }
+    .pain-button-media.image-container > video.hover-img{ opacity:0; visibility:hidden; }
+
+    /* 3) Разрешаваме hover swap ЕДВА когато видеото е готово */
+    .pain-button-media.image-container.video-ready:hover > img.static-img{ opacity:0 !important; }
+    .pain-button-media.image-container.video-ready:hover > video.hover-img{ opacity:1 !important; visibility:visible !important; }
+
+    /* 4) Защитна мярка срещу глобалния JS: докато няма .video-ready, никога не скривай снимката */
+    .pain-button-media.image-container:not(.video-ready) > img.static-img{ opacity:1 !important; }
+    .pain-button-media.image-container:not(.video-ready) > video.hover-img{ opacity:0 !important; visibility:hidden !important; }
   </style>
 </head>
 <body>
@@ -74,11 +89,13 @@
   <section class="pain-conditions-detail-section">
     <div class="container">
       <h3>Изберете по-конкретно вашето състояние:</h3>
+
       <div class="pain-buttons-grid">
+        <!-- Карта 1 -->
         <a href="/sustiqnia/grub/muskuli-grub.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" alt="Мускулни болки в гърба" class="static-img" loading="eager" decoding="async" fetchpriority="high">
-            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" aria-hidden="true">
               <source src="pngs/sustoqniq/muscles/back muscles2.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -86,10 +103,11 @@
           <span class="pain-button-text">Мускулни болки (Гръб)</span>
         </a>
 
+        <!-- Карта 2 -->
         <a href="/sustiqnia/grub/nevralgii.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="pngs/sustoqniq/muscles/back nerves-Thumbnail.jpg" alt="Невралгии в гърба" class="static-img" loading="lazy" decoding="async">
-            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back nerves-Thumbnail.jpg">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back nerves-Thumbnail.jpg" aria-hidden="true">
               <source src="pngs/sustoqniq/muscles/back nerves.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -97,10 +115,11 @@
           <span class="pain-button-text">Невралгии на гърба</span>
         </a>
 
+        <!-- Карта 3 -->
         <a href="/sustiqnia/grub/diskova.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="pngs/sustoqniq/muscles/back disk herniation-Thumbnail.jpg" alt="Дискова херния на гърба" class="static-img" loading="lazy" decoding="async">
-            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back disk herniation-Thumbnail.jpg">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back disk herniation-Thumbnail.jpg" aria-hidden="true">
               <source src="pngs/sustoqniq/muscles/back disk herniation.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -108,10 +127,11 @@
           <span class="pain-button-text">Дискова херния</span>
         </a>
 
+        <!-- Карта 4 -->
         <a href="/sustiqnia/grub/shipove.html" class="pain-button">
           <div class="pain-button-media image-container">
             <img src="pngs/sustoqniq/muscles/neck shipove-Thumbnail.jpg" alt="Шипове на гърба" class="static-img" loading="lazy" decoding="async">
-            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/neck shipove-Thumbnail.jpg">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/neck shipove-Thumbnail.jpg" aria-hidden="true">
               <source src="pngs/sustoqniq/muscles/neck shipove.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -191,18 +211,29 @@
 <!-- Скриптове -->
 <script src="/js/media-autoplay-cards.js" defer></script>
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script src="../pain-conditions-scripts.js"></script>
-<script src="/js/topbar.js"></script>
+<script src="../pain-conditions-scripts.js" defer></script>
+<script src="/js/topbar.js" defer></script>
 
-<!-- За всеки случай: ако външният JS още не е инициранил opacity swap, пазим статичното изображение видимо -->
+<!-- Разрешаваме hover-смяната едва след като видеото е готово -->
 <script>
-  // Нежна защита: ако видеото стане видимо преди да е готово, нека остане скрито, докато се зареди поне metadata.
   document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.image-container video').forEach(function (v) {
-      v.addEventListener('loadeddata', function () {
-        // media-autoplay-cards.js ще управлява opacity; тук само гарантираме, че видеото може да стане видимо
-        v.style.visibility = 'visible';
-      }, { once: true });
+    document.querySelectorAll('.pain-button-media.image-container').forEach(box => {
+      const vid = box.querySelector('video');
+      const img = box.querySelector('img');
+      if (!vid) return;
+
+      // подсигуряване на постер и лек preload
+      if (!vid.getAttribute('poster') && img) vid.setAttribute('poster', img.currentSrc || img.src);
+      vid.preload = 'metadata';
+      vid.muted = true; vid.defaultMuted = true;
+      vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+
+      if (vid.readyState >= 2) {
+        box.classList.add('video-ready');
+      } else {
+        vid.addEventListener('loadeddata', () => box.classList.add('video-ready'), { once:true });
+        try { vid.load(); } catch(e){}
+      }
     });
   });
 </script>
