@@ -2,292 +2,284 @@
 <html lang="bg">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Мускулни болки в ръката: От пръстите до рамото</title>
 
   <!-- Canonical & Preconnect -->
   <link rel="canonical" href="https://dmphysio.bg/pain-conditions/arm-muscle-pain" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="../../css/top-bar.css" />
-  <link rel="stylesheet" href="../../css/temple-headache.css" />
-  <link rel="stylesheet" href="/css/muscle.css" />  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'" />
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'" />
+  <!-- Локални стилове -->
+  <link rel="stylesheet" href="../../css/top-bar.css">
+  <link rel="stylesheet" href="../../css/temple-headache.css">
+  <link rel="stylesheet" href="/css/muscle.css">
+
+  <!-- Външни стилове неблокиращо + noscript fallback -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
   <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </noscript>
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
-    "name": "Мускулни болки в ръката: От пръстите до рамото",
-    "about": {
-      "@type": "MedicalCondition",
-      "name": "Мускулни болки в ръката"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "DM Physio",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://dmphysio.bg/logo.png"
-      }
-    }
-  }
-  </script>
-  
-  <!-- Preload на LCP изображението -->
-  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg" fetchpriority="high" />
+  <!-- Preload на основни изображения (LCP и ключови миниатюри) -->
+  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/arm muscles2-Thumbnail.jpg">
 
   <style>
-    /* позволи чупене на много дълги думи в заглавия/текст */
-    .page-content h1,
-    .hero-section h1,
-    .section-title,
-    .page-content p {
-      white-space: normal !important;
-      overflow-wrap: anywhere;   /* modern */
-      word-break: break-word;    /* legacy/webkit */
-      hyphens: auto;             /* lang="bg" adds hyphenation */
-    }
-    /* предотвратява разтягане от grid елементи */
-    .hero-container > *,
-    .intro-container > * { min-width: 0; }
-    /* безопасност: без хоризонтален скрол при крайни случаи */
+    /* предотвратява хоризонтален скрол и чупи дълги думи */
     html, body { overflow-x: hidden; }
+    .page-content h1, .hero-section h1, .section-title, .page-content p {
+      white-space: normal !important;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
+    }
+    .hero-container > *, .intro-container > * { min-width: 0; }
+
+    /* Показвай снимка, докато видеото не е готово */
+    .image-container video,
+    .muscle-media video,
+    .kinesitherapy-button-media video { display: none; }
+
+    .image-container.video-ready video,
+    .muscle-media.video-ready video,
+    .kinesitherapy-button-media.video-ready video { display: block; }
+
+    .image-container.video-ready .static-img,
+    .muscle-media.video-ready .static-muscle-img,
+    .kinesitherapy-button-media.video-ready .kinesitherapy-img { display: none; }
   </style>
 </head>
 <body>
-  <!-- ======= Top bar (TB) ======= -->
-  <header class="tb-header" role="banner">
-    <div class="tb-inner">
-      <!-- Лого -->
-      <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-        <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" width="120" height="36" fetchpriority="high" />
-      </a>
 
-      <!-- Хамбургер -->
-      <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
-        <i class="fas fa-bars" aria-hidden="true"></i>
-      </button>
+<!-- ======= Top bar (TB) ======= -->
+<header class="tb-header" role="banner">
+  <div class="tb-inner">
+    <!-- Лого -->
+    <a href="/index.html" class="tb-logo-link" aria-label="Начало">
+      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" width="120" height="36" fetchpriority="high" loading="eager" decoding="async" />
+    </a>
 
-      <!-- Навигация -->
-      <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
-        <ul class="tb-menu">
-          <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
+    <!-- Хамбургер -->
+    <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
 
-          <li class="tb-item tb-dropdown">
-            <a class="tb-link tb-drop-toggle" href="/services.html" data-dropdown="toggle">Процедури</a>
-            <div class="tb-drop-menu" role="menu">
-              <a class="tb-drop-link" href="/kinesitherapy.html" role="menuitem">Кинезитерапия</a>
-              <a class="tb-drop-link" href="/massages.html" role="menuitem">Масажи</a>
-            </div>
-          </li>
+    <!-- Навигация -->
+    <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
+      <ul class="tb-menu">
+        <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
 
-          <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
+        <li class="tb-item tb-dropdown">
+          <a class="tb-link tb-drop-toggle" href="/services.html" data-dropdown="toggle">Процедури</a>
+          <div class="tb-drop-menu" role="menu">
+            <a class="tb-drop-link" href="/kinesitherapy.html" role="menuitem">Кинезитерапия</a>
+            <a class="tb-drop-link" href="/massages.html" role="menuitem">Масажи</a>
+          </div>
+        </li>
 
-          <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book" rel="noopener">Свободни часове</a></li>
-          <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-        </ul>
-      </nav>
+        <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
+
+        <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book" rel="noopener">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="page-content">
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-text-content">
+        <h1>Мускулни болки в ръката</h1>
+        <p>
+          Разберете причините за болката в ръката - от пръстите до лакътя, и как да се справите с нея.
+        </p>
+        <div class="hero-buttons">
+          <button class="button primary-button calendly-button" data-calendly-url="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">
+            <i class="fas fa-stethoscope" aria-hidden="true"></i> Запазете час сега
+          </button>
+          <a href="/services.html" class="button outline-button">
+            <i class="fas fa-lightbulb" aria-hidden="true"></i> Нашите процедури
+          </a>
+        </div>
+      </div>
+      <div class="hero-image image-container">
+        <img src="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg" alt="Изображение на мускулите на ръката" class="static-img" width="720" height="405" loading="eager" decoding="async" />
+        <video class="hover-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg">
+          <source src="/pngs/sustoqniq/muscles/arm muscles.mp4" type="video/mp4" />
+          Вашият браузър не поддържа видео тага.
+        </video>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main class="page-content">
-    <section class="hero-section">
-      <div class="container hero-container">
-        <div class="hero-text-content">
-          <h1>Мускулни болки в ръката</h1>
-          <p>
-            Разберете причините за болката в ръката - от пръстите до лакътя, и как да се справите с нея.
+  <section class="intro-section">
+    <div class="container intro-container">
+      <div class="intro-text-content">
+        <h2>Защо боли ръката?</h2>
+        <p>
+          Болката в ръката може да бъде причинена от различни фактори - от повтарящи се движения на пръстите и китката, до претоварване на лакътя. Често срещана причина е възпалението на мускулите и техните сухожилия, което може да бъде резултат от неправилна техника, лоша стойка или травма.
+        </p>
+        <div class="info-box" role="note">
+          <i class="fas fa-info-circle" aria-hidden="true"></i> <p>
+            Мускулната болка в ръката често може да се усеща като проблем в ставите, но всъщност е резултат от мускулна дисфункция. Правилната диагноза е ключова за ефективното лечение.
           </p>
-          <div class="hero-buttons">
-            <button class="button primary-button calendly-button" data-calendly-url="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">
-              <i class="fas fa-stethoscope" aria-hidden="true"></i> Запазете час сега
-            </button>
-            <a href="/services.html" class="button outline-button">
-              <i class="fas fa-lightbulb" aria-hidden="true"></i> Нашите процедури
-            </a>
-          </div>
-        </div>
-        <div class="hero-image image-container">
-          <img src="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg"$1 decoding="async" fetchpriority="high">
-          <video muted loop preload="metadata" class="hover-video" playsinline>
-            <source src="/pngs/sustoqniq/muscles/arm muscles.mp4" type="video/mp4" />
-            Вашият браузър не поддържа видео тага.
-          </video>
         </div>
       </div>
-    </section>
+      <div class="intro-image image-container">
+        <img src="/pngs/sustoqniq/muscles/arm muscles2-Thumbnail.jpg" alt="Анатомия на мускулите на ръката - статично изображение" class="static-img" width="720" height="405" loading="lazy" decoding="async" />
+        <video class="hover-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/arm muscles2-Thumbnail.jpg">
+          <source src="/pngs/sustoqniq/muscles/arm muscles2.mp4" type="video/mp4" />
+          Вашият браузър не поддържа видео тага.
+        </video>
+      </div>
+    </div>
+  </section>
 
-    <section class="intro-section">
-      <div class="container intro-container">
-        <div class="intro-text-content">
-          <h2>Защо боли ръката?</h2>
+  <section class="inflammation-section">
+    <div class="container">
+      <h2 class="section-title">Как и защо се получава възпалението?</h2>
+      <p class="section-subtitle">Разберете основните етапи, които водят до мускулна болка и дискомфорт в ръката.</p>
+
+      <div class="inflammation-steps-grid">
+        <div class="step-card step-one">
+          <div class="step-number">1</div>
+          <h3>Претоварване или травма</h3>
           <p>
-            Болката в ръката може да бъде причинена от различни фактори - от повтарящи се движения на пръстите и китката, до претоварване на лакътя. Често срещана причина е възпалението на мускулите и техните сухожилия, което може да бъде резултат от неправилна техника, лоша стойка или травма.
+            Продължително претоварване от повтарящи се движения (напр. при спорт или работа), неправилно повдигане на тежести или внезапна травма могат да доведат до микроразкъсвания в мускулните влакна.
           </p>
-          <div class="info-box" role="note">
-            <i class="fas fa-info-circle" aria-hidden="true"></i> <p>
-              Мускулната болка в ръката често може да се усеща като проблем в ставите, но всъщност е резултат от мускулна дисфункция. Правилната диагноза е ключова за ефективното лечение.
-            </p>
+          <div class="step-icon">
+            <i class="fas fa-frown" aria-hidden="true"></i> 
           </div>
         </div>
-        <div class="intro-image image-container">
-          <img src="/pngs/sustoqniq/muscles/arm muscles2-Thumbnail.jpg" alt="Анатомия на мускулите на ръката - статично изображение" class="static-img" width="720" height="405" loading="lazy" />
-          <video muted loop preload="metadata" class="hover-video" playsinline>
-            <source src="/pngs/sustoqniq/muscles/arm muscles2.mp4" type="video/mp4" />
-            Вашият браузър не поддържа видео тага.
-          </video>
+
+        <i class="fas fa-arrow-right arrow-separator" aria-hidden="true"></i> 
+
+        <div class="step-card step-two">
+          <div class="step-number">2</div>
+          <h3>Възпаление</h3>
+          <p>
+            Микротравмите предизвикват възпалителна реакция, при която тялото изпраща кръв и имунни клетки в увредената област. Това води до подуване, болка и повишена чувствителност.
+          </p>
+          <div class="step-icon">
+            <i class="fas fa-heart-pulse" aria-hidden="true"></i> 
+          </div>
         </div>
-      </div>
-    </section>
 
-    <section class="inflammation-section">
-      <div class="container">
-        <h2 class="section-title">Как и защо се получава възпалението?</h2>
-        <p class="section-subtitle">Разберете основните етапи, които водят до мускулна болка и дискомфорт в ръката.</p>
+        <i class="fas fa-arrow-right arrow-separator" aria-hidden="true"></i> 
 
-        <div class="inflammation-steps-grid">
-          <div class="step-card step-one">
-            <div class="step-number">1</div>
-            <h3>Претоварване или травма</h3>
-            <p>
-              Продължително претоварване от повтарящи се движения (напр. при спорт или работа), неправилно повдигане на тежести или внезапна травма могат да доведат до микроразкъсвания в мускулните влакна.
-            </p>
-            <div class="step-icon">
-              <i class="fas fa-frown" aria-hidden="true"></i>
-            </div>
-          </div>
-
-          <i class="fas fa-arrow-right arrow-separator" aria-hidden="true"></i>
-
-          <div class="step-card step-two">
-            <div class="step-number">2</div>
-            <h3>Възпаление</h3>
-            <p>
-              Микротравмите предизвикват възпалителна реакция, при която тялото изпраща кръв и имунни клетки в увредената област. Това води до подуване, болка и повишена чувствителност.
-            </p>
-            <div class="step-icon">
-              <i class="fas fa-heart-pulse" aria-hidden="true"></i>
-            </div>
-          </div>
-
-          <i class="fas fa-arrow-right arrow-separator" aria-hidden="true"></i>
-
-          <div class="step-card step-three">
-            <div class="step-number">3</div>
-            <h3>Мускулен спазъм и болка</h3>
-            <p>
-              За да се предпази от по-нататъшно увреждане, мускулът рефлекторно се свива и влиза в спазъм. Този спазъм ограничава движението и причинява постоянна, тъпа или остра болка.
-            </p>
-            <div class="step-icon">
-              <i class="fas fa-fire" aria-hidden="true"></i>
-            </div>
+        <div class="step-card step-three">
+          <div class="step-number">3</div>
+          <h3>Мускулен спазъм и болка</h3>
+          <p>
+            За да се предпази от по-нататъшно увреждане, мускулът рефлекторно се свива и влиза в спазъм. Този спазъм ограничава движението и причинява постоянна, тъпа или остра болка.
+          </p>
+          <div class="step-icon">
+            <i class="fas fa-fire" aria-hidden="true"></i> 
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="muscle-anatomy-section">
-      <div class="container">
-        <h1 class="section-title">Кои мускули са най-често засегнати?</h1>
-
-        <div class="muscle-grid">
-          <div class="muscle-group-title">
-            <h2>1. Флексори на китката и пръстите</h2>
-            <p>Тези мускули се намират по предната (палмарна) страна на предмишницата и са отговорни за свиването на китката и пръстите. Често се претоварват при повтарящи се захващания и работа с китката.</p>
-          </div>
-
-          <article class="muscle-item">
-            <h3>m. flexor carpi ulnaris (лакътен сгъвач на китката)</h3>
-            <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/flexor carpi ulnaris-Thumbnail.jpg" alt="Изображение на лакътен сгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="/pngs/sustoqniq/muscles/flexor carpi ulnaris.mp4" type="video/mp4" />
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <div class="muscle-details">
-              <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                  <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
-                    <h4>Анатомия и захващане</h4>
-                  </div>
-                  <p>
-                    Мускулът е разположен по <span class="highlight">медиалната страна на предмишницата</span>. Започва от вътрешния епикондил на лакътя и се прикрепя към костите на китката.
-                  </p>
-                  <div class="function-box">
-                    <strong>Функция:</strong> Свива (флексия) и странично отклонява китката към малкия пръст (улнарна девиация).
-                  </div>
-                </div>
-                <div class="info-block pain-char-block">
-                  <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <h4>Характер на болката от тригерни точки</h4>
-                  </div>
-                  <ul>
-                    <li><span class="highlight">Болка във вътрешната част на лакътя</span> и по <span class="highlight">медиалната страна на предмишницата</span> до малкия пръст и безименния пръст.</li>
-                    <li>Често се усеща като парене или тъпа болка.</li>
-                    <li>Слабост при сгъване на китката.</li>
-                  </ul>
-                </div>
+    </div>
+  </section>
+  
+  <section class="muscle-anatomy-section">
+    <div class="container">
+      <h1 class="section-title">Кои мускули са най-често засегнати?</h1>
+      
+      <div class="muscle-grid">
+         
+         <div class="muscle-group-title">
+             <h2>1. Флексори на китката и пръстите</h2>
+             <p>Тези мускули се намират по предната (палмарна) страна на предмишницата и са отговорни за свиването на китката и пръстите. Често се претоварват при повтарящи се захващания и работа с китката.</p>
+         </div>
+         
+         <article class="muscle-item">
+              <h3>m. flexor carpi ulnaris (лакътен сгъвач на китката)</h3>
+              <div class="muscle-media muscle-video-centered">
+                  <img src="/pngs/sustoqniq/muscles/flexor carpi ulnaris-Thumbnail.jpg" alt="Изображение на лакътен сгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+                  <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/flexor carpi ulnaris-Thumbnail.jpg">
+                      <source src="/pngs/sustoqniq/muscles/flexor carpi ulnaris.mp4" type="video/mp4">
+                      Вашият браузър не поддържа видео тага.
+                  </video>
               </div>
-            </div>
-          </article>
-
-          <article class="muscle-item">
-            <h3>m. flexor carpi radialis (лъчев сгъвач на китката)</h3>
-            <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/flexor carpi radialis-1-Thumbnail.jpg" alt="Изображение на лъчев сгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="/pngs/sustoqniq/muscles/flexor carpi radialis-1.mp4" type="video/mp4" />
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <div class="muscle-details">
-              <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                  <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
-                    <h4>Анатомия и захващане</h4>
+              <div class="muscle-details">
+                  <div class="muscle-info-grid">
+                      <div class="info-block anatomy-block">
+                          <div class="block-header">
+                              <i class="fas fa-circle" aria-hidden="true"></i>
+                              <h4>Анатомия и захващане</h4>
+                          </div>
+                          <p>
+                              Мускулът е разположен по <span class="highlight">медиалната страна на предмишницата</span>. Започва от вътрешния епикондил на лакътя и се прикрепя към костите на китката.
+                          </p>
+                          <div class="function-box">
+                              <strong>Функция:</strong> Свива (флексия) и странично отклонява китката към малкия пръст (улнарна девиация).
+                          </div>
+                      </div>
+                      <div class="info-block pain-char-block">
+                          <div class="block-header">
+                              <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                              <h4>Характер на болката от тригерни точки</h4>
+                          </div>
+                          <ul>
+                              <li><span class="highlight">Болка във вътрешната част на лакътя</span> и по <span class="highlight">медиалната страна на предмишницата</span> до малкия пръст и безименния пръст.</li>
+                              <li>Често се усеща като парене или тъпа болка.</li>
+                              <li>Слабост при сгъване на китката.</li>
+                          </ul>
+                      </div>
                   </div>
-                  <p>
-                    Намира се по <span class="highlight">предната страна на предмишницата</span>. Започва от вътрешния епикондил на лакътя и се прикрепя към основата на втората метакарпална кост.
-                  </p>
-                  <div class="function-box">
-                    <strong>Функция:</strong> Свива (флексия) и странично отклонява китката към палеца (радиален девиация).
-                  </div>
-                </div>
-                <div class="info-block pain-char-block">
-                  <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <h4>Характер на болката от тригерни точки</h4>
-                  </div>
-                  <ul>
-                    <li><span class="highlight">Болка във вътрешната част на лакътя</span>, която се разпространява по <span class="highlight">предната част на предмишницата</span> към китката и основата на показалеца.</li>
-                    <li>Болезненост при докосване по мускула.</li>
-                    <li>Може да се усеща като напрежение и слабост в китката.</li>
-                  </ul>
-                </div>
               </div>
-            </div>
-          </article>
+         </article>
+         
+         <article class="muscle-item">
+              <h3>m. flexor carpi radialis (лъчев сгъвач на китката)</h3>
+              <div class="muscle-media muscle-video-centered">
+                  <img src="/pngs/sustoqniq/muscles/flexor carpi radialis-1-Thumbnail.jpg" alt="Изображение на лъчев сгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+                  <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/flexor carpi radialis-1-Thumbnail.jpg">
+                      <source src="/pngs/sustoqniq/muscles/flexor carpi radialis-1.mp4" type="video/mp4">
+                      Вашият браузър не поддържа видео тага.
+                  </video>
+              </div>
+              <div class="muscle-details">
+                  <div class="muscle-info-grid">
+                      <div class="info-block anatomy-block">
+                          <div class="block-header">
+                              <i class="fas fa-circle" aria-hidden="true"></i>
+                              <h4>Анатомия и захващане</h4>
+                          </div>
+                          <p>
+                              Намира се по <span class="highlight">предната страна на предмишницата</span>. Започва от вътрешния епикондил на лакътя и се прикрепя към основата на втората метакарпална кост.
+                          </p>
+                          <div class="function-box">
+                              <strong>Функция:</strong> Свива (флексия) и странично отклонява китката към палеца (радиален девиация).
+                          </div>
+                      </div>
+                      <div class="info-block pain-char-block">
+                          <div class="block-header">
+                              <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                              <h4>Характер на болката от тригерни точки</h4>
+                          </div>
+                          <ul>
+                              <li><span class="highlight">Болка във вътрешната част на лакътя</span>, която се разпространява по <span class="highlight">предната част на предмишницата</span> към китката и основата на показалеца.</li>
+                              <li>Болезненост при докосване по мускула.</li>
+                              <li>Може да се усеща като напрежение и слабост в китката.</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+         </article>
 
-          <article class="muscle-item">
+         <article class="muscle-item">
             <h3>m. palmaris longus (дълъг дланен мускул)</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="../../pngs/sustoqniq/muscles/palmaris longus-Thumbnail.jpg" alt="Изображение на дълъг дланен мускул" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="../../pngs/sustoqniq/muscles/palmaris longus.mp4" type="video/mp4" />
+              <img src="../../pngs/sustoqniq/muscles/palmaris longus-Thumbnail.jpg" alt="Изображение на дълъг дланен мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+              <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="../../pngs/sustoqniq/muscles/palmaris longus-Thumbnail.jpg">
+                <source src="../../pngs/sustoqniq/muscles/palmaris longus.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
             </div>
@@ -320,583 +312,605 @@
             </div>
           </article>
 
-          <div class="muscle-group-title">
-            <h2>2. Екстензори на китката и пръстите</h2>
-            <p>Тези мускули се намират по задната (дорзална) страна на предмишницата и са отговорни за разгъването на китката и пръстите. Често се претоварват при повдигане на предмети или повтарящи се движения на китката.</p>
-          </div>
-
-          <article class="muscle-item">
-            <h3>m. extensor carpi radialis (лъчев разгъвач на китката)</h3>
-            <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/extensor carpi radialis-Thumbnail.jpg" alt="Изображение на лъчев разгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="/pngs/sustoqniq/muscles/extensor carpi radialis.mp4" type="video/mp4" />
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <div class="muscle-details">
-              <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                  <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
-                    <h4>Анатомия и захващане</h4>
-                  </div>
-                  <p>
-                    Този мускул е част от групата на екстензорите на предмишницата. Започва от <span class="highlight">външната част на лакътя</span> (латерален епикондил) и се прикрепя към <span class="highlight">костта на китката</span>.
-                  </p>
-                  <div class="function-box">
-                    <strong>Функция:</strong> Основен мускул за разгъване и странично отклонение на китката. Често се претоварва при движения, които изискват стабилност на китката, като при игра на тенис или при работа с компютърна мишка.
-                  </div>
-                </div>
-                <div class="info-block pain-char-block">
-                  <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <h4>Характер на болката от тригерни точки</h4>
-                  </div>
-                  <ul>
-                    <li><span class="highlight">Остра, пареща болка във външната част на лакътя</span> ("тенис лакът"), която може да се разпространява по предмишницата.</li>
-                    <li>Болка, която се засилва при стискане на предмети, разгъване на китката или при повдигане на чаша.</li>
-                    <li>Възможна е слабост в захвата и усещане за парене по мускула.</li>
-                  </ul>
-                </div>
+         <div class="muscle-group-title">
+             <h2>2. Екстензори на китката и пръстите</h2>
+             <p>Тези мускули се намират по задната (дорзална) страна на предмишницата и са отговорни за разгъването на китката и пръстите. Често се претоварват при повдигане на предмети или повтарящи се движения на китката.</p>
+         </div>
+         
+         <article class="muscle-item">
+              <h3>m. extensor carpi radialis (лъчев разгъвач на китката)</h3>
+              <div class="muscle-media muscle-video-centered">
+                  <img src="/pngs/sustoqniq/muscles/extensor carpi radialis-Thumbnail.jpg" alt="Изображение на лъчев разгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+                  <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/extensor carpi radialis-Thumbnail.jpg">
+                      <source src="/pngs/sustoqniq/muscles/extensor carpi radialis.mp4" type="video/mp4">
+                      Вашият браузър не поддържа видео тага.
+                  </video>
               </div>
-            </div>
-          </article>
-
-          <article class="muscle-item">
-            <h3>m. extensor digitorum (разгъвач на пръстите)</h3>
-            <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/extensor digitorum-Thumbnail.jpg" alt="Изображение на разгъвач на пръстите" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="/pngs/sustoqniq/muscles/extensor digitorum.mp4" type="video/mp4" />
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <div class="muscle-details">
-              <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                  <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
-                    <h4>Анатомия и захващане</h4>
+              <div class="muscle-details">
+                  <div class="muscle-info-grid">
+                      <div class="info-block anatomy-block">
+                          <div class="block-header">
+                              <i class="fas fa-circle" aria-hidden="true"></i>
+                              <h4>Анатомия и захващане</h4>
+                          </div>
+                          <p>
+                              Този мускул е част от групата на екстензорите на предмишницата. Започва от <span class="highlight">външната част на лакътя</span> (латерален епикондил) и се прикрепя към <span class="highlight">костта на китката</span>.
+                          </p>
+                          <div class="function-box">
+                              <strong>Функция:</strong> Основен мускул за разгъване и странично отклонение на китката. Често се претоварва при движения, които изискват стабилност на китката, като при игра на тенис или при работа с компютърна мишка.
+                          </div>
+                      </div>
+                      <div class="info-block pain-char-block">
+                          <div class="block-header">
+                              <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                              <h4>Характер на болката от тригерни точки</h4>
+                          </div>
+                          <ul>
+                              <li><span class="highlight">Остра, пареща болка във външната част на лакътя</span> ("тенис лакът"), която може да се разпространява по предмишницата.</li>
+                              <li>Болка, която се засилва при стискане на предмети, разгъване на китката или при повдигане на чаша.</li>
+                              <li>Възможна е слабост в захвата и усещане за парене по мускула.</li>
+                          </ul>
+                      </div>
                   </div>
-                  <p>
-                    Мускулът се намира на <span class="highlight">задната повърхност на предмишницата</span>. Започва от външния епикондил на лакътя и се разклонява в сухожилия, които се прикрепят към втория до петия пръст.
-                  </p>
-                  <div class="function-box">
-                    <strong>Функция:</strong> Разгъва втория до петия пръст.
-                  </div>
-                </div>
-                <div class="info-block pain-char-block">
-                  <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <h4>Характер на болката от тригерни точки</h4>
-                  </div>
-                  <ul>
-                    <li><span class="highlight">Тъпа, разлята болка по горната част на предмишницата</span>.</li>
-                    <li>Болка, която може да се разпространява по <span class="highlight">гърба на ръката</span> и пръстите.</li>
-                    <li>Скованост и трудност при изправяне на пръстите.</li>
-                  </ul>
-                </div>
               </div>
-            </div>
-          </article>
-
-          <div class="muscle-group-title">
-            <h2>3. Пронатори и Супинатори</h2>
-            <p>Тези мускули са отговорни за ротационните движения на предмишницата – завъртане на дланта надолу (пронация) и нагоре (супинация). Често се претоварват при работа с инструменти или спортни дейности.</p>
-          </div>
-
-          <article class="muscle-item">
-            <h3>mm. pronator quadratus, pronator teres, supinator </h3>
-            <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/pronators-Thumbnail.jpg" alt="Изображение на кръгъл пронатор" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="/pngs/sustoqniq/muscles/pronators.mp4" type="video/mp4" />
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <div class="muscle-details">
-              <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                  <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
-                    <h4>Анатомия и захващане</h4>
-                  </div>
-                  <p>
-                    Намира се в <span class="highlight">горната част на предмишницата</span>. Започва от вътрешния епикондил на лакътя и се прикрепя към страничната повърхност на лъчевата кост.
-                  </p>
-                  <div class="function-box">
-                    <strong>Функция:</strong> Завърта дланта надолу (пронация) и помага за сгъването на лакътя.
-                  </div>
-                </div>
-                <div class="info-block pain-char-block">
-                  <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <h4>Характер на болката от тригерни точки</h4>
-                  </div>
-                  <ul>
-                    <li><span class="highlight">Дълбока болка в предната част на лакътя</span> и по <span class="highlight">вътрешната страна на предмишницата</span>.</li>
-                    <li>Може да причини слабост в ръката и да затруднява пронацията.</li>
-                  </ul>
-                </div>
+         </article>
+         
+         <article class="muscle-item">
+              <h3>m. extensor digitorum (разгъвач на пръстите)</h3>
+              <div class="muscle-media muscle-video-centered">
+                  <img src="/pngs/sustoqniq/muscles/extensor digitorum-Thumbnail.jpg" alt="Изображение на разгъвач на пръстите" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+                  <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/extensor digitorum-Thumbnail.jpg">
+                      <source src="/pngs/sustoqniq/muscles/extensor digitorum.mp4" type="video/mp4">
+                      Вашият браузър не поддържа видео тага.
+                  </video>
               </div>
-            </div>
-          </article>
-
-          <div class="muscle-group-title">
-            <h2>4. Мускули на палеца</h2>
-            <p>Тези мускули са отговорни за сложните движения на палеца, които са от съществено значение за фината моторика и силата на захвата. Те се претоварват при повтарящи се захващания, писане и работа с телефон или таблет.</p>
-          </div>
-
-          <article class="muscle-item">
-            <h3>Абдуктор на палеца и къс разгъвач на палеца</h3>
-            <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/Abductor policis longus and brevis-Thumbnail.jpg" alt="Изображение на мускулите на палеца" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="/pngs/sustoqniq/muscles/Abductor policis longus and brevis.mp4" type="video/mp4" />
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <div class="muscle-details">
-              <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                  <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
-                    <h4>Анатомия и захващане</h4>
+              <div class="muscle-details">
+                  <div class="muscle-info-grid">
+                      <div class="info-block anatomy-block">
+                          <div class="block-header">
+                              <i class="fas fa-circle" aria-hidden="true"></i>
+                              <h4>Анатомия и захващане</h4>
+                          </div>
+                          <p>
+                              Мускулът се намира на <span class="highlight">задната повърхност на предмишницата</span>. Започва от външния епикондил на лакътя и се разклонява в сухожилия, които се прикрепят към втория до петия пръст.
+                          </p>
+                          <div class="function-box">
+                              <strong>Функция:</strong> Разгъва втория до петия пръст.
+                          </div>
+                      </div>
+                      <div class="info-block pain-char-block">
+                          <div class="block-header">
+                              <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                              <h4>Характер на болката от тригерни точки</h4>
+                          </div>
+                          <ul>
+                              <li><span class="highlight">Тъпа, разлята болка по горната част на предмишницата</span>.</li>
+                              <li>Болка, която може да се разпространява по <span class="highlight">гърба на ръката</span> и пръстите.</li>
+                              <li>Скованост и трудност при изправяне на пръстите.</li>
+                          </ul>
+                      </div>
                   </div>
-                  <p>
-                    Тези мускули се намират по <span class="highlight">страничната и задната страна на предмишницата</span>. Те образуват "анатомичната кутийка" на палеца, като се прикрепят към костите на китката и палеца.
-                  </p>
-                  <div class="function-box">
-                    <strong>Функция:</strong> Отговорни са за повдигането (абдукция) и разгъването (екстензия) на палеца.
-                  </div>
-                </div>
-                <div class="info-block pain-char-block">
-                  <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <h4>Характер на болката от тригерни точки</h4>
-                  </div>
-                  <ul>
-                    <li><span class="highlight">Остра болка в основата на палеца</span>, която се разпространява по <span class="highlight">страничната част на предмишницата</span>.</li>
-                    <li>Често състояние, наречено <span class="highlight">"болестта на Де Кервен"</span>, при което възпаленото сухожилие ограничава движението.</li>
-                    <li>Болка при движение на палеца, особено при стискане или писане на съобщения.</li>
-                  </ul>
-                </div>
               </div>
-            </div>
-          </article>
-
-          <div class="muscle-group-title">
-            <h2>5. Допълнителни мускули на лакътя и предмишницата</h2>
-            <p>Тези мускули също играят важна роля в движенията на лакътя и предмишницата и често са източник на болка.</p>
-          </div>
-
-          <article class="muscle-item">
-            <h3>m. brachioradialis (брахиорадиалис)</h3>
-            <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/brachioradialis-Thumbnail.jpg" alt="Изображение на брахиорадиалис" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="/pngs/sustoqniq/muscles/brachioradialis.mp4" type="video/mp4" />
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <div class="muscle-details">
-              <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                  <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
-                    <h4>Анатомия и захващане</h4>
-                  </div>
-                  <p>
-                    Дълъг мускул, разположен по <span class="highlight">външната страна на предмишницата</span>. Започва от раменната кост и се прикрепя към лъчевата кост, близо до китката.
-                  </p>
-                  <div class="function-box">
-                    <strong>Функция:</strong> Сгъвач на лакътя. Работи най-ефективно, когато предмишницата е в неутрално положение (дланта е обърната настрани).
-                  </div>
-                </div>
-                <div class="info-block pain-char-block">
-                  <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <h4>Характер на болката от тригерни точки</h4>
-                  </div>
-                  <ul>
-                    <li><span class="highlight">Дълбока, тъпа болка по външната страна на лакътя</span> и по цялата предмишница до китката.</li>
-                    <li>Болка, която се усилва при повдигане на тежести с длан, обърната надолу.</li>
-                    <li>Тригерните точки могат да причинят болка и скованост в лакътя.</li>
-                  </ul>
-                </div>
+         </article>
+         
+         <div class="muscle-group-title">
+             <h2>3. Пронатори и Супинатори</h2>
+             <p>Тези мускули са отговорни за ротационните движения на предмишницата – завъртане на дланта надолу (пронация) и нагоре (супинация). Често се претоварват при работа с инструменти или спортни дейности.</p>
+         </div>
+         
+         <article class="muscle-item">
+              <h3>mm. pronator quadratus, pronator teres, supinator </h3>
+              <div class="muscle-media muscle-video-centered">
+                  <img src="/pngs/sustoqniq/muscles/pronators-Thumbnail.jpg" alt="Изображение на кръгъл пронатор" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+                  <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/pronators-Thumbnail.jpg">
+                      <source src="/pngs/sustoqniq/muscles/pronators.mp4" type="video/mp4">
+                      Вашият браузър не поддържа видео тага.
+                  </video>
               </div>
-            </div>
-          </article>
-
-          <article class="muscle-item">
-            <h3>m. anconeus (анконеус)</h3>
-            <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/anconeus-Thumbnail.jpg" alt="Изображение на анконеус" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="/pngs/sustoqniq/muscles/anconeus.mp4" type="video/mp4" />
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <div class="muscle-details">
-              <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                  <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
-                    <h4>Анатомия и захващане</h4>
+              <div class="muscle-details">
+                  <div class="muscle-info-grid">
+                      <div class="info-block anatomy-block">
+                          <div class="block-header">
+                              <i class="fas fa-circle" aria-hidden="true"></i>
+                              <h4>Анатомия и захващане</h4>
+                          </div>
+                          <p>
+                              Намира се в <span class="highlight">горната част на предмишницата</span>. Започва от вътрешния епикондил на лакътя и се прикрепя към страничната повърхност на лъчевата кост.
+                          </p>
+                          <div class="function-box">
+                              <strong>Функция:</strong> Завърта дланта надолу (пронация) и помага за сгъването на лакътя.
+                          </div>
+                      </div>
+                      <div class="info-block pain-char-block">
+                          <div class="block-header">
+                              <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                              <h4>Характер на болката от тригерни точки</h4>
+                          </div>
+                          <ul>
+                              <li><span class="highlight">Дълбока болка в предната част на лакътя</span> и по <span class="highlight">вътрешната страна на предмишницата</span>.</li>
+                              <li>Може да причини слабост в ръката и да затруднява пронацията.</li>
+                          </ul>
+                      </div>
                   </div>
-                  <p>
-                    Малък, триъгълен мускул, разположен в <span class="highlight">задната част на лакътя</span>. Започва от външния епикондил на раменната кост и се прикрепя към лакътната кост.
-                  </p>
-                  <div class="function-box">
-                    <strong>Функция:</strong> Помага за разгъването на лакътя и стабилизира лакътната става по време на движение.
-                  </div>
-                </div>
-                <div class="info-block pain-char-block">
-                  <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <h4>Характер на болката от тригерни точки</h4>
-                  </div>
-                  <ul>
-                    <li><span class="highlight">Локализирана, остра болка в задната част на лакътя</span>.</li>
-                    <li>Болка при докосване на областта, особено при разгъване на ръката.</li>
-                    <li>Често се бърка с болка от "тенис лакът", но е по-локализирана и може да ограничава пълното разгъване на лакътя.</li>
-                  </ul>
-                </div>
               </div>
-            </div>
-          </article>
-
-          <article class="muscle-item">
-            <h3>m. biceps brachii (бицепс)</h3>
-            <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/biceps brahi-Thumbnail.jpg" alt="Изображение на бицепс мускул" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="/pngs/sustoqniq/muscles/biceps brahi.mp4" type="video/mp4" />
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <div class="muscle-details">
-              <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                  <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
-                    <h4>Анатомия и захващане</h4>
-                  </div>
-                  <p>
-                    Мускулът има две глави, които започват от <span class="highlight">лопатката</span> и се прикрепят към <span class="highlight">лъчевата кост</span> на предмишницата. Това двойно закрепване му позволява да работи както като сгъвач на лакътя, така и като супинатор на предмишницата.
-                  </p>
-                  <div class="function-box">
-                    <strong>Функция:</strong> Основен сгъвач на лакътя и супинатор (завъртане на дланта нагоре). Той е ключов за ежедневни дейности като вдигане на предмети и носене на чанти.
-                  </div>
-                </div>
-                <div class="info-block pain-char-block">
-                  <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <h4>Характер на болката от тригерни точки</h4>
-                  </div>
-                  <ul>
-                    <li><span class="highlight">Остра или тъпа болка в предната част на ръката</span>, особено в областта на горната част на ръката или близо до лакътя.</li>
-                    <li>Болка, която се усилва при сгъване на ръката или повдигане на тежести.</li>
-                    <li>Чувствителност при докосване на мускула.</li>
-                    <li>Може да се разпространява към рамото, особено ако проблемът е в сухожилието на дългата глава.</li>
-                  </ul>
-                </div>
+         </article>
+         
+         
+         <div class="muscle-group-title">
+             <h2>4. Мускули на палеца</h2>
+             <p>Тези мускули са отговорни за сложните движения на палеца, които са от съществено значение за фината моторика и силата на захвата. Те се претоварват при повтарящи се захващания, писане и работа с телефон или таблет.</p>
+         </div>
+         
+         <article class="muscle-item">
+              <h3>Абдуктор на палеца и къс разгъвач на палеца</h3>
+              <div class="muscle-media muscle-video-centered">
+                  <img src="/pngs/sustoqniq/muscles/Abductor policis longus and brevis-Thumbnail.jpg" alt="Изображение на мускулите на палеца" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+                  <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/Abductor policis longus and brevis-Thumbnail.jpg">
+                      <source src="/pngs/sustoqniq/muscles/Abductor policis longus and brevis.mp4" type="video/mp4">
+                      Вашият браузър не поддържа видео тага.
+                  </video>
               </div>
-            </div>
-          </article>
-
-          <article class="muscle-item">
-            <h3>m. brachialis (мишничен мускул)</h3>
-            <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/brachialis-Thumbnail.jpg" alt="Изображение на мишничен мускул" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="/pngs/sustoqniq/muscles/brachialis.mp4" type="video/mp4" />
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <div class="muscle-details">
-              <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                  <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
-                    <h4>Анатомия и захващане</h4>
+              <div class="muscle-details">
+                  <div class="muscle-info-grid">
+                      <div class="info-block anatomy-block">
+                          <div class="block-header">
+                              <i class="fas fa-circle" aria-hidden="true"></i>
+                              <h4>Анатомия и захващане</h4>
+                          </div>
+                          <p>
+                              Тези мускули се намират по <span class="highlight">страничната и задната страна на предмишницата</span>. Те образуват "анатомичната кутийка" на палеца, като се прикрепят към костите на китката и палеца.
+                          </p>
+                          <div class="function-box">
+                              <strong>Функция:</strong> Отговорни са за повдигането (абдукция) и разгъването (екстензия) на палеца.
+                          </div>
+                      </div>
+                      <div class="info-block pain-char-block">
+                          <div class="block-header">
+                              <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                              <h4>Характер на болката от тригерни точки</h4>
+                          </div>
+                          <ul>
+                              <li><span class="highlight">Остра болка в основата на палеца</span>, която се разпространява по <span class="highlight">страничната част на предмишницата</span>.</li>
+                              <li>Често състояние, наречено <span class="highlight">"болестта на Де Кервен"</span>, при което възпаленото сухожилие ограничава движението.</li>
+                              <li>Болка при движение на палеца, особено при стискане или писане на съобщения.</li>
+                          </ul>
+                      </div>
                   </div>
-                  <p>
-                    Мускулът се намира <span class="highlight">дълбоко под бицепса</span>. Започва от <span class="highlight">предната повърхност на раменната кост</span> и се прикрепя към <span class="highlight">лакътната кост</span> (ulna).
-                  </p>
-                  <div class="function-box">
-                    <strong>Функция:</strong> Основен и най-силен сгъвач на лакътя. Той работи независимо от позицията на дланта.
-                  </div>
-                </div>
-                <div class="info-block pain-char-block">
-                  <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <h4>Характер на болката от тригерни точки</h4>
-                  </div>
-                  <ul>
-                    <li><span class="highlight">Болка дълбоко в лакътя</span>, която може да се усеща и в основата на палеца.</li>
-                    <li>Болка при сгъване на лакътя, особено срещу съпротивление.</li>
-                    <li>Тригерните точки могат да ограничат разгъването на ръката, причинявайки скованост.</li>
-                    <li>Възможна е болка, която не се повлиява от масаж на бицепса, тъй като проблемът е по-дълбоко.</li>
-                  </ul>
-                </div>
               </div>
-            </div>
-          </article>
+         </article>
 
-          <article class="muscle-item">
-            <h3>m. triceps brachii (трицепс)</h3>
-            <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.jpg" alt="Изображение на трицепс мускул" class="static-muscle-img" width="720" height="405" loading="lazy" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline>
-                <source src="/pngs/sustoqniq/muscles/triceps  brachii.mp4" type="video/mp4" />
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-            <div class="muscle-details">
-              <div class="muscle-info-grid">
-                <div class="info-block anatomy-block">
-                  <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
-                    <h4>Анатомия и захващане</h4>
-                  </div>
-                  <p>
-                    Мускулът има три глави. Започва от <span class="highlight">раменната кост и лопатката</span> и се прикрепя към <span class="highlight">лакътната кост</span> (олекранон). Това е основният мускул в задната част на ръката.
-                  </p>
-                  <div class="function-box">
-                    <strong>Функция:</strong> Основен разгъвач на лакътя. Той е важен за движения като бутане, хвърляне и изправяне на ръката.
-                  </div>
-                </div>
-                <div class="info-block pain-char-block">
-                  <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <h4>Характер на болката от тригерни точки</h4>
-                  </div>
-                  <ul>
-                    <li><span class="highlight">Болка в задната част на ръката</span>, особено в областта на лакътя.</li>
-                    <li>Тригерните точки могат да причинят <span class="highlight">дълбока болка в рамото</span> или по <span class="highlight">задната страна на предмишницата</span>.</li>
-                    <li>Намалена сила при движения, които изискват изправяне на лакътя.</li>
-                    <li>Възможна е тъпа болка по време на почивка или лежане.</li>
-                  </ul>
-                </div>
+         <div class="muscle-group-title">
+             <h2>5. Допълнителни мускули на лакътя и предмишницата</h2>
+             <p>Тези мускули също играят важна роля в движенията на лакътя и предмишницата и често са източник на болка.</p>
+         </div>
+         
+         <article class="muscle-item">
+              <h3>m. brachioradialis (брахиорадиалис)</h3>
+              <div class="muscle-media muscle-video-centered">
+                  <img src="/pngs/sustoqniq/muscles/brachioradialis-Thumbnail.jpg" alt="Изображение на брахиорадиалис" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+                  <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/brachioradialis-Thumbnail.jpg">
+                      <source src="/pngs/sustoqniq/muscles/brachioradialis.mp4" type="video/mp4">
+                      Вашият браузър не поддържа видео тага.
+                  </video>
               </div>
-            </div>
-          </article>
+              <div class="muscle-details">
+                  <div class="muscle-info-grid">
+                      <div class="info-block anatomy-block">
+                          <div class="block-header">
+                              <i class="fas fa-circle" aria-hidden="true"></i>
+                              <h4>Анатомия и захващане</h4>
+                          </div>
+                          <p>
+                              Дълъг мускул, разположен по <span class="highlight">външната страна на предмишницата</span>. Започва от раменната кост и се прикрепя към лъчевата кост, близо до китката.
+                          </p>
+                          <div class="function-box">
+                              <strong>Функция:</strong> Сгъвач на лакътя. Работи най-ефективно, когато предмишницата е в неутрално положение (дланта е обърната настрани).
+                          </div>
+                      </div>
+                      <div class="info-block pain-char-block">
+                          <div class="block-header">
+                              <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                              <h4>Характер на болката от тригерни точки</h4>
+                          </div>
+                          <ul>
+                              <li><span class="highlight">Дълбока, тъпа болка по външната страна на лакътя</span> и по цялата предмишница до китката.</li>
+                              <li>Болка, която се усилва при повдигане на тежести с длан, обърната надолу.</li>
+                              <li>Тригерните точки могат да причинят болка и скованост в лакътя.</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+         </article>
+         
+         <article class="muscle-item">
+              <h3>m. anconeus (анконеус)</h3>
+              <div class="muscle-media muscle-video-centered">
+                  <img src="/pngs/sustoqniq/muscles/anconeus-Thumbnail.jpg" alt="Изображение на анконеус" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+                  <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/anconeus-Thumbnail.jpg">
+                      <source src="/pngs/sustoqniq/muscles/anconeus.mp4" type="video/mp4">
+                      Вашият браузър не поддържа видео тага.
+                  </video>
+              </div>
+              <div class="muscle-details">
+                  <div class="muscle-info-grid">
+                      <div class="info-block anatomy-block">
+                          <div class="block-header">
+                              <i class="fas fa-circle" aria-hidden="true"></i>
+                              <h4>Анатомия и захващане</h4>
+                          </div>
+                          <p>
+                              Малък, триъгълен мускул, разположен в <span class="highlight">задната част на лакътя</span>. Започва от външния епикондил на раменната кост и се прикрепя към лакътната кост.
+                          </p>
+                          <div class="function-box">
+                              <strong>Функция:</strong> Помага за разгъването на лакътя и стабилизира лакътната става по време на движение.
+                          </div>
+                      </div>
+                      <div class="info-block pain-char-block">
+                          <div class="block-header">
+                              <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                              <h4>Характер на болката от тригерни точки</h4>
+                          </div>
+                          <ul>
+                              <li><span class="highlight">Локализирана, остра болка в задната част на лакътя</span>.</li>
+                              <li>Болка при докосване на областта, особено при разгъване на ръката.</li>
+                              <li>Често се бърка с болка от "тенис лакът", но е по-локализирана и може да ограничава пълното разгъване на лакътя.</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+         </article>
+
+         <article class="muscle-item">
+              <h3>m. biceps brachii (бицепс)</h3>
+              <div class="muscle-media muscle-video-centered">
+                  <img src="/pngs/sustoqniq/muscles/biceps brahi-Thumbnail.jpg" alt="Изображение на бицепс мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+                  <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/biceps brahi-Thumbnail.jpg">
+                      <source src="/pngs/sustoqniq/muscles/biceps brahi.mp4" type="video/mp4">
+                      Вашият браузър не поддържа видео тага.
+                  </video>
+              </div>
+              <div class="muscle-details">
+                  <div class="muscle-info-grid">
+                      <div class="info-block anatomy-block">
+                          <div class="block-header">
+                              <i class="fas fa-circle" aria-hidden="true"></i>
+                              <h4>Анатомия и захващане</h4>
+                          </div>
+                          <p>
+                              Мускулът има две глави, които започват от <span class="highlight">лопатката</span> и се прикрепят към <span class="highlight">лъчевата кост</span> на предмишницата. Това двойно закрепване му позволява да работи както като сгъвач на лакътя, така и като супинатор на предмишницата.
+                          </p>
+                          <div class="function-box">
+                              <strong>Функция:</strong> Основен сгъвач на лакътя и супинатор (завъртане на дланта нагоре). Той е ключов за ежедневни дейности като вдигане на предмети и носене на чанти.
+                          </div>
+                      </div>
+                      <div class="info-block pain-char-block">
+                          <div class="block-header">
+                              <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                              <h4>Характер на болката от тригерни точки</h4>
+                          </div>
+                          <ul>
+                              <li><span class="highlight">Остра или тъпа болка в предната част на ръката</span>, особено в областта на горната част на ръката или близо до лакътя.</li>
+                              <li>Болка, която се усилва при сгъване на ръката или повдигане на тежести.</li>
+                              <li>Чувствителност при докосване на мускула.</li>
+                              <li>Може да се разпространява към рамото, особено ако проблемът е в сухожилието на дългата глава.</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+         </article>
+         
+         <article class="muscle-item">
+              <h3>m. brachialis (мишничен мускул)</h3>
+              <div class="muscle-media muscle-video-centered">
+                  <img src="/pngs/sustoqniq/muscles/brachialis-Thumbnail.jpg" alt="Изображение на мишничен мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+                  <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/brachialis-Thumbnail.jpg">
+                      <source src="/pngs/sustoqniq/muscles/brachialis.mp4" type="video/mp4">
+                      Вашият браузър не поддържа видео тага.
+                  </video>
+              </div>
+              <div class="muscle-details">
+                  <div class="muscle-info-grid">
+                      <div class="info-block anatomy-block">
+                          <div class="block-header">
+                              <i class="fas fa-circle" aria-hidden="true"></i>
+                              <h4>Анатомия и захващане</h4>
+                          </div>
+                          <p>
+                              Мускулът се намира <span class="highlight">дълбоко под бицепса</span>. Започва от <span class="highlight">предната повърхност на раменната кост</span> и се прикрепя към <span class="highlight">лакътната кост</span> (ulna).
+                          </p>
+                          <div class="function-box">
+                              <strong>Функция:</strong> Основен и най-силен сгъвач на лакътя. Той работи независимо от позицията на дланта.
+                          </div>
+                      </div>
+                      <div class="info-block pain-char-block">
+                          <div class="block-header">
+                              <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                              <h4>Характер на болката от тригерни точки</h4>
+                          </div>
+                          <ul>
+                              <li><span class="highlight">Болка дълбоко в лакътя</span>, която може да се усеща и в основата на палеца.</li>
+                              <li>Болка при сгъване на лакътя, особено срещу съпротивление.</li>
+                              <li>Тригерните точки могат да ограничат разгъването на ръката, причинявайки скованост.</li>
+                              <li>Възможна е болка, която не се повлиява от масаж на бицепса, тъй като проблемът е по-дълбоко.</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+         </article>
+         
+         <article class="muscle-item">
+              <h3>m. triceps brachii (трицепс)</h3>
+              <div class="muscle-media muscle-video-centered">
+                  <img src="/pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.jpg" alt="Изображение на трицепс мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async">
+                  <video class="hover-muscle-video" muted loop preload="metadata" playsinline poster="/pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.jpg">
+                      <source src="/pngs/sustoqniq/muscles/triceps  brachii.mp4" type="video/mp4">
+                      Вашият браузър не поддържа видео тага.
+                  </video>
+              </div>
+              <div class="muscle-details">
+                  <div class="muscle-info-grid">
+                      <div class="info-block anatomy-block">
+                          <div class="block-header">
+                              <i class="fas fa-circle" aria-hidden="true"></i>
+                              <h4>Анатомия и захващане</h4>
+                          </div>
+                          <p>
+                              Мускулът има три глави. Започва от <span class="highlight">раменната кост и лопатката</span> и се прикрепя към <span class="highlight">лакътната кост</span> (олекранон). Това е основният мускул в задната част на ръката.
+                          </p>
+                          <div class="function-box">
+                              <strong>Функция:</strong> Основен разгъвач на лакътя. Той е важен за движения като бутане, хвърляне и изправяне на ръката.
+                          </div>
+                      </div>
+                      <div class="info-block pain-char-block">
+                          <div class="block-header">
+                              <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                              <h4>Характер на болката от тригерни точки</h4>
+                          </div>
+                          <ul>
+                              <li><span class="highlight">Болка в задната част на ръката</span>, особено в областта на лакътя.</li>
+                              <li>Тригерните точки могат да причинят <span class="highlight">дълбока болка в рамото</span> или по <span class="highlight">задната страна на предмишницата</span>.</li>
+                              <li>Намалена сила при движения, които изискват изправяне на лакътя.</li>
+                              <li>Възможна е тъпа болка по време на почивка или лежане.</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+         </article>
+     </div>
+    </div>
+  </section>
+
+  <section class="healing-section alternative-style">
+    <div class="container">
+      <h2 class="section-title">Как да се справим с мускулната болка в ръката?</h2>
+      <p class="section-subtitle">За да премахнем болката, трябва да се фокусираме върху отпускането, възстановяването и балансирането на мускулите.</p>
+
+      <div class="healing-steps-grid">
+        <div class="healing-step">
+          <div class="step-icon-circle"><i class="fas fa-hand-sparkles" aria-hidden="true"></i></div>
+          <h3>1. Отпускане на напрегнатите мускули</h3>
+          <p>
+            Чрез мануални техники, масажи и мобилизация, ние отпускаме <span class="highlight">свитите мускулни влакна и тригерни точки</span>, за да възстановим нормалната им функция и да премахнем болката.
+          </p>
+        </div>
+        <div class="healing-step">
+          <div class="step-icon-circle"><i class="fas fa-dumbbell" aria-hidden="true"></i></div>
+          <h3>2. Укрепване и балансиране</h3>
+          <p>
+            След като мускулите са отпуснати, фокусът е върху <span class="highlight">укрепването на слабите мускули</span> и възстановяването на баланса между тях. Това е ключово за стабилността на ставите.
+          </p>
+        </div>
+        <div class="healing-step">
+          <div class="step-icon-circle"><i class="fas fa-running" aria-hidden="true"></i></div>
+          <h3>3. Корекция и превенция</h3>
+          <p>
+            Учим ви на специфични упражнения и съвети за <span class="highlight">правилна ергономия</span>, за да предотвратите бъдещи травми и да поддържате ръката си здрава и подвижна в дългосрочен план.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="healing-section alternative-style">
-      <div class="container">
-        <h2 class="section-title">Как да се справим с мускулната болка в ръката?</h2>
-        <p class="section-subtitle">За да премахнем болката, трябва да се фокусираме върху отпускането, възстановяването и балансирането на мускулите.</p>
+  <section class="conditions-section procedures-section">
+    <div class="container">
+      <h3>Процедури, които помагат при мускулни болки в ръката:</h3>
 
-        <div class="healing-steps-grid">
-          <div class="healing-step">
-            <div class="step-icon-circle"><i class="fas fa-hand-sparkles" aria-hidden="true"></i></div>
-            <h3>1. Отпускане на напрегнатите мускули</h3>
-            <p>
-              Чрез мануални техники, масажи и мобилизация, ние отпускаме <span class="highlight">свитите мускулни влакна и тригерни точки</span>, за да възстановим нормалната им функция и да премахнем болката.
-            </p>
-          </div>
-          <div class="healing-step">
-            <div class="step-icon-circle"><i class="fas fa-dumbbell" aria-hidden="true"></i></div>
-            <h3>2. Укрепване и балансиране</h3>
-            <p>
-              След като мускулите са отпуснати, фокусът е върху <span class="highlight">укрепването на слабите мускули</span> и възстановяването на баланса между тях. Това е ключово за стабилността на ставите.
-            </p>
-          </div>
-          <div class="healing-step">
-            <div class="step-icon-circle"><i class="fas fa-running" aria-hidden="true"></i></div>
-            <h3>3. Корекция и превенция</h3>
-            <p>
-              Учим ви на специфични упражнения и съвети за <span class="highlight">правилна ергономия</span>, за да предотвратите бъдещи травми и да поддържате ръката си здрава и подвижна в дългосрочен план.
-            </p>
-          </div>
+      <div class="kinesitherapy-slider-container" role="region" aria-label="Слайдер с процедури">
+        <button class="slider-arrow prev-arrow" aria-label="Предишен слайд">❮</button>
+
+        <div class="kinesitherapy-slider-track">
+
+          <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+            <div class="kinesitherapy-button-media">
+              <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+              <video class="kinesitherapy-video" autoplay loop muted playsinline preload="metadata" poster="../../pngs/procedures/KT.PNG">
+                <source src="../../pngs/procedures/gif/KT.mp4" type="video/mp4" />
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
+          </a>
+
+          <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
+            <div class="kinesitherapy-button-media">
+              <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+              <video class="kinesitherapy-video" autoplay loop muted playsinline preload="metadata" poster="../../pngs/massages/lecheben.PNG">
+                <source src="../../pngs/massages/gif/lecheben.mp4" type="video/mp4" />
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Лечебен Масаж</span>
+          </a>
+
+          <a href="../../procedures/masaj.deeptisue.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/1">
+            <div class="kinesitherapy-button-media">
+              <img src="../../pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+              <video class="kinesitherapy-video" autoplay loop muted playsinline preload="metadata" poster="../../pngs/massages/deeptissue.PNG">
+                <source src="../../pngs/massages/gif/deeptisue.mp4" type="video/mp4" />
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
+          </a>
+
+          <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
+            <div class="kinesitherapy-button-media">
+              <img src="../../pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+              <video class="kinesitherapy-video" autoplay loop muted playsinline preload="metadata" poster="../../pngs/procedures/function.PNG">
+                <source src="../../pngs/procedures/gif/funciton.mp4" type="video/mp4" />
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Функционална оценка</span>
+          </a>
+
+          <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
+            <div class="kinesitherapy-button-media">
+              <img src="../../pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+              <video class="kinesitherapy-video" autoplay loop muted playsinline preload="metadata" poster="../../pngs/procedures/exercises.PNG">
+                <source src="../../pngs/procedures/gif/exercieses.mp4" type="video/mp4" />
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Упражнения</span>
+          </a>
+
+          <a href="../../procedures/dry-needling.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/50-clone">
+            <div class="kinesitherapy-button-media">
+              <img src="../../pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+              <video class="kinesitherapy-video" autoplay loop muted playsinline preload="metadata" poster="../../pngs/procedures/gif/drineedling-Thumbnail.jpg">
+                <source src="../../pngs/procedures/gif/drineedling.mp4" type="video/mp4" />
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
+          </a>
+
+          <a href="../../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+            <div class="kinesitherapy-button-media">
+              <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+              <video class="kinesitherapy-video" autoplay loop muted playsinline preload="metadata" poster="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg">
+                <source src="../../pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4" />
+                Вашият браузър не поддържа видео тага.
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
+          </a>
+        </div>
+
+        <button class="slider-arrow next-arrow" aria-label="Следващ слайд">❯</button>
+      </div>
+      <!-- CTA: Виж всички процедури -->
+      <div class="procedures-cta-wrap">
+        <a href="/services.html" class="procedures-cta" aria-label="Виж всички процедури">
+          <svg class="procedures-cta-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span>Виж всички процедури</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <section class="contact-section">
+    <div class="contact-container">
+      <div class="contact-left">
+        <div class="map">
+          <iframe title="Локация DM Physio" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" width="300" height="250" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
       </div>
-    </section>
 
-    <section class="conditions-section procedures-section">
-      <div class="container">
-        <h3>Процедури, които помагат при мускулни болки в ръката:</h3>
-
-        <div class="kinesitherapy-slider-container" role="region" aria-label="Слайдер с процедури">
-          <button class="slider-arrow prev-arrow" aria-label="Предишен слайд">❮</button>
-
-          <div class="kinesitherapy-slider-track">
-            <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
-              <div class="kinesitherapy-button-media">
-                <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" width="360" height="203" loading="lazy" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none">
-                  <source src="../../pngs/procedures/gif/KT.mp4" type="video/mp4" />
-                  Вашият браузър не поддържа видео тага.
-                </video>
-              </div>
-              <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
-            </a>
-
-            <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
-              <div class="kinesitherapy-button-media">
-                <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" width="360" height="203" loading="lazy" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none">
-                  <source src="../../pngs/massages/gif/lecheben.mp4" type="video/mp4" />
-                  Вашият браузър не поддържа видео тага.
-                </video>
-              </div>
-              <span class="kinesitherapy-button-text">Лечебен Масаж</span>
-            </a>
-
-            <a href="../../procedures/masaj.deeptisue.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/1">
-              <div class="kinesitherapy-button-media">
-                <img src="../../pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" width="360" height="203" loading="lazy" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none">
-                  <source src="../../pngs/massages/gif/deeptisue.mp4" type="video/mp4" />
-                  Вашият браузър не поддържа видео тага.
-                </video>
-              </div>
-              <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
-            </a>
-
-            <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
-              <div class="kinesitherapy-button-media">
-                <img src="../../pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img" width="360" height="203" loading="lazy" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none">
-                  <source src="../../pngs/procedures/gif/funciton.mp4" type="video/mp4" />
-                  Вашият браузър не поддържа видео тага.
-                </video>
-              </div>
-              <span class="kinesitherapy-button-text">Функционална оценка</span>
-            </a>
-
-            <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
-              <div class="kinesitherapy-button-media">
-                <img src="../../pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img" width="360" height="203" loading="lazy" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none">
-                  <source src="../../pngs/procedures/gif/exercieses.mp4" type="video/mp4" />
-                  Вашият браузър не поддържа видео тага.
-                </video>
-              </div>
-              <span class="kinesitherapy-button-text">Упражнения</span>
-            </a>
-
-            <a href="../../procedures/dry-needling.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/50-clone">
-              <div class="kinesitherapy-button-media">
-                <img src="../../pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" class="kinesitherapy-img" width="360" height="203" loading="lazy" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none">
-                  <source src="../../pngs/procedures/gif/drineedling.mp4" type="video/mp4" />
-                  Вашият браузър не поддържа видео тага.
-                </video>
-              </div>
-              <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
-            </a>
-
-            <a href="../../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
-              <div class="kinesitherapy-button-media">
-                <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" width="360" height="203" loading="lazy" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none">
-                  <source src="../../pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4" />
-                  Вашият браузър не поддържа видео тага.
-                </video>
-              </div>
-              <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
-            </a>
-          </div>
-
-          <button class="slider-arrow next-arrow" aria-label="Следващ слайд">❯</button>
-        </div>
-        <!-- CTA: Виж всички процедури -->
-        <div class="procedures-cta-wrap">
-          <a href="/services.html" class="procedures-cta" aria-label="Виж всички процедури">
-            <svg class="procedures-cta-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <span>Виж всички процедури</span>
+      <div class="contact-center">
+        <h2>Свържете се с нас:</h2>
+        <div class="social-links">
+          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer" aria-label="Facebook DM Physio">
+            <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32" loading="lazy" />
+          </a>
+          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram DM Physio">
+            <img src="/pngs/social/instagram.png" alt="Instagram" width="32" height="32" loading="lazy" />
+          </a>
+          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer" aria-label="YouTube DM Physio">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" width="32" height="32" loading="lazy" />
+          </a>
+          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer" aria-label="TikTok DM Physio">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" width="32" height="32" loading="lazy" />
           </a>
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <section class="contact-section">
-      <div class="contact-container">
-        <div class="contact-left">
-          <div class="map">
-            <iframe title="Локация DM Physio" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" width="300" height="250" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <div class="contact-right">
+        <div class="contact-item phone">
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" width="24" height="24" loading="lazy" />
+          <span>0883688414</span>
+        </div>
+        <div class="contact-item work-hours">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" width="24" height="24" loading="lazy" />
+          <div>
+            <span>Работно време:</span><br />
+            <span>Пон-Пет: 09:00 - 19:00</span><br />
+            <span>Събота: 09:00 - 16:00</span><br />
+            </span>Неделя: Почивка</span>
           </div>
         </div>
-
-        <div class="contact-center">
-          <h2>Свържете се с нас:</h2>
-          <div class="social-links">
-            <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer" aria-label="Facebook DM Physio">
-              <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32" loading="lazy" />
+        <div class="contact-item address-item">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon" width="24" height="24" loading="lazy" />
+          <div>
+            <span>София, ул. „Проф. Христо Данов“ 19</span><br />
+            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
+              Вижте на карта →
             </a>
-            <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram DM Physio">
-              <img src="/pngs/social/instagram.png" alt="Instagram" width="32" height="32" loading="lazy" />
-            </a>
-            <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer" aria-label="YouTube DM Physio">
-              <img src="/pngs/social/Youtube.png" alt="YouTube" width="32" height="32" loading="lazy" />
-            </a>
-            <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer" aria-label="TikTok DM Physio">
-              <img src="/pngs/social/tiktok.png" alt="TikTok" width="32" height="32" loading="lazy" />
-            </a>
-          </div>
-        </div>
-
-        <div class="contact-right">
-          <div class="contact-item phone">
-            <img src="/pngs/social/phone.png" alt="Телефон" class="icon" width="24" height="24" loading="lazy" />
-            <span>0883688414</span>
-          </div>
-          <div class="contact-item work-hours">
-            <img src="/pngs/clock.avif" alt="Работно Време" class="icon" width="24" height="24" loading="lazy" />
-            <div>
-              <span>Работно време:</span><br />
-              <span>Пон-Пет: 09:00 - 19:00</span><br />
-              <span>Събота: 09:00 - 16:00</span><br />
-              </span>Неделя: Почивка</span>
-            </div>
-          </div>
-          <div class="contact-item address-item">
-            <img src="/pngs/social/location.png" alt="Адрес" class="icon" width="24" height="24" loading="lazy" />
-            <div>
-              <span>София, ул. „Проф. Христо Данов“ 19</span><br />
-              <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
-                Вижте на карта →
-              </a>
-            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="footer-links">
-        <a href="/privacy-policy.html">Политика за поверителност</a> | <a href="/terms.html">Общи условия</a>
-      </div>
-    </section>
-  </footer>
+    <div class="footer-links">
+      <a href="/privacy-policy.html">Политика за поверителност</a> | <a href="/terms.html">Общи условия</a>
+    </div>
+  </section>
+</footer>
 
-  <!-- Scripts (deferred) -->
-  <script src="../../js/temple-headache.js" defer></script>
-  <script src="/js/topbar.js" defer></script>
-  <script src="../../js/procedurs-slider.js" defer></script>
-<!-- Управление на видеата: hover + видимост -->
+<!-- Скриптове (отложени) -->
+<script src="../../js/temple-headache.js" defer></script>
+<script src="/js/topbar.js" defer></script>
+<script src="../../js/procedurs-slider.js" defer></script>
+
+<!-- Управление на видеата: показвай видеото САМО когато е готово + hover + видимост -->
 <script>
 (function () {
   const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
   const safePause = (v) => v && v.pause && v.pause();
 
-  // Базови настройки за всички видеа
+  // 1) Базови настройки за всички видеа
   document.querySelectorAll('video').forEach(v => {
     v.muted = true;
     v.setAttribute('playsinline','');
     if (!v.getAttribute('preload')) v.preload = 'metadata';
   });
 
-  // Hover поведение
-  document.querySelectorAll('.image-container, .muscle-media, .kinesitherapy-button').forEach(box => {
+  // 2) Показвай видео едва след като е готово (loadeddata/canplay)
+  const wrappers = [
+    ...document.querySelectorAll('.image-container'),
+    ...document.querySelectorAll('.muscle-media'),
+    ...document.querySelectorAll('.kinesitherapy-button-media')
+  ];
+
+  wrappers.forEach(wrap => {
+    const vid = wrap.querySelector('video');
+    if (!vid) return;
+
+    const markReady = () => wrap.classList.add('video-ready');
+    // Ако е кеширано и готово
+    if (vid.readyState >= 2) { markReady(); }
+    // Иначе чакаме събитие
+    vid.addEventListener('loadeddata', markReady, { once: true });
+    vid.addEventListener('canplay', markReady, { once: true });
+  });
+
+  // 3) Hover поведение
+  document.querySelectorAll('.image-container, .muscle-media, .kinesitherapy-button, .kinesitherapy-button-media').forEach(box => {
     const vid = box.querySelector('video');
     if (!vid) return;
     const onEnter = () => safePlay(vid);
@@ -907,7 +921,7 @@
     box.addEventListener('touchend', onLeave, {passive:true});
   });
 
-  // Авто-плей/пауза според видимост
+  // 4) Авто-плей/пауза според видимост
   const vids = [
     ...document.querySelectorAll('.hover-video'),
     ...document.querySelectorAll('.hover-muscle-video'),
