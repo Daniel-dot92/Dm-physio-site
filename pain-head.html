@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Болка в главата - ДМ ФИЗИО</title>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Болка в главата - ДМ ФИЗИО</title>
+
   <link rel="stylesheet" href="/css/top-bar.css">
-    
-    <link rel="stylesheet" href="/css/pain-conditions.css">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="/css/pain-conditions.css">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Минимални override-и само за поведение (без промяна на размери/стилове) -->
+  <style>
+    /* докато видеото не е готово – снимката остава видима дори при hover */
+    .pain-button-media.image-container:not(.video-ready) .hover-img{
+      opacity:0 !important; visibility:hidden !important;
+    }
+    .pain-button-media.image-container:not(.video-ready):hover .static-img{
+      opacity:1 !important; visibility:visible !important;
+    }
+  </style>
 </head>
 <body>
-   
-
-
 <!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
@@ -45,64 +52,64 @@
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
         
         <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-    </ul>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
-
-    <main class="page-content">
-       
-
-<section class="pain-conditions-detail-section">
+<main class="page-content">
+  <section class="pain-conditions-detail-section">
     <div class="container">
-        <h3>Изберете по-конкретно вашето състояние:</h3>
-        <div class="pain-buttons-grid">
-            
-            <a href="sustiqnia/head- slepoochie.html" class="pain-button">
-                <div class="pain-button-media image-container">
-                    <img src="pngs/sustoqniq/headeach2-Thumbnail.jpg" alt="Болка в слепоочието и скалпа" class="static-img">
-                    <video autoplay loop muted playsinline class="hover-img">
-                        <source src="pngs/sustoqniq/headeach2.mp4" type="video/mp4">
-                        Вашият браузър не поддържа видео тага.
-                    </video>
-                </div>
-                <span class="pain-button-text">Болка в Слепоочието</span>
-            </a>
+      <h3>Изберете по-конкретно вашето състояние:</h3>
+      <div class="pain-buttons-grid">
+        
+        <a href="sustiqnia/head- slepoochie.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/sustoqniq/headeach2-Thumbnail.jpg" alt="Болка в слепоочието и скалпа" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img"
+                   preload="metadata" poster="pngs/sustoqniq/headeach2-Thumbnail.jpg">
+              <source src="pngs/sustoqniq/headeach2.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Болка в Слепоочието</span>
+        </a>
 
-            <a href="sustiqnia/head - ocipital.html" class="pain-button">
-                <div class="pain-button-media image-container">
-                    <img src="pngs/sustoqniq/muscles/ocipital pain-Thumbnail.jpg" alt="Болка в тила и нагоре" class="static-img">
-                    <video autoplay loop muted playsinline class="hover-img">
-                        <source src="pngs/sustoqniq/muscles/ocipital pain.mp4" type="video/mp4">
-                        Вашият браузър не поддържа видео тага.
-                    </video>
-                </div>
-                <span class="pain-button-text">Болка в Тила и нагоре</span>
-            </a>
+        <a href="sustiqnia/head - ocipital.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/sustoqniq/muscles/ocipital pain-Thumbnail.jpg" alt="Болка в тила и нагоре" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img"
+                   preload="metadata" poster="pngs/sustoqniq/muscles/ocipital pain-Thumbnail.jpg">
+              <source src="pngs/sustoqniq/muscles/ocipital pain.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Болка в Тила и нагоре</span>
+        </a>
 
-            <a href="sustiqnia/head-dizziness.html" class="pain-button">
-                <div class="pain-button-media image-container">
-                    <img src="pngs/sustoqniq/muscles/dizziness-Thumbnail.jpg" alt="Замайване, гадене и световъртеж" class="static-img">
-                    <video autoplay loop muted playsinline class="hover-img">
-                        <source src="pngs/sustoqniq/muscles/dizziness.mp4" type="video/mp4">
-                        Вашият браузър не поддържа видео тага.
-                    </video>
-                </div>
-                <span class="pain-button-text">Замайване, гадене и световъртеж</span>
-            </a>
+        <a href="sustiqnia/head-dizziness.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/sustoqniq/muscles/dizziness-Thumbnail.jpg" alt="Замайване, гадене и световъртеж" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img"
+                   preload="metadata" poster="pngs/sustoqniq/muscles/dizziness-Thumbnail.jpg">
+              <source src="pngs/sustoqniq/muscles/dizziness.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Замайване, гадене и световъртеж</span>
+        </a>
 
-        </div>
+      </div>
 
-        <div class="button-group">
-            <a href="pain-conditions.html" class="back-button">← Всички болкови състояния</a>
-        </div>
+      <div class="button-group">
+        <a href="pain-conditions.html" class="back-button">← Всички болкови състояния</a>
+      </div>
     </div>
-</section>
-    </main>
+  </section>
+</main>
 
- <footer class="footer">
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
@@ -162,10 +169,39 @@
     </div>
   </section>
 </footer>
+
 <script src="/js/media-autoplay-cards.js" defer></script>
-    
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <script src="pain-conditions-scripts.js"></script>
-    <script src="/js/topbar.js"></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script src="pain-conditions-scripts.js"></script>
+<script src="/js/topbar.js"></script>
+
+<!-- Само логика: маркираме .video-ready при готовност, държим снимката до тогава -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.pain-button-media.image-container').forEach(box => {
+      const vid = box.querySelector('video.hover-img');
+      const img = box.querySelector('img.static-img');
+      if (!vid) return;
+
+      // подсигуряваме постер от снимката, ако липсва
+      if (!vid.getAttribute('poster') && img) {
+        vid.setAttribute('poster', img.currentSrc || img.src);
+      }
+
+      // без да променяме стил/размер — само поведение
+      vid.preload = vid.preload || 'metadata';
+      vid.muted = true; vid.defaultMuted = true;
+      vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+
+      const markReady = () => box.classList.add('video-ready');
+      if (vid.readyState >= 2) {
+        markReady();
+      } else {
+        vid.addEventListener('loadeddata', markReady, { once: true });
+        try { vid.load(); } catch(e){}
+      }
+    });
+  });
+</script>
 </body>
 </html>

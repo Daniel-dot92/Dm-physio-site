@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Болкови състояния - ДМ ФИЗИО</title>
-    <link rel="stylesheet" href="/css/styles-procedures.css">
-    <link rel="stylesheet" href="image-styles.css">
-    <link rel="stylesheet" href="pain-conditions.css">
-    <link rel="stylesheet" href="/css/top-bar.css">
-  
-    <!-- Icons -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Болкови състояния - ДМ ФИЗИО</title>
+
+  <link rel="stylesheet" href="/css/styles-procedures.css">
+  <link rel="stylesheet" href="image-styles.css">
+  <link rel="stylesheet" href="pain-conditions.css">
+  <link rel="stylesheet" href="/css/top-bar.css">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  
+
+  <!-- Минимални override-и: само логика за показване, без промяна на размери/подредба -->
+  <style>
+    /* докато видеото не е готово – снимката остава; hover не скрива снимката */
+    .pain-button-media.image-container:not(.video-ready) .hover-img{
+      opacity:0 !important; visibility:hidden !important;
+    }
+    .pain-button-media.image-container:not(.video-ready):hover .static-img{
+      opacity:1 !important; visibility:visible !important;
+    }
+  </style>
 </head>
 
-
 <body>
-    
-
-
 <!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
-    <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
       <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" />
     </a>
 
-    <!-- Хамбургер -->
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
       <i class="fas fa-bars" aria-hidden="true"></i>
     </button>
 
-    <!-- Навигация -->
     <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
       <ul class="tb-menu">
         <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
@@ -48,247 +52,236 @@
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
         
         <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-    </ul>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
+<main class="page-content">
+  <section id="pain-conditions-intro" class="hero-subpage">
+    <div class="container">
+      <h2 class="pci-title">Къде е болката?</h2>
 
+      <p class="pci-intro">
+        Можеш да си помогнеш още сега: <strong>избери частта на тялото, която те боли</strong> и разгледай
+        най-честите състояния за тази зона — какви са симптомите, какъв е механизмът зад болката и
+        кои са работещите методи за възстановяване. <span class="pci-accent">Колкото по-рано разбереш причината,
+        толкова по-бързо ще се върнеш към движение без болка.</span>
+      </p>
 
-
-    <main class="page-content">
-        
-        <section id="pain-conditions-intro" class="hero-subpage">
-            <div class="container">
-                <h2 class="pci-title">Къде е болката?</h2>
-
-    <p class="pci-intro">
-      Можеш да си помогнеш още сега: <strong>избери частта на тялото, която те боли</strong> и разгледай
-      най-честите състояния за тази зона — какви са симптомите, какъв е механизмът зад болката и
-      кои са работещите методи за възстановяване. <span class="pci-accent">Колкото по-рано разбереш причината,
-      толкова по-бързо ще се върнеш към движение без болка.</span>
-    </p>
-
- 
-    
-
-                <div class="pain-buttons-grid">
-                               <a href="pain-neuralgia-general.html" class="pain-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/pain-conditions/new/tingling1-Thumbnail.jpg" alt="Невралгии" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/pain-conditions/new/tingling1.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Невралгии</span>
-                    </a>
-
-                    <a href="physiology.html" class="pain-button physiology-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg" alt="Физиология" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/sustoqniq/muscles/Muscles main.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Мускули</span>
-                    </a>
-                    
-                    <a href="pain-head.html" class="pain-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/pain-conditions/new/headeach1-Thumbnail.jpg" alt="Глава" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Глава</span>
-                    </a>
-
-                    <a href="pain-neck.html" class="pain-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/pain-conditions/new/neckpain1-Thumbnail.jpg" alt="Врат" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Врат</span>
-                    </a>
-
-                    <a href="pain-shoulder.html" class="pain-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg" alt="Рамо" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Рамо</span>
-                    </a>
-
-                    <a href="pain-arm.html" class="pain-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/pain-conditions/new/armpain-Thumbnail.jpg" alt="Ръка" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/pain-conditions/new/armpain.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Ръка</span>
-                    </a>
-
-                    <a href="pain-chest-abdomen.html" class="pain-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/pain-conditions/new/chestpain-Thumbnail.jpg" alt="Гърди" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/pain-conditions/new/chestpain.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Гърди и Корем</span>
-                    </a>
-
-                    <a href="pain-back.html" class="pain-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg" alt="Гръб" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/pain-conditions/new/midbackpain1.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Гръб</span>
-                    </a>
-
-                    <a href="pain-lower-back.html" class="pain-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Кръст" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Кръст</span>
-                    </a>
-
-                    <a href="pain-buttocks-pelvis.html" class="pain-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/pain-conditions/new/hippain1-Thumbnail.jpg" alt="Дупе / Таз" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/pain-conditions/new/hippain1.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Дупе / Таз</span>
-                    </a>
-
-                    <a href="pain-thigh-knee.html" class="pain-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/pain-conditions/new/kneepain1-Thumbnail.jpg" alt="Бедро / Коляно" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Бедро / Коляно</span>
-                    </a>
-
-                    <a href="pain-lower-leg-ankle.html" class="pain-button">
-                        <div class="pain-button-media image-container">
-                            <img src="pngs/pain-conditions/new/anklepain1-Thumbnail.jpg" alt="Глезен / Стъпало" class="static-img">
-                            <video autoplay loop muted playsinline class="hover-img">
-                                <source src="pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
-                                Вашият браузър не поддържа видео тага.
-                            </video>
-                        </div>
-                        <span class="pain-button-text">Подбедрица / Стъпало</span>
-                    </a>
-
-       
-                </div>
-            </div>
-        </section>
-          <!-- FREE ADVICE (REVEAL) -->
-<section class="advice-reveal-block" id="free-advice">
-  <div class="advice-window" role="group" aria-label="Форма за безплатни насоки">
-    <div class="advice-window__titlebar">
-      <div class="win-dots" aria-hidden="true">
-        <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
-      </div>
-      <div class="title">Безплатни насоки</div>
-    </div>
-
-    <div class="advice-window__body">
-      <!-- Банер за успех -->
-      <div class="advice-success" id="adviceSuccess" aria-live="polite" hidden>
-        <strong>Благодарим!</strong> Получихме заявката ви. Ще се свържем с вас съвсем скоро.
-      </div>
-
-      <div class="advice-intro">
-        <h3>Не знаеш коя процедура е за теб?</h3>
-        <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
-      </div>
-
-      <!-- Скрит iframe (фолбек) -->
-      <iframe name="hidden_gform" id="hidden_gform" style="display:none;"></iframe>
-
-      <!-- Разгъващ се панел -->
-      <details class="advice-reveal" id="adviceReveal">
-        <summary class="advice-summary-btn">
-          <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
-          <span class="chev" aria-hidden="true"></span>
-        </summary>
-
-        <div class="advice-panel">
-          <div class="form-card">
-            <h4 class="form-card__title">Безплатна консултация</h4>
-
-            <form id="adviceForm"
-                  class="advice-form"
-                  action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
-                  method="POST"
-                  target="hidden_gform">
-              <div class="form-row">
-                <div class="field">
-                  <label for="fName">Име</label>
-                  <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required>
-                </div>
-                <div class="field">
-                  <label for="fPhone">Телефон</label>
-                  <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required>
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="fEmail">Имейл</label>
-                <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required>
-              </div>
-
-              <div class="field">
-                <label for="fSymptoms">Опишете симптомите си</label>
-                <textarea id="fSymptoms" name="entry.1298076648" rows="4"
-                  placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
-                  required></textarea>
-              </div>
-
-              <div class="form-actions">
-                <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
-                <button type="submit" class="btn-submit">Изпрати</button>
-              </div>
-
-              <p class="form-note">Няма спам. Данните се използват само за консултация.</p>
-            </form>
+      <div class="pain-buttons-grid">
+        <a href="pain-neuralgia-general.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/pain-conditions/new/tingling1-Thumbnail.jpg" alt="Невралгии" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/tingling1-Thumbnail.jpg">
+              <source src="pngs/pain-conditions/new/tingling1.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
           </div>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-    </main>
+          <span class="pain-button-text">Невралгии</span>
+        </a>
 
-  <footer class="footer">
+        <a href="physiology.html" class="pain-button physiology-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg" alt="Физиология" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg">
+              <source src="pngs/sustoqniq/muscles/Muscles main.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+            <span class="pain-button-text">Мускули</span>
+        </a>
+                    
+        <a href="pain-head.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/pain-conditions/new/headeach1-Thumbnail.jpg" alt="Глава" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/headeach1-Thumbnail.jpg">
+              <source src="pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Глава</span>
+        </a>
+
+        <a href="pain-neck.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/pain-conditions/new/neckpain1-Thumbnail.jpg" alt="Врат" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/neckpain1-Thumbnail.jpg">
+              <source src="pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Врат</span>
+        </a>
+
+        <a href="pain-shoulder.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg" alt="Рамо" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg">
+              <source src="pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Рамо</span>
+        </a>
+
+        <a href="pain-arm.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/pain-conditions/new/armpain-Thumbnail.jpg" alt="Ръка" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/armpain-Thumbnail.jpg">
+              <source src="pngs/pain-conditions/new/armpain.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Ръка</span>
+        </a>
+
+        <a href="pain-chest-abdomen.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/pain-conditions/new/chestpain-Thumbnail.jpg" alt="Гърди" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/chestpain-Thumbnail.jpg">
+              <source src="pngs/pain-conditions/new/chestpain.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Гърди и Корем</span>
+        </a>
+
+        <a href="pain-back.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg" alt="Гръб" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg">
+              <source src="pngs/pain-conditions/new/midbackpain1.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Гръб</span>
+        </a>
+
+        <a href="pain-lower-back.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Кръст" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/backpain-Thumbnail.jpg">
+              <source src="pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Кръст</span>
+        </a>
+
+        <a href="pain-buttocks-pelvis.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/pain-conditions/new/hippain1-Thumbnail.jpg" alt="Дупе / Таз" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/hippain1-Thumbnail.jpg">
+              <source src="pngs/pain-conditions/new/hippain1.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Дупе / Таз</span>
+        </a>
+
+        <a href="pain-thigh-knee.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/pain-conditions/new/kneepain1-Thumbnail.jpg" alt="Бедро / Коляно" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/kneepain1-Thumbnail.jpg">
+              <source src="pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Бедро / Коляно</span>
+        </a>
+
+        <a href="pain-lower-leg-ankle.html" class="pain-button">
+          <div class="pain-button-media image-container">
+            <img src="pngs/pain-conditions/new/anklepain1-Thumbnail.jpg" alt="Глезен / Стъпало" class="static-img">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/anklepain1-Thumbnail.jpg">
+              <source src="pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <span class="pain-button-text">Подбедрица / Стъпало</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE ADVICE (REVEAL) -->
+  <section class="advice-reveal-block" id="free-advice">
+    <div class="advice-window" role="group" aria-label="Форма за безплатни насоки">
+      <div class="advice-window__titlebar">
+        <div class="win-dots" aria-hidden="true">
+          <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+        </div>
+        <div class="title">Безплатни насоки</div>
+      </div>
+
+      <div class="advice-window__body">
+        <div class="advice-success" id="adviceSuccess" aria-live="polite" hidden>
+          <strong>Благодарим!</strong> Получихме заявката ви. Ще се свържем с вас съвсем скоро.
+        </div>
+
+        <div class="advice-intro">
+          <h3>Не знаеш коя процедура е за теб?</h3>
+          <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
+        </div>
+
+        <iframe name="hidden_gform" id="hidden_gform" style="display:none;"></iframe>
+
+        <details class="advice-reveal" id="adviceReveal">
+          <summary class="advice-summary-btn">
+            <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
+            <span class="chev" aria-hidden="true"></span>
+          </summary>
+
+          <div class="advice-panel">
+            <div class="form-card">
+              <h4 class="form-card__title">Безплатна консултация</h4>
+
+              <form id="adviceForm"
+                    class="advice-form"
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
+                    method="POST"
+                    target="hidden_gform">
+                <div class="form-row">
+                  <div class="field">
+                    <label for="fName">Име</label>
+                    <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required>
+                  </div>
+                  <div class="field">
+                    <label for="fPhone">Телефон</label>
+                    <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="fEmail">Имейл</label>
+                  <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="field">
+                  <label for="fSymptoms">Опишете симптомите си</label>
+                  <textarea id="fSymptoms" name="entry.1298076648" rows="4"
+                    placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
+                    required></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
+                  <button type="submit" class="btn-submit">Изпрати</button>
+                </div>
+
+                <p class="form-note">Няма спам. Данните се използват само за консултация.</p>
+              </form>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
@@ -348,10 +341,37 @@
     </div>
   </section>
 </footer>
- <script src="/js/form.js"></script>
-    <script src="/js/media-autoplay-cards.js" defer></script>
-   
-   
-    <script src="/js/topbar.js"></script>
+
+<script src="/js/form.js"></script>
+<script src="/js/media-autoplay-cards.js" defer></script>
+<script src="/js/topbar.js"></script>
+
+<!-- Само логика: маркираме .video-ready, за да сработи hover; не пипаме стилове/размери -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.pain-button-media.image-container').forEach(box => {
+      const vid = box.querySelector('video.hover-img');
+      const img = box.querySelector('img.static-img');
+      if (!vid) return;
+
+      // подсигури постер (без визуална промяна)
+      if (!vid.getAttribute('poster') && img) {
+        vid.setAttribute('poster', img.currentSrc || img.src);
+      }
+
+      vid.preload = vid.preload || 'metadata';
+      vid.muted = true; vid.defaultMuted = true;
+      vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+
+      const markReady = () => box.classList.add('video-ready');
+      if (vid.readyState >= 2) {
+        markReady();
+      } else {
+        vid.addEventListener('loadeddata', markReady, { once: true });
+        try { vid.load(); } catch(e){}
+      }
+    });
+  });
+</script>
 </body>
 </html>
