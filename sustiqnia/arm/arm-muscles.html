@@ -13,10 +13,14 @@
   <!-- Styles -->
   <link rel="stylesheet" href="../../css/top-bar.css" />
   <link rel="stylesheet" href="../../css/temple-headache.css" />
-  <link rel="stylesheet" href="/css/muscle.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/muscle.css" />  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'" />
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  </noscript>
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -38,6 +42,27 @@
     }
   }
   </script>
+  
+  <!-- Preload на LCP изображението -->
+  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg" fetchpriority="high" />
+
+  <style>
+    /* позволи чупене на много дълги думи в заглавия/текст */
+    .page-content h1,
+    .hero-section h1,
+    .section-title,
+    .page-content p {
+      white-space: normal !important;
+      overflow-wrap: anywhere;   /* modern */
+      word-break: break-word;    /* legacy/webkit */
+      hyphens: auto;             /* lang="bg" adds hyphenation */
+    }
+    /* предотвратява разтягане от grid елементи */
+    .hero-container > *,
+    .intro-container > * { min-width: 0; }
+    /* безопасност: без хоризонтален скрол при крайни случаи */
+    html, body { overflow-x: hidden; }
+  </style>
 </head>
 <body>
   <!-- ======= Top bar (TB) ======= -->
@@ -93,7 +118,7 @@
           </div>
         </div>
         <div class="hero-image image-container">
-          <img src="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg" alt="Изображение на мускулите на ръката" class="static-img" width="720" height="405" loading="eager" />
+          <img src="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg"$1 decoding="async" fetchpriority="high">
           <video muted loop preload="metadata" class="hover-video" playsinline>
             <source src="/pngs/sustoqniq/muscles/arm muscles.mp4" type="video/mp4" />
             Вашият браузър не поддържа видео тага.
@@ -857,5 +882,46 @@
   <script src="../../js/temple-headache.js" defer></script>
   <script src="/js/topbar.js" defer></script>
   <script src="../../js/procedurs-slider.js" defer></script>
+<!-- Управление на видеата: hover + видимост -->
+<script>
+(function () {
+  const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
+  const safePause = (v) => v && v.pause && v.pause();
+
+  // Базови настройки за всички видеа
+  document.querySelectorAll('video').forEach(v => {
+    v.muted = true;
+    v.setAttribute('playsinline','');
+    if (!v.getAttribute('preload')) v.preload = 'metadata';
+  });
+
+  // Hover поведение
+  document.querySelectorAll('.image-container, .muscle-media, .kinesitherapy-button').forEach(box => {
+    const vid = box.querySelector('video');
+    if (!vid) return;
+    const onEnter = () => safePlay(vid);
+    const onLeave = () => { safePause(vid); try { vid.currentTime = 0; } catch(e){} };
+    box.addEventListener('mouseenter', onEnter, {passive:true});
+    box.addEventListener('mouseleave', onLeave, {passive:true});
+    box.addEventListener('touchstart', onEnter, {passive:true});
+    box.addEventListener('touchend', onLeave, {passive:true});
+  });
+
+  // Авто-плей/пауза според видимост
+  const vids = [
+    ...document.querySelectorAll('.hover-video'),
+    ...document.querySelectorAll('.hover-muscle-video'),
+    ...document.querySelectorAll('.kinesitherapy-button .kinesitherapy-video')
+  ];
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(({isIntersecting, target}) => {
+        if (isIntersecting) safePlay(target); else safePause(target);
+      });
+    }, { threshold: 0.35 });
+    vids.forEach(v => io.observe(v));
+  }
+})();
+</script>
 </body>
 </html>
