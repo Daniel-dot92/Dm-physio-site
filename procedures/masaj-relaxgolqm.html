@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Релаксиращ Масаж - ДМ ФИЗИО</title>
 
-  <!-- Неблокиращо зареждане на основния стил -->
+  <!-- CSS (неблокиращо) -->
   <link rel="preload" href="../css/procedure.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-  <!-- Top-bar стил -->
   <link rel="preload" href="../css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="../css/top-bar.css"></noscript>
 </head>
@@ -38,80 +36,78 @@
           </div>
         </li>
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        
         <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-    </ul>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
 <main class="page-content">
- <section class="procedure-journey section-green">
-  <div class="container">
-    <h2>Релаксиращ Масаж</h2>
-    <p class="procedure-preamble">
-      Релаксиращият масаж е нежна и успокояваща терапия, която има за цел да намали стреса, да отпусне напрегнатите мускули и да подобри цялостното благосъстояние. За разлика от лечебния или дълбокотъканния масаж, фокусът тук е върху създаването на усещане за спокойствие и хармония, като се използват плавни и ритмични движения.
-    </p>
+  <section class="procedure-journey section-green">
+    <div class="container">
+      <h2>Релаксиращ Масаж</h2>
+      <p class="procedure-preamble">
+        Релаксиращият масаж е нежна и успокояваща терапия, която има за цел да намали стреса, да отпусне напрегнатите мускули и да подобри цялостното благосъстояние. За разлика от лечебния или дълбокотъканния масаж, фокусът тук е върху създаването на усещане за спокойствие и хармония, като се използват плавни и ритмични движения.
+      </p>
 
-    <div class="journey-steps-wrapper">
-      <!-- Процедура -->
-      <div class="journey-step left-aligned">
-        <div class="journey-image image-container">
-          <img src="../pngs/massages/relax.PNG" alt="Релаксиращ Масаж" class="static-img" loading="lazy" decoding="async">
-          <video class="hover-img" playsinline muted loop preload="auto">
-            <source src="../pngs/massages/gif/relax.mp4" type="video/mp4">
-            Вашият браузър не поддържа видео тага.
-          </video>
+      <div class="journey-steps-wrapper">
+        <!-- Процедура -->
+        <div class="journey-step left-aligned">
+          <div class="journey-image image-container" tabindex="0">
+            <img src="../pngs/massages/relax.PNG" alt="Релаксиращ Масаж" class="static-img" loading="lazy" decoding="async" fetchpriority="low">
+            <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/massages/relax.PNG" aria-hidden="true">
+              <source src="../pngs/massages/gif/relax.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <div class="journey-content">
+            <h3><span class="step-duration"></span>Процедура (90 мин.)</h3>
+            <p>
+              По време на релаксиращия масаж терапевтът използва техники като поглаждане, разтриване, омесване и потупване, които са насочени към повърхностните слоеве на мускулите. Целта е да се стимулира парасимпатиковата нервна система, което води до дълбока релаксация и намаляване на стреса. Ползите от релаксиращия масаж включват:
+            </p>
+            <ul class="step-highlights">
+              <li><span class="check"></span> Намаляване на стреса и тревожността — стимулира производството на ендорфини.</li>
+              <li><span class="check"></span> Подобряване на съня — спомага за по-дълбок и спокоен сън.</li>
+              <li><span class="check"></span> Подобряване на кръвообращението — по-добро снабдяване на тъканите с кислород.</li>
+              <li><span class="check"></span> Укрепване на имунната система — чрез намаляване на стресовите хормони.</li>
+            </ul>
+            <p>
+              Релаксиращият масаж е чудесен начин да се погрижите за себе си, да презаредите енергията си и да подобрите общото си психическо и физическо здраве.
+            </p>
+          </div>
         </div>
-        <div class="journey-content">
-          <h3><span class="step-duration"></span>Процедура (90 мин.)</h3>
-          <p>
-            По време на релаксиращия масаж терапевтът използва техники като поглаждане, разтриване, омесване и потупване, които са насочени към повърхностните слоеве на мускулите. Целта е да се стимулира парасимпатиковата нервна система, което води до дълбока релаксация и намаляване на стреса. Ползите от релаксиращия масаж включват:
-          </p>
-          <ul class="step-highlights">
-            <li><span class="check"></span> Намаляване на стреса и тревожността — стимулира производството на ендорфини.</li>
-            <li><span class="check"></span> Подобряване на съня — спомага за по-дълбок и спокоен сън.</li>
-            <li><span class="check"></span> Подобряване на кръвообращението — по-добро снабдяване на тъканите с кислород.</li>
-            <li><span class="check"></span> Укрепване на имунната система — чрез намаляване на стресовите хормони.</li>
-          </ul>
-          <p>
-            Релаксиращият масаж е чудесен начин да се погрижите за себе си, да презаредите енергията си и да подобрите общото си психическо и физическо здраве.
-          </p>
-        </div>
-      </div>
 
-      <!-- Преди масажа -->
-      <div class="journey-step right-aligned">
-        <div class="journey-image image-container">
-          <img src="../pngs/procedures/function.jpg" alt="Функционална оценка и изследване" class="static-img" loading="lazy" decoding="async">
-          <video class="hover-img" playsinline muted loop preload="auto">
-            <source src="../pngs/procedures/gif/funciton.mp4" type="video/mp4">
-            Вашият браузър не поддържа видео тага.
-          </video>
-        </div>
-        <div class="journey-content">
-          <span class="step-label">Преди Масажа</span>
-          <h3><span class="step-duration">(5-10 мин.)</span> Кратка Консултация и Оценка</h3>
-          <p>
-            Преди да започне релаксиращия масаж, терапевтът ще проведе кратка консултация, за да разбере вашите конкретни оплаквания, болкови зони и медицинска история. Това ще му позволи да идентифицира областите, които се нуждаят от най-голямо внимание, и да адаптира техниките, за да осигури максимална ефективност и безопасност.
-          </p>
-          <ul class="step-highlights">
-            <li><span class="check"></span> Прецизно определяне на проблемните зони</li>
-            <li><span class="check"></span> Индивидуален подход към състоянието ви</li>
-            <li><span class="check"></span> Гарантиране на оптимални резултати</li>
-          </ul>
-          <div class="learn-more-link-container">
-            <a href="functional-assessment.html" class="learn-more-link">Научи повече за оценката</a>
+        <!-- Преди масажа -->
+        <div class="journey-step right-aligned">
+          <div class="journey-image image-container" tabindex="0">
+            <img src="../pngs/procedures/function.jpg" alt="Функционална оценка и изследване" class="static-img" loading="lazy" decoding="async">
+            <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/procedures/function.jpg" aria-hidden="true">
+              <source src="../pngs/procedures/gif/funciton.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </div>
+          <div class="journey-content">
+            <span class="step-label">Преди Масажа</span>
+            <h3><span class="step-duration">(5-10 мин.)</span> Кратка Консултация и Оценка</h3>
+            <p>
+              Преди да започне релаксиращия масаж, терапевтът ще проведе кратка консултация, за да разбере вашите конкретни оплаквания, болкови зони и медицинска история. Това ще му позволи да идентифицира областите, които се нуждаят от най-голямо внимание, и да адаптира техниките, за да осигури максимална ефективност и безопасност.
+            </p>
+            <ul class="step-highlights">
+              <li><span class="check"></span> Прецизно определяне на проблемните зони</li>
+              <li><span class="check"></span> Индивидуален подход към състоянието ви</li>
+              <li><span class="check"></span> Гарантиране на оптимални резултати</li>
+            </ul>
+            <div class="learn-more-link-container">
+              <a href="functional-assessment.html" class="learn-more-link">Научи повече за оценката</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-
+    <!-- CTA -->
     <div class="container text-center">
-     
       <a href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book" class="book-button large-button">
         Запази час
       </a>
@@ -122,6 +118,7 @@
       <div class="container">
         <h2>Често задавани въпроси за Релаксиращ Масаж:</h2>
         <div class="accordion">
+
           <div class="accordion-item">
             <button class="accordion-header">За кого е подходящ релаксиращият масаж?</button>
             <div class="accordion-content">
@@ -149,19 +146,25 @@
               <p>Очаквайте спокойна и тиха обстановка. Терапевтът ще използва нежни и плавни движения, за да отпусне мускулите ви. Ще бъдете покрити с кърпа, като ще се откриват само зоните, върху които се работи. Целта е да се почувствате напълно отпуснати и комфортно през цялата процедура.</p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
   </section>
 
   <!-- Сайдбар: Болкови състояния (условно зареждане) -->
-  <aside id="random-conditions" class="sidebar-conditions">
+  <aside id="random-conditions" class="sidebar-conditions" aria-label="Болкови състояния">
     <h3>Болкови състояния</h3>
     <div class="pain-buttons-grid" id="conditions-container"></div>
+    <div id="conditions-fallback" style="display:none">
+      <p>В момента не можем да заредим съдържанието.</p>
+      <p><a class="tb-link" href="/pain-conditions.html">Виж всички състояния →</a></p>
+    </div>
   </aside>
 </main>
 
-  <footer class="footer">
+<!-- ======= Footer ======= -->
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
@@ -198,7 +201,7 @@
         <div class="contact-item work-hours">
           <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
           <div>
-             <span>Работно време:</span><br>
+            <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
             <span>Събота: 09:00 - 16:00</span><br>
             </span>Неделя: Почивка</span>
@@ -222,43 +225,52 @@
   </section>
 </footer>
 
-<!-- Скриптове -->
+<!-- ======= Скриптове ======= -->
 <script src="/js/topbar.js" defer></script>
 
-<!-- Акордеон с плавна анимация -->
+<!-- Видео hover: play/pause, без autoplay -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.image-container').forEach(box => {
+    const vid = box.querySelector('video.hover-img');
+    const img = box.querySelector('img.static-img');
+    if (!vid) return;
+    vid.preload = 'none';
+    vid.muted = true; vid.defaultMuted = true;
+    vid.setAttribute('playsinline','');
+    if (!vid.getAttribute('poster') && img) {
+      vid.setAttribute('poster', img.currentSrc || img.src);
+    }
+    const play = ()=>vid.play().catch(()=>{});
+    const stop = ()=>{ vid.pause(); vid.currentTime = 0; };
+    box.addEventListener('mouseenter', play);
+    box.addEventListener('mouseleave', stop);
+    box.addEventListener('focus', play);
+    box.addEventListener('blur', stop);
+  });
+});
+</script>
+
+<!-- Акордеон -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const headers = document.querySelectorAll(".accordion-header");
   headers.forEach(header => {
     header.addEventListener("click", function () {
       const content = this.parentElement.querySelector(".accordion-content");
-
-      // Затваря другите
       document.querySelectorAll(".accordion-content").forEach(c => {
         if (c !== content) {
-          c.style.maxHeight = null;
-          c.style.paddingTop = "0";
-          c.style.paddingBottom = "0";
-          c.style.marginBottom = "0";
-          c.previousElementSibling.classList.remove("active");
-          c.style.willChange = "auto";
+          c.style.maxHeight = null; c.style.paddingTop = "0"; c.style.paddingBottom = "0"; c.style.marginBottom = "0";
+          c.previousElementSibling?.classList?.remove("active"); c.style.willChange = "auto";
         }
       });
-
-      // Превключва текущия
       if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-        content.style.paddingTop = "0";
-        content.style.paddingBottom = "0";
-        content.style.marginBottom = "0";
-        this.classList.remove("active");
-        content.style.willChange = "auto";
+        content.style.maxHeight = null; content.style.paddingTop = "0"; content.style.paddingBottom = "0"; content.style.marginBottom = "0";
+        this.classList.remove("active"); content.style.willChange = "auto";
       } else {
         content.style.willChange = "max-height";
         content.style.maxHeight = content.scrollHeight + 10 + "px";
-        content.style.paddingTop = "15px";
-        content.style.paddingBottom = "15px";
-        content.style.marginBottom = "10px";
+        content.style.paddingTop = "15px"; content.style.paddingBottom = "15px"; content.style.marginBottom = "10px";
         this.classList.add("active");
       }
     });
@@ -268,13 +280,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script>
 (function () {
-  const KEY = 'conditions_html_v3';
+  const KEY = 'conditions_html_cache_v2';
   const MAX_ITEMS = 6;
   const SRC_PAGE = '/conditions.html?v=3';
 
-  function xmur3(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=(h<<13)|(h>>>19)}return function(){h=Math.imul(h^(h>>>16),2246822507);h=Math.imul(h^(h>>>13),3266489909);return (h^=h>>>16)>>>0}}
-  function mulberry32(a){return function(){let t=a+=0x6D2B79F5;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296}}
-  function shuffleWithRNG(arr,rng){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a;}
+  function xmur3(str){
+    let h = 1779033703 ^ str.length;
+    for (let i = 0; i < str.length; i++){
+      h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+      h = (h << 13) | (h >>> 19);
+    }
+    return function(){
+      h = Math.imul(h ^ (h >>> 16), 2246822507);
+      h = Math.imul(h ^ (h >>> 13), 3266489909);
+      h = (h ^ (h >>> 16)) >>> 0;
+      return h;
+    };
+  } // <-- Тук липсваше затварянето
+
+  function mulberry32(a){
+    return function(){
+      let t = a += 0x6D2B79F5;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    }
+  }
+
+  function shuffle(arr, rng){
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--){
+      const j = Math.floor(rng() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
 
   function absolutize(el, attr){
     const val = el.getAttribute(attr);
@@ -282,15 +322,15 @@ document.addEventListener("DOMContentLoaded", function () {
     el.setAttribute(attr, '/' + val.replace(/^\.?\//,''));
   }
 
-  function selectVaried(html){
+  function sanitizeAndCollect(html){
     const temp = document.createElement('div');
     temp.innerHTML = html;
 
-    // махни webm/gif източници (ако някъде са останали)
+    // махни webm/gif източници
     temp.querySelectorAll('video source').forEach(s => {
       const src = (s.getAttribute('src')||'').toLowerCase();
       const type = (s.getAttribute('type')||'').toLowerCase();
-      if (type.includes('webm') || src.endsWith('.webm') || /\/gifs?\//.test(src) || src.endsWith('.gif')) s.remove();
+      if (type.includes('webm') || src.endsWith('.webm') || src.endsWith('.gif') || /\/gifs?\//.test(src)) s.remove();
     });
 
     // ако видеото няма mp4 → махни го; иначе не preload-вай
@@ -301,59 +341,80 @@ document.addEventListener("DOMContentLoaded", function () {
       v.setAttribute('playsinline','');
     });
 
-    // направи пътищата абсолютни
-    temp.querySelectorAll('img').forEach(img => absolutize(img, 'src'));
+    // пътища → абсолютни + lazy
+    temp.querySelectorAll('img').forEach(img => { absolutize(img, 'src'); img.loading='lazy'; img.decoding='async'; });
     temp.querySelectorAll('video').forEach(v => absolutize(v, 'poster'));
     temp.querySelectorAll('video source').forEach(s => absolutize(s, 'src'));
     temp.querySelectorAll('a').forEach(a => absolutize(a, 'href'));
 
-    const all = [...temp.querySelectorAll('.pain-button')];
-    if (!all.length) return [];
-    const d = new Date(), seedStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}|${location.pathname}`;
-    const rng = mulberry32(xmur3(seedStr)());
-    const picked = shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
-
-    picked.forEach(el => el.querySelectorAll('img').forEach(img => {
-      img.loading = 'lazy'; img.decoding = 'async';
-      if (!img.width && !img.height){ img.width = 400; img.height = 225; img.style.aspectRatio = '16/9'; }
-    }));
-    return picked;
+    return [...temp.querySelectorAll('.pain-button')];
   }
 
-  function inject(elements){
-    const container=document.getElementById('conditions-container');
-    if(!container || !elements?.length) return;
-    elements.forEach(el=>container.appendChild(el));
-  }
-
-  async function fetchAndCache(){
-    const res=await fetch(SRC_PAGE,{credentials:'omit',cache:'no-store'});
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const text=await res.text();
+  async function getHtml(){
+    const cached = sessionStorage.getItem(KEY);
+    if (cached) return cached;
+    const res = await fetch(SRC_PAGE, { credentials:'omit', cache:'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const text = await res.text();
     sessionStorage.setItem(KEY, text);
     return text;
   }
 
+  function inject(nodes){
+    const wrap = document.getElementById('conditions-container');
+    if (!wrap) return false;
+    nodes.forEach(n => wrap.appendChild(n));
+    return nodes.length > 0;
+  }
+
+  function showFallback(){
+    const fb = document.getElementById('conditions-fallback');
+    if (fb) fb.style.display = 'block';
+  }
+
   function onVisible(el, cb){
-    if(!('IntersectionObserver' in window)){ cb(); return; }
-    const io=new IntersectionObserver((entries)=>{
+    if (!('IntersectionObserver' in window)) { cb(); return; }
+    const io = new IntersectionObserver((entries)=>{
       entries.forEach(en=>{ if(en.isIntersecting){ io.disconnect(); cb(); }});
-    },{ rootMargin:'200px 0px' });
+    }, { rootMargin:'250px 0px' });
     io.observe(el);
   }
 
   document.addEventListener('DOMContentLoaded', ()=>{
-    const target=document.getElementById('random-conditions'); if(!target) return;
+    const target = document.getElementById('random-conditions');
+    if (!target) return;
+
     onVisible(target, async ()=>{
       try{
-        const cached=sessionStorage.getItem(KEY);
-        const html=cached ?? await fetchAndCache();
-        inject(selectVaried(html));
-      }catch(e){ console.warn('conditions.html error:', e); }
+        const html = await getHtml();
+        const cards = sanitizeAndCollect(html);
+        if (!cards.length) { showFallback(); return; }
+
+        const d = new Date();
+        const seedStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}|${location.pathname}`;
+        const rng = mulberry32(xmur3(seedStr)());
+        const picked = shuffle(cards, rng).slice(0, MAX_ITEMS);
+
+        picked.forEach(card=>{
+          const img = card.querySelector('img');
+          const vid = card.querySelector('video');
+          if (img && !img.width && !img.height){ img.width=400; img.height=225; img.style.aspectRatio='16/9'; }
+          if (vid){
+            if (img && !vid.getAttribute('poster')) vid.setAttribute('poster', img.currentSrc || img.src);
+            vid.muted = true; vid.setAttribute('playsinline',''); vid.preload = 'none';
+          }
+        });
+
+        if (!inject(picked)) showFallback();
+      }catch(e){
+        console.warn('conditions.html error:', e);
+        showFallback();
+      }
     });
   });
 })();
 </script>
+
 
 <script src="/js/media-autoplay-cards.js" defer></script>
 </body>

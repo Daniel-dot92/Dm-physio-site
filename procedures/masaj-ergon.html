@@ -7,7 +7,6 @@
 
   <!-- Неблокиращо зареждане на основния стил -->
   <link rel="preload" href="../css/procedure.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
   <!-- Top-bar стил -->
   <link rel="preload" href="../css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="../css/top-bar.css"></noscript>
@@ -43,10 +42,9 @@
         </li>
 
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        
         <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-    </ul>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
     </nav>
   </div>
 </header>
@@ -63,9 +61,10 @@
 
       <!-- Процедура -->
       <div class="journey-step left-aligned">
-        <div class="journey-image image-container">
-          <img src="../pngs/massages/ergon.PNG" alt="Масаж с Ергон" class="static-img" decoding="async" fetchpriority="low">
-          <video class="hover-img" playsinline muted loop preload="auto">
+        <div class="journey-image image-container" tabindex="0">
+          <img src="../pngs/massages/ergon.PNG" alt="Масаж с Ергон" class="static-img" decoding="async" fetchpriority="low" loading="lazy">
+          <!-- Показва снимката до пълно зареждане на видеото -->
+          <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/massages/ergon.PNG" aria-hidden="true">
             <source src="../pngs/massages/gif/ergon.mp4" type="video/mp4">
             Вашият браузър не поддържа видео тага.
           </video>
@@ -85,11 +84,12 @@
 
       <!-- Преди масажа / Функционална оценка -->
       <div class="journey-step right-aligned">
-        <div class="journey-image image-container">
-          <img src="../pngs/procedures/function.jpg" alt="Функционална оценка и изследване" class="static-img" decoding="async">
-          <video class="hover-img" playsinline muted loop preload="auto">
+        <div class="journey-image image-container" tabindex="0">
+          <img src="../pngs/procedures/function.jpg" alt="Функционална оценка и изследване" class="static-img" decoding="async" loading="lazy">
+          <!-- Показва снимката до пълно зареждане на видеото -->
+          <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/procedures/function.jpg" aria-hidden="true">
             <source src="../pngs/procedures/gif/funciton.mp4" type="video/mp4">
-            Вашият браузър не поддържа видео тага.
+              Вашият браузър не поддържа видео тага.
           </video>
         </div>
         <div class="journey-content">
@@ -112,10 +112,7 @@
     </div>
   </div>
 
-
-
     <div class="container text-center">
-     
       <a href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book" class="book-button large-button">
         Запази час
       </a>
@@ -167,7 +164,7 @@
   </aside>
 </main>
 
-  <footer class="footer">
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
@@ -231,6 +228,27 @@
 <!-- Външни скриптове (неблокиращи) -->
 <script src="/js/topbar.js" defer></script>
 
+<!-- Видео hover: снимка до пълно зареждане + play/pause при hover -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.image-container').forEach(box => {
+    const vid = box.querySelector('video.hover-img');
+    const img = box.querySelector('img.static-img');
+    if (vid) {
+      vid.preload = 'none';
+      vid.muted = true; vid.defaultMuted = true;
+      vid.setAttribute('playsinline','');
+      if (!vid.getAttribute('poster') && img) {
+        vid.setAttribute('poster', img.currentSrc || img.src);
+      }
+      vid.addEventListener('mouseenter', ()=>{ vid.play().catch(()=>{}); });
+      vid.addEventListener('mouseleave', ()=>{ vid.pause(); vid.currentTime = 0; });
+    }
+    if (img) { img.loading='lazy'; img.decoding='async'; }
+  });
+});
+</script>
+
 <!-- Акордеон -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -240,27 +258,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const content = this.parentElement.querySelector(".accordion-content");
       document.querySelectorAll(".accordion-content").forEach(c => {
         if (c !== content) {
-          c.style.maxHeight = null;
-          c.style.paddingTop = "0";
-          c.style.paddingBottom = "0";
-          c.style.marginBottom = "0";
-          c.previousElementSibling.classList.remove("active");
-          c.style.willChange = "auto";
+          c.style.maxHeight = null; c.style.paddingTop = "0"; c.style.paddingBottom = "0"; c.style.marginBottom = "0";
+          c.previousElementSibling.classList.remove("active"); c.style.willChange = "auto";
         }
       });
       if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-        content.style.paddingTop = "0";
-        content.style.paddingBottom = "0";
-        content.style.marginBottom = "0";
-        this.classList.remove("active");
-        content.style.willChange = "auto";
+        content.style.maxHeight = null; content.style.paddingTop = "0"; content.style.paddingBottom = "0"; content.style.marginBottom = "0";
+        this.classList.remove("active"); content.style.willChange = "auto";
       } else {
         content.style.willChange = "max-height";
         content.style.maxHeight = content.scrollHeight + 10 + "px";
-        content.style.paddingTop = "15px";
-        content.style.paddingBottom = "15px";
-        content.style.marginBottom = "10px";
+        content.style.paddingTop = "15px"; content.style.paddingBottom = "15px"; content.style.marginBottom = "10px";
         this.classList.add("active");
       }
     });
@@ -268,6 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<!-- Сайдбар: зареждане на conditions.html (случаен подбор + безопасни пътища + MP4 only) -->
 <script>
 (function () {
   const KEY = 'conditions_html_v3';
@@ -288,14 +297,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const temp = document.createElement('div');
     temp.innerHTML = html;
 
-    // махни webm/gif източници (ако някъде са останали)
+    // само MP4; без webm/gif
     temp.querySelectorAll('video source').forEach(s => {
       const src = (s.getAttribute('src')||'').toLowerCase();
       const type = (s.getAttribute('type')||'').toLowerCase();
       if (type.includes('webm') || src.endsWith('.webm') || /\/gifs?\//.test(src) || src.endsWith('.gif')) s.remove();
     });
 
-    // ако видеото няма mp4 → махни го; иначе не preload-вай
     temp.querySelectorAll('video').forEach(v => {
       if (!v.querySelector('source[type="video/mp4"]')) { v.remove(); return; }
       v.removeAttribute('autoplay');
@@ -303,8 +311,8 @@ document.addEventListener("DOMContentLoaded", function () {
       v.setAttribute('playsinline','');
     });
 
-    // направи пътищата абсолютни
-    temp.querySelectorAll('img').forEach(img => absolutize(img, 'src'));
+    // пътища → абсолютни; lazy изображения
+    temp.querySelectorAll('img').forEach(img => { absolutize(img, 'src'); img.loading='lazy'; img.decoding='async'; });
     temp.querySelectorAll('video').forEach(v => absolutize(v, 'poster'));
     temp.querySelectorAll('video source').forEach(s => absolutize(s, 'src'));
     temp.querySelectorAll('a').forEach(a => absolutize(a, 'href'));
@@ -315,10 +323,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const rng = mulberry32(xmur3(seedStr)());
     const picked = shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
 
-    picked.forEach(el => el.querySelectorAll('img').forEach(img => {
-      img.loading = 'lazy'; img.decoding = 'async';
-      if (!img.width && !img.height){ img.width = 400; img.height = 225; img.style.aspectRatio = '16/9'; }
-    }));
+    picked.forEach(el => {
+      const img = el.querySelector('img.static-img');
+      const vid = el.querySelector('video.hover-img');
+      if (img && !img.width && !img.height){ img.width = 400; img.height = 225; img.style.aspectRatio = '16/9'; }
+      if (vid && img && !vid.getAttribute('poster')) { vid.setAttribute('poster', img.currentSrc || img.src); }
+      if (vid) { vid.setAttribute('preload','none'); vid.setAttribute('playsinline',''); vid.muted = true; }
+    });
     return picked;
   }
 
