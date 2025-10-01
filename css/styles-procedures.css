@@ -802,3 +802,31 @@ main .card__meta .price{ color:#0ea5e9; }
 main .card__meta .duration{ color:#22c55e; }
 
 
+/* Hero контейнер */
+.page-hero{
+  padding: clamp(16px, 3vw, 28px) 0 8px;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbfc 100%);
+}
+
+/* H1 стил */
+.page-hero h1{
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  color: #0b3f46; /* или var(--text) */
+  font-size: clamp(1.6rem, 1rem + 3vw, 2.25rem);
+  text-wrap: balance;         /* по-добро пренасяне */
+  hyphens: auto;              /* с lang="bg" */
+  overflow-wrap: anywhere;
+}
+
+/* По желание: акцент в H1 за част от текста */
+.page-hero h1 .h1-accent{
+  background: linear-gradient(90deg, var(--brand-blue, #0E7C86), var(--brand-green, #18A558));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}

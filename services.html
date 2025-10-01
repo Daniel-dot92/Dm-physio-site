@@ -2,27 +2,166 @@
 <html lang="bg">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <meta name="description" content="Професионални кинезитерапевтични услуги, масажи и онлайн възстановяване — DM Physio: оценка, лечение и стабилизация. Запазете час онлайн.">
-  <title>Процедури и Цени — DM Physio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <title>Процедури и цени – кинезитерапия и масажи | DM Physio София</title>
+  <meta name="description" content="Кинезитерапия, функционална оценка, специализирани упражнения и масажи в DM Physio София. Виж цени, продължителност и запази час онлайн.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://dmphysio.com/services.html">
 
-  <!-- Page styles -->
+  <!-- Open Graph -->
+  <meta property="og:locale" content="bg_BG">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DM Physio (ДМ ФИЗИО)">
+  <meta property="og:title" content="Процедури и цени – кинезитерапия и масажи | DM Physio София">
+  <meta property="og:description" content="Професионални кинезитерапевтични услуги и масажи. Виж всички процедури, цени и запази час онлайн.">
+  <meta property="og:url" content="https://dmphysio.com/services.html">
+  <meta property="og:image" content="https://dmphysio.com/pngs/procedures/KT.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Процедури и цени – кинезитерапия и масажи | DM Physio София">
+  <meta name="twitter:description" content="Кинезитерапия, функционална оценка, упражнения и масажи – запази час онлайн.">
+  <meta name="twitter:image" content="https://dmphysio.com/pngs/procedures/KT.png">
+
+  <!-- Preconnect за външни ресурси -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+  <!-- Икони (неблокиращо) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+
+  <!-- Уеб шрифт (неблокиращо, ако го ползвате в темата) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Локални стилове -->
   <link rel="stylesheet" href="/css/styles-procedures.css"/>
   <link rel="stylesheet" href="/css/pain-conditions.css">
-  <!-- Top bar styles -->
   <link rel="stylesheet" href="/css/top-bar.css">
 
-  <!-- Малък фиксиращ стил за иконите във футъра (може и в global.css) -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Preload на LCP изображението (първата карта) -->
+  <link rel="preload" as="image" href="/pngs/procedures/KT.png" fetchpriority="high">
 
-  <!-- Мини-override: статичната снимка остава докато видеото стане готово -->
+  <!-- Мини-override: статичната снимка остава докато видеото е готово + отстояние от topbar -->
   <style>
+    :root { --topbar-h: 76px; }
+    @media (max-width: 768px){ :root { --topbar-h: 64px; } }
+    html { scroll-padding-top: var(--topbar-h); }
+    main { padding-top: var(--topbar-h); }
+
     .card__media:not(.video-ready) .img--hover { opacity: 0 !important; visibility: hidden !important; }
     .card__media:not(.video-ready):hover .img--static { opacity: 1 !important; visibility: visible !important; }
   </style>
+
+  <!-- JSON-LD: WebPage + Breadcrumb + WebSite + LocalBusiness + ItemList от услуги -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebPage",
+        "@id":"https://dmphysio.com/services.html",
+        "url":"https://dmphysio.com/services.html",
+        "name":"Процедури и цени – кинезитерапия и масажи",
+        "inLanguage":"bg",
+        "description":"Кинезитерапия, функционална оценка, специализирани упражнения и масажи – цени и продължителност в DM Physio София.",
+        "primaryImageOfPage":{"@type":"ImageObject","url":"https://dmphysio.com/pngs/procedures/KT.png"},
+        "isPartOf":{"@id":"https://dmphysio.com/#website"},
+        "breadcrumb":{"@id":"https://dmphysio.com/services.html#breadcrumb"}
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://dmphysio.com/services.html#breadcrumb",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Начало","item":"https://dmphysio.com/"},
+          {"@type":"ListItem","position":2,"name":"Процедури и цени","item":"https://dmphysio.com/services.html"}
+        ]
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://dmphysio.com/#website",
+        "url":"https://dmphysio.com/",
+        "name":"DM Physio (ДМ ФИЗИО)",
+        "inLanguage":"bg"
+      },
+      {
+        "@type":"LocalBusiness",
+        "@id":"https://dmphysio.com/#business",
+        "name":"DM Physio (ДМ ФИЗИО)",
+        "url":"https://dmphysio.com/",
+        "telephone":"+359883688414",
+        "image":"https://dmphysio.com/logo.png",
+        "priceRange":"$$",
+        "address":{
+          "@type":"PostalAddress",
+          "streetAddress":"ул. „Проф. Христо Данов“ 19",
+          "addressLocality":"София",
+          "postalCode":"1000",
+          "addressCountry":"BG"
+        },
+        "openingHoursSpecification":[
+          {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},
+          {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"16:00"}
+        ],
+        "sameAs":[
+          "https://www.facebook.com/dmphysio03",
+          "https://www.instagram.com/dm.physio/",
+          "https://www.youtube.com/@dmphysio3352",
+          "https://www.tiktok.com/@dmphysio"
+        ]
+      },
+      {
+        "@type":"ItemList",
+        "@id":"https://dmphysio.com/services.html#list",
+        "name":"Процедури",
+        "itemListElement":[
+          {
+            "@type":"Service",
+            "name":"Кинезитерапевтична процедура",
+            "url":"https://dmphysio.com/procedures/details-kinesitherapy.html",
+            "areaServed":"София, България",
+            "offers":{"@type":"Offer","price":"80","priceCurrency":"BGN","description":"60 мин"}
+          },
+          {
+            "@type":"Service",
+            "name":"Функционална оценка",
+            "url":"https://dmphysio.com/procedures/functional-assessment.html",
+            "areaServed":"София, България",
+            "offers":{"@type":"Offer","price":"0","priceCurrency":"BGN","description":"10 мин – безплатна консултация"}
+          },
+          {
+            "@type":"Service",
+            "name":"Специализирани упражнения",
+            "url":"https://dmphysio.com/procedures/specialized-exercises.html",
+            "areaServed":"София, България",
+            "offers":{"@type":"Offer","price":"50","priceCurrency":"BGN","description":"30 мин"}
+          },
+          {
+            "@type":"Service",
+            "name":"Лечебен масаж",
+            "url":"https://dmphysio.com/procedures/lecheben-masaj.html",
+            "offers":{"@type":"Offer","price":"80","priceCurrency":"BGN","description":"60 мин"}
+          },
+          {
+            "@type":"Service",
+            "name":"Дълбокотъканен масаж",
+            "url":"https://dmphysio.com/procedures/masaj.deeptisue.html",
+            "offers":{"@type":"Offer","price":"80","priceCurrency":"BGN","description":"60 мин"}
+          },
+          {
+            "@type":"Service",
+            "name":"Антицелулитен масаж",
+            "url":"https://dmphysio.com/procedures/masaj-celulit.html",
+            "offers":{"@type":"Offer","price":"80","priceCurrency":"BGN","description":"60 мин"}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -85,163 +224,163 @@
   </section>
 
   <!-- КИНЕЗИТЕРАПИЯ -->
-<section id="kinesitherapy-category" class="section">
-  <div class="container">
-    <header class="section__heading">
-      <h2 class="section-title">Кинезитерапевтични процедури</h2>
-    </header>
+  <section id="kinesitherapy-category" class="section">
+    <div class="container">
+      <header class="section__heading">
+        <h2 class="section-title">Кинезитерапевтични процедури</h2>
+      </header>
 
-    <div class="cards">
-      <!-- Card 1 -->
-      <article class="card" data-price="80 лв" data-duration="60 мин">
-        <a href="/procedures/details-kinesitherapy.html" class="card__media-link">
-          <div class="card__media">
-            <img class="img img--static" src="/pngs/procedures/KT.png" alt="Кинезитерапевтична процедура" loading="lazy">
-            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/KT.png" aria-hidden="true" class="img img--hover">
-              <source src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
-            </video>
+      <div class="cards">
+        <!-- Card 1 -->
+        <article class="card" data-price="80 лв" data-duration="60 мин">
+          <a href="/procedures/details-kinesitherapy.html" class="card__media-link">
+            <div class="card__media">
+              <img class="img img--static" src="/pngs/procedures/KT.png" alt="Кинезитерапевтична процедура" loading="eager" decoding="async" fetchpriority="high">
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/KT.png" aria-hidden="true" class="img img--hover">
+                <source src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
+              </video>
+            </div>
+          </a>
+
+          <div class="card__body">
+            <h3 class="card__title">Кинезитерапевтична процедура</h3>
+            <p class="card__text">
+              30 мануална терапия + 30 активиране и стабилизация на отслабени мускули.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--ghost" href="/procedures/details-kinesitherapy.html">Научи повече</a>
+              <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Кинезитерапевтична процедура">Запази час</a>
+            </div>
           </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card" data-price="Безплатна консултация" data-duration="10 мин">
+          <a href="/procedures/functional-assessment.html" class="card__media-link">
+            <div class="card__media">
+              <img class="img img--static" src="/pngs/procedures/gif/function3-Thumbnail.jpg" alt="Функционална оценка" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/function.jpg" aria-hidden="true" class="img img--hover">
+                <source src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
+              </video>
+            </div>
+          </a>
+          <div class="card__body">
+            <h3 class="card__title">Функционална оценка</h3>
+            <p class="card__text">
+              Прецизен анализ на стойка, походка и модели на движение за точна терапия.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--ghost" href="/procedures/functional-assessment.html">Научи повече</a>
+              <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Функционална оценка">Запази час</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card" data-price="50 лв" data-duration="30 мин">
+          <a href="/procedures/specialized-exercises.html" class="card__media-link">
+            <div class="card__media">
+              <img class="img img--static" src="/pngs/procedures/exercises.png" alt="Специализирани упражнения" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/exercises.png" aria-hidden="true" class="img img--hover">
+                <source src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
+              </video>
+            </div>
+          </a>
+          <div class="card__body">
+            <h3 class="card__title">Специализирани упражнения</h3>
+            <p class="card__text">
+              Персонална програма, техника и прогресия за трайни резултати.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--ghost" href="/procedures/specialized-exercises.html">Научи повече</a>
+              <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Специализирани упражнения">Запази час</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-cta">
+        <a href="/kinesitherapy.html" class="btn btn--outline">
+          Виж всички кинезитерапевтични процедури
         </a>
-
-        <div class="card__body">
-          <h3 class="card__title">Кинезитерапевтична процедура</h3>
-          <p class="card__text">
-            30 мануална терапия + 30 активиране и стабилизация на отслабени мускули.
-          </p>
-          <div class="card__actions">
-            <a class="btn btn--ghost" href="/procedures/details-kinesitherapy.html">Научи повече</a>
-            <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Кинезитерапевтична процедура">Запази час</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 2 -->
-      <article class="card" data-price="Безплатна консултация" data-duration="10 мин">
-        <a href="/procedures/functional-assessment.html" class="card__media-link">
-          <div class="card__media">
-            <img class="img img--static" src="/pngs/procedures/gif/function3-Thumbnail.jpg" alt="Функционална оценка" loading="lazy">
-            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/function.jpg" aria-hidden="true" class="img img--hover">
-              <source src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
-            </video>
-          </div>
-        </a>
-        <div class="card__body">
-          <h3 class="card__title">Функционална оценка</h3>
-          <p class="card__text">
-            Прецизен анализ на стойка, походка и модели на движение за точна терапия.
-          </p>
-          <div class="card__actions">
-            <a class="btn btn--ghost" href="/procedures/functional-assessment.html">Научи повече</a>
-            <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Функционална оценка">Запази час</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 3 -->
-      <article class="card" data-price="50 лв" data-duration="30 мин">
-        <a href="/procedures/specialized-exercises.html" class="card__media-link">
-          <div class="card__media">
-            <img class="img img--static" src="/pngs/procedures/exercises.png" alt="Специализирани упражнения" loading="lazy">
-            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/exercises.png" aria-hidden="true" class="img img--hover">
-              <source src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
-            </video>
-          </div>
-        </a>
-        <div class="card__body">
-          <h3 class="card__title">Специализирани упражнения</h3>
-          <p class="card__text">
-            Персонална програма, техника и прогресия за трайни резултати.
-          </p>
-          <div class="card__actions">
-            <a class="btn btn--ghost" href="/procedures/specialized-exercises.html">Научи повече</a>
-            <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Специализирани упражнения">Запази час</a>
-          </div>
-        </div>
-      </article>
+      </div>
     </div>
+  </section>
 
-    <div class="section-cta">
-      <a href="/kinesitherapy.html" class="btn btn--outline">
-        Виж всички кинезитерапевтични процедури
-      </a>
+  <!-- МАСАЖИ -->
+  <section id="massages-category" class="section section--alt">
+    <div class="container">
+      <div class="section__heading">
+        <h2 class="section-title">Масажи</h2>
+      </div>
+
+      <div class="cards">
+        <!-- Карта: Лечебен масаж -->
+        <article class="card" data-price="80 лв" data-duration="60 мин">
+          <a href="/procedures/lecheben-masaj.html" class="card__media-link" aria-label="Лечебен масаж — виж детайли">
+            <div class="card__media">
+              <img class="img img--static" src="/pngs/massages/lecheben.png" alt="Лечебен масаж" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/lecheben.png" aria-hidden="true" class="img img--hover">
+                <source src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
+              </video>
+            </div>
+          </a>
+          <div class="card__body">
+            <h3 class="card__title">Лечебен масаж</h3>
+            <p class="card__text">Точни техники за облекчаване на болка и възстановяване на тъкани.</p>
+            <div class="card__actions">
+              <a class="btn btn--ghost" href="/procedures/lecheben-masaj.html">Научи повече</a>
+              <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Лечебен масаж">Запази час</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Карта: Дълбокотъканен масаж -->
+        <article class="card" data-price="80 лв" data-duration="60 мин">
+          <a href="/procedures/masaj.deeptisue.html" class="card__media-link" aria-label="Дълбокотъканен масаж — виж детайли">
+            <div class="card__media">
+              <img class="img img--static" src="/pngs/massages/deeptissue.png" alt="Дълбокотъканен масаж" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/deeptissue.png" aria-hidden="true" class="img img--hover">
+                <source src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
+              </video>
+            </div>
+          </a>
+          <div class="card__body">
+            <h3 class="card__title">Дълбокотъканен масаж</h3>
+            <p class="card__text">Интензивна работа в дълбочина за гъвкавост и по-малко напрежение.</p>
+            <div class="card__actions">
+              <a class="btn btn--ghost" href="/procedures/masaj.deeptisue.html">Научи повече</a>
+              <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Дълбокотъканен масаж">Запази час</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Карта: Антицелулитен масаж -->
+        <article class="card" data-price="80 лв" data-duration="60 мин">
+          <a href="/procedures/masaj-celulit.html" class="card__media-link" aria-label="Антицелулитен масаж — виж детайли">
+            <div class="card__media">
+              <img class="img img--static" src="/pngs/massages/celulit.PNG" alt="Антицелулитен масаж" loading="lazy" decoding="async">
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/celulit.PNG" aria-hidden="true" class="img img--hover">
+                <source src="/pngs/massages/gif/celulit.mp4" type="video/mp4">
+              </video>
+            </div>
+          </a>
+          <div class="card__body">
+            <h3 class="card__title">Антицелулитен масаж</h3>
+            <p class="card__text">Стимулира лимфния поток, изглажда и тонизира кожата.</p>
+            <div class="card__actions">
+              <a class="btn btn--ghost" href="/procedures/masaj-celulit.html">Научи повече</a>
+              <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Антицелулитен масаж">Запази час</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-cta">
+        <a href="/massages.html" class="btn btn--outline">Виж всички масажи</a>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- МАСАЖИ -->
-<section id="massages-category" class="section section--alt">
-  <div class="container">
-    <div class="section__heading">
-      <h2 class="section-title">Масажи</h2>
-    </div>
-
-    <div class="cards">
-      <!-- Карта: Лечебен масаж -->
-      <article class="card" data-price="80 лв" data-duration="60 мин">
-        <a href="/procedures/lecheben-masaj.html" class="card__media-link" aria-label="Лечебен масаж — виж детайли">
-          <div class="card__media">
-            <img class="img img--static" src="/pngs/massages/lecheben.png" alt="Лечебен масаж" loading="lazy">
-            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/lecheben.png" aria-hidden="true" class="img img--hover">
-              <source src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
-            </video>
-          </div>
-        </a>
-        <div class="card__body">
-          <h3 class="card__title">Лечебен масаж</h3>
-          <p class="card__text">Точни техники за облекчаване на болка и възстановяване на тъкани.</p>
-          <div class="card__actions">
-            <a class="btn btn--ghost" href="/procedures/lecheben-masaj.html">Научи повече</a>
-            <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Лечебен масаж">Запази час</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Карта: Дълбокотъканен масаж -->
-      <article class="card" data-price="80 лв" data-duration="60 мин">
-        <a href="/procedures/masaj.deeptisue.html" class="card__media-link" aria-label="Дълбокотъканен масаж — виж детайли">
-          <div class="card__media">
-            <img class="img img--static" src="/pngs/massages/deeptissue.png" alt="Дълбокотъканен масаж" loading="lazy">
-            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/deeptissue.png" aria-hidden="true" class="img img--hover">
-              <source src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
-            </video>
-          </div>
-        </a>
-        <div class="card__body">
-          <h3 class="card__title">Дълбокотъканен масаж</h3>
-          <p class="card__text">Интензивна работа в дълбочина за гъвкавост и по-малко напрежение.</p>
-          <div class="card__actions">
-            <a class="btn btn--ghost" href="/procedures/masaj.deeptisue.html">Научи повече</a>
-            <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Дълбокотъканен масаж">Запази час</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Карта: Антицелулитен масаж -->
-      <article class="card" data-price="80 лв" data-duration="60 мин">
-        <a href="/procedures/masaj-celulit.html" class="card__media-link" aria-label="Антицелулитен масаж — виж детайли">
-          <div class="card__media">
-            <img class="img img--static" src="/pngs/massages/celulit.PNG" alt="Антицелулитен масаж" loading="lazy">
-            <video autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/celulit.PNG" aria-hidden="true" class="img img--hover">
-              <source src="/pngs/massages/gif/celulit.mp4" type="video/mp4">
-            </video>
-          </div>
-        </a>
-        <div class="card__body">
-          <h3 class="card__title">Антицелулитен масаж</h3>
-          <p class="card__text">Стимулира лимфния поток, изглажда и тонизира кожата.</p>
-          <div class="card__actions">
-            <a class="btn btn--ghost" href="/procedures/masaj-celulit.html">Научи повече</a>
-            <a class="btn btn--primary" href="https://book.dmphysi0.com/book" aria-label="Запази час за Антицелулитен масаж">Запази час</a>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <div class="section-cta">
-      <a href="/massages.html" class="btn btn--outline">Виж всички масажи</a>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- FREE ADVICE (REVEAL) -->
   <section class="advice-reveal-block" id="free-advice">
@@ -254,7 +393,6 @@
       </div>
 
       <div class="advice-window__body">
-        <!-- Банер за успех -->
         <div class="advice-success" id="adviceSuccess" aria-live="polite" hidden>
           <strong>Благодарим!</strong> Получихме заявката ви. Ще се свържем с вас съвсем скоро.
         </div>
@@ -264,10 +402,8 @@
           <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
         </div>
 
-        <!-- Скрит iframe (fallback) -->
         <iframe name="hidden_gform" id="hidden_gform" style="display:none;"></iframe>
 
-        <!-- Разгъващ се панел -->
         <details class="advice-reveal" id="adviceReveal">
           <summary class="advice-summary-btn">
             <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
@@ -310,8 +446,6 @@
                   <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
                   <button type="submit" class="btn-submit">Изпрати</button>
                 </div>
-
-                
               </form>
             </div>
           </div>
@@ -321,7 +455,7 @@
   </section>
 </main>
 
- <footer class="footer">
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
@@ -426,7 +560,7 @@
 })();
 </script>
 
-<script src="/js/topbar.js"></script>
+<script src="/js/topbar.js" defer></script>
 <script src="/js/media-autoplay-cards.js" defer></script>
 
 <!-- Маркиране като video-ready при loadeddata -->
@@ -440,7 +574,7 @@
       if (!vid.getAttribute('poster') && img) {
         vid.setAttribute('poster', img.currentSrc || img.src);
       }
-      vid.preload = vid.preload || 'metadata';
+      vid.preload = 'metadata';
       vid.muted = true; vid.defaultMuted = true;
       vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
 

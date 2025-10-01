@@ -2,12 +2,37 @@
 <html lang="bg">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ДМ ФИЗИО – Кинезитерапия и Масаж</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Local styles -->
+  <title>Кинезитерапия и Масаж в София – DM Physio | ДМ ФИЗИО</title>
+  <meta name="description" content="Кинезитерапия и масаж в София. Лечение на болка в кръста, врата, рамо и изтръпване. Функционална оценка, индивидуален план и упражнения. Запази час в DM Physio." />
+  <link rel="canonical" href="https://dmphysi0.com/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0E7C86" />
+  <meta name="language" content="Bulgarian" />
+  <meta name="author" content="DM Physio" />
+  <link rel="icon" href="/logo.png" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Кинезитерапия и Масаж в София – DM Physio" />
+  <meta property="og:description" content="Не лекуваме симптомите — коригираме причината. Оценка на движение, индивидуален план и професионална грижа." />
+  <meta property="og:url" content="https://dmphysi0.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="bg_BG" />
+  <meta property="og:site_name" content="DM Physio" />
+  <meta property="og:image" content="https://dmphysi0.com/og/hero_1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Кинезитерапия и Масаж в София – DM Physio" />
+  <meta name="twitter:description" content="Оценка на движение, индивидуален план и лечение на болка, изтръпване и мускулен дисбаланс." />
+  <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.jpg" />
+
+  <!-- Local / External CSS -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="/css/top-bar.css">
+  <link rel="stylesheet" href="/css/top-bar.css" />
 
   <!-- Preconnect to externals -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -18,16 +43,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </noscript>
 
-  <!-- Preload likely LCP image -->
-  <link rel="preload" as="image" href="/pngs/главна2.png" fetchpriority="high">
+  <!-- Preload LCP image (пътят съвпада с този в <img>) -->
+  <link rel="preload" as="image" href="/pngs/главна2.webp" fetchpriority="high">
 
+  <!-- In-page critical tweaks -->
   <style>
-    /* позволи чупене на много дълги думи в заглавия/текст */
+    /* чупене на дълги думи */
     .hero-pro__title, .pci-title, .reviews-title, h1, h2, h3, p {
       white-space: normal !important;
-      overflow-wrap: anywhere;   /* modern */
-      word-break: break-word;    /* webkit/legacy */
-      hyphens: auto;             /* with lang="bg" adds hyphenation */
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
     }
     /* предотвратява разтягане от grid елементи */
     .hero-pro__wrap > *, .two-col__wrap > * { min-width: 0; }
@@ -35,26 +61,120 @@
     html, body { overflow-x: hidden; }
     /* изображения: по-добро изобразяване */
     img { height: auto; }
+    /* стабилен фокус за клавиатура */
+    a:focus, button:focus { outline: 3px solid #18A558; outline-offset: 2px; }
+    /* skip link */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
+    /* предотвратяване на CLS в картите с видео */
+    .image-container, .pain-button-media { aspect-ratio: 16/9; overflow: hidden; }
+    /* компенсирай sticky header при anchors */
+    #work { scroll-margin-top: 80px; }
   </style>
+
+  <!-- Hotjar / Contentsquare -->
   <script>
     (function (c, s, q, u, a, r, e) {
-        c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
-        c._hjSettings = { hjid: a };
-        r = s.getElementsByTagName('head')[0];
-        e = s.createElement('script');
-        e.async = true;
-        e.src = q + c._hjSettings.hjid + u;
-        r.appendChild(e);
+      c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
+      c._hjSettings = { hjid: a };
+      r = s.getElementsByTagName('head')[0];
+      e = s.createElement('script');
+      e.async = true;
+      e.src = q + c._hjSettings.hjid + u;
+      r.appendChild(e);
     })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6534654);
-</script>
+  </script>
+
+  <!-- JSON-LD: LocalBusiness (Physiotherapy) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Physiotherapy",
+    "@id": "https://dmphysi0.com/#physio",
+    "url": "https://dmphysi0.com/",
+    "name": "DM Physio – Кинезитерапия и Масаж",
+    "description": "Кинезитерапия и масаж в София. Функционална оценка, индивидуален план и лечение на болка, изтръпване и мускулен дисбаланс.",
+    "image": ["https://dmphysi0.com/og/hero_1200x630.jpg"],
+    "logo": "https://dmphysi0.com/logo.png",
+    "telephone": "+359883688414",
+    "priceRange": "BGN",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. „Проф. Христо Данов“ 19",
+      "addressLocality": "София",
+      "postalCode": "1000",
+      "addressCountry": "BG"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 42.656166, "longitude": 23.344392 },
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},
+      {"@type": "OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"16:00"}
+    ],
+    "sameAs": [
+      "https://www.facebook.com/dmphysio03",
+      "https://www.instagram.com/dm.physio/",
+      "https://www.youtube.com/@dmphysio3352",
+      "https://www.tiktok.com/@dmphysio"
+    ],
+    "hasMap": "https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+359883688414",
+      "contactType": "customer service",
+      "availableLanguage": ["bg","en"]
+    },
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "target": { "@type": "EntryPoint", "urlTemplate": "https://book.dmphysi0.com/book", "inLanguage": "bg" },
+      "name": "Запази час"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ (помага за rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Какво представлява функционалната оценка при DM Physio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Това е подробен анализ на стойката, походката и моделите на движение. Търсим източника на болката, а не само мястото, което боли, за да изготвим индивидуален план."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "За кои състояния помагате най-често?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Болка в кръста и врата, дискова херния, изтръпване на ръка/крак, раменна болка, пириформис синдром, болка в коляно и тазобедрена става."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Нужна ли е подготовка за първо посещение?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Не е нужна специална подготовка. Препоръчваме удобни дрехи и, ако имате, носете стари изследвания/образна диагностика."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
+
 <body>
+<a class="skip-link" href="#home">Към съдържанието</a>
+
 <!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" fetchpriority="high" />
+      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" fetchpriority="high" width="64" height="64" />
     </a>
 
     <!-- Хамбургер -->
@@ -76,28 +196,22 @@
         </li>
 
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        
-
-        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" rel="noopener" target="_blank">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-
-
-
-    <main>
-        <section class="hero-pro" id="home" aria-label="Начало">
+<main>
+  <!-- HERO -->
+  <section class="hero-pro" id="home" aria-label="Начало">
     <div class="container hero-pro__wrap">
-      
       <!-- Ляво: текст -->
       <div class="hero-pro__content">
         <span class="hero-pro__eyebrow">Професионална Кинезитерапия</span>
         <h1 class="hero-pro__title">
-          <span class="brand-blue">DM</span> <span class="brand-green">Physio</span><br>
-          
+          <span class="brand-blue">DM</span> <span class="brand-green">Physio</span>
         </h1>
         <p class="hero-pro__subtitle">
           Не лекуваме симптомите — коригираме истинската причина.<br>
@@ -105,7 +219,7 @@
         </p>
         <div class="hero-pro__cta">
           <a href="#work" class="btn btn-primary">Разберете как работим</a>
-          <a href="https://book.dmphysi0.com/book" class="btn btn-outline">Свободни часове</a>
+          <a href="https://book.dmphysi0.com/book" class="btn btn-outline" rel="noopener" target="_blank">Свободни часове</a>
         </div>
 
         <div class="hero-pro__stats">
@@ -124,542 +238,506 @@
         </div>
       </div>
 
-       <!-- Дясна колона: снимка + бейдж -->
-    <figure class="why__media">
-        
-      <img src="/pngs/главна2.webp" alt="Физиотерапевтичен кабинет" loading="eager" decoding="async" fetchpriority="high">
-      <!-- малък бейдж долу вдясно -->
-      <figcaption class="why-badge">
-        <div class="why-badge__brand"><span class="brand-blue">DM</span> <span class="brand-green">Physio</span></div>
-        <div class="why-badge__sub">Професионална грижа</div>
-      </figcaption>
-    </figure>
-
+      <!-- Дясно: снимка + бейдж -->
+      <figure class="why__media">
+        <img src="/pngs/главна2.webp" alt="Физиотерапевтичен кабинет DM Physio в София" loading="eager" decoding="async" fetchpriority="high" width="1600" height="1067">
+        <figcaption class="why-badge">
+          <div class="why-badge__brand"><span class="brand-blue">DM</span> <span class="brand-green">Physio</span></div>
+          <div class="why-badge__sub">Професионална грижа</div>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
-    <section class="two-col">
-  <div class="container two-col__wrap">
+  <!-- Две колони -->
+  <section class="two-col">
+    <div class="container two-col__wrap">
+      <!-- Лява колона -->
+      <div class="two-col__left">
+        <!-- Защо сте тук -->
+        <section class="why" aria-label="Защо сте тук?">
+          <h2 class="why__title">Защо сте тук?</h2>
+          <p>
+            Имате <span class="accent">болка</span>, <span class="accent">изтръпване</span>
+            или усещате, че тялото ви е в <span class="accent">мускулен дисбаланс</span>?
+          </p>
+          <p>
+            Пробвали сте болкоуспокояващи, противовъзпалителни, кортикостероиди, мускулни релаксанти, масажисти, кинезитерапевти,
+            но <span class="accent-red">болката се връща всеки път</span>?
+          </p>
+          <p>
+            Това не е случайно. Повечето специалисти се фокусират върху облекчаването на симптомите,
+            вместо да потърсят истинския източник на проблема.
+          </p>
+        </section>
 
-    <!-- Лява колона -->
-    <div class="two-col__left">
+        <!-- Как работим -->
+        <section id="work" class="dm-flow" aria-label="DM Physio – как работим">
+          <h2 class="dm-flow__title">
+            Кинезитерапия в София: как работим в <span class="brand-blue">DM</span> <span class="brand-green">Physio</span>
+          </h2>
+          <p class="dm-flow__intro">
+            Нашият подход е различен. Вместо да се ограничаваме до временно облекчаване на болката,
+            ние търсим първоизточника на проблема. Започваме с внимателен анализ на вашето тяло и
+            начина, по който се движи, за да открием защо болката изобщо се е появила.
+          </p>
 
-      <!-- Защо сте тук -->
-      <section class="why" aria-label="Защо сте тук?">
-        <h2 class="why__title">Защо сте тук?</h2>
-        <p>
-          Имате <span class="accent">болка</span>, <span class="accent">изтръпване</span>
-          или усещате, че тялото ви е в <span class="accent">мускулен дисбаланс</span>?
-        </p>
-        <p>
-          Пробвали сте болкоуспокояващи, противовъзпалителни, кортикостероиди, мускулни релаксанти, масажисти, кинезитерапевти,
-          но <span class="accent-red">болката се връща всеки път</span>?
-        </p>
-        <p>
-          Това не е случайно. Повечето специалисти се фокусират върху облекчаването на симптомите,
-          вместо да потърсят истинския източник на проблема.
-        </p>
-      </section>
+          <div class="dm-flow__points">
+            <div class="dm-flow__point">
+              <h3>Активиране на отслабените мускули</h3>
+              <p>
+                Болката често идва не от това, което работи прекалено, а от това, което <strong>не работи достатъчно</strong>.
+                Затова първо определяме кои мускули са отслабени и „изключени“ от движението, и ги връщаме в действие.
+              </p>
+            </div>
 
-      <!-- Как работим -->
-      <section id="work" class="dm-flow" aria-label="DM Physio – как работим">
-        <h2 class="dm-flow__title">
-          Как работим в <span class="brand-blue">DM</span> <span class="brand-green">Physio</span>
-        </h2>
-        <p class="dm-flow__intro">
-          Нашият подход е различен. Вместо да се ограничаваме до временно облекчаване на болката,
-          ние търсим първоизточника на проблема. Започваме с внимателен анализ на вашето тяло и
-          начина, по който се движи, за да открием защо болката изобщо се е появила.
-        </p>
+            <div class="dm-flow__point">
+              <h3>Отпускане на скъсените мускули</h3>
+              <p>
+                Когато дадена група мускули е постоянно напрегната и скъсена, тя дърпа ставите в грешна позиция и създава претоварване.
+                Ние откриваме кои са тези мускули и прилагаме техники за тяхното отпускане и възстановяване на баланса.
+              </p>
+            </div>
 
-        <div class="dm-flow__points">
-          <div class="dm-flow__point">
-            <h3>Активиране на отслабените мускули</h3>
-            <p>
-              Болката често идва не от това, което работи прекалено, а от това, което <strong>не работи достатъчно</strong>.
-              Затова първо определяме кои мускули са отслабени и „изключени“ от движението, и ги връщаме в действие.
-            </p>
+            <div class="dm-flow__point">
+              <h3>Осъзнаване на механизма</h3>
+              <p>
+                Истинското решение идва, когато разберете <strong>защо</strong> болката се появява отново и отново.
+                Показваме ви кои ваши ежедневни навици и позиции поддържат проблема, за да ги коригирате и да не
+                позволите на болката да се върне.
+              </p>
+            </div>
           </div>
 
-          <div class="dm-flow__point">
-            <h3>Отпускане на скъсените мускули</h3>
-            <p>
-              Когато дадена група мускули е постоянно напрегната и скъсена, тя дърпа ставите в грешна позиция и създава претоварване.
-              Ние откриваме кои са тези мускули и прилагаме техники за тяхното отпускане и възстановяване на баланса.
-            </p>
+          <p class="dm-flow__mission">
+            В <span class="brand-blue">DM</span> <span class="brand-green">Physio</span> не лекуваме симптомите —
+            <strong>коригираме механизма, който причинява самия проблем.</strong>
+          </p>
+
+          <div class="cta-box">
+            <p class="cta-text">Направи първата крачка към живот без болка</p>
+            <a href="https://book.dmphysi0.com/book" class="btn-book" rel="noopener" target="_blank">Запази час</a>
           </div>
 
-          <div class="dm-flow__point">
-            <h3>Осъзнаване на механизма</h3>
-            <p>
-              Истинското решение идва, когато разберете <strong>защо</strong> болката се появява отново и отново.
-              Показваме ви кои ваши ежедневни навици и позиции поддържат проблема, за да ги коригирате и да не
-              позволите на болката да се върне.
-            </p>
-          </div>
-        </div>
+          <!-- Как протича възстановяването -->
+          <section class="recovery-box">
+            <div class="recovery__inner">
+              <h2 class="recovery__title">Как протича възстановяването</h2>
 
-        
+              <p class="recovery__intro">
+                Възстановяваме баланса, за да изчезне болката. Всеки ден тялото ви е подложено на натоварвания – дълго седене,
+                неправилна стойка, еднотипни движения или стрес. Постепенно това води до мускулни дисбаланси,
+                загуба на подвижност и хронично напрежение.
+              </p>
 
-        <p class="dm-flow__mission">
-          В <span class="brand-blue">DM</span> <span class="brand-green">Physio</span> не лекуваме симптомите — 
-          <strong>коригираме механизма които причинява самия проблем.</strong>
-        </p>
-        <div class="cta-box">
-  <p class="cta-text">
-    Направи първата крачка към живот без болка 
-  </p>
-  <a href="https://book.dmphysi0.com/book" class="btn-book">Запази час</a>
-
-
-</div>
-
-        <section class="recovery-box">
-  <div class="recovery__inner">
-    <h2 class="recovery__title">Как протича възстановяването</h2>
-
-    <p class="recovery__intro">
-      Възстановяваме баланса, за да изчезне болката.  
-      Всеки ден тялото ви е подложено на натоварвания – дълго седене, неправилна стойка,
-      еднотипни движения или стрес. Постепенно това води до мускулни дисбаланси,
-      загуба на подвижност и хронично напрежение. Именно затова болката не изчезва сама,
-      а се превръща в постоянен спътник в ежедневието ви.
-    </p>
-
-    <div class="recovery__steps">
-      <div class="recovery__step">
-        <span class="icon">🩺</span>
-        <div>
-          <h3>Функционална оценка</h3>
-          <p>Изследваме цялото тяло, защото проблемът в една зона често произлиза от друга.  
-          Анализираме стойката, движенията и навиците ви, за да постигнем трайно възстановяване.</p>
-        </div>
-      </div>
-
-      <div class="recovery__step">
-        <span class="icon">🧩</span>
-        <div>
-          <h3>Прецизна диагностика</h3>
-          <p>Правим функционални тестове и обясняваме състоянието ви на разбираем език.  
-          Така осъзнавате кои навици са причина за болката и как да ги промените.</p>
-        </div>
-      </div>
-
-      <div class="recovery__step">
-        <span class="icon">📋</span>
-        <div>
-          <h3>Индивидуален план</h3>
-          <p>Изготвяме персонален план с най-подходящите техники и упражнения.  
-          Целта е да възстановим правилните модели на движение и почивка.</p>
-        </div>
-      </div>
-
-      <div class="recovery__step">
-        <span class="icon">🤝</span>
-        <div>
-          <h3>Постоянна подкрепа</h3>
-          <p>Осигуряваме непрекъсната връзка и подкрепа, защото доверието към терапевта е ключът към успеха.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      </section>
-
-    </div>
-
-  <!-- Дясна колона -->
-<aside class="two-col__right">
-  <h2 class="conditions__title">Най-често срещани състояния</h2>
-
-  <div class="pain-buttons-vertical">
-
-    <!-- 1 -->
-    <a href="sustiqnia/head- slepoochie.html" class="pain-button">
-      <div class="pain-button-media image-container">
-        <img src="pngs/sustoqniq/headeach2-Thumbnail.jpg" alt="Болка в слепоочието и скалпа" class="static-img" loading="lazy" decoding="async">
-        <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/sustoqniq/headeach2-Thumbnail.jpg">
-          <source src="pngs/sustoqniq/headeach2.mp4" type="video/mp4">
-        </video>
-      </div>
-      <span class="pain-button-text">Болка в слепоочието</span>
-      <p class="pain-button-hook">
-        Главоболието и напрежението в слепоочията често са свързани с мускулен дисбаланс и неправилна стойка… научи повече за всяка една от секциите.
-      </p>
-    </a>
-
-    <!-- 2 -->
-    <a href="sustiqnia/neck-diskova.html" class="pain-button">
-      <div class="pain-button-media image-container">
-        <img src="pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg" alt="Дискова херния на врата" class="static-img" loading="lazy" decoding="async">
-        <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg">
-          <source src="pngs/sustoqniq/muscles/disk herniation- how it happen.mp4" type="video/mp4">
-        </video>
-      </div>
-      <span class="pain-button-text">Дискова херния (врат)</span>
-      <p class="pain-button-hook">
-        Дисковата херния на врата може да предизвика изтръпване и болка в ръцете… научи повече за всяка една от секциите.
-      </p>
-    </a>
-
-    <!-- 3 -->
-    <a href="/sustiqnia/krust/piriformis.html" class="pain-button">
-      <div class="pain-button-media image-container">
-        <img src="/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg" alt="Пириформис синдром" class="static-img" loading="lazy" decoding="async">
-        <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg">
-          <source src="/pngs/sustoqniq/muscles/piriformis.mp4" type="video/mp4">
-        </video>
-      </div>
-      <span class="pain-button-text">Пириформис синдром</span>
-      <p class="pain-button-hook">
-        Пириформис синдромът често причинява болка и изтръпване по седалището и крака… научи повече за всяка една от секциите.
-      </p>
-    </a>
-
-    <!-- 4 -->
-    <a href="pain-lower-back.html" class="pain-button">
-      <div class="pain-button-media image-container">
-        <img src="pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Дискова херния – кръст" class="static-img" loading="lazy" decoding="async">
-        <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/backpain-Thumbnail.jpg">
-          <source src="pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
-        </video>
-      </div>
-      <span class="pain-button-text">Болка в кръста</span>
-      <p class="pain-button-hook">
-        Болката в кръста е често неразбрана и може да се дължи на много фактори и мускулни дисбаланси. Вижте повече..
-      </p>
-    </a>
-
-  </div>
-  
-</aside>
-
-
-
-  </div>
-</section>
-<section class="reviews-section" aria-label="Ревюта от пациенти">
-  <div class="reviews-box">
-    <h2 class="reviews-title">Какво казват за нас нашите пациенти</h2>
-
-    <!-- EmbedSocial widget -->
-    <div class="embedsocial-widget" data-ref="29b5529710bc3292b12cf8c4ac6b7a90">
-      <a href="https://embedsocial.com/google-reviews-widget/" 
-         title="Add Google reviews on a website" 
-         target="_blank" 
-         class="powered-by-es es-slider">
-        <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial">
-        <span>Google reviews widget</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Script за widget-а -->
-<script>
-(function(d, s, id) {
-  var js;
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://embedsocial.com/cdn/aht.js";
-  d.getElementsByTagName("head")[0].appendChild(js);
-}(document, "script", "EmbedSocialWidgetScript"));
-</script>
-
-  
-
-
-      
-       
-
-
-       <section id="pain-conditions-intro" class="hero-subpage" aria-label="Къде е болката?">
-  <div class="container">
-
-    <h2 class="pci-title">Къде е болката?</h2>
-
-    <p class="pci-intro">
-      Можеш да си помогнеш още сега: <strong>избери частта на тялото, която те боли</strong> и разгледай
-      най-честите състояния за тази зона — какви са симптомите, какъв е механизмът зад болката и
-      кои са работещите методи за възстановяване. <span class="pci-accent">Колкото по-рано разбереш причината,
-      толкова по-бързо ще се върнеш към движение без болка.</span>
-    </p>
-
-    
-
-    <div class="pain-buttons-grid">
-
-      <!-- Глава -->
-      <a href="pain-head.html" class="pain-button" aria-label="Глава – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="pngs/pain-conditions/new/headeach1-Thumbnail.jpg" alt="Глава" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/headeach1-Thumbnail.jpg">
-            <source src="pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Глава</span>
-      </a>
-
-      <!-- Врат -->
-      <a href="pain-neck.html" class="pain-button" aria-label="Врат – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="pngs/pain-conditions/new/neckpain1-Thumbnail.jpg" alt="Врат" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/neckpain1-Thumbnail.jpg">
-            <source src="pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Врат</span>
-      </a>
-
-      <!-- Рамо -->
-      <a href="pain-shoulder.html" class="pain-button" aria-label="Рамо – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg" alt="Рамо" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg">
-            <source src="pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Рамо</span>
-      </a>
-
-      <!-- Ръка -->
-      <a href="pain-arm.html" class="pain-button" aria-label="Ръка – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="pngs/pain-conditions/new/armpain-Thumbnail.jpg" alt="Ръка" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/armpain-Thumbnail.jpg">
-            <source src="pngs/pain-conditions/new/armpain.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Ръка</span>
-      </a>
-
-      <!-- Гърди и Корем -->
-      <a href="pain-chest-abdomen.html" class="pain-button" aria-label="Гърди и Корем – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="pngs/pain-conditions/new/chestpain-Thumbnail.jpg" alt="Гърди и Корем" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/chestpain-Thumbnail.jpg">
-            <source src="pngs/pain-conditions/new/chestpain.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Гърди и Корем</span>
-      </a>
-
-      <!-- Гръб -->
-      <a href="pain-back.html" class="pain-button" aria-label="Гръб – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg" alt="Гръб" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg">
-            <source src="pngs/pain-conditions/new/midbackpain1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Гръб</span>
-      </a>
-
-      <!-- Кръст -->
-      <a href="pain-lower-back.html" class="pain-button" aria-label="Кръст – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Кръст" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/backpain-Thumbnail.jpg">
-            <source src="pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Кръст</span>
-      </a>
-
-      <!-- Дупе / Таз -->
-      <a href="pain-buttocks-pelvis.html" class="pain-button" aria-label="Дупе и Таз – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="pngs/pain-conditions/new/hippain1-Thumbnail.jpg" alt="Дупе / Таз" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/hippain1-Thumbnail.jpg">
-            <source src="pngs/pain-conditions/new/hippain1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Дупе / Таз</span>
-      </a>
-
-      <!-- Бедро / Коляно -->
-      <a href="pain-thigh-knee.html" class="pain-button" aria-label="Бедро и Коляно – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="pngs/pain-conditions/new/kneepain1-Thumbnail.jpg" alt="Бедро / Коляно" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/kneepain1-Thumbnail.jpg">
-            <source src="pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Бедро / Коляно</span>
-      </a>
-
-      <!-- Подбедрица / Стъпало -->
-      <a href="pain-lower-leg-ankle.html" class="pain-button" aria-label="Подбедрица и Стъпало – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="pngs/pain-conditions/new/anklepain1-Thumbnail.jpg" alt="Подбедрица / Стъпало" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/anklepain1-Thumbnail.jpg">
-            <source src="pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Подбедрица / Стъпало</span>
-      </a>
-
-      <!-- Невралгии -->
-      <a href="pain-neuralgia-general.html" class="pain-button" aria-label="Невралгии – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="pngs/pain-conditions/new/tingling1-Thumbnail.jpg" alt="Невралгии" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/tingling1-Thumbnail.jpg">
-            <source src="pngs/pain-conditions/new/tingling1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Невралгии</span>
-      </a>
-
-      <!-- Физиология (образователно) -->
-      <a href="physiology.html" class="pain-button physiology-button" aria-label="Физиология – образователна секция">
-        <div class="pain-button-media image-container">
-          <img src="pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg" alt="Физиология" class="static-img" loading="lazy" decoding="async">
-          <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg">
-            <source src="pngs/sustoqniq/muscles/Muscles main.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Мускули</span>
-      </a>
-
-    </div>
-
-    
-
-  </div>
-</section>
-
-<!-- FREE ADVICE (REVEAL) -->
-<section class="advice-reveal-block" id="free-advice">
-  <div class="advice-window" role="group" aria-label="Форма за безплатни насоки">
-    <div class="advice-window__titlebar">
-      <div class="win-dots" aria-hidden="true">
-        <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
-      </div>
-      <div class="title">Безплатни насоки</div>
-    </div>
-
-    <div class="advice-window__body">
-      <!-- Банер за успех -->
-      <div class="advice-success" id="adviceSuccess" aria-live="polite" hidden>
-        <strong>Благодарим!</strong> Получихме заявката ви. Ще се свържем с вас съвсем скоро.
-      </div>
-
-      <div class="advice-intro">
-        <h3>Не знаеш коя процедура е за теб?</h3>
-        <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
-      </div>
-
-      <!-- Скрит iframe (фолбек) -->
-      <iframe name="hidden_gform" id="hidden_gform" style="display:none;"></iframe>
-
-      <!-- Разгъващ се панел -->
-      <details class="advice-reveal" id="adviceReveal">
-        <summary class="advice-summary-btn">
-          <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
-          <span class="chev" aria-hidden="true"></span>
-        </summary>
-
-        <div class="advice-panel"> 
-          
-          <div class="form-card">
-            <h4  class="form-card__title">Безплатна консултация</h4>
-
-            <form id="adviceForm"
-                  class="advice-form"
-                  action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
-                  method="POST"
-                  target="hidden_gform">
-              <div class="form-row">
-                <div class="field">
-                  <label for="fName">Име</label>
-                  <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required>
+              <div class="recovery__steps">
+                <div class="recovery__step">
+                  <span class="icon">🩺</span>
+                  <div>
+                    <h3>Функционална оценка</h3>
+                    <p>Изследваме цялото тяло, защото проблемът в една зона често произлиза от друга.
+                    Анализираме стойката, движенията и навиците ви, за да постигнем трайно възстановяване.</p>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="fPhone">Телефон</label>
-                  <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required>
+
+                <div class="recovery__step">
+                  <span class="icon">🧩</span>
+                  <div>
+                    <h3>Прецизна диагностика</h3>
+                    <p>Правим функционални тестове и обясняваме състоянието ви на разбираем език.
+                    Така осъзнавате кои навици са причина за болката и как да ги промените.</p>
+                  </div>
+                </div>
+
+                <div class="recovery__step">
+                  <span class="icon">📋</span>
+                  <div>
+                    <h3>Индивидуален план</h3>
+                    <p>Изготвяме персонален план с най-подходящите техники и упражнения,
+                    за да възстановим правилните модели на движение и почивка.</p>
+                  </div>
+                </div>
+
+                <div class="recovery__step">
+                  <span class="icon">🤝</span>
+                  <div>
+                    <h3>Постоянна подкрепа</h3>
+                    <p>Осигуряваме непрекъсната връзка и подкрепа, защото доверието към терапевта е ключът към успеха.</p>
+                  </div>
                 </div>
               </div>
+            </div>
+          </section>
+        </section>
+      </div>
 
-              <div class="field">
-                <label for="fEmail">Имейл</label>
-                <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required>
-              </div>
+      <!-- Дясна колона -->
+      <aside class="two-col__right">
+        <h2 class="conditions__title">Най-често срещани състояния</h2>
 
-              <div class="field">
-                <label for="fSymptoms">Опишете симптомите си</label>
-                <textarea id="fSymptoms" name="entry.1298076648" rows="4"
-                  placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
-                  required></textarea>
-              </div>
+        <div class="pain-buttons-vertical">
+          <!-- 1 -->
+          <a href="/sustiqnia/head-slepoochie.html" class="pain-button">
+            <div class="pain-button-media image-container">
+              <img src="/pngs/sustoqniq/headeach2-Thumbnail.jpg" alt="Болка в слепоочието и скалпа" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+              <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/sustoqniq/headeach2-Thumbnail.jpg">
+                <source src="/pngs/sustoqniq/headeach2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <span class="pain-button-text">Болка в слепоочието</span>
+            <p class="pain-button-hook">
+              Главоболието и напрежението в слепоочията често са свързани с мускулен дисбаланс и неправилна стойка… научи повече за всяка от секциите.
+            </p>
+          </a>
 
-              <div class="form-actions">
-                <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
-                <button type="submit" class="btn-submit">Изпрати</button>
-              </div>
+          <!-- 2 -->
+          <a href="/sustiqnia/neck-diskova.html" class="pain-button">
+            <div class="pain-button-media image-container">
+              <img src="/pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg" alt="Дискова херния на врата" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg">
+                <source src="/pngs/sustoqniq/muscles/disk herniation- how it happen.mp4" type="video/mp4">
+              </video>
+            </div>
+            <span class="pain-button-text">Дискова херния (врат)</span>
+            <p class="pain-button-hook">
+              Дисковата херния на врата може да предизвика изтръпване и болка в ръцете… научи повече за всяка от секциите.
+            </p>
+          </a>
 
-              
-            </form>
-          </div>
+          <!-- 3 -->
+          <a href="/sustiqnia/krust/piriformis.html" class="pain-button">
+            <div class="pain-button-media image-container">
+              <img src="/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg" alt="Пириформис синдром" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg">
+                <source src="/pngs/sustoqniq/muscles/piriformis.mp4" type="video/mp4">
+              </video>
+            </div>
+            <span class="pain-button-text">Пириформис синдром</span>
+            <p class="pain-button-hook">
+              Пириформис синдромът често причинява болка и изтръпване по седалището и крака… научи повече за всяка от секциите.
+            </p>
+          </a>
+
+          <!-- 4 -->
+          <a href="/pain-lower-back.html" class="pain-button">
+            <div class="pain-button-media image-container">
+              <img src="/pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Болка в кръста" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/pain-conditions/new/backpain-Thumbnail.jpg">
+                <source src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
+              </video>
+            </div>
+            <span class="pain-button-text">Болка в кръста</span>
+            <p class="pain-button-hook">
+              Болката в кръста е често неразбрана и може да се дължи на много фактори и мускулни дисбаланси. Вижте повече…
+            </p>
+          </a>
         </div>
-      </details>
+      </aside>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- Reviews -->
+  <section class="reviews-section" aria-label="Ревюта от пациенти">
+    <div class="reviews-box">
+      <h2 class="reviews-title">Какво казват за нас нашите пациенти</h2>
 
+      <!-- EmbedSocial widget -->
+      <div class="embedsocial-widget" data-ref="29b5529710bc3292b12cf8c4ac6b7a90">
+        <a href="https://embedsocial.com/google-reviews-widget/" 
+           title="Add Google reviews on a website" 
+           target="_blank" rel="noopener" 
+           class="powered-by-es es-slider">
+          <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial" width="120" height="24" loading="lazy" decoding="async">
+          <span>Google reviews widget</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    </main>
-    
-   <footer class="footer">
+  <!-- Script за widget-а -->
+  <script>
+    (function(d, s, id) {
+      var js;
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://embedsocial.com/cdn/aht.js";
+      d.getElementsByTagName("head")[0].appendChild(js);
+    }(document, "script", "EmbedSocialWidgetScript"));
+  </script>
+
+  <!-- Къде е болката -->
+  <section id="pain-conditions-intro" class="hero-subpage" aria-label="Къде е болката?">
+    <div class="container">
+      <h2 class="pci-title">Къде е болката?</h2>
+
+      <p class="pci-intro">
+        Можеш да си помогнеш още сега: <strong>избери частта на тялото, която те боли</strong> и разгледай
+        най-честите състояния за тази зона — какви са симптомите, какъв е механизмът зад болката и
+        кои са работещите методи за възстановяване. <span class="pci-accent">Колкото по-рано разбереш причината,
+        толкова по-бързо ще се върнеш към движение без болка.</span>
+      </p>
+
+      <div class="pain-buttons-grid">
+        <!-- Глава -->
+        <a href="/pain-head.html" class="pain-button" aria-label="Глава – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/headeach1-Thumbnail.jpg" alt="Глава" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/headeach1-Thumbnail.jpg">
+              <source src="/pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Глава</span>
+        </a>
+
+        <!-- Врат -->
+        <a href="/pain-neck.html" class="pain-button" aria-label="Врат – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/neckpain1-Thumbnail.jpg" alt="Врат" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/neckpain1-Thumbnail.jpg">
+              <source src="/pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Врат</span>
+        </a>
+
+        <!-- Рамо -->
+        <a href="/pain-shoulder.html" class="pain-button" aria-label="Рамо – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg" alt="Рамо" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg">
+              <source src="/pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Рамо</span>
+        </a>
+
+        <!-- Ръка -->
+        <a href="/pain-arm.html" class="pain-button" aria-label="Ръка – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/armpain-Thumbnail.jpg" alt="Ръка" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/armpain-Thumbnail.jpg">
+              <source src="/pngs/pain-conditions/new/armpain.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Ръка</span>
+        </a>
+
+        <!-- Гърди и Корем -->
+        <a href="/pain-chest-abdomen.html" class="pain-button" aria-label="Гърди и Корем – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/chestpain-Thumbnail.jpg" alt="Гърди и Корем" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/chestpain-Thumbnail.jpg">
+              <source src="/pngs/pain-conditions/new/chestpain.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Гърди и Корем</span>
+        </a>
+
+        <!-- Гръб -->
+        <a href="/pain-back.html" class="pain-button" aria-label="Гръб – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg" alt="Гръб" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg">
+              <source src="/pngs/pain-conditions/new/midbackpain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Гръб</span>
+        </a>
+
+        <!-- Кръст -->
+        <a href="/pain-lower-back.html" class="pain-button" aria-label="Кръст – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Кръст" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/backpain-Thumbnail.jpg">
+              <source src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Кръст</span>
+        </a>
+
+        <!-- Дупе / Таз -->
+        <a href="/pain-buttocks-pelvis.html" class="pain-button" aria-label="Дупе и Таз – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/hippain1-Thumbnail.jpg" alt="Дупе / Таз" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/hippain1-Thumbnail.jpg">
+              <source src="/pngs/pain-conditions/new/hippain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Дупе / Таз</span>
+        </a>
+
+        <!-- Бедро / Коляно -->
+        <a href="/pain-thigh-knee.html" class="pain-button" aria-label="Бедро и Коляно – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/kneepain1-Thumbnail.jpg" alt="Бедро / Коляно" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/kneepain1-Thumbnail.jpg">
+              <source src="/pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Бедро / Коляно</span>
+        </a>
+
+        <!-- Подбедрица / Стъпало -->
+        <a href="/pain-lower-leg-ankle.html" class="pain-button" aria-label="Подбедрица и Стъпало – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/anklepain1-Thumbnail.jpg" alt="Подбедрица / Стъпало" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/anklepain1-Thumbnail.jpg">
+              <source src="/pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Подбедрица / Стъпало</span>
+        </a>
+
+        <!-- Невралгии -->
+        <a href="/pain-neuralgia-general.html" class="pain-button" aria-label="Невралгии – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/tingling1-Thumbnail.jpg" alt="Невралгии" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/tingling1-Thumbnail.jpg">
+              <source src="/pngs/pain-conditions/new/tingling1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Невралгии</span>
+        </a>
+
+        <!-- Физиология (образователно) -->
+        <a href="/physiology.html" class="pain-button physiology-button" aria-label="Физиология – образователна секция">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg" alt="Мускули – образователна секция" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg">
+              <source src="/pngs/sustoqniq/muscles/Muscles main.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Мускули</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE ADVICE (REVEAL) -->
+  <section class="advice-reveal-block" id="free-advice">
+    <div class="advice-window" role="group" aria-label="Форма за безплатни насоки">
+      <div class="advice-window__titlebar">
+        <div class="win-dots" aria-hidden="true">
+          <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+        </div>
+        <div class="title">Безплатни насоки</div>
+      </div>
+
+      <div class="advice-window__body">
+        <!-- Банер за успех -->
+        <div class="advice-success" id="adviceSuccess" aria-live="polite" hidden>
+          <strong>Благодарим!</strong> Получихме заявката ви. Ще се свържем с вас съвсем скоро.
+        </div>
+
+        <div class="advice-intro">
+          <h3>Не знаеш коя процедура е за теб?</h3>
+          <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
+        </div>
+
+        <!-- Скрит iframe (фолбек) -->
+        <iframe name="hidden_gform" id="hidden_gform" style="display:none;" title="Скрит формуларен приемник"></iframe>
+
+        <!-- Разгъващ се панел -->
+        <details class="advice-reveal" id="adviceReveal">
+          <summary class="advice-summary-btn">
+            <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
+            <span class="chev" aria-hidden="true"></span>
+          </summary>
+
+          <div class="advice-panel">
+            <div class="form-card">
+              <h4 class="form-card__title">Безплатна консултация</h4>
+
+              <form id="adviceForm"
+                    class="advice-form"
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
+                    method="POST" target="hidden_gform" novalidate>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="fName">Име</label>
+                    <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required autocomplete="name">
+                  </div>
+                  <div class="field">
+                    <label for="fPhone">Телефон</label>
+                    <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required autocomplete="tel">
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="fEmail">Имейл</label>
+                  <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required autocomplete="email">
+                </div>
+
+                <div class="field">
+                  <label for="fSymptoms">Опишете симптомите си</label>
+                  <textarea id="fSymptoms" name="entry.1298076648" rows="4"
+                    placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
+                    required></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
+                  <button type="submit" class="btn-submit">Изпрати</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
         <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" 
-                  width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
+            width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
 
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
-          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async">
+          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener">
+            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
           </a>
-          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async">
+          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener">
+            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
           </a>
-          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async">
+          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
           </a>
-          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async">
+          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async">
-          <span>0883688414</span>
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <span><a href="tel:0883688414">088 368 8414</a></span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
             <span>Събота: 09:00 - 16:00</span><br>
-            </span>Неделя: Почивка</span>
+            <span>Неделя: Почивка</span>
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
-            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
+            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener" class="map-link">
               Вижте на карта →
             </a>
           </div>
@@ -673,16 +751,15 @@
   </section>
 </footer>
 
-    
+<!-- JS -->
 <script src="/js/form.js" defer></script>
-   
-
 <script src="/js/topbar.js" defer></script>
 <script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Управление на медиите при hover + видимост (фолбек, ако media-autoplay-cards.js липсва) -->
+<!-- Фолбек: управление на медиите + prefers-reduced-motion -->
 <script>
 (function () {
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
   const safePause = (v) => v && v.pause && v.pause();
 
@@ -691,13 +768,14 @@
     v.muted = true;
     v.setAttribute('playsinline','');
     if (!v.getAttribute('preload')) v.preload = 'metadata';
+    if (reduceMotion) safePause(v);
   });
 
   // Hover поведение
   document.querySelectorAll('.image-container, .pain-button-media').forEach(box => {
     const vid = box.querySelector('video');
     if (!vid) return;
-    const onEnter = () => safePlay(vid);
+    const onEnter = () => { if (!reduceMotion) safePlay(vid); };
     const onLeave = () => { safePause(vid); try { vid.currentTime = 0; } catch(e){} };
     box.addEventListener('mouseenter', onEnter, {passive:true});
     box.addEventListener('mouseleave', onLeave, {passive:true});
@@ -707,7 +785,7 @@
 
   // Авто-плей/пауза според видимост
   const vids = [ ...document.querySelectorAll('.hover-img') ];
-  if ('IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window && !reduceMotion) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(({isIntersecting, target}) => {
         if (isIntersecting) safePlay(target); else safePause(target);

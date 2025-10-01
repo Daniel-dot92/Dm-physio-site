@@ -27,6 +27,23 @@
   <link rel="preload" as="image"
         href="../pngs/sustoqniq/muscles/ocipital pain-Thumbnail.jpg"
         fetchpriority="high">
+
+  <!-- Мини-override: снимката остава докато видеото не е готово (без промяна на размери/стилове) -->
+  <style>
+    .image-container:not(.video-ready) .hover-video {
+      opacity: 0 !important; visibility: hidden !important;
+    }
+    .image-container:not(.video-ready):hover .static-img {
+      opacity: 1 !important; visibility: visible !important;
+    }
+    /* за процедурните карти */
+    .kinesitherapy-button-media:not(.video-ready) .kinesitherapy-video {
+      opacity: 0 !important; visibility: hidden !important;
+    }
+    .kinesitherapy-button-media:not(.video-ready):hover .kinesitherapy-img {
+      opacity: 1 !important; visibility: visible !important;
+    }
+  </style>
 </head>
 <body>
 <!-- ======= Top bar (TB) ======= -->
@@ -547,42 +564,42 @@
 <script src="/js/topbar.js" defer></script>
 <script src="../js/procedurs-slider.js" defer></script>
 
-<!-- Лек контрол за видеата (hover + in-view), без да „дърпа“ кеш излишно -->
+<!-- Само логика: маркираме .video-ready при готовност + подсигуряваме poster/атрибути -->
 <script>
-(function() {
-  const safePlay = (v) => v && v.paused && v.play && v.play().catch(()=>{});
-  const safePause = (v) => v && !v.paused && v.pause && v.pause();
+  document.addEventListener('DOMContentLoaded', function () {
+    function prep(container, selVideo, selImg){
+      document.querySelectorAll(container).forEach(box => {
+        const vid = box.querySelector(selVideo);
+        const img = box.querySelector(selImg);
+        if (!vid) return;
 
-  // Hover swap за двойките .image-container (hero/intro/анатомия карти)
-  document.querySelectorAll('.image-container').forEach(box => {
-    const vid = box.querySelector('video');
-    if (!vid) return;
-    vid.preload = 'metadata';
-    const onEnter = () => { safePlay(vid); };
-    const onLeave = () => { safePause(vid); vid.currentTime = 0; };
-    box.addEventListener('mouseenter', onEnter, {passive:true});
-    box.addEventListener('mouseleave', onLeave, {passive:true});
-    box.addEventListener('touchstart', onEnter, {passive:true});
-    box.addEventListener('touchend', onLeave, {passive:true});
+        // poster от статичното изображение, ако липсва
+        if (!vid.getAttribute('poster') && img) {
+          vid.setAttribute('poster', img.currentSrc || img.src);
+        }
+
+        // безопасни атрибути, без да променяме визуални размери
+        vid.preload = vid.preload || 'metadata';
+        vid.muted = true; vid.defaultMuted = true;
+        vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+
+        const markReady = () => box.classList.add('video-ready');
+        if (vid.readyState >= 2) {
+          markReady();
+        } else {
+          vid.addEventListener('loadeddata', markReady, { once: true });
+          try { vid.load(); } catch(e){}
+        }
+      });
+    }
+
+    // двойките снимка/видео в секциите
+    prep('.image-container', 'video', 'img');
+
+    // процедурни карти
+    prep('.kinesitherapy-button-media', 'video.kinesitherapy-video', 'img.kinesitherapy-img');
   });
-
-  // In-viewport авто-пускане/пауза за процедурни и други видеа
-  const candidates = [
-    ...document.querySelectorAll('.hernia-step-media video'),
-    ...document.querySelectorAll('.kinesitherapy-button .kinesitherapy-video'),
-    ...document.querySelectorAll('.hover-muscle-video')
-  ];
-
-  const io = ('IntersectionObserver' in window)
-    ? new IntersectionObserver((entries) => {
-        entries.forEach(({isIntersecting, target}) => {
-          if (isIntersecting) safePlay(target); else safePause(target);
-        });
-      }, { threshold: 0.35 })
-    : null;
-
-  candidates.forEach(v => { v.preload = 'metadata'; if (io) io.observe(v); });
-})();
 </script>
+
 </body>
 </html>

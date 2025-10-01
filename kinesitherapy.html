@@ -2,9 +2,33 @@
 <html lang="bg">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Кинезитерапия — ДМ ФИЗИО</title>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Кинезитерапия в София – Процедури и Цени | DM Physio (ДМ ФИЗИО)</title>
+  <meta name="description" content="Кинезитерапевтични процедури в София: функционална оценка, мануална терапия, специализирани упражнения, сухо иглоубождане, кинезиотейпинг. Индивидуален план и записване онлайн в DM Physio." />
+  <link rel="canonical" href="https://dmphysi0.com/kinesitherapy.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0E7C86" />
+  <meta name="language" content="Bulgarian" />
+  <meta name="author" content="DM Physio" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Кинезитерапия в София – Процедури и Цени | DM Physio" />
+  <meta property="og:description" content="Функционална оценка, мануална терапия, упражнения, сухо иглоубождане, кинезиотейпинг. Запиши час онлайн." />
+  <meta property="og:url" content="https://dmphysi0.com/kinesitherapy.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="bg_BG" />
+  <meta property="og:site_name" content="DM Physio" />
+  <meta property="og:image" content="https://dmphysi0.com/og/hero_1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Кинезитерапия в София – Процедури и Цени | DM Physio" />
+  <meta name="twitter:description" content="Индивидуален терапевтичен план и записване онлайн. Виж всички кинезитерапевтични процедури." />
+  <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.jpg" />
+
   <!-- Base styles (your files) -->
   <link rel="stylesheet" href="/css/styles-procedures.css" />
   <link rel="stylesheet" href="/css/top-bar.css" />
@@ -19,10 +43,9 @@
   </noscript>
 
   <!-- Preload likely LCP (first card image) -->
-  <link rel="preload" as="image" href="pngs/procedures/KT.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/pngs/procedures/KT.png" fetchpriority="high">
 
   <style>
-    /* Offset for fixed top bar */
     :root{ --topbar-h: 76px; }
     @media (max-width: 768px){ :root{ --topbar-h: 64px; } }
     html { scroll-padding-top: var(--topbar-h); }
@@ -36,15 +59,152 @@
     html, body { overflow-x: hidden; }
     /* Images decode progressively */
     img { height:auto; }
+
+    /* a11y */
+    a:focus, button:focus { outline: 3px solid #18A558; outline-offset: 2px; }
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
+
+    /* Prevent CLS on media cards */
+    .image-container { aspect-ratio: 16/9; overflow:hidden; }
+
+    /* Active menu state helper (optional) */
+    .tb-link.is-active { font-weight: 600; }
   </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Начало", "item": "https://dmphysi0.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Процедури", "item": "https://dmphysi0.com/services.html"},
+      {"@type": "ListItem", "position": 3, "name": "Кинезитерапия", "item": "https://dmphysi0.com/kinesitherapy.html"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: WebPage + ItemList of Services -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://dmphysi0.com/kinesitherapy.html#webpage",
+    "url": "https://dmphysi0.com/kinesitherapy.html",
+    "name": "Кинезитерапия – Процедури и Цени",
+    "description": "Функционална оценка, мануална терапия, специализирани упражнения, сухо иглоубождане и кинезиотейпинг в DM Physio – София.",
+    "isPartOf": {"@type": "WebSite", "name": "DM Physio", "url": "https://dmphysi0.com/"},
+    "primaryImageOfPage": {"@type": "ImageObject", "url": "https://dmphysi0.com/pngs/procedures/KT.png"},
+    "about": "Кинезитерапия в София",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Service",
+            "name": "Кинезитерапевтична процедура",
+            "url": "https://dmphysi0.com/procedures/details-kinesitherapy.html",
+            "description": "30 мин мануална терапия + 30 мин целеви упражнения за активиране и стабилизация.",
+            "offers": {"@type": "Offer", "price": "80", "priceCurrency": "BGN"},
+            "areaServed": "София",
+            "provider": {"@type": "LocalBusiness", "name": "DM Physio"},
+            "hoursAvailable": {"@type": "OpeningHoursSpecification", "opens": "09:00", "closes": "19:00", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"]},
+            "serviceType": "Кинезитерапия",
+            "availableChannel": {"@type": "ServiceChannel", "serviceUrl": "https://book.dmphysi0.com/book"}
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Service",
+            "name": "Функционална оценка",
+            "url": "https://dmphysi0.com/procedures/functional-assessment.html",
+            "description": "Детайлен анализ на стойка, походка и двигателни модели с функционални тестове.",
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BGN"},
+            "areaServed": "София",
+            "provider": {"@type": "LocalBusiness", "name": "DM Physio"},
+            "serviceType": "Оценка"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Service",
+            "name": "Мануална терапия",
+            "url": "https://dmphysi0.com/procedures/manual-therapy.html",
+            "description": "Мекотъканни техники и ставни мобилизации за намаляване на болката и подобряване на обхвата.",
+            "offers": {"@type": "Offer", "price": "80", "priceCurrency": "BGN"},
+            "serviceType": "Мануална терапия"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Service",
+            "name": "Специализирани упражнения",
+            "url": "https://dmphysi0.com/procedures/specialized-exercises.html",
+            "description": "Индивидуална програма с правилна техника, прогресии и регресии.",
+            "offers": {"@type": "Offer", "price": "50", "priceCurrency": "BGN"},
+            "serviceType": "Упражнения"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Service",
+            "name": "Терапия със сухи игли",
+            "url": "https://dmphysi0.com/procedures/dry-needling.html",
+            "description": "Третиране на тригерни точки с тънки игли за бързо отпускане на скъсени мускули.",
+            "offers": {"@type": "Offer", "price": "60", "priceCurrency": "BGN"},
+            "serviceType": "Dry Needling"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "Service",
+            "name": "Масаж с Ергон",
+            "url": "https://dmphysi0.com/procedures/masaj-ergon.html",
+            "description": "IASTM с Ергон инструменти – фасциални адхезии, тригерни зони, намаляване на болка.",
+            "offers": {"@type": "Offer", "price": "80", "priceCurrency": "BGN"},
+            "serviceType": "Ergon IASTM"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "Service",
+            "name": "Кинезиотейпинг",
+            "url": "https://dmphysi0.com/procedures/kinesiotaping.html",
+            "description": "Еластични кинезио ленти за подкрепа на мускули и стави без ограничаване на обхвата.",
+            "offers": {"@type": "Offer", "price": "30", "priceCurrency": "BGN"},
+            "serviceType": "Kinesio Taping"
+          }
+        }
+      ]
+    }
+  }
+  </script>
 </head>
+
 <body>
- <!-- ======= Top bar (TB) ======= -->
+<a class="skip-link" href="#main">Към съдържанието</a>
+
+<!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" fetchpriority="high" />
+      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" fetchpriority="high" width="64" height="64" />
     </a>
 
     <!-- Хамбургер -->
@@ -58,23 +218,29 @@
         <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
 
         <li class="tb-item tb-dropdown">
-          <a class="tb-link tb-drop-toggle" href="/services.html" data-dropdown="toggle">Процедури</a>
+          <a class="tb-link tb-drop-toggle is-active" href="/services.html" data-dropdown="toggle">Процедури</a>
           <div class="tb-drop-menu">
-            <a class="tb-drop-link" href="/kinesitherapy.html">Кинезитерапия</a>
+            <a class="tb-drop-link is-active" href="/kinesitherapy.html" aria-current="page">Кинезитерапия</a>
             <a class="tb-drop-link" href="/massages.html">Масажи</a>
           </div>
         </li>
 
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        
-        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book">Свободни часове</a></li>
-        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" target="_blank" rel="noopener">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-  <main class="page-content">
+<main id="main" class="page-content">
+  <header class="page-hero">
+    <div class="container">
+      <h1>Кинезитерапия в София – Процедури и Цени</h1>
+      <p class="lead">Избери подходяща процедура: от функционална оценка до специализирани упражнения и мануални техники. Запази час онлайн.</p>
+    </div>
+  </header>
+
   <!-- КИНЕЗИТЕРАПЕВТИЧНИ ПРОЦЕДУРИ -->
   <section id="kinesitherapy-procedures" class="procedures-list section-green section">
     <div class="container">
@@ -82,12 +248,12 @@
 
       <div class="cards procedure-cards-container">
         <!-- Card 1: Кинезитерапевтична процедура -->
-        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="procedures/details-kinesitherapy.html">
-          <a href="procedures/details-kinesitherapy.html" class="card__media-link" aria-label="Кинезитерапевтична процедура — виж детайли">
+        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="/procedures/details-kinesitherapy.html">
+          <a href="/procedures/details-kinesitherapy.html" class="card__media-link" aria-label="Кинезитерапевтична процедура — виж детайли">
             <div class="card__media image-container">
-              <img src="pngs/procedures/KT.png" alt="Кинезитерапевтична процедура" loading="eager" decoding="async" fetchpriority="high" class="img img--static static-img" />
-              <video autoplay loop muted playsinline preload="metadata" poster="pngs/procedures/KT.png" aria-hidden="true" class="img img--hover hover-img">
-                <source src="pngs/procedures/gif/KT.mp4" type="video/mp4" />
+              <img src="/pngs/procedures/KT.png" alt="Кинезитерапевтична процедура" loading="eager" decoding="async" fetchpriority="high" class="img img--static static-img" width="640" height="360" />
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/KT.png" aria-hidden="true" class="img img--hover hover-img">
+                <source src="/pngs/procedures/gif/KT.mp4" type="video/mp4" />
               </video>
             </div>
           </a>
@@ -95,22 +261,22 @@
           <div class="card__body card-content">
             <h3 class="card__title">Кинезитерапевтична процедура</h3>
             <p class="card__text">
-              30 мануална терапия за освобождаване на напрежение и мобилизация + 30 целеви упражнения за активиране и стабилизация на ключови мускули; възстановяваме правилните модели на движение и намаляваме..
+              30 мин мануална терапия за освобождаване на напрежение и мобилизация + 30 мин целеви упражнения за активиране и стабилизация на ключови мускули.
             </p>
             <div class="card__actions price-booking-group">
-              <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
-              <a href="procedures/details-kinesitherapy.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="https://book.dmphysi0.com/book" target="_blank" rel="noopener" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
+              <a href="/procedures/details-kinesitherapy.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
         <!-- Card 2: Функционална оценка -->
-        <article class="card procedure-card" data-price="Безплатна консултация" data-duration="10 мин" data-details-url="procedures/functional-assessment.html">
-          <a href="procedures/functional-assessment.html" class="card__media-link" aria-label="Функционална оценка — виж детайли">
+        <article class="card procedure-card" data-price="Безплатна консултация" data-duration="10 мин" data-details-url="/procedures/functional-assessment.html">
+          <a href="/procedures/functional-assessment.html" class="card__media-link" aria-label="Функционална оценка — виж детайли">
             <div class="card__media image-container">
-              <img src="pngs/procedures/gif/function3-Thumbnail.jpg" alt="Функционална оценка" loading="lazy" decoding="async" class="img img--static static-img" />
-              <video autoplay loop muted playsinline preload="metadata" poster="pngs/procedures/gif/funciton-Thumbnail.jpg" aria-hidden="true" class="img img--hover hover-img">
-                <source src="pngs/procedures/gif/funciton.mp4" type="video/mp4" />
+              <img src="/pngs/procedures/gif/function3-Thumbnail.jpg" alt="Функционална оценка" loading="lazy" decoding="async" class="img img--static static-img" width="640" height="360" />
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/gif/funciton-Thumbnail.jpg" aria-hidden="true" class="img img--hover hover-img">
+                <source src="/pngs/procedures/gif/funciton.mp4" type="video/mp4" />
               </video>
             </div>
           </a>
@@ -118,33 +284,22 @@
           <div class="card__body card-content">
             <h3 class="card__title">Функционална оценка</h3>
             <p class="card__text">
-              Детайлен анализ на стойка, походка и двигателни модели с функционални тестове; откриваме коренната причина за симптомите и създаваме ясен, персонализиран план за терапия, тренировки и превенция на рецидиви...
+              Детайлен анализ на стойка, походка и двигателни модели с функционални тестове. Откриваме коренната причина и изграждаме персонализиран план.
             </p>
             <div class="card__actions price-booking-group">
-              <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
-              <a href="procedures/functional-assessment.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="https://book.dmphysi0.com/book" target="_blank" rel="noopener" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
+              <a href="/procedures/functional-assessment.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
         <!-- Card 3: Мануална терапия -->
-        <article class="card procedure-card"
-                 data-price="80 лв"
-                 data-duration="60 мин"
-                 data-details-url="procedures/manual-therapy.html">
-          <a href="procedures/manual-therapy.html"
-             class="card__media-link"
-             aria-label="Мануална терапия — виж детайли">
+        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="/procedures/manual-therapy.html">
+          <a href="/procedures/manual-therapy.html" class="card__media-link" aria-label="Мануална терапия — виж детайли">
             <div class="card__media image-container">
-              <img src="pngs/procedures/posledni/manual therapy-Thumbnail.jpg"
-                   alt="Мануална терапия"
-                   loading="lazy" decoding="async"
-                   class="img img--static static-img" />
-              <video autoplay loop muted playsinline preload="metadata"
-                     poster="pngs/procedures/posledni/manual therapy.mp4"
-                     aria-hidden="true"
-                     class="img img--hover hover-img">
-                <source src="pngs/procedures/posledni/manual therapy.mp4" type="video/mp4" />
+              <img src="/pngs/procedures/posledni/manual therapy-Thumbnail.jpg" alt="Мануална терапия" loading="lazy" decoding="async" class="img img--static static-img" width="640" height="360" />
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/posledni/manual therapy.mp4" aria-hidden="true" class="img img--hover hover-img">
+                <source src="/pngs/procedures/posledni/manual therapy.mp4" type="video/mp4" />
               </video>
             </div>
           </a>
@@ -152,25 +307,22 @@
           <div class="card__body card-content">
             <h3 class="card__title">Мануална терапия</h3>
             <p class="card__text">
-              Мекотъканни техники и ставни мобилизации за редуциране на спазъм и болка, освобождаване на ограничени структури и подобряване на обхвата; подготвя тялото за активна работа и ускорява възстановяването...
+              Мекотъканни техники и ставни мобилизации за редуциране на спазъм и болка, освобождаване на ограничени структури и подобряване на обхвата.
             </p>
             <div class="card__actions price-booking-group">
-              <a href="https://book.dmphysi0.com/book"
-                 class="btn btn--primary book-button"
-                 aria-label="Запази час">Запази час</a>
-              <a href="procedures/manual-therapy.html"
-                 class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="https://book.dmphysi0.com/book" target="_blank" rel="noopener" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
+              <a href="/procedures/manual-therapy.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
-        <!-- Card 3: Специализирани упражнения -->
-        <article class="card procedure-card" data-price="50 лв" data-duration="30 мин" data-details-url="procedures/specialized-exercises.html">
-          <a href="procedures/specialized-exercises.html" class="card__media-link" aria-label="Специализирани упражнения — виж детайли">
+        <!-- Card 4: Специализирани упражнения -->
+        <article class="card procedure-card" data-price="50 лв" data-duration="30 мин" data-details-url="/procedures/specialized-exercises.html">
+          <a href="/procedures/specialized-exercises.html" class="card__media-link" aria-label="Специализирани упражнения — виж детайли">
             <div class="card__media image-container">
-              <img src="pngs/procedures/gif/exercieses-Thumbnail.jpg" alt="Специализирани упражнения" loading="lazy" decoding="async" class="img img--static static-img" />
-              <video autoplay loop muted playsinline preload="metadata" poster="pngs/procedures/gif/exercieses-Thumbnail.jpg" aria-hidden="true" class="img img--hover hover-img">
-                <source src="pngs/procedures/gif/exercieses.mp4" type="video/mp4" />
+              <img src="/pngs/procedures/gif/exercieses-Thumbnail.jpg" alt="Специализирани упражнения" loading="lazy" decoding="async" class="img img--static static-img" width="640" height="360" />
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/gif/exercieses-Thumbnail.jpg" aria-hidden="true" class="img img--hover hover-img">
+                <source src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4" />
               </video>
             </div>
           </a>
@@ -178,22 +330,22 @@
           <div class="card__body card-content">
             <h3 class="card__title">Специализирани упражнения</h3>
             <p class="card__text">
-              Индивидуална програма с правилна техника, прогресии и регресии; активиране на отслабени мускули, стабилизация на кор и таз, корекция на стойка; връщаме увереността в ежедневните движения без болка...
+              Индивидуална програма с правилна техника, прогресии и регресии; активиране на отслабени мускули и стабилизация на кор и таз.
             </p>
             <div class="card__actions price-booking-group">
-              <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
-              <a href="procedures/specialized-exercises.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="https://book.dmphysi0.com/book" target="_blank" rel="noopener" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
+              <a href="/procedures/specialized-exercises.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
-        <!-- Card 4: Сухо иглоубождане -->
-        <article class="card procedure-card" data-price="60 лв" data-duration="30 мин" data-details-url="procedures/dry-needling.html">
-          <a href="procedures/dry-needling.html" class="card__media-link" aria-label="Терапия със сухи игли — виж детайли">
+        <!-- Card 5: Терапия със сухи игли -->
+        <article class="card procedure-card" data-price="60 лв" data-duration="30 мин" data-details-url="/procedures/dry-needling.html">
+          <a href="/procedures/dry-needling.html" class="card__media-link" aria-label="Терапия със сухи игли — виж детайли">
             <div class="card__media image-container">
-              <img src="pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" loading="lazy" decoding="async" class="img img--static static-img" />
-              <video autoplay loop muted playsinline preload="metadata" poster="pngs/procedures/gif/drineedling-Thumbnail.jpg" aria-hidden="true" class="img img--hover hover-img">
-                <source src="pngs/procedures/gif/drineedling.mp4" type="video/mp4" />
+              <img src="/pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли (Dry Needling)" loading="lazy" decoding="async" class="img img--static static-img" width="640" height="360" />
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/gif/drineedling-Thumbnail.jpg" aria-hidden="true" class="img img--hover hover-img">
+                <source src="/pngs/procedures/gif/drineedling.mp4" type="video/mp4" />
               </video>
             </div>
           </a>
@@ -201,56 +353,55 @@
           <div class="card__body card-content">
             <h3 class="card__title">Терапия със сухи игли</h3>
             <p class="card__text">
-              Прецизно третиране на тригерни точки с тънки игли за бързо отпускане на скъсени мускули, намаляване на чувствителността и подобряване на обхвата; подпомага трайния ефект от упражненията и мануалната терапия...
+              Прецизно третиране на тригерни точки с тънки игли за бързо отпускане на скъсени мускули и подобряване на обхвата.
             </p>
             <div class="card__actions price-booking-group">
-              <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
-              <a href="procedures/dry-needling.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="https://book.dmphysi0.com/book" target="_blank" rel="noopener" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
+              <a href="/procedures/dry-needling.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
-         <!-- Масаж с Ергон -->
-        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="procedures/masaj-ergon.html">
-          <a href="procedures/masaj-ergon.html" class="card__media-link" aria-label="Масаж с Ергон — виж детайли">
+        <!-- Card 6: Масаж с Ергон -->
+        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="/procedures/masaj-ergon.html">
+          <a href="/procedures/masaj-ergon.html" class="card__media-link" aria-label="Масаж с Ергон — виж детайли">
             <div class="card__media image-container">
-              <img class="img img--static static-img" src="pngs/massages/gif/ergon-Thumbnail.jpg" alt="Масаж с Ергон" loading="lazy" decoding="async">
-              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/massages/gif/ergon-Thumbnail.jpg" aria-hidden="true">
-                <source src="pngs/massages/gif/ergon.mp4" type="video/mp4">
+              <img class="img img--static static-img" src="/pngs/massages/gif/ergon-Thumbnail.jpg" alt="Масаж с Ергон (IASTM)" loading="lazy" decoding="async" width="640" height="360">
+              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/gif/ergon-Thumbnail.jpg" aria-hidden="true">
+                <source src="/pngs/massages/gif/ergon.mp4" type="video/mp4">
               </video>
             </div>
           </a>
           <div class="card__body card-content">
             <h3 class="card__title">Масаж с Ергон</h3>
             <p class="card__text">
-              Инструмент-асистирана мобилизация (IASTM) с Ергон инструменти; прецизно третира фасциални адхезии и тригерни зони, намалява болката и подобрява функцията; ефективен при хронични оплаквания...
+              Инструмент-асистирана мобилизация (IASTM) с Ергон инструменти; фасциални адхезии, тригерни зони, намаляване на болката.
             </p>
             <div class="card__actions price-booking-group">
-              <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
-              <a href="procedures/masaj-ergon.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="https://book.dmphysi0.com/book" target="_blank" rel="noopener" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
+              <a href="/procedures/masaj-ergon.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
-        <!-- Card 5: Кинезиотейпинг -->
-        <article class="card procedure-card" data-price="30 лв" data-duration="15 мин" data-details-url="procedures/kinesiotaping.html">
-          <a href="procedures/kinesiotaping.html" class="card__media-link" aria-label="Кинезиотейпинг — виж детайли">
+
+        <!-- Card 7: Кинезиотейпинг -->
+        <article class="card procedure-card" data-price="30 лв" data-duration="15 мин" data-details-url="/procedures/kinesiotaping.html">
+          <a href="/procedures/kinesiotaping.html" class="card__media-link" aria-label="Кинезиотейпинг — виж детайли">
             <div class="card__media image-container">
-              <img src="pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезиотейпинг" loading="lazy" decoding="async" class="img img--static static-img" />
-              <video autoplay loop muted playsinline preload="metadata" poster="pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" aria-hidden="true" class="img img--hover hover-img">
-                <source src="pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4" />
+              <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезиотейпинг" loading="lazy" decoding="async" class="img img--static static-img" width="640" height="360" />
+              <video autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" aria-hidden="true" class="img img--hover hover-img">
+                <source src="/pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4" />
               </video>
             </div>
           </a>
-          
-
           <div class="card__body card-content">
             <h3 class="card__title">Кинезиотейпинг</h3>
             <p class="card__text">
-              Еластични кинезиоленти за подкрепа на мускули и стави без ограничаване на обхвата; подобряват лимфния дренаж, намаляват отока и болката и стабилизират движението между сесиите за по-плавен и безопасен прогрес...
+              Еластични кинезио ленти за подкрепа на мускули и стави без ограничаване на обхвата; подобряват лимфния дренаж, намаляват отока и болката.
             </p>
             <div class="card__actions price-booking-group">
-              <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
-              <a href="procedures/kinesiotaping.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="https://book.dmphysi0.com/book" target="_blank" rel="noopener" class="btn btn--primary book-button" aria-label="Запази час">Запази час</a>
+              <a href="/procedures/kinesiotaping.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
@@ -259,92 +410,91 @@
   </section>
 
   <!-- FREE ADVICE (REVEAL) -->
-<section class="advice-reveal-block" id="free-advice">
-  <div class="advice-window" role="group" aria-label="Форма за безплатни насоки">
-    <div class="advice-window__titlebar">
-      <div class="win-dots" aria-hidden="true">
-        <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
-      </div>
-      <div class="title">Безплатни насоки</div>
-    </div>
-
-    <div class="advice-window__body">
-      <!-- Банер за успех -->
-      <div class="advice-success" id="adviceSuccess" aria-live="polite" hidden>
-        <strong>Благодарим!</strong> Получихме заявката ви. Ще се свържем с вас съвсем скоро.
-      </div>
-
-      <div class="advice-intro">
-        <h3>Не знаеш коя процедура е за теб?</h3>
-        <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
-      </div>
-
-      <!-- Скрит iframe (фолбек) -->
-      <iframe name="hidden_gform" id="hidden_gform" style="display:none;"></iframe>
-
-      <!-- Разгъващ се панел -->
-      <details class="advice-reveal" id="adviceReveal">
-        <summary class="advice-summary-btn">
-          <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
-          <span class="chev" aria-hidden="true"></span>
-        </summary>
-
-        <div class="advice-panel">
-          <div class="form-card">
-            <h4 class="form-card__title">Безплатна консултация</h4>
-
-            <form id="adviceForm"
-                  class="advice-form"
-                  action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
-                  method="POST"
-                  target="hidden_gform">
-              <div class="form-row">
-                <div class="field">
-                  <label for="fName">Име</label>
-                  <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required>
-                </div>
-                <div class="field">
-                  <label for="fPhone">Телефон</label>
-                  <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required>
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="fEmail">Имейл</label>
-                <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required>
-              </div>
-
-              <div class="field">
-                <label for="fSymptoms">Опишете симптомите си</label>
-                <textarea id="fSymptoms" name="entry.1298076648" rows="4"
-                  placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
-                  required></textarea>
-              </div>
-
-              <div class="form-actions">
-                <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
-                <button type="submit" class="btn-submit">Изпрати</button>
-              </div>
-
-              <p class="form-note">Няма спам. Данните се използват само за консултация.</p>
-            </form>
-          </div>
+  <section class="advice-reveal-block" id="free-advice">
+    <div class="advice-window" role="group" aria-label="Форма за безплатни насоки">
+      <div class="advice-window__titlebar">
+        <div class="win-dots" aria-hidden="true">
+          <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
         </div>
-      </details>
-    </div>
-  </div>
-</section>
-   
-  </main>
+        <div class="title">Безплатни насоки</div>
+      </div>
 
-  <footer class="footer">
+      <div class="advice-window__body">
+        <!-- Банер за успех -->
+        <div class="advice-success" id="adviceSuccess" aria-live="polite" hidden>
+          <strong>Благодарим!</strong> Получихме заявката ви. Ще се свържем с вас съвсем скоро.
+        </div>
+
+        <div class="advice-intro">
+          <h3>Не знаеш коя процедура е за теб?</h3>
+          <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
+        </div>
+
+        <!-- Скрит iframe (фолбек) -->
+        <iframe name="hidden_gform" id="hidden_gform" style="display:none;" title="Скрит формуляр"></iframe>
+
+        <!-- Разгъващ се панел -->
+        <details class="advice-reveal" id="adviceReveal">
+          <summary class="advice-summary-btn">
+            <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
+            <span class="chev" aria-hidden="true"></span>
+          </summary>
+
+          <div class="advice-panel">
+            <div class="form-card">
+              <h4 class="form-card__title">Безплатна консултация</h4>
+
+              <form id="adviceForm"
+                    class="advice-form"
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
+                    method="POST"
+                    target="hidden_gform">
+                <div class="form-row">
+                  <div class="field">
+                    <label for="fName">Име</label>
+                    <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required autocomplete="name">
+                  </div>
+                  <div class="field">
+                    <label for="fPhone">Телефон</label>
+                    <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required autocomplete="tel">
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="fEmail">Имейл</label>
+                  <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required autocomplete="email">
+                </div>
+
+                <div class="field">
+                  <label for="fSymptoms">Опишете симптомите си</label>
+                  <textarea id="fSymptoms" name="entry.1298076648" rows="4"
+                    placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
+                    required></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
+                  <button type="submit" class="btn-submit">Изпрати</button>
+                </div>
+
+                <p class="form-note">Няма спам. Данните се използват само за консултация.</p>
+              </form>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
         <div class="map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" 
                   width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
 
@@ -352,36 +502,36 @@
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async">
+            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async">
+            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async">
-          <span>0883688414</span>
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <span><a href="tel:0883688414">088 368 8414</a></span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
-             <span>Работно време:</span><br>
+            <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
             <span>Събота: 09:00 - 16:00</span><br>
-            </span>Неделя: Почивка</span>
+            <span>Неделя: Почивка</span>
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -399,90 +549,90 @@
 </footer>
 
 
-  <!-- Card click behaviour (no Calendly) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Make entire card body clickable (except booking buttons)
-      document.querySelectorAll('.procedure-card').forEach(card => {
-        const detailsUrl = card.getAttribute('data-details-url');
-        if (!detailsUrl) return;
-        card.addEventListener('click', function (e) {
-          if (e.target.closest('.book-button')) return; // don't hijack booking button clicks
-          if (e.target.closest('a')) return; // avoid double navigation if clicked on the media anchor itself
-          window.location.href = detailsUrl;
-        });
+<!-- Card click behaviour (no Calendly) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Make entire card body clickable (except booking buttons)
+    document.querySelectorAll('.procedure-card').forEach(card => {
+      const detailsUrl = card.getAttribute('data-details-url');
+      if (!detailsUrl) return;
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('.book-button')) return; // don't hijack booking button clicks
+        if (e.target.closest('a')) return; // avoid double navigation if clicked on the media anchor itself
+        window.location.href = detailsUrl;
       });
     });
-  </script>
+  });
+</script>
 
-  <!-- Inject price/time meta outside <a> (unified system) -->
-  <script>
-    (function(){
-      document.querySelectorAll('.card').forEach(card => {
-        const anchor = card.querySelector('.card__media-link');
-        const media  = card.querySelector('.card__media');
-        if (!media) return;
+<!-- Inject price/time meta outside <a> (unified system) -->
+<script>
+  (function(){
+    document.querySelectorAll('.card').forEach(card => {
+      const anchor = card.querySelector('.card__media-link');
+      const media  = card.querySelector('.card__media');
+      if (!media) return;
 
-        let price = (card.getAttribute('data-price')||'').trim();
-        let duration = (card.getAttribute('data-duration')||'').trim();
+      let price = (card.getAttribute('data-price')||'').trim();
+      let duration = (card.getAttribute('data-duration')||'').trim();
 
-        // cleanup duplicates if any
-        card.querySelectorAll('.price-tag, .card__meta-wrap, .card__meta').forEach(el => el.remove());
+      // cleanup duplicates if any
+      card.querySelectorAll('.price-tag, .card__meta-wrap, .card__meta').forEach(el => el.remove());
 
-        if (price || duration){
-          const wrap = document.createElement('div');
-          wrap.className = 'card__meta-wrap';
-          wrap.innerHTML = `
-            <div class="card__meta" role="group" aria-label="Цена и времетраене">
-              ${price ? `<span class="meta-item price">${price}</span>` : ''}
-              ${duration ? `<span class="meta-item duration">${duration}</span>` : ''}
-            </div>
-          `;
-          if (anchor){
-            anchor.insertAdjacentElement('afterend', wrap);
-          } else {
-            media.insertAdjacentElement('afterend', wrap);
-          }
+      if (price || duration){
+        const wrap = document.createElement('div');
+        wrap.className = 'card__meta-wrap';
+        wrap.innerHTML = `
+          <div class="card__meta" role="group" aria-label="Цена и времетраене">
+            ${price ? `<span class="meta-item price">${price}</span>` : ''}
+            ${duration ? `<span class="meta-item duration">${duration}</span>` : ''}
+          </div>
+        `;
+        if (anchor){
+          anchor.insertAdjacentElement('afterend', wrap);
+        } else {
+          media.insertAdjacentElement('afterend', wrap);
         }
-      });
-    })();
-  </script>
-  <script src="/js/form.js" defer></script>
-  <script src="/js/topbar.js" defer></script>
-  <script src="/js/media-autoplay-cards.js" defer></script>
-
-  <!-- Hover + visibility control (fallback if media-autoplay-cards.js missing) -->
-  <script>
-  (function () {
-    const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
-    const safePause = (v) => v && v.pause && v.pause();
-
-    document.querySelectorAll('video').forEach(v => {
-      v.muted = true; v.setAttribute('playsinline','');
-      if (!v.getAttribute('preload')) v.preload = 'metadata';
+      }
     });
-
-    document.querySelectorAll('.image-container').forEach(box => {
-      const vid = box.querySelector('video');
-      if (!vid) return;
-      const onEnter = () => safePlay(vid);
-      const onLeave = () => { safePause(vid); try { vid.currentTime = 0; } catch(e){} };
-      box.addEventListener('mouseenter', onEnter, {passive:true});
-      box.addEventListener('mouseleave', onLeave, {passive:true});
-      box.addEventListener('touchstart', onEnter, {passive:true});
-      box.addEventListener('touchend', onLeave, {passive:true});
-    });
-
-    const vids = [ ...document.querySelectorAll('.hover-img') ];
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(({isIntersecting, target}) => {
-          if (isIntersecting) safePlay(target); else safePause(target);
-        });
-      }, { threshold: 0.35 });
-      vids.forEach(v => io.observe(v));
-    }
   })();
-  </script>
+</script>
+<script src="/js/form.js" defer></script>
+<script src="/js/topbar.js" defer></script>
+<script src="/js/media-autoplay-cards.js" defer></script>
+
+<!-- Hover + visibility control (fallback if media-autoplay-cards.js missing) -->
+<script>
+(function () {
+  const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
+  const safePause = (v) => v && v.pause && v.pause();
+
+  document.querySelectorAll('video').forEach(v => {
+    v.muted = true; v.setAttribute('playsinline','');
+    if (!v.getAttribute('preload')) v.preload = 'metadata';
+  });
+
+  document.querySelectorAll('.image-container').forEach(box => {
+    const vid = box.querySelector('video');
+    if (!vid) return;
+    const onEnter = () => safePlay(vid);
+    const onLeave = () => { safePause(vid); try { vid.currentTime = 0; } catch(e){} };
+    box.addEventListener('mouseenter', onEnter, {passive:true});
+    box.addEventListener('mouseleave', onLeave, {passive:true});
+    box.addEventListener('touchstart', onEnter, {passive:true});
+    box.addEventListener('touchend', onLeave, {passive:true});
+  });
+
+  const vids = [ ...document.querySelectorAll('.hover-img') ];
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(({isIntersecting, target}) => {
+        if (isIntersecting) safePlay(target); else safePause(target);
+      });
+    }, { threshold: 0.35 });
+    vids.forEach(v => io.observe(v));
+  }
+})();
+</script>
 </body>
 </html>

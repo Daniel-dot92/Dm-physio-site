@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dmphysi0.com/sitemap.xml
