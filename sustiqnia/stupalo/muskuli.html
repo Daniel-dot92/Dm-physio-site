@@ -2,83 +2,138 @@
 <html lang="bg">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Мускулни болки в подбедрицата и стъпалото: Причини и лечение</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <!-- SEO базово -->
+  <title>Мускулни болки в подбедрицата и стъпалото: Причини и лечение</title>
   <meta name="description" content="Мускулни болки в подбедрицата и стъпалото: чести причини по мускули, характер на болката и професионален план за облекчение и стабилност." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="author" content="DM Physio" />
   <meta name="theme-color" content="#0a0a0a" />
+  <meta name="language" content="Bulgarian" />
 
   <!-- Canonical / hreflang (замени с реалния URL) -->
   <link rel="canonical" href="https://example.com/conditions/muscle-pain-shin-foot.html" />
   <link rel="alternate" href="https://example.com/conditions/muscle-pain-shin-foot.html" hreflang="bg" />
 
   <!-- Open Graph -->
-  <meta property="og:locale" content="bg_BG" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="DM Physio" />
   <meta property="og:title" content="Мускулни болки в подбедрицата и стъпалото: Причини и лечение" />
   <meta property="og:description" content="Бързо ориентиране по засегнат мускул, анимации и ясен план за облекчение и стабилност." />
-  <!-- По желание добави абсолютни адреси: -->
-  <!-- <meta property="og:url" content="https://example.com/conditions/muscle-pain-shin-foot.html"> -->
-  <!-- <meta property="og:image" content="https://example.com/pngs/sustoqniq/muscles/foot%20muscles%20first-Thumbnail.jpg"> -->
+  <meta property="og:url" content="https://example.com/conditions/muscle-pain-shin-foot.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="bg_BG" />
+  <meta property="og:site_name" content="DM Physio" />
+  <meta property="og:image" content="https://example.com/pngs/sustoqniq/muscles/foot%20muscles%20first-Thumbnail.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Подбедрица и стъпало – визуализация" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Мускулни болки в подбедрицата и стъпалото" />
   <meta name="twitter:description" content="Причини по мускули, характер на болката и стъпки за възстановяване." />
+  <meta name="twitter:image" content="https://example.com/pngs/sustoqniq/muscles/foot%20muscles%20first-Thumbnail.jpg" />
 
-  <!-- Локални стилове -->
+  <!-- CSS -->
   <link rel="stylesheet" href="../../css/top-bar.css">
   <link rel="stylesheet" href="../../css/temple-headache.css">
   <link rel="stylesheet" href="/css/muscle.css">
 
-  <!-- Предварителни връзки към външни домейни -->
+  <!-- Preconnect / Prefetch -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="https://assets.calendly.com">
 
-  <!-- Единствен Font Awesome (неблокиращо) -->
+  <!-- External libs non-blocking -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         media="print" onload="this.media='all'">
-
-  <!-- Calendly widget CSS (неблокиращо) -->
   <link href="https://assets.calendly.com/assets/external/widget.css"
         rel="stylesheet" media="print" onload="this.media='all'">
-
   <noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   </noscript>
 
-  <!-- Preload на LCP изображението (hero) -->
+  <!-- Preload LCP image -->
   <link rel="preload" as="image"
         href="../../pngs/sustoqniq/muscles/foot%20muscles%20first-Thumbnail.jpg"
         fetchpriority="high">
 
-  <!-- Favicon (по избор) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png">
 
-  <!-- Малък UX/перф. override -->
+  <!-- Critical tweaks (CLS/UX/Accessibility) -->
   <style>
     :root{ --topbar-h:76px; }
     @media (max-width:768px){ :root{ --topbar-h:64px; } }
+    /* текстова стабилност/четимост */
+    h1,h2,h3,p,.section-title{overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+    /* предотвратява разтягане на grid елементи */
+    .hero-container>*,
+    .intro-container>*{min-width:0}
+    /* контейнери за медия: предотвратяване на CLS */
+    .image-container,
+    .muscle-media,
+    
+    img{height:auto}
+    /* клавиатурна навигация */
+    a:focus,button:focus{outline:3px solid #18A558;outline-offset:2px}
+    /* skip link */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{position:fixed;left:1rem;top:1rem;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;border-radius:.5rem}
+    /* безопасност: без хор.скрол */
+    html,body{overflow-x:hidden}
     .sr-only{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important;}
   </style>
+<!-- Hotjar / Contentsquare -->
+  <script>
+    (function (c, s, q, u, a, r, e) {
+      c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
+      c._hjSettings = { hjid: a };
+      r = s.getElementsByTagName('head')[0];
+      e = s.createElement('script');
+      e.async = true;
+      e.src = q + c._hjSettings.hjid + u;
+      r.appendChild(e);
+    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6534654);
+  </script>
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Мускулни болки в подбедрицата и стъпалото: Причини и лечение",
+    "url":"https://example.com/conditions/muscle-pain-shin-foot.html",
+    "inLanguage":"bg-BG",
+    "description":"Симптоми и причини по мускули, с визуализации и ясен план за облекчение и стабилност за подбедрица и стъпало.",
+    "publisher":{"@type":"Organization","name":"DM Physio","url":"https://example.com/"}
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Начало","item":"https://example.com/"},
+      {"@type":"ListItem","position":2,"name":"Болкови състояния","item":"https://example.com/pain-conditions.html"},
+      {"@type":"ListItem","position":3,"name":"Мускулни болки: подбедрица и стъпало","item":"https://example.com/conditions/muscle-pain-shin-foot.html"}
+    ]
+  }
+  </script>
 </head>
+
 <body>
+<a class="skip-link" href="#main-content">Към съдържанието</a>
 
 <!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" />
+      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" fetchpriority="high" width="64" height="64" />
     </a>
 
     <!-- Хамбургер -->
@@ -101,14 +156,14 @@
 
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
         
-        <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book" target="_blank" rel="noopener">Свободни часове</a></li>
         <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main class="page-content">
+<main class="page-content" id="main-content">
   <!-- HERO -->
   <section class="hero-section">
     <div class="container hero-container">
@@ -126,7 +181,7 @@
       </div>
       <div class="hero-image image-container">
         <img src="../../pngs/sustoqniq/muscles/foot%20muscles%20first-Thumbnail.jpg" alt="Подбедрица и стъпало" class="static-img"
-             loading="eager" decoding="async" fetchpriority="high">
+             loading="eager" decoding="async" fetchpriority="high" width="1600" height="900">
         <video class="hover-video" muted loop preload="metadata" playsinline aria-label="Видео: подбедрица и стъпало"
                poster="../../pngs/sustoqniq/muscles/foot%20muscles%20first-Thumbnail.jpg">
           <source src="../../pngs/sustoqniq/muscles/foot%20muscles%20first.mp4" type="video/mp4">
@@ -165,7 +220,7 @@
       </div>
       <div class="intro-image image-container">
         <img src="../../pngs/sustoqniq/muscles/foot%20contracting%20muscles-Thumbnail.jpg" 
-             alt="Свод на стъпалото" class="static-img" loading="lazy" decoding="async">
+             alt="Свод на стъпалото" class="static-img" loading="lazy" decoding="async" width="1600" height="900">
         <video class="hover-video" muted loop preload="metadata" playsinline 
                aria-label="Видео: свод на стъпалото и натоварване"
                poster="../../pngs/sustoqniq/muscles/foot%20contracting%20muscles-Thumbnail.jpg">
@@ -186,7 +241,7 @@
         <div class="muscle-item">
           <h3>m. popliteus (зад коляното)</h3>
           <div class="muscle-media muscle-video-centered">
-            <img src="/pngs/sustoqniq/muscles/popliteus-Thumbnail.PNG" alt="Поплитеус" class="static-muscle-img" loading="lazy" decoding="async">
+            <img src="/pngs/sustoqniq/muscles/popliteus-Thumbnail.PNG" alt="Поплитеус" class="static-muscle-img" loading="lazy" decoding="async" width="800" height="450">
             <video class="hover-muscle-video" muted loop preload="metadata" playsinline
                    poster="/pngs/sustoqniq/muscles/popliteus-Thumbnail.PNG">
               <source src="/pngs/sustoqniq/muscles/popliteus.mp4" type="video/mp4">
@@ -226,7 +281,7 @@
         <div class="muscle-item">
           <h3>Прасец (Triceps surae)</h3>
           <div class="muscle-media muscle-video-centered">
-            <img src="/pngs/sustoqniq/muscles/gastrocnemius-Thumbnail.PNG" alt="Прасец" class="static-muscle-img" loading="lazy" decoding="async">
+            <img src="/pngs/sustoqniq/muscles/gastrocnemius-Thumbnail.PNG" alt="Прасец" class="static-muscle-img" loading="lazy" decoding="async" width="800" height="450">
             <video class="hover-muscle-video" muted loop preload="metadata" playsinline
                    poster="/pngs/sustoqniq/muscles/gastrocnemius-Thumbnail.PNG">
               <source src="/pngs/sustoqniq/muscles/gastrocnemius.mp4" type="video/mp4">
@@ -267,7 +322,7 @@
         <div class="muscle-item">
           <h3>Дълбоки мускули от вътрешната страна на подбедрицата</h3>
           <div class="muscle-media muscle-video-centered">
-            <img src="/pngs/sustoqniq/muscles/flexori%20glezen%20last-Thumbnail.jpg" alt="Дълбоки мускули на подбедрицата" class="static-muscle-img" loading="lazy" decoding="async">
+            <img src="/pngs/sustoqniq/muscles/flexori%20glezen%20last-Thumbnail.jpg" alt="Дълбоки мускули на подбедрицата" class="static-muscle-img" loading="lazy" decoding="async" width="800" height="450">
             <video class="hover-muscle-video" muted loop preload="metadata" playsinline
                    poster="/pngs/sustoqniq/muscles/flexori%20glezen%20last-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/flexori%20glezen%20last.mp4" type="video/mp4">
@@ -309,7 +364,7 @@
         <div class="muscle-item">
           <h3>Перонеуси (Fibularis) – външна подбедрица</h3>
           <div class="muscle-media muscle-video-centered">
-            <img src="/pngs/sustoqniq/muscles/peroneus%20longus-Thumbnail.PNG" alt="Перонеуси" class="static-muscle-img" loading="lazy" decoding="async">
+            <img src="/pngs/sustoqniq/muscles/peroneus%20longus-Thumbnail.PNG" alt="Перонеуси" class="static-muscle-img" loading="lazy" decoding="async" width="800" height="450">
             <video class="hover-muscle-video" muted loop preload="metadata" playsinline
                    poster="/pngs/sustoqniq/muscles/peroneus%20longus-Thumbnail.PNG">
               <source src="/pngs/sustoqniq/muscles/peroneus%20longus.mp4" type="video/mp4">
@@ -349,7 +404,7 @@
         <div class="muscle-item">
           <h3>Мускулите отпред на подбедрицата (Tibialis anterior, Extensor digitorum longus и Extensor hallucis longus)</h3>
           <div class="muscle-media muscle-video-centered">
-            <img src="/pngs/sustoqniq/muscles/tibialis%20anterior%20and%20extensor%20digitorum-Thumbnail.PNG" alt="Предна подбедрица" class="static-muscle-img" loading="lazy" decoding="async">
+            <img src="/pngs/sustoqniq/muscles/tibialis%20anterior%20and%20extensor%20digitorum-Thumbnail.PNG" alt="Предна подбедрица" class="static-muscle-img" loading="lazy" decoding="async" width="800" height="450">
             <video class="hover-muscle-video" muted loop preload="metadata" playsinline
                    poster="/pngs/sustoqniq/muscles/tibialis%20anterior%20and%20extensor%20digitorum-Thumbnail.PNG">
               <source src="/pngs/sustoqniq/muscles/tibialis%20anterior%20and%20extensor%20digitorum.mp4" type="video/mp4">
@@ -389,7 +444,7 @@
         <div class="muscle-item">
           <h3>Малките разгъвачи на пръстите (Extensor digitorum brevis и Extensor hallucis brevis)</h3>
           <div class="muscle-media muscle-video-centered">
-            <img src="/pngs/sustoqniq/muscles/extensors%20hallucis%20and%20digitorum-Thumbnail.jpg" alt="Малките разгъвачи на пръстите" class="static-muscle-img" loading="lazy" decoding="async">
+            <img src="/pngs/sustoqniq/muscles/extensors%20hallucis%20and%20digitorum-Thumbnail.jpg" alt="Малките разгъвачи на пръстите" class="static-muscle-img" loading="lazy" decoding="async" width="800" height="450">
             <video class="hover-muscle-video" muted loop preload="metadata" playsinline
                    poster="/pngs/sustoqniq/muscles/extensors%20hallucis%20and%20digitorum-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/extensors%20hallucis%20and%20digitorum.mp4" type="video/mp4">
@@ -429,7 +484,7 @@
         <div class="muscle-item">
           <h3>Мускулите отдолу на ходилото (Flexor digitorum brevis, Abductor hallucis, Adductor hallucis и Quadratus plantae)</h3>
           <div class="muscle-media muscle-video-centered">
-            <img src="/pngs/sustoqniq/muscles/foot%20plantar%20muscles-Thumbnail.jpg" alt="Мускули отдолу на ходилото" class="static-muscle-img" loading="lazy" decoding="async">
+            <img src="/pngs/sustoqniq/muscles/foot%20plantar%20muscles-Thumbnail.jpg" alt="Мускули отдолу на ходилото" class="static-muscle-img" loading="lazy" decoding="async" width="800" height="450">
             <video class="hover-muscle-video" muted loop preload="metadata" playsinline
                    poster="/pngs/sustoqniq/muscles/foot%20plantar%20muscles-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/foot%20plantar%20muscles.mp4" type="video/mp4">
@@ -518,7 +573,7 @@
         <div class="kinesitherapy-slider-track">
           <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" loading="lazy" decoding="async" width="800" height="450">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="../../pngs/procedures/KT.PNG">
                 <source src="../../pngs/procedures/gif/KT.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
@@ -529,7 +584,7 @@
 
           <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async" width="800" height="450">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="../../pngs/massages/lecheben.PNG">
                 <source src="../../pngs/massages/gif/lecheben.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
@@ -540,7 +595,7 @@
 
           <a href="../../procedures/masaj.deeptisue.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/1">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <img src="../../pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async" width="800" height="450">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="../../pngs/massages/deeptissue.PNG">
                 <source src="../../pngs/massages/gif/deeptisue.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
@@ -551,7 +606,7 @@
 
           <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/function.jpg" alt="Функционална оценка" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <img src="../../pngs/procedures/function.jpg" alt="Функционална оценка" class="kinesitherapy-img" loading="lazy" decoding="async" width="800" height="450">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="../../pngs/procedures/function.jpg">
                 <source src="../../pngs/procedures/gif/funciton.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
@@ -562,7 +617,7 @@
 
           <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <img src="../../pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img" loading="lazy" decoding="async" width="800" height="450">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="../../pngs/procedures/exercises.PNG">
                 <source src="../../pngs/procedures/gif/exercieses.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
@@ -573,7 +628,7 @@
 
           <a href="../../procedures/dry-needling.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/50-clone">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <img src="../../pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" class="kinesitherapy-img" loading="lazy" decoding="async" width="800" height="450">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="../../pngs/procedures/gif/drineedling-Thumbnail.jpg">
                 <source src="../../pngs/procedures/gif/drineedling.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
@@ -584,7 +639,7 @@
 
           <a href="../../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезиотейпинг" class="kinesitherapy-img" loading="lazy" decoding="async">
+              <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезиотейпинг" class="kinesitherapy-img" loading="lazy" decoding="async" width="800" height="450">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg">
                 <source src="../../pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
@@ -622,35 +677,35 @@
         <div class="map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" 
                   width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
 
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
-          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async">
+          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener">
+            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
           </a>
-          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async">
+          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener">
+            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
           </a>
-          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async">
+          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
           </a>
-          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async">
+          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async">
-          <span>0883688414</span>
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <span><a href="tel:0883688414">0883688414</a></span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
@@ -659,10 +714,10 @@
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
-            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
+            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener" class="map-link">
               Вижте на карта →
             </a>
           </div>
@@ -676,14 +731,15 @@
   </section>
 </footer>
 
-<!-- Скриптове – отложени -->
+<!-- JS (defer) -->
 <script src="../../js/temple-headache.js" defer></script>
 <script src="/js/topbar.js" defer></script>
 <script src="../../js/procedurs-slider.js" defer></script>
 
-<!-- Лек контрол (hover + in-view) за видеата, без излишен кеш -->
+<!-- Контрол на медиите + предпочитания за движение -->
 <script>
 (function() {
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const safePlay  = (v) => v && v.paused && v.play && v.play().catch(()=>{});
   const safePause = (v) => v && !v.paused && v.pause && v.pause();
 
@@ -692,7 +748,7 @@
     const vid = box.querySelector('video');
     if (!vid) return;
     vid.preload = 'metadata';
-    const onEnter = () => safePlay(vid);
+    const onEnter = () => { if (!reduceMotion) safePlay(vid); };
     const onLeave = () => { safePause(vid); try{ vid.currentTime = 0; }catch(e){} };
     box.addEventListener('mouseenter', onEnter, {passive:true});
     box.addEventListener('mouseleave', onLeave, {passive:true});
@@ -706,7 +762,7 @@
     ...document.querySelectorAll('.kinesitherapy-button .kinesitherapy-video')
   ];
 
-  const io = ('IntersectionObserver' in window)
+  const io = ('IntersectionObserver' in window && !reduceMotion)
     ? new IntersectionObserver((entries) => {
         entries.forEach(({isIntersecting, target}) => {
           if (isIntersecting) safePlay(target); else safePause(target);
@@ -720,7 +776,7 @@
   document.querySelectorAll('.kinesitherapy-button').forEach(card => {
     const v = card.querySelector('video.kinesitherapy-video');
     if (!v) return;
-    const onEnter = () => safePlay(v);
+    const onEnter = () => { if (!reduceMotion) safePlay(v); };
     const onLeave = () => { safePause(v); try{ v.currentTime = 0; }catch(e){} };
     card.addEventListener('mouseenter', onEnter, {passive:true});
     card.addEventListener('mouseleave', onLeave, {passive:true});
