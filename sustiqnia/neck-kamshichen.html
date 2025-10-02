@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Камшичен удар: Причини, симптоми и лечение</title>
 
+  <!-- SEO -->
+  <meta name="description" content="Какво е камшичен удар (Whiplash), кои са симптомите и как протича възстановяването с кинезитерапия. Разберете как да намалите болката, да върнете подвижността и да предотвратите хронични проблеми.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="bg_BG">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Камшичен удар: Причини, симптоми и лечение">
+  <meta property="og:description" content="Симптоми и възстановяване при камшичен удар (Whiplash): намаляване на болката, възстановяване на подвижността и дългосрочна защита.">
+  <!-- Ако имаш публичен домейн, добави абсолютни адреси за og:url и og:image -->
+  <!-- <meta property="og:url" content="https://example.com/slug-here"> -->
+  <!-- <meta property="og:image" content="https://example.com/pngs/sustoqniq/muscles/whiplash-Thumbnail.jpg"> -->
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Камшичен удар: Причини, симптоми и лечение">
+  <meta name="twitter:description" content="Как протича и как се лекува камшичният удар (Whiplash) с кинезитерапия.">
+
   <!-- Локални стилове -->
   <link rel="stylesheet" href="../css/top-bar.css">
   <link rel="stylesheet" href="../css/temple-headache.css">
@@ -12,20 +30,47 @@
   <!-- Предварителни връзки към външни домейни -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://assets.calendly.com">
 
   <!-- Единствен Font Awesome (неблокиращо) -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         media="print" onload="this.media='all'">
-
   <!-- Calendly widget CSS (неблокиращо) -->
   <link href="https://assets.calendly.com/assets/external/widget.css"
         rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  </noscript>
 
   <!-- Preload на LCP изображение (hero) -->
   <link rel="preload" as="image"
         href="../pngs/sustoqniq/muscles/whiplash-Thumbnail.jpg"
         fetchpriority="high">
+
+  <!-- Favicon (ако имаш файл) -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Малък UX/перф. override -->
+  <style>
+    :root{ --topbar-h:76px; }
+    @media (max-width:768px){ :root{ --topbar-h:64px; } }
+   
+    .sr-only{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important;}
+  </style>
+
+  <!-- JSON-LD (без домейн, за да не въвеждам грешен canonical) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Камшичен удар: Причини, симптоми и лечение",
+    "inLanguage":"bg-BG",
+    "description":"Какво е камшичен удар (Whiplash), симптоми и подход на кинезитерапия за намаляване на болката, възстановяване на движението и дългосрочна защита."
+  }
+  </script>
 </head>
 <body>
 
@@ -377,7 +422,7 @@
 <script src="/js/topbar.js" defer></script>
 <script src="../js/procedurs-slider.js" defer></script>
 
-<!-- Лек контрол (hover + in-view) за видеата, без излишен кеш -->
+<!-- Лек контрол (hover + in-view) за видеата, без излишен кеш) -->
 <script>
 (function() {
   const safePlay = (v) => v && v.paused && v.play && v.play().catch(()=>{});
@@ -389,7 +434,7 @@
     if (!vid) return;
     vid.preload = 'metadata';
     const onEnter = () => safePlay(vid);
-    const onLeave = () => { safePause(vid); vid.currentTime = 0; };
+    const onLeave = () => { safePause(vid); try{ vid.currentTime = 0; }catch(e){} };
     box.addEventListener('mouseenter', onEnter, {passive:true});
     box.addEventListener('mouseleave', onLeave, {passive:true});
     box.addEventListener('touchstart', onEnter, {passive:true});

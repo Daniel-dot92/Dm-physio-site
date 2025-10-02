@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Мускулни болки във врата: Причини, симптоми и решения</title>
 
+  <!-- SEO -->
+  <meta name="description" content="Мускулни болки и скованост във врата: основни причини (лоша стойка, стрес, пренапрежение), засегнати мускули и как кинезитерапията помага с отпускане, раздвижване и превенция.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="DM Physio">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <!-- Canonical (замени с реалния URL на страницата) -->
+  <link rel="canonical" href="https://example.com/neck-muscle-pain.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="bg_BG">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="DM Physio">
+  <meta property="og:title" content="Мускулни болки във врата: Причини, симптоми и решения">
+  <meta property="og:description" content="Разберете причините за болката във врата, кои мускули са въвлечени и какъв е подходът за бързо облекчение и дългосрочна превенция.">
+  <!-- По желание добави абсолютни адреси: -->
+  <!-- <meta property="og:url" content="https://example.com/neck-muscle-pain.html"> -->
+  <!-- <meta property="og:image" content="https://example.com/pngs/sustoqniq/muscles/neck-%20muscles1-Thumbnail.jpg"> -->
+  <meta property="og:image:alt" content="Илюстрация на мускулни болки във врата">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Мускулни болки във врата: Причини, симптоми и решения">
+  <meta name="twitter:description" content="Симптоми, мускули и ефективни решения при болка и скованост във врата.">
+
+  <!-- Hreflang (ако сайтът е само на български, това е достатъчно) -->
+  <link rel="alternate" href="https://example.com/neck-muscle-pain.html" hreflang="bg" />
+
   <!-- Локални стилове -->
   <link rel="stylesheet" href="../css/top-bar.css">
   <link rel="stylesheet" href="../css/temple-headache.css">
@@ -13,6 +41,8 @@
   <!-- Предварителни връзки към външни домейни -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://assets.calendly.com">
 
   <!-- Единствен Font Awesome (неблокиращо) -->
   <link rel="stylesheet"
@@ -23,10 +53,51 @@
   <link href="https://assets.calendly.com/assets/external/widget.css"
         rel="stylesheet" media="print" onload="this.media='all'">
 
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  </noscript>
+
   <!-- Preload на LCP изображение (hero) -->
   <link rel="preload" as="image"
         href="../pngs/sustoqniq/muscles/neck- muscles1-Thumbnail.jpg"
         fetchpriority="high">
+
+  <!-- Favicon (по избор) -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Малък UX/перф. override -->
+  <style>
+    :root{ --topbar-h:76px; }
+    @media (max-width:768px){ :root{ --topbar-h:64px; } }
+   
+    .sr-only{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important;}
+  </style>
+
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Мускулни болки във врата: Причини, симптоми и решения",
+    "inLanguage":"bg-BG",
+    "description":"Причини за мускулни болки във врата, анатомия на участващите мускули и подход на кинезитерапия: отпускане, раздвижване, укрепване и превенция.",
+    "publisher":{"@type":"Organization","name":"DM Physio","url":"https://example.com/"}
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Начало","item":"https://example.com/"},
+      {"@type":"ListItem","position":2,"name":"Болкови състояния","item":"https://example.com/pain-conditions.html"},
+      {"@type":"ListItem","position":3,"name":"Мускулни болки във врата","item":"https://example.com/neck-muscle-pain.html"}
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -276,8 +347,6 @@
                     </div>
                 </div>
             </div>
-
-            
 
         </div>
     </div>
@@ -746,7 +815,7 @@
     if (!vid) return;
     vid.preload = 'metadata';
     const onEnter = () => safePlay(vid);
-    const onLeave = () => { safePause(vid); vid.currentTime = 0; };
+    const onLeave = () => { safePause(vid); try{ vid.currentTime = 0; }catch(e){} };
     box.addEventListener('mouseenter', onEnter, {passive:true});
     box.addEventListener('mouseleave', onLeave, {passive:true});
     box.addEventListener('touchstart', onEnter, {passive:true});
