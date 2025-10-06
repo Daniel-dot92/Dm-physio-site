@@ -395,7 +395,6 @@
 <!-- JS -->
 <script src="/js/topbar.js" defer></script>
 
-<!-- Защитa на формата + UX -->
 <script>
 (function(){
   const form     = document.getElementById('contactForm');
@@ -403,20 +402,26 @@
   const btn      = document.getElementById('contactSubmit');
   const cancel   = document.getElementById('contactCancel');
   const nameEl   = document.getElementById('cName');
+  const iframe   = document.getElementById('hidden_gform');
   if (!form) return;
 
-  // 1) Забрана за цифри в полето "Име" + приятен UX
+  // 0) предотврати „фалшив“ load при първо отваряне
+  if (iframe && !iframe.getAttribute('src')) {
+    iframe.src = 'about:blank';
+  }
+  let formActuallySubmitted = false;   // <- ключов флаг
+  let ignoreFirstIframeLoad = true;    // <- игнорирай първоначалното load
+
+  // 1) Забрана за цифри в "Име"
   const forbidDigits = (e) => {
     const hadDigits = /[0-9]/.test(e.target.value);
-    // премахни цифрите визуално
     e.target.value = e.target.value.replace(/[0-9]/g, '');
-    // ако някой ги "инжектира" – спри
     e.target.setCustomValidity(hadDigits ? 'Името не може да съдържа цифри.' : '');
   };
   nameEl.addEventListener('input', forbidDigits);
   nameEl.addEventListener('blur', forbidDigits);
 
-  // 2) Anti-bot: време + човешко взаимодействие + honeypot
+  // 2) Anti-bot
   const startedAt = Date.now();
   let interacted = false;
   const mark = () => { interacted = true; };
@@ -425,23 +430,25 @@
 
   form.addEventListener('submit', function(e){
     const hp = document.getElementById('hp_website');
-    const tooFast = Date.now() - startedAt < 4000; // >= ~4s
+    const tooFast = Date.now() - startedAt < 4000;
     if ((hp && hp.value.trim() !== '') || tooFast || !interacted) {
-      e.preventDefault(); // блокирай бота
-      // по избор: покажи лека грешка за човек
-      // alert('Моля, опитайте отново след момент.');
+      e.preventDefault();
       return;
     }
-    // UX при реално изпращане (Google Forms през скрит iframe)
+    // ще очакваме зареждането на iframe да дойде *като резултат* от този submit
+    formActuallySubmitted = true;
     if (btn) { btn.disabled = true; btn.textContent = 'Изпращане…'; }
   });
 
-  // 3) Успех (когато iframe завърши зареждане след submit)
-  document.getElementById('hidden_gform')?.addEventListener('load', () => {
+  // 3) Успех – само ако имало реален submit и не е първоначалният load
+  iframe?.addEventListener('load', () => {
+    if (ignoreFirstIframeLoad) { ignoreFirstIframeLoad = false; return; }
+    if (!formActuallySubmitted) return;
+
+    formActuallySubmitted = false;
     if (btn) { btn.disabled = false; btn.textContent = 'Изпрати'; }
     if (success) { success.hidden = false; }
     form.reset();
-    // скрий банера след малко
     setTimeout(() => { if (success) success.hidden = true; }, 5000);
   });
 
@@ -450,7 +457,17 @@
     form.reset();
     nameEl.setCustomValidity('');
   });
+
+  // 5) Връщане от бекстак (bfcache) да не показва банера
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      if (success) success.hidden = true;
+      if (btn) { btn.disabled = false; btn.textContent = 'Изпрати'; }
+      formActuallySubmitted = false;
+    }
+  });
 })();
 </script>
+
 </body>
 </html>
