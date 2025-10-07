@@ -244,67 +244,112 @@
   <section class="contact-main" aria-label="Форма и контактни детайли">
     <div class="container contact-grid">
 
-      <!-- ЛЯВО: ФОРМА -->
-      <div class="contact-card" role="form" aria-labelledby="contactFormTitle">
-        <h2 id="contactFormTitle" class="contact-card__title">Пишете ни</h2>
+       <!-- FREE ADVICE (REVEAL) -->
+  <section class="advice-reveal-block" id="free-advice">
+    <div class="advice-window" role="group" aria-label="Форма за безплатни насоки">
+      <div class="advice-window__titlebar">
+        <div class="win-dots" aria-hidden="true">
+          <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+        </div>
+        <div class="title">Безплатни насоки</div>
+      </div>
 
-        <!-- Успешно изпращане -->
-        <div id="contactSuccess" hidden aria-live="polite" style="margin:0 0 10px; padding:10px 12px; border-radius:10px; background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; font-weight:700; text-align:center;">
-          Благодарим! Съобщението е изпратено. Ще се свържем с вас скоро.
+      <div class="advice-window__body">
+        <!-- Банер за успех -->
+        <div class="advice-success" id="adviceSuccess" aria-live="polite" hidden>
+          <strong>Благодарим!</strong> Получихме заявката ви. Ще се свържем с вас съвсем скоро.
         </div>
 
-        <!-- Скрит iframe (фолбек за Google Forms) -->
-        <iframe name="hidden_gform" id="hidden_gform" style="display:none;" title="Скрит приемник"></iframe>
+        <div class="advice-intro">
+          <h3>Не знаеш коя процедура е за теб?</h3>
+          <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
+        </div>
 
-        <form id="contactForm"
-              class="contact-form"
-              action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
-              method="POST" target="hidden_gform" novalidate>
-          
-          <!-- Honeypot (да остане празно) -->
-          <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0" aria-hidden="true">
-            <label for="hp_website">Оставете полето празно</label>
-            <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
-          </div>
+        <!-- Скрит iframe (фолбек) -->
+        <iframe name="hidden_gform" id="hidden_gform" style="display:none;" title="Скрит формуларен приемник"></iframe>
 
-          <div class="form-row">
-            <div class="field">
-              <label for="cName">Име</label>
-              <!-- Забрана за цифри + минимална дължина -->
-              <input id="cName"
-                     name="entry.1518547723"
-                     type="text"
-                     inputmode="text"
-                     placeholder="Вашето име"
-                     minlength="2"
-                     maxlength="60"
-                     pattern="^(?!.*[0-9]).{2,60}$"
-                     title="Името не може да съдържа цифри."
-                     required>
+        <!-- Разгъващ се панел -->
+        <details class="advice-reveal" id="adviceReveal">
+          <summary class="advice-summary-btn">
+            <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
+            <span class="chev" aria-hidden="true"></span>
+          </summary>
+
+          <div class="advice-panel">
+            <div class="form-card">
+              <h4 class="form-card__title">Безплатна консултация</h4>
+
+              <form id="adviceForm"
+      class="advice-form"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
+      method="POST" target="hidden_gform" novalidate>
+
+  <!-- Anti-bot honeypot (скрито поле, човек не го вижда/попълва) -->
+  <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0"
+       aria-hidden="true">
+    <label for="hp_website">Оставете това поле празно</label>
+    <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
+  </div>
+
+  <div class="form-row">
+    <div class="field">
+      <label for="fName">Име</label>
+      <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required autocomplete="name">
+    </div>
+    <div class="field">
+      <label for="fPhone">Телефон</label>
+      <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required autocomplete="tel">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="fEmail">Имейл</label>
+    <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required autocomplete="email">
+  </div>
+
+  <div class="field">
+    <label for="fSymptoms">Опишете симптомите си</label>
+    <textarea id="fSymptoms" name="entry.1298076648" rows="4"
+      placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
+      required></textarea>
+  </div>
+
+  <div class="form-actions">
+    <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
+    <button type="submit" class="btn-submit">Изпрати</button>
+  </div>
+</form>
+
+<!-- Минимална защита срещу ботове за тази форма (остави скрипта точно след формата) -->
+<script>
+(function(){
+  const form = document.getElementById('adviceForm');
+  if (!form) return;
+
+  const startedAt = Date.now();
+  let interacted = false;
+  const mark = () => { interacted = true; };
+  ['input','change','keydown','mousemove','touchstart','click','scroll']
+    .forEach(ev => window.addEventListener(ev, mark, { once:true, passive:true }));
+
+  form.addEventListener('submit', function(e){
+    const hp = document.getElementById('hp_website');
+    const tooFast = Date.now() - startedAt < 4000; // мин. 3 сек. преди изпращане
+    if ((hp && hp.value.trim() !== '') || tooFast || !interacted) {
+      e.preventDefault(); // блокира изпращането
+      // По желание: покажи кратко съобщение за човек
+      // alert('Моля, опитайте отново след момент.');
+    }
+  });
+})();
+</script>
+
             </div>
-            <div class="field">
-              <label for="cPhone">Телефон</label>
-              <input id="cPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0883 688 414" required>
-            </div>
           </div>
-
-          <div class="field">
-            <label for="cEmail">Имейл</label>
-            <input id="cEmail" name="entry.347254781" type="email" placeholder="your@email.com" required>
-          </div>
-
-          <div class="field">
-            <label for="cMsg">Съобщение</label>
-            <textarea id="cMsg" name="entry.1298076648" rows="5" placeholder="Опишете накратко как можем да помогнем" required></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button type="button" class="btn-cancel" id="contactCancel">Изчисти</button>
-            <button type="submit" class="btn-submit" id="contactSubmit">Изпрати</button>
-          </div>
-          <p class="form-note">С изпращането приемате <a href="/privacy-policy.html">Политиката за поверителност</a>.</p>
-        </form>
+        </details>
       </div>
+    </div>
+  </section>
 
       <!-- ДЯСНО: ИНФО -->
       <aside class="contact-info" aria-label="Контактни детайли">
