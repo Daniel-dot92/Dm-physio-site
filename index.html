@@ -43,32 +43,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </noscript>
 
-  <!-- Preload LCP image (пътят съвпада с този в <img>) -->
+  <!-- Preload LCP image (локален път) -->
   <link rel="preload" as="image" href="/pngs/главна2.webp" fetchpriority="high">
 
   <!-- In-page critical tweaks -->
   <style>
-    /* чупене на дълги думи */
     .hero-pro__title, .pci-title, .reviews-title, h1, h2, h3, p {
       white-space: normal !important;
       overflow-wrap: anywhere;
       word-break: break-word;
       hyphens: auto;
     }
-    /* предотвратява разтягане от grid елементи */
     .hero-pro__wrap > *, .two-col__wrap > * { min-width: 0; }
-    /* безопасност: без хоризонтален скрол при крайни случаи */
     html, body { overflow-x: hidden; }
-    /* изображения: по-добро изобразяване */
     img { height: auto; }
-    /* стабилен фокус за клавиатура */
     a:focus, button:focus { outline: 3px solid #18A558; outline-offset: 2px; }
-    /* skip link */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
-    /* предотвратяване на CLS в картите с видео */
     .image-container, .pain-button-media { aspect-ratio: 16/9; overflow: hidden; }
-    /* компенсирай sticky header при anchors */
     #work { scroll-margin-top: 80px; }
   </style>
 
@@ -131,7 +123,7 @@
   }
   </script>
 
-  <!-- JSON-LD: FAQ (помага за rich results) -->
+  <!-- JSON-LD: FAQ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -377,7 +369,7 @@
 
         <div class="pain-buttons-vertical">
           <!-- 1 -->
-          <a href="/sustiqnia/head- slepoochie.html" class="pain-button">
+          <a href="/sustiqnia/head-slepoochie.html" class="pain-button">
             <div class="pain-button-media image-container">
               <img src="/pngs/sustoqniq/headeach2-Thumbnail.jpg" alt="Болка в слепоочието и скалпа" class="static-img" loading="lazy" decoding="async" width="640" height="360">
               <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/sustoqniq/headeach2-Thumbnail.jpg">
@@ -642,7 +634,7 @@
         <details class="advice-reveal" id="adviceReveal">
           <summary class="advice-summary-btn">
             <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
-            <span class="chev" aria-hidden="true"></span>
+            <span class="cheв" aria-hidden="true"></span>
           </summary>
 
           <div class="advice-panel">
@@ -654,7 +646,7 @@
       action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
       method="POST" target="hidden_gform" novalidate>
 
-  <!-- Anti-bot honeypot (скрито поле, човек не го вижда/попълва) -->
+  <!-- Anti-bот honeypot -->
   <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0"
        aria-hidden="true">
     <label for="hp_website">Оставете това поле празно</label>
@@ -690,7 +682,7 @@
   </div>
 </form>
 
-<!-- Минимална защита срещу ботове за тази форма (остави скрипта точно след формата) -->
+<!-- Минимална защита срещу ботове -->
 <script>
 (function(){
   const form = document.getElementById('adviceForm');
@@ -704,11 +696,9 @@
 
   form.addEventListener('submit', function(e){
     const hp = document.getElementById('hp_website');
-    const tooFast = Date.now() - startedAt < 4000; // мин. 3 сек. преди изпращане
+    const tooFast = Date.now() - startedAt < 4000;
     if ((hp && hp.value.trim() !== '') || tooFast || !interacted) {
-      e.preventDefault(); // блокира изпращането
-      // По желание: покажи кратко съобщение за човек
-      // alert('Моля, опитайте отново след момент.');
+      e.preventDefault();
     }
   });
 })();
@@ -796,7 +786,6 @@
   const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
   const safePause = (v) => v && v.pause && v.pause();
 
-  // Базови настройки за всички видеа в карти/бутончета
   document.querySelectorAll('video').forEach(v => {
     v.muted = true;
     v.setAttribute('playsinline','');
@@ -804,7 +793,6 @@
     if (reduceMotion) safePause(v);
   });
 
-  // Hover поведение
   document.querySelectorAll('.image-container, .pain-button-media').forEach(box => {
     const vid = box.querySelector('video');
     if (!vid) return;
@@ -816,7 +804,6 @@
     box.addEventListener('touchend', onLeave, {passive:true});
   });
 
-  // Авто-плей/пауза според видимост
   const vids = [ ...document.querySelectorAll('.hover-img') ];
   if ('IntersectionObserver' in window && !reduceMotion) {
     const io = new IntersectionObserver(entries => {
