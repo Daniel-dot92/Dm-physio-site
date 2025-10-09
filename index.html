@@ -44,7 +44,7 @@
   </noscript>
 
   <!-- Preload LCP image (локален път) -->
-  <link rel="preload" as="image" href="/pngs/главна2.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.webp" fetchpriority="high">
 
   <!-- In-page critical tweaks -->
   <style>
@@ -57,6 +57,9 @@
     .hero-pro__wrap > *, .two-col__wrap > * { min-width: 0; }
     html, body { overflow-x: hidden; }
     img { height: auto; }
+    /* гарантира правилно показване на главната снимка на мобилно */
+    .why__media img { width: 100%; display: block; }
+
     a:focus, button:focus { outline: 3px solid #18A558; outline-offset: 2px; }
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
@@ -232,7 +235,7 @@
 
       <!-- Дясно: снимка + бейдж -->
       <figure class="why__media">
-        <img src="/pngs/главна2.webp" alt="Физиотерапевтичен кабинет DM Physio в София" loading="eager" decoding="async" fetchpriority="high" width="1600" height="1067">
+        <img src="/pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.webp" alt="Физиотерапевтичен кабинет DM Physio в София" loading="eager" decoding="async" fetchpriority="high" width="1600" height="1067">
         <figcaption class="why-badge">
           <div class="why-badge__brand"><span class="brand-blue">DM</span> <span class="brand-green">Physio</span></div>
           <div class="why-badge__sub">Професионална грижа</div>
