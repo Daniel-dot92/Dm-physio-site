@@ -34,8 +34,11 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="/css/top-bar.css" />
 
-  <!-- Preconnect to externals -->
+  <!-- Preconnects -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <!-- ВАЖНО: директно към CDN за снимките, за да няма редирект/ръкуване при LCP -->
+  <link rel="dns-prefetch" href="//pngs-worker.volter1996.workers.dev">
+  <link rel="preconnect" href="https://pngs-worker.volter1996.workers.dev" crossorigin>
 
   <!-- External styles non-blocking + noscript fallback -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
@@ -43,17 +46,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </noscript>
 
-  <!-- Preload LCP image (точно същият път + responsive hint) -->
+  <!-- Preload LCP image: директно към финалния URL (без редирект) -->
   <link
     rel="preload"
     as="image"
-    href="/pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.webp"
-    imagesrcset="/pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.webp 800w, /pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.webp 1200w, /pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.webp 1600w"
-    imagesizes="(max-width: 768px) 100vw, 50vw"
-    fetchpriority="high"
-  >
+    href="https://pngs-worker.volter1996.workers.dev/pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.webp"
+    fetchpriority="high">
 
-  <!-- In-page critical tweaks (само мобилни/видимост; нищо друго не се пипа) -->
+  <!-- In-page critical tweaks -->
   <style>
     .hero-pro__title, .pci-title, .reviews-title, h1, h2, h3, p {
       white-space: normal !important;
@@ -70,7 +70,7 @@
     .image-container, .pain-button-media { aspect-ratio: 16/9; overflow: hidden; }
     #work { scroll-margin-top: 80px; }
 
-    /* ===== МОБИЛНИ ФИКСОВЕ ЗА HERO ИЗОБРАЖЕНИЕТО (видимост и без рязане) ===== */
+    /* HERO layout */
     .hero-pro__wrap {
       display: grid;
       grid-template-columns: 1fr;
@@ -81,15 +81,11 @@
     }
     .why__media { display:block; margin:0; visibility:visible !important; max-height:none !important; }
     .why__media picture, .why__media img { display:block; width:100% !important; max-width:100% !important; }
+    .why__media { aspect-ratio: 3/2; } /* резервира място и предотвратява CLS */
     .why__media img { height:auto !important; object-fit:cover; }
     .hero-pro__content, .why__media { overflow:visible; }
-    /* Намалява рисковете от overlap от fixed header на малки екрани */
-    @supports (padding: env(safe-area-inset-top)){
-      .hero-pro { padding-top: max(0px, env(safe-area-inset-top)); }
-    }
-    /* ===== КРАЙ ===== */
 
-    /* По-бързо рисуване на дълги секции под сгъвката – не променя видимото съдържание */
+    /* По-бързо рисуване под сгъвката — без промяна на дизайна */
     @media (max-width: 768px){
       .two-col, .reviews-section, #pain-conditions-intro, .advice-reveal-block, .footer {
         content-visibility: auto;
@@ -266,11 +262,11 @@
 
       <!-- Дясно: снимка + бейдж -->
       <figure class="why__media">
-        <!-- Същата снимка + fallback JPEG, без lazy на LCP -->
+        <!-- ВАЖНО: директно към CDN, без редирект; WebP + JPEG fallback -->
         <picture>
-          <source srcset="/pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.webp" type="image/webp">
+          <source srcset="https://pngs-worker.volter1996.workers.dev/pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.webp" type="image/webp">
           <img
-            src="/pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.jpg"
+            src="https://pngs-worker.volter1996.workers.dev/pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.jpg"
             alt="Физиотерапевтичен кабинет DM Physio в София"
             loading="eager"
             decoding="auto"
@@ -417,8 +413,8 @@
           <!-- 1 -->
           <a href="/sustiqnia/head-slepoochie.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/headeach2-Thumbnail.jpg" alt="Болка в слепоочието и скалпа" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-              <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/sustoqniq/headeach2-Thumbnail.jpg">
+              <img src="https://pngs-worker.volter1996.workers.dev/pngs/sustoqniq/headeach2-Thumbnail.jpg" alt="Болка в слепоочието и скалпа" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+              <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/sustoqniq/headeach2-Thumbnail.jpg">
                 <source src="/pngs/sustoqniq/headeach2.mp4" type="video/mp4">
               </video>
             </div>
@@ -431,8 +427,8 @@
           <!-- 2 -->
           <a href="/sustiqnia/neck-diskova.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg" alt="Дискова херния на врата" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg">
+              <img src="https://pngs-worker.volter1996.workers.dev/pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg" alt="Дискова херния на врата" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+              <video class="hover-img" muted playsinline preload="none" poster="https://pngs-worker.volter1996.workers.dev/pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg">
                 <source src="/pngs/sustoqniq/muscles/disk herniation- how it happen.mp4" type="video/mp4">
               </video>
             </div>
@@ -445,8 +441,8 @@
           <!-- 3 -->
           <a href="/sustiqnia/krust/piriformis.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg" alt="Пириформис синдром" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg">
+              <img src="https://pngs-worker.volter1996.workers.dev/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg" alt="Пириформис синдром" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+              <video class="hover-img" muted playsinline preload="none" poster="https://pngs-worker.volter1996.workers.dev/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg">
                 <source src="/pngs/sustoqniq/muscles/piriformis.mp4" type="video/mp4">
               </video>
             </div>
@@ -459,8 +455,8 @@
           <!-- 4 -->
           <a href="/pain-lower-back.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Болка в кръста" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/pain-conditions/new/backpain-Thumbnail.jpg">
+              <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Болка в кръста" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+              <video class="hover-img" muted playsinline preload="none" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/backpain-Thumbnail.jpg">
                 <source src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
               </video>
             </div>
@@ -520,8 +516,8 @@
         <!-- Глава -->
         <a href="/pain-head.html" class="pain-button" aria-label="Глава – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/headeach1-Thumbnail.jpg" alt="Глава" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/headeach1-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/headeach1-Thumbnail.jpg" alt="Глава" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/headeach1-Thumbnail.jpg">
               <source src="/pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
             </video>
           </div>
@@ -531,8 +527,8 @@
         <!-- Врат -->
         <a href="/pain-neck.html" class="pain-button" aria-label="Врат – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/neckpain1-Thumbnail.jpg" alt="Врат" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/neckpain1-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/neckpain1-Thumbnail.jpg" alt="Врат" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/neckpain1-Thumbnail.jpg">
               <source src="/pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
             </video>
           </div>
@@ -542,8 +538,8 @@
         <!-- Рамо -->
         <a href="/pain-shoulder.html" class="pain-button" aria-label="Рамо – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg" alt="Рамо" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg" alt="Рамо" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg">
               <source src="/pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
             </video>
           </div>
@@ -553,8 +549,8 @@
         <!-- Ръка -->
         <a href="/pain-arm.html" class="pain-button" aria-label="Ръка – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/armpain-Thumbnail.jpg" alt="Ръка" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/armpain-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/armpain-Thumbnail.jpg" alt="Ръка" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/armpain-Thumbnail.jpg">
               <source src="/pngs/pain-conditions/new/armpain.mp4" type="video/mp4">
             </video>
           </div>
@@ -564,8 +560,8 @@
         <!-- Гърди и Корем -->
         <a href="/pain-chest-abdomen.html" class="pain-button" aria-label="Гърди и Корем – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/chestpain-Thumbnail.jpg" alt="Гърди и Корем" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/chestpain-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/chestpain-Thumbnail.jpg" alt="Гърди и Корем" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/chestpain-Thumbnail.jpg">
               <source src="/pngs/pain-conditions/new/chestpain.mp4" type="video/mp4">
             </video>
           </div>
@@ -575,8 +571,8 @@
         <!-- Гръб -->
         <a href="/pain-back.html" class="pain-button" aria-label="Гръб – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg" alt="Гръб" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg" alt="Гръб" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg">
               <source src="/pngs/pain-conditions/new/midbackpain1.mp4" type="video/mp4">
             </video>
           </div>
@@ -586,8 +582,8 @@
         <!-- Кръст -->
         <a href="/pain-lower-back.html" class="pain-button" aria-label="Кръст – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Кръст" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/backpain-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Кръст" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/backpain-Thumbnail.jpg">
               <source src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
             </video>
           </div>
@@ -597,8 +593,8 @@
         <!-- Дупе / Таз -->
         <a href="/pain-buttocks-pelvis.html" class="pain-button" aria-label="Дупе и Таз – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/hippain1-Thumbnail.jpg" alt="Дупе / Таз" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/hippain1-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/hippain1-Thumbnail.jpg" alt="Дупе / Таз" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/hippain1-Thumbnail.jpg">
               <source src="/pngs/pain-conditions/new/hippain1.mp4" type="video/mp4">
             </video>
           </div>
@@ -608,8 +604,8 @@
         <!-- Бедро / Коляно -->
         <a href="/pain-thigh-knee.html" class="pain-button" aria-label="Бедро и Коляно – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/kneepain1-Thumbnail.jpg" alt="Бедро / Коляно" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/kneepain1-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/kneepain1-Thumbnail.jpg" alt="Бедро / Коляно" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/kneepain1-Thumbnail.jpg">
               <source src="/pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
             </video>
           </div>
@@ -619,8 +615,8 @@
         <!-- Подбедрица / Стъпало -->
         <a href="/pain-lower-leg-ankle.html" class="pain-button" aria-label="Подбедрица и Стъпало – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/anklepain1-Thumbnail.jpg" alt="Подбедрица / Стъпало" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/anklepain1-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/anklepain1-Thumbnail.jpg" alt="Подбедрица / Стъпало" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/anklepain1-Thumbnail.jpg">
               <source src="/pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
             </video>
           </div>
@@ -630,8 +626,8 @@
         <!-- Невралгии -->
         <a href="/pain-neuralgia-general.html" class="pain-button" aria-label="Невралгии – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/tingling1-Thumbnail.jpg" alt="Невралгии" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/pain-conditions/new/tingling1-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/tingling1-Thumbnail.jpg" alt="Невралгии" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/pain-conditions/new/tingling1-Thumbnail.jpg">
               <source src="/pngs/pain-conditions/new/tingling1.mp4" type="video/mp4">
             </video>
           </div>
@@ -641,8 +637,8 @@
         <!-- Физиология (образователно) -->
         <a href="/physiology.html" class="pain-button physiology-button" aria-label="Физиология – образователна секция">
           <div class="pain-button-media image-container">
-            <img src="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg" alt="Мускули – образователна секция" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg" alt="Мускули – образователна секция" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video muted playsinline preload="none" class="hover-img" poster="https://pngs-worker.volter1996.workers.dev/pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg">
               <source src="/pngs/sustoqniq/muscles/Muscles main.mp4" type="video/mp4">
             </video>
           </div>
@@ -748,18 +744,8 @@
     });
   }
 
-  /* На мобилно спираме autoplay и preload на видеата, за да не „крадат“ честотна лента от LCP */
-  const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
-  if (isMobile) {
-    document.querySelectorAll('video').forEach(v => {
-      try {
-        v.autoplay = false;
-        v.removeAttribute('autoplay');
-        v.preload = 'none';
-        v.pause && v.pause();
-      } catch(e){}
-    });
-  }
+  /* На мобилно оставяме видеата без autoplay и с preload="none".
+     Скриптът по-долу пуска клиповете само при видимост/докосване. */
 })();
 </script>
 
@@ -787,27 +773,27 @@
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener">
-            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener">
-            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener">
-            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener">
-            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
+            <img src="https://pngs-worker.volter1996.workers.dev/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="https://pngs-worker.volter1996.workers.dev/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <span><a href="tel:0883688414">088 368 8414</a></span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="https://pngs-worker.volter1996.workers.dev/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
@@ -816,7 +802,7 @@
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="https://pngs-worker.volter1996.workers.dev/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener" class="map-link">
@@ -848,7 +834,7 @@
   document.querySelectorAll('video').forEach(v => {
     v.muted = true;
     v.setAttribute('playsinline','');
-    if (!v.getAttribute('preload')) v.preload = 'metadata';
+    // оставяме preload="none" от маркировката; при reduced-motion паузираме
     if (reduceMotion) safePause(v);
   });
 
