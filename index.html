@@ -30,15 +30,20 @@
   <meta name="twitter:description" content="Оценка на движение, индивидуален план и лечение на болка, изтръпване и мускулен дисбаланс." />
   <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.jpg" />
 
-  <!-- Local / External CSS -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="/css/top-bar.css" />
-
   <!-- Preconnects -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <!-- ВАЖНО: директно към CDN за снимките, за да няма редирект/ръкуване при LCP -->
   <link rel="dns-prefetch" href="//pngs-worker.volter1996.workers.dev">
   <link rel="preconnect" href="https://pngs-worker.volter1996.workers.dev" crossorigin>
+
+  <!-- CSS: неблокиращо зареждане (+ fallback за без JS) -->
+  <link rel="preload" as="style" href="/css/top-bar.css" />
+  <link rel="preload" as="style" href="/style.css" />
+  <link rel="stylesheet" href="/css/top-bar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="/css/top-bar.css">
+    <link rel="stylesheet" href="/style.css">
+  </noscript>
 
   <!-- External styles non-blocking + noscript fallback -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
@@ -85,7 +90,7 @@
     .why__media img { height:auto !important; object-fit:cover; }
     .hero-pro__content, .why__media { overflow:visible; }
 
-    /* По-бързо рисуване под сгъвката — без промяна на дизайна */
+    /* Рендер под сгъвката — без промяна на дизайна */
     @media (max-width: 768px){
       .two-col, .reviews-section, #pain-conditions-intro, .advice-reveal-block, .footer {
         content-visibility: auto;
@@ -93,19 +98,6 @@
       }
     }
   </style>
-
-  <!-- Hotjar / Contentsquare -->
-  <script>
-    (function (c, s, q, u, a, r, e) {
-      c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
-      c._hjSettings = { hjid: a };
-      r = s.getElementsByTagName('head')[0];
-      e = s.createElement('script');
-      e.async = true;
-      e.src = q + c._hjSettings.hjid + u;
-      r.appendChild(e);
-    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6534654);
-  </script>
 
   <!-- JSON-LD: LocalBusiness (Physiotherapy) -->
   <script type="application/ld+json">
@@ -262,7 +254,6 @@
 
       <!-- Дясно: снимка + бейдж -->
       <figure class="why__media">
-        <!-- ВАЖНО: директно към CDN, без редирект; WebP + JPEG fallback -->
         <picture>
           <source srcset="https://pngs-worker.volter1996.workers.dev/pngs/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B02.webp" type="image/webp">
           <img
@@ -475,8 +466,8 @@
     <div class="reviews-box">
       <h2 class="reviews-title">Какво казват за нас нашите пациенти</h2>
 
-      <!-- EmbedSocial widget -->
-      <div class="embedsocial-widget" data-ref="29b5529710bc3292b12cf8c4ac6b7a90">
+      <!-- Контейнер за EmbedSocial – ще инжектираме JS само при видимост -->
+      <div class="embedsocial-widget" id="embedsocialWidget" data-ref="29b5529710bc3292b12cf8c4ac6b7a90">
         <a href="https://embedsocial.com/google-reviews-widget/" 
            title="Add Google reviews on a website" 
            target="_blank" rel="noopener" 
@@ -488,18 +479,6 @@
     </div>
   </section>
 
-  <!-- Script за widget-а -->
-  <script>
-    (function(d, s, id) {
-      var js;
-      if (d.getElementById(id)) {return;}
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://embedsocial.com/cdn/aht.js";
-      d.getElementsByTagName("head")[0].appendChild(js);
-    }(document, "script", "EmbedSocialWidgetScript"));
-  </script>
-
   <!-- Къде е болката -->
   <section id="pain-conditions-intro" class="hero-subpage" aria-label="Къде е болката?">
     <div class="container">
@@ -507,9 +486,7 @@
 
       <p class="pci-intro">
         Можеш да си помогнеш още сега: <strong>избери частта на тялото, която те боли</strong> и разгледай
-        най-честите състояния за тази зона — какви са симптомите, какъв е механизмът зад болката и
-        кои са работещите методи за възстановяване. <span class="pci-accent">Колкото по-рано разбереш причината,
-        толкова по-бързо ще се върнеш към движение без болка.</span>
+        най-честите състояния за тази зона — какъв е механизмът зад болката и кои са работещите методи за възстановяване.
       </p>
 
       <div class="pain-buttons-grid">
@@ -724,7 +701,7 @@
   </div>
 </form>
 
-<!-- Минимална защита срещу ботове + мобилни оптимизации за видео/медия -->
+<!-- Минимална защита срещу ботове -->
 <script>
 (function(){
   const form = document.getElementById('adviceForm');
@@ -743,9 +720,6 @@
       }
     });
   }
-
-  /* На мобилно оставяме видеата без autoplay и с preload="none".
-     Скриптът по-долу пуска клиповете само при видимост/докосване. */
 })();
 </script>
 
@@ -761,11 +735,8 @@
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
-            width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
+        <div class="map" id="mapContainer" data-map-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg">
+          <!-- iframe се инжектира при видимост за по-добър LCP/TBT -->
         </div>
       </div>
 
@@ -819,22 +790,22 @@
   </section>
 </footer>
 
-<!-- JS -->
+<!-- JS (твои) -->
 <script src="/js/form.js" defer></script>
 <script src="/js/topbar.js" defer></script>
 <script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Фолбек: управление на медиите + prefers-reduced-motion -->
+<!-- Фолбек: управление на медиите + lazy 3rd-party скриптове -->
 <script>
 (function () {
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
   const safePause = (v) => v && v.pause && v.pause();
 
+  // Видеа: не autoplay по markup; пускаме само при видимост/докосване
   document.querySelectorAll('video').forEach(v => {
     v.muted = true;
     v.setAttribute('playsinline','');
-    // оставяме preload="none" от маркировката; при reduced-motion паузираме
     if (reduceMotion) safePause(v);
   });
 
@@ -858,6 +829,79 @@
     }, { threshold: 0.35 });
     vids.forEach(v => io.observe(v));
   }
+
+  // HELPER: инжектиране на скриптове от трети страни в idle/при нужда
+  function loadScript(src, attrs) {
+    return new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      if (attrs) Object.keys(attrs).forEach(k => s.setAttribute(k, attrs[k]));
+      s.onload = res; s.onerror = rej;
+      document.head.appendChild(s);
+    });
+  }
+  function whenIdle(cb){
+    if ('requestIdleCallback' in window) requestIdleCallback(cb, {timeout: 5000});
+    else setTimeout(cb, 1500);
+  }
+
+  // Lazy: Google Maps iframe – само при видимост на контейнера
+  const mapBox = document.getElementById('mapContainer');
+  if (mapBox && 'IntersectionObserver' in window) {
+    const mapIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !mapBox.dataset.loaded) {
+          const src = mapBox.getAttribute('data-map-src');
+          const ifr = document.createElement('iframe');
+          ifr.src = src;
+          ifr.width = 300; ifr.height = 250;
+          ifr.style.border = '0';
+          ifr.loading = 'lazy';
+          ifr.referrerPolicy = 'no-referrer-when-downgrade';
+          ifr.allowFullscreen = true;
+          ifr.title = 'DM Physio – локация София';
+          mapBox.appendChild(ifr);
+          mapBox.dataset.loaded = '1';
+          mapIO.disconnect();
+        }
+      });
+    }, {rootMargin: '200px 0px'});
+    mapIO.observe(mapBox);
+  }
+
+  // Lazy: EmbedSocial – само при видимост на секцията
+  const esBox = document.getElementById('embedsocialWidget');
+  if (esBox && 'IntersectionObserver' in window) {
+    const esIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !esBox.dataset.loaded) {
+          loadScript('https://embedsocial.com/cdn/aht.js').catch(()=>{});
+          esBox.dataset.loaded = '1';
+          esIO.disconnect();
+        }
+      });
+    }, {rootMargin: '200px 0px'});
+    esIO.observe(esBox);
+  } else {
+    // fallback: зареждане след load/idle
+    whenIdle(() => loadScript('https://embedsocial.com/cdn/aht.js').catch(()=>{}));
+  }
+
+  // Hotjar/Contentsquare – отложено след onload/idle (намалява TBT)
+  window.addEventListener('load', () => {
+    whenIdle(() => {
+      (function (c, s, q, u, a, r, e) {
+        c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
+        c._hjSettings = { hjid: a };
+        r = s.getElementsByTagName('head')[0];
+        e = s.createElement('script');
+        e.async = true;
+        e.src = q + c._hjSettings.hjid + u;
+        r.appendChild(e);
+      })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6534654);
+    });
+  });
 })();
 </script>
 
