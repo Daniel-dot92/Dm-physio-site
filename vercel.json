@@ -1,9 +1,8 @@
 {
-  "redirects": [
+  "rewrites": [
     {
       "source": "/pngs/:path*",
-      "destination": "https://pngs-worker.volter1996.workers.dev/pngs/:path*",
-      "permanent": true
+      "destination": "https://pngs-worker.volter1996.workers.dev/pngs/:path*"
     }
   ],
   "headers": [
@@ -17,6 +16,14 @@
       "source": "/(.*)\\.(html)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=60, stale-while-revalidate=300" }
+      ]
+    },
+
+ 
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|webp|avif|gif|mp4|webm)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
   ]
