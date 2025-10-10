@@ -1677,3 +1677,8 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
   /* изключваме маската на мобилно за по-добро представяне */
   .hero-pro__media img{-webkit-mask-image:none;mask-image:none}
 }
+/* Резервира място за HERO снимката на мобилно (намалява LCP/CLS) */
+@media (max-width: 600px){
+  .hero-pro__media { aspect-ratio: 3 / 2; } /* 1600x1067 ≈ 3:2 */
+  .hero-pro__media img { width: 100%; height: 100%; object-fit: cover; }
+}
