@@ -830,7 +830,7 @@ main .card__meta .duration{ color:#22c55e; }
   color: transparent;
   font-weight: 800;
 }
-<style>
+
 /* Само за тази страница */
 .page--kinesitherapy .page-hero{
   padding: clamp(20px, 5vw, 48px) 0;
@@ -864,4 +864,3 @@ main .card__meta .duration{ color:#22c55e; }
 .page--kinesitherapy #kinesitherapy-procedures{
   margin-top: clamp(10px, 3vw, 18px);
 }
-</style>
