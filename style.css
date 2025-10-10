@@ -1594,3 +1594,12 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
 @media (prefers-reduced-motion: reduce){
   * { animation: none !important; transition: none !important; }
 }
+@media (max-width: 900px){
+  .hero-pro__media img,
+  .why__media img{
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+}
