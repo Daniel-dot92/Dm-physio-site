@@ -734,29 +734,37 @@
 <script src="/js/topbar.js" defer></script>
 <script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Lazy: EmbedSocial, Hotjar, Map iframe + Мобилен autoplay само по едно видео -->
+<!-- Lazy: EmbedSocial, Hotjar, Map iframe + Видео логика (desktop hover / mobile center-only) -->
 <script>
-// 1) EmbedSocial – зарежда се само при видимост
+/* =========================
+   1) EmbedSocial – зареждане само при видимост
+   ========================= */
 (function(){
-  const box = document.getElementById('esBox');
-  if (!box || !('IntersectionObserver' in window)) return;
-  const loadES = () => {
+  var widget = document.querySelector('.embedsocial-widget');
+  if (!widget || !('IntersectionObserver' in window)) return;
+
+  function loadES(){
     if (document.getElementById('EmbedSocialWidgetScript')) return;
-    const js = document.createElement('script');
-    js.id='EmbedSocialWidgetScript';
-    js.src='https://embedsocial.com/cdn/aht.js';
+    var js = document.createElement('script');
+    js.id = 'EmbedSocialWidgetScript';
+    js.src = 'https://embedsocial.com/cdn/aht.js';
     js.async = true;
     document.head.appendChild(js);
-  };
-  const io = new IntersectionObserver(entries => {
-    if (entries.some(e=>e.isIntersecting)) { loadES(); io.disconnect(); }
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })){
+      loadES(); io.disconnect();
+    }
   }, { rootMargin: '200px' });
-  io.observe(box);
+  io.observe(widget);
 })();
 
-// 2) Hotjar – след load + idle, за да не влияе на LCP/TBT
+/* =========================
+   2) Hotjar – след load + idle (не влияе на LCP/TBT)
+   ========================= */
 window.addEventListener('load', function(){
-  (window.requestIdleCallback||setTimeout)(function(){
+  (window.requestIdleCallback || setTimeout)(function(){
     (function (c, s, q, u, a, r, e) {
       c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
       c._hjSettings = { hjid: 6534654 };
@@ -766,77 +774,197 @@ window.addEventListener('load', function(){
       e.src = q + c._hjSettings.hjid + u;
       r.appendChild(e);
     })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js');
-  }, 1200);
+  }, 1000);
 });
 
-// 3) Google Maps iframe – мързеливо добавяне на src при видимост
+/* =========================
+   3) Google Maps iframe – мързеливо присвояване на src (ако има data-src)
+   ========================= */
 (function(){
-  var iframe = document.getElementById('mapFrame');
+  var iframe = document.getElementById('mapFrame') || document.querySelector('iframe[data-src]');
   if (!iframe || !('IntersectionObserver' in window)) return;
-  const src = iframe.getAttribute('data-src');
-  const io = new IntersectionObserver(entries => {
-    if (entries.some(e=>e.isIntersecting)){
-      if (src && !iframe.src) iframe.src = src;
+  var dataSrc = iframe.getAttribute('data-src');
+  if (!dataSrc) return; // ако вече е със src, нищо не правим
+
+  var io = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })){
+      if (!iframe.src) iframe.src = dataSrc;
       io.disconnect();
     }
   }, { rootMargin: '300px' });
   io.observe(iframe);
 })();
 
-// 4) МОБИЛНО: autoplay само на едно видео едновременно
+/* =========================
+   4) Видео логика
+      - DESKTOP (hover: hover): play при hover, pause + reset при mouseleave (без промяна на визията)
+      - MOBILE (hover: none / pointer: coarse): пуска се САМО клипът, чийто център е най-близо до центъра на екрана
+   ========================= */
 (function(){
-  const isMobile = matchMedia('(max-width: 900px)').matches || 'ontouchstart' in window;
-  if (!isMobile) return; // десктоп остава непроменен
+  if (window.__DMVideoLogicInit) return; // guard да няма двойна инициализация
+  window.__DMVideoLogicInit = true;
 
-  const videos = Array.from(document.querySelectorAll('.image-container video, .pain-button-media video'));
+  var cards  = Array.prototype.slice.call(document.querySelectorAll('.image-container, .pain-button-media'));
+  var videos = Array.prototype.slice.call(document.querySelectorAll('video.hover-img'));
   if (!videos.length) return;
 
-  let current = null;
-  const thresholds = Array.from({length:11}, (_,i)=> i/10);
-
-  const loadVideo = (v) => {
-    if (!v || v.dataset.ready==='1') return;
-    v.muted = true; v.playsInline = true; v.setAttribute('playsinline',''); v.preload='metadata';
-    const s = v.querySelector('source[data-src]');
-    if (s && !s.src) s.src = s.dataset.src;
-    try{ v.load(); }catch(e){}
-    v.dataset.ready='1';
-  };
-
-  const pauseAllExcept = (keep) => {
-    videos.forEach(v => { if (v !== keep) try{ v.pause(); }catch(e){} });
-  };
-
-  const play = (v) => {
-    if (!v) return;
-    loadVideo(v);
-    pauseAllExcept(v);
-    current = v;
-    const p = v.play();
-    if (p && p.catch) p.catch(()=>{});
-  };
-
-  const io = new IntersectionObserver((entries)=>{
-    let candidate = null, ratio = 0;
-    entries.forEach(e=>{
-      const v = e.target;
-      if (e.isIntersecting && e.intersectionRatio > ratio){ candidate = v; ratio = e.intersectionRatio; }
-      if (!e.isIntersecting && v === current){ try{ v.pause(); }catch(_){} }
-    });
-    if (candidate) play(candidate);
-  }, { threshold: thresholds, rootMargin: '0px 0px -10% 0px' });
-
-  const preloader = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if (e.isIntersecting){ loadVideo(e.target); preloader.unobserve(e.target); } });
-  }, { rootMargin: '300px 0px' });
-
-  videos.forEach(v => {
-    v.muted = true; v.playsInline = true; v.removeAttribute('controls'); v.preload='none';
-    io.observe(v); preloader.observe(v);
-    v.addEventListener('play', ()=> pauseAllExcept(v), {passive:true});
+  // Общи безопасни настройки
+  videos.forEach(function(v){
+    try{
+      v.setAttribute('playsinline','');
+      v.playsInline = true;
+      v.muted = true;
+      v.setAttribute('muted','');
+      if (!v.getAttribute('preload')) v.preload = 'metadata';
+      v.removeAttribute('controls');
+    }catch(e){}
   });
 
-  document.addEventListener('visibilitychange', ()=>{ if (document.hidden && current){ try{ current.pause(); }catch(_){} } });
+  function loadIfNeeded(v){
+    if (!v || v.dataset.ready === '1') return;
+    var s = v.querySelector('source[data-src]');
+    if (s && !s.src){
+      s.src = s.getAttribute('data-src');
+      try{ v.load(); }catch(e){}
+    }
+    v.dataset.ready = '1';
+  }
+  function safePlay(v){ if (v && v.play) v.play().catch(function(){}); }
+  function safePause(v){ if (v && v.pause){ try{ v.pause(); }catch(e){} } }
+
+  // Предварително „подгряване“ на видеата близо до viewport
+  if ('IntersectionObserver' in window){
+    var preloader = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ loadIfNeeded(e.target); preloader.unobserve(e.target); }
+      });
+    }, { rootMargin: '400px 0px' });
+    videos.forEach(function(v){ preloader.observe(v); });
+  } else {
+    videos.forEach(loadIfNeeded);
+  }
+
+  var hasHover  = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+  var coarsePtr = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+
+  /* ---- DESKTOP (има hover) ---- */
+  if (hasHover && !coarsePtr){
+    cards.forEach(function(box){
+      var v = box.querySelector('video.hover-img');
+      if (!v) return;
+
+      box.addEventListener('mouseenter', function(){
+        loadIfNeeded(v);
+        safePlay(v);
+      }, { passive:true });
+
+      box.addEventListener('mouseleave', function(){
+        safePause(v);
+        try{ v.currentTime = 0; }catch(e){}
+      }, { passive:true });
+    });
+    return; // край за десктоп
+  }
+
+  /* ---- MOBILE: play само най-близкото до центъра ---- */
+  videos.forEach(function(v){ v.removeAttribute('autoplay'); safePause(v); });
+
+  var current = null;
+
+  function setPoster(v, on){
+    var box = v && v.closest('.image-container, .pain-button-media');
+    if (!box) return;
+    var img = box.querySelector('img.static-img');
+    if (on){
+      box.classList.add('is-playing');
+      if (img) img.style.opacity = '0';
+      v.style.opacity = '1';
+    } else {
+      box.classList.remove('is-playing');
+      if (img) img.style.opacity = '';
+      v.style.opacity = '';
+    }
+  }
+
+  function pauseAllExcept(keep){
+    videos.forEach(function(v){
+      if (v === keep) return;
+      safePause(v);
+      setPoster(v, false);
+    });
+  }
+
+  function playOne(v){
+    if (!v) return;
+    loadIfNeeded(v);
+    pauseAllExcept(v);
+    current = v;
+    safePlay(v);
+    setPoster(v, true);
+  }
+
+  // Избор по „близост до центъра“ (вертикален център на видеото спрямо центъра на екрана)
+  function pickClosestToCenter(){
+    var vh = window.innerHeight || 0;
+    var viewportCenterY = vh / 2;
+
+    var best = null;
+    var bestDist = Infinity;
+
+    videos.forEach(function(v){
+      var r = v.getBoundingClientRect();
+      var visible = r.bottom > 0 && r.top < vh;          // поне частично видимо
+      if (!visible) return;
+
+      var centerY = r.top + r.height / 2;
+      var dist = Math.abs(centerY - viewportCenterY);
+      var centerInside = centerY >= 0 && centerY <= vh;
+
+      // Предпочитаме център в екрана; иначе приемаме до 25% толеранс
+      var candidate = centerInside || dist < vh * 0.25;
+
+      if (candidate && dist < bestDist){
+        bestDist = dist;
+        best = v;
+      }
+    });
+
+    // Праг: ако е прекалено далеч (>35% от височината), не пускаме нищо
+    if (best && bestDist <= vh * 0.35){
+      if (best !== current) playOne(best);
+    } else if (current){
+      safePause(current);
+      setPoster(current, false);
+      current = null;
+    }
+  }
+
+  // rAF тротълинг за скрол/ресайз
+  var ticking = false;
+  function onScrollOrResize(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      ticking = false;
+      pickClosestToCenter();
+    });
+  }
+
+  document.addEventListener('scroll', onScrollOrResize, { passive:true });
+  window.addEventListener('resize', onScrollOrResize, { passive:true });
+  window.addEventListener('orientationchange', function(){ setTimeout(pickClosestToCenter, 100); });
+
+  // Пауза при скриване на таба
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden && current){
+      safePause(current);
+      setPoster(current, false);
+      current = null;
+    }
+  });
+
+  // старт след зареждане
+  window.addEventListener('load', function(){ setTimeout(pickClosestToCenter, 120); });
 })();
 </script>
 
