@@ -103,6 +103,16 @@
     ]
   }
   </script>
+<link rel="preload" as="image"
+  href="/pngs/glavna2-768.webp"
+  imagesrcset="/pngs/glavna2-480.webp 480w,
+               /pngs/glavna2-768.webp 768w,
+               /pngs/glavna2-1200.webp 1200w,
+               /pngs/glavna2-1600.webp 1600w"
+  imagesizes="(max-width: 900px) 100vw, 50vw"
+  fetchpriority="high">
+
+
 </head>
 
 <body>
@@ -180,32 +190,22 @@
     </div>
 
     <!-- Дясно: hero изображение + бейдж -->
-    <figure class="hero-pro__media">
-      <picture>
-        <!-- WEBP размери за мобилно/таблет/десктоп -->
-        <source
-          type="image/webp"
-          srcset="
-            /pngs/главна2-480.webp 480w,
-            /pngs/главна2-768.webp 768w,
-            /pngs/главна2-1200.webp 1200w,
-            /pngs/главна2-1600.webp 1600w"
-          sizes="(max-width: 900px) 100vw, 50vw">
-        <!-- JPG fallback (ако някой браузър е без webp) -->
-        <img
-          src="/pngs/главна2-1200.jpg"
-          alt="Физиотерапевтичен кабинет DM Physio в София"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-          width="1600" height="1067">
-      </picture>
+   <figure class="hero-pro__media">
+  <picture>
+    <source type="image/webp"
+      srcset="/pngs/glavna2-480.webp 480w,
+              /pngs/glavna2-768.webp 768w,
+              /pngs/glavna2-1200.webp 1200w,
+              /pngs/glavna2-1600.webp 1600w"
+      sizes="(max-width: 900px) 100vw, 50vw">
+    <img
+      src="/pngs/glavna2-1200.webp"
+      alt="Физиотерапевтичен кабинет DM Physio в София"
+      width="1600" height="1067"
+      loading="eager" decoding="async" fetchpriority="high">
+  </picture>
+</figure>
 
-      <figcaption class="why-badge">
-        <div class="why-badge__brand"><span class="brand-blue">DM</span> <span class="brand-green">Physio</span></div>
-        <div class="why-badge__sub">Професионална грижа</div>
-      </figcaption>
-    </figure>
   </div>
 </section>
 
