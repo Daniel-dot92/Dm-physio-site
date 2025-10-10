@@ -34,7 +34,10 @@
   <link rel="stylesheet" href="/css/top-bar.css" />
   <link rel="stylesheet" href="style.css" />
 
- 
+ <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
+<link rel="preconnect" href="https://t.contentsquare.net" crossorigin>
+<link rel="preconnect" href="https://c.ba.contentsquare.net" crossorigin>
+
 
   <!-- In-page critical tweaks (само мобилни/видимост) -->
   <style>
@@ -51,7 +54,7 @@
     a:focus, button:focus { outline: 3px solid #18A558; outline-offset: 2px; }
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
-    .image-container, .pain-button-media { aspect-ratio: 16/9; overflow: hidden; }
+   
     #work { scroll-margin-top: 80px; }
 
     /* Маската на снимката е скъпа на мобилно – изключваме само там */
@@ -111,9 +114,31 @@
                /pngs/glavna2-1600.webp 1600w"
   imagesizes="(max-width: 900px) 100vw, 50vw"
   fetchpriority="high">
-
+<script>
+(function(){
+  function loadCS(){
+    if (document.getElementById('csq-loader')) return;
+    var s = document.createElement('script');
+    s.id='csq-loader';
+    s.async = true;
+    s.src = 'https://static.hj.contentsquare.net/c/csq-6534654.js';
+    s.referrerPolicy = 'no-referrer-when-downgrade';
+    document.head.appendChild(s);
+  }
+  function tryLoad() {
+    if (window._hjSettings && typeof window.hj === 'function') loadCS();
+    else setTimeout(tryLoad, 2000);
+  }
+  // чак след като страницата е „топло“ рендерирана
+  window.addEventListener('load', function(){
+    if ('requestIdleCallback' in window) requestIdleCallback(tryLoad, {timeout: 8000});
+    else setTimeout(tryLoad, 8000);
+  });
+})();
+</script>
 
 </head>
+
 
 <body>
 <a class="skip-link" href="#home">Към съдържанието</a>
@@ -334,68 +359,94 @@
         </section>
       </div>
 
-      <!-- Дясна колона -->
-      <aside class="two-col__right">
-        <h2 class="conditions__title">Най-често срещани състояния</h2>
+     <!-- Дясна колона -->
+<aside class="two-col__right">
+  <h2 class="conditions__title">Най-често срещани състояния</h2>
 
-        <div class="pain-buttons-vertical">
-          <!-- 1 -->
-          <a href="/sustiqnia/head- slepoochie.html" class="pain-button">
-            <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/headeach2-Thumbnail.jpg" alt="Болка в слепоочието и скалпа" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-              <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/sustoqniq/headeach2-Thumbnail.jpg">
-                <source data-src="/pngs/sustoqniq/headeach2.mp4" type="video/mp4">
-              </video>
-            </div>
-            <span class="pain-button-text">Болка в слепоочието</span>
-            <p class="pain-button-hook">
-              Главоболието и напрежението в слепоочията често са свързани с мускулен дисбаланс и неправилна стойка… научи повече за всяка от секциите.
-            </p>
-          </a>
+  <div class="pain-buttons-vertical">
+    <!-- 1 -->
+    <a href="/sustiqnia/head-slepoochie.html" class="pain-button">
+      <div class="pain-button-media image-container">
+        <img
+          src="/pngs/sustoqniq/headeach2-thumbnail.webp"
+          alt="Болка в слепоочието и скалпа"
+          class="static-img"
+          loading="lazy" decoding="async"
+          width="352" height="352">
+        <video class="hover-img" loop playsinline muted preload="none"
+               poster="/pngs/sustoqniq/headeach2-thumbnail.webp">
+          <source data-src="/pngs/sustoqniq/headeach2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <span class="pain-button-text">Болка в слепоочието</span>
+      <p class="pain-button-hook">
+        Главоболието и напрежението в слепоочията често са свързани с мускулен дисбаланс и неправилна стойка… научи повече за всяка от секциите.
+      </p>
+    </a>
 
-          <!-- 2 -->
-          <a href="/sustiqnia/neck-diskova.html" class="pain-button">
-            <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg" alt="Дискова херния на врата" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-              <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/sustoqniq/muscles/disk herniation- how it happen-Thumbnail.jpg">
-                <source data-src="/pngs/sustoqniq/muscles/disk herniation- how it happen.mp4" type="video/mp4">
-              </video>
-            </div>
-            <span class="pain-button-text">Дискова херния (врат)</span>
-            <p class="pain-button-hook">
-              Дисковата херния на врата може да предизвика изтръпване и болка в ръцете… научи повече за всяка от секциите.
-            </p>
-          </a>
+<!-- 2 -->
+<a href="/sustiqnia/neck-diskova.html" class="pain-button">
+  <div class="pain-button-media image-container">
+    <img
+      src="/pngs/sustoqniq/muscles/disk-herniation-how-it-happen-thumbnail.webp"
+      alt="Дискова херния на врата"
+      class="static-img"
+      loading="lazy" decoding="async"
+      width="352" height="352">
+    <video class="hover-img" loop playsinline muted preload="none"
+           poster="/pngs/sustoqniq/muscles/disk-herniation-how-it-happen-thumbnail.webp">
+      <source data-src="/pngs/sustoqniq/muscles/disk-herniation-1.mp4" type="video/mp4">
+    </video>
+  </div>
+  <span class="pain-button-text">Дискова херния (врат)</span>
+  <p class="pain-button-hook">
+    Дисковата херния на врата може да предизвика изтръпване и болка в ръцете… научи повече за всяка от секциите.
+  </p>
+</a>
 
-          <!-- 3 -->
-          <a href="/sustiqnia/krust/piriformis.html" class="pain-button">
-            <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg" alt="Пириформис синдром" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-              <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/sustoqniq/muscles/piriformis-Thumbnail.jpg">
-                <source data-src="/pngs/sustoqniq/muscles/piriformis.mp4" type="video/mp4">
-              </video>
-            </div>
-            <span class="pain-button-text">Пириформис синдром</span>
-            <p class="pain-button-hook">
-              Пириформис синдромът често причинява болка и изтръпване по седалището и крака… научи повече за всяка от секциите.
-            </p>
-          </a>
 
-          <!-- 4 -->
-          <a href="/pain-lower-back.html" class="pain-button">
-            <div class="pain-button-media image-container">
-              <img src="/pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Болка в кръста" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-              <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/backpain-Thumbnail.jpg">
-                <source data-src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
-              </video>
-            </div>
-            <span class="pain-button-text">Болка в кръста</span>
-            <p class="pain-button-hook">
-              Болката в кръста е често неразбрана и може да се дължи на много фактори и мускулни дисбаланси. Вижте повече…
-            </p>
-          </a>
-        </div>
-      </aside>
+    <!-- 3 -->
+    <a href="/sustiqnia/krust/piriformis.html" class="pain-button">
+      <div class="pain-button-media image-container">
+        <img
+          src="/pngs/sustoqniq/muscles/piriformis-thumbnail.webp"
+          alt="Пириформис синдром"
+          class="static-img"
+          loading="lazy" decoding="async"
+          width="352" height="352">
+        <video class="hover-img" loop playsinline muted preload="none"
+               poster="/pngs/sustoqniq/muscles/piriformis-thumbnail.webp">
+          <source data-src="/pngs/sustoqniq/muscles/piriformis.mp4" type="video/mp4">
+        </video>
+      </div>
+      <span class="pain-button-text">Пириформис синдром</span>
+      <p class="pain-button-hook">
+        Пириформис синдромът често причинява болка и изтръпване по седалището и крака… научи повече за всяка от секциите.
+      </p>
+    </a>
+
+    <!-- 4 -->
+    <a href="/pain-lower-back.html" class="pain-button">
+      <div class="pain-button-media image-container">
+        <img
+          src="/pngs/pain-conditions/new/backpain-thumbnail.webp"
+          alt="Болка в кръста"
+          class="static-img"
+          loading="lazy" decoding="async"
+          width="352" height="352">
+        <video class="hover-img" loop playsinline muted preload="none"
+               poster="/pngs/pain-conditions/new/backpain-thumbnail.webp">
+          <source data-src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
+        </video>
+      </div>
+      <span class="pain-button-text">Болка в кръста</span>
+      <p class="pain-button-hook">
+        Болката в кръста е често неразбрана и може да се дължи на много фактори и мускулни дисбаланси. Вижте повече…
+      </p>
+    </a>
+  </div>
+</aside>
+
     </div>
   </section>
 
@@ -598,7 +649,7 @@
         <details class="advice-reveal" id="adviceReveal">
           <summary class="advice-summary-btn">
             <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
-            <span class="cheв" aria-hidden="true"></span>
+            <span class="chev" aria-hidden="true"></span>
           </summary>
 
           <div class="advice-panel">
@@ -744,18 +795,7 @@
 <script src="/js/topbar.js" defer></script>
 <script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Hotjar / Contentsquare -->
-  <script>
-    (function (c, s, q, u, a, r, e) {
-      c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
-      c._hjSettings = { hjid: a };
-      r = s.getElementsByTagName('head')[0];
-      e = s.createElement('script');
-      e.async = true;
-      e.src = q + c._hjSettings.hjid + u;
-      r.appendChild(e);
-    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6534654);
-  </script>
+
 <!-- Lazy: EmbedSocial, Hotjar, Map iframe + Видео логика (desktop hover / mobile center-only) -->
 <script>
 /* =========================
