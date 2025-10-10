@@ -1,27 +1,30 @@
-﻿// /js/topbar.js
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   const MOBILE_MAX = 768;
   const isMobile = () => window.innerWidth <= MOBILE_MAX;
 
   /* ---------- SELECTORS ---------- */
-  const header  = document.querySelector('.tb-header');
-  const burger  = document.querySelector('.tb-burger');
-  const nav     = document.querySelector('.tb-nav');
+  const header   = document.querySelector('.tb-header');
+  const burger   = document.querySelector('.tb-burger');
+  const nav      = document.querySelector('.tb-nav');
   const dropToggles = document.querySelectorAll('.tb-drop-toggle');
 
-  // Ако изобщо няма header на страницата — излизаме чисто
-  if (!header) return;
-
-  /* ---------- SCROLL BG (прави header полупрозрачен при скрол) ---------- */
+  /* ---------- SCROLL BEHAVIOR ----------
+     - ��� y > 0 -> ����� ��������� (rgba 0.4)
+     - ��� y === 0 -> ������� ������
+  -------------------------------------- */
   function applyHeaderBg(){
+    if (!header) return;
     const y = window.scrollY || 0;
-    if (y > 0) header.classList.add('tb--transparent');
-    else header.classList.remove('tb--transparent');
+    if (y > 0) {
+      header.classList.add('tb--transparent');
+    } else {
+      header.classList.remove('tb--transparent');
+    }
   }
 
-  // init + on scroll (rAF throttle)
+  // init + on scroll (� rAF)
   let ticking = false;
   function onScroll(){
     if (!ticking){
@@ -39,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeMobileMenu(){
     nav?.classList.remove('tb-nav--open');
     document.body.classList.remove('tb-no-scroll');
-    // затвори всички отворени dropdown-и
+    // ��������� � ������ �������� dropdown-�
     document.querySelectorAll('.tb-dropdown.tb-open').forEach(li => li.classList.remove('tb-open'));
     burger?.setAttribute('aria-expanded', 'false');
   }
@@ -54,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleMobileMenu();
   });
 
-  // Клик извън менюто затваря (само на мобилно)
+  // ��������� ��� ���� �����
   document.addEventListener('click', (e) => {
     if (!isMobile() || !nav) return;
     const target = e.target;
@@ -64,37 +67,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ESC затваря мобилното меню
+  // ESC �������
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isMobile() && nav?.classList.contains('tb-nav--open')) {
       closeMobileMenu();
     }
   });
 
-  // При преминаване към десктоп — увери се, че менюто е затворено
+  // ��� resize ��� ������� ������ ��������� ���������
   window.addEventListener('resize', () => {
     if (!isMobile()) closeMobileMenu();
-  }, { passive: true });
+  });
 
-  /* ---------- DROPDOWN (десктоп) ---------- */
-  if (dropToggles.length){
-    dropToggles.forEach(a => {
-      a.addEventListener('click', () => {
-        // На мобилно оставяме линковете да си навигират
-        if (isMobile()) return;
+  /* ---------- MOBILE: dropdown toggle ---------- */
+/* �� ������� �� ������ ��������. ����������� ������ �� ��������. */
+if (dropToggles.length){
+  dropToggles.forEach(a => {
+    a.addEventListener('click', (e) => {
+      // ��� � �������: �� ������ ���� (�� preventDefault), ����������� �������� �� href
+      if (isMobile()) return;
 
-        // На десктоп: отваря/затваря dropdown-а, без да пречим на href
-        if (a.dataset.dropdown === 'toggle'){
-          const li = a.closest('.tb-dropdown');
-          if (!li) return;
-          document.querySelectorAll('.tb-dropdown.tb-open').forEach(x => { if (x !== li) x.classList.remove('tb-open'); });
-          li.classList.toggle('tb-open');
-        }
-      });
+      // �� ������� ������ ��������� ��� hover/click ��� �� �����
+      if (a.dataset.dropdown === 'toggle'){
+        // �� ������� ����� �� ������� ���� ���� �� �������-����
+        // e.preventDefault();
+        const li = a.closest('.tb-dropdown');
+        if (!li) return;
+        document.querySelectorAll('.tb-dropdown.tb-open').forEach(x => { if (x !== li) x.classList.remove('tb-open'); });
+        li.classList.toggle('tb-open');
+      }
     });
-  }
+  });
+}
 
-  /* ---------- Клик по линк в менюто (мобилно) -> затвори менюто ---------- */
+
+  /* ---------- CLICK �� ����: �� ������� ������� ������ ---------- */
   nav?.querySelectorAll('.tb-link, .tb-drop-link').forEach(link => {
     link.addEventListener('click', () => {
       if (isMobile() && nav.classList.contains('tb-nav--open')) {
@@ -103,3 +110,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
