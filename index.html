@@ -59,6 +59,13 @@
       .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
     }
   </style>
+<!-- top-bar.css -->
+<link rel="preload" href="/css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/top-bar.css"></noscript>
+
+<!-- style.css -->
+<link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/style.css"></noscript>
 
   <!-- JSON-LD: LocalBusiness (Physiotherapy) -->
   <script type="application/ld+json">
@@ -103,6 +110,17 @@
     ]
   }
   </script>
+<!-- Прелоуд за мобилно (≤600px) – най-малки файлове -->
+<link rel="preload" as="image"
+  href="/pngs/glavna2-480.webp"
+  imagesrcset="/pngs/glavna2-320.webp 320w,
+               /pngs/glavna2-480.webp 480w,
+               /pngs/glavna2-768.webp 768w"
+  imagesizes="100vw"
+  media="(max-width: 600px)"
+  fetchpriority="high">
+
+<!-- Прелоуд за >600px – както досега -->
 <link rel="preload" as="image"
   href="/pngs/glavna2-768.webp"
   imagesrcset="/pngs/glavna2-480.webp 480w,
@@ -110,7 +128,9 @@
                /pngs/glavna2-1200.webp 1200w,
                /pngs/glavna2-1600.webp 1600w"
   imagesizes="(max-width: 900px) 100vw, 50vw"
+  media="(min-width: 601px)"
   fetchpriority="high">
+
 
 
 </head>
@@ -191,22 +211,38 @@
       </div>
     </div>
 
-    <!-- Дясно: hero изображение + бейдж -->
-   <figure class="hero-pro__media">
+<figure class="hero-pro__media">
   <picture>
-    <source type="image/webp"
+    <!-- Мобилно (≤600px) -->
+    <source type="image/webp" media="(max-width: 600px)"
+      srcset="/pngs/glavna2-320.webp 320w,
+              /pngs/glavna2-480.webp 480w,
+              /pngs/glavna2-768.webp 768w"
+      sizes="100vw">
+
+    <!-- Таблет до 900px -->
+    <source type="image/webp" media="(max-width: 900px)"
       srcset="/pngs/glavna2-480.webp 480w,
               /pngs/glavna2-768.webp 768w,
+              /pngs/glavna2-1200.webp 1200w"
+      sizes="100vw">
+
+    <!-- Десктоп -->
+    <source type="image/webp" media="(min-width: 901px)"
+      srcset="/pngs/glavna2-768.webp 768w,
               /pngs/glavna2-1200.webp 1200w,
               /pngs/glavna2-1600.webp 1600w"
-      sizes="(max-width: 900px) 100vw, 50vw">
+      sizes="50vw">
+
+    <!-- fallback img (по-малък по подразбиране) -->
     <img
-      src="/pngs/glavna2-1200.webp"
+      src="/pngs/glavna2-768.webp"
       alt="Физиотерапевтичен кабинет DM Physio в София"
       width="1600" height="1067"
       loading="eager" decoding="async" fetchpriority="high">
   </picture>
 </figure>
+
 
   </div>
 </section>
@@ -340,7 +376,7 @@
 
         <div class="pain-buttons-vertical">
           <!-- 1 -->
-          <a href="/sustiqnia/head-slepoochie.html" class="pain-button">
+          <a href="/sustiqnia/head- slepoochie.html" class="pain-button">
             <div class="pain-button-media image-container">
               <img src="/pngs/sustoqniq/headeach2-Thumbnail.jpg" alt="Болка в слепоочието и скалпа" class="static-img" loading="lazy" decoding="async" width="640" height="360">
               <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/sustoqniq/headeach2-Thumbnail.jpg">

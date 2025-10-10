@@ -189,3 +189,4 @@
 /* разстояние отгоре + коректен офсет за скрол до anchor-и */
 html { scroll-padding-top: calc(var(--tb-h) + 0px); }
 .page-content { padding-top: calc(var(--tb-h) + 0px); }
+
