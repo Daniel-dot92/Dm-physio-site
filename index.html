@@ -11,7 +11,7 @@
   <meta name="theme-color" content="#0E7C86" />
   <meta name="language" content="Bulgarian" />
   <meta name="author" content="DM Physio" />
-  <link rel="icon" href="/logo.png" />
+  <link rel="icon" href="/logo.webp" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Кинезитерапия и Масаж в София – DM Physio" />
@@ -30,30 +30,27 @@
   <meta name="twitter:description" content="Оценка на движение, индивидуален план и лечение на болка, изтръпване и мускулен дисбаланс." />
   <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.jpg" />
 
- 
- 
+  <style>
+    /* A11y: skip link */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
 
- <style>
-  /* A11y: skip link */
-  .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-  .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
+    /* Гладък anchor скрол към #work, без да пипаме глобалния scroll-padding */
+    #work { scroll-margin-top: 80px; }
 
-  /* Гладък anchor скрол към #work, без да пипаме глобалния scroll-padding */
-  #work { scroll-margin-top: 80px; }
+    /* Мобилно: изключи маската върху hero/why изображения – визуално същото */
+    @media (max-width: 900px){
+      .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
+    }
+  </style>
 
-  /* Мобилно: изключи маската върху hero/why изображения – визуално същото */
-  @media (max-width: 900px){
-    .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
-  }
-</style>
+  <!-- top-bar.css -->
+  <link rel="preload" href="/css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/top-bar.css"></noscript>
 
-<!-- top-bar.css -->
-<link rel="preload" href="/css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/css/top-bar.css"></noscript>
-
-<!-- style.css -->
-<link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <!-- style.css -->
+  <link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
 
   <!-- JSON-LD: LocalBusiness (Physiotherapy) -->
   <script type="application/ld+json">
@@ -98,29 +95,39 @@
     ]
   }
   </script>
-<!-- Прелоуд за мобилно (≤600px) – най-малки файлове -->
-<link rel="preload" as="image"
-  href="/pngs/glavna2-480.webp"
-  imagesrcset="/pngs/glavna2-320.webp 320w,
-               /pngs/glavna2-480.webp 480w,
-               /pngs/glavna2-768.webp 768w"
-  imagesizes="100vw"
-  media="(max-width: 600px)"
-  fetchpriority="high">
 
-<!-- Прелоуд за >600px – както досега -->
-<link rel="preload" as="image"
-  href="/pngs/glavna2-768.webp"
-  imagesrcset="/pngs/glavna2-480.webp 480w,
-               /pngs/glavna2-768.webp 768w,
-               /pngs/glavna2-1200.webp 1200w,
-               /pngs/glavna2-1600.webp 1600w"
-  imagesizes="(max-width: 900px) 100vw, 50vw"
-  media="(min-width: 601px)"
-  fetchpriority="high">
+  <!-- Прелоуд за мобилно (≤600px) – най-малки файлове -->
+  <link rel="preload" as="image"
+    href="/pngs/glavna2-480.webp"
+    imagesrcset="/pngs/glavna2-320.webp 320w,
+                 /pngs/glavna2-480.webp 480w,
+                 /pngs/glavna2-768.webp 768w"
+    imagesizes="100vw"
+    media="(max-width: 600px)"
+    fetchpriority="high">
 
+  <!-- Прелоуд за >600px – както досега -->
+  <link rel="preload" as="image"
+    href="/pngs/glavna2-768.webp"
+    imagesrcset="/pngs/glavna2-480.webp 480w,
+                 /pngs/glavna2-768.webp 768w,
+                 /pngs/glavna2-1200.webp 1200w,
+                 /pngs/glavna2-1600.webp 1600w"
+    imagesizes="(max-width: 900px) 100vw, 50vw"
+    media="(min-width: 601px)"
+    fetchpriority="high">
 
-
+  <!-- Hotjar (официален снипет) -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:6534654,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
 </head>
 
 <body>
@@ -131,12 +138,12 @@
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-     <!-- ТРЯБВА -->
-<img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo"
-     loading="eager" decoding="async" width="64" height="64">
+      <!-- ТРЯБВА -->
+      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo"
+           loading="eager" decoding="async" width="64" height="64">
     </a>
 
-    <!-- Хамбургер (inline SVG вместо външен шрифт, изглежда същото) -->
+    <!-- Хамбургер -->
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
       <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
     </button>
@@ -162,79 +169,76 @@
   </div>
 </header>
 
-<main>  
+<main>
   <!-- HERO -->
-<section class="hero-pro" id="home" aria-label="Начало">
-  <div class="container hero-pro__wrap">
-    <!-- Ляво: текст -->
-    <div class="hero-pro__content">
-      <span class="hero-pro__eyebrow">Професионална Кинезитерапия</span>
-      <h1 class="hero-pro__title">
-        <span class="brand-blue">DM</span> <span class="brand-green">Physio</span>
-      </h1>
+  <section class="hero-pro" id="home" aria-label="Начало">
+    <div class="container hero-pro__wrap">
+      <!-- Ляво: текст -->
+      <div class="hero-pro__content">
+        <span class="hero-pro__eyebrow">Професионална Кинезитерапия</span>
+        <h1 class="hero-pro__title">
+          <span class="brand-blue">DM</span> <span class="brand-green">Physio</span>
+        </h1>
 
-      <p class="hero-pro__subtitle">
-        Не лекуваме симптомите — коригираме истинската причина.<br>
-        Професионален подход към мускулния дисбаланс и хроничната болка.
-      </p>
+        <p class="hero-pro__subtitle">
+          Не лекуваме симптомите — коригираме истинската причина.<br>
+          Професионален подход към мускулния дисбаланс и хроничната болка.
+        </p>
 
-      <div class="hero-pro__cta">
-        <a href="#work" class="btn btn-primary">Разберете как работим</a>
-        <a href="https://book.dmphysi0.com/book" class="btn btn-outline" rel="noopener" target="_blank">Свободни часове</a>
+        <div class="hero-pro__cta">
+          <a href="#work" class="btn btn-primary">Разберете как работим</a>
+          <a href="https://book.dmphysi0.com/book" class="btn btn-outline" rel="noopener" target="_blank">Свободни часове</a>
+        </div>
+
+        <div class="hero-pro__stats">
+          <div class="stat">
+            <div class="stat__value">8000+</div>
+            <div class="stat__label">Излекувани пациенти</div>
+          </div>
+          <div class="stat">
+            <div class="stat__value">95%</div>
+            <div class="stat__label">Успешност</div>
+          </div>
+          <div class="stat">
+            <div class="stat__value">7+</div>
+            <div class="stat__label">Години опит</div>
+          </div>
+        </div>
       </div>
 
-      <div class="hero-pro__stats">
-        <div class="stat">
-          <div class="stat__value">8000+</div>
-          <div class="stat__label">Излекувани пациенти</div>
-        </div>
-        <div class="stat">
-          <div class="stat__value">95%</div>
-          <div class="stat__label">Успешност</div>
-        </div>
-        <div class="stat">
-          <div class="stat__value">7+</div>
-          <div class="stat__label">Години опит</div>
-        </div>
-      </div>
+      <figure class="hero-pro__media">
+        <picture>
+          <!-- Мобилно (≤600px) -->
+          <source type="image/webp" media="(max-width: 600px)"
+            srcset="/pngs/glavna2-320.webp 320w,
+                    /pngs/glavna2-480.webp 480w,
+                    /pngs/glavna2-768.webp 768w"
+            sizes="100vw">
+
+          <!-- Таблет до 900px -->
+          <source type="image/webp" media="(max-width: 900px)"
+            srcset="/pngs/glavna2-480.webp 480w,
+                    /pngs/glavna2-768.webp 768w,
+                    /pngs/glavna2-1200.webp 1200w"
+            sizes="100vw">
+
+          <!-- Десктоп -->
+          <source type="image/webp" media="(min-width: 901px)"
+            srcset="/pngs/glavna2-768.webp 768w,
+                    /pngs/glavna2-1200.webp 1200w,
+                    /pngs/glavna2-1600.webp 1600w"
+            sizes="50vw">
+
+          <!-- fallback img (по-малък по подразбиране) -->
+          <img
+            src="/pngs/glavna2-768.webp"
+            alt="Физиотерапевтичен кабинет DM Physio в София"
+            width="1600" height="1067"
+            loading="eager" decoding="async" fetchpriority="high">
+        </picture>
+      </figure>
     </div>
-
-<figure class="hero-pro__media">
-  <picture>
-    <!-- Мобилно (≤600px) -->
-    <source type="image/webp" media="(max-width: 600px)"
-      srcset="/pngs/glavna2-320.webp 320w,
-              /pngs/glavna2-480.webp 480w,
-              /pngs/glavna2-768.webp 768w"
-      sizes="100vw">
-
-    <!-- Таблет до 900px -->
-    <source type="image/webp" media="(max-width: 900px)"
-      srcset="/pngs/glavna2-480.webp 480w,
-              /pngs/glavna2-768.webp 768w,
-              /pngs/glavna2-1200.webp 1200w"
-      sizes="100vw">
-
-    <!-- Десктоп -->
-    <source type="image/webp" media="(min-width: 901px)"
-      srcset="/pngs/glavna2-768.webp 768w,
-              /pngs/glavna2-1200.webp 1200w,
-              /pngs/glavna2-1600.webp 1600w"
-      sizes="50vw">
-
-    <!-- fallback img (по-малък по подразбиране) -->
-    <img
-      src="/pngs/glavna2-768.webp"
-      alt="Физиотерапевтичен кабинет DM Physio в София"
-      width="1600" height="1067"
-      loading="eager" decoding="async" fetchpriority="high">
-  </picture>
-</figure>
-
-
-  </div>
-</section>
-
+  </section>
 
   <!-- Две колони -->
   <section class="two-col">
@@ -442,157 +446,154 @@
   </section>
 
   <!-- Къде е болката -->
-<section id="pain-conditions-intro" class="hero-subpage" aria-label="Къде е болката?">
-  <div class="container">
-    <h2 class="pci-title">Къде е болката?</h2>
+  <section id="pain-conditions-intro" class="hero-subpage" aria-label="Къде е болката?">
+    <div class="container">
+      <h2 class="pci-title">Къде е болката?</h2>
 
-    <p class="pci-intro">
-      Можеш да си помогнеш още сега: <strong>избери частта на тялото, която те боли</strong> и разгледай
-      най-честите състояния за тази зона — какви са симптомите, какъв е механизмът зад болката и
-      кои са работещите методи за възстановяване. <span class="pci-accent">Колкото по-рано разбереш причината,
-      толкова по-бързо ще се върнеш към движение без болка.</span>
-    </p>
+      <p class="pci-intro">
+        Можеш да си помогнеш още сега: <strong>избери частта на тялото, която те боли</strong> и разгледай
+        най-честите състояния за тази зона — какви са симптомите, какъв е механизмът зад болката и
+        кои са работещите методи за възстановяване. <span class="pci-accent">Колкото по-рано разбереш причината,
+        толкова по-бързо ще се върнеш към движение без болка.</span>
+      </p>
 
-    <div class="pain-buttons-grid">
-      <!-- Глава -->
-      <a href="/pain-head.html" class="pain-button" aria-label="Глава – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="/pngs/pain-conditions/new/headeach1-Thumbnail.webp" alt="Глава" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-          <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/headeach1-Thumbnail.webp">
-            <source data-src="/pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Глава</span>
-      </a>
+      <div class="pain-buttons-grid">
+        <!-- Глава -->
+        <a href="/pain-head.html" class="pain-button" aria-label="Глава – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/headeach1-Thumbnail.webp" alt="Глава" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/headeach1-Thumbnail.webp">
+              <source data-src="/pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Глава</span>
+        </a>
 
-      <!-- Врат -->
-      <a href="/pain-neck.html" class="pain-button" aria-label="Врат – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp" alt="Врат" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-          <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp">
-            <source data-src="/pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Врат</span>
-      </a>
+        <!-- Врат -->
+        <a href="/pain-neck.html" class="pain-button" aria-label="Врат – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp" alt="Врат" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp">
+              <source data-src="/pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Врат</span>
+        </a>
 
-<!-- Рамо -->
-<a href="/pain-shoulder.html" class="pain-button" aria-label="Рамо – най-чести болкови състояния">
-  <div class="pain-button-media image-container">
-    <img src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp"
-         alt="Рамо" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-    <video class="hover-img" loop playsinline muted preload="none"
-           poster="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp">
-      <source data-src="/pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
-    </video>
-  </div>
-  <span class="pain-button-text">Рамо</span>
-</a>
+        <!-- Рамо -->
+        <a href="/pain-shoulder.html" class="pain-button" aria-label="Рамо – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp"
+                 alt="Рамо" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none"
+                   poster="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp">
+              <source data-src="/pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Рамо</span>
+        </a>
 
+        <!-- Ръка -->
+        <a href="/pain-arm.html" class="pain-button" aria-label="Ръка – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/armpain-Thumbnail.webp" alt="Ръка" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/armpain-Thumbnail.webp">
+              <source data-src="/pngs/pain-conditions/new/armpain.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Ръка</span>
+        </a>
 
+        <!-- Гърди и Корем -->
+        <a href="/pain-chest-abdomen.html" class="pain-button" aria-label="Гърди и Корем – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/chestpain-Thumbnail.webp" alt="Гърди и Корем" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/chestpain-Thumbnail.webp">
+              <source data-src="/pngs/pain-conditions/new/chestpain.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Гърди и Корем</span>
+        </a>
 
-      <!-- Ръка -->
-      <a href="/pain-arm.html" class="pain-button" aria-label="Ръка – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="/pngs/pain-conditions/new/armpain-Thumbnail.webp" alt="Ръка" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-          <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/armpain-Thumbnail.webp">
-            <source data-src="/pngs/pain-conditions/new/armpain.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Ръка</span>
-      </a>
+        <!-- Гръб -->
+        <a href="/pain-back.html" class="pain-button" aria-label="Гръб – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp" alt="Гръб" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp">
+              <source data-src="/pngs/pain-conditions/new/midbackpain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Гръб</span>
+        </a>
 
-      <!-- Гърди и Корем -->
-      <a href="/pain-chest-abdomen.html" class="pain-button" aria-label="Гърди и Корем – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="/pngs/pain-conditions/new/chestpain-Thumbnail.webp" alt="Гърди и Корем" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-          <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/chestpain-Thumbnail.webp">
-            <source data-src="/pngs/pain-conditions/new/chestpain.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Гърди и Корем</span>
-      </a>
+        <!-- Кръст -->
+        <a href="/pain-lower-back.html" class="pain-button" aria-label="Кръст – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/backpain-Thumbnail.webp" alt="Кръст" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/backpain-Thumbnail.webp">
+              <source data-src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Кръст</span>
+        </a>
 
-      <!-- Гръб -->
-      <a href="/pain-back.html" class="pain-button" aria-label="Гръб – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp" alt="Гръб" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-          <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp">
-            <source data-src="/pngs/pain-conditions/new/midbackpain1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Гръб</span>
-      </a>
+        <!-- Дупе / Таз -->
+        <a href="/pain-buttocks-pelvis.html" class="pain-button" aria-label="Дупе и Таз – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/hippain1-Thumbnail.webp" alt="Дупе / Таз" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/hippain1-Thumbnail.webp">
+              <source data-src="/pngs/pain-conditions/new/hippain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Дупе / Таз</span>
+        </a>
 
-      <!-- Кръст -->
-      <a href="/pain-lower-back.html" class="pain-button" aria-label="Кръст – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="/pngs/pain-conditions/new/backpain-Thumbnail.webp" alt="Кръст" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-          <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/backpain-Thumbnail.webp">
-            <source data-src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Кръст</span>
-      </a>
+        <!-- Бедро / Коляно -->
+        <a href="/pain-thigh-knee.html" class="pain-button" aria-label="Бедро и Коляно – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp" alt="Бедро / Коляно" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp">
+              <source data-src="/pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Бедро / Коляно</span>
+        </a>
 
-      <!-- Дупе / Таз -->
-      <a href="/pain-buttocks-pelvis.html" class="pain-button" aria-label="Дупе и Таз – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="/pngs/pain-conditions/new/hippain1-Thumbnail.webp" alt="Дупе / Таз" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-          <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/hippain1-Thumbnail.webp">
-            <source data-src="/pngs/pain-conditions/new/hippain1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Дупе / Таз</span>
-      </a>
+        <!-- Подбедрица / Стъпало -->
+        <a href="/pain-lower-leg-ankle.html" class="pain-button" aria-label="Подбедрица и Стъпало – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp" alt="Подбедрица / Стъпало" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp">
+              <source data-src="/pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Подбедрица / Стъпало</span>
+        </a>
 
-      <!-- Бедро / Коляно -->
-      <a href="/pain-thigh-knee.html" class="pain-button" aria-label="Бедро и Коляно – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp" alt="Бедро / Коляно" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-          <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp">
-            <source data-src="/pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Бедро / Коляно</span>
-      </a>
+        <!-- Невралгии -->
+        <a href="/pain-neuralgia-general.html" class="pain-button" aria-label="Невралгии – най-чести болкови състояния">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/pain-conditions/new/tingling1-Thumbnail.jpg" alt="Невралгии" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/tingling1-Thumbnail.jpg">
+              <source data-src="/pngs/pain-conditions/new/tingling1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Невралгии</span>
+        </a>
 
-      <!-- Подбедрица / Стъпало -->
-      <a href="/pain-lower-leg-ankle.html" class="pain-button" aria-label="Подбедрица и Стъпало – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp" alt="Подбедрица / Стъпало" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-          <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp">
-            <source data-src="/pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Подбедрица / Стъпало</span>
-      </a>
-
-      <!-- Невралгии (НЕ пипаме) -->
-      <a href="/pain-neuralgia-general.html" class="pain-button" aria-label="Невралгии – най-чести болкови състояния">
-        <div class="pain-button-media image-container">
-          <img src="/pngs/pain-conditions/new/tingling1-Thumbnail.jpg" alt="Невралгии" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-          <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/tingling1-Thumbnail.jpg">
-            <source data-src="/pngs/pain-conditions/new/tingling1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Невралгии</span>
-      </a>
-
-      <!-- Физиология / Мускули (НЕ пипаме) -->
-      <a href="/physiology.html" class="pain-button physiology-button" aria-label="Физиология – образователна секция">
-        <div class="pain-button-media image-container">
-          <img src="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg" alt="Мускули – образователна секция" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-          <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg">
-            <source data-src="/pngs/sustoqniq/muscles/Muscles main.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="pain-button-text">Мускули</span>
-      </a>
+        <!-- Физиология / Мускули -->
+        <a href="/physiology.html" class="pain-button physiology-button" aria-label="Физиология – образователна секция">
+          <div class="pain-button-media image-container">
+            <img src="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg" alt="Мускули – образователна секция" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg">
+              <source data-src="/pngs/sustoqniq/muscles/Muscles main.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="pain-button-text">Мускули</span>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- FREE ADVICE (REVEAL) -->
   <section class="advice-reveal-block" id="free-advice">
@@ -615,7 +616,7 @@
           <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
         </div>
 
-        <!-- Скрит iframe (фолбек) -->
+        <!-- Скрит iframe (фолбек за target на формата) -->
         <iframe name="hidden_gform" id="hidden_gform" style="display:none;" title="Скрит формуларен приемник" loading="lazy" referrerpolicy="no-referrer"></iframe>
 
         <!-- Разгъващ се панел -->
@@ -630,67 +631,66 @@
               <h4 class="form-card__title">Безплатна консултация</h4>
 
               <form id="adviceForm"
-      class="advice-form"
-      action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
-      method="POST" target="hidden_gform" novalidate>
+                    class="advice-form"
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
+                    method="POST" target="hidden_gform" novalidate>
 
-  <!-- Anti-bот honeypot -->
-  <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0"
-       aria-hidden="true">
-    <label for="hp_website">Оставете това поле празно</label>
-    <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
-  </div>
+                <!-- Anti-bot honeypot -->
+                <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0" aria-hidden="true">
+                  <label for="hp_website">Оставете това поле празно</label>
+                  <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
+                </div>
 
-  <div class="form-row">
-    <div class="field">
-      <label for="fName">Име</label>
-      <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required autocomplete="name">
-    </div>
-    <div class="field">
-      <label for="fPhone">Телефон</label>
-      <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required autocomplete="tel">
-    </div>
-  </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="fName">Име</label>
+                    <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required autocomplete="name">
+                  </div>
+                  <div class="field">
+                    <label for="fPhone">Телефон</label>
+                    <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required autocomplete="tel">
+                  </div>
+                </div>
 
-  <div class="field">
-    <label for="fEmail">Имейл</label>
-    <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required autocomplete="email">
-  </div>
+                <div class="field">
+                  <label for="fEmail">Имейл</label>
+                  <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required autocomplete="email">
+                </div>
 
-  <div class="field">
-    <label for="fSymptoms">Опишете симптомите си</label>
-    <textarea id="fSymptoms" name="entry.1298076648" rows="4"
-      placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
-      required></textarea>
-  </div>
+                <div class="field">
+                  <label for="fSymptoms">Опишете симптомите си</label>
+                  <textarea id="fSymptoms" name="entry.1298076648" rows="4"
+                    placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
+                    required></textarea>
+                </div>
 
-  <div class="form-actions">
-    <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
-    <button type="submit" class="btn-submit">Изпрати</button>
-  </div>
-</form>
+                <div class="form-actions">
+                  <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
+                  <button type="submit" class="btn-submit">Изпрати</button>
+                </div>
+              </form>
 
-<!-- Минимална защита срещу ботове; премахнато изключване на autoplay на мобилно -->
-<script>
-(function(){
-  const form = document.getElementById('adviceForm');
-  if (form) {
-    const startedAt = Date.now();
-    let interacted = false;
-    const mark = () => { interacted = true; };
-    ['input','change','keydown','mousemove','touchstart','click','scroll']
-      .forEach(ev => window.addEventListener(ev, mark, { once:true, passive:true }));
+              <!-- Минимална защита срещу ботове -->
+              <script>
+              (function(){
+                const form = document.getElementById('adviceForm');
+                if (form) {
+                  const startedAt = Date.now();
+                  let interacted = false;
+                  const mark = () => { interacted = true; };
+                  ['input','change','keydown','mousemove','touchstart','click','scroll']
+                    .forEach(ev => window.addEventListener(ev, mark, { once:true, passive:true }));
 
-    form.addEventListener('submit', function(e){
-      const hp = document.getElementById('hp_website');
-      const tooFast = Date.now() - startedAt < 4000;
-      if ((hp && hp.value.trim() !== '') || tooFast || !interacted) {
-        e.preventDefault();
-      }
-    });
-  }
-})();
-</script>
+                  form.addEventListener('submit', function(e){
+                    const hp = document.getElementById('hp_website');
+                    const tooFast = Date.now() - startedAt < 4000;
+                    if ((hp && hp.value.trim() !== '') || tooFast || !interacted) {
+                      e.preventDefault();
+                    }
+                  });
+                }
+              })();
+              </script>
 
             </div>
           </div>
@@ -768,6 +768,7 @@
 <script src="/js/topbar.js" defer></script>
 <script src="/js/media-autoplay-cards.js" defer></script>
 
+<!-- Зареди csq-скрипта само когато Hotjar е наличен -->
 <script>
   (function(){
     function loadCS(){
@@ -778,15 +779,19 @@
       s.src = 'https://static.hj.contentsquare.net/c/csq-6534654.js';
       document.head.appendChild(s);
     }
+    function tryLoad() {
+      if (window._hjSettings && window.hj) { loadCS(); }
+      else { setTimeout(tryLoad, 400); }
+    }
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadCS, {timeout:3000});
+      requestIdleCallback(tryLoad, {timeout:3000});
     } else {
-      window.addEventListener('load', loadCS, {once:true});
+      window.addEventListener('load', tryLoad, {once:true});
     }
   })();
 </script>
 
-<!-- Lazy: EmbedSocial, Hotjar, Map iframe + Видео логика (desktop hover / mobile center-only) -->
+<!-- Lazy: EmbedSocial, Map iframe + Видео логика (desktop hover / mobile center-only) -->
 <script>
 /* =========================
    1) EmbedSocial – зареждане само при видимост
@@ -811,8 +816,6 @@
   }, { rootMargin: '200px' });
   io.observe(widget);
 })();
-
-
 
 /* =========================
    3) Google Maps iframe – мързеливо присвояване на src (ако има data-src)
@@ -875,7 +878,6 @@
 
   /* ---- DESKTOP (има hover) ---- */
   if (hasHover && !coarsePtr){
-    // Можем да прелоуднем леко за по-гладък hover (не влияе на мобилния LCP)
     if ('IntersectionObserver' in window){
       var preloader = new IntersectionObserver(function(entries){
         entries.forEach(function(e){
@@ -906,7 +908,7 @@
   videos.forEach(function(v){ v.preload = 'none'; v.removeAttribute('autoplay'); safePause(v); });
 
   var current = null;
-  var CENTER_TOL = 0.20; // 20% от височината на екрана – колко близо до центъра да е
+  var CENTER_TOL = 0.20;
 
   function setPoster(v, on){
     var box = v && v.closest('.image-container, .pain-button-media');
@@ -933,7 +935,6 @@
 
   function playOne(v){
     if (!v) return;
-    // зареждаме източника САМО тук (без предварително прелоудване)
     var s = v.querySelector('source[data-src]');
     if (s && !s.src){ s.src = s.dataset.src; try{ v.load(); }catch(e){} }
     pauseAllExcept(v);
@@ -951,7 +952,7 @@
 
     videos.forEach(function(v){
       var r = v.getBoundingClientRect();
-      if (r.bottom <= 0 || r.top >= vh) return; // не е видимо
+      if (r.bottom <= 0 || r.top >= vh) return;
 
       var centerY = r.top + r.height / 2;
       var dist = Math.abs(centerY - viewportCenterY);
@@ -971,7 +972,6 @@
     }
   }
 
-  // rAF тротълинг за скрол/ресайз
   var ticking = false;
   function onScrollOrResize(){
     if (ticking) return;
@@ -997,7 +997,5 @@
   window.addEventListener('load', function(){ setTimeout(pickClosestToCenter, 150); });
 })();
 </script>
-
-
 </body>
 </html>
