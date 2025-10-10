@@ -30,35 +30,23 @@
   <meta name="twitter:description" content="Оценка на движение, индивидуален план и лечение на болка, изтръпване и мускулен дисбаланс." />
   <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.jpg" />
 
-  <!-- Local / External CSS -->
-  <link rel="stylesheet" href="/css/top-bar.css" />
-  <link rel="stylesheet" href="style.css" />
-
+ 
  
 
-  <!-- In-page critical tweaks (само мобилни/видимост) -->
-  <style>
-    /* Без промяна на десктоп визията – всичко специфично за мобилно е вътре в @media */
-    .hero-pro__title, .pci-title, .reviews-title, h1, h2, h3, p {
-      white-space: normal !important;
-      overflow-wrap: anywhere;
-      word-break: break-word;
-      hyphens: auto;
-    }
-    .hero-pro__wrap > *, .two-col__wrap > * { min-width: 0; }
-    html, body { overflow-x: hidden; }
-    img { height: auto; }
-    a:focus, button:focus { outline: 3px solid #18A558; outline-offset: 2px; }
-    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
-    .image-container, .pain-button-media { aspect-ratio: 16/9; overflow: hidden; }
-    #work { scroll-margin-top: 80px; }
+ <style>
+  /* A11y: skip link */
+  .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+  .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
 
-    /* Маската на снимката е скъпа на мобилно – изключваме само там */
-    @media (max-width: 900px){
-      .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
-    }
-  </style>
+  /* Гладък anchor скрол към #work, без да пипаме глобалния scroll-padding */
+  #work { scroll-margin-top: 80px; }
+
+  /* Мобилно: изключи маската върху hero/why изображения – визуално същото */
+  @media (max-width: 900px){
+    .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
+  }
+</style>
+
 <!-- top-bar.css -->
 <link rel="preload" href="/css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="/css/top-bar.css"></noscript>
@@ -130,7 +118,17 @@
   imagesizes="(max-width: 900px) 100vw, 50vw"
   media="(min-width: 601px)"
   fetchpriority="high">
-
+  <!-- Hotjar -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:6534654,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
 
 
 </head>
@@ -780,18 +778,8 @@
 <script src="/js/topbar.js" defer></script>
 <script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Hotjar / Contentsquare -->
-  <script>
-    (function (c, s, q, u, a, r, e) {
-      c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
-      c._hjSettings = { hjid: a };
-      r = s.getElementsByTagName('head')[0];
-      e = s.createElement('script');
-      e.async = true;
-      e.src = q + c._hjSettings.hjid + u;
-      r.appendChild(e);
-    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6534654);
-  </script>
+
+
 <!-- Lazy: EmbedSocial, Hotjar, Map iframe + Видео логика (desktop hover / mobile center-only) -->
 <script>
 /* =========================
