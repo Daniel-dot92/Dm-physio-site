@@ -2,12 +2,16 @@
 <html lang="bg">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <title>Болкови състояния – Къде е болката? | DM Physio (ДМ ФИЗИО) София</title>
   <meta name="description" content="Разгледай най-честите болкови състояния по зони – глава, врат, рамо, ръка, гърди и корем, гръб, кръст, таз, коляно, глезен. Причини, симптоми и работещи решения. DM Physio – София.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="canonical" href="https://dmphysio.com/pain-conditions.html"><!-- замени с твоето домейн име при нужда -->
+  <link rel="canonical" href="https://dmphysi0.com/pain-conditions.html">
+  <meta name="theme-color" content="#0E7C86">
+  <meta name="language" content="Bulgarian">
+  <meta name="author" content="DM Physio">
+  <link rel="icon" href="/logo.webp" />
 
   <!-- Open Graph -->
   <meta property="og:locale" content="bg_BG">
@@ -15,22 +19,24 @@
   <meta property="og:site_name" content="DM Physio (ДМ ФИЗИО)">
   <meta property="og:title" content="Болкови състояния – Къде е болката? | DM Physio (ДМ ФИЗИО) София">
   <meta property="og:description" content="Избери зоната, която те боли и виж причините, симптомите и решенията. Професионална кинезитерапия в София.">
-  <meta property="og:url" content="https://dmphysio.com/pain-conditions.html">
-  <meta property="og:image" content="https://dmphysio.com/pngs/pain-conditions/new/backpain-Thumbnail.jpg">
+  <meta property="og:url" content="https://dmphysi0.com/pain-conditions.html">
+  <meta property="og:image" content="https://dmphysi0.com/pngs/pain-conditions/new/backpain-Thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Болкови състояния – Къде е болката? | DM Physio София">
   <meta name="twitter:description" content="Разгледай състоянията по зони и научи как да се възстановиш устойчиво.">
-  <meta name="twitter:image" content="https://dmphysio.com/pngs/pain-conditions/new/backpain-Thumbnail.jpg">
+  <meta name="twitter:image" content="https://dmphysi0.com/pngs/pain-conditions/new/backpain-Thumbnail.webp">
 
-  <!-- CSS -->
+  <!-- CSS (без промяна на визията) -->
   <link rel="stylesheet" href="/css/styles-procedures.css">
   <link rel="stylesheet" href="image-styles.css">
   <link rel="stylesheet" href="pain-conditions.css">
   <link rel="stylesheet" href="/css/top-bar.css">
 
-  <!-- Icons -->
+  <!-- Icons (неблокиращо) -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
   <noscript>
@@ -38,132 +44,55 @@
   </noscript>
 
   <!-- Preload на вероятния LCP -->
-  <link rel="preload" as="image" href="pngs/pain-conditions/new/tingling1-Thumbnail.jpg" fetchpriority="high">
+  <link rel="preload" as="image"
+        href="/pngs/pain-conditions/new/tingling1-Thumbnail.webp"
+        imagesrcset="/pngs/pain-conditions/new/tingling1-Thumbnail.webp 640w"
+        imagesizes="(max-width: 768px) 100vw, 33vw"
+        fetchpriority="high">
 
-  <!-- Минимални override-и: само логика за показване, без промяна на размери/подредба -->
-  <style>
-    /* докато видеото не е готово – снимката остава; hover не скрива снимката */
-    .pain-button-media.image-container:not(.video-ready) .hover-img{
-      opacity:0 !important; visibility:hidden !important;
-    }
-    .pain-button-media.image-container:not(.video-ready):hover .static-img{
-      opacity:1 !important; visibility:visible !important;
-    }
-    /* Дискретно добавяме видимо само за търсачки H1 (не влияе на лейаута) */
-    .sr-only{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;}
-  </style>
-<!-- Hotjar / Contentsquare -->
+  <!-- Само utility клас (НЕ пипа визията) -->
+  <style>.sr-only{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}</style>
+
+  <!-- Hotjar / Contentsquare -->
   <script>
     (function (c, s, q, u, a, r, e) {
       c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
       c._hjSettings = { hjid: a };
       r = s.getElementsByTagName('head')[0];
-      e = s.createElement('script');
-      e.async = true;
-      e.src = q + c._hjSettings.hjid + u;
-      r.appendChild(e);
+      e = s.createElement('script'); e.async = true; e.src = q + c._hjSettings.hjid + u; r.appendChild(e);
     })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6534654);
   </script>
-  <!-- JSON-LD: Структурирани данни (WebPage + Breadcrumb + Организация) -->
+
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@graph":[
-      {
-        "@type":"WebPage",
-        "@id":"https://dmphysio.com/pain-conditions.html",
-        "url":"https://dmphysio.com/pain-conditions.html",
-        "name":"Болкови състояния – Къде е болката?",
-        "inLanguage":"bg",
-        "description":"Навигация по болкови състояния – глава, врат, рамо, ръка, гърди и корем, гръб, кръст, таз, коляно, глезен.",
-        "isPartOf":{"@id":"https://dmphysio.com/#website"},
-        "primaryImageOfPage":{
-          "@type":"ImageObject",
-          "url":"https://dmphysio.com/pngs/pain-conditions/new/backpain-Thumbnail.jpg"
-        },
-        "breadcrumb":{"@id":"https://dmphysio.com/pain-conditions.html#breadcrumb"}
-      },
-      {
-        "@type":"BreadcrumbList",
-        "@id":"https://dmphysio.com/pain-conditions.html#breadcrumb",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Начало","item":"https://dmphysio.com/"},
-          {"@type":"ListItem","position":2,"name":"Болкови състояния","item":"https://dmphysio.com/pain-conditions.html"}
-        ]
-      },
-      {
-        "@type":"WebSite",
-        "@id":"https://dmphysio.com/#website",
-        "url":"https://dmphysio.com/",
-        "name":"DM Physio (ДМ ФИЗИО)",
-        "inLanguage":"bg"
-      },
-      {
-        "@type":"LocalBusiness",
-        "@id":"https://dmphysio.com/#business",
-        "name":"DM Physio (ДМ ФИЗИО)",
-        "url":"https://dmphysio.com/",
-        "telephone":"+359883688414",
-        "image":"https://dmphysio.com/logo.png",
-        "priceRange":"$$",
-        "address":{
-          "@type":"PostalAddress",
-          "streetAddress":"ул. „Проф. Христо Данов“ 19",
-          "addressLocality":"София",
-          "postalCode":"1000",
-          "addressCountry":"BG"
-        },
-        "openingHoursSpecification":[
-          {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},
-          {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"16:00"}
-        ],
-        "sameAs":[
-          "https://www.facebook.com/dmphysio03",
-          "https://www.instagram.com/dm.physio/",
-          "https://www.youtube.com/@dmphysio3352",
-          "https://www.tiktok.com/@dmphysio"
-        ]
-      },
-      {
-        "@type":"FAQPage",
-        "@id":"https://dmphysio.com/pain-conditions.html#faq",
-        "mainEntity":[
-          {
-            "@type":"Question",
-            "name":"Как да избера правилната секция за моето оплакване?",
-            "acceptedAnswer":{"@type":"Answer","text":"Натисни зоната, която те боли (например „Врат“ или „Кръст“). Във всяка секция ще намериш типични симптоми, възможни причини и доказани подходи за възстановяване."}
-          },
-          {
-            "@type":"Question",
-            "name":"Трябва ли направление или образни изследвания?",
-            "acceptedAnswer":{"@type":"Answer","text":"Не е задължително. Ако вече имаш изследвания, донеси ги – ще ги вземем предвид при функционалната оценка."}
-          },
-          {
-            "@type":"Question",
-            "name":"Колко бързо ще усетя подобрение?",
-            "acceptedAnswer":{"@type":"Answer","text":"Много хора усещат промяна още след първите 1–3 сесии. Трайните резултати идват с комбинация от мануална терапия и индивидуални упражнения."}
-          },
-          {
-            "@type":"Question",
-            "name":"Работите ли със спортни травми и хронични състояния?",
-            "acceptedAnswer":{"@type":"Answer","text":"Да – имаме опит както със свежи претоварвания, така и с хронични оплаквания като дискови хернии, невралгии, тендинопатии и др."}
-          }
-        ]
-      }
+      {"@type":"WebPage","@id":"https://dmphysi0.com/pain-conditions.html#webpage","url":"https://dmphysi0.com/pain-conditions.html","name":"Болкови състояния – Къде е болката?","inLanguage":"bg","description":"Навигация по болкови състояния – глава, врат, рамо, ръка, гърди и корем, гръб, кръст, таз, коляно, глезен.","isPartOf":{"@type":"WebSite","@id":"https://dmphysi0.com/#website","name":"DM Physio (ДМ ФИЗИО)"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://dmphysi0.com/pngs/pain-conditions/new/backpain-Thumbnail.webp"},"breadcrumb":{"@id":"https://dmphysi0.com/pain-conditions.html#breadcrumb"}},
+      {"@type":"BreadcrumbList","@id":"https://dmphysi0.com/pain-conditions.html#breadcrumb","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Начало","item":"https://dmphysi0.com/"},
+        {"@type":"ListItem","position":2,"name":"Болкови състояния","item":"https://dmphysi0.com/pain-conditions.html"}
+      ]},
+      {"@type":"FAQPage","@id":"https://dmphysi0.com/pain-conditions.html#faq","mainEntity":[
+        {"@type":"Question","name":"Как да избера правилната секция за моето оплакване?","acceptedAnswer":{"@type":"Answer","text":"Натисни зоната, която те боли (например „Врат“ или „Кръст“). Във всяка секция има типични симптоми, възможни причини и доказани подходи."}},
+        {"@type":"Question","name":"Трябва ли направление или образни изследвания?","acceptedAnswer":{"@type":"Answer","text":"Не е задължително. Ако имаш изследвания — вземи ги; ще ги вземем предвид при функционалната оценка."}},
+        {"@type":"Question","name":"Колко бързо ще усетя подобрение?","acceptedAnswer":{"@type":"Answer","text":"Често има промяна още след 1–3 сесии. Трайните резултати идват с комбинация от мануална терапия и индивидуални упражнения."}},
+        {"@type":"Question","name":"Работите ли със спортни травми и хронични състояния?","acceptedAnswer":{"@type":"Answer","text":"Да. Имаме опит с дискови хернии, невралгии, тендинопатии и др."}}
+      ]}
     ]
   }
   </script>
 </head>
 
 <body>
-<!-- SEO-only H1, скрит визуално (не сменяме твоите заглавия/стилове) -->
+<!-- SEO-only H1 (не променя визията) -->
 <h1 class="sr-only">Болкови състояния – карта по зони | DM Physio София</h1>
 
-<!-- ======= Top bar (TB) ======= -->
+<!-- ======= Top bar (без промени в визията) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" />
+      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" width="64" height="64">
     </a>
 
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
@@ -183,14 +112,14 @@
         </li>
 
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html" aria-current="page">Болкови състояния</a></li>
-        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book">Свободни часове</a></li>
-        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" target="_blank" rel="noopener">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main class="page-content">
+<main class="page-content" id="main">
   <section id="pain-conditions-intro" class="hero-subpage">
     <div class="container">
       <h2 class="pci-title">Къде е болката?</h2>
@@ -203,133 +132,133 @@
       </p>
 
       <div class="pain-buttons-grid">
+        <!-- Невралгии -->
         <a href="pain-neuralgia-general.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/pain-conditions/new/tingling1-Thumbnail.jpg" alt="Невралгии" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/tingling1-Thumbnail.jpg">
+            <img src="pngs/pain-conditions/new/tingling1-Thumbnail.webp" alt="Невралгии" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/tingling1-Thumbnail.webp" width="640" height="360">
               <source src="pngs/pain-conditions/new/tingling1.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <span class="pain-button-text">Невралгии</span>
         </a>
 
+        <!-- Мускули / Физиология -->
         <a href="physiology.html" class="pain-button physiology-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg" alt="Физиология" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg">
+            <img src="pngs/sustoqniq/muscles/Muscles main-Thumbnail.webp" alt="Мускули – образователна секция" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/Muscles main-Thumbnail.webp" width="640" height="360">
               <source src="pngs/sustoqniq/muscles/Muscles main.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
-            <span class="pain-button-text">Мускули</span>
+          <span class="pain-button-text">Мускули</span>
         </a>
 
+        <!-- Глава -->
         <a href="pain-head.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/pain-conditions/new/headeach1-Thumbnail.jpg" alt="Глава" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/headeach1-Thumbnail.jpg">
+            <img src="pngs/pain-conditions/new/headeach1-Thumbnail.webp" alt="Глава" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/headeach1-Thumbnail.webp" width="640" height="360">
               <source src="pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <span class="pain-button-text">Глава</span>
         </a>
 
+        <!-- Врат -->
         <a href="pain-neck.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/pain-conditions/new/neckpain1-Thumbnail.jpg" alt="Врат" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/neckpain1-Thumbnail.jpg">
+            <img src="pngs/pain-conditions/new/neckpain1-Thumbnail.webp" alt="Врат" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/neckpain1-Thumbnail.webp" width="640" height="360">
               <source src="pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <span class="pain-button-text">Врат</span>
         </a>
 
+        <!-- Рамо -->
         <a href="pain-shoulder.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg" alt="Рамо" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/shouderpain1-Thumbnail.jpg">
+            <img src="pngs/pain-conditions/new/shouderpain1-Thumbnail.webp" alt="Рамо" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/shouderpain1-Thumbnail.webp" width="640" height="360">
               <source src="pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <span class="pain-button-text">Рамо</span>
         </a>
 
+        <!-- Ръка -->
         <a href="pain-arm.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/pain-conditions/new/armpain-Thumbnail.jpg" alt="Ръка" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/armpain-Thumbnail.jpg">
+            <img src="pngs/pain-conditions/new/armpain-Thumbnail.webp" alt="Ръка" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/armpain-Thumbnail.webp" width="640" height="360">
               <source src="pngs/pain-conditions/new/armpain.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <span class="pain-button-text">Ръка</span>
         </a>
 
+        <!-- Гърди и Корем -->
         <a href="pain-chest-abdomen.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/pain-conditions/new/chestpain-Thumbnail.jpg" alt="Гърди и Корем" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/chestpain-Thumbnail.jpg">
+            <img src="pngs/pain-conditions/new/chestpain-Thumbnail.webp" alt="Гърди и Корем" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/chestpain-Thumbnail.webp" width="640" height="360">
               <source src="pngs/pain-conditions/new/chestpain.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <span class="pain-button-text">Гърди и Корем</span>
         </a>
 
+        <!-- Гръб -->
         <a href="pain-back.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg" alt="Гръб" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/midbackpain1-Thumbnail.jpg">
+            <img src="pngs/pain-conditions/new/midbackpain1-Thumbnail.webp" alt="Гръб" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/midbackpain1-Thumbnail.webp" width="640" height="360">
               <source src="pngs/pain-conditions/new/midbackpain1.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <span class="pain-button-text">Гръб</span>
         </a>
 
+        <!-- Кръст -->
         <a href="pain-lower-back.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/pain-conditions/new/backpain-Thumbnail.jpg" alt="Кръст" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/backpain-Thumbnail.jpg">
+            <img src="pngs/pain-conditions/new/backpain-Thumbnail.webp" alt="Кръст" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/backpain-Thumbnail.webp" width="640" height="360">
               <source src="pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <span class="pain-button-text">Кръст</span>
         </a>
 
+        <!-- Дупе / Таз -->
         <a href="pain-buttocks-pelvis.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/pain-conditions/new/hippain1-Thumbnail.jpg" alt="Дупе / Таз" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/hippain1-Thumbnail.jpg">
+            <img src="pngs/pain-conditions/new/hippain1-Thumbnail.webp" alt="Дупе / Таз" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/hippain1-Thumbnail.webp" width="640" height="360">
               <source src="pngs/pain-conditions/new/hippain1.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <span class="pain-button-text">Дупе / Таз</span>
         </a>
 
+        <!-- Бедро / Коляно -->
         <a href="pain-thigh-knee.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/pain-conditions/new/kneepain1-Thumbnail.jpg" alt="Бедро / Коляно" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/kneepain1-Thumbnail.jpg">
+            <img src="pngs/pain-conditions/new/kneepain1-Thumbnail.webp" alt="Бедро / Коляно" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/kneepain1-Thumbnail.webp" width="640" height="360">
               <source src="pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <span class="pain-button-text">Бедро / Коляно</span>
         </a>
 
+        <!-- Подбедрица / Стъпало -->
         <a href="pain-lower-leg-ankle.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img src="pngs/pain-conditions/new/anklepain1-Thumbnail.jpg" alt="Подбедрица / Стъпало" class="static-img">
-            <video autoplay loop muted playsinline class="hover-img" preload="metadata" poster="pngs/pain-conditions/new/anklepain1-Thumbnail.jpg">
+            <img src="pngs/pain-conditions/new/anklepain1-Thumbnail.webp" alt="Подбедрица / Стъпало" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/pain-conditions/new/anklepain1-Thumbnail.webp" width="640" height="360">
               <source src="pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <span class="pain-button-text">Подбедрица / Стъпало</span>
@@ -374,21 +303,27 @@
                     class="advice-form"
                     action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
                     method="POST"
-                    target="hidden_gform">
+                    target="hidden_gform" novalidate>
+                <!-- Anti-bot honeypot -->
+                <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0" aria-hidden="true">
+                  <label for="hp_website">Оставете това поле празно</label>
+                  <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
                 <div class="form-row">
                   <div class="field">
                     <label for="fName">Име</label>
-                    <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required>
+                    <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required autocomplete="name">
                   </div>
                   <div class="field">
                     <label for="fPhone">Телефон</label>
-                    <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required>
+                    <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required autocomplete="tel">
                   </div>
                 </div>
 
                 <div class="field">
                   <label for="fEmail">Имейл</label>
-                  <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required>
+                  <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required autocomplete="email">
                 </div>
 
                 <div class="field">
@@ -479,7 +414,7 @@
 <script src="/js/media-autoplay-cards.js" defer></script>
 <script src="/js/topbar.js" defer></script>
 
-<!-- Само логика: маркираме .video-ready, за да сработи hover; не пипаме стилове/размери -->
+<!-- Не променя визията: подсигурява видео/poster и пести трафик -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.pain-button-media.image-container').forEach(box => {
@@ -487,22 +422,18 @@
       const img = box.querySelector('img.static-img');
       if (!vid) return;
 
-      // подсигури постер (без визуална промяна)
+      // подсигури постер ако липсва
       if (!vid.getAttribute('poster') && img) {
         vid.setAttribute('poster', img.currentSrc || img.src);
       }
 
-      vid.preload = vid.preload || 'metadata';
+      // пестим трафик на мобилно (без да пипаме стилове/поведение)
+      const isCoarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+      if (isCoarse) { vid.preload = 'none'; } else { vid.preload = vid.preload || 'metadata'; }
+
       vid.muted = true; vid.defaultMuted = true;
       vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
-
-      const markReady = () => box.classList.add('video-ready');
-      if (vid.readyState >= 2) {
-        markReady();
-      } else {
-        vid.addEventListener('loadeddata', markReady, { once: true });
-        try { vid.load(); } catch(e){}
-      }
+      try { vid.load(); } catch(e){}
     });
   });
 </script>
