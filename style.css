@@ -1682,3 +1682,24 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
   .hero-pro__media { aspect-ratio: 1 / 1; } /* 1600x1067 ≈ 3:2 */
   .hero-pro__media img { width: 100%; height: 100%; object-fit: cover; }
 }
+/* Мобилно: дръж снимката, докато видеото реално не тръгне */
+@media (hover: none), (pointer: coarse){
+  .image-container,
+  .pain-button-media{
+    position: relative;
+  }
+  .image-container .static-img,
+  .pain-button-media .static-img{
+    display: block; /* гарантира видимостта на постера/снимката */
+  }
+  .image-container .hover-img,
+  .pain-button-media .hover-img{
+    opacity: 0;              /* скрита по подразбиране */
+    transition: opacity .2s ease;
+  }
+  /* Вашият JS вече добавя .is-playing при старт — тогава показваме видеото */
+  .image-container.is-playing .hover-img,
+  .pain-button-media.is-playing .hover-img{
+    opacity: 1;
+  }
+}
