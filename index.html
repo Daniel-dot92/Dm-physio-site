@@ -12,7 +12,7 @@
   <meta name="language" content="Bulgarian" />
   <meta name="author" content="DM Physio" />
 
-  <!-- ✅ Favicon / App Icons -->
+  <!-- ✅ Favicon / App Icons (НЕ променяме изображенията) -->
   <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
@@ -34,13 +34,25 @@
   <meta name="twitter:description" content="Оценка на движение, индивидуален план и лечение на болка, изтръпване и мускулен дисбаланс." />
   <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.jpg" />
 
-  <!-- Local / External CSS -->
-  <link rel="stylesheet" href="/css/top-bar.css" />
-  <link rel="stylesheet" href="style.css" />
-
+  <!-- Preconnects (без промяна на визия/функции) -->
   <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://t.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://c.ba.contentsquare.net" crossorigin>
+  <link rel="preconnect" href="https://book.dmphysi0.com" crossorigin>
+  <link rel="preconnect" href="https://embedsocial.com" crossorigin>
+  <link rel="preconnect" href="https://www.google.com" crossorigin>
+  <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+
+  <!-- CSS: премахваме блокиране на рендера, без да променяме стиловете -->
+  <link rel="preload" as="style" href="/css/top-bar.css">
+  <link rel="preload" as="style" href="style.css">
+  <link rel="stylesheet" href="/css/top-bar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="/css/top-bar.css">
+    <link rel="stylesheet" href="style.css">
+  </noscript>
 
   <!-- In-page critical tweaks -->
   <style>
@@ -64,9 +76,7 @@
       .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
     }
 
-    
-
-    /* ===== Основни стилове на страницата (съкратено до логичното ядро) ===== */
+    /* ===== Основни стилове на страницата (ядро) ===== */
     :root{
       --text:#0f172a; --muted:#64748b; --line:#e2e8f0;
       --blue:#0ea5e9; --green:#16a34a;
@@ -138,12 +148,12 @@
     .recovery__title{ font-size:36px; font-weight:800; text-align:center; margin:0; color:var(--green) }
     .recovery__steps{ display:flex; flex-direction:column; gap:16px }
     .recovery__step{ display:flex; gap:12px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:12px 14px }
-    .recovery__step h3{ margin:0 0 4px; color:var(--blue); font-size:16px }
+    .recovery__step h3{ margin:0 0 4px; color:#0ea5e9; font-size:16px }
 
     /* Reviews */
     .reviews-section{ padding:48px 20px; background:#f9fafb }
     .reviews-box{ max-width:1300px; margin:0 auto; background:#fff; border:1px solid #e2e8f0; border-radius:4px; box-shadow:0 4px 16px rgba(0,0,0,.06); padding:0; text-align:center }
-    .reviews-title{ font-size:46px; font-weight:800; margin:0 0 4px; color:var(--blue) }
+    .reviews-title{ font-size:46px; font-weight:800; margin:0 0 4px; color:#0ea5e9 }
 
     /* Footer */
     footer{ background:#f3f5f7; padding:40px 0 28px; color:#0f172a; font-size:18px }
@@ -218,7 +228,7 @@
   }
   </script>
 
-  <!-- Прелоуд на hero изображение -->
+  <!-- Прелоуд на hero изображение (НЕ променяме изображенията) -->
   <link rel="preload" as="image"
     href="/pngs/glavna2-768.webp"
     imagesrcset="/pngs/glavna2-480.webp 480w,
@@ -614,8 +624,9 @@
         <!-- Рамо -->
         <a href="/pain-shoulder.html" class="pain-button" aria-label="Рамо – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp"
-                 alt="Рамо" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp"
+              alt="Рамо" class="static-img" loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="metadata"
                    poster="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp">
               <source src="/pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
@@ -767,7 +778,7 @@
                 action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
                 method="POST" target="hidden_gform" novalidate>
 
-                <!-- Anti-bot honeypot -->
+                <!-- Anti-bот honeypot -->
                 <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0"
                     aria-hidden="true">
                   <label for="hp_website">Оставете това поле празно</label>
@@ -946,6 +957,16 @@
 })();
 </script>
 
+<!-- Fail-safe: ако отложените стилове не се заредят навреме -->
+<script>
+  (function(){
+    var t = setTimeout(function(){
+      var links = document.querySelectorAll('link[rel="stylesheet"][media="print"]');
+      links.forEach(function(l){ if(l.media === 'print') l.media='all'; });
+    }, 3000);
+    window.addEventListener('load', function(){ clearTimeout(t); }, { once:true });
+  })();
+</script>
 
 </body>
 </html>
