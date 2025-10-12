@@ -1,533 +1,440 @@
 ﻿/* =========================================================
-   PAIN CONDITIONS — ЧИСТ CSS (съвместим с media-autoplay-cards.js)
-   - Без hover принуда, ако видеото не е готово
-   - Без translate(-50%, -50%) върху img/video
-   - Без visibility:hidden / display:none върху <video>
-   - Само opacity се управлява; JS добавя класове .video-ready и .is-playing
+   BASE / RESET
    ========================================================= */
+html, body { margin:0; padding:0; overflow-x:hidden; }
+html { -webkit-text-size-adjust:100%; }
+* { box-sizing:border-box; }
 
-/* Базови */
-html, body { margin: 0; padding: 0; overflow-x: hidden; }
-:root { --pc-accent: #007777; --pc-accent-hover:#3614f1; --ink:#333; --bg:#f8f8f8; }
+/* Цветове/променливи */
+:root{
+  --pc-accent:#007777;
+  --pc-accent-hover:#3614f1;
+  --ink:#333;
+  --bg:#f8f8f8;
+
+  /* Footer vars */
+  --f-accent:#0b66ff;
+  --f-ink:#0f172a;
+  --f-bg:#f3f5f7;
+  --f-soft-shadow:0 8px 24px rgba(15,23,42,.08);
+  --f-ring:0 0 0 3px rgba(11,102,255,.18);
+}
+
+/* =========================================================
+   PAIN CONDITIONS — Секция + Карти
+   ========================================================= */
 
 /* Секция */
 .pain-conditions-detail-section{
-  padding: 60px 20px;
-  background: var(--bg);
-  text-align: center;
+  padding:60px 20px;
+  background:var(--bg);
+  text-align:center;
 }
 .pain-conditions-detail-section .container{
-  max-width: 1400px;
-  width: 95%;
-  margin: 0 auto;
+  max-width:1400px;
+  width:95%;
+  margin:0 auto;
 }
 .pain-conditions-detail-section h3{
-  font-size: 2.8em;
-  color: var(--ink);
-  margin: 0 0 40px;
+  font-size:2.8em;
+  color:var(--ink);
+  margin:0 0 40px;
 }
 
-/* Обяснение (ако го ползваш) */
+/* Обяснение */
 .pain-explanation{
-  font-size: 2em;
-  text-align: center;
-  line-height: 1.3;
-  color: var(--ink);
-  max-width: 600px;
-  margin: 0 auto 20px;
-  font-weight: 500;
+  font-size:2em;
+  text-align:center;
+  line-height:1.3;
+  color:var(--ink);
+  max-width:600px;
+  margin:0 auto 20px;
+  font-weight:500;
 }
 
 /* Грид с карти */
 .pain-buttons-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 60px;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 15px;
-  box-sizing: border-box;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:60px;
+  justify-content:center;
+  max-width:1200px;
+  margin:0 auto;
+  padding:15px;
 }
 
 /* Карта */
 .pain-button{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-decoration: none;
-  color: var(--ink);
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 0;
-  transition: box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,.07);
-  overflow: hidden;
-  min-height: 400px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  text-decoration:none;
+  color:var(--ink);
+  background:#fff;
+  border:1px solid #e0e0e0;
+  border-radius:0;
+  transition:box-shadow .25s ease, border-color .25s ease, background-color .25s ease, transform .18s ease;
+  box-shadow:0 4px 12px rgba(0,0,0,.07);
+  overflow:hidden;
+  min-height:400px;
 }
 .pain-button:hover{
-  background-color: #e6f2ff;
-  border-color: #99ccff;
-  box-shadow: 0 6px 15px rgba(0,0,0,.12);
+  background-color:#e6f2ff;
+  border-color:#99ccff;
+  box-shadow:0 6px 15px rgba(0,0,0,.12);
+  transform:translateY(-2px);
 }
 
-/* Медия контейнер 1:1 — СЪВМЕСТИМ С JS */
+/* Медия контейнер 1:1 — без translate, без display:none */
 .pain-button-media.image-container{
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%; /* квадрат 1:1 */
-  height: 0;
-  overflow: hidden;
-  background: #f0f0f0;
+  position:relative;
+  width:100%;
+  aspect-ratio:1/1;
+  overflow:hidden;
+  background:#f0f0f0;
+  border-radius:10px;
 }
 
-/* Медия слоеве (без translate; JS управлява opacity) */
+/* Слоеве (JS управлява opacity чрез класове) */
 .pain-button-media.image-container > img.static-img,
 .pain-button-media.image-container > video.hover-img{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;         /* запазваш как искаш кадъра */
-  transition: opacity .28s ease;
-  display: block;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  transition:opacity .28s ease;
 }
-.pain-button-media.image-container > img.static-img{ opacity: 1; }
-.pain-button-media.image-container > video.hover-img{ opacity: 0; }
+.pain-button-media.image-container > img.static-img{ opacity:1; }
+.pain-button-media.image-container > video.hover-img{ opacity:0; }
 
-/* JS ще добави .video-ready щом има кадри и .is-playing когато трябва да се вижда видео */
-.pain-button-media.image-container.video-ready.is-playing > img.static-img{ opacity: 0; }
-.pain-button-media.image-container.video-ready.is-playing > video.hover-img{ opacity: 1; }
+/* ВИДЕО: показвай само ако е готово/играе */
+.pain-button-media.image-container.video-ready.is-playing > img.static-img{ opacity:0; }
+.pain-button-media.image-container.video-ready.is-playing > video.hover-img{ opacity:1; }
 
-/* Desktop hover работи САМО ако видеото е готово (не пречи на мобилната логика) */
-@media (hover: hover) and (pointer: fine){
-  .pain-button-media.image-container.video-ready:hover > img.static-img{ opacity: 0 !important; }
-  .pain-button-media.image-container.video-ready:hover > video.hover-img{ opacity: 1 !important; }
+/* Desktop hover – работи само при .video-ready */
+@media (hover:hover) and (pointer:fine){
+  .pain-button-media.image-container.video-ready:hover > img.static-img{ opacity:0 !important; }
+  .pain-button-media.image-container.video-ready:hover > video.hover-img{ opacity:1 !important; }
 }
 
-/* Премахнато: ГЛОБАЛНОТО насилствено hover превключване, което чупи мобилното
-   (НЕ добавяй обратно правила от типа .pain-button:hover .static-img/.hover-img) */
+/* На мобилно hover правилата не се прилагат — JS слага .is-playing */
+@media (hover:none){
+  .pain-button-media.image-container.video-ready:hover > img.static-img{ opacity:1; }
+  .pain-button-media.image-container.video-ready:hover > video.hover-img{ opacity:0; }
+}
 
 /* Текст под медията */
 .pain-button-text{
-  background: var(--pc-accent);
-  padding: 30px 15px;
-  font-size: 1.8em;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
+  background:var(--pc-accent);
+  padding:30px 15px;
+  font-size:1.8em;
+  font-weight:800;
+  color:#fff;
+  line-height:1.2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  box-sizing:border-box;
+  margin:0;
 }
-.pain-button:hover .pain-button-text{ background: var(--pc-accent-hover); color: #fff; }
+.pain-button:hover .pain-button-text{ background:var(--pc-accent-hover); color:#fff; }
 
 /* Навигационен бутон */
-.button-group{ margin-top: 40px; }
+.button-group{ margin-top:40px; }
 .back-button{
-  display: inline-block;
-  padding: 16px 30px;
-  background: #007bff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1.1em;
-  font-weight: 700;
-  transition: background-color .25s ease, transform .2s ease, box-shadow .25s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  display:inline-block;
+  padding:16px 30px;
+  background:#007bff;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-size:1.1em;
+  font-weight:700;
+  transition:background-color .25s ease, transform .2s ease, box-shadow .25s ease;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
 }
-.back-button:hover{ background: #0056b3; transform: translateY(-1px); }
+.back-button:hover{ background:#0056b3; transform:translateY(-1px); }
 
-/* ===================== Responsive ===================== */
-@media (max-width: 1400px){
-  .pain-buttons-grid{ grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 15px; padding: 0 20px; }
+/* ===================== Responsive (Pain cards) ===================== */
+@media (max-width:1400px){
+  .pain-buttons-grid{ grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:15px; padding:0 20px; }
 }
-@media (max-width: 1200px){
-  .pain-buttons-grid{ grid-template-columns: repeat(3,1fr); gap: 10px; padding: 0 15px; }
-  .pain-conditions-detail-section h3{ font-size: 2.5em; margin-bottom: 30px; }
-  .pain-button{ min-height: 320px; }
-  .pain-button-text{ font-size: 1.8em; padding: 8px 5px; }
+@media (max-width:1200px){
+  .pain-buttons-grid{ grid-template-columns:repeat(3,1fr); gap:10px; padding:0 15px; }
+  .pain-conditions-detail-section h3{ font-size:2.5em; margin-bottom:30px; }
+  .pain-button{ min-height:320px; }
+  .pain-button-text{ font-size:1.8em; padding:8px 5px; }
 }
-@media (max-width: 992px){
-  .pain-buttons-grid{ grid-template-columns: repeat(2,1fr); gap: 10px; padding: 0 10px; }
-  .pain-conditions-detail-section h3{ font-size: 2em; margin-bottom: 25px; }
-  .pain-button{ min-height: 270px; }
-  .pain-button-text{ font-size: 1.6em; padding: 6px 4px; }
+@media (max-width:992px){
+  .pain-buttons-grid{ grid-template-columns:repeat(2,1fr); gap:10px; padding:0 10px; }
+  .pain-conditions-detail-section h3{ font-size:2em; margin-bottom:25px; }
+  .pain-button{ min-height:270px; }
+  .pain-button-text{ font-size:1.6em; padding:6px 4px; }
 }
-@media (max-width: 768px){
-  .pain-buttons-grid{ grid-template-columns: 1fr; gap: 8px; padding: 0 8px; }
-  .pain-conditions-detail-section{ padding: 50px 10px; }
-  .pain-conditions-detail-section h3{ font-size: 1.6em; margin-bottom: 20px; }
-  .pain-button{ min-height: 240px; }
-  .pain-button-text{ font-size: 1.4em; padding: 10px 3px; }
-  .back-button{ padding: 10px 20px; font-size: 1em; }
+@media (max-width:768px){
+  .pain-buttons-grid{ grid-template-columns:1fr; gap:8px; padding:0 8px; }
+  .pain-conditions-detail-section{ padding:50px 10px; }
+  .pain-conditions-detail-section h3{ font-size:1.6em; margin-bottom:20px; }
+  .pain-button{ min-height:240px; }
+  .pain-button-text{ font-size:1.4em; padding:10px 3px; }
+  .back-button{ padding:10px 20px; font-size:1em; }
 }
-@media (max-width: 479px){
-  .pain-conditions-detail-section{ padding: 30px 5px; }
-  .pain-conditions-detail-section h3{ font-size: 1.3em; margin-bottom: 15px; }
-  .pain-buttons-grid{ gap: 5px; padding: 0 5px; }
-  .pain-button{ min-height: 200px; }
-  .pain-button-text{ font-size: 1.2em; padding: 8px 2px; }
-  .back-button{ padding: 8px 15px; font-size: .9em; }
-}
-
-/* Намалена анимация — уважаваме потребителя */
-@media (prefers-reduced-motion: reduce){
-  * { animation: none !important; transition: none !important; }
-}
-footer {
-  font-size: 25px;          /* по-едър базов текст */
-  line-height: 1.6;
-  background: #f9f9f9;
-  padding: 40px 20px;
-  color: #222;
+@media (max-width:479px){
+  .pain-conditions-detail-section{ padding:30px 5px; }
+  .pain-conditions-detail-section h3{ font-size:1.3em; margin-bottom:15px; }
+  .pain-buttons-grid{ gap:5px; padding:0 5px; }
+  .pain-button{ min-height:200px; }
+  .pain-button-text{ font-size:1.2em; padding:8px 2px; }
+  .back-button{ padding:8px 15px; font-size:.9em; }
 }
 
-footer h2 {
-  font-size: 2 rem;        /* ~25px */
-  margin-bottom: 15px;
-  font-weight: 700;
+/* Намалена анимация */
+@media (prefers-reduced-motion:reduce){
+  *{ animation:none !important; transition:none !important; }
 }
 
-footer .contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
+/* =========================================================
+   FOOTER — layout и ефекти (точно по визията)
+   ========================================================= */
+
+/* Таргетираме и <footer>, и .footer за съвместимост */
+footer, .footer{
+  background:var(--f-bg);
+  padding:40px 0 28px;
+  color:var(--f-ink);
+  font-size:18px;
+  line-height:1.6;
 }
 
-footer .social-links img {
-  width: 80px;              /* по-големи социални икони */
-  height: 80px;
-  object-fit: contain;
+/* Вътрешен контейнер */
+footer .contact-section,
+.footer .contact-section{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 16px;
 }
 
-footer .icon {
-  width: 60px;              /* по-големи иконки за телефон/часовник/адрес */
-  height: 60px;
-  flex-shrink: 0;
-}
-
-footer .contact-item {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-footer .work-hours span,
-footer .address-item span,
-footer .contact-item span {
-  font-size: 1.05rem;       /* малко по-едър от базовия */
-}
-
-footer .footer-links {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 1rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  footer {
-    font-size: 16px;
-  }
-  footer .contact-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 25px;
-  }
-  footer iframe {
-    width: 100% !important;
-    height: 220px !important;
-  }
-}
-/* ===== FOOTER – layout и визия като на скрийншота ===== */
-footer{
-  background:#f3f5f7;
-  padding: 40px 0 28px;
-  color:#0f172a;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-footer .contact-section{ max-width: 1200px; margin: 0 auto; padding: 0 16px; }
-
-/* Три колони: карта (фиксирана), център (икони), дясно (телефон/час/адрес) */
-footer .contact-container{
-  display: grid;
-  grid-template-columns: 360px 1fr 1.2fr;
-  gap: 40px;
-  align-items: start;
+/* Три колони: карта | център | дясно */
+footer .contact-container,
+.footer .contact-container{
+  display:grid;
+  grid-template-columns:360px 1fr 1.2fr;
+  gap:40px;
+  align-items:start;
 }
 
 /* --- ЛЯВО: карта --- */
-footer .contact-left .map iframe{
-  width: 360px; height: 260px;
-  border: 0;
-  border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+footer .contact-left .map iframe,
+.footer .contact-left .map iframe{
+  width:360px; height:260px;
+  border:0;
+  border-radius:14px;
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
   background:#e9eef3;
   display:block;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+footer .contact-left .map iframe:hover,
+.footer .contact-left .map iframe:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
 }
 
 /* --- ЦЕНТЪР: заглавие + социални --- */
-footer .contact-center{ text-align: center; }
-footer .contact-center h2{
-  margin: 0 0 14px;
-  font-size: 2rem;        /* ~32px */
-  font-weight: 800;
-}
-footer .social-links{
-  display: inline-flex;
-  gap: 14px;
-}
-footer .social-links a{ display:inline-flex; }
-footer .social-links img{
-  width: 64px; height: 64px;   /* едри социални икони */
-  object-fit: contain; display:block;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
-  border-radius: 8px;
+footer .contact-center, .footer .contact-center{ text-align:center; }
+
+footer .contact-center h2,
+.footer .contact-center h2{
+  margin:0 0 14px;
+  font-size:2rem; /* поправено от 2 rem */
+  font-weight:800;
 }
 
-/* --- ДЯСНО: телефон голям, работно време, адрес --- */
-footer .contact-right{ }
-footer .contact-item{ display:flex; gap:12px; align-items:center; margin-bottom: 16px; }
-footer .icon{ width: 48px; height: 48px; object-fit: contain; flex:0 0 48px; }
-
-footer .contact-item.phone .icon{ width: 54px; height: 54px; }
-footer .contact-item.phone span{
-  font-size: 2.2rem;      /* ~35px */
-  font-weight: 800;
-  letter-spacing: .5px;
+footer .social-links, .footer .social-links{
+  display:inline-flex;
+  gap:14px;
 }
-
-footer .work-hours .icon{ width: 54px; height: 54px; }
-footer .address-item .icon{ width: 48px; height: 48px; }
-
-footer .map-link{
-  color:#0b66ff;
-  text-decoration: underline;
-}
-footer .map-link:hover{ text-decoration: none; }
-
-/* Долен ред с линкове */
-footer .footer-links{
-  margin-top: 22px; text-align:center; font-size: 1.05rem;
-}
-footer .footer-links a{ color:#0b66ff; }
-
-/* --- Responsive --- */
-@media (max-width: 1024px){
-  footer .contact-container{
-    grid-template-columns: 320px 1fr;    /* карта + комбинирана дясна колона */
-    grid-auto-rows: auto;
-  }
-  footer .contact-center{ order: 2; }
-  footer .contact-right{ order: 3; }
-  footer .contact-left .map iframe{ width: 320px; height: 230px; }
-}
-@media (max-width: 768px){
-  footer{ font-size: 16px; }
-  footer .contact-container{ grid-template-columns: 1fr; gap: 22px; }
-  footer .contact-left .map iframe{ width: 100%; height: 220px; }
-  footer .social-links img{ width: 56px; height: 56px; }
-  footer .contact-item.phone span{ font-size: 1.9rem; }
-}
-/* === Mobile-first оптимизации === */
-
-/* предотвратява нежелано уголемяване на шрифта в iOS */
-html { -webkit-text-size-adjust: 100%; }
-
-/* без хоризонтален скрол */
-html, body { overflow-x: hidden; }
-
-
-
-/* Логото да не е прекалено високо на мобилно */
-@media (max-width: 768px){
-  .main-logo{ width: 50px; height: auto; }
-}
-
-
-
-/* Контейнерът – по-тесни падинги на тесни екрани */
-@media (max-width: 768px){
-  main .container{ padding-left: 14px; padding-right: 14px; }
-}
-
-/* Карти/решетка: гарантирано 1 колона на много тесни екрани */
-@media (max-width: 420px){
-  main .cards{ grid-template-columns: 1fr; }
-}
-
-/* По-малки вертикални разстояния на мобилно за по-дълги страници */
-@media (max-width: 560px){
-  main .section, main .section--alt{ padding: 28px 0; }
-  main .cta{ padding: 36px 0; }
-  main .hero-subpage{ padding: 48px 0 28px; }
-}
-
-/* Бутоните в картите да не излизат извън екрана */
-main .card__actions .btn{ max-width: 100%; }
-
-/* Понякога изображения с позициониране могат да преливат — подсигуряваме */
-main .card__media{ overflow: hidden; }
-/* ====== UX подобрения и ефекти за фуутъра ====== */
-
-/* 1) Глобални променливи за цветове и сенки */
-:root{
-  --f-accent: #0b66ff;
-  --f-ink: #0f172a;
-  --f-bg: #f3f5f7;
-  --f-soft-shadow: 0 8px 24px rgba(15, 23, 42, .08);
-  --f-ring: 0 0 0 3px rgba(11,102,255,.18);
-}
-
-/* 2) Плавни преходи по подразбиране за кликаеми неща */
-footer a, 
 footer .social-links a,
-footer .contact-item,
-footer .map-link,
-footer .footer-links a,
-footer .contact-item span,
-footer .icon,
-footer .social-links img{
-  transition: 
-    transform .25s ease,
-    box-shadow .25s ease,
-    filter .25s ease,
-    opacity .25s ease,
-    color .25s ease,
-    background-color .25s ease;
+.footer .social-links a{
+  position:relative;
+  border-radius:10px;
+  outline:none;
+  transition:transform .25s ease, filter .25s ease;
 }
-
-/* 3) Социални икони – „изплуване“ + меко сияние */
-footer .social-links a{
-  position: relative;
-  border-radius: 10px;
-  outline: none;
+footer .social-links img,
+.footer .social-links img{
+  width:64px; height:64px;
+  object-fit:contain; display:block;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.08));
+  border-radius:8px;
+  transition:filter .25s ease, opacity .25s ease, transform .25s ease;
 }
 footer .social-links a:hover,
-footer .social-links a:focus-visible{
-  transform: translateY(-4px) scale(1.03);
+footer .social-links a:focus-visible,
+.footer .social-links a:hover,
+.footer .social-links a:focus-visible{
+  transform:translateY(-4px) scale(1.03);
 }
 footer .social-links a:hover img,
-footer .social-links a:focus-visible img{
-  filter: drop-shadow(0 8px 18px rgba(11,102,255,.25));
-}
-footer .social-links a:active{
-  transform: translateY(-1px) scale(.99);
-}
-
-/* 4) Контакт редове – фина карта при ховър */
-footer .contact-item{
-  border-radius: 14px;
-  padding: 8px 10px;
-}
-footer .contact-item:hover{
-  background: rgba(11,102,255,.06);
-  box-shadow: var(--f-soft-shadow);
-}
-footer .contact-item .icon{
-  transition: transform .25s ease;
-}
-footer .contact-item:hover .icon{
-  transform: scale(1.06) rotate(-2deg);
+footer .social-links a:focus-visible img,
+.footer .social-links a:hover img,
+.footer .social-links a:focus-visible img{
+  filter:drop-shadow(0 8px 18px rgba(11,102,255,.25));
 }
 
-/* 5) Телефон – акцент при ховър (лек „пулс“) */
-@keyframes f-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
+/* --- ДЯСНО: телефон, работно време, адрес --- */
+footer .contact-item, .footer .contact-item{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:16px;
+  border-radius:14px;
+  padding:8px 10px;
+  transition:background-color .25s ease, box-shadow .25s ease;
 }
-footer .contact-item.phone:hover span{
-  color: var(--f-accent);
-  animation: f-pulse .8s ease-in-out;
+footer .contact-item:hover, .footer .contact-item:hover{
+  background:rgba(11,102,255,.06);
+  box-shadow:var(--f-soft-shadow);
+}
+footer .icon, .footer .icon{
+  width:48px; height:48px;
+  object-fit:contain; flex:0 0 48px;
+  transition:transform .25s ease;
+}
+footer .contact-item:hover .icon,
+.footer .contact-item:hover .icon{
+  transform:scale(1.06) rotate(-2deg);
 }
 
-/* 6) Линкове долу – анимирано подчертаване */
-footer .footer-links a{
-  position: relative;
-  text-decoration: none;
-  background-image: linear-gradient(currentColor, currentColor);
-  background-position: 50% 100%;
-  background-repeat: no-repeat;
-  background-size: 0% 2px;
-}
-footer .footer-links a:hover,
-footer .footer-links a:focus-visible{
-  color: var(--f-accent);
-  background-size: 100% 2px;    /* от центъра към краищата */
+/* Телефон акцент */
+footer .contact-item.phone .icon,
+.footer .contact-item.phone .icon{ width:54px; height:54px; }
+footer .contact-item.phone span,
+.footer .contact-item.phone span{
+  font-size:2.2rem;
+  font-weight:800;
+  letter-spacing:.5px;
+  transition:color .25s ease;
 }
 
-/* 7) Линк към карта – „индикатор“ при ховър */
-footer .map-link{
-  position: relative;
+/* Лек „пулс“ */
+@keyframes f-pulse{ 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
+footer .contact-item.phone:hover span,
+.footer .contact-item.phone:hover span{
+  color:var(--f-accent);
+  animation:f-pulse .8s ease-in-out;
 }
-footer .map-link::after{
+
+/* Линк към карта */
+footer .map-link, .footer .map-link{
+  color:var(--f-accent);
+  text-decoration:underline;
+  position:relative;
+  transition:color .25s ease;
+}
+footer .map-link::after, .footer .map-link::after{
   content:"↗";
-  margin-left: .35em;
-  opacity: .0;
-  transition: transform .25s ease, opacity .25s ease;
+  margin-left:.35em;
+  opacity:0;
+  transition:transform .25s ease, opacity .25s ease;
 }
 footer .map-link:hover::after,
-footer .map-link:focus-visible::after{
-  opacity: .9;
-  transform: translateY(-1px);
+footer .map-link:focus-visible::after,
+.footer .map-link:hover::after,
+.footer .map-link:focus-visible::after{
+  opacity:.9;
+  transform:translateY(-1px);
 }
 
-/* 8) Карта – фино издигане на iframe при ховър */
-footer .contact-left .map iframe{
-  transition: transform .3s ease, box-shadow .3s ease;
+/* Долен ред линкове */
+footer .footer-links, .footer .footer-links{
+  margin-top:22px;
+  text-align:center;
+  font-size:1.05rem;
 }
-footer .contact-left .map iframe:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+footer .footer-links a, .footer .footer-links a{
+  color:var(--f-accent);
+  text-decoration:none;
+  background-image:linear-gradient(currentColor,currentColor);
+  background-position:50% 100%;
+  background-repeat:no-repeat;
+  background-size:0% 2px;
+  transition:background-size .25s ease, color .25s ease;
+}
+footer .footer-links a:hover,
+footer .footer-links a:focus-visible,
+.footer .footer-links a:hover,
+.footer .footer-links a:focus-visible{
+  background-size:100% 2px;
 }
 
-/* 9) Фокус стилове за достъпност */
-footer a:focus-visible{
-  box-shadow: var(--f-ring);
-  border-radius: 10px;
+/* Фокус достъпност */
+footer a:focus-visible, .footer a:focus-visible{
+  box-shadow:var(--f-ring);
+  border-radius:10px;
 }
 
-/* 10) „Back to top“ бутон за фуутър (скрива се на мобилно) */
-footer .back-to-top{
+/* Back to top */
+footer .back-to-top, .footer .back-to-top{
   display:inline-flex;
   align-items:center;
   gap:.5rem;
-  margin-top: 10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: white;
-  box-shadow: var(--f-soft-shadow);
-  font-weight: 700;
+  margin-top:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:#fff;
+  box-shadow:var(--f-soft-shadow);
+  font-weight:700;
+  transition:transform .25s ease;
 }
-footer .back-to-top:hover{ transform: translateY(-3px); }
-@media (max-width: 768px){
-  footer .back-to-top{ display:none; }
+footer .back-to-top:hover, .footer .back-to-top:hover{ transform:translateY(-3px); }
+
+/* Footer responsive */
+@media (max-width:1024px){
+  footer .contact-container, .footer .contact-container{
+    grid-template-columns:320px 1fr;
+    grid-auto-rows:auto;
+  }
+  footer .contact-center, .footer .contact-center{ order:2; }
+  footer .contact-right,  .footer .contact-right{ order:3; }
+  footer .contact-left .map iframe,
+  .footer .contact-left .map iframe{ width:320px; height:230px; }
+}
+@media (max-width:768px){
+  footer, .footer{ font-size:16px; }
+  footer .contact-container, .footer .contact-container{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+  footer .contact-left .map iframe,
+  .footer .contact-left .map iframe{ width:100%; height:220px; }
+  footer .social-links img, .footer .social-links img{ width:56px; height:56px; }
+  footer .contact-item.phone span, .footer .contact-item.phone span{ font-size:1.9rem; }
+  footer .back-to-top, .footer .back-to-top{ display:none; }
 }
 
-/* 11) Тъмна тема (автоматично) */
-@media (prefers-color-scheme: dark){
-  :root{
-    --f-bg:#0b1220;
-    --f-ink:#e5e7eb;
+/* Тъмна тема */
+@media (prefers-color-scheme:dark){
+  :root{ --f-bg:#0b1220; --f-ink:#e5e7eb; }
+  footer, .footer{
+    background:var(--f-bg);
+    color:var(--f-ink);
   }
-  footer{
-    background: var(--f-bg);
-    color: var(--f-ink);
+  footer .footer-links a, .footer .footer-links a,
+  footer .map-link, .footer .map-link{ color:var(--f-accent); }
+  footer .social-links img, .footer .social-links img{
+    filter:drop-shadow(0 2px 6px rgba(0,0,0,.6));
   }
-  footer .footer-links a,
-  footer .map-link{ color: var(--f-accent); }
-  footer .social-links img{ filter: drop-shadow(0 2px 6px rgba(0,0,0,.6)); }
-  footer .contact-item:hover{ background: rgba(11,102,255,.14); }
+  footer .contact-item:hover, .footer .contact-item:hover{
+    background:rgba(11,102,255,.14);
+  }
+}
+
+/* Respect reduced motion (глобално) */
+@media (prefers-reduced-motion:reduce){
+  footer *, .footer *{ animation:none !important; transition:none !important; }
 }
