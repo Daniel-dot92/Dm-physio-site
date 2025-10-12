@@ -33,6 +33,14 @@
   <meta name="twitter:title" content="Кинезитерапия и Масаж в София – DM Physio" />
   <meta name="twitter:description" content="Оценка на движение, индивидуален план и лечение на болка, изтръпване и мускулен дисбаланс." />
   <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.jpg" />
+  <style>
+  :root{ --tb-h:64px } @media (max-width:768px){ :root{ --tb-h:56px } }
+  .tb-header{position:fixed;top:0;left:0;right:0;min-height:var(--tb-h);z-index:2147483647}
+  .tb-inner{min-height:var(--tb-h);display:flex;align-items:center}
+  /* резерв за съдържанието – още в първия paint */
+  main{ padding-top: var(--tb-h); }
+</style>
+
 
  <!-- вместо: <link rel="stylesheet" href="/css/top-bar.css"> -->
 <link rel="preload" href="/css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
