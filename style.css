@@ -68,10 +68,6 @@ body {
 
 
 
-
-
-.pain-button:hover .hover-img { opacity: 1; }
-.pain-button:hover .static-img { opacity: 0; }
 /* --- Slider container --- */
 .pcarousel{position:relative}
 .pc-viewport{overflow:hidden}
@@ -1689,3 +1685,47 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
 /* Когато контейнерът е готов – разреши hover прехода */
 .pain-button:hover .image-container.video-ready .static-img { opacity: 0; }
 .pain-button:hover .image-container.video-ready .hover-img  { opacity: 1; }
+/* === VIDEO HOVER: никога не крий статичната снимка,
+   докато видеото не е готово/не играе === */
+
+/* по подразбиране – снимката е видима, видеото скрито */
+.image-container .static-img,
+.pain-button-media .static-img{ opacity:1; transition:opacity .25s ease; }
+.image-container .hover-img,
+.pain-button-media .hover-img{ opacity:0; transition:opacity .25s ease; }
+
+/* старото правило, което крие снимката при hover, го зануляваме */
+.pain-button:hover .static-img{ opacity:1; }
+.pain-button:hover .hover-img{ opacity:0; }
+
+/* показваме видеото ЕДВА когато контейнерът е video-ready ИЛИ когато е в режим is-playing */
+.image-container.video-ready:hover .static-img,
+.pain-button-media.video-ready:hover .static-img{ opacity:0; }
+.image-container.video-ready:hover .hover-img,
+.pain-button-media.video-ready:hover .hover-img{ opacity:1; }
+
+.image-container.is-playing .static-img,
+.pain-button-media.is-playing .static-img{ opacity:0; }
+.image-container.is-playing .hover-img,
+.pain-button-media.is-playing .hover-img{ opacity:1; }
+
+/* безопасно фоново покритие за контейнера (да няма сиво) */
+.image-container,
+.pain-button-media{
+  background:#f1f5f9;
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+/* на мобилно не използваме hover правила — JS управлява показването */
+@media (hover:none){
+  .image-container.video-ready:hover .static-img,
+  .pain-button-media.video-ready:hover .static-img{ opacity:1; }
+  .image-container.video-ready:hover .hover-img,
+  .pain-button-media.video-ready:hover .hover-img{ opacity:0; }
+}
+.image-container:not(.video-ready) .hover-img,
+.pain-button-media:not(.video-ready) .hover-img{
+  opacity:0 !important; visibility:hidden !important;
+}
