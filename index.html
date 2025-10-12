@@ -64,51 +64,7 @@
       .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
     }
 
-    /* ====== ВИДЕО СМЯНА СЪС СНИМКА СЛЕД ГОТОВНОСТ ====== */
-    .image-container,
-    .pain-button-media{
-      position:relative; border-radius:12px; overflow:hidden; background:#f1f5f9;
-    }
-    .image-container .static-img,
-    .pain-button-media .static-img{
-      position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity .25s ease; opacity:1;
-      will-change: opacity; -webkit-transform: translateZ(0); transform: translateZ(0); backface-visibility: hidden;
-    }
-    .image-container .hover-img,
-    .pain-button-media .hover-img{
-      position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-      opacity:0; transition:opacity .25s ease; pointer-events:none; border:0; background: transparent !important;
-      -webkit-transform: translateZ(0); transform: translateZ(0); backface-visibility: hidden;
-    }
-
-    /* ДОКАТО НЕ Е ГОТОВО → видео е скрито независимо от hover */
-    .image-container:not(.video-ready) .hover-img,
-    .pain-button-media:not(.video-ready) .hover-img{
-      opacity:0 !important; visibility:hidden !important;
-    }
-    .image-container:not(.video-ready) .static-img,
-    .pain-button-media:not(.video-ready) .static-img{
-      opacity:1 !important;
-    }
-
-    /* Само когато е video-ready позволяваме “смяна” (hover/focus) */
-    @media (hover:hover) and (pointer:fine){
-      .image-container.video-ready:hover .hover-img,
-      .pain-button-media.video-ready:hover .hover-img{ opacity:1; }
-      .image-container.video-ready:hover .static-img,
-      .pain-button-media.video-ready:hover .static-img{ opacity:0; }
-    }
-
-    /* Когато JS стартира възпроизвеждане → също показваме видеото */
-    .image-container.is-playing .hover-img,
-    .pain-button-media.is-playing .hover-img{ opacity:1; }
-    .image-container.is-playing .static-img,
-    .pain-button-media.is-playing .static-img{ opacity:0; }
-
-    /* Мобилно – винаги подготвено, но видимо едва при ready/is-playing */
-    @media (hover:none){
-      .image-container .hover-img, .pain-button-media .hover-img{ display:block !important; }
-    }
+    
 
     /* ===== Основни стилове на страницата (съкратено до логичното ядро) ===== */
     :root{
@@ -943,6 +899,7 @@
 <!-- JS -->
 <script src="/js/form.js" defer></script>
 <script src="/js/topbar.js" defer></script>
+<script src="/js/media-autoplay-cards.js" defer></script>
 
 <!-- Lazy: EmbedSocial, Map iframe -->
 <script>
@@ -989,79 +946,6 @@
 })();
 </script>
 
-<!-- ===== ВИДЕО ЛОГИКА: снимка -> видео само след готов първи кадър ===== -->
-<script>
-(function(){
-  if (window.__DMVideoSwapInit) return;
-  window.__DMVideoSwapInit = true;
-
-  var containers = Array.prototype.slice.call(document.querySelectorAll('.image-container, .pain-button-media'));
-  if (!containers.length) return;
-
-  function markReady(box){
-    box.classList.add('video-ready'); // разрешава hover swap по CSS
-  }
-  function showVideo(box){
-    box.classList.add('is-playing');
-  }
-  function hideVideo(box){
-    box.classList.remove('is-playing');
-  }
-
-  containers.forEach(function(box){
-    var v = box.querySelector('video.hover-img');
-    var img = box.querySelector('img.static-img');
-    if (!v || !img) return;
-
-    // iOS-safe
-    v.muted = true; v.defaultMuted = true;
-    v.setAttribute('muted','');
-    v.playsInline = true; v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
-    if (!v.getAttribute('preload')) v.preload = 'metadata';
-    v.removeAttribute('autoplay');
-    v.style.background = 'transparent';
-
-    // Ако няма poster → сложи статичната снимка
-    if (!v.getAttribute('poster')) {
-      v.setAttribute('poster', img.currentSrc || img.src);
-    }
-
-    var ready = function(){
-      markReady(box);
-    };
-
-    if (v.readyState >= 2) {
-      // има първи кадър
-      markReady(box);
-    } else {
-      v.addEventListener('loadeddata', ready, { once: true });
-      v.addEventListener('canplay', ready, { once: true });
-      try { v.load(); } catch(e){}
-    }
-
-    // Desktop hover: работи само ако е video-ready
-    box.addEventListener('mouseenter', function(){
-      if (!box.classList.contains('video-ready')) return;
-      showVideo(box);
-      v.play && v.play().catch(function(){});
-    }, { passive:true });
-
-    box.addEventListener('mouseleave', function(){
-      if (!box.classList.contains('video-ready')) return;
-      hideVideo(box);
-      try { v.pause(); v.currentTime = 0; } catch(e){}
-    }, { passive:true });
-
-    // При скриване на таба – стоп
-    document.addEventListener('visibilitychange', function(){
-      if (document.hidden) {
-        hideVideo(box);
-        try { v.pause(); } catch(e){}
-      }
-    });
-  });
-})();
-</script>
 
 </body>
 </html>
