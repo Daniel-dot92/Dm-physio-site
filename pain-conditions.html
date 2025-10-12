@@ -30,13 +30,13 @@
   <meta name="twitter:description" content="Разгледай състоянията по зони и научи как да се възстановиш устойчиво." />
   <meta name="twitter:image" content="https://dmphysi0.com/pngs/pain-conditions/new/backpain-Thumbnail.webp" />
 
-  <!-- Local CSS (без промяна на визията) -->
+  <!-- Local CSS -->
   <link rel="stylesheet" href="/css/top-bar.css" />
   <link rel="stylesheet" href="/css/styles-procedures.css" />
   <link rel="stylesheet" href="/image-styles.css" />
   <link rel="stylesheet" href="/pain-conditions.css" />
 
-  <!-- Preconnect (както в шаблона) -->
+  <!-- Preconnect към аналитики (пасивно) -->
   <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://t.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://c.ba.contentsquare.net" crossorigin>
@@ -48,7 +48,7 @@
     imagesizes="(max-width: 900px) 100vw, 33vw"
     fetchpriority="high">
 
-  <!-- In-page critical tweaks (мобилни/видимост, същите от шаблона) -->
+  <!-- In-page critical tweaks -->
   <style>
     .hero-pro__title, .pci-title, .reviews-title, h1, h2, h3, p {
       white-space: normal !important;
@@ -63,23 +63,20 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
 
-    /* предотвратяваме скъпата маска само на мобилно (ако се ползва някъде) */
+    /* маските off само на мобилно (ако се ползват) */
     @media (max-width: 900px){
       .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
     }
-    :root{ --tb-h: 72px; }           /* дефолтна височина */
-@media (max-width:900px){ :root{ --tb-h: 64px; } }
 
-/* компенсира скрол до #anchors и skip-link */
-html, body { scroll-padding-top: var(--tb-h); }
-#pain-conditions-intro { scroll-margin-top: var(--tb-h); }
+    :root{ --tb-h: 72px; }
+    @media (max-width:900px){ :root{ --tb-h: 64px; } }
 
-/* компенсира застъпването под фиксирания бар само визуално, без да сменяме стиловете на бар-а */
-main { padding-top: var(--tb-h); }
-
+    html, body { scroll-padding-top: var(--tb-h); }
+    #pain-conditions-intro { scroll-margin-top: var(--tb-h); }
+    main { padding-top: var(--tb-h); }
   </style>
 
-  <!-- JSON-LD: WebPage + Breadcrumb + FAQ (леко, без да променям визията) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -114,7 +111,7 @@ main { padding-top: var(--tb-h); }
   }
   </script>
 
-  <!-- Отложено зареждане на Contentsquare/Hotjar (както в шаблона) -->
+  <!-- Отложено Contentsquare -->
   <script>
   (function(){
     function loadCS(){
@@ -141,7 +138,7 @@ main { padding-top: var(--tb-h); }
 <body>
 <a class="skip-link" href="#pain-conditions-intro">Към съдържанието</a>
 
-<!-- ======= Top bar (TB) – идентичен на шаблона ======= -->
+<!-- ======= Top bar ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
@@ -176,16 +173,14 @@ main { padding-top: var(--tb-h); }
 </header>
 
 <main>
- 
-
-  <!-- Къде е болката (главната мрежа) -->
+  <!-- Къде е болката -->
   <section id="pain-conditions-intro" class="hero-subpage" aria-label="Къде е болката?">
     <div class="container">
       <h2 class="pci-title">Къде е болката?</h2>
 
       <p class="pci-intro">
         Можеш да си помогнеш още сега: <strong>избери частта на тялото, която те боли</strong> и разгледай
-        най-честите състояния за тази зона — какви са симптомите, какъв е механизмът зад болката и
+        най-честите състояния за тази зона — какви są симптомите, какъв е механизмът зад болката и
         кои са работещите методи за възстановяване. <span class="pci-accent">Колкото по-рано разбереш причината,
         толкова по-бързо ще се върнеш към движение без болка.</span>
       </p>
@@ -194,10 +189,11 @@ main { padding-top: var(--tb-h); }
         <!-- Невралгии (LCP): eager + fetchpriority="high" -->
         <a href="/pain-neuralgia-general.html" class="pain-button" aria-label="Невралгии – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/tingling1-Thumbnail.webp"
-                 alt="Невралгии" class="static-img"
-                 loading="eager" decoding="async" fetchpriority="high"
-                 width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/tingling1-Thumbnail.webp"
+              alt="Невралгии" class="static-img"
+              loading="eager" decoding="async" fetchpriority="high"
+              width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/tingling1-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -210,9 +206,10 @@ main { padding-top: var(--tb-h); }
         <!-- Мускули -->
         <a href="/physiology.html" class="pain-button physiology-button" aria-label="Мускули – образователна секция">
           <div class="pain-button-media image-container">
-            <img src="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.webp"
-                 alt="Мускули – образователна секция" class="static-img"
-                 loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.webp"
+              alt="Мускули – образователна секция" class="static-img"
+              loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -225,9 +222,10 @@ main { padding-top: var(--tb-h); }
         <!-- Глава -->
         <a href="/pain-head.html" class="pain-button" aria-label="Глава – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/headeach1-Thumbnail.webp"
-                 alt="Глава" class="static-img"
-                 loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/headeach1-Thumbnail.webp"
+              alt="Глава" class="static-img"
+              loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/headeach1-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -240,9 +238,10 @@ main { padding-top: var(--tb-h); }
         <!-- Врат -->
         <a href="/pain-neck.html" class="pain-button" aria-label="Врат – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp"
-                 alt="Врат" class="static-img"
-                 loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp"
+              alt="Врат" class="static-img"
+              loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -255,9 +254,10 @@ main { padding-top: var(--tb-h); }
         <!-- Рамо -->
         <a href="/pain-shoulder.html" class="pain-button" aria-label="Рамо – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp"
-                 alt="Рамо" class="static-img"
-                 loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp"
+              alt="Рамо" class="static-img"
+              loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -270,9 +270,10 @@ main { padding-top: var(--tb-h); }
         <!-- Ръка -->
         <a href="/pain-arm.html" class="pain-button" aria-label="Ръка – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/armpain-Thumbnail.webp"
-                 alt="Ръка" class="static-img"
-                 loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/armpain-Thumbnail.webp"
+              alt="Ръка" class="static-img"
+              loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/armpain-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -285,9 +286,10 @@ main { padding-top: var(--tb-h); }
         <!-- Гърди и Корем -->
         <a href="/pain-chest-abdomen.html" class="pain-button" aria-label="Гърди и Корем – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/chestpain-Thumbnail.webp"
-                 alt="Гърди и Корем" class="static-img"
-                 loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/chestpain-Thumbnail.webp"
+              alt="Гърди и Корем" class="static-img"
+              loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/chestpain-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -300,9 +302,10 @@ main { padding-top: var(--tb-h); }
         <!-- Гръб -->
         <a href="/pain-back.html" class="pain-button" aria-label="Гръб – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp"
-                 alt="Гръб" class="static-img"
-                 loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp"
+              alt="Гръб" class="static-img"
+              loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -315,9 +318,10 @@ main { padding-top: var(--tb-h); }
         <!-- Кръст -->
         <a href="/pain-lower-back.html" class="pain-button" aria-label="Кръст – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/backpain-Thumbnail.webp"
-                 alt="Кръст" class="static-img"
-                 loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/backpain-Thumbnail.webp"
+              alt="Кръст" class="static-img"
+              loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/backpain-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -330,9 +334,10 @@ main { padding-top: var(--tb-h); }
         <!-- Дупе / Таз -->
         <a href="/pain-buttocks-pelvis.html" class="pain-button" aria-label="Дупе и Таз – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/hippain1-Thumbnail.webp"
-                 alt="Дупе / Таз" class="static-img"
-                 loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/hippain1-Thumbnail.webp"
+              alt="Дупе / Таз" class="static-img"
+              loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/hippain1-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -345,9 +350,10 @@ main { padding-top: var(--tb-h); }
         <!-- Бедро / Коляно -->
         <a href="/pain-thigh-knee.html" class="pain-button" aria-label="Бедро и Коляно – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp"
-                 alt="Бедро / Коляно" class="static-img"
-                 loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp"
+              alt="Бедро / Коляно" class="static-img"
+              loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -360,9 +366,10 @@ main { padding-top: var(--tb-h); }
         <!-- Подбедрица / Стъпало -->
         <a href="/pain-lower-leg-ankle.html" class="pain-button" aria-label="Подбедрица и Стъпало – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp"
-                 alt="Подбедрица / Стъпало" class="static-img"
-                 loading="lazy" decoding="async" width="640" height="360">
+            <img
+              src="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp"
+              alt="Подбедрица / Стъпало" class="static-img"
+              loading="lazy" decoding="async" width="640" height="360">
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp"
                    width="640" height="360" aria-hidden="true">
@@ -375,7 +382,7 @@ main { padding-top: var(--tb-h); }
     </div>
   </section>
 
-  <!-- FREE ADVICE (REVEAL) – 1:1 със шаблона -->
+  <!-- FREE ADVICE (REVEAL) -->
   <section class="advice-reveal-block" id="free-advice">
     <div class="advice-window" role="group" aria-label="Форма за безплатни насоки">
       <div class="advice-window__titlebar">
@@ -474,7 +481,6 @@ main { padding-top: var(--tb-h); }
   </section>
 </main>
 
-<!-- ФУТЪР: НЕПРОМЕНЕН (по твое изискване) -->
 <footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
@@ -538,12 +544,12 @@ main { padding-top: var(--tb-h); }
   </section>
 </footer>
 
-<!-- JS (оставям твоите файлове) -->
+<!-- JS -->
 <script src="/js/form.js" defer></script>
 <script src="/js/topbar.js" defer></script>
 <script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Lazy: EmbedSocial, Map iframe + Видео логика (desktop hover / mobile center-only) -->
+<!-- Lazy: EmbedSocial, Map iframe -->
 <script>
 /* 1) EmbedSocial – зареждане само при видимост */
 (function(){
@@ -565,7 +571,7 @@ main { padding-top: var(--tb-h); }
   io.observe(widget);
 })();
 
-/* 2) Google Maps iframe – мързеливо присвояване на src (ако има data-src) */
+/* 2) Google Maps iframe – lazy src */
 (function(){
   var iframe = document.getElementById('mapFrame') || document.querySelector('iframe[data-src]');
   if (!iframe || !('IntersectionObserver' in window)) return;
@@ -578,135 +584,6 @@ main { padding-top: var(--tb-h); }
     }
   }, { rootMargin: '300px' });
   io.observe(iframe);
-})();
-
-/* 3) Видео логика – desktop hover / mobile center-only */
-(function(){
-  if (window.__DMVideoLogicInit) return;
-  window.__DMVideoLogicInit = true;
-
-  var cards  = Array.prototype.slice.call(document.querySelectorAll('.image-container, .pain-button-media'));
-  var videos = Array.prototype.slice.call(document.querySelectorAll('video.hover-img'));
-  if (!videos.length) return;
-
-  videos.forEach(function(v){
-    try{
-      v.setAttribute('playsinline','');
-      v.playsInline = true;
-      v.muted = true;
-      v.setAttribute('muted','');
-      if (!v.getAttribute('preload')) v.preload = 'metadata';
-      v.removeAttribute('controls');
-    }catch(e){}
-  });
-
-  function loadIfNeeded(v){
-    if (!v || v.dataset.ready === '1') return;
-    var s = v.querySelector('source[data-src]');
-    if (s && !s.src){
-      s.src = s.getAttribute('data-src');
-      try{ v.load(); }catch(e){}
-    }
-    v.dataset.ready = '1';
-  }
-  function safePlay(v){ if (v && v.play) v.play().catch(function(){}); }
-  function safePause(v){ if (v && v.pause){ try{ v.pause(); }catch(e){} } }
-
-  var hasHover  = window.matchMedia && window.matchMedia('(hover: hover)').matches;
-  var coarsePtr = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-
-  if (hasHover && !coarsePtr){
-    if ('IntersectionObserver' in window){
-      var preloader = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting){ loadIfNeeded(e.target); preloader.unobserve(e.target); }
-        });
-      }, { rootMargin: '300px 0px' });
-      videos.forEach(function(v){ preloader.observe(v); });
-    }
-    cards.forEach(function(box){
-      var v = box.querySelector('video.hover-img');
-      if (!v) return;
-      box.addEventListener('mouseenter', function(){ loadIfNeeded(v); safePlay(v); }, { passive:true });
-      box.addEventListener('mouseleave', function(){ safePause(v); try{ v.currentTime = 0; }catch(e){} }, { passive:true });
-    });
-    return;
-  }
-
-  videos.forEach(function(v){ v.preload = 'none'; v.removeAttribute('autoplay'); safePause(v); });
-
-  var current = null;
-  var CENTER_TOL = 0.20;
-
-  function setPoster(v, on){
-    var box = v && v.closest('.image-container, .pain-button-media');
-    if (!box) return;
-    var img = box.querySelector('img.static-img');
-    if (on){
-      box.classList.add('is-playing');
-      if (img) img.style.opacity = '0';
-      v.style.opacity = '1';
-    } else {
-      box.classList.remove('is-playing');
-      if (img) img.style.opacity = '';
-      v.style.opacity = '';
-    }
-  }
-
-  function pauseAllExcept(keep){
-    videos.forEach(function(v){
-      if (v === keep) return;
-      safePause(v);
-      setPoster(v, false);
-    });
-  }
-
-  function playOne(v){
-    if (!v) return;
-    var s = v.querySelector('source[data-src]');
-    if (s && !s.src){ s.src = s.dataset.src; try{ v.load(); }catch(e){} }
-    pauseAllExcept(v);
-    current = v;
-    safePlay(v);
-    setPoster(v, true);
-  }
-
-  function pickClosestToCenter(){
-    var vh = window.innerHeight || 0;
-    var viewportCenterY = vh / 2;
-    var best = null, bestDist = Infinity;
-
-    videos.forEach(function(v){
-      var r = v.getBoundingClientRect();
-      if (r.bottom <= 0 || r.top >= vh) return;
-      var centerY = r.top + r.height / 2;
-      var dist = Math.abs(centerY - viewportCenterY);
-      if (dist < bestDist){ bestDist = dist; best = v; }
-    });
-
-    if (best && bestDist <= vh * CENTER_TOL){
-      if (best !== current) playOne(best);
-    } else if (current){
-      safePause(current); setPoster(current, false); current = null;
-    }
-  }
-
-  var ticking = false;
-  function onScrollOrResize(){
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function(){ ticking = false; pickClosestToCenter(); });
-  }
-
-  document.addEventListener('scroll', onScrollOrResize, { passive:true });
-  window.addEventListener('resize', onScrollOrResize, { passive:true });
-  window.addEventListener('orientationchange', function(){ setTimeout(pickClosestToCenter, 120); });
-
-  document.addEventListener('visibilitychange', function(){
-    if (document.hidden && current){ safePause(current); setPoster(current, false); current = null; }
-  });
-
-  window.addEventListener('load', function(){ setTimeout(pickClosestToCenter, 150); });
 })();
 </script>
 
