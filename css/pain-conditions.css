@@ -438,3 +438,68 @@ footer .back-to-top:hover, .footer .back-to-top:hover{ transform:translateY(-3px
 @media (prefers-reduced-motion:reduce){
   footer *, .footer *{ animation:none !important; transition:none !important; }
 }
+/* ===== HERO заглавие за подстраници (по-стегнато и балансирано) ===== */
+
+/* по-тясна контейнер ширина за хедъра */
+.hero-subpage .container{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* H1 */
+.pci-title{
+  font-family: "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.2vw + 1rem, 44px); /* по-малък максимум */
+  line-height: 1.18;
+  letter-spacing: -0.012em;
+  color: #0E7C86;
+  margin: 0 auto 10px;
+  max-width: 28ch;                /* ограничава ширината за 2–3 реда */
+  text-wrap: balance;             /* по-красиво пренасяне */
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.04));
+  text-align: center;
+}
+
+/* декоративна линия под H1 */
+.pci-title::after{
+  content:"";
+  display:block;
+  width: 400px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #0E7C86, #16a34a);
+  opacity: .9;
+}
+
+/* подзаглавие */
+.pci-intro{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+  font-size: clamp(16px, 1.1vw + .6rem, 18px);
+  line-height: 1.65;
+  color: #2f5f63;
+  max-width: 74ch;
+  margin: 8px auto 18px;
+  text-wrap: pretty;
+  text-align: center;
+}
+
+/* разделител под хедъра (фина линия) */
+.hero-subpage{
+  padding: 36px 0 22px;
+  background: #fff;
+  border-bottom: 1px solid #eef2f3;
+}
+
+/* мобилни до 480px – малко по-дребно и без ограничение на ширината */
+@media (max-width: 480px){
+  .pci-title{
+    font-size: clamp(24px, 6.2vw, 34px);
+    max-width: 100%;
+  }
+  .pci-title::after{ margin-top: 10px; }
+}
