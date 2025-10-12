@@ -286,3 +286,80 @@ footer .footer-links a:hover{color:#0b66ff;background-size:100% 2px}
 @media(prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}
 }
+  /* ===== CSS-only PATCH (без промени по HTML) ===== */
+
+/* 0) По-лек първи кадър: махаме скъпата маска и тежки сенки до 900px */
+@media (max-width:900px){
+  .hero-pro__media img,
+  .why__media img{
+    -webkit-mask-image:none !important;
+    mask-image:none !important;
+    box-shadow:none !important;
+    border-radius:0 !important;
+  }
+}
+
+/* 1) Медия контейнер – базова геометрия (да не „пляска“ layout-а преди видеото) */
+.image-container,
+.pain-button-media{
+  position:relative !important;
+  overflow:hidden !important;
+  border-radius:12px;
+  background:#f1f5f9;
+}
+.image-container{ aspect-ratio:4/3; }
+.pain-button-media{ aspect-ratio:1/1; }
+
+/* 2) Статична снимка над видеото по подразбиране (без visibility, само opacity) */
+.image-container .static-img,
+.pain-button-media .static-img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; opacity:1; transition:opacity .25s ease;
+}
+.image-container .hover-img,
+.pain-button-media .hover-img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; opacity:0; transition:opacity .25s ease;
+  border:0;
+}
+
+/* 3) ДЕСКТОП: видео само при hover (не влияе на мобилни) */
+@media (hover:hover) and (pointer:fine){
+  .pain-button:hover .image-container .static-img,
+  .pain-button:hover .pain-button-media .static-img{ opacity:0; }
+  .pain-button:hover .image-container .hover-img,
+  .pain-button:hover .pain-button-media .hover-img{ opacity:1; }
+  /* и в картите (1:1) */
+  .pc-card:hover .media .static{ opacity:0; }
+  .pc-card:hover .media .hover{ opacity:1; }
+}
+
+/* 4) МОБИЛНО: забраняваме hover-поведението; показваме видеото само когато JS добави клас */
+@media (hover:none){
+  /* анулираме всички hover-правила от по-горе/стар CSS */
+  .pain-button:hover .static-img,
+  .pc-card:hover .media .static{ opacity:1 !important; }
+  .pain-button:hover .hover-img,
+  .pc-card:hover .media .hover{ opacity:0 !important; }
+
+  /* JS ще добави .is-visible на контейнера когато влезе в полезрението */
+  .image-container.is-visible .static-img,
+  .pain-button-media.is-visible .static-img{ opacity:0; }
+  .image-container.is-visible .hover-img,
+  .pain-button-media.is-visible .hover-img{ opacity:1; }
+}
+
+/* 5) Предпазване: докато видеото няма източник/данни, не го показваме */
+.image-container:not(.is-visible) video.hover-img[preload="none"],
+.pain-button-media:not(.is-visible) video.hover-img[preload="none"]{
+  opacity:0 !important;
+}
+
+/* 6) Малки изгледни корекции за текстовете под картите (запазваме текущия вид) */
+.pain-button-text{
+  font-weight:700; color:var(--text);
+  line-height:1.3; text-align:center;
+  font-size: clamp(18px, 2.6vw, 22px);
+  padding:0 2px 2px;
+}
+.pain-button-hook{ font-size:12px; color:#475569; line-height:1.4; margin:4px 8px 10px; text-align:center; }
