@@ -8,7 +8,8 @@
   var $ = function(s, r){ return (r||document).querySelector(s); };
   var $$ = function(s, r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
 
-  var cards = $$('.image-container').map(function(box){
+  var cards = $$('.image-container, .pain-button-media').map(function(box){
+
     var img = $('.static-img', box);
     var vid = $('video.hover-img', box);
     return (img&&vid)?{box:box,img:img,vid:vid,ready:false,hydrated:false}:null;
