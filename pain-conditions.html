@@ -30,14 +30,11 @@
   <meta name="twitter:description" content="Разгледай състоянията по зони и научи как да се възстановиш устойчиво." />
   <meta name="twitter:image" content="https://dmphysi0.com/pngs/pain-conditions/new/backpain-Thumbnail.webp" />
 
-  <!-- Local CSS -->
+  <!-- Local CSS (без промяна на имената/пътищата) -->
   <link rel="stylesheet" href="css/top-bar.css?v=4" />
-<link rel="stylesheet" href="css/styles-procedures.css?v=4" />
+  <link rel="stylesheet" href="css/styles-procedures.css?v=4" />
 
-  
- 
-
-  <!-- Preconnect към аналитики (пасивно) -->
+  <!-- Preconnect (пасивно) -->
   <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://t.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://c.ba.contentsquare.net" crossorigin>
@@ -112,7 +109,7 @@
   }
   </script>
 
-  <!-- Отложено Contentsquare -->
+  <!-- Отложено Contentsquare (без промяна) -->
   <script>
   (function(){
     function loadCS(){
@@ -181,7 +178,7 @@
 
       <p class="pci-intro">
         Можеш да си помогнеш още сега: <strong>избери частта на тялото, която те боли</strong> и разгледай
-        най-честите състояния за тази зона — какви są симптомите, какъв е механизмът зад болката и
+        най-честите състояния за тази зона — какви са симптомите, какъв е механизмът зад болката и
         кои са работещите методи за възстановяване. <span class="pci-accent">Колкото по-рано разбереш причината,
         толкова по-бързо ще се върнеш към движение без болка.</span>
       </p>
@@ -403,6 +400,7 @@
           <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
         </div>
 
+        <!-- Скрит iframe (фолбек) -->
         <iframe name="hidden_gform" id="hidden_gform" style="display:none;" title="Скрит формуларен приемник" loading="lazy" referrerpolicy="no-referrer"></iframe>
 
         <details class="advice-reveal" id="adviceReveal">
@@ -420,6 +418,7 @@
                     action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
                     method="POST" target="hidden_gform" novalidate>
 
+                <!-- Anti-bot honeypot -->
                 <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0" aria-hidden="true">
                   <label for="hp_website">Оставете това поле празно</label>
                   <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
@@ -454,6 +453,7 @@
                 </div>
               </form>
 
+              <!-- Минимална защита срещу ботове -->
               <script>
               (function(){
                 const form = document.getElementById('adviceForm');
@@ -463,6 +463,7 @@
                   const mark = () => { interacted = true; };
                   ['input','change','keydown','mousemove','touchstart','click','scroll']
                     .forEach(ev => window.addEventListener(ev, mark, { once:true, passive:true }));
+
                   form.addEventListener('submit', function(e){
                     const hp = document.getElementById('hp_website');
                     const tooFast = Date.now() - startedAt < 4000;
@@ -545,14 +546,14 @@
   </section>
 </footer>
 
-<!-- JS -->
+<!-- JS (без промени по имената) -->
 <script src="js/form.js" defer></script>
 <script src="js/topbar.js" defer></script>
 <script src="js/media-autoplay-cards.js" defer></script>
 
 <!-- Lazy: EmbedSocial, Map iframe -->
 <script>
-/* 1) EmbedSocial – зареждане само при видимост */
+/* 1) EmbedSocial – зареждане само при видимост (safe, ако widget липсва) */
 (function(){
   var widget = document.querySelector('.embedsocial-widget');
   if (!widget || !('IntersectionObserver' in window)) return;
