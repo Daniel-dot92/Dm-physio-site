@@ -1,11 +1,15 @@
-﻿/* /js/media-autoplay-cards.js — iOS-safe
+﻿/* /js/media-autoplay-cards.js — iOS-safe + iOS Chrome unlock
  * Mobile (touch/iOS): autoplay в полезрението; pause+reset извън
  * Desktop: play при hover; stop при leave и извън полезрението
  * Lazy src: предпочитаме video.src вместо <source> за iOS
+ * ДОБАВЕНО: надежден gesture-unlock за iOS Chrome (CriOS), без да променяме UX
  */
 (function () {
   const UA = navigator.userAgent || '';
-  const IS_IOS = /iPad|iPhone|iPod/.test(UA) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const IS_IOS =
+    /iPad|iPhone|iPod/.test(UA) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const IS_IOS_CHROME = IS_IOS && /CriOS/.test(UA); // Chrome на iOS
   const IS_TOUCH =
     typeof matchMedia === 'function' &&
     matchMedia('(hover: none) and (pointer: coarse)').matches;
@@ -30,6 +34,10 @@
     if (forAutoplay) v.setAttribute('autoplay',''); // само на мобилно
     // metadata стига (намалява трафик)
     if (!v.preload) v.preload = 'metadata';
+    // дребни стабилизации (нямат визуален ефект)
+    v.controls = false;
+    v.setAttribute('disablepictureinpicture','');
+    v.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');
   }
 
   function ensureSrc(m){
@@ -69,13 +77,20 @@
   // Ще пробваме няколко пъти кратко и ще заглушим грешките.
   function tryPlay(v, attempts = 2){
     const go = () => v.play().catch(()=>{ if (attempts>0) setTimeout(()=>tryPlay(v, attempts-1), 80); });
-    // microtask/raf помага на WebKit
     if ('requestAnimationFrame' in window) requestAnimationFrame(go); else setTimeout(go, 0);
   }
 
   function safePlay(m){
     const v = m.vid;
-    afterReady(v, () => tryPlay(v));
+    afterReady(v, () => {
+      const p = v.play();
+      if (p && typeof p.catch === 'function') {
+        p.catch(() => {
+          // сигнализираме, че поне едно видео иска gesture unlock
+          NEEDS_GESTURE_UNLOCK = true;
+        });
+      }
+    });
   }
   const safePause = v => { try{ v.pause(); }catch{} };
   const reset     = v => { try{ v.currentTime = 0; }catch{} };
@@ -181,4 +196,88 @@
 
   // iOS low-power/lock → спри
   window.addEventListener('pagehide', () => cards.forEach(hideVideo), { passive:true });
+
+  // ---------- iOS Chrome gesture-unlock (без промяна на UX) ----------
+  // Някои версии на Chrome iOS изискват първи потребителски жест преди да позволят play().
+  // Ще се „отключим“ при първи touch/click: опитваме play() само на видимите видеа,
+  // след което възстановяваме нормалното ни show/hide поведение.
+  let NEEDS_GESTURE_UNLOCK = IS_IOS_CHROME; // предполагаме, че може да трябва
+  let unlocked = false;
+
+  function isInViewport(el, ratioNeeded) {
+    const r = el.getBoundingClientRect();
+    const vpH = window.innerHeight || document.documentElement.clientHeight;
+    const vpW = window.innerWidth  || document.documentElement.clientWidth;
+    if (r.width === 0 || r.height === 0) return false;
+    const xOverlap = Math.max(0, Math.min(r.right, vpW) - Math.max(r.left, 0));
+    const yOverlap = Math.max(0, Math.min(r.bottom, vpH) - Math.max(r.top, 0));
+    const visibleArea = xOverlap * yOverlap;
+    const area = r.width * r.height;
+    const ratio = area ? (visibleArea / area) : 0;
+    return ratio >= (ratioNeeded || 0.5);
+  }
+
+  function performUnlock() {
+    if (unlocked) return;
+    unlocked = true;
+
+    // 1) увери атрибутите (без да променяме стила/UX)
+    cards.forEach(m => primeVideo(m.vid, IS_TOUCH));
+
+    // 2) play() само на видимите на екрана (за да няма „каскада“ от звуци/CPU — звукът е muted така или иначе)
+    const targets = cards.filter(m => isInViewport(m.box, 0.5));
+    targets.forEach(m => {
+      ensureSrc(m);
+      try {
+        m.vid.muted = true;
+        m.vid.setAttribute('muted','');
+        // не сменяме опацитетите — само инициираме правото за плей
+        const p = m.vid.play();
+        if (p && p.catch) p.catch(()=>{});
+      } catch (e) {}
+    });
+
+    // 3) след кратка пауза връщаме нормалната логика:
+    //    ако по логика трябва да е скрито → пауза и reset, иначе остава showVideo да го управлява.
+    setTimeout(() => {
+      cards.forEach(m => {
+        // ако контейнерът не е маркиран като playing и/или не е във viewport — спрем/нулираме
+        if (!m.box.dataset.playing || !isInViewport(m.box, 0.5)) {
+          hideVideo(m);
+        }
+      });
+    }, 120);
+  }
+
+  function maybeUnlock() {
+    if (!NEEDS_GESTURE_UNLOCK || unlocked) return;
+    performUnlock();
+    NEEDS_GESTURE_UNLOCK = false;
+    // махаме слушателите след първия жест
+    window.removeEventListener('touchstart', maybeUnlock, unlockOpts);
+    window.removeEventListener('click', maybeUnlock, true);
+  }
+
+  const unlockOpts = { once:true, passive:true };
+  // включваме unlock само на iOS/Chrome или ако видим rejected play()
+  if (IS_IOS_CHROME) {
+    window.addEventListener('touchstart', maybeUnlock, unlockOpts);
+    // iOS Chrome често първо прихваща touch, но добавяме и click като резервен
+    window.addEventListener('click', maybeUnlock, true);
+  }
+
+  // Допълнително опит за възобновяване при ресайз/ориентация (WebKit понякога „забравя“)
+  let deb;
+  function tryResume() {
+    clearTimeout(deb);
+    deb = setTimeout(function(){
+      cards.forEach(function(m){
+        if (m.box.dataset.playing && m.vid.paused && isInViewport(m.box, 0.5)) {
+          const p = m.vid.play(); if (p && p.catch) p.catch(()=>{ NEEDS_GESTURE_UNLOCK = true; });
+        }
+      });
+    }, 120);
+  }
+  window.addEventListener('orientationchange', tryResume);
+  window.addEventListener('resize', tryResume);
 })();
