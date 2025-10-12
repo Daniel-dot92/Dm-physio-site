@@ -34,9 +34,14 @@
   <meta name="twitter:description" content="Оценка на движение, индивидуален план и лечение на болка, изтръпване и мускулен дисбаланс." />
   <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.jpg" />
 
-  <!-- Local / External CSS -->
-  <link rel="stylesheet" href="/css/top-bar.css" />
-  <link rel="stylesheet" href="style.css" />
+ <!-- вместо: <link rel="stylesheet" href="/css/top-bar.css"> -->
+<link rel="preload" href="/css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/top-bar.css"></noscript>
+
+<!-- вместо: <link rel="stylesheet" href="style.css"> -->
+<link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/style.css"></noscript>
+
 
   <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://t.contentsquare.net" crossorigin>
