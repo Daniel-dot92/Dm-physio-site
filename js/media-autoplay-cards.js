@@ -1,21 +1,22 @@
 ﻿// /js/media-autoplay-cards.js
-// Еднотипно поведение за всички карти/контейнери със снимка + видео:
-// - Снимката стои, докато видеото не зареди (loadeddata) -> тогава контейнерът получава .video-ready
-// - На десктоп: hover работи САМО ако .video-ready е наличен
-// - На мобилно: с IntersectionObserver пуска/спира по видимост; hover се игнорира
-// - Инжектира защитни CSS override-и, за да не „бутат“ стари стилове
+// Унифицирано поведение за карти със снимка + видео.
+// - Снимката стои до първи кадър -> контейнерът взима .video-ready
+// - Desktop: hover работи САМО когато има .video-ready
+// - Mobile (iOS/Android): autoplay/stop по видимост (IntersectionObserver)
+// - iOS warm-up, debounce на IO, заглушени AbortError-и от play/pause/load
 
-(function(){
+(function () {
   'use strict';
 
-  // ========== Конфигурируеми селектори ==========
+  /* ===============================
+     Конфигурируеми селектори
+  =============================== */
   const HOVER_CONTAINERS = [
     '.card__media',
     '.pain-button-media',
     '.journey-image',
     '.image-container',
-
-    // по-конкретни (ако имаш вложени решетки/списъци):
+    // по-конкретни
     '.pain-buttons-grid .pain-button-media',
     '.pain-buttons-vertical .pain-button-media',
     '.two-col__right .pain-buttons-vertical .pain-button-media',
@@ -26,21 +27,39 @@
     '#pain-conditions-intro .pain-buttons-grid .image-container'
   ].join(',');
 
-  // Кои елементи вътре да приемем за статично изображение и за видео:
-  const IMG_SELECTORS   = ['.img--static', '.static-img', '.kinesitherapy-img', '.static-hernia-img', 'img'];
-  const VIDEO_SELECTORS = [
-    'video.img--hover', 'video.hover-img', 'video.hover-video',
-    'video.hover-muscle-video', 'video.kinesitherapy-video',
-    'video.hover-hernia-video', 'video'
+  const IMG_SELECTORS = [
+    '.img--static',
+    '.static-img',
+    '.kinesitherapy-img',
+    '.static-hernia-img',
+    'img'
   ];
 
-  // ========== Състояние и media queries ==========
+  const VIDEO_SELECTORS = [
+    'video.img--hover',
+    'video.hover-img',
+    'video.hover-video',
+    'video.hover-muscle-video',
+    'video.kinesitherapy-video',
+    'video.hover-hernia-video',
+    'video'
+  ];
+
+  /* ===============================
+     Състояние и media queries
+  =============================== */
   const MOBILE_QUERY = '(hover: none), (pointer: coarse)';
   const mql = window.matchMedia(MOBILE_QUERY);
   let isTouchLike = mql.matches;
 
-  // ========== Инжектиране на защитни CSS (override-и) ==========
-  (function injectStyle(){
+  const isIOS = () =>
+    /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  /* ===============================
+     Инжектиране на защитни CSS override-и
+  =============================== */
+  (function injectStyle() {
     const STYLE_ID = 'media-autoplay-cards-overrides';
     if (document.getElementById(STYLE_ID)) return;
 
@@ -55,7 +74,7 @@
 .pain-button-media .hover-img,
 .card__media .hover { opacity: 0; visibility: hidden; transition: opacity .25s ease; }
 
-/* Докато НЕ е .video-ready — насила дръж видеото невидимо (покрива стари hover правила) */
+/* Докато НЕ е .video-ready — насила дръж видеото невидимо */
 .image-container:not(.video-ready) .hover-img,
 .pain-button-media:not(.video-ready) .hover-img,
 .card__media:not(.video-ready) .hover {
@@ -63,7 +82,7 @@
   visibility: hidden !important;
 }
 
-/* Когато реално пускаме видеото (is-playing) — показваме видеото, скриваме снимката */
+/* Когато пускаме видеото (is-playing) — показваме видео, скриваме снимката */
 .image-container.is-playing .static-img,
 .pain-button-media.is-playing .static-img,
 .card__media.is-playing .static { opacity: 0 !important; }
@@ -71,18 +90,17 @@
 .pain-button-media.is-playing .hover-img,
 .card__media.is-playing .hover { opacity: 1 !important; visibility: visible !important; }
 
-/* На десктоп hover може да сменя САМО ако контейнерът е video-ready */
+/* Desktop hover само при video-ready */
 @media (hover:hover) and (pointer:fine){
   .image-container.video-ready:hover .static-img,
   .pain-button-media.video-ready:hover .static-img,
   .card__media.video-ready:hover .static { opacity: 0 !important; }
-
   .image-container.video-ready:hover .hover-img,
   .pain-button-media.video-ready:hover .hover-img,
   .card__media.video-ready:hover .hover { opacity: 1 !important; visibility: visible !important; }
 }
 
-/* На мобилно игнорирай hover напълно – JS управлява показването */
+/* Mobile — игнорирай hover; JS управлява показването */
 @media (hover:none){
   .image-container.video-ready:hover .static-img,
   .pain-button-media.video-ready:hover .static-img,
@@ -99,122 +117,165 @@
     document.head.appendChild(style);
   })();
 
-  // ========== Помощни функции ==========
-  function qsOneOf(selectors, root){
-    for (let i=0; i<selectors.length; i++){
+  /* ===============================
+     Помощни
+  =============================== */
+  function qsOneOf(selectors, root) {
+    for (let i = 0; i < selectors.length; i++) {
       const el = (root || document).querySelector(selectors[i]);
       if (el) return el;
     }
     return null;
   }
 
-  function getMediaPair(container){
-    const staticImg = qsOneOf(IMG_SELECTORS,   container);
-    const video     = qsOneOf(VIDEO_SELECTORS, container);
+  function getMediaPair(container) {
+    const staticImg = qsOneOf(IMG_SELECTORS, container);
+    const video = qsOneOf(VIDEO_SELECTORS, container);
     return { staticImg, video };
   }
 
   // Подготовка за безопасен autoplay на мобилно/iOS
-  function prepVideo(v, posterFallback){
+  function prepVideo(v, posterFallback) {
     if (!v) return;
     v.removeAttribute('autoplay');
-    v.muted = true; v.defaultMuted = true; v.setAttribute('muted','');
-    v.playsInline = true; v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
+    v.muted = true;
+    v.defaultMuted = true;
+    v.setAttribute('muted', '');
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
     if (!v.getAttribute('preload')) v.preload = 'metadata';
     if (!v.getAttribute('poster') && posterFallback) v.setAttribute('poster', posterFallback);
-    try { v.load(); } catch(e){}
+
+    // iOS „затопляне“: кратко play() → pause() за да позволи по-късно autoplay
+    if (isIOS()) {
+      try {
+        const p = v.play();
+        if (p && typeof p.then === 'function') {
+          p.then(() => {
+            try { v.pause(); v.currentTime = 0; } catch (e) {}
+          }).catch(() => {}); // заглушаваме AbortError
+        } else {
+          try { v.pause(); v.currentTime = 0; } catch (e) {}
+        }
+      } catch (e) {}
+    }
+
+    try { v.load(); } catch (e) {}
   }
 
-  function safePlay(v){
+  // Безопасно пускане: без дублиране, без излишни load() по време на play()
+  function safePlay(v) {
     if (!v) return;
-    const doPlay = () => v.play().catch(() => {});
-    if (v.readyState >= 2) doPlay();
-    else {
-      const onData = () => { v.removeEventListener('loadeddata', onData); doPlay(); };
+    if (v.__wantPlay) return; // предотвратява бързи дубли
+    v.__wantPlay = true;
+
+    const doPlay = () =>
+      v.play().catch(() => {}).finally(() => {
+        v.__wantPlay = false;
+      });
+
+    if (v.readyState >= 2) {
+      doPlay();
+    } else {
+      const onData = () => {
+        v.removeEventListener('loadeddata', onData);
+        doPlay();
+      };
       v.addEventListener('loadeddata', onData, { once: true });
-      try { v.load(); } catch(e){}
+
+      // Ако още не зарежда, извикай load()
+      if (v.networkState !== HTMLMediaElement.NETWORK_LOADING) {
+        try { v.load(); } catch (e) {}
+      }
     }
   }
 
-  function markReady(box){ box.classList.add('video-ready'); }
-  function showVideo(box){ box.classList.add('is-playing'); }
-  function hideVideo(box){ box.classList.remove('is-playing'); }
+  function markReady(box) { box.classList.add('video-ready'); }
+  function showVideo(box) { box.classList.add('is-playing'); }
+  function hideVideo(box) { box.classList.remove('is-playing'); }
 
-  // ========== IntersectionObserver за мобилно ==========
+  /* ===============================
+     IntersectionObserver (mobile)
+     - с лек debounce, за да няма play→pause „трептения“
+  =============================== */
   let io = null;
-  function buildIO(){
+  function buildIO() {
     if (!('IntersectionObserver' in window)) return null;
+
     return new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const v = entry.target;
         const box = v.__box;
         if (!box) return;
 
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.35){
-          if (box.classList.contains('video-ready')){
+        clearTimeout(v.__ioT);
+        v.__ioT = setTimeout(() => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+            if (!box.classList.contains('video-ready')) markReady(box);
             showVideo(box);
             safePlay(v);
+          } else {
+            hideVideo(box);
+            try {
+              v.pause();
+              if (!v.classList.contains('no-reset-on-exit')) v.currentTime = 0;
+            } catch (e) {}
           }
-        } else {
-          hideVideo(box);
-          try {
-            v.pause();
-            if (!v.classList.contains('no-reset-on-exit')) v.currentTime = 0;
-          } catch(e){}
-        }
+        }, 120); // 120ms debounce
       });
     }, {
       root: null,
-      rootMargin: '200px 0px',
+      rootMargin: '300px 0px',
       threshold: [0, 0.2, 0.35, 0.5, 0.75, 1]
     });
   }
 
-  // ========== Връзване на един контейнер ==========
-  function wireContainer(container){
+  /* ===============================
+     Връзване на един контейнер
+  =============================== */
+  function wireContainer(container) {
     const { staticImg, video } = getMediaPair(container);
     if (!video || !staticImg) return;
 
-    // Подготовка за iOS/Android
     prepVideo(video, (staticImg.currentSrc || staticImg.src || ''));
 
     // Когато видеото е готово за първи кадър -> позволяваме hover/автоплей
     if (video.readyState >= 2) markReady(container);
     else {
       const onReady = () => markReady(container);
-      video.addEventListener('loadeddata', onReady, { once:true });
-      video.addEventListener('canplay',     onReady, { once:true });
+      video.addEventListener('loadeddata', onReady, { once: true });
+      video.addEventListener('canplay', onReady, { once: true });
     }
 
-    // ДЕСKTOP HOVER — САМО СЛЕД video-ready
+    // Desktop hover — само след .video-ready
     container.addEventListener('mouseenter', () => {
       if (isTouchLike) return;
       if (!container.classList.contains('video-ready')) return;
       showVideo(container);
       safePlay(video);
-    }, { passive:true });
+    }, { passive: true });
 
     container.addEventListener('mouseleave', () => {
       if (isTouchLike) return;
       hideVideo(container);
-      try {
-        video.pause();
-        video.currentTime = 0;
-      } catch(e){}
-    }, { passive:true });
+      try { video.pause(); video.currentTime = 0; } catch (e) {}
+    }, { passive: true });
 
-    // МОБИЛНО — IO по видимост
-    if (isTouchLike){
+    // Mobile — IO по видимост
+    if (isTouchLike) {
       if (!io) io = buildIO();
-      if (io){
+      if (io) {
         video.__box = container;
         io.observe(video);
       }
     }
   }
 
-  // ========== Връзване на всички налични контейнери ==========
-  function wireAll(){
+  /* ===============================
+     Връзване на всички налични контейнери
+  =============================== */
+  function wireAll() {
     document.querySelectorAll(HOVER_CONTAINERS).forEach((c) => {
       if (c.__wiredMediaAutoplay) return;
       c.__wiredMediaAutoplay = true;
@@ -222,34 +283,36 @@
     });
   }
 
-  // ========== Ре-конфигуриране при смяна на устройство/ориентация ==========
-  function reconfigure(){
+  /* ===============================
+     Ре-конфигуриране при смяна на устройство/ориентация
+  =============================== */
+  function reconfigure() {
     isTouchLike = mql.matches;
 
-    // Разкачи предишния IO и създай нов при нужда
-    if (io){ try { io.disconnect(); } catch(e){} }
+    if (io) { try { io.disconnect(); } catch (e) {} }
     io = null;
     if (isTouchLike) io = buildIO();
 
-    // Пре-наблюдавай видеата
     document.querySelectorAll(HOVER_CONTAINERS).forEach((box) => {
       const v = box.querySelector('video');
       if (!v) return;
-      if (io){
+      if (io) {
         v.__box = box;
         io.observe(v);
       }
     });
   }
 
-  // ========== Стартиране ==========
+  /* ===============================
+     Стартиране
+  =============================== */
   document.addEventListener('DOMContentLoaded', () => {
     wireAll();
 
-    // Следи за динамично добавени елементи (SPA/добавяне на карти)
+    // Следи за динамично добавени елементи
     const mo = new MutationObserver((mutations) => {
-      for (const m of mutations){
-        if (m.addedNodes && m.addedNodes.length){ wireAll(); break; }
+      for (const m of mutations) {
+        if (m.addedNodes && m.addedNodes.length) { wireAll(); break; }
       }
     });
     mo.observe(document.body, { childList: true, subtree: true });
@@ -258,17 +321,17 @@
     if (mql.addEventListener) mql.addEventListener('change', reconfigure);
     else if (mql.addListener) mql.addListener(reconfigure);
 
-    // Пре-конфигурирай и при resize (предпазно)
+    // Предпазно и при resize
     window.addEventListener('resize', reconfigure, { passive: true });
 
     // Когато табът стане скрит — спри всички видеа
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden){
+      if (document.hidden) {
         document.querySelectorAll(HOVER_CONTAINERS).forEach((box) => {
           const v = box.querySelector('video');
           if (!v) return;
           hideVideo(box);
-          try { v.pause(); } catch(e){}
+          try { v.pause(); } catch (e) {}
         });
       }
     });
