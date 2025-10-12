@@ -12,14 +12,10 @@
   <meta name="language" content="Bulgarian" />
   <meta name="author" content="DM Physio" />
 
-  <!-- ✅ Favicon / App Icons (лого) -->
-  <!-- Ако имаш PNG икони, добави ги; запазвам и webp, понеже вече го имаш -->
+  <!-- ✅ Favicon / App Icons -->
   <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
   <link rel="icon" href="/favicon.ico" sizes="any">
-  
-
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
-
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Кинезитерапия и Масаж в София – DM Physio" />
@@ -46,9 +42,9 @@
   <link rel="preconnect" href="https://t.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://c.ba.contentsquare.net" crossorigin>
 
-  <!-- In-page critical tweaks (само мобилни/видимост) -->
+  <!-- In-page critical tweaks -->
   <style>
-    /* Без промяна на десктоп визията – всичко специфично за мобилно е вътре в @media */
+    /* Типография + безопасни преноси */
     .hero-pro__title, .pci-title, .reviews-title, h1, h2, h3, p {
       white-space: normal !important;
       overflow-wrap: anywhere;
@@ -68,58 +64,158 @@
       .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
     }
 
-    /* -------- ВАЖНО за видеата (фиксове срещу сив екран и за iOS) -------- */
+    /* ====== ВИДЕО СМЯНА СЪС СНИМКА СЛЕД ГОТОВНОСТ ====== */
     .image-container,
-    .pain-button-media{ position:relative; border-radius:12px; overflow:hidden; background:#f1f5f9; }
-
+    .pain-button-media{
+      position:relative; border-radius:12px; overflow:hidden; background:#f1f5f9;
+    }
     .image-container .static-img,
     .pain-button-media .static-img{
       position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity .25s ease; opacity:1;
-      will-change: opacity;
-      -webkit-transform: translateZ(0); transform: translateZ(0);
-      backface-visibility: hidden;
+      will-change: opacity; -webkit-transform: translateZ(0); transform: translateZ(0); backface-visibility: hidden;
     }
-
     .image-container .hover-img,
     .pain-button-media .hover-img{
       position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-      opacity:0; transition:opacity .25s ease; pointer-events:none; border:0;
-      background: transparent !important; /* без сив фон */
-      -webkit-transform: translateZ(0); transform: translateZ(0);
-      backface-visibility: hidden;
+      opacity:0; transition:opacity .25s ease; pointer-events:none; border:0; background: transparent !important;
+      -webkit-transform: translateZ(0); transform: translateZ(0); backface-visibility: hidden;
     }
 
-    /* Показваме видеото ЕДВА когато е готово (JS добавя .is-ready & .is-playing) */
-    .image-container.is-ready .hover-img,
-    .pain-button-media.is-ready .hover-img{ opacity:0; } /* готово, но още не пуснато */
+    /* ДОКАТО НЕ Е ГОТОВО → видео е скрито независимо от hover */
+    .image-container:not(.video-ready) .hover-img,
+    .pain-button-media:not(.video-ready) .hover-img{
+      opacity:0 !important; visibility:hidden !important;
+    }
+    .image-container:not(.video-ready) .static-img,
+    .pain-button-media:not(.video-ready) .static-img{
+      opacity:1 !important;
+    }
+
+    /* Само когато е video-ready позволяваме “смяна” (hover/focus) */
+    @media (hover:hover) and (pointer:fine){
+      .image-container.video-ready:hover .hover-img,
+      .pain-button-media.video-ready:hover .hover-img{ opacity:1; }
+      .image-container.video-ready:hover .static-img,
+      .pain-button-media.video-ready:hover .static-img{ opacity:0; }
+    }
+
+    /* Когато JS стартира възпроизвеждане → също показваме видеото */
     .image-container.is-playing .hover-img,
     .pain-button-media.is-playing .hover-img{ opacity:1; }
     .image-container.is-playing .static-img,
     .pain-button-media.is-playing .static-img{ opacity:0; }
 
-    /* Десктоп: класически hover ефект (вече без „сиво“ докато буферира) */
-    @media (hover:hover) and (pointer:fine){
-      .pain-button:hover .hover-img.is-autohide-off{ opacity:1; }
-      .pain-button:hover .static-img.is-autohide-off{ opacity:0; }
-    }
-
-    /* На мобилно видеото съществува, но JS управлява кога да стане видимо */
+    /* Мобилно – винаги подготвено, но видимо едва при ready/is-playing */
     @media (hover:none){
-      .image-container .hover-img,
-      .pain-button-media .hover-img{ display:block !important; }
+      .image-container .hover-img, .pain-button-media .hover-img{ display:block !important; }
     }
-    /* СКРИЙ видеото до първи кадър (както на services) */
-  .image-container:not(.video-ready) .hover-img,
-  .pain-button-media:not(.video-ready) .hover-img{
-    opacity: 0 !important;
-    visibility: hidden !important;
-  }
 
-  /* безопасно: без фонов цвят на <video>, за да не “сивее” */
-  .image-container .hover-img,
-  .pain-button-media .hover-img{
-    background: transparent !important;
-  }
+    /* ===== Основни стилове на страницата (съкратено до логичното ядро) ===== */
+    :root{
+      --text:#0f172a; --muted:#64748b; --line:#e2e8f0;
+      --blue:#0ea5e9; --green:#16a34a;
+    }
+    body{
+      margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+      color:var(--text); background:#f8fafc; line-height:1.6;
+    }
+    .container{max-width:1200px;margin:0 auto;padding:0 32px}
+
+    /* HERO */
+    .hero-pro{ padding:72px 0 56px;
+      background: radial-gradient(900px 400px at 15% 0%, rgba(34,197,94,.12), transparent 60%),
+                 radial-gradient(700px 320px at 95% 10%, rgba(20,184,166,.10), transparent 60%);
+    }
+    .hero-pro__wrap{ display:grid; grid-template-columns:1.05fr .95fr; gap:28px; align-items:center; }
+    .hero-pro__eyebrow{display:inline-block;font-weight:700;letter-spacing:.06em;color:var(--blue);margin-bottom:6px}
+    .hero-pro__title{margin:0 0 8px;font-size:clamp(34px,5.4vw,56px);line-height:1.06;font-weight:800;letter-spacing:-.02em}
+    .brand-blue{color:var(--blue)} .brand-green{color:var(--green)}
+    .hero-pro__subtitle{color:#475569;font-size:clamp(16px,2.2vw,20px);line-height:1.7;max-width:680px;margin:8px 0 0}
+    .hero-pro__cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:12px;padding:12px 18px;text-decoration:none;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;box-shadow:0 8px 20px rgba(34,197,94,.35)}
+    .btn-outline{background:#fff;border:1px solid var(--line);color:#0f172a}
+    .btn-outline:hover{background:#f1f5f9}
+    .hero-pro__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+    .stat{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.05);padding:18px;text-align:center}
+    .stat__value{font-size:clamp(24px,3.6vw,32px);font-weight:800}
+    .stat__label{color:var(--muted);font-weight:600;font-size:14px}
+    .hero-pro__media{position:relative;margin:0}
+    .hero-pro__media img{width:100%;height:auto;display:block;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.10)}
+
+    /* Две колони */
+    .two-col__wrap{display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:start}
+    @media(max-width:900px){ .hero-pro__wrap{grid-template-columns:1fr} .two-col__wrap{grid-template-columns:1fr} }
+
+    /* WHY */
+    .why{ padding:60px 0; background:#f1f5f9 }
+    .why__title{ margin:0 0 16px; font-size:clamp(26px,4vw,34px); font-weight:800; color:#1e3a8a }
+    .why-card{ background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:10px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06); margin:12px 0 }
+    .why-card__title{ margin:0 0 14px; font-size:18px; font-weight:700; color:#0f172a }
+    .accent{color:#22c55e; font-weight:700} .accent-red{color:#ef4444; font-weight:700}
+
+    /* Секция „Къде е болката?“ */
+    .hero-subpage{ padding:64px 0 40px;
+      background: radial-gradient(700px 300px at 12% 0%, rgba(34,197,94,.07), transparent 60%),
+                 radial-gradient(520px 240px at 88% 18%, rgba(2,132,199,.06), transparent 60%);
+    }
+    .pci-title{ margin:0 0 10px; font-size:clamp(28px,4.2vw,40px); font-weight:800; text-align:center }
+    .pci-intro{ margin:8px auto 14px; max-width:76ch; font-size:clamp(16px,2.2vw,18px); color:#334155; line-height:1.75; text-align:center }
+    .pci-intro .pci-accent{ color:var(--green); font-weight:700; }
+    .pain-buttons-grid{ display:grid; gap:14px; grid-template-columns:repeat(4, minmax(0,1fr)) }
+    @media(max-width:1200px){ .pain-buttons-grid{grid-template-columns:repeat(3,1fr)} }
+    @media(max-width:900px){ .pain-buttons-grid{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:480px){ .pain-buttons-grid{grid-template-columns:1fr} }
+    .pain-button{ display:flex; flex-direction:column; gap:8px; text-decoration:none; background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:15px; box-shadow:0 2px 8px rgba(0,0,0,.05); transition:transform .18s, box-shadow .18s, border-color .18s }
+    .pain-button:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.10); border-color:rgba(34,197,94,.35) }
+    .image-container{ aspect-ratio:4/3 }
+    .pain-button-text{ font-weight:700; color:var(--text); padding:0 2px 2px; line-height:1.3; text-align:center; font-size:22px }
+    .pain-button-hook{ font-size:12px; color:#475569; line-height:1.4; margin:4px 8px 10px; text-align:center; }
+
+    /* Aside вертикални карти */
+    .conditions__title{ font-size:24px; font-weight:700; margin:0 0 14px; color:var(--blue); text-align:center }
+    .pain-buttons-vertical{ display:flex; flex-direction:column; gap:12px }
+    .pain-button-media.image-container{ aspect-ratio:1/1 }
+
+    /* Recovery */
+    .recovery-box{ background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.06);padding:28px;margin:32px 0;max-width:800px }
+    .recovery__title{ font-size:36px; font-weight:800; text-align:center; margin:0; color:var(--green) }
+    .recovery__steps{ display:flex; flex-direction:column; gap:16px }
+    .recovery__step{ display:flex; gap:12px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:12px 14px }
+    .recovery__step h3{ margin:0 0 4px; color:var(--blue); font-size:16px }
+
+    /* Reviews */
+    .reviews-section{ padding:48px 20px; background:#f9fafb }
+    .reviews-box{ max-width:1300px; margin:0 auto; background:#fff; border:1px solid #e2e8f0; border-radius:4px; box-shadow:0 4px 16px rgba(0,0,0,.06); padding:0; text-align:center }
+    .reviews-title{ font-size:46px; font-weight:800; margin:0 0 4px; color:var(--blue) }
+
+    /* Footer */
+    footer{ background:#f3f5f7; padding:40px 0 28px; color:#0f172a; font-size:18px }
+    footer .contact-section{ max-width:1200px; margin:0 auto; padding:0 16px }
+    footer .contact-container{ display:grid; grid-template-columns:360px 1fr 1.2fr; gap:40px; align-items:start }
+    footer .contact-left .map iframe{ width:360px; height:260px; border:0; border-radius:14px; box-shadow:0 4px 14px rgba(0,0,0,.08); background:#e9eef3; display:block }
+    footer .contact-center{ text-align:center }
+    footer .contact-center h2{ margin:0 0 14px; font-size:2rem; font-weight:800 }
+    footer .social-links{ display:inline-flex; gap:14px }
+    footer .social-links img{ width:64px; height:64px; object-fit:contain; display:block; border-radius:8px }
+    footer .contact-item{ display:flex; gap:12px; align-items:center; margin-bottom:16px }
+    footer .icon{ width:48px; height:48px; object-fit:contain; flex:0 0 48px }
+    footer .contact-item.phone span{ font-size:2.0rem; font-weight:800; letter-spacing:.5px }
+    footer .map-link{ color:#0b66ff; text-decoration:underline }
+    footer .footer-links{ margin-top:22px; text-align:center; font-size:1.05rem }
+    @media (max-width:1024px){ footer .contact-container{grid-template-columns:320px 1fr} footer .contact-left .map iframe{width:320px;height:230px} }
+    @media (max-width:768px){ footer{font-size:16px} footer .contact-container{grid-template-columns:1fr;gap:22px} footer .contact-left .map iframe{width:100%;height:220px} }
+
+    /* Mobile tweaks */
+    @media (max-width:768px){
+      .container{ padding-left:16px; padding-right:16px; }
+      .hero-pro__wrap{ grid-template-columns:1fr; gap:16px; }
+      .hero-pro__title{ font-size:clamp(26px,7vw,34px) }
+      .hero-pro__cta{ display:grid; gap:10px; }
+      .btn,.btn-primary,.btn-outline{ width:100%; min-height:48px; border-radius:14px; font-weight:800 }
+      .hero-pro__stats{ grid-template-columns:1fr 1fr; gap:10px }
+      .two-col__wrap{ grid-template-columns:1fr; gap:20px }
+    }
   </style>
 
   <!-- JSON-LD: LocalBusiness (Physiotherapy) -->
@@ -176,7 +272,7 @@
     imagesizes="(max-width: 900px) 100vw, 50vw"
     fetchpriority="high">
 
-  <!-- Леко отложено Contentsquare (след стабилизиране на страницата) -->
+  <!-- Леко отложено Contentsquare -->
   <script>
   (function(){
     function loadCS(){
@@ -430,9 +526,9 @@
                 class="static-img"
                 loading="lazy" decoding="async"
                 width="352" height="352">
-              <video class="hover-img" loop playsinline muted preload="none"
+              <video class="hover-img" loop playsinline muted preload="metadata"
                      poster="/pngs/sustoqniq/headeach2-thumbnail.webp">
-                <source data-src="/pngs/sustoqniq/headeach2.mp4" type="video/mp4">
+                <source src="/pngs/sustoqniq/headeach2.mp4" type="video/mp4">
               </video>
             </div>
             <span class="pain-button-text">Болка в слепоочието</span>
@@ -450,10 +546,10 @@
                 class="static-img"
                 loading="lazy" decoding="async"
                 width="352" height="352">
-              <video class="hover-img" loop playsinline muted preload="none"
+              <video class="hover-img" loop playsinline muted preload="metadata"
                      poster="/pngs/sustoqniq/muscles/disk-herniation-how-it-happen-thumbnail.webp"
                      width="352" height="352">
-                <source data-src="/pngs/sustoqniq/muscles/disk-herniation-1.mp4" type="video/mp4">
+                <source src="/pngs/sustoqniq/muscles/disk-herniation-1.mp4" type="video/mp4">
               </video>
             </div>
             <span class="pain-button-text">Дискова херния (врат)</span>
@@ -471,9 +567,9 @@
                 class="static-img"
                 loading="lazy" decoding="async"
                 width="352" height="352">
-              <video class="hover-img" loop playsinline muted preload="none"
+              <video class="hover-img" loop playsinline muted preload="metadata"
                      poster="/pngs/sustoqniq/muscles/piriformis-thumbnail.webp">
-                <source data-src="/pngs/sustoqniq/muscles/piriformis.mp4" type="video/mp4">
+                <source src="/pngs/sustoqniq/muscles/piriformis.mp4" type="video/mp4">
               </video>
             </div>
             <span class="pain-button-text">Пириформис синдром</span>
@@ -491,9 +587,9 @@
                 class="static-img"
                 loading="lazy" decoding="async"
                 width="352" height="352">
-              <video class="hover-img" loop playsinline muted preload="none"
+              <video class="hover-img" loop playsinline muted preload="metadata"
                      poster="/pngs/pain-conditions/new/backpain-thumbnail.webp">
-                <source data-src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
+                <source src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
               </video>
             </div>
             <span class="pain-button-text">Болка в кръста</span>
@@ -511,7 +607,7 @@
     <div class="reviews-box">
       <h2 class="reviews-title">Какво казват за нас нашите пациенти</h2>
 
-      <!-- EmbedSocial widget placeholder (ще се зареди мързеливо) -->
+      <!-- EmbedSocial widget placeholder (lazy) -->
       <div class="embedsocial-widget" data-ref="29b5529710bc3292b12cf8c4ac6b7a90" id="esBox">
         <a href="https://embedsocial.com/google-reviews-widget/"
            title="Add Google reviews on a website"
@@ -541,8 +637,8 @@
         <a href="/pain-head.html" class="pain-button" aria-label="Глава – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/headeach1-Thumbnail.webp" alt="Глава" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/headeach1-Thumbnail.webp">
-              <source data-src="/pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
+            <video class="hover-img" loop playsinline muted preload="metadata" poster="/pngs/pain-conditions/new/headeach1-Thumbnail.webp">
+              <source src="/pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Глава</span>
@@ -552,8 +648,8 @@
         <a href="/pain-neck.html" class="pain-button" aria-label="Врат – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp" alt="Врат" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp">
-              <source data-src="/pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
+            <video class="hover-img" loop playsinline muted preload="metadata" poster="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp">
+              <source src="/pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Врат</span>
@@ -564,9 +660,9 @@
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp"
                  alt="Рамо" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none"
+            <video class="hover-img" loop playsinline muted preload="metadata"
                    poster="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp">
-              <source data-src="/pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
+              <source src="/pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Рамо</span>
@@ -576,8 +672,8 @@
         <a href="/pain-arm.html" class="pain-button" aria-label="Ръка – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/armpain-Thumbnail.webp" alt="Ръка" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/armpain-Thumbnail.webp">
-              <source data-src="/pngs/pain-conditions/new/armpain.mp4" type="video/mp4">
+            <video class="hover-img" loop playsinline muted preload="metadata" poster="/pngs/pain-conditions/new/armpain-Thumbnail.webp">
+              <source src="/pngs/pain-conditions/new/armpain.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Ръка</span>
@@ -587,8 +683,8 @@
         <a href="/pain-chest-abdomen.html" class="pain-button" aria-label="Гърди и Корем – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/chestpain-Thumbnail.webp" alt="Гърди и Корем" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/chestpain-Thumbnail.webp">
-              <source data-src="/pngs/pain-conditions/new/chestpain.mp4" type="video/mp4">
+            <video class="hover-img" loop playsinline muted preload="metadata" poster="/pngs/pain-conditions/new/chestpain-Thumbnail.webp">
+              <source src="/pngs/pain-conditions/new/chestpain.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Гърди и Корем</span>
@@ -598,8 +694,8 @@
         <a href="/pain-back.html" class="pain-button" aria-label="Гръб – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp" alt="Гръб" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp">
-              <source data-src="/pngs/pain-conditions/new/midbackpain1.mp4" type="video/mp4">
+            <video class="hover-img" loop playsinline muted preload="metadata" poster="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp">
+              <source src="/pngs/pain-conditions/new/midbackpain1.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Гръб</span>
@@ -609,8 +705,8 @@
         <a href="/pain-lower-back.html" class="pain-button" aria-label="Кръст – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/backpain-Thumbnail.webp" alt="Кръст" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/backpain-Thumbnail.webp">
-              <source data-src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
+            <video class="hover-img" loop playsinline muted preload="metadata" poster="/pngs/pain-conditions/new/backpain-Thumbnail.webp">
+              <source src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Кръст</span>
@@ -620,8 +716,8 @@
         <a href="/pain-buttocks-pelvis.html" class="pain-button" aria-label="Дупе и Таз – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/hippain1-Thumbnail.webp" alt="Дупе / Таз" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/hippain1-Thumbnail.webp">
-              <source data-src="/pngs/pain-conditions/new/hippain1.mp4" type="video/mp4">
+            <video class="hover-img" loop playsinline muted preload="metadata" poster="/pngs/pain-conditions/new/hippain1-Thumbnail.webp">
+              <source src="/pngs/pain-conditions/new/hippain1.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Дупе / Таз</span>
@@ -631,8 +727,8 @@
         <a href="/pain-thigh-knee.html" class="pain-button" aria-label="Бедро и Коляно – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp" alt="Бедро / Коляно" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp">
-              <source data-src="/pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
+            <video class="hover-img" loop playsinline muted preload="metadata" poster="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp">
+              <source src="/pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Бедро / Коляно</span>
@@ -642,32 +738,31 @@
         <a href="/pain-lower-leg-ankle.html" class="pain-button" aria-label="Подбедрица и Стъпало – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp" alt="Подбедрица / Стъпало" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp">
-              <source data-src="/pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
+            <video class="hover-img" loop playsinline muted preload="metadata" poster="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp">
+              <source src="/pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Подбедрица / Стъпало</span>
         </a>
 
-        <!-- Невралгии (НЕ пипаме) -->
+        <!-- Невралгии -->
         <a href="/pain-neuralgia-general.html" class="pain-button" aria-label="Невралгии – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/tingling1-Thumbnail.webp" alt="Невралгии" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <!-- 👉 важно: постерът е .webp (не .jpg), за да съвпада и да няма „сива“ междинка -->
-            <video class="hover-img" loop playsinline muted preload="none"
+            <video class="hover-img" loop playsinline muted preload="metadata"
                    poster="/pngs/pain-conditions/new/tingling1-Thumbnail.webp">
-              <source data-src="/pngs/pain-conditions/new/tingling1.mp4" type="video/mp4">
+              <source src="/pngs/pain-conditions/new/tingling1.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Невралгии</span>
         </a>
 
-        <!-- Физиология / Мускули (НЕ пипаме) -->
+        <!-- Физиология / Мускули -->
         <a href="/physiology.html" class="pain-button physiology-button" aria-label="Физиология – образователна секция">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.webp" alt="Мускули – образователна секция" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.webp">
-              <source data-src="/pngs/sustoqniq/muscles/Muscles main.mp4" type="video/mp4">
+            <video class="hover-img" loop playsinline muted preload="metadata" poster="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.webp">
+              <source src="/pngs/sustoqniq/muscles/Muscles main.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Мускули</span>
@@ -845,12 +940,11 @@
   </section>
 </footer>
 
-<!-- JS (оставяме твоите файлове) -->
+<!-- JS -->
 <script src="/js/form.js" defer></script>
 <script src="/js/topbar.js" defer></script>
-<script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Lazy: EmbedSocial, Hotjar, Map iframe + Видео логика (desktop hover / mobile center-only, без „сив екран“) -->
+<!-- Lazy: EmbedSocial, Map iframe -->
 <script>
 /* =========================
    1) EmbedSocial – зареждане само при видимост
@@ -877,7 +971,7 @@
 })();
 
 /* =========================
-   3) Google Maps iframe – мързеливо присвояване на src (ако има data-src)
+   2) Google Maps iframe – мързеливо присвояване на src (ако има data-src)
    ========================= */
 (function(){
   var iframe = document.getElementById('mapFrame') || document.querySelector('iframe[data-src]');
@@ -893,235 +987,80 @@
   }, { rootMargin: '300px' });
   io.observe(iframe);
 })();
+</script>
 
-/* =========================
-   4) Видео логика – десктоп: play при hover; мобилно: play най-близкото до центъра
-      Без сив екран: показваме видеото едва при 'canplay' / 'playing'
-   ========================= */
+<!-- ===== ВИДЕО ЛОГИКА: снимка -> видео само след готов първи кадър ===== -->
+<script>
 (function(){
-  if (window.__DMVideoLogicInit) return; // guard
-  window.__DMVideoLogicInit = true;
+  if (window.__DMVideoSwapInit) return;
+  window.__DMVideoSwapInit = true;
 
-  var cards  = Array.prototype.slice.call(document.querySelectorAll('.image-container, .pain-button-media'));
-  var videos = Array.prototype.slice.call(document.querySelectorAll('video.hover-img'));
-  if (!videos.length) return;
+  var containers = Array.prototype.slice.call(document.querySelectorAll('.image-container, .pain-button-media'));
+  if (!containers.length) return;
 
-  // Общи безопасни настройки (iOS-friendly)
-  videos.forEach(function(v){
-    try{
-      v.setAttribute('playsinline','');
-      v.playsInline = true;
-      v.muted = true;
-      v.setAttribute('muted','');
-      v.preload = 'none';               // по подразбиране – без прелоуд
-      v.removeAttribute('controls');
-      v.style.background = 'transparent';
-    }catch(e){}
-  });
-
-  function whenReadyToShow(v, cb){
-    // Показваме видеото едва когато е готов кадърът
-    if (!v) return;
-    var done = false;
-    function clean(){
-      if (done) return;
-      done = true;
-      v.removeEventListener('canplay', onReady);
-      v.removeEventListener('loadeddata', onReady);
-      v.removeEventListener('playing', onPlaying);
-      cb && cb();
-    }
-    function onReady(){ clean(); }
-    function onPlaying(){ clean(); }
-
-    if (v.readyState >= 2) { // HAVE_CURRENT_DATA
-      cb && cb();
-      return;
-    }
-    v.addEventListener('canplay', onReady, { once:true });
-    v.addEventListener('loadeddata', onReady, { once:true });
-    v.addEventListener('playing', onPlaying, { once:true });
+  function markReady(box){
+    box.classList.add('video-ready'); // разрешава hover swap по CSS
   }
-
-  function loadIfNeeded(v){
-    if (!v || v.dataset.ready === '1') return;
-    var s = v.querySelector('source[data-src]');
-    if (s && !s.src){
-      s.src = s.getAttribute('data-src');
-      try{ v.load(); }catch(e){}
-    }
-    v.dataset.ready = '1';
-  }
-
-  function showVideo(v){
-    var box = v && v.closest('.image-container, .pain-button-media');
-    if (!box) return;
-    box.classList.add('is-ready'); // видеото има източник и може да стане видимо при play
+  function showVideo(box){
     box.classList.add('is-playing');
   }
-
-  function hideVideo(v){
-    var box = v && v.closest('.image-container, .pain-button-media');
-    if (!box) return;
+  function hideVideo(box){
     box.classList.remove('is-playing');
-    // static-img се връща автоматично (opacity:1), hover-img остава готово
   }
 
-  function safePlay(v){ if (v && v.play) v.play().catch(function(){}); }
-  function safePause(v){ if (v && v.pause){ try{ v.pause(); }catch(e){} } }
+  containers.forEach(function(box){
+    var v = box.querySelector('video.hover-img');
+    var img = box.querySelector('img.static-img');
+    if (!v || !img) return;
 
-  var hasHover  = window.matchMedia && window.matchMedia('(hover: hover)').matches;
-  var coarsePtr = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    // iOS-safe
+    v.muted = true; v.defaultMuted = true;
+    v.setAttribute('muted','');
+    v.playsInline = true; v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
+    if (!v.getAttribute('preload')) v.preload = 'metadata';
+    v.removeAttribute('autoplay');
+    v.style.background = 'transparent';
 
-  /* ---- DESKTOP (има hover) ---- */
-  if (hasHover && !coarsePtr){
-    // Леко прелоудване, когато картата е близо до viewport-а, за гладък hover
-    if ('IntersectionObserver' in window){
-      var preloader = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          var v = e.target;
-          if (e.isIntersecting){ loadIfNeeded(v); preloader.unobserve(v); }
-        });
-      }, { rootMargin: '300px 0px' });
-      videos.forEach(function(v){ preloader.observe(v); });
+    // Ако няма poster → сложи статичната снимка
+    if (!v.getAttribute('poster')) {
+      v.setAttribute('poster', img.currentSrc || img.src);
     }
 
-    cards.forEach(function(box){
-      var v = box.querySelector('video.hover-img');
-      if (!v) return;
+    var ready = function(){
+      markReady(box);
+    };
 
-      box.addEventListener('mouseenter', function(){
-        loadIfNeeded(v);
-        whenReadyToShow(v, function(){
-          showVideo(v);
-          safePlay(v);
-        });
-      }, { passive:true });
+    if (v.readyState >= 2) {
+      // има първи кадър
+      markReady(box);
+    } else {
+      v.addEventListener('loadeddata', ready, { once: true });
+      v.addEventListener('canplay', ready, { once: true });
+      try { v.load(); } catch(e){}
+    }
 
-      box.addEventListener('mouseleave', function(){
-        safePause(v);
-        try{ v.currentTime = 0; }catch(e){}
-        hideVideo(v);
-      }, { passive:true });
-    });
-    return; // край за десктоп
-  }
+    // Desktop hover: работи само ако е video-ready
+    box.addEventListener('mouseenter', function(){
+      if (!box.classList.contains('video-ready')) return;
+      showVideo(box);
+      v.play && v.play().catch(function(){});
+    }, { passive:true });
 
-  /* ---- MOBILE: play само най-близкото до центъра; без никакъв прелоуд ---- */
-  videos.forEach(function(v){ v.preload = 'none'; safePause(v); });
+    box.addEventListener('mouseleave', function(){
+      if (!box.classList.contains('video-ready')) return;
+      hideVideo(box);
+      try { v.pause(); v.currentTime = 0; } catch(e){}
+    }, { passive:true });
 
-  var current = null;
-  var CENTER_TOL = 0.20; // 20% от височината на екрана – колко близо до центъра да е
-
-  function pauseAllExcept(keep){
-    videos.forEach(function(v){
-      if (v === keep) return;
-      safePause(v);
-      hideVideo(v);
-    });
-  }
-
-  function playOne(v){
-    if (!v) return;
-    var box = v.closest('.image-container, .pain-button-media');
-    if (!box) return;
-
-    // зареждаме източника САМО тук
-    loadIfNeeded(v);
-
-    whenReadyToShow(v, function(){
-      pauseAllExcept(v);
-      current = v;
-      showVideo(v);
-      safePlay(v);
-    });
-  }
-
-  function pickClosestToCenter(){
-    var vh = window.innerHeight || 0;
-    var viewportCenterY = vh / 2;
-
-    var best = null;
-    var bestDist = Infinity;
-
-    videos.forEach(function(v){
-      var r = v.getBoundingClientRect();
-      if (r.bottom <= 0 || r.top >= vh) return; // не е видимо
-
-      var centerY = r.top + r.height / 2;
-      var dist = Math.abs(centerY - viewportCenterY);
-
-      if (dist < bestDist){
-        bestDist = dist;
-        best = v;
+    // При скриване на таба – стоп
+    document.addEventListener('visibilitychange', function(){
+      if (document.hidden) {
+        hideVideo(box);
+        try { v.pause(); } catch(e){}
       }
     });
-
-    if (best && bestDist <= vh * CENTER_TOL){
-      if (best !== current) playOne(best);
-    } else if (current){
-      safePause(current);
-      hideVideo(current);
-      current = null;
-    }
-  }
-
-  // rAF тротълинг за скрол/ресайз
-  var ticking = false;
-  function onScrollOrResize(){
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function(){
-      ticking = false;
-      pickClosestToCenter();
-    });
-  }
-
-  document.addEventListener('scroll', onScrollOrResize, { passive:true });
-  window.addEventListener('resize', onScrollOrResize, { passive:true });
-  window.addEventListener('orientationchange', function(){ setTimeout(pickClosestToCenter, 120); });
-
-  document.addEventListener('visibilitychange', function(){
-    if (document.hidden && current){
-      safePause(current);
-      hideVideo(current);
-      current = null;
-    }
   });
-
-  window.addEventListener('load', function(){ setTimeout(pickClosestToCenter, 150); });
 })();
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // работим върху всички карти на началната
-  document.querySelectorAll('.image-container, .pain-button-media').forEach(function(box){
-    var vid = box.querySelector('video.hover-img');
-    var img = box.querySelector('img.static-img');
-    if (!vid) return;
-
-    // ако няма poster – използваме статичната снимка (точно като services)
-    if (!vid.getAttribute('poster') && img) {
-      vid.setAttribute('poster', img.currentSrc || img.src);
-    }
-
-    // iOS-safe флагове + не прелоудваме тежко (оставяме твоята логика да реши кога да се load-не)
-    vid.muted = true; vid.defaultMuted = true;
-    vid.setAttribute('muted','');
-    vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
-    if (!vid.getAttribute('preload')) vid.preload = 'metadata';
-    vid.style.background = 'transparent';
-
-    // когато има първи кадър → маркираме контейнера като готов
-    var markReady = function(){ box.classList.add('video-ready'); };
-    if (vid.readyState >= 2) {
-      markReady();
-    } else {
-      vid.addEventListener('loadeddata', markReady, { once: true });
-      try { vid.load(); } catch(e) {}
-    }
-  });
-});
 </script>
 
 </body>
