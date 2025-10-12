@@ -948,13 +948,13 @@
     v.dataset.ready = '1';
   }
 
-  function showVideo(v){
-    var box = v && v.closest('.image-container, .pain-button-media');
-    if (!box) return;
-    box.classList.add('video-ready'); // за CSS селектора ти
-    box.classList.add('is-ready');
-    box.classList.add('is-playing');
-  }
+function showVideo(v){
+  var box = v && v.closest('.image-container, .pain-button-media');
+  if (!box) return;
+  box.classList.add('is-ready');
+  box.classList.add('is-playing'); // -> чак тогава .hover-img става видимо
+}
+
 
   function hideVideo(v){
     var box = v && v.closest('.image-container, .pain-button-media');
@@ -1140,6 +1140,74 @@ document.addEventListener('DOMContentLoaded', function () {
       try { vid.load(); } catch(e) {}
     }
   });
+});
+</script>
+<!-- === DM Physio – Core JS === -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* --- Hover video logic for mobile --- */
+  const videos = document.querySelectorAll('.image-container video, .pain-button-media video');
+  videos.forEach(video => {
+    const parent = video.closest('.image-container, .pain-button-media');
+    if (!parent) return;
+
+    // Покажи видеото само след първо реално тръгване
+    video.addEventListener('play', () => parent.classList.add('is-playing'));
+
+    // Нулиране при стоп/паузиране (по избор)
+    video.addEventListener('pause', () => parent.classList.remove('is-playing'));
+  });
+
+  /* --- Carousel / Pain conditions slider --- */
+  const carousels = document.querySelectorAll('.pcarousel');
+  carousels.forEach(carousel => {
+    const track = carousel.querySelector('.pc-track');
+    const btnPrev = carousel.querySelector('.pc-btn.prev');
+    const btnNext = carousel.querySelector('.pc-btn.next');
+
+    if (!track || !btnPrev || !btnNext) return;
+
+    let index = 0;
+    const cards = track.querySelectorAll('.pc-card');
+    const visible = () => {
+      if (window.innerWidth >= 1100) return 5;
+      if (window.innerWidth >= 700) return 3;
+      return 1;
+    };
+    const update = () => {
+      const width = cards[0].offsetWidth + 12; // gap
+      track.style.transform = `translateX(${-index * width}px)`;
+      btnPrev.disabled = index === 0;
+      btnNext.disabled = index >= cards.length - visible();
+    };
+    btnNext.addEventListener('click', () => { index++; update(); });
+    btnPrev.addEventListener('click', () => { index--; update(); });
+    window.addEventListener('resize', update);
+    update();
+  });
+
+  /* --- Reveal form animation (Google Form / contact) --- */
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(reveal => {
+    const summary = reveal.querySelector('summary');
+    if (!summary) return;
+    summary.addEventListener('click', () => {
+      reveal.classList.toggle('is-loading');
+      setTimeout(() => reveal.classList.remove('is-loading'), 500);
+    });
+  });
+
+  /* --- Smooth scroll for anchor links --- */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
 });
 </script>
 
