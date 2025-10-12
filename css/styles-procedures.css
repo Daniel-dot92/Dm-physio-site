@@ -579,3 +579,13 @@ footer .back-to-top:hover{ transform:translateY(-3px); }
 @media (prefers-reduced-motion: reduce){
   *{ animation:none !important; transition:none !important; }
 }
+/* iOS Chrome autoplay fix за слоя с видеото */
+.pain-button-media video.hover-img{
+  pointer-events: none;     /* да не блокира play() */
+  display: block;           /* WebKit да изчислява размер правилно */
+  opacity: 0;               /* както е заложено от теб */
+  background: transparent;  /* да не се смята за „невидим“ елемент */
+}
+.pain-button-media.video-ready video.hover-img{
+  opacity: 1;
+}
