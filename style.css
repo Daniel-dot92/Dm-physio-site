@@ -1671,3 +1671,21 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
     opacity: 1;
   }
 }
+/* Показвай снимката по подразбиране */
+.image-container .static-img { opacity: 1; }
+.image-container .hover-img  { opacity: 0; }
+
+/* Скрий снимката само ако ВИДЕОТО Е ГОТОВО */
+.image-container.video-ready:hover .static-img,
+.image-container.is-playing    .static-img { opacity: 0; }
+
+.image-container.video-ready:hover .hover-img,
+.image-container.is-playing    .hover-img  { opacity: 1; }
+
+/* Сваля „лошото“ правило при hover върху картата */
+.pain-button:hover .static-img { opacity: 1; }           /* override старото */
+.pain-button:hover .hover-img  { opacity: 0; }           /* докато няма video-ready */
+
+/* Когато контейнерът е готов – разреши hover прехода */
+.pain-button:hover .image-container.video-ready .static-img { opacity: 0; }
+.pain-button:hover .image-container.video-ready .hover-img  { opacity: 1; }
