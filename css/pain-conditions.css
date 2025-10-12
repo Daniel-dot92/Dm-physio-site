@@ -503,3 +503,43 @@ footer .back-to-top:hover, .footer .back-to-top:hover{ transform:translateY(-3px
   }
   .pci-title::after{ margin-top: 10px; }
 }
+/* === iOS/Chrome FIX за картите с видео === */
+
+/* 1) Изравняваме с JS: и img, и video са cover + собствен слой */
+.pain-button-media.image-container > img.static-img,
+.pain-button-media.image-container > video.hover-img{
+  object-fit: cover;            /* <-- беше contain в CSS, JS слага cover */
+  will-change: opacity;         /* по-гладко кръстосано избледняване */
+  backface-visibility: hidden;  /* предотвратява „мигване“ в iOS */
+}
+
+/* 2) Fallback, ако aspect-ratio не се поддържа (по-стари iOS/Safari) */
+@supports not (aspect-ratio: 1 / 1){
+  .pain-button-media.image-container{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;        /* квадрат 1:1 */
+  }
+  .pain-button-media.image-container > img.static-img,
+  .pain-button-media.image-container > video.hover-img{
+    position: absolute;
+    inset: 0;
+  }
+}
+
+/* 3) Ускорение на контейнера при hover (само десктоп) */
+@media (hover:hover) and (pointer:fine){
+  .pain-button{ will-change: transform, box-shadow; }
+}
+
+/* 4) Заглавие – по-стегнато на много тесни екрани и без твърда ширина на линията */
+.pci-title::after{
+  width: min(72px, 28vw);  /* вместо твърди 400px, не излиза от екрана */
+}
+@media (max-width: 380px){
+  .pci-title{
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+  }
+}
