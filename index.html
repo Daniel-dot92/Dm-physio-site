@@ -12,11 +12,14 @@
   <meta name="language" content="Bulgarian" />
   <meta name="author" content="DM Physio" />
 
-  <!-- Favicon-и (замяна на старото /logo.webp) -->
+  <!-- ✅ Favicon / App Icons (лого) -->
+  <!-- Ако имаш PNG икони, добави ги; запазвам и webp, понеже вече го имаш -->
+  <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/webp" href="/favicon.webp">
-  <!-- Ако имаш PNG 180x180, махни коментара: -->
-  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"> -->
+  
+
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Кинезитерапия и Масаж в София – DM Physio" />
@@ -58,7 +61,6 @@
     a:focus, button:focus { outline: 3px solid #18A558; outline-offset: 2px; }
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
-
     #work { scroll-margin-top: 80px; }
 
     /* Маската на снимката е скъпа на мобилно – изключваме само там */
@@ -66,23 +68,58 @@
       .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
     }
 
-    /* --- Минимални стилове за картите с видеа, за да пазим плаката до real play --- */
+    /* -------- ВАЖНО за видеата (фиксове срещу сив екран и за iOS) -------- */
     .image-container,
-    .pain-button-media{position:relative;overflow:hidden}
+    .pain-button-media{ position:relative; border-radius:12px; overflow:hidden; background:#f1f5f9; }
+
     .image-container .static-img,
     .pain-button-media .static-img{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity .25s ease
+      position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity .25s ease; opacity:1;
+      will-change: opacity;
+      -webkit-transform: translateZ(0); transform: translateZ(0);
+      backface-visibility: hidden;
     }
+
     .image-container .hover-img,
     .pain-button-media .hover-img{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .25s ease;border:0;pointer-events:none
+      position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+      opacity:0; transition:opacity .25s ease; pointer-events:none; border:0;
+      background: transparent !important; /* без сив фон */
+      -webkit-transform: translateZ(0); transform: translateZ(0);
+      backface-visibility: hidden;
     }
-    .image-container.is-playing .static-img,
-    .pain-button-media.is-playing .static-img{opacity:0}
+
+    /* Показваме видеото ЕДВА когато е готово (JS добавя .is-ready & .is-playing) */
+    .image-container.is-ready .hover-img,
+    .pain-button-media.is-ready .hover-img{ opacity:0; } /* готово, но още не пуснато */
     .image-container.is-playing .hover-img,
-    .pain-button-media.is-playing .hover-img{opacity:1}
-    /* Скриваме iOS контролите */
-    video.hover-img::-webkit-media-controls{display:none !important}
+    .pain-button-media.is-playing .hover-img{ opacity:1; }
+    .image-container.is-playing .static-img,
+    .pain-button-media.is-playing .static-img{ opacity:0; }
+
+    /* Десктоп: класически hover ефект (вече без „сиво“ докато буферира) */
+    @media (hover:hover) and (pointer:fine){
+      .pain-button:hover .hover-img.is-autohide-off{ opacity:1; }
+      .pain-button:hover .static-img.is-autohide-off{ opacity:0; }
+    }
+
+    /* На мобилно видеото съществува, но JS управлява кога да стане видимо */
+    @media (hover:none){
+      .image-container .hover-img,
+      .pain-button-media .hover-img{ display:block !important; }
+    }
+    /* СКРИЙ видеото до първи кадър (както на services) */
+  .image-container:not(.video-ready) .hover-img,
+  .pain-button-media:not(.video-ready) .hover-img{
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* безопасно: без фонов цвят на <video>, за да не “сивее” */
+  .image-container .hover-img,
+  .pain-button-media .hover-img{
+    background: transparent !important;
+  }
   </style>
 
   <!-- JSON-LD: LocalBusiness (Physiotherapy) -->
@@ -129,6 +166,7 @@
   }
   </script>
 
+  <!-- Прелоуд на hero изображение -->
   <link rel="preload" as="image"
     href="/pngs/glavna2-768.webp"
     imagesrcset="/pngs/glavna2-480.webp 480w,
@@ -138,6 +176,7 @@
     imagesizes="(max-width: 900px) 100vw, 50vw"
     fetchpriority="high">
 
+  <!-- Леко отложено Contentsquare (след стабилизиране на страницата) -->
   <script>
   (function(){
     function loadCS(){
@@ -153,7 +192,6 @@
       if (window._hjSettings && typeof window.hj === 'function') loadCS();
       else setTimeout(tryLoad, 2000);
     }
-    // чак след като страницата е „топло“ рендерирана
     window.addEventListener('load', function(){
       if ('requestIdleCallback' in window) requestIdleCallback(tryLoad, {timeout: 8000});
       else setTimeout(tryLoad, 8000);
@@ -174,7 +212,7 @@
            loading="eager" decoding="async" width="64" height="64">
     </a>
 
-    <!-- Хамбургер (inline SVG) -->
+    <!-- Хамбургер -->
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
       <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
     </button>
@@ -465,7 +503,6 @@
           </a>
         </div>
       </aside>
-
     </div>
   </section>
 
@@ -612,10 +649,11 @@
           <span class="pain-button-text">Подбедрица / Стъпало</span>
         </a>
 
-        <!-- Невралгии (poster .webp) -->
+        <!-- Невралгии (НЕ пипаме) -->
         <a href="/pain-neuralgia-general.html" class="pain-button" aria-label="Невралгии – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img src="/pngs/pain-conditions/new/tingling1-Thumbnail.webp" alt="Невралгии" class="static-img" loading="lazy" decoding="async" width="640" height="360">
+            <!-- 👉 важно: постерът е .webp (не .jpg), за да съвпада и да няма „сива“ междинка -->
             <video class="hover-img" loop playsinline muted preload="none"
                    poster="/pngs/pain-conditions/new/tingling1-Thumbnail.webp">
               <source data-src="/pngs/pain-conditions/new/tingling1.mp4" type="video/mp4">
@@ -624,16 +662,121 @@
           <span class="pain-button-text">Невралгии</span>
         </a>
 
-        <!-- Физиология / Мускули -->
+        <!-- Физиология / Мускули (НЕ пипаме) -->
         <a href="/physiology.html" class="pain-button physiology-button" aria-label="Физиология – образователна секция">
           <div class="pain-button-media image-container">
             <img src="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.webp" alt="Мускули – образователна секция" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.jpg">
+            <video class="hover-img" loop playsinline muted preload="none" poster="/pngs/sustoqniq/muscles/Muscles main-Thumbnail.webp">
               <source data-src="/pngs/sustoqniq/muscles/Muscles main.mp4" type="video/mp4">
             </video>
           </div>
           <span class="pain-button-text">Мускули</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE ADVICE (REVEAL) -->
+  <section class="advice-reveal-block" id="free-advice">
+    <div class="advice-window" role="group" aria-label="Форма за безплатни насоки">
+      <div class="advice-window__titlebar">
+        <div class="win-dots" aria-hidden="true">
+          <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+        </div>
+        <div class="title">Безплатни насоки</div>
+      </div>
+
+      <div class="advice-window__body">
+        <!-- Банер за успех -->
+        <div class="advice-success" id="adviceSuccess" aria-live="polite" hidden>
+          <strong>Благодарим!</strong> Получихме заявката ви. Ще се свържем с вас съвсем скоро.
+        </div>
+
+        <div class="advice-intro">
+          <h3>Не знаеш коя процедура е за теб?</h3>
+          <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
+        </div>
+
+        <!-- Скрит iframe (фолбек) -->
+        <iframe name="hidden_gform" id="hidden_gform" style="display:none;" title="Скрит формуларен приемник" loading="lazy" referrerpolicy="no-referrer"></iframe>
+
+        <!-- Разгъващ се панел -->
+        <details class="advice-reveal" id="adviceReveal">
+          <summary class="advice-summary-btn">
+            <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
+            <span class="chev" aria-hidden="true"></span>
+          </summary>
+
+          <div class="advice-panel">
+            <div class="form-card">
+              <h4 class="form-card__title">Безплатна консултация</h4>
+
+              <form id="adviceForm"
+                class="advice-form"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
+                method="POST" target="hidden_gform" novalidate>
+
+                <!-- Anti-bot honeypot -->
+                <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0"
+                    aria-hidden="true">
+                  <label for="hp_website">Оставете това поле празно</label>
+                  <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div class="form-row">
+                  <div class="field">
+                    <label for="fName">Име</label>
+                    <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required autocomplete="name">
+                  </div>
+                  <div class="field">
+                    <label for="fPhone">Телефон</label>
+                    <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required autocomplete="tel">
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="fEmail">Имейл</label>
+                  <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required autocomplete="email">
+                </div>
+
+                <div class="field">
+                  <label for="fSymptoms">Опишете симптомите си</label>
+                  <textarea id="fSymptoms" name="entry.1298076648" rows="4"
+                    placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
+                    required></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
+                  <button type="submit" class="btn-submit">Изпрати</button>
+                </div>
+              </form>
+
+              <!-- Минимална защита срещу ботове -->
+              <script>
+              (function(){
+                const form = document.getElementById('adviceForm');
+                if (form) {
+                  const startedAt = Date.now();
+                  let interacted = false;
+                  const mark = () => { interacted = true; };
+                  ['input','change','keydown','mousemove','touchstart','click','scroll']
+                    .forEach(ev => window.addEventListener(ev, mark, { once:true, passive:true }));
+
+                  form.addEventListener('submit', function(e){
+                    const hp = document.getElementById('hp_website');
+                    const tooFast = Date.now() - startedAt < 4000;
+                    if ((hp && hp.value.trim() !== '') || tooFast || !interacted) {
+                      e.preventDefault();
+                    }
+                  });
+                }
+              })();
+              </script>
+
+            </div>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -707,7 +850,7 @@
 <script src="/js/topbar.js" defer></script>
 <script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Lazy: EmbedSocial, Hotjar, Map iframe + Видео логика (desktop hover / mobile center-only) -->
+<!-- Lazy: EmbedSocial, Hotjar, Map iframe + Видео логика (desktop hover / mobile center-only, без „сив екран“) -->
 <script>
 /* =========================
    1) EmbedSocial – зареждане само при видимост
@@ -752,10 +895,8 @@
 })();
 
 /* =========================
-   4) Видео логика
-      - DESKTOP (hover: hover): play при hover, pause + reset при mouseleave
-      - MOBILE (hover: none / pointer: coarse): пуска се САМО клипът, чийто център е най-близо до центъра на екрана
-        (без предварително прелоудване – пазим LCP)
+   4) Видео логика – десктоп: play при hover; мобилно: play най-близкото до центъра
+      Без сив екран: показваме видеото едва при 'canplay' / 'playing'
    ========================= */
 (function(){
   if (window.__DMVideoLogicInit) return; // guard
@@ -765,17 +906,42 @@
   var videos = Array.prototype.slice.call(document.querySelectorAll('video.hover-img'));
   if (!videos.length) return;
 
-  // Общи безопасни настройки
+  // Общи безопасни настройки (iOS-friendly)
   videos.forEach(function(v){
     try{
       v.setAttribute('playsinline','');
       v.playsInline = true;
       v.muted = true;
       v.setAttribute('muted','');
-      if (!v.getAttribute('preload')) v.preload = 'metadata';
+      v.preload = 'none';               // по подразбиране – без прелоуд
       v.removeAttribute('controls');
+      v.style.background = 'transparent';
     }catch(e){}
   });
+
+  function whenReadyToShow(v, cb){
+    // Показваме видеото едва когато е готов кадърът
+    if (!v) return;
+    var done = false;
+    function clean(){
+      if (done) return;
+      done = true;
+      v.removeEventListener('canplay', onReady);
+      v.removeEventListener('loadeddata', onReady);
+      v.removeEventListener('playing', onPlaying);
+      cb && cb();
+    }
+    function onReady(){ clean(); }
+    function onPlaying(){ clean(); }
+
+    if (v.readyState >= 2) { // HAVE_CURRENT_DATA
+      cb && cb();
+      return;
+    }
+    v.addEventListener('canplay', onReady, { once:true });
+    v.addEventListener('loadeddata', onReady, { once:true });
+    v.addEventListener('playing', onPlaying, { once:true });
+  }
 
   function loadIfNeeded(v){
     if (!v || v.dataset.ready === '1') return;
@@ -786,6 +952,21 @@
     }
     v.dataset.ready = '1';
   }
+
+  function showVideo(v){
+    var box = v && v.closest('.image-container, .pain-button-media');
+    if (!box) return;
+    box.classList.add('is-ready'); // видеото има източник и може да стане видимо при play
+    box.classList.add('is-playing');
+  }
+
+  function hideVideo(v){
+    var box = v && v.closest('.image-container, .pain-button-media');
+    if (!box) return;
+    box.classList.remove('is-playing');
+    // static-img се връща автоматично (opacity:1), hover-img остава готово
+  }
+
   function safePlay(v){ if (v && v.play) v.play().catch(function(){}); }
   function safePause(v){ if (v && v.pause){ try{ v.pause(); }catch(e){} } }
 
@@ -794,11 +975,12 @@
 
   /* ---- DESKTOP (има hover) ---- */
   if (hasHover && !coarsePtr){
-    // Леко прелоудване за по-гладък hover (не влияе на мобилния LCP)
+    // Леко прелоудване, когато картата е близо до viewport-а, за гладък hover
     if ('IntersectionObserver' in window){
       var preloader = new IntersectionObserver(function(entries){
         entries.forEach(function(e){
-          if (e.isIntersecting){ loadIfNeeded(e.target); preloader.unobserve(e.target); }
+          var v = e.target;
+          if (e.isIntersecting){ loadIfNeeded(v); preloader.unobserve(v); }
         });
       }, { rootMargin: '300px 0px' });
       videos.forEach(function(v){ preloader.observe(v); });
@@ -810,57 +992,49 @@
 
       box.addEventListener('mouseenter', function(){
         loadIfNeeded(v);
-        box.classList.add('is-playing');
-        safePlay(v);
+        whenReadyToShow(v, function(){
+          showVideo(v);
+          safePlay(v);
+        });
       }, { passive:true });
 
       box.addEventListener('mouseleave', function(){
-        box.classList.remove('is-playing');
         safePause(v);
         try{ v.currentTime = 0; }catch(e){}
+        hideVideo(v);
       }, { passive:true });
     });
     return; // край за десктоп
   }
 
   /* ---- MOBILE: play само най-близкото до центъра; без никакъв прелоуд ---- */
-  videos.forEach(function(v){ v.preload = 'none'; v.removeAttribute('autoplay'); safePause(v); });
+  videos.forEach(function(v){ v.preload = 'none'; safePause(v); });
 
   var current = null;
   var CENTER_TOL = 0.20; // 20% от височината на екрана – колко близо до центъра да е
-
-  function setPoster(v, on){
-    var box = v && v.closest('.image-container, .pain-button-media');
-    if (!box) return;
-    var img = box.querySelector('img.static-img');
-    if (on){
-      box.classList.add('is-playing');
-      if (img) img.style.opacity = '0';
-      v.style.opacity = '1';
-    } else {
-      box.classList.remove('is-playing');
-      if (img) img.style.opacity = '';
-      v.style.opacity = '';
-    }
-  }
 
   function pauseAllExcept(keep){
     videos.forEach(function(v){
       if (v === keep) return;
       safePause(v);
-      setPoster(v, false);
+      hideVideo(v);
     });
   }
 
   function playOne(v){
     if (!v) return;
-    // зареждаме източника САМО тук (без предварително прелоудване)
-    var s = v.querySelector('source[data-src]');
-    if (s && !s.src){ s.src = s.dataset.src; try{ v.load(); }catch(e){} }
-    pauseAllExcept(v);
-    current = v;
-    safePlay(v);
-    setPoster(v, true);
+    var box = v.closest('.image-container, .pain-button-media');
+    if (!box) return;
+
+    // зареждаме източника САМО тук
+    loadIfNeeded(v);
+
+    whenReadyToShow(v, function(){
+      pauseAllExcept(v);
+      current = v;
+      showVideo(v);
+      safePlay(v);
+    });
   }
 
   function pickClosestToCenter(){
@@ -887,7 +1061,7 @@
       if (best !== current) playOne(best);
     } else if (current){
       safePause(current);
-      setPoster(current, false);
+      hideVideo(current);
       current = null;
     }
   }
@@ -910,7 +1084,7 @@
   document.addEventListener('visibilitychange', function(){
     if (document.hidden && current){
       safePause(current);
-      setPoster(current, false);
+      hideVideo(current);
       current = null;
     }
   });
@@ -918,5 +1092,37 @@
   window.addEventListener('load', function(){ setTimeout(pickClosestToCenter, 150); });
 })();
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // работим върху всички карти на началната
+  document.querySelectorAll('.image-container, .pain-button-media').forEach(function(box){
+    var vid = box.querySelector('video.hover-img');
+    var img = box.querySelector('img.static-img');
+    if (!vid) return;
+
+    // ако няма poster – използваме статичната снимка (точно като services)
+    if (!vid.getAttribute('poster') && img) {
+      vid.setAttribute('poster', img.currentSrc || img.src);
+    }
+
+    // iOS-safe флагове + не прелоудваме тежко (оставяме твоята логика да реши кога да се load-не)
+    vid.muted = true; vid.defaultMuted = true;
+    vid.setAttribute('muted','');
+    vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+    if (!vid.getAttribute('preload')) vid.preload = 'metadata';
+    vid.style.background = 'transparent';
+
+    // когато има първи кадър → маркираме контейнера като готов
+    var markReady = function(){ box.classList.add('video-ready'); };
+    if (vid.readyState >= 2) {
+      markReady();
+    } else {
+      vid.addEventListener('loadeddata', markReady, { once: true });
+      try { vid.load(); } catch(e) {}
+    }
+  });
+});
+</script>
+
 </body>
 </html>
