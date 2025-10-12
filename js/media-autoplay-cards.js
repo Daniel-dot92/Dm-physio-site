@@ -1,21 +1,20 @@
 ﻿// /js/media-autoplay-cards.js
-// Унифицирано поведение за карти със снимка + видео.
-// * Desktop: hover swap след .video-ready
-// * Mobile (iOS/Android): autoplay/stop по видимост чрез IO
-// * iOS: warm-up + debounce, заглушаване на безобидни AbortError
-// * Диагностика: ако източникът е неподдържан (codec) => graceful fallback към снимка
+// Карти със снимка + видео, които се пускат при скрол (mobile) и на hover (desktop).
+// Ключова промяна: IntersectionObserver наблюдава КОНТЕЙНЕРА (не самото <video>),
+// за да работи и когато видеото е временно "скрито" с visibility:hidden.
 
 (function () {
   'use strict';
 
   /* =========================
-     Селектори за контейнерите
+     Конфигурация на селектори
   ========================= */
-  const HOVER_CONTAINERS = [
+  const BOX_SELECTORS = [
     '.card__media',
     '.pain-button-media',
     '.journey-image',
     '.image-container',
+    // вложени варианти
     '.pain-buttons-grid .pain-button-media',
     '.pain-buttons-vertical .pain-button-media',
     '.two-col__right .pain-buttons-vertical .pain-button-media',
@@ -33,21 +32,23 @@
     'video.hover-hernia-video', 'video'
   ];
 
-  const MOBILE_QUERY = '(hover: none), (pointer: coarse)';
-  const mql = window.matchMedia(MOBILE_QUERY);
-  let isTouchLike = mql.matches;
-
+  // Някои iOS устройства лъжат media queries → форсираме mobile поведение при iOS.
   const isiOS = () =>
     /iPad|iPhone|iPod/.test(navigator.userAgent) ||
     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
+  const MOBILE_QUERY = '(hover: none), (pointer: coarse)';
+  const mql = window.matchMedia(MOBILE_QUERY);
+  let isTouchLike = isiOS() ? true : mql.matches;
+
   /* =========================
-     Инжектирани override-и
+     Инжектирани CSS override-и
   ========================= */
   (function injectStyle() {
     const ID = 'media-autoplay-cards-overrides';
     if (document.getElementById(ID)) return;
     const css = `
+/* По подразбиране: снимка видима, видео скрито */
 .image-container .static-img,
 .pain-button-media .static-img,
 .card__media .static { opacity:1; transition:opacity .25s ease; }
@@ -55,10 +56,12 @@
 .pain-button-media .hover-img,
 .card__media .hover { opacity:0; visibility:hidden; transition:opacity .25s ease; }
 
+/* Докато НЕ е .video-ready — дръж видеото скрито */
 .image-container:not(.video-ready) .hover-img,
 .pain-button-media:not(.video-ready) .hover-img,
 .card__media:not(.video-ready) .hover { opacity:0!important; visibility:hidden!important; }
 
+/* Когато пускаме видеото — показваме видеото, скриваме снимката */
 .image-container.is-playing .static-img,
 .pain-button-media.is-playing .static-img,
 .card__media.is-playing .static { opacity:0!important; }
@@ -66,6 +69,7 @@
 .pain-button-media.is-playing .hover-img,
 .card__media.is-playing .hover { opacity:1!important; visibility:visible!important; }
 
+/* Desktop hover swap */
 @media (hover:hover) and (pointer:fine){
   .image-container.video-ready:hover .static-img,
   .pain-button-media.video-ready:hover .static-img,
@@ -75,6 +79,7 @@
   .card__media.video-ready:hover .hover { opacity:1!important; visibility:visible!important; }
 }
 
+/* На мобилно игнорираме hover — JS управлява показването */
 @media (hover:none){
   .image-container.video-ready:hover .static-img,
   .pain-button-media.video-ready:hover .static-img,
@@ -91,21 +96,19 @@
   })();
 
   /* =========================
-     Помощни
+     Помощни функции
   ========================= */
-  const log = (...a)=>console.debug('[media-autoplay]', ...a);
-
-  function qsOneOf(selectors, root) {
-    for (let i = 0; i < selectors.length; i++) {
+  function qsOneOf(selectors, root){
+    for (let i=0; i<selectors.length; i++){
       const el = (root || document).querySelector(selectors[i]);
       if (el) return el;
     }
     return null;
   }
 
-  function getMediaPair(container) {
-    const staticImg = qsOneOf(IMG_SELECTORS, container);
-    const video = qsOneOf(VIDEO_SELECTORS, container);
+  function getMediaPair(box){
+    const staticImg = qsOneOf(IMG_SELECTORS, box);
+    const video     = qsOneOf(VIDEO_SELECTORS, box);
     return { staticImg, video };
   }
 
@@ -113,7 +116,7 @@
   function showVideo(box){ box.classList.add('is-playing'); }
   function hideVideo(box){ box.classList.remove('is-playing'); }
 
-  // iOS warm-up и базова подготовка
+  // Подготовка на видеото (изисквания за мобилно/iOS)
   function prepVideo(v, posterFallback){
     if (!v) return;
     v.removeAttribute('autoplay');
@@ -122,85 +125,61 @@
     if (!v.getAttribute('preload')) v.preload = 'metadata';
     if (!v.getAttribute('poster') && posterFallback) v.setAttribute('poster', posterFallback);
     try { v.load(); } catch(e){}
+  }
 
-    // iOS: кратко “затопляне”, за да позволи по-късно autoplay
-    if (isiOS()) {
-      try {
-        const p = v.play();
-        if (p && p.then) p.then(()=>{ try{ v.pause(); v.currentTime = 0; }catch(e){} }).catch(()=>{});
-      } catch(e){}
+  // Ако readyState >= 2 → play, иначе изчакай first frame
+  function safePlay(v){
+    if (!v) return;
+    const doPlay = () => v.play().catch(()=>{}); // игнорирай AbortError
+    if (v.readyState >= 2) doPlay();
+    else {
+      const onData = () => { v.removeEventListener('loadeddata', onData); doPlay(); };
+      v.addEventListener('loadeddata', onData, { once:true });
+      try { v.load(); } catch(e){}
     }
   }
 
-  // Диагностика: неподдържан източник/кодек или вечен readyState=0
-  function detectUnplayable(v, timeoutMs = 2500){
-    return new Promise((resolve) => {
+  // Диагностика за „непускаем“ клип (напр. неподдържан кодек)
+  function detectUnplayable(v, timeoutMs = 2200){
+    return new Promise((resolve)=>{
       let done = false;
       const finish = (ok, reason) => { if (done) return; done = true; resolve({ ok, reason }); };
 
-      // Ако веднага има грешка
-      if (v.error && v.error.code) {
-        return finish(false, 'media-error-'+v.error.code);
-      }
+      if (v.error && v.error.code) return finish(false, 'media-error-'+v.error.code);
 
       const onLoaded = () => finish(true, 'loadeddata');
       const onError  = () => finish(false, 'error-event');
-
       v.addEventListener('loadeddata', onLoaded, { once:true });
       v.addEventListener('error', onError, { once:true });
 
-      // ако нищо не се случи в разумен срок -> вероятно неподдържан кодек/формат
       const t = setTimeout(() => {
         v.removeEventListener('loadeddata', onLoaded);
         v.removeEventListener('error', onError);
-        if (v.readyState === 0) finish(false, 'timeout-rs0'); else finish(true, 'timeout-but-rs>0');
+        if (v.readyState === 0) finish(false, 'timeout-rs0'); else finish(true, 'timeout-rs>0');
       }, timeoutMs);
 
-      // safety: ако все пак тръгне play()
-      const p = v.play?.();
-      if (p && p.then) {
-        p.then(() => { try{ v.pause(); }catch(e){} }).catch(()=>{});
-      }
+      // леко „подканване“
+      try { v.play()?.then(()=>{ try{ v.pause(); }catch(e){} }).catch(()=>{}); } catch(e){}
     });
   }
 
-  function safePlay(v){
-    if (!v) return;
-    if (v.__wantPlay) return;
-    v.__wantPlay = true;
-
-    const doPlay = () =>
-      v.play().catch(()=>{}).finally(()=>{ v.__wantPlay = false; });
-
-    if (v.readyState >= 2) {
-      doPlay();
-    } else {
-      const onData = () => { v.removeEventListener('loadeddata', onData); doPlay(); };
-      v.addEventListener('loadeddata', onData, { once:true });
-
-      // ако не зарежда, подтикни го
-      if (v.networkState !== HTMLMediaElement.NETWORK_LOADING) {
-        try { v.load(); } catch(e){}
-      }
-    }
-  }
-
   /* =========================
-     IO (с debounce) за mobile
+     IO – наблюдава КОНТЕЙНЕРА
   ========================= */
   let io = null;
   function buildIO(){
     if (!('IntersectionObserver' in window)) return null;
     return new IntersectionObserver((entries)=>{
       entries.forEach((entry)=>{
-        const v = entry.target;
-        const box = v.__box;
-        if (!box) return;
+        const box = entry.target;
+        const v = box.__video;
+        if (!v) return;
 
-        clearTimeout(v.__ioT);
-        v.__ioT = setTimeout(()=>{
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
-            markReady(box);      // позволи swap, дори ако клонирано правило е скрило видеото
+        clearTimeout(box.__ioT);
+        box.__ioT = setTimeout(()=>{
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.2){
+            // показваме видеото (сменяме класовете) и го пускаме
+            markReady(box);
             showVideo(box);
             safePlay(v);
           } else {
@@ -210,83 +189,81 @@
               if (!v.classList.contains('no-reset-on-exit')) v.currentTime = 0;
             } catch(e){}
           }
-        }, 120);
+        }, isiOS() ? 160 : 100); // малък debounce, особено за iOS
       });
     }, { root:null, rootMargin:'300px 0px', threshold:[0,0.2,0.35,0.5,0.75,1] });
   }
 
   /* =========================
-     Свързване на един контейнер
+     Връзване на един контейнер
   ========================= */
-  async function wireContainer(container){
-    const { staticImg, video } = getMediaPair(container);
+  async function wireBox(box){
+    const { staticImg, video } = getMediaPair(box);
     if (!video || !staticImg) return;
 
+    // Подготовка
     prepVideo(video, (staticImg.currentSrc || staticImg.src || ''));
 
-    // Диагностика за непускаеми клипове (на iOS особено важно)
+    // Ако клипът е неподдържан → остави само снимка (graceful)
     const diag = await detectUnplayable(video, 2200);
-    if (!diag.ok) {
-      // Оставяме снимката и не опитваме autoplay; пишем в конзолата защо
-      log('Видео е неподдържано или не тръгва:', diag.reason, video.currentSrc || video.src);
-      container.classList.remove('video-ready', 'is-playing');
-      // не закачаме hover / IO
+    if (!diag.ok){
+      box.classList.remove('video-ready', 'is-playing');
       return;
     }
 
-    // Ако имаме кадър — позволяваме hover/автоплей
-    if (video.readyState >= 2) markReady(container);
+    // когато имаме кадър → позволяваме hover/автоплей
+    if (video.readyState >= 2) markReady(box);
     else {
-      const onReady = () => markReady(container);
+      const onReady = () => markReady(box);
       video.addEventListener('loadeddata', onReady, { once:true });
       video.addEventListener('canplay', onReady, { once:true });
     }
 
     // Desktop hover
-    container.addEventListener('mouseenter', ()=>{
+    box.addEventListener('mouseenter', ()=>{
       if (isTouchLike) return;
-      if (!container.classList.contains('video-ready')) return;
-      showVideo(container);
+      if (!box.classList.contains('video-ready')) return;
+      showVideo(box);
       safePlay(video);
     }, { passive:true });
 
-    container.addEventListener('mouseleave', ()=>{
+    box.addEventListener('mouseleave', ()=>{
       if (isTouchLike) return;
-      hideVideo(container);
+      hideVideo(box);
       try { video.pause(); video.currentTime = 0; } catch(e){}
     }, { passive:true });
 
-    // Mobile — IO
+    // Mobile — IO наблюдава КОНТЕЙНЕРА
     if (isTouchLike){
       if (!io) io = buildIO();
       if (io){
-        video.__box = container;
-        io.observe(video);
+        box.__video = video;
+        io.observe(box);
       }
     }
   }
 
   /* =========================
-     Свързване на всички
+     Връзване на всички
   ========================= */
   function wireAll(){
-    document.querySelectorAll(HOVER_CONTAINERS).forEach((c)=>{
-      if (c.__wiredMediaAutoplay) return;
-      c.__wiredMediaAutoplay = true;
-      // без await в цикъл – не блокираме UI
-      wireContainer(c);
+    document.querySelectorAll(BOX_SELECTORS).forEach((box)=>{
+      if (box.__wiredMediaAutoplay) return;
+      box.__wiredMediaAutoplay = true;
+      wireBox(box);
     });
   }
 
   function reconfigure(){
-    isTouchLike = mql.matches;
+    isTouchLike = isiOS() ? true : mql.matches;
     if (io){ try{ io.disconnect(); }catch(e){} }
     io = null;
     if (isTouchLike) io = buildIO();
-    document.querySelectorAll(HOVER_CONTAINERS).forEach((box)=>{
-      const v = box.querySelector('video');
-      if (!v) return;
-      if (io){ v.__box = box; io.observe(v); }
+    document.querySelectorAll(BOX_SELECTORS).forEach((box)=>{
+      const v = qsOneOf(VIDEO_SELECTORS, box);
+      if (!v || !io) return;
+      box.__video = v;
+      io.observe(box);
     });
   }
 
@@ -296,6 +273,7 @@
   document.addEventListener('DOMContentLoaded', ()=>{
     wireAll();
 
+    // Следене за динамично добавени елементи
     const mo = new MutationObserver((muts)=>{
       for (const m of muts){
         if (m.addedNodes && m.addedNodes.length){ wireAll(); break; }
@@ -308,11 +286,14 @@
 
     window.addEventListener('resize', reconfigure, { passive:true });
 
+    // Когато табът стане скрит — спираме всички
     document.addEventListener('visibilitychange', ()=>{
       if (document.hidden){
-        document.querySelectorAll(HOVER_CONTAINERS).forEach((box)=>{
-          const v = box.querySelector('video'); if (!v) return;
-          hideVideo(box); try{ v.pause(); }catch(e){}
+        document.querySelectorAll(BOX_SELECTORS).forEach((box)=>{
+          const v = qsOneOf(VIDEO_SELECTORS, box);
+          if (!v) return;
+          hideVideo(box);
+          try { v.pause(); } catch(e){}
         });
       }
     });
