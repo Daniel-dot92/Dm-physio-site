@@ -363,3 +363,19 @@ footer .footer-links a:hover{color:#0b66ff;background-size:100% 2px}
   padding:0 2px 2px;
 }
 .pain-button-hook{ font-size:12px; color:#475569; line-height:1.4; margin:4px 8px 10px; text-align:center; }
+/* Рендер само при видимост (Chrome/Edge/Opera) */
+@supports (content-visibility: auto){
+  /* подгъвай над-fold секциите – дай приблизителна височина */
+  .two-col__right,
+  .reviews-section,
+  #pain-conditions-intro,
+  .advice-reveal-block,
+  footer { 
+    content-visibility: auto;
+    contain-intrinsic-size: 900px; /* „резерв“ срещу CLS; нагласи по нужда */
+  }
+
+  /* малко по-нисък резерв за aside-картите */
+  .two-col__right{ contain-intrinsic-size: 700px; }
+  .reviews-section{ contain-intrinsic-size: 600px; }
+}
