@@ -19,7 +19,7 @@
   
 
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
->
+
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Кинезитерапия и Масаж в София – DM Physio" />
@@ -953,12 +953,14 @@
     v.dataset.ready = '1';
   }
 
-  function showVideo(v){
-    var box = v && v.closest('.image-container, .pain-button-media');
-    if (!box) return;
-    box.classList.add('is-ready'); // видеото има източник и може да стане видимо при play
-    box.classList.add('is-playing');
-  }
+function showVideo(v){
+  var box = v && v.closest('.image-container, .pain-button-media');
+  if (!box) return;
+  box.classList.add('video-ready');   // 👈 ДОБАВИ ТОВА (за да мине CSS селектора)
+  box.classList.add('is-ready');
+  box.classList.add('is-playing');
+}
+
 
   function hideVideo(v){
     var box = v && v.closest('.image-container, .pain-button-media');
