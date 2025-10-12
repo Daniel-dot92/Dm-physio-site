@@ -1,120 +1,131 @@
-﻿// /js/media-autoplay-cards.js  (опростен, iOS-safe автоплей при видимост)
+﻿/* /js/media-autoplay-cards.js
+ * Mobile (touch): autoplay when in viewport; pause+reset when out
+ * Desktop: play on hover; pause+reset on leave
+ * Shows video only when ready; supports <source data-src="...">
+ */
 (function () {
-  'use strict';
+  const IS_TOUCH =
+    typeof matchMedia === 'function' &&
+    matchMedia('(hover: none) and (pointer: coarse)').matches;
 
-  // Кои контейнери да следим (и на тях вътре има <img> + <video>):
-  const CONTAINERS = [
-    '.image-container',
-    '.pain-button-media',
-    '.card__media'
-  ].join(',');
+  const $  = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  // безопасни play/pause обвивки
-  const safePlay = v => v && v.play && v.play().catch(() => {});
-  const safePause = v => v && v.pause && v.pause();
+  // Таргетираме всички .image-container (вкл. .pain-button-media.image-container)
+  const cards = $$('.image-container').map(box => {
+    const img = $('.static-img', box);
+    const vid = $('video.hover-img', box);
+    return (img && vid) ? { box, img, vid, ready:false } : null;
+  }).filter(Boolean);
 
-  // увери се, че видеото има нужните атрибути и постер от <img>, ако липсва
-  function prepVideo(box) {
-    const img = box.querySelector('img');
-    const v   = box.querySelector('video');
-    if (!v) return null;
+  if (!cards.length) return;
 
-    // задължителни за iOS автоплей
-    v.muted = true; v.defaultMuted = true; v.setAttribute('muted','');
+  // ---------- helpers ----------
+  function primeVideo(v) {
+    v.muted = true; v.defaultMuted = true;
     v.playsInline = true; v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
-    v.loop = true;
+    if (!v.preload) v.preload = 'metadata';
+  }
+  function ensureSrc(v) {
+    if (v.currentSrc) return;
+    const s = $('source[data-src]', v);
+    if (s && !s.src) { s.src = s.dataset.src; try { v.load(); } catch {} }
+  }
+  function afterReady(v, cb){
+    if (v.readyState >= 2) { cb(); return; }
+    const on = () => { v.removeEventListener('loadeddata', on); cb(); };
+    v.addEventListener('loadeddata', on, { once:true });
+    try { v.load(); } catch {}
+  }
+  const safePlay  = v => { afterReady(v, () => v.play().catch(()=>{})); };
+  const safePause = v => { try{ v.pause(); }catch{} };
+  const reset     = v => { try{ v.currentTime = 0; }catch{} };
 
-    // лека заявка, за да имаме loadeddata без да дърпаме целия файл
-    v.preload = v.getAttribute('preload') || 'metadata';
-
-    // ако няма poster – вземи от <img>
-    if (!v.getAttribute('poster') && img) {
-      const posterSrc = img.currentSrc || img.src || '';
-      if (posterSrc) v.setAttribute('poster', posterSrc);
-    }
-
-    // подсигури “готовност” за iOS (пускаме load веднъж)
-    try { v.load(); } catch(e) {}
-
-    // когато има кадър — позволяваме визуалната смяна снимка→видео
-    const markReady = () => box.classList.add('video-ready');
-    if (v.readyState >= 2) markReady();
-    else {
-      v.addEventListener('loadeddata', markReady, { once:true });
-      v.addEventListener('canplay',     markReady, { once:true });
-    }
-
-    return v;
+  function showVideo(m) {
+    ensureSrc(m.vid);
+    afterReady(m.vid, () => {
+      m.ready = true;
+      m.box.classList.add('video-ready');
+      m.vid.style.opacity = '1';
+      m.img.style.opacity = '0';
+      safePlay(m.vid);
+      m.box.dataset.playing = '1';
+    });
+  }
+  function hideVideo(m) {
+    safePause(m.vid); reset(m.vid);
+    m.vid.style.opacity = '0';
+    m.img.style.opacity = '1';
+    delete m.box.dataset.playing;
   }
 
-  // единна логика: IntersectionObserver управлява play/pause и класовете
-  function buildIO() {
-    if (!('IntersectionObserver' in window)) return null;
-    return new IntersectionObserver((entries) => {
-      entries.forEach(en => {
-        const box = en.target;
-        const v = box.__video;
-        if (!v) return;
+  // ---------- init inline styles ----------
+  cards.forEach(m => {
+    const { box, img, vid } = m;
+    primeVideo(vid);
 
-        if (en.isIntersecting && en.intersectionRatio >= 0.35) {
-          box.classList.add('is-playing');
-          safePlay(v);
+    const cs = getComputedStyle(box);
+    if (cs.position === 'static') box.style.position = 'relative';
+    if (cs.overflow === 'visible') box.style.overflow = 'hidden';
+
+    // слоеве
+    [img, vid].forEach(el => {
+      el.style.position = 'absolute';
+      el.style.inset = '0';
+      el.style.width = '100%';
+      el.style.height = '100%';
+      el.style.objectFit = 'cover';
+      if (!el.style.transition) el.style.transition = 'opacity .28s ease';
+    });
+
+    // стартово състояние
+    vid.style.opacity = '0';
+    img.style.opacity = '1';
+  });
+
+  // ---------- desktop: hover поведение ----------
+  if (!IS_TOUCH) {
+    cards.forEach(m => {
+      m.box.addEventListener('mouseenter', () => showVideo(m), { passive:true });
+      m.box.addEventListener('mouseleave', () => hideVideo(m), { passive:true });
+    });
+  }
+
+  // ---------- intersection observer ----------
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        const m = cards.find(x => x.box === en.target);
+        if (!m) return;
+
+        // Мобилно: autoplay в изглед; Десктоп: само предотвратяваме да играе offscreen
+        if (IS_TOUCH) {
+          if (en.isIntersecting && en.intersectionRatio >= 0.6) {
+            // пускаме само ако още не играе
+            if (!m.box.dataset.playing) showVideo(m);
+          } else {
+            hideVideo(m);
+          }
         } else {
-          box.classList.remove('is-playing');
-          // само pause – без reset на currentTime (iOS AbortError fix)
-          safePause(v);
+          // десктоп: ако картата излезе от изглед – спри/ресетни (safety net)
+          if (!en.isIntersecting || en.intersectionRatio < 0.1) {
+            hideVideo(m);
+          } else {
+            // само подсигуряваме src за по-бърз hover
+            ensureSrc(m.vid);
+          }
         }
       });
-    }, { root:null, rootMargin:'200px 0px', threshold:[0, 0.2, 0.35, 0.6, 1] });
+    }, { rootMargin: '200px 0px', threshold: [0, 0.1, 0.6, 1] });
+
+    cards.forEach(m => io.observe(m.box));
+  } else if (IS_TOUCH) {
+    // без IO на мобилно: минимален фолбек – пусни при load, спри при blur/visibility
+    cards.forEach(showVideo);
   }
 
-  function wireBox(box) {
-    if (box.__wired) return;
-    const v = prepVideo(box);
-    if (!v) return;
-    box.__video = v;
-    box.__wired = true;
-  }
-
-  function wireAll() {
-    document.querySelectorAll(CONTAINERS).forEach(wireBox);
-  }
-
-  // стартираме
-  document.addEventListener('DOMContentLoaded', () => {
-    const io = buildIO();
-    wireAll();
-
-    if (io) {
-      document.querySelectorAll(CONTAINERS).forEach(box => io.observe(box));
-    }
-
-    // ако динамично вкарваш карти – вържи и тях
-    const mo = new MutationObserver((muts) => {
-      let needsObserve = false;
-      muts.forEach(m => {
-        m.addedNodes && m.addedNodes.forEach(n => {
-          if (!(n instanceof HTMLElement)) return;
-          if (n.matches && n.matches(CONTAINERS)) { wireBox(n); needsObserve = true; }
-          n.querySelectorAll && n.querySelectorAll(CONTAINERS).forEach(el => { wireBox(el); needsObserve = true; });
-        });
-      });
-      if (needsObserve && io) {
-        document.querySelectorAll(CONTAINERS).forEach(box => io.observe(box));
-      }
-    });
-    mo.observe(document.body, { childList:true, subtree:true });
-
-    // ако табът стане скрит – спри всички (пестим батерия, избягваме грешки)
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        document.querySelectorAll(CONTAINERS).forEach(box => {
-          const v = box.__video;
-          if (!v) return;
-          box.classList.remove('is-playing');
-          safePause(v);
-        });
-      }
-    });
-  });
+  // таб/прозорец неактивен → стоп
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cards.forEach(hideVideo);
+  }, { passive:true });
 })();
