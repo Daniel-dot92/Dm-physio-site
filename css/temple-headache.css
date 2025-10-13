@@ -972,3 +972,67 @@ a{
 a:hover{
   text-decoration-thickness: from-font;
 }
+/***** PERFORMANCE + ANTI-CLS PATCH (paste at the very end) *****/
+
+/* 1) Хедър – резервирай височина, за да не „подскача“ при инициализация */
+.tb-header{ min-height: var(--topbar-h, 64px); box-sizing: border-box; }
+
+/* 2) Икони (Font Awesome и др.) – фиксирана ширина, за да не измества текста при зареждане на шрифта */
+i.fas, i.fa-solid, i.fa-regular, i.fa-brands, i.fa{
+  display:inline-block; width:1.25em; height:1em; line-height:1em; text-align:center; vertical-align:-0.125em;
+}
+
+/* 3) Слайдер – минимална височина, за да няма внезапно преразчертаване */
+.kinesitherapy-slider-container{ min-height: 260px; }
+.kinesitherapy-button{ min-height: 220px; }
+
+/* 4) Медии – гарантирана рамка; вече имаш за много места, допълваме още */
+.hero-image.image-container{ aspect-ratio: 1 / 1; }      /* desktop hero */
+.intro-image.image-container{ aspect-ratio: 1 / 1; }     /* desktop intro */
+
+/* ако имаш други „плочки“ със снимки/видео без зададен аспект */
+.image-container:not(.hero-image):not(.intro-image){ aspect-ratio: 1 / 1; }
+
+/* 5) Избягваме „transition: all“, което причинява reflow; ограничаваме до безопасни свойства */
+.button,
+.kinesitherapy-button,
+.reason-card,
+.procedures-cta,
+.slider-arrow,
+.pain-story-media{
+  transition: transform .3s ease, box-shadow .3s ease, opacity .3s ease, color .3s ease, background-color .3s ease, filter .3s ease;
+}
+
+/* 6) Глобално намаляване на ненужни преформи (за хора с reduce motion) */
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* 7) Offscreen секции – рендер след скрол (без промяна във визията), + резервна височина срещу CLS */
+.pain-story-section,
+.inflammation-section,
+.healing-section.alternative-style,
+footer{
+  content-visibility: auto;
+  contain-intrinsic-size: 800px; /* приблизителна височина; не влияе на крайния вид */
+}
+
+/* 8) Изображения/видеа – избягвай reflow при смяна на opacity */
+.image-container img,
+.image-container video,
+.muscle-anatomy-section .muscle-media > img,
+.muscle-anatomy-section .muscle-media > video{
+  display:block; will-change: opacity, transform;
+}
+
+/* 9) Шрифтове – намаляване на „подскок“ при font swap, без визуална промяна след зареждане */
+html{
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* 10) Дребни анти-CLS за бутони/линкове при ховър (без layout) */
+a, .button, .procedures-cta, .kinesitherapy-button{
+  border-width: 2px; /* вече имаш граници – фиксираме дебелината, за да не се сменя при :hover */
+  box-sizing: border-box;
+}
