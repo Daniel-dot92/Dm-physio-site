@@ -29,8 +29,8 @@
   <meta name="twitter:image" content="https://dmphysi0.com/pngs/procedures/KT.webp">
 
   <!-- Base styles -->
-  <link rel="stylesheet" href="/css/styles-procedures.css" />
-  <link rel="stylesheet" href="/css/top-bar.css" />
+  <link rel="stylesheet" href="css/styles-procedures.css" />
+  <link rel="stylesheet" href="css/top-bar.css" />
 
   <!-- Preconnect externals -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -133,6 +133,66 @@
   }
   </script>
 </head>
+<script>
+/**
+ * Lightweight responsive images via Cloudflare Image Resizing.
+ * Оставяш оригиналните файлове; подаваме олекотени байтове през /cdn-cgi/image/...
+ * Работи за .static-img (картинки в картите) и за video.poster.
+ */
+(function () {
+  // Конфигурация за дисплей 16:9 карти ~382px ширина на десктоп
+  var BASE_W = 384;          // целева визуална ширина (~382 => 384)
+  var DPR2_W = BASE_W * 2;   // за ретина
+  var QUALITY = 85;          // компромисно q
+  var PATH_PREFIX = '/cdn-cgi/image/'; // Cloudflare Image Resizing prefix
+  var COMMON_OPTS = 'format=auto,metadata=none,quality=' + QUALITY;
+
+  function cfUrl(w, url) {
+    // Пример: /cdn-cgi/image/width=384,quality=85,format=auto/…/image.webp
+    return PATH_PREFIX + 'width=' + w + ',' + COMMON_OPTS + url;
+  }
+
+  function setImgSrcset(img, baseW) {
+    var url = img.getAttribute('data-src') || img.currentSrc || img.src;
+    if (!url || url.indexOf('/cdn-cgi/image/') !== -1) return; // вече е преобразувано
+    var w = Number(img.getAttribute('data-target-w')) || baseW || BASE_W;
+    var sizes = img.getAttribute('sizes') || '(min-width: 1024px) ' + w + 'px, (min-width: 640px) 46vw, 92vw';
+    img.setAttribute('sizes', sizes);
+    var srcset = [
+      cfUrl(w, url)       + ' 1x',
+      cfUrl(w*2, url)     + ' 2x'
+    ].join(', ');
+    img.setAttribute('srcset', srcset);
+
+    // За LCP картинката пазим fetchpriority ако вече е зададен
+    // Оставяме оригиналния src като fallback за legacy
+  }
+
+  function setVideoPoster(video, baseW) {
+    var poster = video.getAttribute('poster');
+    if (!poster || poster.indexOf('/cdn-cgi/image/') !== -1) return;
+    var w = Number(video.getAttribute('data-target-w')) || baseW || BASE_W;
+    video.setAttribute('poster', cfUrl(w*2, poster)); // малко по-остър постер
+  }
+
+  // Обработи статичните картинки в картите
+  document.querySelectorAll('img.static-img').forEach(function(img){
+    setImgSrcset(img, BASE_W);
+  });
+
+  // Обработи постерите на видеата
+  document.querySelectorAll('video.hover-img').forEach(function(v){
+    setVideoPoster(v, BASE_W);
+  });
+
+  // По желание: логото в топ бара (показва се ~40px)
+  var logo = document.querySelector('.tb-logo');
+  if (logo && logo.src && logo.src.indexOf('/cdn-cgi/image/') === -1) {
+    var url = logo.getAttribute('data-src') || logo.currentSrc || logo.src;
+    logo.src = cfUrl(96, url); // 96px ширина е достатъчна за остро 2x
+  }
+})();
+</script>
 
 <body class="page--services">
 <a class="skip-link" href="#main">Към съдържанието</a>
