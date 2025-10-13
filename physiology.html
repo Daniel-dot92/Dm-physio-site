@@ -3,12 +3,15 @@
 <html lang="bg">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
   <title>Мускулни болки – причини, симптоми и лечение | DM Physio София</title>
   <meta name="description" content="Мускулни болки по цялото тяло: ръка, рамо, врат, гърди/корем, гръб, кръст, таз, бедро/коляно, подбедрица/ходило. Оценка, мануална терапия и упражнения в DM Physio София.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="canonical" href="https://dmphysio.com/pain-muscles-general.html">
+  <link rel="canonical" href="https://dmphysi0.com/pain-muscles-general.html">
+  <link rel="alternate" hreflang="bg" href="https://dmphysi0.com/pain-muscles-general.html">
+  <meta name="theme-color" content="#0E7C86" />
+  <meta name="author" content="DM Physio" />
 
   <!-- Open Graph -->
   <meta property="og:locale" content="bg_BG">
@@ -16,18 +19,23 @@
   <meta property="og:site_name" content="DM Physio (ДМ ФИЗИО)">
   <meta property="og:title" content="Мускулни болки – причини, симптоми и лечение | DM Physio София">
   <meta property="og:description" content="Избери зоната с болка и виж най-честите състояния и работещи подходи за възстановяване.">
-  <meta property="og:url" content="https://dmphysio.com/pain-muscles-general.html">
-  <meta property="og:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/arm%20muscles-Thumbnail.jpg">
+  <meta property="og:url" content="https://dmphysi0.com/pain-muscles-general.html">
+  <meta property="og:image" content="https://dmphysi0.com/pngs/sustoqniq/muscles/arm%20muscles-Thumbnail.webp">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Мускулни болки – причини, симптоми и лечение | DM Physio София">
   <meta name="twitter:description" content="Ръка, рамо, врат, гръб, кръст, таз, бедро/коляно, подбедрица/стъпало – как помагаме.">
-  <meta name="twitter:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/arm%20muscles-Thumbnail.jpg">
+  <meta name="twitter:image" content="https://dmphysi0.com/pngs/sustoqniq/muscles/arm%20muscles-Thumbnail.webp">
 
-  <!-- Стилове (не пипам дизайна) -->
-  <link rel="stylesheet" href="../css/top-bar.css">
-  <link rel="stylesheet" href="../css/pain-conditions.css">
+  <!-- Favicons (footer images остават както са) -->
+  <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+
+  <!-- Стилове -->
+  <link rel="stylesheet" href="/css/top-bar.css">
+  <link rel="stylesheet" href="/css/pain-conditions.css">
 
   <!-- Оптимизации за външни ресурси -->
   <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
@@ -46,37 +54,50 @@
   </noscript>
 
   <!-- Preload на LCP изображението (първата карта) -->
-  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/arm%20muscles-Thumbnail.webp" type="image/webp" fetchpriority="high">
 
-  <!-- Мини-override: само поведение + отстъп за fixed топбар -->
+  <!-- Дребни UX/достъпност -->
   <style>
     :root{ --topbar-h:76px; }
     @media (max-width:768px){ :root{ --topbar-h:64px; } }
-    
+
+    html, body { overflow-x:hidden; scroll-padding-top:72px; }
+    img { height:auto; }
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
+    a:focus, button:focus { outline:3px solid #18A558; outline-offset:2px; }
 
     /* докато видеото не е готово – снимката остава */
-    .pain-button-media.image-container:not(.video-ready) .hover-img{
-      opacity:0 !important; visibility:hidden !important;
-    }
-    .pain-button-media.image-container:not(.video-ready):hover .static-img{
-      opacity:1 !important; visibility:visible !important;
-    }
+    .pain-button-media.image-container:not(.video-ready) .hover-img{ opacity:0 !important; visibility:hidden !important; }
+    .pain-button-media.image-container:not(.video-ready):hover .static-img{ opacity:1 !important; visibility:visible !important; }
 
-    /* SEO-only H1 (скрито, без влияние върху лейаута) */
+    /* SEO-only H1 */
     .sr-only{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;}
   </style>
-<!-- Hotjar / Contentsquare -->
+
+  <!-- Hotjar / Contentsquare (отложено зареждане по моделa) -->
   <script>
-    (function (c, s, q, u, a, r, e) {
-      c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
-      c._hjSettings = { hjid: a };
-      r = s.getElementsByTagName('head')[0];
-      e = s.createElement('script');
-      e.async = true;
-      e.src = q + c._hjSettings.hjid + u;
-      r.appendChild(e);
-    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6534654);
+  (function(){
+    function loadCS(){
+      if (document.getElementById('csq-loader')) return;
+      var s = document.createElement('script');
+      s.id='csq-loader';
+      s.async = true;
+      s.src = 'https://static.hj.contentsquare.net/c/csq-6534654.js';
+      s.referrerPolicy = 'no-referrer-when-downgrade';
+      document.head.appendChild(s);
+    }
+    function tryLoad() {
+      if (window._hjSettings && typeof window.hj === 'function') loadCS();
+      else setTimeout(tryLoad, 2000);
+    }
+    window.addEventListener('load', function(){
+      if ('requestIdleCallback' in window) requestIdleCallback(tryLoad, {timeout: 8000});
+      else setTimeout(tryLoad, 8000);
+    });
+  })();
   </script>
+
   <!-- JSON-LD: WebPage + Breadcrumb + WebSite + LocalBusiness + FAQ -->
   <script type="application/ld+json">
   {
@@ -84,38 +105,38 @@
     "@graph":[
       {
         "@type":"WebPage",
-        "@id":"https://dmphysio.com/pain-muscles-general.html",
-        "url":"https://dmphysio.com/pain-muscles-general.html",
+        "@id":"https://dmphysi0.com/pain-muscles-general.html",
+        "url":"https://dmphysi0.com/pain-muscles-general.html",
         "name":"Мускулни болки – причини, симптоми и лечение",
         "inLanguage":"bg",
         "description":"Мускулни болки по зони на тялото и ефективни методи за възстановяване: мануална терапия, кинезитерапия и упражнения в DM Physio София.",
-        "primaryImageOfPage":{"@type":"ImageObject","url":"https://dmphysio.com/pngs/sustoqniq/muscles/arm%20muscles-Thumbnail.jpg"},
-        "isPartOf":{"@id":"https://dmphysio.com/#website"},
-        "breadcrumb":{"@id":"https://dmphysio.com/pain-muscles-general.html#breadcrumb"}
+        "primaryImageOfPage":{"@type":"ImageObject","url":"https://dmphysi0.com/pngs/sustoqniq/muscles/arm%20muscles-Thumbnail.webp"},
+        "isPartOf":{"@id":"https://dmphysi0.com/#website"},
+        "breadcrumb":{"@id":"https://dmphysi0.com/pain-muscles-general.html#breadcrumb"}
       },
       {
         "@type":"BreadcrumbList",
-        "@id":"https://dmphysio.com/pain-muscles-general.html#breadcrumb",
+        "@id":"https://dmphysi0.com/pain-muscles-general.html#breadcrumb",
         "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Начало","item":"https://dmphysio.com/"},
-          {"@type":"ListItem","position":2,"name":"Болкови състояния","item":"https://dmphysio.com/pain-conditions.html"},
-          {"@type":"ListItem","position":3,"name":"Мускулни болки","item":"https://dmphysio.com/pain-muscles-general.html"}
+          {"@type":"ListItem","position":1,"name":"Начало","item":"https://dmphysi0.com/"},
+          {"@type":"ListItem","position":2,"name":"Болкови състояния","item":"https://dmphysi0.com/pain-conditions.html"},
+          {"@type":"ListItem","position":3,"name":"Мускулни болки","item":"https://dmphysi0.com/pain-muscles-general.html"}
         ]
       },
       {
         "@type":"WebSite",
-        "@id":"https://dmphysio.com/#website",
-        "url":"https://dmphysio.com/",
+        "@id":"https://dmphysi0.com/#website",
+        "url":"https://dmphysi0.com/",
         "name":"DM Physio (ДМ ФИЗИО)",
         "inLanguage":"bg"
       },
       {
         "@type":"LocalBusiness",
-        "@id":"https://dmphysio.com/#business",
+        "@id":"https://dmphysi0.com/#business",
         "name":"DM Physio (ДМ ФИЗИО)",
-        "url":"https://dmphysio.com/",
+        "url":"https://dmphysi0.com/",
         "telephone":"+359883688414",
-        "image":"https://dmphysio.com/logo.png",
+        "image":"https://dmphysi0.com/logo.png",
         "priceRange":"$$",
         "address":{
           "@type":"PostalAddress",
@@ -137,7 +158,7 @@
       },
       {
         "@type":"FAQPage",
-        "@id":"https://dmphysio.com/pain-muscles-general.html#faq",
+        "@id":"https://dmphysi0.com/pain-muscles-general.html#faq",
         "mainEntity":[
           {"@type":"Question","name":"Нормално ли е мускулната треска да държи повече от 3 дни?","acceptedAnswer":{"@type":"Answer","text":"Лека до умерена треска обикновено отшумява за 48–72 часа. Ако болката се усилва или се появява оток/посиняване, е вероятно разтежение и е нужна оценка."}},
           {"@type":"Question","name":"Лед или топло при мускулна болка?","acceptedAnswer":{"@type":"Answer","text":"Първите 24–48 часа след остра травма – охлаждане и покой. При хронично напрежение/скованост – често помага топло, последвано от леки упражнения."}},
@@ -149,15 +170,16 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Към съдържанието</a>
   <!-- Скрит H1 за SEO -->
   <h1 class="sr-only">Мускулни болки – причини, симптоми и лечение | DM Physio София</h1>
 
-  <!-- ======= Top bar (TB) - новият хедър (непипан) ======= -->
+  <!-- ======= Top bar (TB) ======= -->
   <header class="tb-header" role="banner">
     <div class="tb-inner">
       <!-- Лого -->
       <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-        <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" />
+        <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" width="64" height="64" loading="eager" decoding="async" />
       </a>
 
       <!-- Хамбургер -->
@@ -178,16 +200,15 @@
             </div>
           </li>
 
-          <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-          
-          <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book">Свободни часове</a></li>
-          <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+          <li class="tb-item"><a class="tb-link is-active" href="/pain-conditions.html">Болкови състояния</a></li>
+          <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" target="_blank" rel="noopener">Свободни часове</a></li>
+          <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="page-content">
+  <main id="content" class="page-content">
     <section class="pain-conditions-detail-section">
       <div class="container">
         <h3>Изберете област с мускулна болка:</h3>
@@ -196,9 +217,9 @@
           <!-- Мускулни болки (ръка) -->
           <a href="/sustiqnia/arm/arm-muscles.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg" alt="Мускулни болки в ръката" class="static-img" loading="eager" decoding="async" fetchpriority="high">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg" aria-hidden="true">
-                <source src="/pngs/sustoqniq/muscles/arm muscles.mp4" type="video/mp4">
+              <img src="/pngs/sustoqniq/muscles/arm%20muscles-Thumbnail.webp" alt="Мускулни болки в ръката" class="static-img" loading="eager" decoding="async" fetchpriority="high" width="640" height="640">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/arm%20muscles-Thumbnail.webp" aria-hidden="true" width="640" height="640">
+                <source src="/pngs/sustoqniq/muscles/arm%20muscles.mp4" type="video/mp4">
                 Вашият браузър не поддържа видео тага.
               </video>
             </div>
@@ -208,22 +229,22 @@
           <!-- Мускулни болки (рамо) -->
           <a href="/sustiqnia/ramo/ramo-muskuli.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/scapulae-Thumbnail.jpg" alt="Мускулни болки в рамото" class="static-img" loading="lazy" decoding="async">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/scapulae-Thumbnail.jpg" aria-hidden="true">
+              <img src="/pngs/sustoqniq/muscles/scapulae-Thumbnail.webp" alt="Мускулни болки в рамото" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/scapulae-Thumbnail.webp" aria-hidden="true" width="640" height="640">
                 <source src="/pngs/sustoqniq/muscles/scapulae.mp4" type="video/mp4">
-                  Вашият браузър не поддържа видео тага.
+                Вашият браузър не поддържа видео тага.
               </video>
             </div>
             <span class="pain-button-text">Мускулни болки (Рамо)</span>
           </a>
 
           <!-- Мускулни болки (врат) -->
-          <a href="sustiqnia/neck-muscle.html" class="pain-button">
+          <a href="/sustiqnia/neck-muscle.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="pngs/sustoqniq/muscles/neck- muscles1-Thumbnail.jpg" alt="Мускулни болки във врата" class="static-img" loading="lazy" decoding="async">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/neck- muscles1-Thumbnail.jpg" aria-hidden="true">
-                <source src="pngs/sustoqniq/muscles/neck- muscles1.mp4" type="video/mp4">
-                  Вашият браузър не поддържа видео тага.
+              <img src="/pngs/sustoqniq/muscles/neck-%20muscles1-Thumbnail.webp" alt="Мускулни болки във врата" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/neck-%20muscles1-Thumbnail.webp" aria-hidden="true" width="640" height="640">
+                <source src="/pngs/sustoqniq/muscles/neck-%20muscles1.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
               </video>
             </div>
             <span class="pain-button-text">Мускулни болки (врат)</span>
@@ -232,10 +253,10 @@
           <!-- Мускулни болки (гърди и корем) -->
           <a href="/sustiqnia/gurdi/gurdi-muscles.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg" alt="Мускулни болки в гърди и корем" class="static-img" loading="lazy" decoding="async">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg" aria-hidden="true">
+              <img src="/pngs/sustoqniq/muscles/chest1-Thumbnail.webp" alt="Мускулни болки в гърди и корем" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/chest1-Thumbnail.webp" aria-hidden="true" width="640" height="640">
                 <source src="/pngs/sustoqniq/muscles/chest1.mp4" type="video/mp4">
-                  Вашият браузър не поддържа видео тага.
+                Вашият браузър не поддържа видео тага.
               </video>
             </div>
             <span class="pain-button-text">Мускулни болки (гърди и корем)</span>
@@ -244,10 +265,10 @@
           <!-- Мускулни болки (гръб) -->
           <a href="/sustiqnia/grub/muskuli-grub.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" alt="Мускулни болки в гърба" class="static-img" loading="lazy" decoding="async">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="pngs/sustoqniq/muscles/back muscles2-Thumbnail.jpg" aria-hidden="true">
-                <source src="pngs/sustoqniq/muscles/back muscles2.mp4" type="video/mp4">
-                  Вашият браузър не поддържа видео тага.
+              <img src="/pngs/sustoqniq/muscles/back%20muscles2-Thumbnail.webp" alt="Мускулни болки в гърба" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/back%20muscles2-Thumbnail.webp" aria-hidden="true" width="640" height="640">
+                <source src="/pngs/sustoqniq/muscles/back%20muscles2.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
               </video>
             </div>
             <span class="pain-button-text">Мускулни болки (Гръб)</span>
@@ -256,10 +277,10 @@
           <!-- Мускулни болки (кръст) -->
           <a href="/sustiqnia/krust/krust-muscles.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/lower back muscles-Thumbnail.jpg" alt="Мускулни болки в кръста" class="static-img" loading="lazy" decoding="async">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/lower back muscles-Thumbnail.jpg" aria-hidden="true">
-                <source src="/pngs/sustoqniq/muscles/lower back muscles.mp4" type="video/mp4">
-                  Вашият браузър не поддържа видео тага.
+              <img src="/pngs/sustoqniq/muscles/lower%20back%20muscles-Thumbnail.webp" alt="Мускулни болки в кръста" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/lower%20back%20muscles-Thumbnail.webp" aria-hidden="true" width="640" height="640">
+                <source src="/pngs/sustoqniq/muscles/lower%20back%20muscles.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
               </video>
             </div>
             <span class="pain-button-text">Мускулни болки (Кръст)</span>
@@ -268,10 +289,10 @@
           <!-- Мускулни болки (таз) -->
           <a href="/sustiqnia/dupe/dupe-muscles.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/butt muscles-Thumbnail.jpg" alt="Мускулни болки в таза" class="static-img" loading="lazy" decoding="async">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/butt muscles-Thumbnail.jpg" aria-hidden="true">
-                <source src="/pngs/sustoqniq/muscles/butt muscles.mp4" type="video/mp4">
-                  Вашият браузър не поддържа видео тага.
+              <img src="/pngs/sustoqniq/muscles/butt%20muscles-Thumbnail.webp" alt="Мускулни болки в таза" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/butt%20muscles-Thumbnail.webp" aria-hidden="true" width="640" height="640">
+                <source src="/pngs/sustoqniq/muscles/butt%20muscles.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
               </video>
             </div>
             <span class="pain-button-text">Мускулни болки (Таз)</span>
@@ -280,10 +301,10 @@
           <!-- Мускулни болки (бедро и коляно) -->
           <a href="/sustiqnia/krak/muskuli.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/knee muscles-Thumbnail.jpg" alt="Мускулни болки в бедрото и коляното" class="static-img" loading="lazy" decoding="async">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/knee muscles-Thumbnail.jpg" aria-hidden="true">
-                <source src="/pngs/sustoqniq/muscles/knee muscles.mp4" type="video/mp4">
-                  Вашият браузър не поддържа видео тага.
+              <img src="/pngs/sustoqniq/muscles/knee%20muscles-Thumbnail.webp" alt="Мускулни болки в бедрото и коляното" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/knee%20muscles-Thumbnail.webp" aria-hidden="true" width="640" height="640">
+                <source src="/pngs/sustoqniq/muscles/knee%20muscles.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
               </video>
             </div>
             <span class="pain-button-text">Мускулни болки (Бедро и коляно)</span>
@@ -292,10 +313,10 @@
           <!-- Мускулни болки (подбедрица и ходило) -->
           <a href="/sustiqnia/stupalo/muskuli.html" class="pain-button">
             <div class="pain-button-media image-container">
-              <img src="/pngs/sustoqniq/muscles/foot muscles first-Thumbnail.jpg" alt="Мускулни болки в подбедрицата и ходилото" class="static-img" loading="lazy" decoding="async">
-              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/foot muscles first-Thumbnail.jpg" aria-hidden="true">
-                <source src="/pngs/sustoqniq/muscles/foot muscles first.mp4" type="video/mp4">
-                  Вашият браузър не поддържа видео тага.
+              <img src="/pngs/sustoqniq/muscles/foot%20muscles%20first-Thumbnail.webp" alt="Мускулни болки в подбедрицата и ходилото" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+              <video class="hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/sustoqniq/muscles/foot%20muscles%20first-Thumbnail.webp" aria-hidden="true" width="640" height="640">
+                <source src="/pngs/sustoqniq/muscles/foot%20muscles%20first.mp4" type="video/mp4">
+                Вашият браузър не поддържа видео тага.
               </video>
             </div>
             <span class="pain-button-text">Мускулни болки (подбедрица и ходило)</span>
@@ -303,7 +324,7 @@
         </div>
 
         <div class="button-group">
-          <a href="pain-conditions.html" class="back-button">← Всички болкови състояния</a>
+          <a href="/pain-conditions.html" class="back-button">← Всички болкови състояния</a>
         </div>
       </div>
     </section>
@@ -314,50 +335,53 @@
       <div class="contact-container">
         <div class="contact-left">
           <div class="map">
+            <!-- Оставено както е (footer изключение) -->
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" 
                     width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
           </div>
         </div>
 
         <div class="contact-center">
           <h2>Свържете се с нас:</h2>
           <div class="social-links">
+            <!-- footer иконите остават .png/.avif по изключение -->
             <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-              <img src="/pngs/social/facebook.png" alt="Facebook">
+              <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32" loading="lazy" decoding="async">
             </a>
             <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-              <img src="/pngs/social/instagram.png" alt="Instagram">
+              <img src="/pngs/social/instagram.png" alt="Instagram" width="32" height="32" loading="lazy" decoding="async">
             </a>
             <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-              <img src="/pngs/social/Youtube.png" alt="YouTube">
+              <img src="/pngs/social/Youtube.png" alt="YouTube" width="32" height="32" loading="lazy" decoding="async">
             </a>
             <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-              <img src="/pngs/social/tiktok.png" alt="TikTok">
+              <img src="/pngs/social/tiktok.png" alt="TikTok" width="32" height="32" loading="lazy" decoding="async">
             </a>
           </div>
         </div>
 
         <div class="contact-right">
           <div class="contact-item phone">
-            <img src="/pngs/social/phone.png" alt="Телефон" class="icon">
-            <span>0883688414</span>
+            <img src="/pngs/social/phone.png" alt="Телефон" class="icon" width="24" height="24" loading="lazy" decoding="async">
+            <span><a href="tel:0883688414">0883688414</a></span>
           </div>
           <div class="contact-item work-hours">
-            <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
+            <img src="/pngs/clock.avif" alt="Работно Време" class="icon" width="24" height="24" loading="lazy" decoding="async">
             <div>
               <span>Работно време:</span><br>
               <span>Пон-Пет: 09:00 - 19:00</span><br>
               <span>Събота: 09:00 - 16:00</span><br>
-              </span>Неделя: Почивка</span>
+              <span>Неделя: Почивка</span>
             </div>
           </div>
           <div class="contact-item address-item">
-            <img src="/pngs/social/location.png" alt="Адрес" class="icon">
+            <img src="/pngs/social/location.png" alt="Адрес" class="icon" width="24" height="24" loading="lazy" decoding="async">
             <div>
               <span>София, ул. „Проф. Христо Данов“ 19</span><br>
               <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
-                Вижте на карта →</a>
+                Вижте на карта →
+              </a>
             </div>
           </div>
         </div>
@@ -372,7 +396,7 @@
   <!-- Скриптове -->
   <script src="/js/media-autoplay-cards.js" defer></script>
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-  <script src="../pain-conditions-scripts.js" defer></script>
+  <script src="/pain-conditions-scripts.js" defer></script>
   <script src="/js/topbar.js" defer></script>
 
   <!-- Маркиране като video-ready при loadeddata -->
