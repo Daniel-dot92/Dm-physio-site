@@ -37,9 +37,11 @@
   <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
 
   <!-- Локални стилове -->
-  <link rel="stylesheet" href="/css/top-bar.css" />
-  <link rel="stylesheet" href="/css/muscle.css" />
-  <link rel="stylesheet" href="/css/temple-headache.css" />
+<!-- Локален CSS: асинхронно (не блокира рендера) -->
+<link rel="preload" href="/css/temple-headache.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/temple-headache.css"></noscript>
+
 
   <!-- Перформанс: предварителни връзки -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
