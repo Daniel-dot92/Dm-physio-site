@@ -986,3 +986,41 @@ a:hover{
   .kinesitherapy-img,
   .kinesitherapy-video { transition: none; }
 }
+/* === iOS-ONLY slider fixes === */
+@supports (-webkit-touch-callout: none) {
+  /* контейнерът да се композира на GPU – по-гладко на iOS */
+  .kinesitherapy-slider-container { -webkit-transform: translateZ(0); transform: translateZ(0); }
+
+  /* пистата да работи с gap (iOS често бърка margin в flex) */
+  .kinesitherapy-slider-track{
+    display:flex;
+    gap:20px; /* само iOS вижда това правило */
+    will-change: transform;
+    -webkit-backface-visibility:hidden;
+            backface-visibility:hidden;
+    transform: translate3d(0,0,0);
+  }
+
+  /* картите – без margin; фиксираме ширината през JS */
+  .kinesitherapy-button{
+    margin:0 !important;
+    flex:0 0 auto !important;
+    box-sizing:border-box;
+  }
+
+  /* видео да не краде клика върху <a> */
+  .kinesitherapy-video{ pointer-events:none !important; }
+
+  /* микро-подобрение на анимацията */
+  .kinesitherapy-img,
+  .kinesitherapy-video{
+    -webkit-backface-visibility:hidden;
+            backface-visibility:hidden;
+    transform: translateZ(0);
+  }
+
+  /* малко по-компактни стрелки на iOS телефони */
+  @media (max-width: 768px){
+    .slider-arrow{ padding:6px 9px; font-size:1.4em; }
+  }
+}

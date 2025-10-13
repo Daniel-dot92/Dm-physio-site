@@ -760,7 +760,7 @@
 <script src="../js/temple-headache.js" defer></script>
 <script src="../js/procedurs-slider.js" defer></script>
 
-<!-- Хелпър за видеата (фиксирани кликове/тапове в слайдера) -->
+<!-- Хелпър за видеата (не блокира навигацията; форсира линка при нужда) -->
 <script>
 (function () {
   function ensureVideoHasSrc(video){
@@ -770,56 +770,37 @@
     if (s){ s.src = s.dataset.src; try{ video.load(); }catch(e){} }
   }
   function safePlay(v){ if (!v || !v.paused || !v.play) return; v.muted = true; const p=v.play(); if(p&&p.catch) p.catch(()=>{}); }
-  function safePause(v){ if (!v || v.paused || !v.pause) return; v.pause(); try{ v.currentTime = 0; }catch(e){} }
+  function safePause(v){ if (!v || v.paused || !v.pause) return; v.pause(); }
 
-  function bindHover(card){
-    card.addEventListener('mouseenter', () => {
-      const v = card.querySelector('.kinesitherapy-video');
-      ensureVideoHasSrc(v);
-      safePlay(v);
-    }, {passive:true});
-    card.addEventListener('mouseleave', () => {
-      const v = card.querySelector('.kinesitherapy-video');
-      safePause(v);
-    }, {passive:true});
-  }
+  const cards = document.querySelectorAll('.kinesitherapy-button');
 
-  // ✅ Позволява навигацията: на мобилни първи тап пуска видео, втори тап (до 800 ms) отваря линка
-  function bindTap(card){
-    let armed = false, tId = null;
+  // Навигация винаги да работи. Ако някой друг listener е спрял клика, форсираме.
+  cards.forEach((card) => {
+    const href = card.getAttribute('href');
+
+    // 1) Видео поведение (без preventDefault)
+    const v = card.querySelector('.kinesitherapy-video');
+
+    // Desktop: play/pause на hover
+    card.addEventListener('pointerenter', () => { ensureVideoHasSrc(v); safePlay(v); }, {passive:true});
+    card.addEventListener('pointerleave', () => { safePause(v); }, {passive:true});
+
+    // Touch: пуска за кратко, без да блокира навигацията
+    card.addEventListener('touchstart', () => { ensureVideoHasSrc(v); safePlay(v); }, {passive:true});
+    card.addEventListener('touchend', () => { setTimeout(() => safePause(v), 500); }, {passive:true});
+
+    // 2) Ако някой скрипт (напр. drag/slider) е preventDefault-нал клика -> навигирай ръчно
     card.addEventListener('click', (e) => {
-      const media = e.target.closest('.kinesitherapy-button-media');
-      if (!media) return; // клик извън медията => нормална навигация
-
-      const v = card.querySelector('.kinesitherapy-video');
-      ensureVideoHasSrc(v);
-
-      const isTouch = matchMedia('(hover: none)').matches || 'ontouchstart' in window;
-
-      if (isTouch){
-        if (!armed){
-          e.preventDefault();          // първи тап: само видео
-          safePlay(v);
-          armed = true;
-          clearTimeout(tId);
-          tId = setTimeout(() => armed = false, 800);
-        } else {
-          // втори тап: не пречим на навигацията
-          armed = false;
-          clearTimeout(tId);
-        }
-      } else {
-        // десктоп: не блокираме клика (навигира веднага)
+      if (!href) return;
+      if (e.defaultPrevented) {
+        // друг listener е блокирал клика – отвори все пак
+        window.location.assign(href);
       }
-    }, {passive:false});
-  }
-
-  document.querySelectorAll('.kinesitherapy-button').forEach((card) => {
-    bindHover(card);
-    bindTap(card);
+      // иначе – позволяваме нормалната навигация на браузъра
+    }, {capture:true});
   });
 
-  // Lazy-load видео в картите на слайдера
+  // Lazy-load на видеата в картите
   if ('IntersectionObserver' in window){
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(en=>{
@@ -830,10 +811,10 @@
         }
       });
     }, { root:null, rootMargin:'200px 0px', threshold:0 });
-    document.querySelectorAll('.kinesitherapy-button').forEach(c=>io.observe(c));
+    cards.forEach(c=>io.observe(c));
   }
 
-  // Общ hover/touch контрол за всички .image-container видеа (hero, intro, anatomy)
+  // Видео helper за всички .image-container (hero/intro/anatomy)
   document.querySelectorAll('.image-container').forEach(box => {
     const vid = box.querySelector('video');
     if (!vid) return;
@@ -847,6 +828,7 @@
   });
 })();
 </script>
+
 
 
 <!-- Lazy карта (само при видимост) -->
