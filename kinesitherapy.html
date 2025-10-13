@@ -28,24 +28,25 @@
   <meta name="twitter:description" content="Индивидуален терапевтичен план и записване онлайн. Виж всички кинезитерапевтични процедури.">
   <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.webp">
 
-  <!-- CSS (като в шаблона), с относителни пътища -->
+  <!-- CSS (като в шаблона) -->
   <link rel="preload" href="./css/styles-procedures.css" as="style">
   <link rel="stylesheet" href="./css/styles-procedures.css">
-
-  <!-- make top-bar.css non-blocking -->
-  <link rel="preload" href="./css/top-bar.css" as="style">
-  <link rel="stylesheet" href="./css/top-bar.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="./css/top-bar.css"></noscript>
+  <link rel="stylesheet" href="./css/top-bar.css">
 
   <!-- Икони (неблокиращи) -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></noscript>
 
-  <!-- Preload на вероятния LCP постер (по избор) -->
+  <!-- Външни домейни за аналитики (отложено зареждане) -->
+  <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
+  <link rel="preconnect" href="https://t.contentsquare.net" crossorigin>
+  <link rel="preconnect" href="https://c.ba.contentsquare.net" crossorigin>
+
+  <!-- Preload на вероятния LCP (първата карта) -->
   <link rel="preload" as="image" href="./pngs/procedures/KT.webp" fetchpriority="high">
 
-  <!-- Локални дребни фиксове (същите като services.html) -->
+  <!-- Локални дребни фиксове -->
   <style>
     :root{ --topbar-h: 76px; }
     @media (max-width: 768px){ :root{ --topbar-h: 64px; } }
@@ -63,12 +64,12 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
 
-    /* Медия контейнер 16:9 (точно като services.html) */
+    /* Медия контейнер 16:9 (както services.html) */
     .image-container { aspect-ratio: 16/9; overflow:hidden; }
     .image-container > img.static-img,
     .image-container > video.hover-img{ object-fit:cover; object-position:center center; }
 
-    /* Хиро – същият стил */
+    /* Хиро (същият стил като services.html) */
     .page-hero{ padding:36px 0 22px; background:#fff; border-bottom:1px solid #eef2f3; }
     .page-hero h1{
       font-weight:800; font-size:clamp(28px, 3.2vw + 1rem, 44px);
@@ -226,6 +227,7 @@
                    alt="Функционална оценка" loading="lazy" decoding="async" width="640" height="360">
               <video class="img img--hover hover-img" loop muted playsinline preload="none"
                      poster="./pngs/procedures/gif/function3-Thumbnail.webp" aria-hidden="true">
+                <!-- ако файлът ти е 'funciton.mp4', запази точното име -->
                 <source src="./pngs/procedures/gif/funciton.mp4" type="video/mp4">
               </video>
             </div>
@@ -453,7 +455,7 @@
                 });
 
                 document.getElementById('cancelForm')?.addEventListener('click', function(){
-                  document.getElementById('adviceReveal').removeAttribute('open');
+                  document.getElementById('adviceReveal')?.removeAttribute('open');
                 });
               })();
               </script>
@@ -593,7 +595,7 @@
 })();
 </script>
 
-<!-- Hover + visibility control (точно като в services.html) -->
+<!-- Hover + visibility control (като в шаблона) -->
 <script>
 (function () {
   const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
