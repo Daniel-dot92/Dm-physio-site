@@ -950,3 +950,25 @@ html, body { margin: 0 !important; padding: 0 !important; }
     display: block;
   }
 }
+/* REPLACE това правило за .highlight */
+.highlight{
+  color:#111;              /* четим тъмен текст */
+  
+  padding:0 .15em;
+  border-radius:.15em;
+  font-weight:700;
+}
+/* Ясен фокус по целия сайт */
+a:focus-visible, button:focus-visible, .kinesitherapy-button:focus-visible {
+  outline: 3px solid #18a558;
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* Линковете да са четими и без ховър-зависимост */
+a{
+  text-underline-offset: 2px;
+}
+a:hover{
+  text-decoration-thickness: from-font;
+}
