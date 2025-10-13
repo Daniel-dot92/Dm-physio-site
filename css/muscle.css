@@ -1,9 +1,6 @@
-﻿/*********************************************************
- * LIGHT THEME + SIDE LAYOUT (media left, details right) *
- *********************************************************/
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
-/* ������ ��� �� �������� */
+/* ========= MUSCLE ANATOMY SECTION ========= */
 .muscle-anatomy-section {
   --bg: #f7f9fc;
   --card: #ffffff;
@@ -25,7 +22,6 @@
   padding-bottom: clamp(28px, 3.2vw, 48px);
 }
 
-/* �������� � ����� ��� ����� �������� */
 .muscle-anatomy-section .section-title {
   background: linear-gradient(90deg, #0f172a, #1f2937 50%, #2563eb);
   -webkit-background-clip: text;
@@ -34,14 +30,21 @@
   filter: none;
 }
 
-/* ������� �� ����� */
+.muscle-anatomy-section .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-top: 1px solid var(--border);
+  padding-top: clamp(16px, 2vw, 24px);
+}
+
 .muscle-anatomy-section .muscle-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(16px, 2vw, 24px);
 }
 
-/* ����� �� ������: ��� ������ � ���� �����, ����� ������� */
 .muscle-anatomy-section .muscle-item {
   background: var(--card);
   border: 1px solid var(--border);
@@ -50,12 +53,11 @@
   padding: clamp(14px, 1.6vw, 18px);
 
   display: grid;
-  grid-template-columns: minmax(270px, 0.95fr) 1.05fr;
+  grid-template-columns: 450px minmax(0, 1fr);
   gap: clamp(12px, 1.5vw, 16px);
   align-items: start;
 }
 
-/* �������� ����� � ������� */
 .muscle-anatomy-section .muscle-item > h3,
 .muscle-anatomy-section .muscle-item > h4 {
   grid-column: 1 / -1;
@@ -63,59 +65,73 @@
 }
 .muscle-anatomy-section .muscle-item > h4 { color: var(--muted); }
 
-/* ===== ����: ����� ===== */
+/* Media (картинка/видео) */
 .muscle-anatomy-section .muscle-media {
   position: relative;
-  aspect-ratio: 4/3;
-  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border, #e5e7eb);
   background: #f3f4f6;
+  margin: 0 auto;
 }
-.muscle-anatomy-section .muscle-media img,
-.muscle-anatomy-section .muscle-media video {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
+.muscle-anatomy-section .muscle-media > img,
+.muscle-anatomy-section .muscle-media > video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
   transition: opacity .3s ease, transform .3s ease, filter .3s ease;
 }
 .muscle-anatomy-section .muscle-media .static-muscle-img { opacity: 1; z-index: 1; }
-.muscle-anatomy-section .muscle-media .hover-muscle-video { opacity: 0; z-index: 2; transform: scale(1.01); }
+.muscle-anatomy-section .muscle-media .hover-muscle-video { opacity: 0; z-index: 2; }
 .muscle-anatomy-section .muscle-media:hover .hover-muscle-video,
-.muscle-anatomy-section .muscle-media:focus-within .hover-muscle-video { opacity: 1; transform: none; }
+.muscle-anatomy-section .muscle-media:focus-within .hover-muscle-video { opacity: 1; }
 .muscle-anatomy-section .muscle-media:hover .static-muscle-img,
 .muscle-anatomy-section .muscle-media:focus-within .static-muscle-img { opacity: 0; }
 
-/* ����� ����� "�����" (��-������) */
+/* Малък етикет "video" */
 .muscle-anatomy-section .muscle-media::before {
-  content: "video";
-  position: absolute; left: 10px; top: 10px;
-  font-size: 12px; padding: 6px 10px;
+  content: "▶ video";
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: system-ui, sans-serif;
+  padding: 5px 12px 5px 10px;
   border-radius: 999px;
-  background: rgba(255,255,255,.85);
-  border: 1px solid var(--border);
-  color: #111827;
-  backdrop-filter: blur(6px);
+  background: rgba(17, 24, 39, 0.9);
+  color: #fff;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
   z-index: 3;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.muscle-anatomy-section .muscle-media:hover::before {
+  background: rgba(34, 197, 94, 0.95);
+  transform: scale(1.05);
 }
 
-/* ===== �����: ������� (�������� ������) ===== */
+/* Details / info blocks */
 .muscle-anatomy-section .muscle-details {
   display: flex;
-  flex-direction: column;      /* ���� ��� ����� */
-  gap: clamp(10px, 1.2vw, 14px);
-  align-self: stretch;         /* ������� �������� �� �������� �� ������� */
-  justify-content: flex-start; /* �������� � �������� */
+  flex-direction: column;
+  gap: 12px;
+  align-self: stretch;
 }
-
-/* ���������� ������� ����� ���� ������, �� �� �� ���� ��� ����� */
 .muscle-anatomy-section .muscle-info-grid {
   display: grid;
-  grid-template-columns: 1fr;  /* <-- �������: ���� ������ */
-  gap: clamp(10px, 1.2vw, 14px);
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
-/* ����-���� (�������� / �������� �� �������) */
 .muscle-anatomy-section .info-block {
   background: #ffffff;
   border: 1px solid var(--border);
@@ -123,16 +139,14 @@
   padding: clamp(12px, 1.4vw, 16px);
   box-shadow: inset 0 1px 0 rgba(17,24,39,.03);
 }
-
-.muscle-anatomy-section .block-header i { color: var(--brand); }
-.muscle-anatomy-section .pain-char-block .block-header i { color: var(--danger); }
-
 .muscle-anatomy-section .block-header {
   display: flex; align-items: center; gap: 8px; margin-bottom: .5rem;
 }
 .muscle-anatomy-section .block-header h4 {
   margin: 0; font-size: clamp(14px, 1.1vw, 16px); color: #0f172a;
 }
+.muscle-anatomy-section .block-header i { color: var(--brand); }
+.muscle-anatomy-section .pain-char-block .block-header i { color: var(--danger); }
 
 .muscle-anatomy-section .info-block p {
   margin: 0 0 .75rem; line-height: 1.55; color: var(--text);
@@ -148,23 +162,23 @@
   font-size: 14px;
 }
 
-/* ������ � ������� */
+/* Bullet списъци */
 .muscle-anatomy-section .pain-char-block ul {
   margin: .4rem 0 0; padding-left: 1.1rem; display: grid; gap: 6px;
 }
 .muscle-anatomy-section .pain-char-block li { line-height: 1.55; color: var(--text); }
 .muscle-anatomy-section .pain-char-block ul li::marker { color: #f59e0b; }
 
-/* ������ ��������� */
-.muscle-anatomy-section .container { border-top: 1px solid var(--border); padding-top: clamp(16px, 2vw, 24px); }
+/* Разделител между картите */
 .muscle-anatomy-section .muscle-item + .muscle-item { margin-top: 2px; }
 
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 900px) {
-  .muscle-anatomy-section .muscle-item {
-    grid-template-columns: 1fr; /* ���� (����� ������, ������� ������) */
+  .muscle-anatomy-section .muscle-item { grid-template-columns: 1fr; }
+  .muscle-anatomy-section .muscle-media {
+    max-width: 280px;
+    margin: 0 auto;
   }
-  .muscle-anatomy-section .muscle-media { aspect-ratio: 16/10; }
 }
 @media (prefers-reduced-motion: reduce) {
   .muscle-anatomy-section .muscle-media img,
@@ -172,312 +186,76 @@
     transition: opacity .2s linear;
   }
 }
-/* ������������ �������� �� ���������� */
-.muscle-anatomy-section .container {
-  max-width: 1000px;   /* ����� �� ������� � 900px */
-  margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
-}
 
-/* ������ ������� (������ + �����) ������� 1:1 */
-.muscle-anatomy-section .muscle-media {
-  aspect-ratio: 1 / 1;     /* ������� */
-  max-width: 320px;        /* �� �� �� � ��������� ������ */
-  margin: 0 auto;
+/* ========= HEALING SECTION (ALTERNATIVE STYLE) ========= */
+.healing-section.alternative-style {
+  padding: 0 20px;
+  background-color: #eef4f7;
+  text-align: center;
 }
-
-/* ��� ������� ������ � ������� ��� �������, �� ��-����� */
-@media (max-width: 768px) {
-  .muscle-anatomy-section .muscle-media {
-    max-width: 260px;
-  }
+.healing-section.alternative-style .section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #005662;
+  margin-bottom: 15px;
 }
-/* ====== FIX: �����/������ �� �� "��������" ====== */
-
-/* ��-����� ��������� �� �������� */
-.muscle-anatomy-section .container {
-  max-width: 1000px;     /* ��� ����� ��� ��-�����: 900px */
-  margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
+.healing-section.alternative-style .section-subtitle {
+  font-size: 1.3rem;
+  color: #7f8c8d;
+  margin-bottom: 20px;
 }
-
-/* �������: ���� ������ �� ������� � ��������� ������, ����� � ��������� */
-.muscle-anatomy-section .muscle-item {
+.healing-section.alternative-style .healing-steps-grid {
   display: grid;
-  grid-template-columns: 450px minmax(0, 1fr); /* 320px �������� ����� */
-  gap: clamp(12px, 1.5vw, 16px);
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
 }
-
-/* ������� 1:1 �� ������� + ����������� ������ */
-.muscle-anatomy-section .muscle-media {
-  position: relative;
-  width: 100%;           /* ������� 320px �������� */
-  max-width: 450px;      /* ����������� �� ������ ������ */
-  aspect-ratio: 1 / 1;   /* ������� */
-  overflow: hidden;
-  border-radius: 14px;
-  border: 1px solid var(--border, #e5e7eb);
-  background: #f3f4f6;   /* ������ ���, �� �� ����� ���� ��� ����� �� ����� */
-}
-
-/* ���������� ������ (������/�����) �� �������� �������� */
-.muscle-anatomy-section .muscle-media > img,
-.muscle-anatomy-section .muscle-media > video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* ��� ����� ����� */
-  display: block;
-  transition: opacity .3s ease, transform .3s ease, filter .3s ease;
-}
-
-/* �� ������������: �������� �� �����, ������� � ������ */
-.muscle-anatomy-section .muscle-media .static-muscle-img { opacity: 1; z-index: 1; }
-.muscle-anatomy-section .muscle-media .hover-muscle-video { opacity: 0; z-index: 2; }
-
-/* ��� hover/focus: ��������� ������� */
-.muscle-anatomy-section .muscle-media:hover .hover-muscle-video,
-.muscle-anatomy-section .muscle-media:focus-within .hover-muscle-video { opacity: 1; }
-.muscle-anatomy-section .muscle-media:hover .static-muscle-img,
-.muscle-anatomy-section .muscle-media:focus-within .static-muscle-img { opacity: 0; }
-
-/* Малък етикет "video" върху медия */
-.muscle-anatomy-section .muscle-media::before {
-  content: "▶ video";
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  font-size: 13px;
-  font-weight: 600;
-  font-family: system-ui, sans-serif;
-  padding: 5px 12px 5px 10px;
-  border-radius: 999px;
-  background: rgba(17, 24, 39, 0.9); /* почти черен */
-  color: #fff;
-  letter-spacing: 0.3px;
-  line-height: 1;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  backdrop-filter: blur(4px);  /* лек "frosted glass" ефект */
-  z-index: 3;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.muscle-anatomy-section .muscle-media:hover::before {
-  background: rgba(34, 197, 94, 0.95); /* зелено при hover */
-  transform: scale(1.05);
-}
-
-
-/* ��������� ������ � ���� ��� �����, ��������� �� ������� */
-.muscle-anatomy-section .muscle-details {
+.healing-section.alternative-style .healing-step {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(44, 62, 80, 0.1);
+  padding: 20px 30px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  align-self: stretch;      /* ������ �������� ���� ������� ��� ���������� ���������� */
-}
-.muscle-anatomy-section .muscle-info-grid {
-  display: grid;
-  grid-template-columns: 1fr; /* �������� � ����� � ���������� */
-  gap: 12px;
-}
-
-/* ������� ������: ��������, �� ����� ������� 1:1 */
-@media (max-width: 900px) {
-  .muscle-anatomy-section .muscle-item {
-    grid-template-columns: 1fr;         /* ����� ������, ����� ������ */
-  }
-  .muscle-anatomy-section .muscle-media {
-    max-width: 280px;                    /* ����� ��-����� ������� */
-    margin: 0 auto;                      /* ���������� */
-  }
-}
-/* Alternative Healing Section Styles */
-.healing-section.alternative-style {
-    padding: 0px 20px;
-    background-color: #eef4f7;
-    text-align: center;
-}
-
-.healing-section.alternative-style .section-title {
-    font-size: 2.8rem;
-    font-weight: 800;
-    color: #005662;
-    margin-bottom: 15px;
-}
-
-.healing-section.alternative-style .section-subtitle {
-    font-size: 1.3rem;
-    color: #7f8c8d;
-    margin-bottom: 20px;
-}
-
-.healing-section.alternative-style .healing-steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    justify-items: center;
-}
-
-.healing-section.alternative-style .healing-step {
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.1);
-    padding: 20px 30px;
-    text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.healing-section.alternative-style .healing-step::before {
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
-    transition: all 0.5s ease;
-    z-index: 0;
-}
-
-.healing-section.alternative-style .healing-step:hover::before {
-    top: 0;
-}
-
-.healing-section.alternative-style .healing-step > * {
-    position: relative;
-    z-index: 1;
-}
-
-.healing-section.alternative-style .step-icon-circle {
-    width: 80px;
-    height: 80px;
-    background: #3498db;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
-    transition: background-color 0.4s ease;
-}
-
-.healing-section.alternative-style .healing-step:hover .step-icon-circle {
-    background-color: #2ecc71;
-}
-
-.healing-section.alternative-style .step-icon-circle i {
-    font-size: 2.5rem;
-    color: #fff;
-}
-
-.healing-section.alternative-style .healing-step h3 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.healing-section.alternative-style .healing-step p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #555;
-    margin-bottom: 0;
-}
-
-.healing-section.alternative-style .highlight {
-    font-weight: bold;
-    color: #2ecc71;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .healing-section.alternative-style .healing-steps-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .healing-section.alternative-style .healing-step {
-        max-width: none;
-    }
-} 
-footer {
-  font-size: 25px;          /* ��-���� ����� ����� */
-  line-height: 1.6;
-  background: #f9f9f9;
-  padding: 40px 20px;
-  color: #222;
-}
-
-footer h2 {
-  font-size: 2 rem;        /* ~25px */
-  margin-bottom: 15px;
-  font-weight: 700;
-}
-
-footer .contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-footer .social-links img {
-  width: 80px;              /* ��-������ �������� ����� */
-  height: 80px;
-  object-fit: contain;
-}
-
-footer .icon {
-  width: 60px;              /* ��-������ ������ �� �������/��������/����� */
-  height: 60px;
-  flex-shrink: 0;
-}
-
-footer .contact-item {
-  display: flex;
-  gap: 12px;
   align-items: center;
-  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
 }
-
-footer .work-hours span,
-footer .address-item span,
-footer .contact-item span {
-  font-size: 1.05rem;       /* ����� ��-���� �� ������� */
+.healing-section.alternative-style .healing-step::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
+  transition: all 0.5s ease;
+  z-index: 0;
 }
-
-footer .footer-links {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 1rem;
+.healing-section.alternative-style .healing-step:hover::before { top: 0; }
+.healing-section.alternative-style .healing-step > * { position: relative; z-index: 1; }
+.healing-section.alternative-style .step-icon-circle {
+  width: 80px; height: 80px; background: #3498db; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 25px;
+  transition: background-color 0.4s ease;
 }
-
-/* Responsive */
+.healing-section.alternative-style .healing-step:hover .step-icon-circle { background-color: #2ecc71; }
+.healing-section.alternative-style .step-icon-circle i { font-size: 2.5rem; color: #fff; }
+.healing-section.alternative-style .healing-step h3 {
+  font-size: 1.6rem; font-weight: 700; color: #333; margin-bottom: 15px;
+}
+.healing-section.alternative-style .healing-step p {
+  font-size: 1.1rem; line-height: 1.7; color: #555; margin-bottom: 0;
+}
+.healing-section.alternative-style .highlight { font-weight: bold; color: #2ecc71; }
 @media (max-width: 768px) {
-  footer {
-    font-size: 16px;
-  }
-  footer .contact-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 25px;
-  }
-  footer iframe {
-    width: 100% !important;
-    height: 220px !important;
-  }
+  .healing-section.alternative-style .healing-steps-grid { grid-template-columns: 1fr; }
+  .healing-section.alternative-style .healing-step { max-width: none; }
 }
-/* ===== FOOTER � layout � ����� ���� �� ���������� ===== */
+
+/* ========= FOOTER (единствен, консолидаран блок) ========= */
 footer{
   background:#f3f5f7;
   padding: 40px 0 28px;
@@ -485,10 +263,9 @@ footer{
   font-size: 18px;
   line-height: 1.6;
 }
-
 footer .contact-section{ max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 
-/* ��� ������: ����� (���������), ������ (�����), ����� (�������/���/�����) */
+/* layout: лява (карта), център (социалки), дясна (тел/време/адрес) */
 footer .contact-container{
   display: grid;
   grid-template-columns: 360px 1fr 1.2fr;
@@ -496,7 +273,7 @@ footer .contact-container{
   align-items: start;
 }
 
-/* --- ����: ����� --- */
+/* карта */
 footer .contact-left .map iframe{
   width: 360px; height: 260px;
   border: 0;
@@ -506,11 +283,11 @@ footer .contact-left .map iframe{
   display:block;
 }
 
-/* --- ������: �������� + �������� --- */
+/* център */
 footer .contact-center{ text-align: center; }
 footer .contact-center h2{
   margin: 0 0 14px;
-  font-size: 2rem;        /* ~32px */
+  font-size: 2rem;
   font-weight: 800;
 }
 footer .social-links{
@@ -519,20 +296,20 @@ footer .social-links{
 }
 footer .social-links a{ display:inline-flex; }
 footer .social-links img{
-  width: 64px; height: 64px;   /* ���� �������� ����� */
+  width: 64px; height: 64px;
   object-fit: contain; display:block;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
   border-radius: 8px;
 }
 
-/* --- �����: ������� �����, ������� �����, ����� --- */
+/* дясно */
 footer .contact-right{ }
 footer .contact-item{ display:flex; gap:12px; align-items:center; margin-bottom: 16px; }
 footer .icon{ width: 48px; height: 48px; object-fit: contain; flex:0 0 48px; }
 
 footer .contact-item.phone .icon{ width: 54px; height: 54px; }
 footer .contact-item.phone span{
-  font-size: 2.2rem;      /* ~35px */
+  font-size: 2.2rem;
   font-weight: 800;
   letter-spacing: .5px;
 }
@@ -546,16 +323,15 @@ footer .map-link{
 }
 footer .map-link:hover{ text-decoration: none; }
 
-/* ����� ��� � ������� */
 footer .footer-links{
   margin-top: 22px; text-align:center; font-size: 1.05rem;
 }
 footer .footer-links a{ color:#0b66ff; }
 
-/* --- Responsive --- */
+/* Responsive footer */
 @media (max-width: 1024px){
   footer .contact-container{
-    grid-template-columns: 320px 1fr;    /* ����� + ����������� ����� ������ */
+    grid-template-columns: 320px 1fr;
     grid-auto-rows: auto;
   }
   footer .contact-center{ order: 2; }
@@ -570,10 +346,7 @@ footer .footer-links a{ color:#0b66ff; }
   footer .contact-item.phone span{ font-size: 1.9rem; }
 }
 
-
-/* ====== UX ���������� � ������ �� ������� ====== */
-
-/* 1) �������� ���������� �� ������� � ����� */
+/* ========= FOOTER – UX подобрения ========= */
 :root{
   --f-accent: #0b66ff;
   --f-ink: #0f172a;
@@ -581,8 +354,6 @@ footer .footer-links a{ color:#0b66ff; }
   --f-soft-shadow: 0 8px 24px rgba(15, 23, 42, .08);
   --f-ring: 0 0 0 3px rgba(11,102,255,.18);
 }
-
-/* 2) ������ ������� �� ������������ �� �������� ���� */
 footer a, 
 footer .social-links a,
 footer .contact-item,
@@ -599,8 +370,6 @@ footer .social-links img{
     color .25s ease,
     background-color .25s ease;
 }
-
-/* 3) �������� ����� � ���������� + ���� ������ */
 footer .social-links a{
   position: relative;
   border-radius: 10px;
@@ -617,8 +386,6 @@ footer .social-links a:focus-visible img{
 footer .social-links a:active{
   transform: translateY(-1px) scale(.99);
 }
-
-/* 4) ������� ������ � ���� ����� ��� ����� */
 footer .contact-item{
   border-radius: 14px;
   padding: 8px 10px;
@@ -633,8 +400,6 @@ footer .contact-item .icon{
 footer .contact-item:hover .icon{
   transform: scale(1.06) rotate(-2deg);
 }
-
-/* 5) ������� � ������ ��� ����� (��� �����) */
 @keyframes f-pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.03); }
@@ -643,8 +408,6 @@ footer .contact-item.phone:hover span{
   color: var(--f-accent);
   animation: f-pulse .8s ease-in-out;
 }
-
-/* 6) ������� ���� � ��������� ������������ */
 footer .footer-links a{
   position: relative;
   text-decoration: none;
@@ -656,10 +419,8 @@ footer .footer-links a{
 footer .footer-links a:hover,
 footer .footer-links a:focus-visible{
   color: var(--f-accent);
-  background-size: 100% 2px;    /* �� ������� ��� �������� */
+  background-size: 100% 2px;
 }
-
-/* 7) ���� ��� ����� � ���������� ��� ����� */
 footer .map-link{
   position: relative;
 }
@@ -674,8 +435,6 @@ footer .map-link:focus-visible::after{
   opacity: .9;
   transform: translateY(-1px);
 }
-
-/* 8) ����� � ���� �������� �� iframe ��� ����� */
 footer .contact-left .map iframe{
   transition: transform .3s ease, box-shadow .3s ease;
 }
@@ -683,14 +442,10 @@ footer .contact-left .map iframe:hover{
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(0,0,0,.12);
 }
-
-/* 9) ����� ������� �� ���������� */
 footer a:focus-visible{
   box-shadow: var(--f-ring);
   border-radius: 10px;
 }
-
-/* 10) �Back to top� ����� �� ������ (������ �� �� �������) */
 footer .back-to-top{
   display:inline-flex;
   align-items:center;
@@ -707,7 +462,7 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
   footer .back-to-top{ display:none; }
 }
 
-/* 11) ����� ���� (�����������) */
+/* Dark mode за footer */
 @media (prefers-color-scheme: dark){
   :root{
     --f-bg:#0b1220;
@@ -722,5 +477,3 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
   footer .social-links img{ filter: drop-shadow(0 2px 6px rgba(0,0,0,.6)); }
   footer .contact-item:hover{ background: rgba(11,102,255,.14); }
 }
-
-
