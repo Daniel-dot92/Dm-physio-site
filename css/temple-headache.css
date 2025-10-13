@@ -972,3 +972,17 @@ a{
 a:hover{
   text-decoration-thickness: from-font;
 }
+/* Hover анимации само където има hover */
+@media (hover: hover) {
+  .image-container img,
+  .image-container video,
+  .kinesitherapy-img,
+  .kinesitherapy-video { transition: opacity .24s ease-in-out; }
+}
+/* На touch устройства махаме преходите за по-малко репейнт */
+@media (hover: none) {
+  .image-container img,
+  .image-container video,
+  .kinesitherapy-img,
+  .kinesitherapy-video { transition: none; }
+}
