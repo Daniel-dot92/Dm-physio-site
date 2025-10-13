@@ -43,18 +43,15 @@
 
   <!-- Перформанс: предварителни връзки -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Външни CSS (неблокиращо) + fallback -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         media="print" onload="this.media='all'">
   <noscript>
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </noscript>
@@ -244,9 +241,10 @@
         <h1>Замайване, Гадене и Световъртеж</h1>
         <p>Разберете как напрежението в мускулите на врата може да причини тези неочаквани симптоми.</p>
         <div class="hero-buttons">
-          <button class="button primary-button calendly-button" data-calendly-url="https://book.dmphysi0.com/book?utm_source=site&utm_medium=dizziness&utm_campaign=booking">
+          <!-- БЕЗ Calendly: директен линк -->
+          <a class="button primary-button" href="https://book.dmphysi0.com/book?utm_source=site&utm_medium=dizziness&utm_campaign=booking" rel="noopener">
             <i class="fas fa-stethoscope" aria-hidden="true"></i> Запазете час сега
-          </button>
+          </a>
           <a href="../services.html" class="button outline-button">
             <i class="fas fa-lightbulb" aria-hidden="true"></i> Нашите процедури
           </a>
@@ -538,8 +536,7 @@
 
         <div class="kinesitherapy-slider-track">
 
-          <a href="../procedures/details-kinesitherapy.html" class="kinesitherapy-button"
-             data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+          <a href="../procedures/details-kinesitherapy.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
               <img src="/pngs/procedures/KT.webp" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
@@ -551,8 +548,7 @@
             <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
           </a>
 
-          <a href="../procedures/lecheben-masaj.html" class="kinesitherapy-button"
-             data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
+          <a href="../procedures/lecheben-masaj.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
               <img src="/pngs/massages/lecheben.webp" alt="Лечебен Масаж" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
@@ -564,8 +560,7 @@
             <span class="kinesitherapy-button-text">Лечебен Масаж</span>
           </a>
 
-          <a href="../procedures/masaj.deeptisue.html" class="kinesitherapy-button"
-             data-calendly-url="https://calendly.com/voltermdfk/1">
+          <a href="../procedures/masaj.deeptisue.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
               <img src="/pngs/massages/deeptissue.webp" alt="Дълбокотъканен Масаж" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
@@ -577,8 +572,7 @@
             <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
           </a>
 
-          <a href="../procedures/functional-assessment.html" class="kinesitherapy-button"
-             data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
+          <a href="../procedures/functional-assessment.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
               <img src="/pngs/procedures/function.webp" alt="Функционална оценка" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
@@ -590,8 +584,7 @@
             <span class="kinesitherapy-button-text">Функционална оценка</span>
           </a>
 
-          <a href="../procedures/specialized-exercises.html" class="kinesitherapy-button"
-             data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
+          <a href="../procedures/specialized-exercises.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
               <img src="/pngs/procedures/exercises.webp" alt="Упражнения" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
@@ -603,8 +596,7 @@
             <span class="kinesitherapy-button-text">Упражнения</span>
           </a>
 
-          <a href="../procedures/dry-needling.html" class="kinesitherapy-button"
-             data-calendly-url="https://calendly.com/voltermdfk/50-clone">
+          <a href="../procedures/dry-needling.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
               <img src="/pngs/procedures/gif/drineedling-Thumbnail.webp" alt="Терапия със сухи игли"
                    class="kinesitherapy-img" loading="lazy" decoding="async" width="320" height="180">
@@ -616,8 +608,7 @@
             <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
           </a>
 
-          <a href="../procedures/kinesiotaping.html" class="kinesitherapy-button"
-             data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+          <a href="../procedures/kinesiotaping.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
               <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.webp" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
