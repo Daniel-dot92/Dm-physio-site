@@ -572,3 +572,77 @@ footer .back-to-top:hover, .footer .back-to-top:hover{ transform:translateY(-3px
   -webkit-backface-visibility: hidden;
   will-change: opacity;
 }
+/* === 1) HERO offset за мобилно (без да пипаме топбара) === */
+/* добавя безопасен padding-top само на хиро секцията при тесни екрани */
+@media (max-width: 768px){
+  .hero-subpage,
+  .page-hero{
+    /* ~височина на фиксирания бар + малко въздух; работи и с iOS notch */
+    padding-top: clamp(56px, 8vw + env(safe-area-inset-top, 0px), 80px);
+  }
+  /* ако има anchor-скрол към заглавието, да не се скрие */
+  .hero-subpage h1,
+  .page-hero h1,
+  .pci-title{
+    scroll-margin-top: clamp(56px, 8vw + env(safe-area-inset-top, 0px), 80px);
+  }
+}
+
+/* малко вътрешно „въздухче“ в контейнера, за да не „опира“ текстът в Safari */
+.hero-subpage .container,
+.page-hero .container{
+  padding-inline: 16px;
+  box-sizing: border-box;
+}
+
+/* === 2) H1: безопасно пренасяне и подравняване за Safari/Chrome мобилно === */
+.pci-title{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+
+/* декоративната линия — винаги flu, да не „излиза“ в тясно */
+.pci-title::after{
+  width: min(72px, 28vw); /* override на по-горното 400px */
+}
+
+/* леко по-меко разстояние за WebKit (някои iOS версии „раздуват“ буквите) */
+@supports (-webkit-touch-callout: none){
+  .pci-title{ letter-spacing: -0.006em; }
+}
+
+/* === 3) Медийните слоеве (img/video) — стабилно центриране и cover === */
+/* това НЕ променя визията, само фиксира iOS позиционирането и „горе-вляво“ */
+.pain-button-media.image-container > img.static-img,
+.pain-button-media.image-container > video.hover-img{
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;      /* бием по-горното contain */
+  object-position: center center !important;
+  display: block !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: opacity;
+}
+
+.pain-button-media.image-container{
+  /* flex + aspect-ratio стабилност в Safari */
+  min-width: 0;
+  min-height: 0;
+  flex: 0 0 auto;
+  position: relative;   /* гарантиран containing block */
+  overflow: hidden;
+  border-radius: 10px;  /* запазва се твоят ъгъл */
+}
+
+/* === 4) Общ „safety“ за заглавия и секции при anchor-скролове === */
+h1, h2, h3, .hero-subpage, .page-hero{
+  scroll-margin-top: clamp(56px, 8vw + env(safe-area-inset-top, 0px), 80px);
+}
