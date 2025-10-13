@@ -646,3 +646,35 @@ footer .back-to-top:hover, .footer .back-to-top:hover{ transform:translateY(-3px
 h1, h2, h3, .hero-subpage, .page-hero{
   scroll-margin-top: clamp(56px, 8vw + env(safe-area-inset-top, 0px), 80px);
 }
+/* === Mobile spacing между контейнери/секции и карти === */
+@media (max-width: 768px){
+  /* Разстояние между основните секции в <main> */
+  main > :where(section, .section, .hero-subpage):not(:first-child){
+    margin-top: clamp(12px, 3.5vw, 20px);
+  }
+
+  /* Допълнително „въздух“ вътре в секции с .container */
+  :where(.section, .hero-subpage) > .container{
+    padding-block: clamp(8px, 2.5vw, 14px);
+  }
+
+  /* По-голям gap между картите/плочките на мобилно */
+  .cards,
+  .procedure-cards-container,
+  .pain-buttons-grid{
+    gap: clamp(12px, 3.8vw, 18px) !important;
+  }
+
+  /* Ако някъде имаш единични карти извън grid – осигури отстояние */
+  .card,
+  .procedure-card,
+  .pain-button{
+    margin-bottom: clamp(10px, 3.2vw, 16px);
+  }
+
+  /* Лек отстъп преди футъра на мобилно */
+  main + footer,
+  main + .footer{
+    margin-top: clamp(14px, 4vw, 24px);
+  }
+}
