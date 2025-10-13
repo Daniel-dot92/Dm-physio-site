@@ -30,7 +30,7 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 
-  <!-- Външни домейни за аналитики (отложено зареждане) -->
+  <!-- Външни ресурси (preconnect) -->
   <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://t.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://c.ba.contentsquare.net" crossorigin>
@@ -42,7 +42,8 @@
   <!-- Preload на LCP (първа карта) -->
   <link rel="preload" as="image"
         href="/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg"
-        fetchpriority="high" type="image/jpeg">
+        type="image/jpeg"
+        fetchpriority="high">
 
   <!-- Дребни фиксове за достъпност/UX -->
   <style>
@@ -100,7 +101,7 @@
   }
   </script>
 
-  <!-- Hotjar / Contentsquare (lazy, както на другите) -->
+  <!-- Hotjar / Contentsquare (lazy) -->
   <script>
   (function(){
     function loadCS(){
@@ -296,7 +297,8 @@
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener" class="map-link">
-              Вижте на карта →</a>
+              Вижте на карта →
+            </a>
           </div>
         </div>
       </div>
