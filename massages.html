@@ -11,7 +11,7 @@
   <meta name="theme-color" content="#0E7C86" />
   <meta name="language" content="Bulgarian" />
   <meta name="author" content="DM Physio" />
-  <link rel="icon" href="/logo.webp" />
+  <link rel="icon" href="./logo.webp" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Масажи в София – Видове и Цени | DM Physio" />
@@ -30,9 +30,10 @@
   <meta name="twitter:description" content="Професионални масажи: видове, цени и записване." />
   <meta name="twitter:image" content="https://dmphysi0.com/og/massage_1200x630.webp" />
 
-  <!-- Base styles (project CSS) -->
-  <link rel="stylesheet" href="/css/styles-procedures.css" />
-  <link rel="stylesheet" href="/css/top-bar.css" />
+  <!-- Base styles (както при кинезитерапията) -->
+  <link rel="preload" href="css/styles-procedures.css" as="style">
+  <link rel="stylesheet" href="css/styles-procedures.css" />
+  <link rel="stylesheet" href="css/top-bar.css" />
 
   <!-- Preconnect to externals -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -47,7 +48,7 @@
   </noscript>
 
   <!-- Preload likely LCP (first card image) -->
-  <link rel="preload" as="image" href="/pngs/massages/gif/lecheben-Thumbnail.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="./pngs/massages/gif/lecheben-Thumbnail.webp" fetchpriority="high">
 
   <!-- In-page critical tweaks (огледални с кинезитерапията) -->
   <style>
@@ -71,10 +72,10 @@
     .image-container { aspect-ratio: 16/9; overflow:hidden; }
     .tb-link.is-active { font-weight: 600; }
 
-    /* Хиро */
-    .page-hero{ padding: clamp(16px, 3vw, 28px) 0 8px; border-bottom:1px solid #e2e8f0; background:linear-gradient(180deg,#fff 0,#f9fbfc 100%); }
-    .page-hero h1{ margin:0; font-weight:800; letter-spacing:-.02em; line-height:1.15; color:#0b3f46; font-size:clamp(1.6rem,1rem + 3vw,2.25rem); text-wrap:balance; }
-    .lead{ color:#64748b; font-size:clamp(1rem, 0.4rem + 1vw, 1.125rem); }
+    /* Хиро (в унисон с другата страница) */
+    .page-hero{ padding:36px 0 22px; border-bottom:1px solid #e2e8f0; background:#fff; }
+    .page-hero h1{ margin:0; font-weight:800; letter-spacing:-.02em; line-height:1.15; color:#0E7C86; font-size:clamp(28px, 3.2vw + 1rem, 44px); text-wrap:balance; }
+    .lead{ color:#2f5f63; font-size:clamp(16px, 1.1vw + .6rem, 18px); line-height:1.65; }
   </style>
 
   <!-- Contentsquare (lazy, след Hotjar) -->
@@ -136,7 +137,7 @@
         {"@type":"ListItem","position":6,"item":{"@type":"Service","name":"Масаж с Ергон (IASTM)","url":"https://dmphysi0.com/procedures/masaj-ergon.html","description":"Инструмент-асистирана мобилизация за фасциални адхезии и тригери.","offers":{"@type":"Offer","price":"80","priceCurrency":"BGN"},"timeRequired":"PT60M","serviceType":"Ergon IASTM"}},
         {"@type":"ListItem","position":7,"item":{"@type":"Service","name":"Масаж с вендуза","url":"https://dmphysi0.com/procedures/massage-vendusa.html","description":"Вакуумна фасциална терапия за микроциркулация и лимфен дренаж.","offers":{"@type":"Offer","price":"80","priceCurrency":"BGN"},"timeRequired":"PT60M","serviceType":"Cupping"}},
         {"@type":"ListItem","position":8,"item":{"@type":"Service","name":"Дълбокотъканен масаж — цяло тяло","url":"https://dmphysi0.com/procedures/masaj-deeptisuegolqm.html","description":"Пълна 90-минутна сесия по вериги за стойка и подвижност.","offers":{"@type":"Offer","price":"110","priceCurrency":"BGN"},"timeRequired":"PT90M","serviceType":"Дълбокотъканен масаж"}},
-        {"@type":"ListItem","position":9,"item":{"@type":"Service","name":"Релаксиращ масаж — цяло тяло","url":"https://dmphysi0.com/procedures/masaj-relaxgolqm.html","description":"90 мин тотална релаксация, хармонизиране на нервната система.","offers":{"@type":"Offer","price":"110","priceCurrency":"BGN"},"timeRequired":"PT90M","serviceType":"Релаксиращ масаж"}}
+        {"@type":"ListItem","position":9,"item":{"@type":"Service","name":"Релаксиращ масаж — цяло тяло","url":"https://dmphysi0.com/procedures/masaj-relaxgolqm.html","description":"90 мин тотална релаксация, хармонизира нервната система.","offers":{"@type":"Offer","price":"110","priceCurrency":"BGN"},"timeRequired":"PT90M","serviceType":"Релаксиращ масаж"}}
       ]
     }
   }
@@ -149,32 +150,29 @@
 <!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
-    <!-- Лого -->
-    <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" width="64" height="64" />
+    <a href="./index.html" class="tb-logo-link" aria-label="Начало">
+      <img src="./logo.webp" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" width="64" height="64" />
     </a>
 
-    <!-- Хамбургер -->
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
       <i class="fas fa-bars" aria-hidden="true"></i>
     </button>
 
-    <!-- Навигация -->
     <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
       <ul class="tb-menu">
-        <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
+        <li class="tb-item"><a class="tb-link" href="./index.html">Начало</a></li>
 
         <li class="tb-item tb-dropdown">
-          <a class="tb-link tb-drop-toggle is-active" href="/services.html" data-dropdown="toggle">Процедури</a>
+          <a class="tb-link tb-drop-toggle is-active" href="./services.html" data-dropdown="toggle">Процедури</a>
           <div class="tb-drop-menu">
-            <a class="tb-drop-link" href="/kinesitherapy.html">Кинезитерапия</a>
-            <a class="tb-drop-link is-active" href="/massages.html" aria-current="page">Масажи</a>
+            <a class="tb-drop-link" href="./kinesitherapy.html">Кинезитерапия</a>
+            <a class="tb-drop-link is-active" href="./massages.html" aria-current="page">Масажи</a>
           </div>
         </li>
 
-        <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
+        <li class="tb-item"><a class="tb-link" href="./pain-conditions.html">Болкови състояния</a></li>
         <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" target="_blank" rel="noopener">Свободни часове</a></li>
-        <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
+        <li class="tb-item"><a class="tb-link" href="./contacts.html">Контакти</a></li>
       </ul>
     </nav>
   </div>
@@ -196,12 +194,12 @@
       <div class="cards procedure-cards-container">
 
         <!-- Лечебен масаж -->
-        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="/procedures/lecheben-masaj.html">
-          <a href="/procedures/lecheben-masaj.html" class="card__media-link" aria-label="Лечебен масаж — виж детайли">
+        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="./procedures/lecheben-masaj.html">
+          <a href="./procedures/lecheben-masaj.html" class="card__media-link" aria-label="Лечебен масаж — виж детайли">
             <div class="card__media image-container">
-              <img class="img img--static static-img" src="/pngs/massages/gif/lecheben-Thumbnail.webp" alt="Лечебен масаж в DM Physio" loading="eager" decoding="async" fetchpriority="high" width="640" height="360">
-              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/gif/lecheben-Thumbnail.webp" aria-hidden="true">
-                <source src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
+              <img class="img img--static static-img" src="./pngs/massages/gif/lecheben-Thumbnail.webp" alt="Лечебен масаж в DM Physio" loading="eager" decoding="async" fetchpriority="high" width="640" height="360">
+              <video class="img img--hover hover-img" loop muted playsinline preload="none" poster="./pngs/massages/gif/lecheben-Thumbnail.webp" aria-hidden="true">
+                <source src="./pngs/massages/gif/lecheben.mp4" type="video/mp4">
               </video>
             </div>
           </a>
@@ -210,58 +208,58 @@
             <p class="card__text">Индивидуализирани техники за облекчаване на болка и напрежение, възстановяване на тъкани и гъвкавост.</p>
             <div class="card__actions price-booking-group">
               <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" target="_blank" rel="noopener">Запази час</a>
-              <a href="/procedures/lecheben-masaj.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="./procedures/lecheben-masaj.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
         <!-- Дълбокотъканен масаж -->
-        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="/procedures/masaj.deeptisue.html">
-          <a href="/procedures/masaj.deeptisue.html" class="card__media-link" aria-label="Дълбокотъканен масаж — виж детайли">
+        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="./procedures/masaj.deeptisue.html">
+          <a href="./procedures/masaj.deeptisue.html" class="card__media-link" aria-label="Дълбокотъканен масаж — виж детайли">
             <div class="card__media image-container">
-              <img class="img img--static static-img" src="/pngs/massages/gif/deeptisue-Thumbnail.webp" alt="Дълбокотъканен масаж в София" loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/gif/deeptisue-Thumbnail.webp" aria-hidden="true">
-                <source src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
+              <img class="img img--static static-img" src="./pngs/massages/gif/deeptisue-Thumbnail.webp" alt="Дълбокотъканен масаж в София" loading="lazy" decoding="async" width="640" height="360">
+              <video class="img img--hover hover-img" loop muted playsinline preload="none" poster="./pngs/massages/gif/deeptisue-Thumbnail.webp" aria-hidden="true">
+                <source src="./pngs/massages/gif/deeptisue.mp4" type="video/mp4">
               </video>
             </div>
           </a>
           <div class="card__body card-content">
             <h3 class="card__title">Дълбокотъканен масаж</h3>
-            <p class="card__text">Интензивна работа в дълбочина за разчупване на възли и фасциални ограничения; намалява сковаността и възстановява обхвата.</p>
+            <p class="card__text">Интензивна работа в дълбочина за разчупване на възли и фасциални ограничения; намалява сковаността.</p>
             <div class="card__actions price-booking-group">
               <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" target="_blank" rel="noopener">Запази час</a>
-              <a href="/procedures/masaj.deeptisue.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="./procedures/masaj.deeptisue.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
         <!-- Релаксиращ масаж -->
-        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="/procedures/masaj-relax.html">
-          <a href="/procedures/masaj-relax.html" class="card__media-link" aria-label="Релаксиращ масаж — виж детайли">
+        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="./procedures/masaj-relax.html">
+          <a href="./procedures/masaj-relax.html" class="card__media-link" aria-label="Релаксиращ масаж — виж детайли">
             <div class="card__media image-container">
-              <img class="img img--static static-img" src="/pngs/massages/gif/relax-Thumbnail.webp" alt="Релаксиращ масаж" loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/gif/relax-Thumbnail.webp" aria-hidden="true">
-                <source src="/pngs/massages/gif/relax.mp4" type="video/mp4">
+              <img class="img img--static static-img" src="./pngs/massages/gif/relax-Thumbnail.webp" alt="Релаксиращ масаж" loading="lazy" decoding="async" width="640" height="360">
+              <video class="img img--hover hover-img" loop muted playsinline preload="none" poster="./pngs/massages/gif/relax-Thumbnail.webp" aria-hidden="true">
+                <source src="./pngs/massages/gif/relax.mp4" type="video/mp4">
               </video>
             </div>
           </a>
           <div class="card__body card-content">
             <h3 class="card__title">Релаксиращ масаж</h3>
-            <p class="card__text">Бавни, плавни техники за нервна релаксация и качествен сън; редуцира стрес, умора и тревожност.</p>
+            <p class="card__text">Бавни, плавни техники за нервна релаксация и качествен сън; редуцира стрес и умора.</p>
             <div class="card__actions price-booking-group">
               <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" target="_blank" rel="noopener">Запази час</a>
-              <a href="/procedures/masaj-relax.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="./procedures/masaj-relax.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
         <!-- Антицелулитен масаж -->
-        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="/procedures/masaj-celulit.html">
-          <a href="/procedures/masaj-celulit.html" class="card__media-link" aria-label="Антицелулитен масаж — виж детайли">
+        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="./procedures/masaj-celulit.html">
+          <a href="./procedures/masaj-celulit.html" class="card__media-link" aria-label="Антицелулитен масаж — виж детайли">
             <div class="card__media image-container">
-              <img class="img img--static static-img" src="/pngs/massages/gif/celulit-Thumbnail.webp" alt="Антицелулитен масаж" loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/gif/celulit-Thumbnail.webp" aria-hidden="true">
-                <source src="/pngs/massages/gif/celulit.mp4" type="video/mp4">
+              <img class="img img--static static-img" src="./pngs/massages/gif/celulit-Thumbnail.webp" alt="Антицелулитен масаж" loading="lazy" decoding="async" width="640" height="360">
+              <video class="img img--hover hover-img" loop muted playsinline preload="none" poster="./pngs/massages/gif/celulit-Thumbnail.webp" aria-hidden="true">
+                <source src="./pngs/massages/gif/celulit.mp4" type="video/mp4">
               </video>
             </div>
           </a>
@@ -270,38 +268,38 @@
             <p class="card__text">Комбинация от лимфодренажни и тъканни техники; стимулира микроциркулацията и редуцира отоци.</p>
             <div class="card__actions price-booking-group">
               <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" target="_blank" rel="noopener">Запази час</a>
-              <a href="/procedures/masaj-celulit.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="./procedures/masaj-celulit.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
         <!-- Спортен масаж -->
-        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="/procedures/masaj-sport.html">
-          <a href="/procedures/masaj-sport.html" class="card__media-link" aria-label="Спортен масаж — виж детайли">
+        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="./procedures/masaj-sport.html">
+          <a href="./procedures/masaj-sport.html" class="card__media-link" aria-label="Спортен масаж — виж детайли">
             <div class="card__media image-container">
-              <img class="img img--static static-img" src="/pngs/massages/gif/sport-Thumbnail.webp" alt="Спортен масаж" loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/gif/sport-Thumbnail.webp" aria-hidden="true">
-                <source src="/pngs/massages/gif/sport.mp4" type="video/mp4">
+              <img class="img img--static static-img" src="./pngs/massages/gif/sport-Thumbnail.webp" alt="Спортен масаж" loading="lazy" decoding="async" width="640" height="360">
+              <video class="img img--hover hover-img" loop muted playsinline preload="none" poster="./pngs/massages/gif/sport-Thumbnail.webp" aria-hidden="true">
+                <source src="./pngs/massages/gif/sport.mp4" type="video/mp4">
               </video>
             </div>
           </a>
           <div class="card__body card-content">
             <h3 class="card__title">Спортен масаж</h3>
-            <p class="card__text">Възстановяваща сесия за мускули след тренировка или състезание; понижава болезнеността и подготвя за следващо натоварване.</p>
+            <p class="card__text">Възстановяване след тренировка/състезание; понижава болезнеността и подготвя за следващо натоварване.</p>
             <div class="card__actions price-booking-group">
               <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" target="_blank" rel="noopener">Запази час</a>
-              <a href="/procedures/masaj-sport.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="./procedures/masaj-sport.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
         <!-- Масаж с Ергон -->
-        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="/procedures/masaj-ergon.html">
-          <a href="/procedures/masaj-ergon.html" class="card__media-link" aria-label="Масаж с Ергон — виж детайли">
+        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="./procedures/masaj-ergon.html">
+          <a href="./procedures/masaj-ergon.html" class="card__media-link" aria-label="Масаж с Ергон — виж детайли">
             <div class="card__media image-container">
-              <img class="img img--static static-img" src="/pngs/massages/gif/ergon-Thumbnail.webp" alt="Масаж с Ергон (IASTM)" loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/gif/ergon-Thumbnail.webp" aria-hidden="true">
-                <source src="/pngs/massages/gif/ergon.mp4" type="video/mp4">
+              <img class="img img--static static-img" src="./pngs/massages/gif/ergon-Thumbnail.webp" alt="Масаж с Ергон (IASTM)" loading="lazy" decoding="async" width="640" height="360">
+              <video class="img img--hover hover-img" loop muted playsinline preload="none" poster="./pngs/massages/gif/ergon-Thumbnail.webp" aria-hidden="true">
+                <source src="./pngs/massages/gif/ergon.mp4" type="video/mp4">
               </video>
             </div>
           </a>
@@ -310,58 +308,58 @@
             <p class="card__text">Инструмент-асистирана мобилизация (IASTM) с Ергон инструменти; третира фасциални адхезии и тригерни зони.</p>
             <div class="card__actions price-booking-group">
               <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" target="_blank" rel="noopener">Запази час</a>
-              <a href="/procedures/masaj-ergon.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="./procedures/masaj-ergon.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
         <!-- Масаж с вендуза -->
-        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="/procedures/massage-vendusa.html">
-          <a href="/procedures/massage-vendusa.html" class="card__media-link" aria-label="Масаж с вендуза — виж детайли">
+        <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="./procedures/massage-vendusa.html">
+          <a href="./procedures/massage-vendusa.html" class="card__media-link" aria-label="Масаж с вендуза — виж детайли">
             <div class="card__media image-container">
-              <img class="img img--static static-img" src="/pngs/massages/gif/vendusa-2-Thumbnail.webp" alt="Масаж с вендуза (cupping)" loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/gif/vendusa-2-Thumbnail.webp" aria-hidden="true">
-                <source src="/pngs/massages/gif/vendusa-2.mp4" type="video/mp4">
+              <img class="img img--static static-img" src="./pngs/massages/gif/vendusa-2-Thumbnail.webp" alt="Масаж с вендуза (cupping)" loading="lazy" decoding="async" width="640" height="360">
+              <video class="img img--hover hover-img" loop muted playsinline preload="none" poster="./pngs/massages/gif/vendusa-2-Thumbnail.webp" aria-hidden="true">
+                <source src="./pngs/massages/gif/vendusa-2.mp4" type="video/mp4">
               </video>
             </div>
           </a>
           <div class="card__body card-content">
             <h3 class="card__title">Масаж с вендуза</h3>
-            <p class="card__text">Вакуумна фасциална терапия; подобрява микроциркулацията и лимфния дренаж, освобождава напрежение и ускорява възстановяването.</p>
+            <p class="card__text">Вакуумна фасциална терапия; подобрява микроциркулацията и лимфния дренаж, освобождава напрежение.</p>
             <div class="card__actions price-booking-group">
               <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" target="_blank" rel="noopener">Запази час</a>
-              <a href="/procedures/massage-vendusa.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="./procedures/massage-vendusa.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
         <!-- Дълбокотъканен масаж – цяло тяло -->
-        <article class="card procedure-card" data-price="110 лв" data-duration="90 мин" data-details-url="/procedures/masaj-deeptisuegolqm.html">
-          <a href="/procedures/masaj-deeptisuegolqm.html" class="card__media-link" aria-label="Дълбокотъканен масаж - цяло тяло — виж детайли">
+        <article class="card procedure-card" data-price="110 лв" data-duration="90 мин" data-details-url="./procedures/masaj-deeptisuegolqm.html">
+          <a href="./procedures/masaj-deeptisuegolqm.html" class="card__media-link" aria-label="Дълбокотъканен масаж - цяло тяло — виж детайли">
             <div class="card__media image-container">
-              <img class="img img--static static-img" src="/pngs/massages/gif/deeptisue-Thumbnail.webp" alt="Дълбокотъканен масаж - цяло тяло" loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/gif/deeptisue-Thumbnail.webp" aria-hidden="true">
-                <source src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
+              <img class="img img--static static-img" src="./pngs/massages/gif/deeptisue-Thumbnail.webp" alt="Дълбокотъканен масаж - цяло тяло" loading="lazy" decoding="async" width="640" height="360">
+              <video class="img img--hover hover-img" loop muted playsinline preload="none" poster="./pngs/massages/gif/deeptisue-Thumbnail.webp" aria-hidden="true">
+                <source src="./pngs/massages/gif/deeptisue.mp4" type="video/mp4">
               </video>
             </div>
           </a>
           <div class="card__body card-content">
             <h3 class="card__title">Дълбокотъканен масаж — цяло тяло</h3>
-            <p class="card__text">Пълна сесия в дълбочина с работа по вериги; освобождава напрежение по гръб, таз и крайници и балансира стойката.</p>
+            <p class="card__text">Пълна сесия в дълбочина с работа по вериги; балансира стойката и увеличава подвижността.</p>
             <div class="card__actions price-booking-group">
               <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" target="_blank" rel="noopener">Запази час</a>
-              <a href="/procedures/masaj-deeptisuegolqm.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="./procedures/masaj-deeptisuegolqm.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
 
         <!-- Релаксиращ масаж – цяло тяло -->
-        <article class="card procedure-card" data-price="110 лв" data-duration="90 мин" data-details-url="/procedures/masaj-relaxgolqm.html">
-          <a href="/procedures/masaj-relaxgolqm.html" class="card__media-link" aria-label="Релаксиращ масаж - цяло тяло — виж детайли">
+        <article class="card procedure-card" data-price="110 лв" data-duration="90 мин" data-details-url="./procedures/masaj-relaxgolqm.html">
+          <a href="./procedures/masaj-relaxgolqm.html" class="card__media-link" aria-label="Релаксиращ масаж - цяло тяло — виж детайли">
             <div class="card__media image-container">
-              <img class="img img--static static-img" src="/pngs/massages/gif/relax-Thumbnail.webp" alt="Релаксиращ масаж - цяло тяло" loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/gif/relax-Thumbnail.webp" aria-hidden="true">
-                <source src="/pngs/massages/gif/relax.mp4" type="video/mp4">
+              <img class="img img--static static-img" src="./pngs/massages/gif/relax-Thumbnail.webp" alt="Релаксиращ масаж - цяло тяло" loading="lazy" decoding="async" width="640" height="360">
+              <video class="img img--hover hover-img" loop muted playsinline preload="none" poster="./pngs/massages/gif/relax-Thumbnail.webp" aria-hidden="true">
+                <source src="./pngs/massages/gif/relax.mp4" type="video/mp4">
               </video>
             </div>
           </a>
@@ -370,7 +368,7 @@
             <p class="card__text">90-минутна сесия за тотална релаксация; хармонизира нервната система и понижава стреса.</p>
             <div class="card__actions price-booking-group">
               <a href="https://book.dmphysi0.com/book" class="btn btn--primary book-button" target="_blank" rel="noopener">Запази час</a>
-              <a href="/procedures/masaj-relaxgolqm.html" class="btn btn--ghost learn-more-link">Научи повече</a>
+              <a href="./procedures/masaj-relaxgolqm.html" class="btn btn--ghost learn-more-link">Научи повече</a>
             </div>
           </div>
         </article>
@@ -471,6 +469,10 @@
                     e.preventDefault();
                   }
                 });
+
+                document.getElementById('cancelForm')?.addEventListener('click', function(){
+                  document.getElementById('adviceReveal')?.removeAttribute('open');
+                });
               })();
               </script>
 
@@ -499,36 +501,36 @@
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener">
-            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
+            <img src="./pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener">
-            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
+            <img src="./pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
           </a>
-          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener">
-            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
+          <a href="https://www.youtube.com/@dmphysi0" target="_blank" rel="noopener">
+            <img src="./pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
           </a>
-          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener">
-            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
+          <a href="https://www.tiktok.com/@dmphysi0" target="_blank" rel="noopener">
+            <img src="./pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="./pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <span><a href="tel:0883688414">088 368 8414</a></span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="./pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>Работно време:</span><br>
-            <span>Пон-Пет: 09:00 - 19:00</span><br>
-            <span>Събота: 09:00 - 16:00</span><br>
+            <span>Пон–Пет: 09:00 – 19:00</span><br>
+            <span>Събота: 09:00 – 16:00</span><br>
             <span>Неделя: Почивка</span>
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="./pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener" class="map-link">Вижте на карта →</a>
@@ -538,7 +540,7 @@
     </div>
 
     <div class="footer-links">
-      <a href="/privacy-policy.html">Политика за поверителност</a> | <a href="/terms.html">Общи условия</a>
+      <a href="./privacy-policy.html">Политика за поверителност</a> | <a href="./terms.html">Общи условия</a>
     </div>
   </section>
 </footer>
@@ -587,9 +589,9 @@
   })();
 </script>
 
-<script src="/js/form.js" defer></script>
-<script src="/js/topbar.js" defer></script>
-<script src="/js/media-autoplay-cards.js" defer></script>
+<script src="./js/form.js" defer></script>
+<script src="./js/topbar.js" defer></script>
+<script src="./js/media-autoplay-cards.js" defer></script>
 
 <!-- Lazy Google Maps iframe -->
 <script>
@@ -609,7 +611,7 @@
 })();
 </script>
 
-<!-- Hover + visibility control (fallback) -->
+<!-- Hover + visibility control (същото поведение) -->
 <script>
 (function () {
   const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
@@ -617,7 +619,7 @@
 
   document.querySelectorAll('video').forEach(v => {
     v.muted = true; v.setAttribute('playsinline','');
-    if (!v.getAttribute('preload')) v.preload = 'metadata';
+    if (!v.getAttribute('preload')) v.preload = 'none';
   });
 
   document.querySelectorAll('.image-container').forEach(box => {
@@ -644,4 +646,3 @@
 </script>
 </body>
 </html>
-  
