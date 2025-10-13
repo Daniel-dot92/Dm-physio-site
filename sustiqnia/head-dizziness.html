@@ -760,7 +760,7 @@
 <script src="../js/temple-headache.js" defer></script>
 <script src="../js/procedurs-slider.js" defer></script>
 
-<!-- Хелпър за видеата -->
+<!-- Хелпър за видеата (фиксирани кликове/тапове в слайдера) -->
 <script>
 (function () {
   function ensureVideoHasSrc(video){
@@ -783,23 +783,43 @@
       safePause(v);
     }, {passive:true});
   }
+
+  // ✅ Позволява навигацията: на мобилни първи тап пуска видео, втори тап (до 800 ms) отваря линка
   function bindTap(card){
+    let armed = false, tId = null;
     card.addEventListener('click', (e) => {
       const media = e.target.closest('.kinesitherapy-button-media');
-      if (!media) return; // нормален клик по линка
-      e.preventDefault();
+      if (!media) return; // клик извън медията => нормална навигация
+
       const v = card.querySelector('.kinesitherapy-video');
       ensureVideoHasSrc(v);
-      if (!v) return;
-      if (v.paused){ safePlay(v); }
-      else { safePause(v); }
-    });
+
+      const isTouch = matchMedia('(hover: none)').matches || 'ontouchstart' in window;
+
+      if (isTouch){
+        if (!armed){
+          e.preventDefault();          // първи тап: само видео
+          safePlay(v);
+          armed = true;
+          clearTimeout(tId);
+          tId = setTimeout(() => armed = false, 800);
+        } else {
+          // втори тап: не пречим на навигацията
+          armed = false;
+          clearTimeout(tId);
+        }
+      } else {
+        // десктоп: не блокираме клика (навигира веднага)
+      }
+    }, {passive:false});
   }
 
   document.querySelectorAll('.kinesitherapy-button').forEach((card) => {
-    bindHover(card); bindTap(card);
+    bindHover(card);
+    bindTap(card);
   });
 
+  // Lazy-load видео в картите на слайдера
   if ('IntersectionObserver' in window){
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(en=>{
@@ -813,7 +833,7 @@
     document.querySelectorAll('.kinesitherapy-button').forEach(c=>io.observe(c));
   }
 
-  // Общ hover контрол за image-container видеа (hero/intro/анатомия)
+  // Общ hover/touch контрол за всички .image-container видеа (hero, intro, anatomy)
   document.querySelectorAll('.image-container').forEach(box => {
     const vid = box.querySelector('video');
     if (!vid) return;
@@ -827,6 +847,7 @@
   });
 })();
 </script>
+
 
 <!-- Lazy карта (само при видимост) -->
 <script>

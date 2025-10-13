@@ -477,3 +477,31 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
   footer .social-links img{ filter: drop-shadow(0 2px 6px rgba(0,0,0,.6)); }
   footer .contact-item:hover{ background: rgba(11,102,255,.14); }
 }
+/* === Muscle media: mobile-only bigger, без да раздува контейнера === */
+@media (max-width: 900px){
+  /* 1) едноколонен layout + центриране на съдържанието */
+  .muscle-anatomy-section .muscle-item{
+    grid-template-columns: 1fr;
+    justify-items: center;      /* център по хоризонтала */
+    align-items: start;
+    overflow: hidden;           /* безопасност при редки скейлирания/сенки */
+  }
+
+  /* 2) квадратът става по-голям, но не повече от наличната ширина */
+  .muscle-anatomy-section .muscle-media{
+    /* контролирай размера тук при нужда (последната стойност) */
+    --mobile-media-size: clamp(320px, 92vw, 460px);
+
+    width: min(100%, var(--mobile-media-size));
+    max-width: none;            /* игнорира старото 280px ограничение */
+    aspect-ratio: 1 / 1;
+    margin-inline: auto;        /* надеждно центриране */
+    display: block;
+  }
+
+  /* 3) дребен финес: значката "▶ video" да не изглежда дребна/огромна */
+  .muscle-anatomy-section .muscle-media::before{
+    font-size: clamp(12px, 3.2vw, 14px);
+    left: 10px; top: 10px;
+  }
+}
