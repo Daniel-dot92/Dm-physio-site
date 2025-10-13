@@ -543,3 +543,32 @@ footer .back-to-top:hover, .footer .back-to-top:hover{ transform:translateY(-3px
     letter-spacing: -0.01em;
   }
 }
+/* --- iOS Safari sizing & anchoring fixes --- */
+/* Центрираме изрично кадъра (по подразбиране някои версии взимат 0 0) */
+.pain-button-media.image-container > img.static-img,
+.pain-button-media.image-container > video.hover-img{
+  object-position: center center;         /* ключово за „горе-вляво“ */
+  transform: translateZ(0);               /* рендър стабилизация в WebKit */
+  -webkit-transform: translateZ(0);
+}
+
+/* Като flex item в .pain-button: дай свобода на aspect-ratio кутията */
+.pain-button-media.image-container{
+  min-width: 0;                           /* Safari flex+aspect-ratio hack */
+  min-height: 0;
+  flex: 0 0 auto;                         /* не я stretch-вай по височина */
+  display: block;                         /* гарантирай блоково поведение */
+}
+
+/* Увери се, че контейнерът е real containing block за absolute слоеве */
+.pain-button-media.image-container{
+  position: relative;                     /* дублирано е ок – по-сигурно */
+  overflow: hidden;                       /* пази кръстосаното избледняване чисто */
+}
+
+/* Постерът на видеото в някои iOS версии „премигва“ – фиксираме слоя */
+.pain-button-media.image-container > video.hover-img{
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: opacity;
+}
