@@ -30,22 +30,21 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 
-  <!-- Външни ресурси (preconnect) -->
+  <!-- Външни ресурси и оптимизации -->
   <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://t.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://c.ba.contentsquare.net" crossorigin>
 
-  <!-- Локални стилове -->
+  <!-- Локални стилове (същите като шаблона) -->
   <link rel="stylesheet" href="/css/top-bar.css">
   <link rel="stylesheet" href="/css/pain-conditions.css">
 
-  <!-- Preload на LCP (първа карта) -->
+  <!-- Preload на LCP изображение (плочка 1) -->
   <link rel="preload" as="image"
         href="/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg"
-        type="image/jpeg"
         fetchpriority="high">
 
-  <!-- Дребни фиксове за достъпност/UX -->
+  <!-- Дребни фиксове за достъпност/UX (копие от шаблона) -->
   <style>
     html, body { overflow-x:hidden; scroll-padding-top:72px; }
     img { height:auto; }
@@ -75,7 +74,7 @@
     "@id":"https://dmphysi0.com/pain-chest-abdomen.html#webpage",
     "url":"https://dmphysi0.com/pain-chest-abdomen.html",
     "name":"Болка в гърди и корем — видове оплаквания",
-    "description":"Избери оплакване в областта на гърдите и корема (мускулни болки, интеркостална невралгия, Thoracic Outlet Syndrome, абдоминални хернии) и виж решенията.",
+    "description":"Избери оплакване в гърди и корем (мускулни болки, интеркостална невралгия, Thoracic Outlet Syndrome, абдоминални хернии) и виж решенията.",
     "primaryImageOfPage":{"@type":"ImageObject","url":"https://dmphysi0.com/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg"},
     "mainEntity":{
       "@type":"ItemList",
@@ -96,19 +95,18 @@
     "@type":"FAQPage",
     "mainEntity":[
       {"@type":"Question","name":"Кога болката в гърдите е мускулно-скелетна?","acceptedAnswer":{"@type":"Answer","text":"Често е свързана с движение/позиция (усилва се при завъртане, повдигане на ръка, натиск по ребра/междуребрени мускули) и намалява при корекция на стойка. При остри или атипични симптоми първо изключете спешни състояния при лекар."}},
-      {"@type":"Question","name":"Какво помага при интеркостална невралгия?","acceptedAnswer":{"@type":"Answer","text":"Мекотъканни техники за намаляване на чувствителността, дихателни и мобилизационни упражнения за гръден кош, плюс корекция на навици. Планът е индивидуален след оценка."}}
+      {"@type":"Question","name":"Какво помага при интеркостална невралгия?","acceptedAnswer":{"@type":"Answer","text":"Мекотъканни техники, дихателни и мобилизационни упражнения за гръден кош + корекция на навици. Планът е индивидуален след оценка."}}
     ]
   }
   </script>
 
-  <!-- Hotjar / Contentsquare (lazy) -->
+  <!-- Hotjar / Contentsquare (отложено, както в шаблона) -->
   <script>
   (function(){
     function loadCS(){
       if (document.getElementById('csq-loader')) return;
       var s = document.createElement('script');
-      s.id='csq-loader';
-      s.async = true;
+      s.id='csq-loader'; s.async = true;
       s.src = 'https://static.hj.contentsquare.net/c/csq-6534654.js';
       s.referrerPolicy = 'no-referrer-when-downgrade';
       document.head.appendChild(s);
@@ -166,19 +164,17 @@
     </div>
   </section>
 
-  <!-- Карти със състояния (съвместими с media-autoplay-cards.js) -->
+  <!-- Карти със състояния (видео логика съвместима с media-autoplay-cards.js) -->
   <section class="pain-conditions-detail-section">
     <div class="container">
       <div class="pain-buttons-grid">
-        <!-- 1: Мускулни болки (гърди/корем) -->
+        <!-- 1: Мускулни болки -->
         <a href="/sustiqnia/gurdi/gurdi-muscles.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img
-              src="/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg"
-              alt="Мускулни болки в гърди и корем"
-              class="static-img"
-              loading="eager" decoding="async" fetchpriority="high"
-              width="640" height="640">
+            <img src="/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg"
+                 alt="Мускулни болки в гърди и корем" class="static-img"
+                 loading="eager" decoding="async" fetchpriority="high"
+                 width="640" height="640">
             <video class="hover-img" loop muted playsinline preload="none"
                    poster="/pngs/sustoqniq/muscles/chest1-Thumbnail.jpg"
                    aria-hidden="true" width="640" height="640">
@@ -191,11 +187,9 @@
         <!-- 2: Интеркостална невралгия -->
         <a href="/sustiqnia/gurdi/gurdi-neuralgia.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img
-              src="/pngs/sustoqniq/muscles/chest%20neuralgia-Thumbnail.jpg"
-              alt="Интеркостална невралгия (болка по ребрата)"
-              class="static-img"
-              loading="lazy" decoding="async" width="640" height="640">
+            <img src="/pngs/sustoqniq/muscles/chest%20neuralgia-Thumbnail.jpg"
+                 alt="Интеркостална невралгия" class="static-img"
+                 loading="lazy" decoding="async" width="640" height="640">
             <video class="hover-img" loop muted playsinline preload="none"
                    poster="/pngs/sustoqniq/muscles/chest%20neuralgia-Thumbnail.jpg"
                    aria-hidden="true" width="640" height="640">
@@ -208,11 +202,9 @@
         <!-- 3: Thoracic Outlet Syndrome -->
         <a href="/sustiqnia/gurdi/outlet-syndrome.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img
-              src="/pngs/sustoqniq/muscles/thoracic%20outlet-Thumbnail.jpg"
-              alt="Thoracic Outlet Syndrome (TOS)"
-              class="static-img"
-              loading="lazy" decoding="async" width="640" height="640">
+            <img src="/pngs/sustoqniq/muscles/thoracic%20outlet-Thumbnail.jpg"
+                 alt="Thoracic Outlet Syndrome (TOS)" class="static-img"
+                 loading="lazy" decoding="async" width="640" height="640">
             <video class="hover-img" loop muted playsinline preload="none"
                    poster="/pngs/sustoqniq/muscles/thoracic%20outlet-Thumbnail.jpg"
                    aria-hidden="true" width="640" height="640">
@@ -225,11 +217,9 @@
         <!-- 4: Абдоминални хернии -->
         <a href="/sustiqnia/gurdi/Abdominal-hernia.html" class="pain-button">
           <div class="pain-button-media image-container">
-            <img
-              src="/pngs/sustoqniq/muscles/abdominal%20hernia-Thumbnail.PNG"
-              alt="Абдоминални хернии (пъпна, ингвинална и др.)"
-              class="static-img"
-              loading="lazy" decoding="async" width="640" height="640">
+            <img src="/pngs/sustoqniq/muscles/abdominal%20hernia-Thumbnail.PNG"
+                 alt="Абдоминални хернии (пъпна, ингвинална и др.)" class="static-img"
+                 loading="lazy" decoding="async" width="640" height="640">
             <video class="hover-img" loop muted playsinline preload="none"
                    poster="/pngs/sustoqniq/muscles/abdominal%20hernia-Thumbnail.PNG"
                    aria-hidden="true" width="640" height="640">
@@ -314,7 +304,7 @@
 <script src="/js/topbar.js" defer></script>
 <script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Lazy Google Maps iframe -->
+<!-- Lazy карта (само при видимост) -->
 <script>
 (function(){
   var iframe = document.getElementById('mapFrame');
