@@ -36,35 +36,33 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
-  <!-- Уеб шрифт (неблокиращо, ако го ползвате в темата) -->
+  <!-- Уеб шрифт (неблокиращо) -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Локални стилове -->
   <link rel="stylesheet" href="/css/top-bar.css">
   <link rel="stylesheet" href="/css/styles-procedures.css">
-  <link rel="stylesheet" href="/css/pain-conditions.css">
-  <link rel="stylesheet" href="/image-styles.css">
 
   <!-- Preload на LCP изображението (първата карта) -->
   <link rel="preload" as="image" href="/pngs/procedures/KT.webp" fetchpriority="high">
 
-  <!-- Мини-override: scroll-offset за топ бар + видеата не покриват статичната снимка преди да са готови -->
+  <!-- Мини-override: scroll-offset за топ бар + стабилен медиен контейнер -->
   <style>
     :root{ --tb-h: 76px; }
     @media (max-width: 900px){ :root{ --tb-h: 64px; } }
     html, body { scroll-padding-top: var(--tb-h); }
     main { padding-top: var(--tb-h); }
 
-    .card__media:not(.video-ready) .img--hover { opacity:0 !important; visibility:hidden !important; }
-    .card__media:not(.video-ready):hover .img--static { opacity:1 !important; visibility:visible !important; }
-
-    /* текстови елементи да не режат думи на мобилно */
+    /* Текстови елементи да не режат думи на мобилно */
     h1,h2,h3,p { white-space: normal !important; overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
     .cards > * { min-width: 0; }
     img { height:auto; }
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
+
+    /* Същият медиен контейнер като в massages.html */
+    .image-container { aspect-ratio: 16/9; overflow:hidden; }
   </style>
 
   <!-- Отложено зареждане на Contentsquare/Hotjar (като на другите страници) -->
@@ -239,10 +237,10 @@
         <!-- Card 1 -->
         <article class="card" data-price="80 лв" data-duration="60 мин">
           <a href="/procedures/details-kinesitherapy.html" class="card__media-link" aria-label="Кинезитерапевтична процедура — виж детайли">
-            <div class="card__media">
-              <img class="img img--static" src="/pngs/procedures/KT.webp" alt="Кинезитерапевтична процедура"
+            <div class="card__media image-container">
+              <img class="img img--static static-img" src="/pngs/procedures/KT.webp" alt="Кинезитерапевтична процедура"
                    loading="eager" decoding="async" fetchpriority="high" width="640" height="360">
-              <video class="img img--hover" loop muted playsinline preload="metadata" poster="/pngs/procedures/KT.webp" aria-hidden="true">
+              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/KT.webp" aria-hidden="true">
                 <source src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
               </video>
             </div>
@@ -262,10 +260,10 @@
         <!-- Card 2 -->
         <article class="card" data-price="Безплатна консултация" data-duration="10 мин">
           <a href="/procedures/functional-assessment.html" class="card__media-link" aria-label="Функционална оценка — виж детайли">
-            <div class="card__media">
-              <img class="img img--static" src="/pngs/procedures/gif/function3-Thumbnail.webp" alt="Функционална оценка"
+            <div class="card__media image-container">
+              <img class="img img--static static-img" src="/pngs/procedures/gif/function3-Thumbnail.webp" alt="Функционална оценка"
                    loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover" loop muted playsinline preload="metadata" poster="/pngs/procedures/function.webp" aria-hidden="true">
+              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/gif/function3-Thumbnail.webp" aria-hidden="true">
                 <source src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
               </video>
             </div>
@@ -284,10 +282,10 @@
         <!-- Card 3 -->
         <article class="card" data-price="50 лв" data-duration="30 мин">
           <a href="/procedures/specialized-exercises.html" class="card__media-link" aria-label="Специализирани упражнения — виж детайли">
-            <div class="card__media">
-              <img class="img img--static" src="/pngs/procedures/exercises.webp" alt="Специализирани упражнения"
+            <div class="card__media image-container">
+              <img class="img img--static static-img" src="/pngs/procedures/exercises.webp" alt="Специализирани упражнения"
                    loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover" loop muted playsinline preload="metadata" poster="/pngs/procedures/exercises.webp" aria-hidden="true">
+              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/procedures/exercises.webp" aria-hidden="true">
                 <source src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
               </video>
             </div>
@@ -321,10 +319,10 @@
         <!-- Лечебен масаж -->
         <article class="card" data-price="80 лв" data-duration="60 мин">
           <a href="/procedures/lecheben-masaj.html" class="card__media-link" aria-label="Лечебен масаж — виж детайли">
-            <div class="card__media">
-              <img class="img img--static" src="/pngs/massages/lecheben.webp" alt="Лечебен масаж"
+            <div class="card__media image-container">
+              <img class="img img--static static-img" src="/pngs/massages/lecheben.webp" alt="Лечебен масаж"
                    loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover" loop muted playsinline preload="metadata" poster="/pngs/massages/lecheben.webp" aria-hidden="true">
+              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/lecheben.webp" aria-hidden="true">
                 <source src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
               </video>
             </div>
@@ -343,10 +341,10 @@
         <!-- Дълбокотъканен масаж -->
         <article class="card" data-price="80 лв" data-duration="60 мин">
           <a href="/procedures/masaj.deeptisue.html" class="card__media-link" aria-label="Дълбокотъканен масаж — виж детайли">
-            <div class="card__media">
-              <img class="img img--static" src="/pngs/massages/deeptissue.webp" alt="Дълбокотъканен масаж"
+            <div class="card__media image-container">
+              <img class="img img--static static-img" src="/pngs/massages/deeptissue.webp" alt="Дълбокотъканен масаж"
                    loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover" loop muted playsinline preload="metadata" poster="/pngs/massages/deeptissue.webp" aria-hidden="true">
+              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/deeptissue.webp" aria-hidden="true">
                 <source src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
               </video>
             </div>
@@ -365,10 +363,10 @@
         <!-- Антицелулитен масаж -->
         <article class="card" data-price="80 лв" data-duration="60 мин">
           <a href="/procedures/masaj-celulit.html" class="card__media-link" aria-label="Антицелулитен масаж — виж детайли">
-            <div class="card__media">
-              <img class="img img--static" src="/pngs/massages/celulit.webp" alt="Антицелулитен масаж"
+            <div class="card__media image-container">
+              <img class="img img--static static-img" src="/pngs/massages/celulit.webp" alt="Антицелулитен масаж"
                    loading="lazy" decoding="async" width="640" height="360">
-              <video class="img img--hover" loop muted playsinline preload="metadata" poster="/pngs/massages/celulit.webp" aria-hidden="true">
+              <video class="img img--hover hover-img" autoplay loop muted playsinline preload="metadata" poster="/pngs/massages/celulit.webp" aria-hidden="true">
                 <source src="/pngs/massages/gif/celulit.mp4" type="video/mp4">
               </video>
             </div>
@@ -461,7 +459,7 @@
                 </div>
               </form>
 
-              <!-- анти-бот логика + видео guard (както на другите страници) -->
+              <!-- анти-бот логика -->
               <script>
               (function(){
                 const form = document.getElementById('adviceForm');
@@ -582,28 +580,6 @@
 })();
 </script>
 
-<!-- Маркиране като video-ready при loadeddata -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.card__media').forEach(box => {
-    const vid = box.querySelector('video.img--hover');
-    const img = box.querySelector('img.img--static');
-    if (!vid) return;
-
-    if (!vid.getAttribute('poster') && img) {
-      vid.setAttribute('poster', img.currentSrc || img.src);
-    }
-    vid.preload = 'metadata';
-    vid.muted = true; vid.defaultMuted = true;
-    vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
-
-    const markReady = () => box.classList.add('video-ready');
-    if (vid.readyState >= 2) { markReady(); }
-    else { vid.addEventListener('loadeddata', markReady, { once: true }); try { vid.load(); } catch (e) {} }
-  });
-});
-</script>
-
 <!-- Lazy Google Maps iframe (data-src -> src при видимост) -->
 <script>
 (function(){
@@ -618,6 +594,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }, { rootMargin: '300px' });
   io.observe(iframe);
+})();
+</script>
+
+<!-- Hover + visibility control (fallback) – като на massages.html -->
+<script>
+(function () {
+  const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
+  const safePause = (v) => v && v.pause && v.pause();
+
+  document.querySelectorAll('video').forEach(v => {
+    v.muted = true; v.setAttribute('playsinline','');
+    if (!v.getAttribute('preload')) v.preload = 'metadata';
+  });
+
+  document.querySelectorAll('.image-container').forEach(box => {
+    const vid = box.querySelector('video');
+    if (!vid) return;
+    const onEnter = () => safePlay(vid);
+    const onLeave = () => { safePause(vid); try { vid.currentTime = 0; } catch(e){} };
+    box.addEventListener('mouseenter', onEnter, {passive:true});
+    box.addEventListener('mouseleave', onLeave, {passive:true});
+    box.addEventListener('touchstart', onEnter, {passive:true});
+    box.addEventListener('touchend', onLeave, {passive:true});
+  });
+
+  const vids = [ ...document.querySelectorAll('.hover-img') ];
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(({isIntersecting, target}) => {
+        if (isIntersecting) safePlay(target); else safePause(target);
+      });
+    }, { threshold: 0.35 });
+    vids.forEach(v => io.observe(v));
+  }
 })();
 </script>
 
