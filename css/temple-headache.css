@@ -986,3 +986,39 @@ a:hover{
   .kinesitherapy-img,
   .kinesitherapy-video { transition: none; }
 }
+/* Монета за иконите */
+.healing-step .step-icon-circle{
+  --size: 112px;
+  width: var(--size); height: var(--size);
+  border-radius: 999px;
+  margin: 0 auto 18px;
+  display: grid; place-items: center;
+  background: radial-gradient(circle at 35% 30%, #60b3e6 0%, #2e91cf 66%, #257db7 100%);
+  box-shadow:
+    0 14px 34px rgba(0,0,0,.14),
+    inset 0 2px 8px rgba(255,255,255,.28);
+  position: relative;
+  isolation: isolate;
+}
+
+/* мек ореол */
+.healing-step .step-icon-circle::after{
+  content:"";
+  position:absolute; inset:-14px;
+  border-radius:inherit;
+  background: radial-gradient(closest-side, rgba(46,145,207,.35), transparent 70%);
+  filter: blur(6px);
+  z-index:-1;
+}
+
+/* самата икона – еднакъв размер и контраст */
+.healing-step .step-icon-circle .icon{
+  width: 52px; height: 52px;
+  color:#fff;            /* stroke цвят */
+}
+
+/* по-малки екрани */
+@media (max-width: 640px){
+  .healing-step .step-icon-circle{ --size: 92px; }
+  .healing-step .step-icon-circle .icon{ width: 44px; height: 44px; }
+}
