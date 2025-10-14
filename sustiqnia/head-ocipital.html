@@ -38,16 +38,16 @@
   <meta name="twitter:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/ocipital%20pain-Thumbnail.webp" />
 
   <!-- Favicons -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
+  <link rel="icon" href="/favicon.ico?v=20251006" sizes="any">
+  <link rel="icon" type="image/webp" href="/logo.webp?v=20251006" sizes="32x32">
 
-  <!-- Локални стилове (същия пакет като шаблона) -->
-  <link rel="preload" as="style" href="/css/top-bar.css" />
-  <link rel="preload" as="style" href="/css/muscle.css" />
-  <link rel="preload" as="style" href="/css/temple-headache.css" />
-  <link rel="stylesheet" href="/css/top-bar.css" />
-  <link rel="stylesheet" href="/css/muscle.css" />
-  <link rel="stylesheet" href="/css/temple-headache.css" />
+  <!-- Локални стилове (същия пакет като шаблона) + cache-busting -->
+  <link rel="preload" as="style" href="/css/top-bar.css?v=20251006" />
+  <link rel="preload" as="style" href="/css/muscle.css?v=20251006" />
+  <link rel="preload" as="style" href="/css/temple-headache.css?v=20251006" />
+  <link rel="stylesheet" href="/css/top-bar.css?v=20251006" />
+  <link rel="stylesheet" href="/css/muscle.css?v=20251006" />
+  <link rel="stylesheet" href="/css/temple-headache.css?v=20251006" />
 
   <!-- Перформанс: предварителни връзки -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -67,7 +67,7 @@
   </noscript>
 
   <!-- Preload на LCP изображение (hero) -->
-  <link rel="preload" as="image" href="../pngs/sustoqniq/muscles/ocipital%20pain-Thocipital%20pain-Thumbnail.webpp" fetchpriority="high" />
+  <link rel="preload" as="image" href="https://dmphysio.com/pngs/sustoqniq/muscles/ocipital%20pain-Thumbnail.webp?v=20251006" type="image/webp" fetchpriority="high" />
 
   <!-- Мини-override и съвместимост за SVG икони (заместник на FA) -->
   <style>
@@ -93,6 +93,31 @@
       outline: 3px solid #18a558;
       outline-offset: 3px;
       border-radius: 10px;
+    }
+
+    /* --- Монети (иконите) в HEALING – като при слепоочието --- */
+    .healing-step .step-icon-circle{
+      --size:112px;
+      width:var(--size); height:var(--size);
+      border-radius:999px;
+      margin:0 auto 18px;
+      display:grid; place-items:center;
+      background: radial-gradient(circle at 35% 30%, #60b3e6 0%, #2e91cf 66%, #257db7 100%);
+      box-shadow: 0 14px 34px rgba(0,0,0,.14), inset 0 2px 8px rgba(255,255,255,.28);
+      position:relative; isolation:isolate;
+    }
+    .healing-step .step-icon-circle::after{
+      content:""; position:absolute; inset:-14px; border-radius:inherit;
+      background: radial-gradient(closest-side, rgba(46,145,207,.35), transparent 70%);
+      filter:blur(6px); z-index:-1;
+    }
+    .healing-step .step-icon-circle i{
+      font-size:52px; line-height:1; color:#fff;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    @media (max-width:640px){
+      .healing-step .step-icon-circle{ --size:92px; }
+      .healing-step .step-icon-circle i{ font-size:44px; }
     }
   </style>
 
@@ -258,13 +283,9 @@
   <symbol id="i-stethoscope" viewBox="0 0 512 512"><path d="M447.1 159.1c0-35.3-28.7-64-64-64s-64 28.7-64 64c0 30.6 21.5 56.2 50 62.7V304c0 57.4-46.6 104-104 104h-24c-39.8 0-72-32.2-72-72V280c53 0 96-43 96-96V16c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16v168c0 26.5-21.5 48-48 48s-48-21.5-48-48V16c0-8.8-7.2-16-16-16H48C39.2 0 32 7.2 32 16v168c0 53 43 96 96 96v56c0 66.3 53.7 120 120 120h24c75.1 0 136-60.9 136-136V221.8c28.5-6.5 50-32.1 50-62.7z"/></symbol>
   <symbol id="i-lightbulb" viewBox="0 0 352 512"><path d="M176 0C78.8 0 0 78.8 0 176c0 44.2 16.8 84.5 44.3 115.1C62.6 310.2 80 336.8 80 368v16c0 8.8 7.2 16 16 16h32v80c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32v-80h32c8.8 0 16-7.2 16-16v-16c0-31.2 17.4-57.8 35.7-76.9C335.2 260.5 352 220.2 352 176 352 78.8 273.2 0 176 0z"/></symbol>
   <symbol id="i-info" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 110a30 30 0 1 1 0 60 30 30 0 0 1 0-60zm56 290h-112c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h20v-84h-20c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v120h20c6.6 0 12-5.4 12 12v24c0 6.6-5.4 12-12 12z"/></symbol>
-  <symbol id="i-frown" viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm80 184a40 40 0 1 1-40 40 40 0 0 1 40-40zm-160 0a40 40 0 1 1-40 40 40 40 0 0 1 40-40zm-16.6 200.3a16 16 0 0 1-2.2-22.5C174.6 336.4 209.3 320 248 320s73.4 16.4 98.8 49.8a16 16 0 0 1-24.7 20.5C300.4 364 275.6 352 248 352s-52.4 12-74.1 38.3a16 16 0 0 1-22.5 2.2z"/></symbol>
-  <symbol id="i-brain" viewBox="0 0 576 512"><path d="M208 0a80 80 0 0 0-80 80v16a64 64 0 0 0-64 64v48a80 80 0 0 0 48 73.5V320a96 96 0 0 0 96 96h32V80A80 80 0 0 0 208 0zm160 0a80 80 0 0 0-80 80v336h32a96 96 0 0 0 96-96v-38.5A80 80 0 0 0 512 208v-48a64 64 0 0 0-64-64V80a80 80 0 0 0-80-80z"/></symbol>
-  <symbol id="i-dizzy" viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm-78.6 214.6 22.6-22.6L216 224l24-24 22.6 22.6L262.6 248l24 24-22.6 22.6L240 270.6l-24 24-22.6-22.6 24-24-24-24zM328 352H168c-13.3 0-24-10.7-24-24 0-53 43-96 96-96s96 43 96 96c0 13.3-10.7 24-24 24zm26.6-129.4L332 200l-24 24-22.6-22.6 24-24-24-24L308 130.7 332 154.7l24-24 22.6 22.6-24 24 24 24z"/></symbol>
   <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-triangle-exc" viewBox="0 0 576 512"><path d="M569.5 440.6 327.4 40.6c-11.7-19.4-39.9-19.4-51.6 0L6.5 440.6C-5.2 460 9.1 485.3 32 485.3h512c22.9 0 37.2-25.3 25.5-44.7zM288 392c-13.3 0-24-10.7-24-24 0-13.3 10.7-24 24-24s24 10.7 24 24c0 13.3-10.7 24-24 24zm24-120c0 13.3-10.7 24-24 24s-24-10.7-24-24V200c0-13.3 10.7-24 24-24s24 10.7 24 24v72z"/></symbol>
   <symbol id="i-dot" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></symbol>
-  <!-- Допълнителни икони за секцията "Как да се справим" ще останат с <i class> според изискването -->
 </svg>
 
 <!-- ======= Top bar (TB) ======= -->
@@ -272,7 +293,7 @@
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" />
+      <img src="/logo.webp?v=20251006" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" />
     </a>
 
     <!-- Хамбургер (SVG) -->
@@ -319,15 +340,15 @@
         </div>
       </div>
       <div class="hero-image image-container">
-        <img src="../pngs/sustoqniq/muscles/ocipital%20pain-Thumbnail.webp"
+        <img src="../pngs/sustoqniq/muscles/ocipital%20pain-Thumbnail.webp?v=20251006"
              alt="Изображение на болка в тила"
              class="static-img"
              loading="eager" decoding="async" fetchpriority="high"
              width="1280" height="720">
         <video class="hover-video" muted loop preload="metadata" playsinline
-               poster="../pngs/sustoqniq/muscles/ocipital%20pain-Thumbnail.webp" aria-hidden="true"
+               poster="../pngs/sustoqniq/muscles/ocipital%20pain-Thumbnail.webp?v=20251006" aria-hidden="true"
                width="1280" height="720">
-          <source src="../pngs/sustoqniq/muscles/ocipital%20pain.mp4" type="video/mp4">
+          <source src="../pngs/sustoqniq/muscles/ocipital%20pain.mp4?v=20251006" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
       </div>
@@ -348,15 +369,15 @@
         </div>
       </div>
       <div class="intro-image image-container">
-        <img src="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.webp"
+        <img src="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.webp?v=20251006"
              alt="Анатомия на врата и тила - статично изображение"
              class="static-img"
              loading="lazy" decoding="async"
              width="1000" height="562">
         <video class="hover-video" muted loop preload="metadata" playsinline
-               poster="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.webp" aria-hidden="true"
+               poster="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.webp?v=20251006" aria-hidden="true"
                width="1000" height="562">
-          <source src="../pngs/sustoqniq/muscles/subocipital2.mp4" type="video/mp4">
+          <source src="../pngs/sustoqniq/muscles/subocipital2.mp4?v=20251006" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
       </div>
@@ -383,7 +404,6 @@
           <div class="step-number">2</div>
           <h3>Намален кръвоток</h3>
           <p>Хроничното мускулно напрежение компресира кръвоносните съдове, намалявайки притока на кръв, кислород и хранителни вещества към тъканите. Това води до натрупване на метаболитни отпадъчни продукти.</p>
-          <!-- За този етап използваме мозък-икона за последователност -->
          
         </div>
 
@@ -409,15 +429,15 @@
         <div class="muscle-item">
           <h3>m. trapezius (горна част)</h3>
           <div class="muscle-media muscle-video-centered image-container">
-            <img src="../pngs/sustoqniq/muscles/trapezius2-Thumbnail.webp"
+            <img src="../pngs/sustoqniq/muscles/trapezius2-Thumbnail.webp?v=20251006"
                  alt="Изображение на горна част на трапецовиден мускул"
                  class="static-muscle-img static-img"
                  loading="lazy" decoding="async"
                  width="800" height="450">
             <video class="hover-muscle-video hover-video" muted loop preload="metadata" playsinline
-                   poster="../pngs/sustoqniq/muscles/trapezius2-Thumbnail.webp"
+                   poster="../pngs/sustoqniq/muscles/trapezius2-Thumbnail.webp?v=20251006"
                    width="800" height="450">
-              <source src="../pngs/sustoqniq/muscles/trapezius2.mp4" type="video/mp4">
+              <source src="../pngs/sustoqniq/muscles/trapezius2.mp4?v=20251006" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
           </div>
@@ -452,15 +472,15 @@
         <div class="muscle-item">
           <h3>m. levator scapulae</h3>
           <div class="muscle-media muscle-video-centered image-container">
-            <img src="../pngs/sustoqniq/muscles/levator%20scapulae-1-Thumbnail.webp"
+            <img src="../pngs/sustoqniq/muscles/levator%20scapulae-1-Thumbnail.webp?v=20251006"
                  alt="Изображение на m. levator scapulae"
                  class="static-muscle-img static-img"
                  loading="lazy" decoding="async"
                  width="800" height="450">
             <video class="hover-muscle-video hover-video" muted loop preload="metadata" playsinline
-                   poster="../pngs/sustoqniq/muscles/levator%20scapulae-1-Thumbnail.webp"
+                   poster="../pngs/sustoqniq/muscles/levator%20scapulae-1-Thumbnail.webp?v=20251006"
                    width="800" height="450">
-              <source src="../pngs/sustoqniq/muscles/levator%20scapulae-1.mp4" type="video/mp4">
+              <source src="../pngs/sustoqniq/muscles/levator%20scapulae-1.mp4?v=20251006" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
           </div>
@@ -496,15 +516,15 @@
           <h3>m. splenius capitis &amp; cervicis</h3>
           <h4>(m. splenius capitis и m. splenius cervicis)</h4>
           <div class="muscle-media muscle-video-centered image-container">
-            <img src="../pngs/sustoqniq/muscles/splenus%20capitis%20%26%20cervicis-Thumbnail.webp"
+            <img src="../pngs/sustoqniq/muscles/splenus%20capitis%20%26%20cervicis-Thumbnail.webp?v=20251006"
                  alt="Изображение на мускулите splenius"
                  class="static-muscle-img static-img"
                  loading="lazy" decoding="async"
                  width="800" height="450">
             <video class="hover-muscle-video hover-video" muted loop preload="metadata" playsinline
-                   poster="../pngs/sustoqniq/muscles/splenus%20capitis%20%26%20cervicis-Thumbnail.webp"
+                   poster="../pngs/sustoqniq/muscles/splenus%20capitis%20%26%20cervicis-Thumbnail.webp?v=20251006"
                    width="800" height="450">
-              <source src="../pngs/sustoqniq/muscles/splenus%20capitis%20%26%20cervicis.mp4" type="video/mp4">
+              <source src="../pngs/sustoqniq/muscles/splenus%20capitis%20%26%20cervicis.mp4?v=20251006" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
           </div>
@@ -539,15 +559,15 @@
         <div class="muscle-item">
           <h3>(SCM) m. sternocleidomastoideus</h3>
           <div class="muscle-media muscle-video-centered image-container">
-            <img src="../pngs/sustoqniq/muscles/scm-Thumbnail.webp"
+            <img src="../pngs/sustoqniq/muscles/scm-Thumbnail.webp?v=20251006"
                  alt="Изображение на m. sternocleidomastoideus"
                  class="static-muscle-img static-img"
                  loading="lazy" decoding="async"
                  width="800" height="450">
             <video class="hover-muscle-video hover-video" muted loop preload="metadata" playsinline
-                   poster="../pngs/sustoqniq/muscles/scm-Thumbnail.webp"
+                   poster="../pngs/sustoqniq/muscles/scm-Thumbnail.webp?v=20251006"
                    width="800" height="450">
-              <source src="../pngs/sustoqniq/muscles/scm.mp4" type="video/mp4">
+              <source src="../pngs/sustoqniq/muscles/scm.mp4?v=20251006" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
           </div>
@@ -583,15 +603,15 @@
           <h3>m. suboccipitales</h3>
           <h4>(mm. rectus capitis, mm. obliquus capitis)</h4>
           <div class="muscle-media muscle-video-centered image-container">
-            <img src="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.webp"
+            <img src="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.webp?v=20251006"
                  alt="Изображение на Мускулита субокципиталес"
                  class="static-muscle-img static-img"
                  loading="lazy" decoding="async"
                  width="800" height="450">
             <video class="hover-muscle-video hover-video" muted loop preload="metadata" playsinline
-                   poster="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.webp"
+                   poster="../pngs/sustoqniq/muscles/subocipital2-Thumbnail.webp?v=20251006"
                    width="800" height="450">
-              <source src="../pngs/sustoqniq/muscles/subocipital2.mp4" type="video/mp4">
+              <source src="../pngs/sustoqniq/muscles/subocipital2.mp4?v=20251006" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
           </div>
@@ -665,11 +685,11 @@
 
           <a href="../procedures/details-kinesitherapy.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="/pngs/procedures/KT.webp" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img"
+              <img src="/pngs/procedures/KT.webp?v=20251006" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/procedures/KT.webp" aria-hidden="true" width="320" height="180">
-                <source data-src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
+                     poster="/pngs/procedures/KT.webp?v=20251006" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/KT.mp4?v=20251006" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
@@ -677,11 +697,11 @@
 
           <a href="../procedures/lecheben-masaj.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="/pngs/massages/lecheben.webp" alt="Лечебен Масаж" class="kinesitherapy-img"
+              <img src="/pngs/massages/lecheben.webp?v=20251006" alt="Лечебен Масаж" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/massages/lecheben.webp" aria-hidden="true" width="320" height="180">
-                <source data-src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
+                     poster="/pngs/massages/lecheben.webp?v=20251006" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/massages/gif/lecheben.mp4?v=20251006" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Лечебен Масаж</span>
@@ -689,11 +709,11 @@
 
           <a href="../procedures/masaj.deeptisue.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="/pngs/massages/deeptissue.webp" alt="Дълбокотъканен Масаж" class="kinesitherapy-img"
+              <img src="/pngs/massages/deeptissue.webp?v=20251006" alt="Дълбокотъканен Масаж" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/massages/deeptissue.webp" aria-hidden="true" width="320" height="180">
-                <source data-src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
+                     poster="/pngs/massages/deeptissue.webp?v=20251006" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/massages/gif/deeptisue.mp4?v=20251006" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
@@ -701,11 +721,11 @@
 
           <a href="../procedures/functional-assessment.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="/pngs/procedures/function.webp" alt="Функционална оценка" class="kinesitherapy-img"
+              <img src="/pngs/procedures/function.webp?v=20251006" alt="Функционална оценка" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/procedures/function.webp" aria-hidden="true" width="320" height="180">
-                <source data-src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
+                     poster="/pngs/procedures/function.webp?v=20251006" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/funciton.mp4?v=20251006" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Функционална оценка</span>
@@ -713,11 +733,11 @@
 
           <a href="../procedures/specialized-exercises.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="/pngs/procedures/exercises.webp" alt="Упражнения" class="kinesitherapy-img"
+              <img src="/pngs/procedures/exercises.webp?v=20251006" alt="Упражнения" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/procedures/exercises.webp" aria-hidden="true" width="320" height="180">
-                <source data-src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
+                     poster="/pngs/procedures/exercises.webp?v=20251006" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/exercieses.mp4?v=20251006" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Упражнения</span>
@@ -725,11 +745,11 @@
 
           <a href="../procedures/dry-needling.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="/pngs/procedures/gif/drineedling-Thumbnail.webp" alt="Терапия със сухи игли"
+              <img src="/pngs/procedures/gif/drineedling-Thumbnail.webp?v=20251006" alt="Терапия със сухи игли"
                    class="kinesitherapy-img" loading="lazy" decoding="async" width="320" height="180">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/procedures/gif/drineedling-Thumbnail.webp" aria-hidden="true" width="320" height="180">
-                <source data-src="/pngs/procedures/gif/drineedling.mp4" type="video/mp4">
+                     poster="/pngs/procedures/gif/drineedling-Thumbnail.webp?v=20251006" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/drineedling.mp4?v=20251006" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
@@ -737,11 +757,11 @@
 
           <a href="../procedures/kinesiotaping.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.webp" alt="Кинезио тейпинг" class="kinesitherapy-img"
+              <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.webp?v=20251006" alt="Кинезио тейпинг" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
-                     poster="/pngs/procedures/gif/kinesiotape-1-Thumbnail.webp" aria-hidden="true" width="320" height="180">
-                <source data-src="/pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
+                     poster="/pngs/procedures/gif/kinesiotape-1-Thumbnail.webp?v=20251006" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/kinesiotape-1.mp4?v=20251006" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
@@ -783,27 +803,27 @@
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
+            <img src="/pngs/social/facebook.png?v=20251006" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
+            <img src="/pngs/social/instagram.png?v=20251006" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="22">
+            <img src="/pngs/social/Youtube.png?v=20251006" alt="YouTube" loading="lazy" decoding="async" width="32" height="22">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="28" height="32">
+            <img src="/pngs/social/tiktok.png?v=20251006" alt="TikTok" loading="lazy" decoding="async" width="28" height="32">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="/pngs/social/phone.png?v=20251006" alt="Телефон" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
           <span><a href="tel:0883688414">0883688414</a></span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="/pngs/clock.avif?v=20251006" alt="Работно Време" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
@@ -812,7 +832,7 @@
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="/pngs/social/location.png?v=20251006" alt="Адрес" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -829,10 +849,10 @@
   </section>
 </footer>
 
-<!-- Скриптове – отложени -->
-<script src="/js/topbar.js" defer></script>
-<script src="../js/temple-headache.js" defer></script>
-<script src="../js/procedurs-slider.js" defer></script>
+<!-- Скриптове – отложени (cache-busting) -->
+<script src="/js/topbar.js?v=20251006" defer></script>
+<script src="/js/temple-headache.js?v=20251006" defer></script>
+<script src="/js/procedurs-slider.js?v=20251006" defer></script>
 
 <!-- Хелпър за видеата и картите (идентичен подход като шаблона) -->
 <script>
@@ -924,9 +944,9 @@
 <h1 class="sr-only">Болка в тила (окципитално главоболие): причини, симптоми и лечение | DM Physio София</h1>
 
 <!-- Font Awesome само за секцията "Как да се справим" (икони). Зареждаме неблокиращо. -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=20251006" media="print" onload="this.media='all'">
 <noscript>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=20251006">
 </noscript>
 
 </body>
