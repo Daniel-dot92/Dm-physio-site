@@ -353,16 +353,15 @@
         <div class="disc-tl__side disc-tl__side--media">
           <!-- ОПРАВЕН ПЪТ: neck-upper-cross-imbalance-Thumbnail.webp -->
           <figure class="dt-media image-container hernia-step-media">
-            <img class="dt-media__img static-img"
-                 src="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance-Thumbnail.webp?v=20251015"
-                 alt="Горен кръстосан синдром"
-                 width="1000" height="1000" loading="lazy" decoding="async">
-            <video class="dt-media__video hover-video"
-                   muted loop playsinline preload="metadata"
-                   poster="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance-Thumbnail.webp?v=20251015"
-                   width="1000" height="1000" aria-hidden="true">
-              <source src="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance.mp4?v=20251015" type="video/mp4">
-            </video>
+           <img class="dt-media__img static-img"
+     src="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance-Thumbnail.webp?v=20251015"
+     alt="Горен кръстосан синдром" width="1000" height="1000" loading="lazy" decoding="async">
+<video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
+       poster="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance-Thumbnail.webp?v=20251015"
+       width="1000" height="1000" aria-hidden="true">
+  <source src="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance.mp4?v=20251015" type="video/mp4">
+</video>
+
           </figure>
         </div>
       </div>
@@ -650,5 +649,77 @@
   });
 })();
 </script>
+<!-- Скриптове – отложени -->
+<script src="/js/topbar.js" defer></script>
+<script src="/js/temple-headache.js" defer></script>
+<script src="/js/procedurs-slider.js" defer></script>
+
+<!-- Хелпър за видеата и картата -->
+<script>
+(function () {
+  function ensureVideoHasSrc(video){
+    if (!video) return;
+    if (video.currentSrc || (video.querySelector('source') && video.querySelector('source').src)) return;
+    const s = video.querySelector('source[data-src]');
+    if (s){ s.src = s.dataset.src; try{ video.load(); }catch(e){} }
+  }
+  function safePlay(v){ if (!v || !v.paused || !v.play) return; v.muted = true; const p=v.play(); if(p&&p.catch) p.catch(()=>{}); }
+  function safePause(v){ if (!v || v.paused || !v.pause) return; v.pause(); }
+
+  const cards = document.querySelectorAll('.kinesitherapy-button');
+  cards.forEach((card) => {
+    const href = card.getAttribute('href');
+    const v = card.querySelector('.kinesitherapy-video');
+    card.addEventListener('pointerenter', () => { ensureVideoHasSrc(v); safePlay(v); }, {passive:true});
+    card.addEventListener('pointerleave', () => { safePause(v); }, {passive:true});
+    card.addEventListener('touchstart', () => { ensureVideoHasSrc(v); safePlay(v); }, {passive:true});
+    card.addEventListener('touchend', () => { setTimeout(() => safePause(v), 500); }, {passive:true});
+    card.addEventListener('click', (e) => { if (href && e.defaultPrevented){ window.location.assign(href); } }, {capture:true});
+  });
+
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if (en.isIntersecting){
+          const v = en.target.querySelector('.kinesitherapy-video');
+          ensureVideoHasSrc(v);
+          io.unobserve(en.target);
+        }
+      });
+    }, { root:null, rootMargin:'200px 0px', threshold:0 });
+    cards.forEach(c=>io.observe(c));
+  }
+
+  document.querySelectorAll('.image-container').forEach(box => {
+    const vid = box.querySelector('video');
+    if (!vid) return;
+    vid.preload = 'metadata';
+    const onEnter = () => safePlay(vid);
+    const onLeave = () => safePause(vid);
+    box.addEventListener('mouseenter', onEnter, {passive:true});
+    box.addEventListener('mouseleave', onLeave, {passive:true});
+    box.addEventListener('touchstart', onEnter, {passive:true});
+    box.addEventListener('touchend', onLeave, {passive:true});
+  });
+})();
+</script>
+
+<!-- Lazy карта -->
+<script>
+(function(){
+  var iframe = document.getElementById('mapFrame');
+  if (!iframe || !('IntersectionObserver' in window)) return;
+  var dataSrc = iframe.getAttribute('data-src');
+  if (!dataSrc) return;
+  var io = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })){
+      if (!iframe.src) iframe.src = dataSrc;
+      io.disconnect();
+    }
+  }, { rootMargin: '300px' });
+  io.observe(iframe);
+})();
+</script>
+
 </body>
 </html>
