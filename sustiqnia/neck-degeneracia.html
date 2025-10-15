@@ -2,7 +2,7 @@
 <html lang="bg">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
   <title>Дегенерация на дискове – причини, симптоми и лечение | ДМ Физио София</title>
   <meta name="description" content="Как загубата на влага и еластичност на междупрешленните дискове води до болка и скованост. Симптоми, механизъм и как помагаме в DM Physio София – мануална терапия и специализирани упражнения." />
@@ -13,6 +13,7 @@
   <!-- Canonical / hreflang -->
   <link rel="canonical" href="https://dmphysio.com/sustiqnia/degeneracia-disks.html" />
   <link rel="alternate" href="https://dmphysio.com/sustiqnia/degeneracia-disks.html" hreflang="bg" />
+  <link rel="alternate" href="https://dmphysio.com/sustiqnia/degeneracia-disks.html" hreflang="x-default" />
 
   <!-- Open Graph -->
   <meta property="og:locale" content="bg_BG" />
@@ -25,41 +26,43 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Илюстрация на дегенерация на междупрешленни дискове" />
+  <meta property="article:published_time" content="2025-10-06" />
+  <meta property="article:modified_time" content="2025-10-15" />
+  <meta property="og:updated_time" content="2025-10-15" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@dmphysio" />
   <meta name="twitter:title" content="Дегенерация на дискове – причини, симптоми и лечение | ДМ Физио София" />
   <meta name="twitter:description" content="Симптоми, механизъм и подход за възстановяване: подобряване на метаболизма на диска, стабилизация и превенция." />
   <meta name="twitter:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/neck-degeneracia-Thumbnail.webp?v=20251015" />
 
- <!-- Favicons -->
+  <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
 
   <!-- Локални стилове (+ кеш-бъстинг) -->
-  <link rel="stylesheet" href="../css/top-bar.css?v=20251015" />
-  <link rel="stylesheet" href="../css/temple-headache.css?v=20251015" />
-  <link rel="stylesheet" href="../css/muscle.css?v=20251015" />
+  <link rel="preload" as="style" href="/css/top-bar.css?v=20251015" />
+  <link rel="preload" as="style" href="/css/muscle.css?v=20251015" />
+  <link rel="preload" as="style" href="/css/temple-headache.css?v=20251015" />
+  <link rel="stylesheet" href="/css/top-bar.css?v=20251015" />
+  <link rel="stylesheet" href="/css/muscle.css?v=20251015" />
+  <link rel="stylesheet" href="/css/temple-headache.css?v=20251015" />
 
   <!-- Перформанс: предварителни връзки -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-  <!-- Външни CSS (неблокиращо) + fallback -->
-
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        media="print" onload="this.media='all'">
+  <!-- Google Fonts (неблокиращо) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap&subset=latin,cyrillic" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
-   
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap&subset=latin,cyrillic" rel="stylesheet">
   </noscript>
 
-  <!-- Preload на LCP изображение (+ кеш-бъстинг) -->
+  <!-- Preload на LCP изображение (hero) -->
   <link rel="preload" as="image" href="https://dmphysio.com/pngs/sustoqniq/muscles/neck-degeneracia-Thumbnail.webp?v=20251015" type="image/webp" fetchpriority="high" />
 
   <!-- Мини-override -->
@@ -67,22 +70,69 @@
     :root{ --topbar-h:76px; }
     @media (max-width:768px){ :root{ --topbar-h:64px; } }
     .sr-only{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;}
+    section{ content-visibility:auto; contain-intrinsic-size: 1px 1000px; }
+
+    /* SVG utility */
+    .icon{ width:1em; height:1em; fill:currentColor; vertical-align:-.125em; display:inline-block; }
+    .arrow-separator.icon{ font-size:2.8em; }
+
+    .info-box .icon{ font-size:1.5rem; color:#e63946; flex-shrink:0; margin-top:.2rem; }
+    .block-header .icon{ font-size:20px; margin-right:10px; }
+    .anatomy-block .block-header .icon{ color:#007bff; }
+    .pain-char-block .block-header .icon{ color:#dc3545; }
+
+    a:focus-visible, button:focus-visible, .kinesitherapy-button:focus-visible {
+      outline: 3px solid #18a558; outline-offset: 3px; border-radius: 10px;
+    }
+
+    /* --- Монети (иконите) в HEALING – идентични със „слепоочието“ --- */
+    .healing-step .step-icon-circle{
+      --size:112px;
+      width:var(--size); height:var(--size);
+      border-radius:999px;
+      margin:0 auto 18px;
+      display:grid; place-items:center;
+      background: radial-gradient(circle at 35% 30%, #60b3e6 0%, #2e91cf 66%, #257db7 100%);
+      box-shadow: 0 14px 34px rgba(0,0,0,.14), inset 0 2px 8px rgba(255,255,255,.28);
+      position:relative; isolation:isolate;
+    }
+    .healing-step .step-icon-circle::after{
+      content:""; position:absolute; inset:-14px; border-radius:inherit;
+      background: radial-gradient(closest-side, rgba(46,145,207,.35), transparent 70%);
+      filter:blur(6px); z-index:-1;
+    }
+    .healing-step .step-icon-circle i{
+      font-size:52px; line-height:1; color:#fff;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    @media (max-width:640px){
+      .healing-step .step-icon-circle{ --size:92px; }
+      .healing-step .step-icon-circle i{ font-size:44px; }
+    }
+    /* SVG utility – идентична с работещата страница */
+.icon{ width:1em; height:1em; fill:currentColor; vertical-align:-.125em; display:inline-block; }
+
   </style>
 
-  <!-- Hotjar / Contentsquare -->
+  <!-- Hotjar / Contentsquare (отложено) -->
   <script>
-    (function (c, s, q, u, a, r, e) {
-      c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
-      c._hjSettings = { hjid: a };
-      r = s.getElementsByTagName('head')[0];
-      e = s.createElement('script');
-      e.async = true;
-      e.src = q + c._hjSettings.hjid + u;
-      r.appendChild(e);
-    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6534654);
+  (function(){
+    function loadCS(){
+      if (document.getElementById('csq-loader')) return;
+      var s = document.createElement('script');
+      s.id='csq-loader'; s.async = true;
+      s.src = 'https://static.hj.contentsquare.net/c/csq-6534654.js';
+      s.referrerPolicy = 'no-referrer-when-downgrade';
+      document.head.appendChild(s);
+    }
+    function tryLoad(){ if (window._hjSettings && typeof window.hj === 'function') loadCS(); else setTimeout(tryLoad,2000); }
+    window.addEventListener('load', function(){
+      if ('requestIdleCallback' in window) requestIdleCallback(tryLoad,{timeout:8000}); else setTimeout(tryLoad,8000);
+    });
+  })();
   </script>
 
-  <!-- JSON-LD: Organization (MedicalClinic) -->
+  <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -111,7 +161,7 @@
   }
   </script>
 
-  <!-- JSON-LD: WebSite + SearchAction -->
+  <!-- JSON-LD: WebSite -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -124,7 +174,7 @@
   }
   </script>
 
-  <!-- JSON-LD: BreadcrumbList -->
+  <!-- JSON-LD: Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -137,7 +187,7 @@
   }
   </script>
 
-  <!-- JSON-LD: MedicalWebPage + MedicalCondition -->
+  <!-- JSON-LD: MedicalWebPage -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -148,7 +198,7 @@
     "name":"Дегенерация на дискове – причини, симптоми и лечение",
     "description":"Как загубата на влага и еластичност на междупрешленните дискове води до болка и скованост. Симптоми, механизъм и възстановяване чрез кинезитерапия и мануална терапия в ДМ Физио София.",
     "datePublished":"2025-10-06",
-    "dateModified":"2025-10-06",
+    "dateModified":"2025-10-15",
     "author":{"@type":"Organization","name":"DM Physio"},
     "publisher":{"@id":"https://dmphysio.com/#org"},
     "primaryImageOfPage":{"@type":"ImageObject","url":"https://dmphysio.com/pngs/sustoqniq/muscles/neck-degeneracia-Thumbnail.webp?v=20251015","width":1200,"height":630},
@@ -171,20 +221,7 @@
   }
   </script>
 
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Какво представлява дегенерацията на дисковете?","acceptedAnswer":{"@type":"Answer","text":"Дегенерацията на дисковете е износване и дехидратация на междупрешленните дискове, което води до намалена височина, болка и ограничена подвижност."}},
-      {"@type":"Question","name":"Какво я причинява?","acceptedAnswer":{"@type":"Answer","text":"Нарушено хранене на дисковете заради мускулен дисбаланс, лоша стойка, обездвижване и повтарящо се натоварване. Движението стимулира дифузията на нутриенти."}},
-      {"@type":"Question","name":"Как помага кинезитерапията?","acceptedAnswer":{"@type":"Answer","text":"Чрез възстановяване на подвижността и „помпената“ функция на дисковете, укрепване на стабилизаторите и редукция на възпалението – за по-добър метаболизъм и по-малко болка."}}
-    ]
-  }
-  </script>
-
-  <!-- JSON-LD: VideoObject (hero видео) -->
+  <!-- JSON-LD: VideoObject -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -196,11 +233,30 @@
     "contentUrl":"https://dmphysio.com/pngs/sustoqniq/muscles/neck-degeneracia.mp4?v=20251015"
   }
   </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "inLanguage":"bg",
+    "mainEntity":[
+      {"@type":"Question","name":"Какво представлява дегенерацията на дисковете?","acceptedAnswer":{"@type":"Answer","text":"Дегенерацията на дисковете е износване и дехидратация на междупрешленните дискове, което води до намалена височина, болка и ограничена подвижност."}},
+      {"@type":"Question","name":"Какво я причинява?","acceptedAnswer":{"@type":"Answer","text":"Нарушено хранене на дисковете заради мускулен дисбаланс, лоша стойка, обездвижване и повтарящо се натоварване. Движението стимулира дифузията на нутриенти."}},
+      {"@type":"Question","name":"Как помага кинезитерапията?","acceptedAnswer":{"@type":"Answer","text":"Чрез възстановяване на подвижността и ‘помпената’ функция на дисковете, укрепване на стабилизаторите и редукция на възпалението – за по-добър метаболизъм и по-малко болка."}}
+    ]
+  }
+  </script>
 </head>
 
-
 <body>
-<!-- ======= Top bar ======= -->
+<!-- ===== SVG SPRITE (икони за топ бар и CTA) ===== -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="i-bars" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
@@ -208,14 +264,14 @@
     </a>
 
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
-      <span>☰</span>
+      <svg class="icon" aria-hidden="true"><use href="#i-bars"/></svg>
     </button>
 
     <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
       <ul class="tb-menu">
         <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
         <li class="tb-item tb-dropdown">
-          <a class="tb-link tb-drop-toggle" href="/services.html">Процедури</a>
+          <a class="tb-link tb-drop-toggle" href="/services.html" data-dropdown="toggle">Процедури</a>
           <div class="tb-drop-menu">
             <a class="tb-drop-link" href="/kinesitherapy.html">Кинезитерапия</a>
             <a class="tb-drop-link" href="/massages.html">Масажи</a>
@@ -231,25 +287,31 @@
 
 <main class="page-content">
   <!-- HERO -->
-  <section class="hero-section">
+  <section class="hero-section" aria-label="Дегенерация на дискове">
     <div class="container hero-container">
       <div class="hero-text-content">
         <h1>Дегенерация на дискове</h1>
         <p>Разберете как загубата на влага и еластичност на дисковете води до хронична болка и как кинезитерапията може да възстанови тяхната функция.</p>
         <div class="hero-buttons">
-          <button class="button primary-button">Запазете час сега</button>
+          <a class="button primary-button" href="https://book.dmphysi0.com/book?utm_source=site&utm_medium=degeneration&utm_campaign=booking" rel="noopener">
+            Запазете час сега
+          </a>
           <a href="../services.html" class="button outline-button">Нашите процедури</a>
         </div>
       </div>
+
       <div class="hero-image image-container">
         <img
           src="../pngs/sustoqniq/muscles/neck-degeneracia-Thumbnail.webp?v=20251015"
           alt="Изображение на дегенерация на дискове"
           class="static-img"
-          loading="eager" decoding="async" fetchpriority="high">
+          loading="eager" decoding="async" fetchpriority="high"
+          width="1280" height="720">
         <video class="hover-video" muted loop preload="metadata" playsinline
-               poster="../pngs/sustoqniq/muscles/neck-degeneracia-Thumbnail.webp?v=20251015">
+               poster="../pngs/sustoqniq/muscles/neck-degeneracia-Thumbnail.webp?v=20251015" aria-hidden="true"
+               width="1280" height="720">
           <source src="../pngs/sustoqniq/muscles/neck-degeneracia.mp4?v=20251015" type="video/mp4">
+          Вашият браузър не поддържа видео тага.
         </video>
       </div>
     </div>
@@ -262,323 +324,296 @@
         <h2>Какво представлява дегенерацията на дисковете?</h2>
         <p>
           Дегенерацията на дисковете, известна още като <span class="highlight">дискова болест</span>, представлява износване на междупрешленните дискове.
-          Тези дискове действат като амортисьори между прешлените, осигурявайки гъвкавост и подкрепа. Когато започнат да се дехидратират и изтъняват,
-          те губят своята еластичност и способност да абсорбират напрежението, което води до болка и ограничено движение.
+          Когато започнат да се дехидратират и изтъняват, те губят еластичност и способност да абсорбират напрежението, което води до болка и ограничено движение.
         </p>
         <div class="info-box">
-          <p>Хроничната дискова дегенерация често стои в основата на дискова херния или спондилоза и е една от водещите причини за болки във врата и гърба.</p>
+          <p>Хроничната дегенерация често предшества дискова херния или спондилоза и е водеща причина за болки във врата и гърба.</p>
         </div>
       </div>
+
       <div class="intro-image image-container">
         <img src="../pngs/sustoqniq/muscles/neck-degeneration1-Thumbnail.webp?v=20251015"
-             alt="Изображение на дегенерация на дискове"
+             alt="Визуализация на дегенерация на дискове"
              class="static-img"
-             loading="lazy" decoding="async">
+             loading="lazy" decoding="async" width="1000" height="562">
         <video class="hover-video" muted loop preload="metadata" playsinline
-               poster="../pngs/sustoqniq/muscles/neck-degeneration1-Thumbnail.webp?v=20251015">
+               poster="../pngs/sustoqniq/muscles/neck-degeneration1-Thumbnail.webp?v=20251015" aria-hidden="true"
+               width="1000" height="562">
           <source src="../pngs/sustoqniq/muscles/neck-degeneration1.mp4?v=20251015" type="video/mp4">
         </video>
       </div>
     </div>
   </section>
 
-<!-- DEGENERATION TIMELINE – разширено съдържание (BEM) -->
-<section class="deg-causes">
-  <div class="deg-causes__wrap container">
-    <h2 class="deg-causes__title">Какво причинява дегенерация на дисковете?</h2>
-    <p class="deg-causes__subtitle">
-      Най-често – нарушено хранене на дисковете заради мускулен дисбаланс, лоша стойка и обездвижване.
-    </p>
+  <!-- DEGENERATION TIMELINE – разширено съдържание (BEM) -->
+  <section class="deg-causes">
+    <div class="deg-causes__wrap container">
+      <h2 class="deg-causes__title">Какво причинява дегенерация на дисковете?</h2>
+      <p class="deg-causes__subtitle">Най-често – нарушено хранене на дисковете заради мускулен дисбаланс, лоша стойка и обездвижване.</p>
 
-    <div class="disc-tl">
-
-      <!-- Ред 1 -->
-      <div class="disc-tl__row">
-        <div class="disc-tl__side disc-tl__side--text">
-          <article class="disc-card">
-            <h3 class="disc-card__title">1. Мускулите „помпат“ дисковете</h3>
-            <p class="disc-card__text">
-              Междупрешленните дискове нямат собствено кръвоснабдяване. Те се изхранват чрез
-              <span class="disc-card__highlight">дифузия</span>, която се активира при движение.
-              Координираната работа на мускулите създава леко „изпомпващо“ действие: втегляне на течности
-              и нутриенти към диска и изнасяне на отпадни продукти.
-            </p>
-            <p class="disc-card__text">
-              Когато сегментната подвижност е добра, вътрешното налягане се разпределя равномерно
-              и височината на диска се запазва по-дълго.
-            </p>
-          </article>
+      <div class="disc-tl">
+        <!-- Ред 1 -->
+        <div class="disc-tl__row">
+          <div class="disc-tl__side disc-tl__side--text">
+            <article class="disc-card">
+              <h3 class="disc-card__title">1. Мускулите „помпат“ дисковете</h3>
+              <p class="disc-card__text">
+                Междупрешленните дискове нямат собствено кръвоснабдяване. Те се изхранват чрез
+                <span class="disc-card__highlight">дифузия</span>, активирана от движение. Координираната работа на
+                мускулите създава леко „изпомпващо“ действие – втегляне на течности и нутриенти към диска и изнасяне на отпадни продукти.
+              </p>
+              <p class="disc-card__text">При добра сегментна подвижност вътрешното налягане се разпределя равномерно и височината на диска се запазва по-дълго.</p>
+            </article>
+          </div>
+          <div class="disc-tl__center"><span class="disc-badge">1</span></div>
+          <div class="disc-tl__side disc-tl__side--media">
+            <figure class="dt-media image-container hernia-step-media">
+              <img class="dt-media__img static-img"
+                   src="../pngs/sustoqniq/muscles/neck-%20muscle%20pump-Thumbnail.webp?v=20251015"
+                   alt="Изпомпващ ефект на мускулите" loading="lazy" decoding="async" width="1000" height="1000">
+              <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
+                     poster="../pngs/sustoqniq/muscles/neck-%20muscle%20pump-Thumbnail.webp?v=20251015"
+                     width="1000" height="1000" aria-hidden="true">
+                <source src="../pngs/sustoqniq/muscles/neck-%20muscle%20pump.mp4?v=20251015" type="video/mp4">
+              </video>
+            </figure>
+          </div>
         </div>
 
-        <div class="disc-tl__center">
-          <span class="disc-badge">1</span>
+        <!-- Ред 2 -->
+        <div class="disc-tl__row disc-tl__row--alt">
+          <div class="disc-tl__side disc-tl__side--text">
+            <article class="disc-card">
+              <h3 class="disc-card__title">2. Мускулен дисбаланс → слаб приток</h3>
+              <p class="disc-card__text">
+                При <span class="disc-card__highlight">горен кръстосан дисбаланс</span> част от мускулите се скъсяват,
+                а стабилизаторите на лопатката и дълбоките флексори на шията отслабват. Това ограничава фасетната подвижност
+                и намалява „помпането“ към дисковете.
+              </p>
+              <p class="disc-card__text">Седенето и работата пред екран усилват проблема – дифузията отслабва и дисковете постепенно се дехидратират.</p>
+            </article>
+          </div>
+          <div class="disc-tl__center"><span class="disc-badge">2</span></div>
+          <div class="disc-tl__side disc-tl__side--media">
+            <figure class="dt-media image-container hernia-step-media">
+              <img class="dt-media__img static-img"
+                   src="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance-Thumbnail.webp?v=20251015"
+                   alt="Горен кръстосан синдром" width="1000" height="1000" loading="lazy" decoding="async">
+              <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
+                     poster="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance-Thumbnail.webp?v=20251015"
+                     width="1000" height="1000" aria-hidden="true">
+                <source src="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance.mp4?v=20251015" type="video/mp4">
+              </video>
+            </figure>
+          </div>
         </div>
 
-        <div class="disc-tl__side disc-tl__side--media">
-          <!-- URL със %20 запазен, добавен кеш-бъстинг -->
-          <figure class="dt-media image-container hernia-step-media">
-            <img class="dt-media__img static-img"
-                 src="../pngs/sustoqniq/muscles/neck-%20muscle%20pump-Thumbnail.webp?v=20251015"
-                 alt="Изпомпващ ефект на мускулите" loading="lazy" decoding="async" width="1000" height="1000">
-            <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
-                   poster="../pngs/sustoqniq/muscles/neck-%20muscle%20pump-Thumbnail.webp?v=20251015"
-                   width="1000" height="1000" aria-hidden="true">
-              <source src="../pngs/sustoqniq/muscles/neck-%20muscle%20pump.mp4?v=20251015" type="video/mp4">
-            </video>
-          </figure>
+        <!-- Ред 3 -->
+        <div class="disc-tl__row">
+          <div class="disc-tl__side disc-tl__side--text">
+            <article class="disc-card">
+              <h3 class="disc-card__title">3. Изтъняване, микропукнатини и болка</h3>
+              <p class="disc-card__text">Продължителната дехидратация понижава височината на диска. Напрежението се концентрира в пръстеновидния фиброз, появяват се микропукнатини, възпаление и защитни спазми.</p>
+              <p class="disc-card__text">Стесняването на междупрешленните отвори може да доведе до <span class="disc-card__highlight">нервна компресия</span> с ирадираща болка, мравучкане или слабост.</p>
+            </article>
+          </div>
+          <div class="disc-tl__center"><span class="disc-badge">3</span></div>
+          <div class="disc-tl__side disc-tl__side--media">
+            <figure class="dt-media image-container hernia-step-media">
+              <img class="dt-media__img static-img"
+                   src="../pngs/sustoqniq/muscles/neck%20diskova%20hernia1-Thumbnail.webp?v=20251015"
+                   alt="Нервна компресия при дискова херния" loading="lazy" decoding="async" width="1000" height="1000">
+              <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
+                     poster="../pngs/sustoqniq/muscles/neck%20diskova%20hernia1-Thumbnail.webp?v=20251015"
+                     width="1000" height="1000" aria-hidden="true">
+                <source src="../pngs/sustoqniq/muscles/neck%20diskova%20hernia1.mp4?v=20251015" type="video/mp4">
+              </video>
+            </figure>
+          </div>
         </div>
+
       </div>
-
-      <!-- Ред 2 -->
-      <div class="disc-tl__row disc-tl__row--alt">
-        <div class="disc-tl__side disc-tl__side--text">
-          <article class="disc-card">
-            <h3 class="disc-card__title">2. Мускулен дисбаланс → слаб приток</h3>
-            <p class="disc-card__text">
-              При <span class="disc-card__highlight">горен кръстосан дисбаланс</span> част от мускулите
-              се скъсяват, а стабилизаторите на лопатката и дълбоките флексори на шията отслабват.
-              Това ограничава фасетната подвижност и намалява „помпането“ към дисковете.
-            </p>
-            <p class="disc-card__text">
-              Седенето и работата пред екран усилват проблема – дифузията отслабва и дисковете
-              постепенно се дехидратират.
-            </p>
-          </article>
-        </div>
-
-        <div class="disc-tl__center">
-          <span class="disc-badge">2</span>
-        </div>
-
-        <div class="disc-tl__side disc-tl__side--media">
-          <!-- ОПРАВЕН ПЪТ: neck-upper-cross-imbalance-Thumbnail.webp -->
-          <figure class="dt-media image-container hernia-step-media">
-           <img class="dt-media__img static-img"
-     src="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance-Thumbnail.webp?v=20251015"
-     alt="Горен кръстосан синдром" width="1000" height="1000" loading="lazy" decoding="async">
-<video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
-       poster="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance-Thumbnail.webp?v=20251015"
-       width="1000" height="1000" aria-hidden="true">
-  <source src="../pngs/sustoqniq/muscles/neck-upper-cross-imbalance.mp4?v=20251015" type="video/mp4">
-</video>
-
-          </figure>
-        </div>
-      </div>
-
-      <!-- Ред 3 -->
-      <div class="disc-tl__row">
-        <div class="disc-tl__side disc-tl__side--text">
-          <article class="disc-card">
-            <h3 class="disc-card__title">3. Изтъняване, микропукнатини и болка</h3>
-            <p class="disc-card__text">
-              Продължителната дехидратация понижава височината на диска. Напрежението се концентрира
-              в пръстеновидния фиброз, появяват се микропукнатини, възпаление и защитни спазми.
-            </p>
-            <p class="disc-card__text">
-              Стесняването на междупрешленните отвори може да доведе до <span class="disc-card__highlight">
-              нервна компресия</span> с ирадираща болка, мравучкане или слабост.
-            </p>
-          </article>
-        </div>
-
-        <div class="disc-tl__center">
-          <span class="disc-badge">3</span>
-        </div>
-
-        <div class="disc-tl__side disc-tl__side--media">
-          <figure class="dt-media image-container hernia-step-media">
-            <img class="dt-media__img static-img"
-                 src="../pngs/sustoqniq/muscles/neck%20diskova%20hernia1-Thumbnail.webp?v=20251015"
-                 alt="Нервна компресия при дискова херния" loading="lazy" decoding="async" width="1000" height="1000">
-            <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
-                   poster="../pngs/sustoqniq/muscles/neck%20diskova%20hernia1-Thumbnail.webp?v=20251015"
-                   width="1000" height="1000" aria-hidden="true">
-              <source src="../pngs/sustoqniq/muscles/neck%20diskova%20hernia1.mp4?v=20251015" type="video/mp4">
-            </video>
-          </figure>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- HEALING -->
+  <!-- HEALING / CTA STEPS -->
   <section class="healing-section alternative-style">
     <div class="container">
       <h2 class="section-title">Как кинезитерапията помага при дегенерация на дискове?</h2>
-      <p class="section-subtitle">Нашият подход е фокусиран върху възстановяването на естествената функция на гръбначния стълб.</p>
+      <p class="section-subtitle">Нашият подход е фокусиран върху възстановяване на естествената функция на гръбначния стълб.</p>
 
       <div class="healing-steps-grid">
         <div class="healing-step">
-          <h3>1. Подобряване на метаболизма на диска</h3>
-          <p>
-            Чрез специфични мануални техники и специализирани упражнения възстановяваме правилната подвижност на гръбнака.
-            Това <span class="highlight">стимулира „изпомпващата“ функция</span> на дисковете, подобрявайки притока на хранителни вещества.
-          </p>
+          <h3>1) Подобряване на метаболизма на диска</h3>
+          <p>Чрез специфични мануални техники и упражнения възстановяваме правилната подвижност на гръбнака. Това <span class="highlight">стимулира „изпомпващата“ функция</span> на дисковете.</p>
         </div>
         <div class="healing-step">
-          <h3>2. Укрепване на мускулния корсет</h3>
-          <p>
-            След възстановена подвижност въвеждаме <span class="highlight">упражнения за сила и издръжливост</span> на стабилизаторите.
-            Това стабилизира прешлените и намалява натоварването върху дисковете.
-          </p>
+          <h3>2) Укрепване на мускулния корсет</h3>
+          <p>След възстановена подвижност въвеждаме <span class="highlight">упражнения за сила и издръжливост</span> на стабилизаторите, за да намалим натоварването върху дисковете.</p>
         </div>
         <div class="healing-step">
-          <h3>3. Намаляване на болката и възстановяване</h3>
-          <p>
-            Комбинацията от мобилизация, тъканна работа и активни упражнения <span class="highlight">намалява компресията върху нервите</span>,
-            редуцира възпалението и подпомага рехидратацията на дисковете.
-          </p>
+          <h3>3) Намаляване на болката и възпалението</h3>
+          <p>Комбинацията от мобилизация, тъканна работа и активни упражнения <span class="highlight">намалява компресията върху нервите</span> и подпомага рехидратацията на дисковете.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PROCEDURES / SLIDER -->
-<section class="conditions-section procedures-section">
-  <div class="container">
-    <h3>Процедури, които помагат при дегенерация на дискове:</h3>
+  <section class="conditions-section procedures-section">
+    <div class="container">
+      <h3>Процедури, които помагат при дегенерация на дискове:</h3>
 
-    <div class="kinesitherapy-slider-container">
-      <button class="slider-arrow prev-arrow" aria-label="Предишен слайд">❮</button>
+      <div class="kinesitherapy-slider-container">
+        <button class="slider-arrow prev-arrow" aria-label="Предишен слайд">❮</button>
 
-      <div class="kinesitherapy-slider-track">
-        <a href="../procedures/details-kinesitherapy.html" class="kinesitherapy-button">
-          <div class="kinesitherapy-button-media">
-            <img src="/pngs/procedures/KT.webp?v=20251015" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" loading="lazy" decoding="async">
-            <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/procedures/KT.webp?v=20251015">
-              <source src="/pngs/procedures/gif/KT.mp4?v=20251015" type="video/mp4">
-            </video>
-          </div>
-          <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
-        </a>
+        <div class="kinesitherapy-slider-track">
+          <a href="../procedures/details-kinesitherapy.html" class="kinesitherapy-button">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/KT.webp?v=20251015" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img"
+                   loading="lazy" decoding="async" width="320" height="180">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
+                     poster="/pngs/procedures/KT.webp?v=20251015" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/KT.mp4?v=20251015" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
+          </a>
 
-        <a href="../procedures/lecheben-masaj.html" class="kinesitherapy-button">
-          <div class="kinesitherapy-button-media">
-            <img src="/pngs/massages/lecheben.webp?v=20251015" alt="Лечебен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async">
-            <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/massages/lecheben.webp?v=20251015">
-              <source src="/pngs/massages/gif/lecheben.mp4?v=20251015" type="video/mp4">
-            </video>
-          </div>
-          <span class="kinesitherapy-button-text">Лечебен Масаж</span>
-        </a>
+          <a href="../procedures/lecheben-masaj.html" class="kinesitherapy-button">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/massages/lecheben.webp?v=20251015" alt="Лечебен Масаж" class="kinesitherapy-img"
+                   loading="lazy" decoding="async" width="320" height="180">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
+                     poster="/pngs/massages/lecheben.webp?v=20251015" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/massages/gif/lecheben.mp4?v=20251015" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Лечебен Масаж</span>
+          </a>
 
-        <a href="../procedures/masaj.deeptisue.html" class="kinesitherapy-button">
-          <div class="kinesitherapy-button-media">
-            <img src="/pngs/massages/deeptissue.webp?v=20251015" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async">
-            <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/massages/deeptissue.webp?v=20251015">
-              <source src="/pngs/massages/gif/deeptisue.mp4?v=20251015" type="video/mp4">
-            </video>
-          </div>
-          <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
-        </a>
+          <a href="../procedures/masaj.deeptisue.html" class="kinesitherapy-button">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/massages/deeptissue.webp?v=20251015" alt="Дълбокотъканен Масаж" class="kinesitherapy-img"
+                   loading="lazy" decoding="async" width="320" height="180">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
+                     poster="/pngs/massages/deeptissue.webp?v=20251015" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/massages/gif/deeptisue.mp4?v=20251015" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
+          </a>
 
-        <a href="../procedures/functional-assessment.html" class="kinesitherapy-button">
-          <div class="kinesitherapy-button-media">
-            <img src="/pngs/procedures/function.webp?v=20251015" alt="Функционална оценка" class="kinesitherapy-img" loading="lazy" decoding="async">
-            <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/procedures/function.webp?v=20251015">
-              <source src="/pngs/procedures/gif/funciton.mp4?v=20251015" type="video/mp4">
-            </video>
-          </div>
-          <span class="kinesitherapy-button-text">Функционална оценка</span>
-        </a>
+          <a href="../procedures/functional-assessment.html" class="kinesitherapy-button">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/function.webp?v=20251015" alt="Функционална оценка" class="kinesitherapy-img"
+                   loading="lazy" decoding="async" width="320" height="180">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
+                     poster="/pngs/procedures/function.webp?v=20251015" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/funciton.mp4?v=20251015" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Функционална оценка</span>
+          </a>
 
-        <a href="../procedures/specialized-exercises.html" class="kinesitherapy-button">
-          <div class="kinesitherapy-button-media">
-            <img src="/pngs/procedures/exercises.webp?v=20251015" alt="Специализирани упражнения" class="kinesitherapy-img" loading="lazy" decoding="async">
-            <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/procedures/exercises.webp?v=20251015">
-              <source src="/pngs/procedures/gif/exercieses.mp4?v=20251015" type="video/mp4">
-            </video>
-          </div>
-          <span class="kinesitherapy-button-text">Упражнения</span>
-        </a>
+          <a href="../procedures/specialized-exercises.html" class="kinesitherapy-button">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/exercises.webp?v=20251015" alt="Упражнения" class="kinesitherapy-img"
+                   loading="lazy" decoding="async" width="320" height="180">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
+                     poster="/pngs/procedures/exercises.webp?v=20251015" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/exercieses.mp4?v=20251015" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Специализирани упражнения</span>
+          </a>
 
-        <a href="../procedures/dry-needling.html" class="kinesitherapy-button">
-          <div class="kinesitherapy-button-media">
-            <img src="/pngs/procedures/gif/drineedling-Thumbnail.webp?v=20251015" alt="Терапия със сухи игли" class="kinesitherapy-img" loading="lazy" decoding="async">
-            <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/procedures/gif/drineedling-Thumbnail.webp?v=20251015">
-              <source src="/pngs/procedures/gif/drineedling.mp4?v=20251015" type="video/mp4">
-            </video>
-          </div>
-          <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
-        </a>
+          <a href="../procedures/dry-needling.html" class="kinesitherapy-button">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/gif/drineedling-Thumbnail.webp?v=20251015" alt="Терапия със сухи игли"
+                   class="kinesitherapy-img" loading="lazy" decoding="async" width="320" height="180">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
+                     poster="/pngs/procedures/gif/drineedling-Thumbnail.webp?v=20251015" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/drineedling.mp4?v=20251015" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
+          </a>
 
-        <a href="../procedures/kinesiotaping.html" class="kinesitherapy-button">
-          <div class="kinesitherapy-button-media">
-            <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.webp?v=20251015" alt="Кинезио тейп" class="kinesitherapy-img" loading="lazy" decoding="async">
-            <video class="kinesitherapy-video" muted loop playsinline preload="metadata" poster="/pngs/procedures/gif/kinesiotape-1-Thumbnail.webp?v=20251015">
-              <source src="/pngs/procedures/gif/kinesiotape-1.mp4?v=20251015" type="video/mp4">
-            </video>
-          </div>
-          <span class="kinesitherapy-button-text">Кинезио тейп</span>
-        </a>
+          <a href="../procedures/kinesiotaping.html" class="kinesitherapy-button">
+            <div class="kinesitherapy-button-media">
+              <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.webp?v=20251015" alt="Кинезио тейп" class="kinesitherapy-img"
+                   loading="lazy" decoding="async" width="320" height="180">
+              <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
+                     poster="/pngs/procedures/gif/kinesiotape-1-Thumbnail.webp?v=20251015" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/kinesiotape-1.mp4?v=20251015" type="video/mp4">
+              </video>
+            </div>
+            <span class="kinesitherapy-button-text">Кинезио тейп</span>
+          </a>
+
+        </div>
+        <button class="slider-arrow next-arrow" aria-label="Следващ слайд">❯</button>
       </div>
 
-      <button class="slider-arrow next-arrow" aria-label="Следващ слайд">❯</button>
+      <div class="procedures-cta-wrap">
+        <a href="/services.html" class="procedures-cta" aria-label="Виж всички процедури">
+          <svg class="procedures-cta-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Виж всички процедури</span>
+        </a>
+      </div>
     </div>
-
-    <!-- CTA -->
-    <div class="procedures-cta-wrap">
-      <a href="/services.html" class="procedures-cta" aria-label="Виж всички процедури">
-        <svg class="procedures-cta-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span>Виж всички процедури</span>
-      </a>
-    </div>
-  </div>
-</section>
-
+  </section>
 </main>
 
 <footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
-        <div class="map" aria-label="Карта">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
-                  width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map">
+          <iframe id="mapFrame"
+            data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
+            width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
 
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
-          <!-- Оставени PNG-ите във футъра непокътнати -->
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async">
+            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async">
+            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="22">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="28" height="32">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async">
-          <span>0883688414</span>
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
+          <span><a href="tel:0883688414">0883688414</a></span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>Работно време:</span><br>
-            <span>Пон-Пет: 09:00 - 19:00</span><br>
-            <span>Събота: 09:00 - 16:00</span><br>
+            <span>Пон–Пет: 09:00 – 19:00</span><br>
+            <span>Събота: 09:00 – 16:00</span><br>
             <span>Неделя: Почивка</span>
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -595,24 +630,31 @@
   </section>
 </footer>
 
+
 <!-- Скриптове – отложени (+ кеш-бъстинг) -->
-<script src="../js/temple-headache.js?v=20251015" defer></script>
 <script src="/js/topbar.js?v=20251015" defer></script>
-<script src="../js/procedurs-slider.js?v=20251015" defer></script>
+<script src="/js/temple-headache.js?v=20251015" defer></script>
+<script src="/js/procedurs-slider.js?v=20251015" defer></script>
 
 <!-- Видеа: hover + in-view -->
 <script>
-(function() {
-  const play = v => v && v.play && v.paused && v.play().catch(()=>{});
-  const pause = v => v && v.pause && !v.paused && v.pause();
+(function () {
+  function ensureVideoHasSrc(video){
+    if (!video) return;
+    if (video.currentSrc || (video.querySelector('source') && video.querySelector('source').src)) return;
+    const s = video.querySelector('source[data-src]');
+    if (s){ s.src = s.dataset.src; try{ video.load(); }catch(e){} }
+  }
+  function safePlay(v){ if (!v || !v.paused || !v.play) return; v.muted = true; const p=v.play(); if(p&&p.catch) p.catch(()=>{}); }
+  function safePause(v){ if (!v || v.paused || !v.pause) return; v.pause(); }
 
-  // Hover за двойките изображение/видео (hero + intro + таймлайн)
+  // Hover за двойките изображение/видео
   document.querySelectorAll('.image-container').forEach(box => {
     const vid = box.querySelector('video');
     if (!vid) return;
     vid.preload = 'metadata';
-    const onEnter = () => play(vid);
-    const onLeave = () => { pause(vid); try{ vid.currentTime = 0; }catch(e){} };
+    const onEnter = () => { ensureVideoHasSrc(vid); safePlay(vid); };
+    const onLeave = () => safePause(vid);
     box.addEventListener('mouseenter', onEnter, {passive:true});
     box.addEventListener('mouseleave', onLeave, {passive:true});
     box.addEventListener('touchstart', onEnter, {passive:true});
@@ -628,7 +670,7 @@
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(({isIntersecting, target}) => {
-        if (isIntersecting) play(target); else pause(target);
+        if (isIntersecting) safePlay(target); else safePause(target);
       });
     }, { threshold: 0.35 });
     candidates.forEach(v => { v.preload = 'metadata'; io.observe(v); });
@@ -640,66 +682,12 @@
   document.querySelectorAll('.kinesitherapy-button').forEach(card => {
     const v = card.querySelector('video.kinesitherapy-video');
     if (!v) return;
-    const onEnter = () => play(v);
-    const onLeave = () => { pause(v); try{ v.currentTime = 0; }catch(e){} };
+    const onEnter = () => { ensureVideoHasSrc(v); safePlay(v); };
+    const onLeave = () => { safePause(v); try{ v.currentTime = 0; }catch(e){} };
     card.addEventListener('mouseenter', onEnter, {passive:true});
     card.addEventListener('mouseleave', onLeave, {passive:true});
     card.addEventListener('touchstart', onEnter, {passive:true});
     card.addEventListener('touchend', onLeave, {passive:true});
-  });
-})();
-</script>
-<!-- Скриптове – отложени -->
-<script src="/js/topbar.js" defer></script>
-<script src="/js/temple-headache.js" defer></script>
-<script src="/js/procedurs-slider.js" defer></script>
-
-<!-- Хелпър за видеата и картата -->
-<script>
-(function () {
-  function ensureVideoHasSrc(video){
-    if (!video) return;
-    if (video.currentSrc || (video.querySelector('source') && video.querySelector('source').src)) return;
-    const s = video.querySelector('source[data-src]');
-    if (s){ s.src = s.dataset.src; try{ video.load(); }catch(e){} }
-  }
-  function safePlay(v){ if (!v || !v.paused || !v.play) return; v.muted = true; const p=v.play(); if(p&&p.catch) p.catch(()=>{}); }
-  function safePause(v){ if (!v || v.paused || !v.pause) return; v.pause(); }
-
-  const cards = document.querySelectorAll('.kinesitherapy-button');
-  cards.forEach((card) => {
-    const href = card.getAttribute('href');
-    const v = card.querySelector('.kinesitherapy-video');
-    card.addEventListener('pointerenter', () => { ensureVideoHasSrc(v); safePlay(v); }, {passive:true});
-    card.addEventListener('pointerleave', () => { safePause(v); }, {passive:true});
-    card.addEventListener('touchstart', () => { ensureVideoHasSrc(v); safePlay(v); }, {passive:true});
-    card.addEventListener('touchend', () => { setTimeout(() => safePause(v), 500); }, {passive:true});
-    card.addEventListener('click', (e) => { if (href && e.defaultPrevented){ window.location.assign(href); } }, {capture:true});
-  });
-
-  if ('IntersectionObserver' in window){
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(en=>{
-        if (en.isIntersecting){
-          const v = en.target.querySelector('.kinesitherapy-video');
-          ensureVideoHasSrc(v);
-          io.unobserve(en.target);
-        }
-      });
-    }, { root:null, rootMargin:'200px 0px', threshold:0 });
-    cards.forEach(c=>io.observe(c));
-  }
-
-  document.querySelectorAll('.image-container').forEach(box => {
-    const vid = box.querySelector('video');
-    if (!vid) return;
-    vid.preload = 'metadata';
-    const onEnter = () => safePlay(vid);
-    const onLeave = () => safePause(vid);
-    box.addEventListener('mouseenter', onEnter, {passive:true});
-    box.addEventListener('mouseleave', onLeave, {passive:true});
-    box.addEventListener('touchstart', onEnter, {passive:true});
-    box.addEventListener('touchend', onLeave, {passive:true});
   });
 })();
 </script>
@@ -720,6 +708,15 @@
   io.observe(iframe);
 })();
 </script>
+
+<!-- Скрит H1 за SEO (дублира ключовата фраза) -->
+<h1 class="sr-only">Дегенерация на дискове – симптоми, причини и лечение | DM Physio София</h1>
+
+<!-- Font Awesome само ако е нужно в други секции -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</noscript>
 
 </body>
 </html>
