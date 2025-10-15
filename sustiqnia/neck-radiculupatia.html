@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
   <title>Радикулопатия – причини, симптоми и лечение | DM Physio София</title>
-  <meta name="description" content="Какво е радикулопатия, кои са типичните симптоми (болка, изтръпване, слабост) и как помагаме в DM Physio София: освобождаване и стимулиране на нерва, упражнения и превенция." />
+  <meta name="description" content="Какво е радикулопатия, основни симптоми (болка, изтръпване, слабост) и възстановяване с кинезитерапия: декомпресия на нерва, стимулация и укрепване в DM Physio София." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
-  <meta name="author" content="DM Physio (ДМ ФИЗИО)" />
+  <meta name="author" content="DM Physio" />
   <meta name="theme-color" content="#0a0a0a" />
 
   <!-- Canonical / hreflang -->
@@ -18,23 +18,23 @@
   <!-- Open Graph -->
   <meta property="og:locale" content="bg_BG" />
   <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="DM Physio (ДМ ФИЗИО)" />
+  <meta property="og:site_name" content="DM Physio" />
   <meta property="og:title" content="Радикулопатия – причини, симптоми и лечение | DM Physio София" />
-  <meta property="og:description" content="Радикулопатия: какво представлява и как я лекуваме в DM Physio – мануални техники, стимулиране на нерва и упражнения за стабилност." />
+  <meta property="og:description" content="Симптоми и лечение при радикулопатия: освобождаване и стимулация на нерва, възстановяване на функцията и превенция на рецидиви." />
   <meta property="og:url" content="https://dmphysio.com/sustiqnia/radiculopathy.html" />
   <meta property="og:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/neck-%20tingling1-Thumbnail.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Илюстрация на радикулопатия и излъчваща болка по ръката" />
   <meta property="article:published_time" content="2025-10-06" />
-  <meta property="article:modified_time" content="2025-10-06" />
-  <meta property="og:updated_time" content="2025-10-06" />
+  <meta property="article:modified_time" content="2025-10-15" />
+  <meta property="og:updated_time" content="2025-10-15" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@dmphysio" />
   <meta name="twitter:title" content="Радикулопатия – причини, симптоми и лечение | DM Physio София" />
-  <meta name="twitter:description" content="Справяне с болка и изтръпване при притиснат нерв: освобождаване, стимулиране и упражнения в DM Physio." />
+  <meta name="twitter:description" content="Как протича и как се лекува радикулопатията с кинезитерапия – DM Physio София." />
   <meta name="twitter:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/neck-%20tingling1-Thumbnail.webp" />
 
   <!-- Favicons -->
@@ -69,7 +69,7 @@
   <!-- Preload на LCP изображение (hero) -->
   <link rel="preload" as="image" href="https://dmphysio.com/pngs/sustoqniq/muscles/neck-%20tingling1-Thumbnail.webp" type="image/webp" fetchpriority="high" />
 
-  <!-- Мини-override + помощни класове -->
+  <!-- Мини-override (идентично с другата страница) -->
   <style>
     :root{ --topbar-h:76px; }
     @media (max-width:768px){ :root{ --topbar-h:64px; } }
@@ -78,15 +78,24 @@
 
     /* SVG utility */
     .icon{ width:1em; height:1em; fill:currentColor; vertical-align:-.125em; display:inline-block; }
+    .arrow-separator.icon{ font-size:2.8em; }
+
+    .info-box .icon{ font-size:1.5rem; color:#e63946; flex-shrink:0; margin-top:.2rem; }
+    .block-header .icon{ font-size:20px; margin-right:10px; }
+    .anatomy-block .block-header .icon{ color:#007bff; }
+    .pain-char-block .block-header .icon{ color:#dc3545; }
 
     a:focus-visible, button:focus-visible, .kinesitherapy-button:focus-visible {
       outline: 3px solid #18a558; outline-offset: 3px; border-radius: 10px;
     }
 
-    /* Монети (еднакви в целия сайт) */
+    /* Монети (съвпада с другата страница) */
     .healing-step .step-icon-circle{
-      --size:112px; width:var(--size); height:var(--size);
-      border-radius:999px; margin:0 auto 18px; display:grid; place-items:center;
+      --size:112px;
+      width:var(--size); height:var(--size);
+      border-radius:999px;
+      margin:0 auto 18px;
+      display:grid; place-items:center;
       background: radial-gradient(circle at 35% 30%, #60b3e6 0%, #2e91cf 66%, #257db7 100%);
       box-shadow: 0 14px 34px rgba(0,0,0,.14), inset 0 2px 8px rgba(255,255,255,.28);
       position:relative; isolation:isolate;
@@ -96,8 +105,13 @@
       background: radial-gradient(closest-side, rgba(46,145,207,.35), transparent 70%);
       filter:blur(6px); z-index:-1;
     }
+    .healing-step .step-icon-circle i{
+      font-size:52px; line-height:1; color:#fff;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
     @media (max-width:640px){
       .healing-step .step-icon-circle{ --size:92px; }
+      .healing-step .step-icon-circle i{ font-size:44px; }
     }
   </style>
 
@@ -125,13 +139,13 @@
     "@context":"https://schema.org",
     "@type":"MedicalClinic",
     "@id":"https://dmphysio.com/#org",
-    "name":"DM Physio (ДМ ФИЗИО)",
+    "name":"DM Physio",
     "url":"https://dmphysio.com/",
     "logo":"https://dmphysio.com/logo.webp",
     "image":"https://dmphysio.com/logo.webp",
     "telephone":"+359883688414",
     "medicalSpecialty":"PhysicalTherapy",
-    "address":{"@type":"PostalAddress","streetAddress":"ул. Професор Христо Данов 19","addressLocality":"София","addressCountry":"BG"},
+    "address":{"@type":"PostalAddress","streetAddress":"ул. „Проф. Христо Данов“ 19","addressLocality":"София","addressCountry":"BG"},
     "geo":{"@type":"GeoCoordinates","latitude":42.656166,"longitude":23.344392},
     "hasMap":"https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc",
     "openingHoursSpecification":[
@@ -168,13 +182,13 @@
     "@type":"BreadcrumbList",
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Начало","item":"https://dmphysio.com/"},
-      {"@type":"ListItem","position":2,"name":"Болкови състояния","item":"https://dmphysio.com/pain-conditions.html"},
+      {"@type":"ListItem","position":2,"name":"Състояния","item":"https://dmphysio.com/sustiqnia.html"},
       {"@type":"ListItem","position":3,"name":"Радикулопатия","item":"https://dmphysio.com/sustiqnia/radiculopathy.html"}
     ]
   }
   </script>
 
-  <!-- JSON-LD: MedicalWebPage + MedicalCondition -->
+  <!-- JSON-LD: MedicalWebPage -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -183,10 +197,10 @@
     "url":"https://dmphysio.com/sustiqnia/radiculopathy.html",
     "inLanguage":"bg-BG",
     "name":"Радикулопатия – причини, симптоми и лечение",
-    "description":"Радикулопатия: какво е, защо се появява и как се лекува с кинезитерапия – освобождаване и стимулация на нерва, упражнения и превенция.",
+    "description":"Какво е радикулопатия, симптоми и подход на кинезитерапия за декомпресия и стимулация на нерва, укрепване и превенция в DM Physio София.",
     "datePublished":"2025-10-06",
-    "dateModified":"2025-10-06",
-    "author":{"@type":"Organization","name":"DM Physio (ДМ ФИЗИО)"},
+    "dateModified":"2025-10-15",
+    "author":{"@type":"Organization","name":"DM Physio"},
     "publisher":{"@id":"https://dmphysio.com/#org"},
     "primaryImageOfPage":{"@type":"ImageObject","url":"https://dmphysio.com/pngs/sustoqniq/muscles/neck-%20tingling1-Thumbnail.webp","width":1200,"height":630},
     "about":{
@@ -194,18 +208,17 @@
       "name":"Радикулопатия",
       "alternateName":["Radiculopathy","Притиснат нервен корен"],
       "associatedAnatomy":[
-        {"@type":"AnatomicalStructure","name":"Шиен отдел"},
-        {"@type":"AnatomicalStructure","name":"Лумбален отдел"},
+        {"@type":"AnatomicalStructure","name":"Шийна част на гръбначния стълб"},
+        {"@type":"AnatomicalStructure","name":"Лумбална част на гръбначния стълб"},
         {"@type":"AnatomicalStructure","name":"Нервни корени"}
       ],
-      "signOrSymptom":["Болка по хода на нерва","Изтръпване, парене и „мравучкане“","Слабост и скованост"],
+      "signOrSymptom":["Болка по хода на нерва","Изтръпване, парене и „мравучкане“","Слабост и скованост","Намалени рефлекси"],
       "possibleTreatment":[
-        {"@type":"PhysicalTherapy","name":"Мануални техники за декомпресия"},
-        {"@type":"TherapeuticProcedure","name":"Невромодулация/локална стимулация"},
-        {"@type":"ExercisePlan","name":"Укрепващи и стабилизиращи упражнения"}
+        {"@type":"PhysicalTherapy","name":"Мануална терапия и декомпресия"},
+        {"@type":"TherapeuticProcedure","name":"Локална невростимулация/невромодулация"},
+        {"@type":"ExercisePlan","name":"Стабилизиращи и укрепващи упражнения"}
       ]
-    },
-    "potentialAction":[{"@type":"ReadAction","target":["https://dmphysio.com/sustiqnia/radiculopathy.html"]}]
+    }
   }
   </script>
 
@@ -216,19 +229,19 @@
     "@type":"FAQPage",
     "mainEntity":[
       {"@type":"Question","name":"Какво представлява радикулопатията?","acceptedAnswer":{"@type":"Answer","text":"Радикулопатията е дразнене или притискане на нервен корен близо до гръбначния стълб. Когато коренът е компресиран, се появяват болка, изтръпване и/или слабост по хода на засегнатия нерв."}},
-      {"@type":"Question","name":"Кои са типичните симптоми?","acceptedAnswer":{"@type":"Answer","text":"Изтръпване, парене, „мравучкане“ и стрелкаща болка, която следва пътя на нерва. Възможни са също скованост и намалена мускулна сила."}},
+      {"@type":"Question","name":"Кои са типичните симптоми?","acceptedAnswer":{"@type":"Answer","text":"Изтръпване, парене, „мравучкане“ и стрелкаща болка, която следва пътя на нерва. Възможни са също скованост, намалена мускулна сила и рефлекси."}},
       {"@type":"Question","name":"Как помага кинезитерапията при радикулопатия?","acceptedAnswer":{"@type":"Answer","text":"Чрез мануални техники за освобождаване на нерва, локална стимулация за подобряване на проводимостта и програма от упражнения за стабилност и превенция на рецидиви."}}
     ]
   }
   </script>
 
-  <!-- JSON-LD: VideoObject (hero видео) -->
+  <!-- JSON-LD: VideoObject -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"VideoObject",
     "name":"Радикулопатия – визуализация",
-    "description":"Кратко видео, показващо механизма на притиснат нерв и излъчваща болка.",
+    "description":"Кратко видео, което демонстрира механизма на притиснат нерв и излъчваща болка.",
     "thumbnailUrl":"https://dmphysio.com/pngs/sustoqniq/muscles/neck-%20tingling1-Thumbnail.webp",
     "uploadDate":"2025-10-06",
     "contentUrl":"https://dmphysio.com/pngs/sustoqniq/muscles/neck-%20tingling1.mp4"
@@ -313,7 +326,7 @@
           Радикулопатията е състояние, което се характеризира с <span class="highlight">дразнене или притискане на нервен корен</span> в близост до гръбначния стълб. Нервните корени излизат от гръбначния мозък и се разклоняват в различни части на тялото. Когато един от тези корени е компресиран, той може да предизвика симптоми като болка, изтръпване, скованост или слабост в областта, инервирана от съответния нерв.
         </p>
         <div class="info-box">
-          <p>Радикулопатията може да засегне шийния (цервикална), гръдния (торакална) или поясния (лумбална) отдел на гръбначния стълб, като лумбалната и цервикалната са най-често срещани.</p>
+          <p>Най-често се засягат шийният (цервикален) и поясният (лумбален) отдел. Причини: дискова херния, мускулни спазми и продължителни постурални натоварвания.</p>
         </div>
       </div>
 
@@ -331,93 +344,103 @@
     </div>
   </section>
 
-  <!-- TIMELINE -->
-  <section class="deg-causes">
-    <div class="deg-causes__wrap container">
-      <h2 class="deg-causes__title">Причини и симптоми на радикулопатия</h2>
-      <p class="deg-causes__subtitle">Основната причина е притискането на нервния корен от спазми, херния или неправилна позиция.</p>
+ <!-- RADICULOPATHY TIMELINE -->
+<section class="deg-causes">
+  <div class="deg-causes__wrap container">
+    <h2 class="deg-causes__title">Причини и симптоми на шийна радикулопатия</h2>
+    <p class="deg-causes__subtitle">
+      Шийната радикулопатия се появява, когато нерв в областта на врата е притиснат или раздразнен — обикновено от дискова херния, мускулен спазъм или неправилна стойка.
+    </p>
 
-      <div class="disc-tl">
-        <!-- Ред 1 -->
-        <div class="disc-tl__row">
-          <div class="disc-tl__side disc-tl__side--text">
-            <article class="disc-card">
-              <h3 class="disc-card__title">1. Притискане на нерва</h3>
-              <p class="disc-card__text">
-                Радикулопатията се получава, когато <span class="disc-card__highlight">нервният корен е притиснат или дразнен</span>. Това най-често се случва от спазмиран мускул, който ограничава пространството около нерва. Други причини могат да бъдат дискова херния, която директно притиска нерва, или продължително неправилна позиция на главата при спане или работа, което също създава напрежение и компресия.
-              </p>
-            </article>
-          </div>
-          <div class="disc-tl__center"><span class="disc-badge">1</span></div>
-          <div class="disc-tl__side disc-tl__side--media">
-            <figure class="dt-media image-container hernia-step-media">
-              <img class="dt-media__img static-img"
-                   src="../pngs/sustoqniq/muscles/neck%20radicolopaty%202-Thumbnail.webp"
-                   alt="Притискане на нерв" loading="lazy" decoding="async" width="1000" height="1000">
-              <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
-                     poster="../pngs/sustoqniq/muscles/neck%20radicolopaty%202-Thumbnail.webp"
-                     width="1000" height="1000" aria-hidden="true">
-                <source src="../pngs/sustoqniq/muscles/neck%20radicolopaty%202.mp4" type="video/mp4">
-              </video>
-            </figure>
-          </div>
+    <div class="disc-tl">
+
+      <!-- Ред 1 -->
+      <div class="disc-tl__row">
+        <div class="disc-tl__side disc-tl__side--text">
+          <article class="disc-card">
+            <h3 class="disc-card__title">1. Притискане на нерва</h3>
+            <p class="disc-card__text">
+              Най-често нервът във врата се притиска от <span class="disc-card__highlight">дискова херния или спазмиран мускул</span>. 
+              Това може да стане при продължително седене с глава напред, работа на компютър или спане на висока възглавница. 
+              Когато мускулите около врата са напрегнати, те ограничават пространството, през което минават нервите, и предизвикват болка и изтръпване.
+            </p>
+          </article>
         </div>
-
-        <!-- Ред 2 -->
-        <div class="disc-tl__row disc-tl__row--alt">
-          <div class="disc-tl__side disc-tl__side--text">
-            <article class="disc-card">
-              <h3 class="disc-card__title">2. Поява на неврологични симптоми</h3>
-              <p class="disc-card__text">
-                В резултат на притискането, нервът не може да функционира нормално. Това води до характерни <span class="disc-card__highlight">неврологични симптоми</span> като изтръпване, парене, "мравучкане" или стрелкаща болка, която се разпространява по хода на нерва. Тези усещания са сигнал, че нервът е възпален и има нужда от освобождаване и стимулиране.
-              </p>
-            </article>
-          </div>
-          <div class="disc-tl__center"><span class="disc-badge">2</span></div>
-          <div class="disc-tl__side disc-tl__side--media">
-            <figure class="dt-media image-container hernia-step-media">
-              <img class="dt-media__img static-img"
-                   src="../pngs/sustoqniq/muscles/neck%20radicolopaty1-Thumbnail.webp"
-                   alt="Неврологични симптоми" width="1000" height="1000" loading="lazy" decoding="async">
-              <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
-                     poster="../pngs/sustoqniq/muscles/neck%20radicolopaty1-Thumbnail.webp"
-                     width="1000" height="1000" aria-hidden="true">
-                <source src="../pngs/sustoqniq/muscles/neck%20radicolopaty1.mp4" type="video/mp4">
-              </video>
-            </figure>
-          </div>
+        <div class="disc-tl__center"><span class="disc-badge">1</span></div>
+        <div class="disc-tl__side disc-tl__side--media">
+          <figure class="dt-media image-container hernia-step-media">
+            <img class="dt-media__img static-img"
+                 src="../pngs/sustoqniq/muscles/neck%20radicolopaty%202-Thumbnail.webp"
+                 alt="Притискане на нерв във врата" loading="lazy" decoding="async" width="1000" height="1000">
+            <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
+                   poster="../pngs/sustoqniq/muscles/neck%20radicolopaty%202-Thumbnail.webp"
+                   width="1000" height="1000" aria-hidden="true">
+              <source src="../pngs/sustoqniq/muscles/neck%20radicolopaty%202.mp4" type="video/mp4">
+            </video>
+          </figure>
         </div>
-
-        <!-- Ред 3 -->
-        <div class="disc-tl__row">
-          <div class="disc-tl__side disc-tl__side--text">
-            <article class="disc-card">
-              <h3 class="disc-card__title">3. Риск от хронифициране</h3>
-              <p class="disc-card__text">
-                Без адекватно лечение, продължителното притискане на нерва може да доведе до <span class="disc-card__highlight">трайно увреждане</span>. Това може да причини постоянна слабост в мускулите, хронична болка и влошаване на качеството на живот. Ранната намеса е от съществено значение за предотвратяване на тези дългосрочни последици.
-              </p>
-            </article>
-          </div>
-          <div class="disc-tl__center"><span class="disc-badge">3</span></div>
-          <div class="disc-tl__side disc-tl__side--media">
-            <figure class="dt-media image-container hernia-step-media">
-              <img class="dt-media__img static-img"
-                   src="../pngs/sustoqniq/muscles/neck%20radicolopaty-Thumbnail.webp"
-                   alt="Увреждане на нерв" loading="lazy" decoding="async" width="1000" height="1000">
-              <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
-                     poster="../pngs/sustoqniq/muscles/neck%20radicolopaty-Thumbnail.webp"
-                     width="1000" height="1000" aria-hidden="true">
-                <source src="../pngs/sustoqniq/muscles/neck%20radicolopaty.mp4" type="video/mp4">
-              </video>
-            </figure>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- HEALING -->
+      <!-- Ред 2 -->
+      <div class="disc-tl__row disc-tl__row--alt">
+        <div class="disc-tl__side disc-tl__side--text">
+          <article class="disc-card">
+            <h3 class="disc-card__title">2. Неврологични симптоми</h3>
+            <p class="disc-card__text">
+              Когато нервът е притиснат, <span class="disc-card__highlight">се появяват характерни усещания</span> — изтръпване, парене, мравучкане или стрелкаща болка, която се разпространява от врата към рамото, ръката и пръстите.  
+              Понякога има и усещане за слабост в ръката или трудно движение на пръстите.  
+              Симптомите се усилват при наклон на главата или продължително седене, особено когато раменете са напрегнати.
+            </p>
+          </article>
+        </div>
+        <div class="disc-tl__center"><span class="disc-badge">2</span></div>
+        <div class="disc-tl__side disc-tl__side--media">
+          <figure class="dt-media image-container hernia-step-media">
+            <img class="dt-media__img static-img"
+                 src="../pngs/sustoqniq/muscles/neck%20radicolopaty1-Thumbnail.webp"
+                 alt="Неврологични симптоми при шийна радикулопатия" width="1000" height="1000" loading="lazy" decoding="async">
+            <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
+                   poster="../pngs/sustoqniq/muscles/neck%20radicolopaty1-Thumbnail.webp"
+                   width="1000" height="1000" aria-hidden="true">
+              <source src="../pngs/sustoqniq/muscles/neck%20radicolopaty1.mp4" type="video/mp4">
+            </video>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Ред 3 -->
+      <div class="disc-tl__row">
+        <div class="disc-tl__side disc-tl__side--text">
+          <article class="disc-card">
+            <h3 class="disc-card__title">3. Риск от хронична болка</h3>
+            <p class="disc-card__text">
+              Ако нервът остане притиснат продължително, <span class="disc-card__highlight">възпалението може да стане хронично</span>.  
+              Тогава болката се появява дори при леки движения, а мускулите на врата и рамото започват да отслабват.  
+              Ранната намеса с <strong>мануална терапия</strong>, <strong>упражнения</strong> и <strong>кинезитерапия</strong> помага да се освободи нервът, да се намали напрежението и да се възстанови нормалната функция без операция.
+            </p>
+          </article>
+        </div>
+        <div class="disc-tl__center"><span class="disc-badge">3</span></div>
+        <div class="disc-tl__side disc-tl__side--media">
+          <figure class="dt-media image-container hernia-step-media">
+            <img class="dt-media__img static-img"
+                 src="../pngs/sustoqniq/muscles/neck%20radicolopaty-Thumbnail.webp"
+                 alt="Хронична болка при шийна радикулопатия" loading="lazy" decoding="async" width="1000" height="1000">
+            <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
+                   poster="../pngs/sustoqniq/muscles/neck%20radicolopaty-Thumbnail.webp"
+                   width="1000" height="1000" aria-hidden="true">
+              <source src="../pngs/sustoqniq/muscles/neck%20radicolopaty.mp4" type="video/mp4">
+            </video>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- HEALING / CTA STEPS -->
   <section class="healing-section alternative-style">
     <div class="container">
       <h2 class="section-title">Как кинезитерапията помага при радикулопатия?</h2>
@@ -425,22 +448,16 @@
 
       <div class="healing-steps-grid">
         <div class="healing-step">
-          <h3>1. Освобождаване на нерва</h3>
-          <p>
-            Използваме <span class="highlight">мануални техники</span> за отпускане на спазмираните мускули и възстановяване на нормалната позиция на прешлените, което освобождава притиснатия нерв и намалява болката.
-          </p>
+          <h3>1) Освобождаване на нерва</h3>
+          <p>Приложение на <span class="highlight">мануални техники</span> за отпускане на спазми, подобряване на фасетната подвижност и декомпресия – което редуцира болката и натиска върху нервния корен.</p>
         </div>
         <div class="healing-step">
-          <h3>2. Стимулиране на нерва</h3>
-          <p>
-            След освобождаването, прилагаме <span class="highlight">специализирани уреди</span>, които стимулират изтръпналия нерв. Това го "събужда", подобрява проводимостта му и води до спиране на неврологичните симптоми.
-          </p>
+          <h3>2) Локална стимулация</h3>
+          <p>Използваме <span class="highlight">невростимулация и целенасочени упражнения</span>, за да „събудим“ нерва, да подобрим проводимостта и да намалим изтръпването/паренето.</p>
         </div>
         <div class="healing-step">
-          <h3>3. Укрепване и превенция</h3>
-          <p>
-            Въвеждаме <span class="highlight">укрепващи упражнения</span> за заздравяване на мускулите, които са били увредени или отслабени. Обучаваме пациентите за правилните позиции и навици, за да предотвратим повторно възникване на състоянието.
-          </p>
+          <h3>3) Укрепване и стабилност</h3>
+          <p>Въвеждаме <span class="highlight">стабилизиращи и силови упражнения</span> за шийната/лумбалната област и лопатъчните стабилизатори, за да предотвратим рецидиви и да поддържаме резултата.</p>
         </div>
       </div>
     </div>
@@ -505,7 +522,7 @@
 
           <a href="../procedures/specialized-exercises.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="/pngs/procedures/exercises.webp" alt="Специализирани упражнения" class="kinesitherapy-img"
+              <img src="/pngs/procedures/exercises.webp" alt="Упражнения" class="kinesitherapy-img"
                    loading="lazy" decoding="async" width="320" height="180">
               <video class="kinesitherapy-video" muted loop playsinline preload="metadata"
                      poster="/pngs/procedures/exercises.webp" aria-hidden="true" width="320" height="180">
@@ -538,8 +555,8 @@
             </div>
             <span class="kinesitherapy-button-text">Кинезио тейп</span>
           </a>
-        </div>
 
+        </div>
         <button class="slider-arrow next-arrow" aria-label="Следващ слайд">❯</button>
       </div>
 
@@ -570,7 +587,7 @@
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
-          <!-- Остават PNG -->
+          <!-- оставени PNG според изискването -->
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
             <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
           </a>
@@ -623,7 +640,7 @@
 <script src="/js/temple-headache.js" defer></script>
 <script src="/js/procedurs-slider.js" defer></script>
 
-<!-- Хелпър за видеата и картата -->
+<!-- Хелпър за видеата и картата (идентичен със страницата за камшичен удар) -->
 <script>
 (function () {
   function ensureVideoHasSrc(video){
@@ -670,21 +687,23 @@
     box.addEventListener('touchstart', onEnter, {passive:true});
     box.addEventListener('touchend', onLeave, {passive:true});
   });
+})();
+</script>
 
-  // Lazy карта
+<!-- Lazy карта -->
+<script>
+(function(){
   var iframe = document.getElementById('mapFrame');
-  if (iframe && 'IntersectionObserver' in window){
-    var dataSrc = iframe.getAttribute('data-src');
-    if (dataSrc){
-      var io2 = new IntersectionObserver(function(entries){
-        if (entries.some(function(e){ return e.isIntersecting; })){
-          if (!iframe.src) iframe.src = dataSrc;
-          io2.disconnect();
-        }
-      }, { rootMargin: '300px' });
-      io2.observe(iframe);
+  if (!iframe || !('IntersectionObserver' in window)) return;
+  var dataSrc = iframe.getAttribute('data-src');
+  if (!dataSrc) return;
+  var io = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })){
+      if (!iframe.src) iframe.src = dataSrc;
+      io.disconnect();
     }
-  }
+  }, { rootMargin: '300px' });
+  io.observe(iframe);
 })();
 </script>
 
