@@ -1022,3 +1022,151 @@ a:hover{
   .healing-step .step-icon-circle{ --size: 92px; }
   .healing-step .step-icon-circle .icon{ width: 44px; height: 44px; }
 }
+/* ===== Degeneration Timeline (new classes) ===== */
+.deg-causes{ background:#e3f2fd; padding:60px 0; }
+.deg-causes__title{ text-align:center; color:#005662; font-size:2.6rem; margin:0 0 8px; }
+.deg-causes__subtitle{ text-align:center; color:#5b6470; margin:0 0 42px; }
+
+/* container + central line */
+.disc-tl{
+  position:relative;
+  display:grid;
+  row-gap:64px;
+}
+.disc-tl::after{
+  content:"";
+  position:absolute; left:50%; top:0; bottom:0;
+  width:2px; transform:translateX(-50%);
+  background:#cbd5e1;
+  z-index:0;
+}
+
+/* 3-колонен ред: ляво | център | дясно */
+.disc-tl__row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 96px minmax(0,1fr);
+  align-items:center;
+  column-gap:28px;
+}
+
+/* текст и медия – еднакви ширини, огледално спрямо центъра */
+.disc-tl__side{ width:100%; }
+.disc-tl__side--text{ justify-self:end; max-width:520px; }
+.disc-tl__side--media{ justify-self:start; max-width:520px; }
+
+/* обръщане на ред 2,4,… */
+.disc-tl__row--alt .disc-tl__side--text{ justify-self:start; }
+.disc-tl__row--alt .disc-tl__side--media{ justify-self:end; }
+
+/* централният „пил“ */
+.disc-tl__center{ grid-column:2; display:grid; place-items:center; z-index:1; }
+.disc-badge{
+  display:inline-grid; place-items:center;
+  width:92px; height:44px; border-radius:999px;
+  background:#005662; color:#fff; font:800 0.95rem/1 Montserrat,system-ui;
+  letter-spacing:.04em; box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+/* карта/медия */
+.dt-media{
+  position:relative; width:100%; aspect-ratio:1/1;
+  border-radius:12px; overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+}
+.dt-media__img,.dt-media__video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  transition:opacity .35s ease;
+}
+.dt-media__img{ opacity:1; display:block; }
+.dt-media__video{ opacity:0; pointer-events:none; }
+.dt-media:hover .dt-media__img{ opacity:0; }
+.dt-media:hover .dt-media__video{ opacity:1; }
+
+/* карта с текст */
+.disc-card{
+  background:#fff; border-radius:16px;
+  padding:28px 26px;
+  box-shadow:0 6px 16px rgba(0,0,0,.1);
+  border:1px solid #e7eef5;
+}
+.disc-card__title{
+  margin:0 0 14px; color:#0b3c42;
+  font-weight:800; font-size:1.9rem; line-height:1.25;
+}
+.disc-card__text{ margin:0; color:#334155; line-height:1.75; font-size:1.05rem; }
+.disc-card__highlight{ font-weight:700; color:#0b66ff; }
+
+/* ===== Mobile ===== */
+@media (max-width: 768px){
+  .disc-tl::after{ display:none; }
+  .disc-badge{ display:none; }
+
+  .disc-tl__row{
+    grid-template-columns:1fr;
+    row-gap:16px;
+  }
+  .disc-tl__side--text,
+  .disc-tl__side--media{ justify-self:stretch; max-width:none; }
+
+  .disc-card{ padding:22px 20px; border-radius:14px; }
+  .disc-card__title{ font-size:1.4rem; }
+  .deg-causes__title{ font-size:2rem; }
+  .deg-causes__subtitle{ font-size:1rem; margin-bottom:28px; }
+}
+/* === MOBILE FIX: центровка и без хор. скрол === */
+html, body { overflow-x: hidden; }
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* контейнерът да има равни вътрешни отстъпи */
+@media (max-width: 768px){
+  .container,
+  .deg-causes__wrap { padding-left: 16px; padding-right: 16px; }
+
+  /* всеки ред от таймлайна да става колона и да се центрира */
+  .disc-tl__row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* център по хоризонтала */
+    gap: 16px;
+    margin: 0 auto 28px;
+    width: 100%;
+  }
+
+  /* средната „лента/значка“ да не пази място на мобилно */
+  .disc-tl__center{ display: none !important; }
+
+  /* текстовата и медийната половина да не форсират ширина */
+  .disc-tl__side{ width: 100% !important; margin: 0 !important; }
+
+  /* самата карта – център и ограничена ширина за четимост */
+  .disc-card{
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* фигурата с медия – център и равни радиуси/сенки */
+  .dt-media{
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  /* изображения/постери да са пълна ширина, без “float”/offset-и */
+  .dt-media__img,
+  .dt-media__video{ width: 100% !important; height: auto !important; }
+
+  /* гаранция: няма да се подава наследен ляв margin */
+  .disc-tl__side--text *,
+  .disc-tl__side--media *{ margin-left: 0 !important; }
+}
+
+/* ако някъде има остатъчни правила от предишния timeline — занули */
+.disc-tl,
+.disc-tl__row,
+.disc-tl__side,
+.dt-media{ box-sizing: border-box; }
