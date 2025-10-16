@@ -22,7 +22,7 @@
   <meta property="og:title" content="Замръзнало рамо: Причини, симптоми и лечение | DM Physio" />
   <meta property="og:description" content="Етапи на адхезивния капсулит и как кинезитерапията помага да намалите болката и да възстановите подвижността." />
   <meta property="og:url" content="https://dmphysio.com/sustiqnia/ramo/ramo-zamruznalo.html" />
-  <meta property="og:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/Frozen-Thumbnail.jpg" />
+  <meta property="og:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/Frozen-Thumbnail.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Илюстрация на замръзнало рамо" />
@@ -32,11 +32,11 @@
   <meta name="twitter:site" content="@dmphysio" />
   <meta name="twitter:title" content="Замръзнало рамо – симптоми и лечение | DM Physio" />
   <meta name="twitter:description" content="Как се развива замръзналото рамо, етапи и какво работи за възстановяване на движението. DM Physio София." />
-  <meta name="twitter:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/Frozen-Thumbnail.jpg" />
+  <meta name="twitter:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/Frozen-Thumbnail.webp" />
 
   <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="/logo.png" sizes="32x32">
+  <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
 
   <!-- Локални стилове -->
   <link rel="preload" as="style" href="/css/top-bar.css" />
@@ -64,7 +64,7 @@
   </noscript>
 
   <!-- Preload на LCP изображение (hero) -->
-  <link rel="preload" as="image" href="https://dmphysio.com/pngs/sustoqniq/muscles/Frozen-Thumbnail.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="https://dmphysio.com/pngs/sustoqniq/muscles/Frozen-Thumbnail.webp" fetchpriority="high" />
 
   <!-- Мини-override (съвпада с модела) -->
   <style>
@@ -83,7 +83,7 @@
       outline: 3px solid #18a558; outline-offset: 3px; border-radius: 10px;
     }
 
-    /* декоративни монети */
+    /* декоративни монети (ако има) */
     .healing-step .step-icon-circle{
       --size:112px;
       width:var(--size); height:var(--size);
@@ -132,8 +132,8 @@
     "@id":"https://dmphysio.com/#org",
     "name":"DM Physio",
     "url":"https://dmphysio.com/",
-    "logo":"https://dmphysio.com/logo.png",
-    "image":"https://dmphysio.com/logo.png",
+    "logo":"https://dmphysio.com/logo.webp",
+    "image":"https://dmphysio.com/logo.webp",
     "telephone":"+359883688414",
     "medicalSpecialty":"PhysicalTherapy",
     "address":{"@type":"PostalAddress","streetAddress":"ул. „Проф. Христо Данов“ 19","addressLocality":"София","addressCountry":"BG"},
@@ -179,33 +179,37 @@
   }
   </script>
 
-  <!-- JSON-LD: MedicalWebPage (съдържанието ти, без промяна) -->
+  <!-- JSON-LD: MedicalWebPage (съдържанието за състоянието) -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"MedicalWebPage",
-    "@id":"https://dmphysio.com/sustiqnia/ramo/ramo-zamruznalo.html#page",
-    "url":"https://dmphysio.com/sustiqnia/ramo/ramo-zamruznalo.html",
-    "inLanguage":"bg",
-    "name":"Замръзнало рамо: Причини, симптоми и лечение",
-    "description":"Замръзнало рамо (адхезивен капсулит): етапи, симптоми и лечение. Как се развива състоянието и как кинезитерапията помага.",
-    "about":{
-      "@type":"MedicalCondition",
-      "name":"Замръзнало рамо",
-      "alternateName":"Адхезивен капсулит",
-      "signOrSymptom":[
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "@id": "https://dmphysio.com/sustiqnia/ramo/ramo-zamruznalo.html#page",
+    "url": "https://dmphysio.com/sustiqnia/ramo/ramo-zamruznalo.html",
+    "inLanguage": "bg",
+    "name": "Замръзнало рамо: Причини, симптоми и лечение",
+    "description": "Замръзнало рамо (адхезивен капсулит): етапи, симптоми и лечение. Как се развива състоянието и как кинезитерапията помага.",
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Замръзнало рамо",
+      "alternateName": "Адхезивен капсулит",
+      "signOrSymptom": [
         "Силна болка в рамото",
         "Скованост",
         "Ограничен обем на движение"
       ],
-      "possibleTreatment":[
+      "possibleTreatment": [
         {"@type":"TherapeuticProcedure","name":"Кинезитерапия"},
         {"@type":"PhysicalTherapy","name":"Разтягания и мобилизации"},
         {"@type":"TherapeuticProcedure","name":"Мануални техники"},
         {"@type":"ExercisePlan","name":"Упражнения за обхват и стабилност"}
       ]
     },
-    "publisher":{"@type":"Organization","name":"DM Physio","logo":{"@type":"ImageObject","url":"https://dmphysio.com/logo.png"}}
+    "publisher": {
+      "@type":"Organization",
+      "name":"DM Physio",
+      "logo":{"@type":"ImageObject","url":"https://dmphysio.com/logo.webp"}
+    }
   }
   </script>
 </head>
@@ -221,7 +225,7 @@
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" />
+      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" />
     </a>
 
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
@@ -263,12 +267,12 @@
 
       <div class="hero-image image-container">
         <img
-          src="../../pngs/sustoqniq/muscles/Frozen-Thumbnail.jpg"
+          src="../../pngs/sustoqniq/muscles/Frozen-Thumbnail.webp"
           alt="Изображение на замръзнало рамо"
           class="static-img"
           loading="eager" decoding="async" fetchpriority="high" width="1280" height="720">
         <video class="hover-video" muted loop preload="metadata" playsinline
-               poster="../../pngs/sustoqniq/muscles/Frozen-Thumbnail.jpg" aria-label="Видео: замръзнало рамо" width="1280" height="720">
+               poster="../../pngs/sustoqniq/muscles/Frozen-Thumbnail.webp" aria-label="Видео: замръзнало рамо" width="1280" height="720">
           <source src="../../pngs/sustoqniq/muscles/Frozen.mp4" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
@@ -282,7 +286,7 @@
       <div class="intro-text-content">
         <h2>Какво е Замръзнало рамо?</h2>
         <p>
-          Замръзналото рамо, или адхезивен капсулит, е състояние, характеризиращо се със скованост и болка в раменната става. То се развива, когато съединителната тъкан, която обгражда ставата (наречена раменна капсула), се възпали, удебели и стегне. Това прави движенията на рамото изключително ограничени и болезнени, като състоянието често прогресира на три етапа.
+          Замръзналото рамо, или адхезивен капсулит, е състояние, характеризиращо се със скованост и болка в раменната става. То се развива, когато съединителната тъкан, която обгражда ставата (раменна капсула), се възпали, удебели и стегне. Това прави движенията на рамото изключително ограничени и болезнени, като състоянието често прогресира на три етапа.
         </p>
         <div class="info-box">
           <i class="fas fa-info-circle" aria-hidden="true"></i> <p>
@@ -292,11 +296,11 @@
       </div>
       <div class="intro-image image-container">
         <img
-          src="../../pngs/sustoqniq/muscles/frozen2-Thumbnail.jpg"
+          src="../../pngs/sustoqniq/muscles/frozen2-Thumbnail.webp"
           alt="Анатомия на раменната става" class="static-img"
           loading="lazy" decoding="async" width="1000" height="562">
         <video class="hover-video" muted loop preload="metadata" playsinline
-               poster="../../pngs/sustoqniq/muscles/frozen2-Thumbnail.jpg" aria-label="Видео: анатомия на раменната става" width="1000" height="562">
+               poster="../../pngs/sustoqniq/muscles/frozen2-Thumbnail.webp" aria-label="Видео: анатомия на раменната става" width="1000" height="562">
           <source src="../../pngs/sustoqniq/muscles/frozen2.mp4" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
@@ -351,7 +355,7 @@
     </div>
   </section>
 
-  <!-- Етапи и симптоми (по модела disc-tl) -->
+  <!-- Етапи и симптоми -->
   <section class="deg-causes">
     <div class="deg-causes__wrap container">
       <h2 class="deg-causes__title">Етапи и симптоми на Замръзналото рамо</h2>
@@ -372,10 +376,10 @@
           <div class="disc-tl__side disc-tl__side--media">
             <figure class="dt-media image-container hernia-step-media">
               <img class="dt-media__img static-img"
-                   src="../../pngs/sustoqniq/muscles/frozen4-1-Thumbnail.jpg"
+                   src="../../pngs/sustoqniq/muscles/frozen4-1-Thumbnail.webp"
                    alt="Болка при замръзнало рамо" loading="lazy" decoding="async" width="1000" height="1000">
               <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
-                     poster="../../pngs/sustoqniq/muscles/frozen4-1-Thumbnail.jpg"
+                     poster="../../pngs/sustoqniq/muscles/frozen4-1-Thumbnail.webp"
                      width="1000" height="1000" aria-label="Видео: болка при замръзнало рамо">
                 <source src="../../pngs/sustoqniq/muscles/frozen4-1.mp4" type="video/mp4">
               </video>
@@ -397,10 +401,10 @@
           <div class="disc-tl__side disc-tl__side--media">
             <figure class="dt-media image-container hernia-step-media">
               <img class="dt-media__img static-img"
-                   src="../../pngs/sustoqniq/muscles/frozen2-Thumbnail.jpg"
+                   src="../../pngs/sustoqniq/muscles/frozen2-Thumbnail.webp"
                    alt="Скованост на рамото" loading="lazy" decoding="async" width="1000" height="1000">
               <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
-                     poster="../../pngs/sustoqniq/muscles/frozen2-Thumbnail.jpg"
+                     poster="../../pngs/sustoqniq/muscles/frozen2-Thumbnail.webp"
                      width="1000" height="1000" aria-label="Видео: скованост при замръзнало рамо">
                 <source src="../../pngs/sustoqniq/muscles/frozen2.mp4" type="video/mp4">
               </video>
@@ -422,10 +426,10 @@
           <div class="disc-tl__side disc-tl__side--media">
             <figure class="dt-media image-container hernia-step-media">
               <img class="dt-media__img static-img"
-                   src="../../pngs/sustoqniq/muscles/scapulae-Thumbnail.jpg"
+                   src="../../pngs/sustoqniq/muscles/scapulae-Thumbnail.webp"
                    alt="Възстановяване на подвижността" loading="lazy" decoding="async" width="1000" height="1000">
               <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
-                     poster="../../pngs/sustoqniq/muscles/scapulae-Thumbnail.jpg"
+                     poster="../../pngs/sustoqniq/muscles/scapulae-Thumbnail.webp"
                      width="1000" height="1000" aria-label="Видео: възстановяване на подвижността">
                 <source src="../../pngs/sustoqniq/muscles/scapulae.mp4" type="video/mp4">
               </video>
@@ -637,7 +641,6 @@
   </section>
 </footer>
 
-
 <!-- Скриптове – отложени -->
 <script src="/js/topbar.js" defer></script>
 <script src="/js/temple-headache.js" defer></script>
@@ -652,7 +655,7 @@
     const s = video.querySelector('source[data-src]');
     if (s){ s.src = s.dataset.src; try{ video.load(); }catch(e){} }
   }
-  function safePlay(v){ if (!v || !v.paused || !v.play) return; v.muted = true; const p=v.play(); if(p&&p.catch) p.catch(()=>{}); }
+  function safePlay(v){ if (!v || v.paused === false || !v.play) return; v.muted = true; const p=v.play(); if(p&&p.catch) p.catch(()=>{}); }
   function safePause(v){ if (!v || v.paused || !v.pause) return; v.pause(); }
 
   const cards = document.querySelectorAll('.kinesitherapy-button');
