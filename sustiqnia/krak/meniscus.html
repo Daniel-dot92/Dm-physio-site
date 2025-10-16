@@ -2,7 +2,7 @@
 <html lang="bg">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
   <title>Менискус: симптоми, причини и ефективно лечение | DM Physio София</title>
   <meta name="description" content="Менискус (вътрешен/външен): типични симптоми като болка по ставната линия, оток и заключване; основни причини (усукване, мускулен дисбаланс) и как кинезитерапията облекчава и връща нормалната походка." />
@@ -11,8 +11,9 @@
   <meta name="theme-color" content="#0a0a0a" />
 
   <!-- Canonical / hreflang -->
-  <link rel="canonical" href="https://dmphysi0.com/sustiqnia/krak/meniscus.html" />
-  <link rel="alternate" href="https://dmphysi0.com/sustiqnia/krak/meniscus.html" hreflang="bg" />
+  <link rel="canonical" href="https://dmphysio.com/sustiqnia/krak/meniscus.html" />
+  <link rel="alternate" href="https://dmphysio.com/sustiqnia/krak/meniscus.html" hreflang="bg" />
+  <link rel="alternate" href="https://dmphysio.com/sustiqnia/krak/meniscus.html" hreflang="x-default" />
 
   <!-- Open Graph -->
   <meta property="og:locale" content="bg_BG" />
@@ -20,14 +21,13 @@
   <meta property="og:site_name" content="DM Physio (ДМ ФИЗИО)" />
   <meta property="og:title" content="Менискус: симптоми, причини и ефективно лечение | DM Physio София" />
   <meta property="og:description" content="Как се травмира менискусът и как кинезитерапията помага за намаляване на болката, отока и възстановяване на движението." />
-  <meta property="og:url" content="https://dmphysi0.com/sustiqnia/krak/meniscus.html" />
-
-  <!-- OG Images (включени са всички важни визуализации) -->
-  <meta property="og:image" content="https://dmphysi0.com/pngs/sustoqniq/muscles/meniscus-Thumbnail.jpg" />
+  <meta property="og:url" content="https://dmphysio.com/sustiqnia/krak/meniscus.html" />
+  <!-- OG Images (всички важни визуализации, конвертирани към webp) -->
+  <meta property="og:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/meniscus-Thumbnail.webp" />
   <meta property="og:image:alt" content="Визуализация на менискус в коляното" />
-  <meta property="og:image" content="https://dmphysi0.com/pngs/sustoqniq/muscles/knee imbalance meniscus-Thumbnail.jpg" />
-  <meta property="og:image" content="https://dmphysi0.com/pngs/sustoqniq/muscles/knee valgus2-Thumbnail.jpg" />
-  <meta property="og:image" content="https://dmphysi0.com/pngs/sustoqniq/muscles/knee pain walking-Thumbnail.jpg" />
+  <meta property="og:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/knee imbalance meniscus-Thumbnail.webp" />
+  <meta property="og:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/knee valgus2-Thumbnail.webp" />
+  <meta property="og:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/knee pain walking-Thumbnail.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
@@ -35,66 +35,83 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Менискус: симптоми, причини и ефективно лечение | DM Physio София" />
   <meta name="twitter:description" content="Менискус – симптоми, рискови движения и кинезитерапевтичен подход за възстановяване." />
-  <meta name="twitter:image" content="https://dmphysi0.com/pngs/sustoqniq/muscles/meniscus-Thumbnail.jpg" />
+  <meta name="twitter:image" content="https://dmphysio.com/pngs/sustoqniq/muscles/meniscus-Thumbnail.webp" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon.png" />
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
 
   <!-- Локални стилове -->
-  <link rel="stylesheet" href="../../css/top-bar.css" />
-  <link rel="stylesheet" href="../../css/temple-headache.css" />
+  <link rel="preload" as="style" href="/css/top-bar.css" />
+  <link rel="preload" as="style" href="/css/muscle.css" />
+  <link rel="preload" as="style" href="/css/temple-headache.css" />
+  <link rel="stylesheet" href="/css/top-bar.css" />
+  <link rel="stylesheet" href="/css/muscle.css" />
+  <link rel="stylesheet" href="/css/temple-headache.css" />
 
-  <!-- Оптимизации към външни домейни -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-  <link rel="dns-prefetch" href="https://assets.calendly.com" />
+  <!-- Перформанс: предварителни връзки -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//book.dmphysi0.com">
+  <link rel="dns-prefetch" href="//www.google.com">
+  <link rel="dns-prefetch" href="//static.hj.contentsquare.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://book.dmphysi0.com" crossorigin>
+  <link rel="preconnect" href="https://www.google.com" crossorigin>
 
-  <!-- Единен Font Awesome + Calendly (неблокиращо) -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        media="print" onload="this.media='all'">
-  <link href="https://assets.calendly.com/assets/external/widget.css"
-        rel="stylesheet" media="print" onload="this.media='all'">
+  <!-- Google Fonts (неблокиращо) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap&subset=latin,cyrillic" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap&subset=latin,cyrillic" rel="stylesheet">
   </noscript>
 
-  <!-- Preload на LCP (hero) -->
-  <link rel="preload" as="image"
-        href="../../pngs/sustoqniq/muscles/meniscus-Thumbnail.jpg"
-        fetchpriority="high" />
+  <!-- Preload на LCP изображение (hero) -->
+  <link rel="preload" as="image" href="https://dmphysio.com/pngs/sustoqniq/muscles/meniscus-Thumbnail.webp" fetchpriority="high" />
 
+  <!-- Мини-override -->
   <style>
     :root{ --topbar-h:76px; }
     @media (max-width:768px){ :root{ --topbar-h:64px; } }
     .sr-only{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;}
+    section{ content-visibility:auto; contain-intrinsic-size: 1px 1000px; }
+
+    .icon{ width:1em; height:1em; fill:currentColor; vertical-align:-.125em; display:inline-block; }
+    .arrow-separator.icon{ font-size:2.8em; }
+
+    a:focus-visible, button:focus-visible, .kinesitherapy-button:focus-visible {
+      outline: 3px solid #18a558; outline-offset: 3px; border-radius: 10px;
+    }
   </style>
 
-  <!-- Hotjar / Contentsquare -->
+  <!-- Hotjar / Contentsquare (отложено зареждане) -->
   <script>
-    (function (c, s, q, u, a, r, e) {
-      c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
-      c._hjSettings = { hjid: a };
-      r = s.getElementsByTagName('head')[0];
-      e = s.createElement('script');
-      e.async = true;
-      e.src = q + c._hjSettings.hjid + u;
-      r.appendChild(e);
-    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6534654);
+  (function(){
+    function loadCS(){
+      if (document.getElementById('csq-loader')) return;
+      var s = document.createElement('script');
+      s.id='csq-loader'; s.async = true;
+      s.src = 'https://static.hj.contentsquare.net/c/csq-6534654.js';
+      s.referrerPolicy = 'no-referrer-when-downgrade';
+      document.head.appendChild(s);
+    }
+    function tryLoad(){ if (window._hjSettings && typeof window.hj === 'function') loadCS(); else setTimeout(tryLoad,2000); }
+    window.addEventListener('load', function(){
+      if ('requestIdleCallback' in window) requestIdleCallback(tryLoad,{timeout:8000}); else setTimeout(tryLoad,8000);
+    });
+  })();
   </script>
 
-  <!-- JSON-LD: Организация -->
+  <!-- JSON-LD: Организация (MedicalClinic) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"MedicalClinic",
-    "@id":"https://dmphysi0.com/#org",
+    "@id":"https://dmphysio.com/#org",
     "name":"DM Physio (ДМ ФИЗИО)",
-    "url":"https://dmphysi0.com/",
-    "logo":"https://dmphysi0.com/logo.png",
-    "image":"https://dmphysi0.com/logo.png",
+    "url":"https://dmphysio.com/",
+    "logo":"https://dmphysio.com/logo.webp",
+    "image":"https://dmphysio.com/logo.webp",
     "telephone":"+359883688414",
     "medicalSpecialty":"PhysicalTherapy",
     "address":{"@type":"PostalAddress","streetAddress":"ул. Професор Христо Данов 19","addressLocality":"София","addressCountry":"BG"},
@@ -118,56 +135,48 @@
   {
     "@context":"https://schema.org",
     "@type":"WebSite",
-    "@id":"https://dmphysi0.com/#website",
-    "url":"https://dmphysi0.com/",
+    "@id":"https://dmphysio.com/#website",
+    "url":"https://dmphysio.com/",
     "name":"DM Physio",
-    "publisher":{"@id":"https://dmphysi0.com/#org"},
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://dmphysi0.com/search?q={query}",
-      "query-input":"required name=query"
-    }
+    "publisher":{"@id":"https://dmphysio.com/#org"},
+    "potentialAction":{"@type":"SearchAction","target":"https://dmphysio.com/search?q={query}","query-input":"required name=query"}
   }
   </script>
 
-  <!-- JSON-LD: Breadcrumbs -->
+  <!-- JSON-LD: BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"BreadcrumbList",
     "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Начало","item":"https://dmphysi0.com/"},
-      {"@type":"ListItem","position":2,"name":"Болкови състояния","item":"https://dmphysi0.com/pain-conditions.html"},
-      {"@type":"ListItem","position":3,"name":"Крак","item":"https://dmphysi0.com/sustiqnia/krak/"},
-      {"@type":"ListItem","position":4,"name":"Менискус","item":"https://dmphysi0.com/sustiqnia/krak/meniscus.html"}
+      {"@type":"ListItem","position":1,"name":"Начало","item":"https://dmphysio.com/"},
+      {"@type":"ListItem","position":2,"name":"Болкови състояния","item":"https://dmphysio.com/pain-conditions.html"},
+      {"@type":"ListItem","position":3,"name":"Крак","item":"https://dmphysio.com/sustiqnia/krak/"},
+      {"@type":"ListItem","position":4,"name":"Менискус","item":"https://dmphysio.com/sustiqnia/krak/meniscus.html"}
     ]
   }
   </script>
 
-  <!-- JSON-LD: MedicalWebPage (+ всички изображения като ImageObject) -->
+  <!-- JSON-LD: MedicalWebPage (+ всички изображения като ImageObject, webp) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"MedicalWebPage",
-    "@id":"https://dmphysi0.com/sustiqnia/krak/meniscus.html#webpage",
-    "url":"https://dmphysi0.com/sustiqnia/krak/meniscus.html",
+    "@id":"https://dmphysio.com/sustiqnia/krak/meniscus.html#webpage",
+    "url":"https://dmphysio.com/sustiqnia/krak/meniscus.html",
     "inLanguage":"bg-BG",
     "name":"Менискус: симптоми, причини и ефективно лечение",
     "description":"Менискус (вътрешен и външен): механизъм на травма (усукване), мускулни фактори (VMO, gluteus medius, прасци/задни бедрени) и кинезитерапевтичен план за болка, оток и възстановяване на походката.",
     "datePublished":"2025-10-06",
     "dateModified":"2025-10-06",
     "author":{"@type":"Organization","name":"DM Physio (ДМ ФИЗИО)"},
-    "publisher":{"@id":"https://dmphysi0.com/#org"},
-    "primaryImageOfPage":{
-      "@type":"ImageObject",
-      "url":"https://dmphysi0.com/pngs/sustoqniq/muscles/meniscus-Thumbnail.jpg",
-      "width":1200,"height":630
-    },
+    "publisher":{"@id":"https://dmphysio.com/#org"},
+    "primaryImageOfPage":{"@type":"ImageObject","url":"https://dmphysio.com/pngs/sustoqniq/muscles/meniscus-Thumbnail.webp","width":1200,"height":630},
     "image":[
-      {"@type":"ImageObject","url":"https://dmphysi0.com/pngs/sustoqniq/muscles/meniscus-Thumbnail.jpg","width":1200,"height":630,"caption":"Менискус – обща визуализация"},
-      {"@type":"ImageObject","url":"https://dmphysi0.com/pngs/sustoqniq/muscles/knee imbalance meniscus-Thumbnail.jpg","width":1200,"height":630,"caption":"Натоварване и дисбаланс в коляното"},
-      {"@type":"ImageObject","url":"https://dmphysi0.com/pngs/sustoqniq/muscles/knee valgus2-Thumbnail.jpg","width":1200,"height":630,"caption":"Коляно във варус/валгус – роля на VMO и ханша"},
-      {"@type":"ImageObject","url":"https://dmphysi0.com/pngs/sustoqniq/muscles/knee pain walking-Thumbnail.jpg","width":1200,"height":630,"caption":"Твърда походка със „заключено“ коляно"}
+      {"@type":"ImageObject","url":"https://dmphysio.com/pngs/sustoqniq/muscles/meniscus-Thumbnail.webp","width":1200,"height":630,"caption":"Менискус – обща визуализация"},
+      {"@type":"ImageObject","url":"https://dmphysio.com/pngs/sustoqniq/muscles/knee imbalance meniscus-Thumbnail.webp","width":1200,"height":630,"caption":"Натоварване и дисбаланс в коляното"},
+      {"@type":"ImageObject","url":"https://dmphysio.com/pngs/sustoqniq/muscles/knee valgus2-Thumbnail.webp","width":1200,"height":630,"caption":"Коляно във варус/валгус – роля на VMO и ханша"},
+      {"@type":"ImageObject","url":"https://dmphysio.com/pngs/sustoqniq/muscles/knee pain walking-Thumbnail.webp","width":1200,"height":630,"caption":"Твърда походка със „заключено“ коляно"}
     ],
     "about":{
       "@type":"MedicalCondition",
@@ -200,29 +209,31 @@
     "@type":"VideoObject",
     "name":"Менискус – визуализация",
     "description":"Кратко видео за функцията на менискуса и натоварването при движение.",
-    "thumbnailUrl":"https://dmphysi0.com/pngs/sustoqniq/muscles/meniscus-Thumbnail.jpg",
+    "thumbnailUrl":"https://dmphysio.com/pngs/sustoqniq/muscles/meniscus-Thumbnail.webp",
     "uploadDate":"2025-10-06",
-    "contentUrl":"https://dmphysi0.com/pngs/sustoqniq/muscles/meniscus.mp4"
+    "contentUrl":"https://dmphysio.com/pngs/sustoqniq/muscles/meniscus.mp4"
   }
   </script>
 </head>
 
-
 <body>
+<!-- ===== SVG SPRITE ===== -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="i-bars" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
 <!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
-    <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" fetchpriority="high" />
+      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" loading="eager" fetchpriority="high" decoding="async" />
     </a>
 
-    <!-- Хамбургер -->
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
-      <i class="fas fa-bars" aria-hidden="true"></i>
+      <svg class="icon" aria-hidden="true"><use href="#i-bars"/></svg>
     </button>
 
-    <!-- Навигация -->
     <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
       <ul class="tb-menu">
         <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
@@ -236,10 +247,10 @@
         </li>
 
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        
-        <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
-      <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
-    </ul>
+
+        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+      </ul>
     </nav>
   </div>
 </header>
@@ -254,19 +265,19 @@
           Болката, заключване, щракане и оток по <strong>линията на ставата</strong>, често са знак за проблем с менискуса. 
           
         </p>
-         <div class="hero-buttons">
-                        <button class="button primary-button calendly-button" data-calendly-url="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">
-                            <i class="fas fa-stетhoscope"></i> Запазете час сега
-                        </button>
-                        <a href="/services.html" class="button outline-button">
-                            <i class="fas fa-lightbulb"></i> Нашите процедури
-                        </a>
-                    </div>
+        <div class="hero-buttons">
+          <a class="button primary-button" href="https://book.dmphysi0.com/book?utm_source=site&utm_medium=meniscus&utm_campaign=booking" rel="noopener">
+            Запазете час сега
+          </a>
+          <a href="/services.html" class="button outline-button">
+            Нашите процедури
+          </a>
+        </div>
       </div>
 
       <div class="hero-image image-container">
-        <img src="../../pngs/sustoqniq/muscles/meniscus-Thumbnail.jpg" alt="Менискус - визуализация" class="static-img" loading="eager" decoding="async" fetchpriority="high">
-        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Визуализация на менискус" poster="../../pngs/sustoqniq/muscles/meniscus-Thumbnail.jpg">
+        <img src="../../pngs/sustoqniq/muscles/meniscus-Thumbnail.webp" alt="Менискус - визуализация" class="static-img" loading="eager" fetchpriority="high" decoding="async" width="1280" height="720">
+        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Визуализация на менискус" poster="../../pngs/sustoqniq/muscles/meniscus-Thumbnail.webp" width="1280" height="720">
           <source src="../../pngs/sustoqniq/muscles/meniscus.mp4" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
@@ -301,8 +312,8 @@
       </div>
 
       <div class="intro-image image-container">
-        <img src="../../pngs/sustoqniq/muscles/knee imbalance meniscus-Thumbnail.jpg" alt="Анатомия на менискус" class="static-img" loading="lazy" decoding="async">
-        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Видео: анатомия и натоварване на менискус" poster="../../pngs/sustoqniq/muscles/knee imbalance meniscus-Thumbnail.jpg">
+        <img src="../../pngs/sustoqniq/muscles/knee imbalance meniscus-Thumbnail.webp" alt="Анатомия на менискус" class="static-img" loading="lazy" decoding="async">
+        <video muted loop preload="metadata" playsinline class="hover-video" aria-label="Видео: анатомия и натоварване на менискус" poster="../../pngs/sustoqniq/muscles/knee imbalance meniscus-Thumbnail.webp">
           <source src="../../pngs/sustoqniq/muscles/knee imbalance meniscus.mp4" type="video/mp4">
           Вашият браузър не поддържа видео тага.
         </video>
@@ -310,97 +321,111 @@
     </div>
   </section>
 
+ <!-- Таймлайн медия блокове (визуализации) — същата информация, новите класове -->
+<section class="deg-causes">
+  <div class="deg-causes__wrap container">
+    <h2 class="section-title">Защо менискусът се травмира и какво го провокира</h2>
+    <p class="section-subtitle">Комбинация от механика (усукване) и мускулен дисбаланс: слаб VMO, слаб контрол в таза, скъсени прасци/задни бедрени → коляното губи „мекота“ и се притиска асиметрично.</p>
 
-  <!-- COMBINED SECTION: CAUSES AND MUSCLES/MECHANICS -->
-  <section class="inflammation-section">
-    <div class="container">
-      <h2 class="section-title">Защо менискусът се травмира и какво го провокира</h2>
-      <p class="section-subtitle">Комбинация от механика (усукване) и мускулен дисбаланс: слаб VMO, слаб контрол в таза, скъсени прасци/задни бедрени → коляното губи „мекота“ и се притиска асиметрично.</p>
-
-      <div class="timeline-container">
-        <!-- Mechanism: twist on flexed knee -->
-        <div class="timeline-step">
-          <div class="step-content">
-            <div class="step-card">
-              <h3>1. Усукване при леко сгънато коляно</h3>
-              <p>
-                Най-честият механизъм е <strong>ротация на тялото върху фиксиран крак</strong> (спорт, стълби, рязка промяна на посока). 
-                Дълбокият клек и продължителното клякане притискат менискуса към платото на тибията и улесняват „щипването“ му.
-              </p>
-            </div>
-          </div>
-          <div class="step-number-container">1</div>
-          <div class="step-media">
-            <div class="hernia-step-media">
-              <img src="../../pngs/sustoqniq/muscles/knee vaugus.PNG" alt="Усукване и менискус" class="static-hernia-img" loading="lazy" decoding="async">
-              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video" aria-label="Видео: усукване и менискус" poster="../../pngs/sustoqniq/muscles/knee vaugus.PNG">
-                <source src="../../pngs/sustoqniq/muscles/knee valgus.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-          </div>
+    <div class="disc-tl">
+      <!-- Mechanism: twist on flexed knee -->
+      <div class="disc-tl__row">
+        <div class="disc-tl__side disc-tl__side--text">
+          <article class="disc-card">
+            <h3 class="disc-card__title">1. Усукване при леко сгънато коляно</h3>
+            <p class="disc-card__text">
+              Най-честият механизъм е <strong>ротация на тялото върху фиксиран крак</strong> (спорт, стълби, рязка промяна на посока). 
+              Дълбокият клек и продължителното клякане притискат менискуса към платото на тибията и улесняват „щипването“ му.
+            </p>
+          </article>
         </div>
-
-        <!-- Muscle control: VMO & hip -->
-        <div class="timeline-step">
-          <div class="step-content">
-            <div class="step-card">
-              <h3>2. Слаб VMO и контрол на тазобедрената</h3>
-              <p>
-                <strong>Слабата вътрешна глава на квадрицепса (VMO)</strong> и <strong>слаб gluteus medius</strong> позволяват коляното да „пада“ навътре/навън. 
-                Това променя траекторията на бедрената кост и увеличава срязващите сили върху менискуса при стъпка и клек.
-              </p>
-            </div>
-          </div>
-          <div class="step-number-container">2</div>
-          <div class="step-media">
-            <div class="hernia-step-media">
-              <img src="../../pngs/sustoqniq/muscles/knee valgus2-Thumbnail.jpg" alt="VMO и контрол на коляното" class="static-hernia-img" loading="lazy" decoding="async">
-              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video" aria-label="Видео: VMO и контрол на коляното" poster="../../pngs/sustoqniq/muscles/knee valgus2-Thumbnail.jpg">
-                <source src="../../pngs/sustoqniq/muscles/knee valgus2.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stiff calves/hamstrings & locked-knee gait -->
-        <div class="timeline-step">
-          <div class="step-content">
-            <div class="step-card">
-              <h3>3. Скъсени прасци/хамстринг + заключено коляно</h3>
-              <p>
-                <strong>Скъсен прасец и задни бедрени</strong> ограничават дорзифлексията и флексията в коляното. 
-                Походката става „твърда“ и ударът при стъпка се поема от колянната става → повече компресия и срязване на менискуса.
-              </p>
-            </div>
-          </div>
-          <div class="step-number-container">3</div>
-          <div class="step-media">
-            <div class="hernia-step-media">
-              <img src="../../pngs/sustoqniq/muscles/knee pain walking-Thumbnail.jpg" alt="Заключено коляно и натоварване" class="static-hernia-img" loading="lazy" decoding="async">
-              <video muted loop preload="metadata" playsinline autoplay class="hover-hernia-video" aria-label="Видео: заключено коляно и натоварване" poster="../../pngs/sustoqniq/muscles/knee pain walking-Thumbnail.jpg">
-                <source src="../../pngs/sustoqniq/muscles/knee pain walking.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
-              </video>
-            </div>
-          </div>
+        <div class="disc-tl__center"><span class="disc-badge">1</span></div>
+        <div class="disc-tl__side disc-tl__side--media">
+          <figure class="dt-media image-container hernia-step-media">
+            <img class="dt-media__img static-img"
+                 src="../../pngs/sustoqniq/muscles/knee vaugus.webp"
+                 alt="Усукване и менискус" loading="lazy" decoding="async">
+            <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
+                   poster="../../pngs/sustoqniq/muscles/knee vaugus.webp"
+                   aria-label="Видео: усукване и менискус">
+              <source src="../../pngs/sustoqniq/muscles/knee valgus.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </figure>
         </div>
       </div>
 
-      <div class="info-box" style="margin-top:1rem">
-        <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
-        <p>
-          <p>
-    <strong>Кинезитерапията е ключова:</strong> Тя не е само упражнения, а процес на 
-    <em>обучение на тялото</em> как да движи ставата правилно. 
-    Чрез специфични техники се възстановява <strong>координацията между бедро, коляно и глезен</strong>, 
-    което намалява натиска върху менискуса и връща нормалната походка.
-  </p>
-        </p>
+      <!-- Muscle control: VMO & hip -->
+      <div class="disc-tl__row disc-tl__row--alt">
+        <div class="disc-tl__side disc-tl__side--text">
+          <article class="disc-card">
+            <h3 class="disc-card__title">2. Слаб VMO и контрол на тазобедрената</h3>
+            <p class="disc-card__text">
+              <strong>Слабата вътрешна глава на квадрицепса (VMO)</strong> и <strong>слаб gluteus medius</strong> позволяват коляното да „пада“ навътре/навън. 
+              Това променя траекторията на бедрената кост и увеличава срязващите сили върху менискуса при стъпка и клек.
+            </p>
+          </article>
+        </div>
+        <div class="disc-tl__center"><span class="disc-badge">2</span></div>
+        <div class="disc-tl__side disc-tl__side--media">
+          <figure class="dt-media image-container hernia-step-media">
+            <img class="dt-media__img static-img"
+                 src="../../pngs/sustoqniq/muscles/knee valgus2-Thumbnail.webp"
+                 alt="VMO и контрол на коляното" loading="lazy" decoding="async">
+            <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
+                   poster="../../pngs/sustoqniq/muscles/knee valgus2-Thumbnail.webp"
+                   aria-label="Видео: VMO и контрол на коляното">
+              <source src="../../pngs/sustoqniq/muscles/knee valgus2.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </figure>
+        </div>
       </div>
+
+      <!-- Stiff calves/hamstrings & locked-knee gait -->
+      <div class="disc-tl__row">
+        <div class="disc-tl__side disc-tl__side--text">
+          <article class="disc-card">
+            <h3 class="disc-card__title">3. Скъсени прасци/хамстринг + заключено коляно</h3>
+            <p class="disc-card__text">
+              <strong>Скъсен прасец и задни бедрени</strong> ограничават дорзифлексията и флексията в коляното. 
+              Походката става „твърда“ и ударът при стъпка се поема от колянната става → повече компресия и срязване на менискуса.
+            </p>
+          </article>
+        </div>
+        <div class="disc-tl__center"><span class="disc-badge">3</span></div>
+        <div class="disc-tl__side disc-tl__side--media">
+          <figure class="dt-media image-container hernia-step-media">
+            <img class="dt-media__img static-img"
+                 src="../../pngs/sustoqniq/muscles/knee pain walking-Thumbnail.webp"
+                 alt="Заключено коляно и натоварване" loading="lazy" decoding="async">
+            <video class="dt-media__video hover-video" muted loop playsinline preload="metadata"
+                   poster="../../pngs/sustoqniq/muscles/knee pain walking-Thumbnail.webp"
+                   aria-label="Видео: заключено коляно и натоварване">
+              <source src="../../pngs/sustoqniq/muscles/knee pain walking.mp4" type="video/mp4">
+              Вашият браузър не поддържа видео тага.
+            </video>
+          </figure>
+        </div>
+      </div>
+
     </div>
-  </section>
+
+    <!-- Info box: текстът е запазен 1:1 -->
+    <div class="info-box" style="margin-top:1rem">
+      <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+      <p>
+        <p>
+  <strong>Кинезитерапията е ключова:</strong> Тя не е само упражнения, а процес на 
+  <em>обучение на тялото</em> как да движи ставата правилно. 
+  Чрез специфични техники се възстановява <strong>координацията между бедро, коляно и глезен</strong>, 
+  което намалява натиска върху менискуса и връща нормалната походка.
+</p>
+      </p>
+    </div>
+  </div>
+</section>
+
 
   <!-- THERAPY (KINÉSITHERAPY) -->
   <section class="healing-section alternative-style">
@@ -413,7 +438,7 @@
 
       <div class="healing-steps-grid">
         <div class="healing-step">
-          <div class="step-icon-circle"><i class="fas fa-first-aid"></i></div>
+          
           <h3>1. Оценка и обезболяване</h3>
           <p>
             Функционален преглед (ставна линия, дълбок клек, ротации). 
@@ -423,7 +448,7 @@
         </div>
 
         <div class="healing-step">
-          <div class="step-icon-circle"><i class="fas fa-dumbbell"></i></div>
+          
           <h3>2. Стабилизация и сила</h3>
           <p>
             Активиране на <strong>прасци и задни бедрa</strong>, укрепване на квадрицепс и ханш (gluteus medius) 
@@ -433,7 +458,7 @@
         </div>
 
         <div class="healing-step">
-          <div class="step-icon-circle"><i class="fas fa-redо-alt"></i></div>
+          
           <h3>3. Връщане към активност</h3>
           <p>
             Прогресия към натоварвания с ротация и промяна на посока, плиометрия при нужда. 
@@ -451,7 +476,7 @@
     </div>
   </section>
 
-  <!-- PROCEDURES (Слайдер – идентичен стил) -->
+  <!-- PROCEDURES (Слайдер) -->
   <section class="conditions-section procedures-section">
     <div class="container">
       <h3>Процедури, които помагат при проблеми с менискуса:</h3>
@@ -460,56 +485,56 @@
         <button class="slider-arrow prev-arrow" aria-label="Предишен слайд">❮</button>
 
         <div class="kinesitherapy-slider-track">
-          <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+          <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" loading="lazy" decoding="async">
-              <video autoplay loop muted playsinline class="kinesitherapy-video" aria-label="Видео: кинезитерапия" preload="metadata" poster="../../pngs/procedures/KT.PNG">
-                <source src="../../pngs/procedures/gif/KT.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
+              <img src="/pngs/procedures/KT.webp" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img"
+                   loading="lazy" decoding="async" width="320" height="180">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video" poster="/pngs/procedures/KT.webp" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
           </a>
 
-          <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
+          <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" loading="lazy" decoding="async">
-              <video autoplay loop muted playsinline class="kinesitherapy-video" aria-label="Видео: лечебен масаж" preload="metadata" poster="../../pngs/massages/lecheben.PNG">
-                <source src="../../pngs/massages/gif/lecheben.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
+              <img src="/pngs/massages/lecheben.webp" alt="Лечебен Масаж" class="kinesitherapy-img"
+                   loading="lazy" decoding="async" width="320" height="180">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video" poster="/pngs/massages/lecheben.webp" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Лечебен Масаж</span>
           </a>
 
-          <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
+          <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img" loading="lazy" decoding="async">
-              <video autoplay loop muted playsinline class="kinesitherapy-video" aria-label="Видео: функционална оценка" preload="metadata" poster="../../pngs/procedures/function.PNG">
-                <source src="../../pngs/procedures/gif/funciton.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
+              <img src="/pngs/procedures/function.webp" alt="Функционална оценка" class="kinesitherapy-img"
+                   loading="lazy" decoding="async" width="320" height="180">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video" poster="/pngs/procedures/function.webp" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Функционална оценка</span>
           </a>
 
-          <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
+          <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img" loading="lazy" decoding="async">
-              <video autoplay loop muted playsinline class="kinesitherapy-video" aria-label="Видео: упражнения" preload="metadata" poster="../../pngs/procedures/exercises.PNG">
-                <source src="../../pngs/procedures/gif/exercieses.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
+              <img src="/pngs/procedures/exercises.webp" alt="Специализирани упражнения" class="kinesitherapy-img"
+                   loading="lazy" decoding="async" width="320" height="180">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video" poster="/pngs/procedures/exercises.webp" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Упражнения</span>
           </a>
 
-          <a href="../../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+          <a href="../../procedures/kinesiotaping.html" class="kinesitherapy-button">
             <div class="kinesitherapy-button-media">
-              <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезиотейпинг" class="kinesitherapy-img" loading="lazy" decoding="async">
-              <video autoplay loop muted playsinline class="kinesitherapy-video" aria-label="Видео: кинезиотейпинг" preload="metadata" poster="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg">
-                <source src="../../pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
-                Вашият браузър не поддържа видео тага.
+              <img src="/pngs/procedures/gif/kinesiotape-1-Thumbnail.webp" alt="Кинезиотейпинг" class="kinesitherapy-img"
+                   loading="lazy" decoding="async" width="320" height="180">
+              <video autoplay loop muted playsinline preload="metadata" class="kinesitherapy-video" poster="/pngs/procedures/gif/kinesiotape-1-Thumbnail.webp" aria-hidden="true" width="320" height="180">
+                <source data-src="/pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4">
               </video>
             </div>
             <span class="kinesitherapy-button-text">Кинезиотейпинг</span>
@@ -518,71 +543,70 @@
 
         <button class="slider-arrow next-arrow" aria-label="Следващ слайд">❯</button>
       </div>
-                  <!-- CTA: Виж всички процедури -->
-<div class="procedures-cta-wrap">
-  <a
-    href="/services.html"  
-    class="procedures-cta"
-    aria-label="Виж всички процедури"
-  >
-    <svg class="procedures-cta-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span>Виж всички процедури</span>
-  </a>
-</div>
+
+      <!-- CTA: Виж всички процедури -->
+      <div class="procedures-cta-wrap">
+        <a href="/services.html" class="procedures-cta" aria-label="Виж всички процедури">
+          <svg class="procedures-cta-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Виж всички процедури</span>
+        </a>
+      </div>
     </div>
   </section>
 </main>
 
- <footer class="footer">
+<footer class="footer">
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
         <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" 
-                  width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe id="mapFrame"
+            data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
+            width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
 
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
+          <!-- футърът остава с PNG -->
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook">
+            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram">
+            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="22">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="28" height="32">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon">
-          <span>0883688414</span>
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
+          <span><a href="tel:0883688414">0883688414</a></span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>Работно време:</span><br>
-            <span>Пон-Пет: 09:00 - 19:00</span><br>
-            <span>Събота: 09:00 - 16:00</span><br>
-            </span>Неделя: Почивка</span>
+            <span>Пон–Пет: 09:00 – 19:00</span><br>
+            <span>Събота: 09:00 – 16:00</span><br>
+            <span>Неделя: Почивка</span>
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon-img icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
-            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXп6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
+            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
               Вижте на карта →
             </a>
           </div>
@@ -597,50 +621,73 @@
 </footer>
 
 <!-- Скриптове – отложени -->
-<script src="../../js/temple-headache.js" defer></script>
 <script src="/js/topbar.js" defer></script>
-<script src="../../js/procedurs-slider.js" defer></script>
+<script src="/js/temple-headache.js" defer></script>
+<script src="/js/procedurs-slider.js" defer></script>
 
-<!-- Лек контрол за видеата (hover + in-view) -->
+<!-- Авто play/pause на видеата при видимост + ховър и lazy карта -->
 <script>
-(function() {
-  const safePlay  = (v) => v && v.play && v.play().catch(()=>{});
-  const safePause = (v) => v && v.pause && v.pause();
+(function () {
+  function ensureVideoHasSrc(video){
+    if (!video) return;
+    if (video.currentSrc || (video.querySelector('source') && video.querySelector('source').src)) return;
+    const s = video.querySelector('source[data-src]');
+    if (s){ s.src = s.dataset.src; try{ video.load(); }catch(e){} }
+  }
+  function safePlay(v){ if (!v || !v.paused || !v.play) return; v.muted = true; const p=v.play(); if(p&&p.catch) p.catch(()=>{}); }
+  function safePause(v){ if (!v || v.paused || !v.pause) return; v.pause(); }
 
-  // Унифициране на video атрибутите
-  document.querySelectorAll('video').forEach(v => {
-    v.muted = true;
-    v.setAttribute('playsinline','');
-    v.preload = v.preload || 'metadata';
+  const cards = document.querySelectorAll('.kinesitherapy-button');
+  cards.forEach((card) => {
+    const v = card.querySelector('.kinesitherapy-video');
+    card.addEventListener('pointerenter', () => { ensureVideoHasSrc(v); safePlay(v); }, {passive:true});
+    card.addEventListener('pointerleave', () => { safePause(v); }, {passive:true});
+    card.addEventListener('touchstart', () => { ensureVideoHasSrc(v); safePlay(v); }, {passive:true});
+    card.addEventListener('touchend', () => { setTimeout(() => safePause(v), 500); }, {passive:true});
   });
 
-  // Hover поведение
-  document.querySelectorAll('.image-container, .hernia-step-media, .kinesitherapy-button').forEach(box => {
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if (en.isIntersecting){
+          const v = en.target.querySelector('.kinesitherapy-video');
+          ensureVideoHasSrc(v);
+          io.unobserve(en.target);
+        }
+      });
+    }, { root:null, rootMargin:'200px 0px', threshold:0 });
+    document.querySelectorAll('.kinesitherapy-button').forEach(c=>io.observe(c));
+  }
+
+  document.querySelectorAll('.image-container').forEach(box => {
     const vid = box.querySelector('video');
     if (!vid) return;
+    vid.preload = 'metadata';
     const onEnter = () => safePlay(vid);
-    const onLeave = () => { safePause(vid); try { vid.currentTime = 0; } catch(e){} };
+    const onLeave = () => safePause(vid);
     box.addEventListener('mouseenter', onEnter, {passive:true});
     box.addEventListener('mouseleave', onLeave, {passive:true});
     box.addEventListener('touchstart', onEnter, {passive:true});
     box.addEventListener('touchend', onLeave, {passive:true});
   });
 
-  // Авто-плей/пауза при видимост
-  const vids = [
-    ...document.querySelectorAll('.hover-video'),
-    ...document.querySelectorAll('.hover-hernia-video'),
-    ...document.querySelectorAll('.kinesitherapy-button .kinesitherapy-video')
-  ];
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(({isIntersecting, target}) => {
-        if (isIntersecting) safePlay(target); else safePause(target);
-      });
-    }, { threshold: 0.35 });
-    vids.forEach(v => io.observe(v));
+  // Lazy карта
+  var iframe = document.getElementById('mapFrame');
+  if (iframe && 'IntersectionObserver' in window){
+    var ds = iframe.getAttribute('data-src');
+    var ioM = new IntersectionObserver(function(es){
+      if (es.some(function(e){ return e.isIntersecting; })){
+        if (!iframe.src && ds) iframe.src = ds;
+        ioM.disconnect();
+      }
+    }, { rootMargin: '300px' });
+    ioM.observe(iframe);
   }
 })();
 </script>
+
+<!-- Скрит H1 за SEO -->
+<h1 class="sr-only">Менискус: симптоми, причини и ефективно лечение | DM Physio София</h1>
+
 </body>
 </html>
