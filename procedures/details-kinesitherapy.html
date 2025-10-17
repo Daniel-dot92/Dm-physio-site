@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
 
-  <!-- Неблокиращо зареждане на стиловете (без смяна на визията) -->
+  <!-- Неблокиращо зареждане на стиловете -->
   <link rel="preload" href="../css/procedure.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="/css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
@@ -66,7 +66,7 @@
   }
   </script>
 
-  <!-- JSON-LD: Service (процедура) -->
+  <!-- JSON-LD: Service -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -94,14 +94,43 @@
   }
   </script>
 
-  <!-- Дребни критични фиксове за CLS (без промяна на визията) -->
+  <!-- PRELOAD за LCP изображението -->
+  <link rel="preload" as="image"
+        href="/pngs/procedures/function.webp"
+        imagesizes="(max-width: 700px) 100vw, 640px"
+        fetchpriority="high">
+
+  <!-- Критични CSS фиксове (без промяна на визията) -->
   <style>
-    /* Запазва място за 1:1 медийни карти */
-    .image-container{ aspect-ratio: 1 / 1; }
-    /* Лого размер за стабилен header (ако класът не задава width/height) */
-    .tb-logo{ width:64px;height:64px }
-    /* Без хор. скрол от абсолютни елементи */
+    /* стабилни 1:1 медийни плочки (за главната секция и сайдбар) */
+    .image-container, .pain-button-media{ position:relative; aspect-ratio:1/1; overflow:hidden; }
+    .image-container img, .image-container video,
+    .pain-button-media img, .pain-button-media video{
+      position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity .24s ease;
+    }
+    .image-container video, .pain-button-media video{ opacity:0; }
+    .image-container img, .pain-button-media img{ opacity:1; }
+
+   
+
+    /* изображенията да не влияят на line-height */
+    img{ display:block; height:auto; }
+
+    /* без хоризонтален скрол от абсолютни елементи */
     html,body{ overflow-x:hidden }
+
+    /* футърът не пречи на първоначалното рисуване */
+    footer.footer{ content-visibility:auto; contain-intrinsic-size:600px; }
+
+    /* карта – резервирано място веднага */
+    .map iframe{ width:300px; height:250px; display:block; border:0; background:#e9eef3; }
+    @media (max-width:768px){ .map iframe{ width:100%; height:220px; } }
+
+    /* FAQ с native <details> (без JS) */
+    details.accordion-details > summary{ list-style:none; cursor:pointer; }
+    .accordion-panel{ display:none; }
+    details[open] .accordion-panel{ display:block; }
+    
   </style>
 </head>
 
@@ -109,19 +138,16 @@
 <!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
-    <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
       <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" width="64" height="64" loading="eager" decoding="async">
     </a>
 
-    <!-- Хамбургер (SVG – без Font Awesome) -->
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
       <svg class="tb-burger-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
         <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
 
-    <!-- Навигация -->
     <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
       <ul class="tb-menu">
         <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
@@ -154,13 +180,17 @@
 
       <div class="journey-steps-wrapper">
 
-        <!-- Етап 1 -->
+        <!-- Етап 1 (LCP) -->
         <div class="journey-step left-aligned">
-          <div class="journey-image image-container" tabindex="0" style="aspect-ratio:1/1">
-            <img src="../pngs/procedures/function.webp" alt="Функционална оценка и изследване"
-                 class="static-img" decoding="async" loading="eager" fetchpriority="high"
+          <div class="journey-image image-container" tabindex="0">
+            <img src="../pngs/procedures/function.webp"
+                 alt="Функционална оценка и изследване"
+                 class="static-img"
+                 decoding="async" loading="eager" fetchpriority="high"
                  width="640" height="640">
-            <video muted loop preload="none" class="hover-img" playsinline poster="../pngs/procedures/function.webp" aria-hidden="true" width="640" height="640">
+            <video class="hover-img" muted loop preload="none" playsinline
+                   poster="../pngs/procedures/function.webp" aria-hidden="true"
+                   width="640" height="640">
               <source src="../pngs/procedures/gif/funciton.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -185,12 +215,16 @@
 
         <!-- Етап 2 -->
         <div class="journey-step right-aligned">
-          <div class="journey-image image-container" tabindex="0" style="aspect-ratio:1/1">
-            <img src="../pngs/procedures/posledni/manual therapy-Thumbnail.webp" alt="Мануална терапия"
-                 class="static-img" decoding="async" loading="lazy" width="640" height="640">
-            <video muted loop preload="none" class="hover-img" playsinline poster="../pngs/procedures/posledni/manual therapy-Thumbnail.webp" aria-hidden="true" width="640" height="640">
+          <div class="journey-image image-container" tabindex="0">
+            <img src="../pngs/procedures/posledni/manual therapy-Thumbnail.webp"
+                 alt="Мануална терапия"
+                 class="static-img"
+                 decoding="async" loading="lazy"
+                 width="640" height="640">
+            <video class="hover-img" muted loop preload="none" playsinline
+                   poster="../pngs/procedures/posledni/manual therapy-Thumbnail.webp"
+                   aria-hidden="true" width="640" height="640">
               <source src="../pngs/procedures/posledni/manual therapy.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <div class="journey-content">
@@ -210,12 +244,16 @@
 
         <!-- Етап 3 -->
         <div class="journey-step left-aligned">
-          <div class="journey-image image-container" tabindex="0" style="aspect-ratio:1/1">
-            <img src="../pngs/procedures/exercises.webp" alt="Специализирани упражнения"
-                 class="static-img" decoding="async" loading="lazy" width="640" height="640">
-            <video muted loop preload="none" class="hover-img" playsinline poster="../pngs/procedures/exercises.webp" aria-hidden="true" width="640" height="640">
+          <div class="journey-image image-container" tabindex="0">
+            <img src="../pngs/procedures/exercises.webp"
+                 alt="Специализирани упражнения"
+                 class="static-img"
+                 decoding="async" loading="lazy"
+                 width="640" height="640">
+            <video class="hover-img" muted loop preload="none" playsinline
+                   poster="../pngs/procedures/exercises.webp" aria-hidden="true"
+                   width="640" height="640">
               <source src="../pngs/procedures/gif/exercieses.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
           </div>
           <div class="journey-content">
@@ -246,52 +284,138 @@
       </a>
     </div>
 
-    <!-- FAQ / Акордеон -->
+    <!-- FAQ / Акордеон (native <details>) -->
     <section class="details-accordion section-light-grey">
       <div class="container">
         <h2>Често задавани въпроси :</h2>
 
-        <div class="accordion">
-          <div class="accordion-item">
-            <button class="accordion-header">За кого е подходяща тази процедура?</button>
-            <div class="accordion-content">
-              <ul>
-                <li>Остра и хронична болка в гърба, врата, раменете, коленете и други стави</li>
-                <li>Възстановяване след спортни травми и операции</li>
-                <li>Мускулни дисбаланси и постурални нарушения (лоша стойка)</li>
-                <li>Изтръпвания, парези и други неврологични симптоми, свързани с опорно-двигателния апарат</li>
-                <li>Главоболие, причинено от напрежение във врата и раменете</li>
-                <li>Намалена ставна подвижност и скованост</li>
-                <li>Желание за подобряване на цялостната физическа форма и превенция на травми</li>
-              </ul>
-            </div>
+        <details class="accordion-details" id="faq1">
+          <summary class="accordion-header">За кого е подходяща тази процедура?</summary>
+          <div class="accordion-panel">
+            <ul>
+              <li>Остра и хронична болка в гърба, врата, раменете, коленете и други стави</li>
+              <li>Възстановяване след спортни травми и операции</li>
+              <li>Мускулни дисбаланси и постурални нарушения (лоша стойка)</li>
+              <li>Изтръпвания, парези и други неврологични симптоми, свързани с опорно-двигателния апарат</li>
+              <li>Главоболие, причинено от напрежение във врата и раменете</li>
+              <li>Намалена ставна подвижност и скованост</li>
+              <li>Желание за подобряване на цялостната физическа форма и превенция на травми</li>
+            </ul>
           </div>
+        </details>
 
-          <div class="accordion-item">
-            <button class="accordion-header">Колко често трябва да посещавам процедурата?</button>
-            <div class="accordion-content">
-              <p>Честотата е индивидуална и зависи от състоянието, диагнозата и напредъка. Обикновено се започва с 1–2 сесии седмично, след което се намалява според подобрението. Изготвяме персонален план.</p>
-            </div>
+        <details class="accordion-details" id="faq2">
+          <summary class="accordion-header">Колко често трябва да посещавам процедурата?</summary>
+          <div class="accordion-panel">
+            <p>Честотата е индивидуална и зависи от състоянието, диагнозата и напредъка. Обикновено се започва с 1–2 сесии седмично, след което се намалява според подобрението. Изготвяме персонален план.</p>
           </div>
+        </details>
 
-          <div class="accordion-item">
-            <button class="accordion-header">Трябва ли да се подготвя по някакъв начин?</button>
-            <div class="accordion-content">
-              <p>Носете удобно облекло, позволяващо свободно движение. Споделете предишни травми, операции или медицински състояния, за да адаптираме терапията максимално ефективно.</p>
-            </div>
+        <details class="accordion-details" id="faq3">
+          <summary class="accordion-header">Трябва ли да се подготвя по някакъв начин?</summary>
+          <div class="accordion-panel">
+            <p>Носете удобно облекло, позволяващо свободно движение. Споделете предишни травми, операции или медицински състояния, за да адаптираме терапията максимално ефективно.</p>
           </div>
-        </div>
+        </details>
       </div>
     </section>
-
-    
-
   </section>
 
-  <!-- Условно зареждани състояния -->
+  <!-- САЙДБАР: Статично вкарани карти (вместо динамично инжектиране) -->
   <aside id="random-conditions" class="sidebar-conditions">
     <h3>Болкови състояния</h3>
-    <div class="pain-buttons-grid" id="conditions-container"></div>
+
+    <div class="pain-buttons-grid" id="conditions-container">
+      <!-- Карта 1 -->
+      <a href="/pain-head.html" class="pain-button" aria-label="Глава – най-чести болкови състояния">
+        <div class="pain-button-media image-container" tabindex="0">
+          <img src="/pngs/pain-conditions/new/headeach1-Thumbnail.webp"
+               alt="Глава" class="static-img" loading="lazy" decoding="async"
+               width="352" height="352">
+          <video class="hover-img" loop playsinline muted preload="none"
+                 poster="/pngs/pain-conditions/new/headeach1-Thumbnail.webp"
+                 width="352" height="352" aria-hidden="true">
+            <source src="/pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <span class="pain-button-text">Глава</span>
+      </a>
+
+      <!-- Карта 2 -->
+      <a href="/pain-neck.html" class="pain-button" aria-label="Врат – най-чести болкови състояния">
+        <div class="pain-button-media image-container" tabindex="0">
+          <img src="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp"
+               alt="Врат" class="static-img" loading="lazy" decoding="async"
+               width="352" height="352">
+          <video class="hover-img" loop playsinline muted preload="none"
+                 poster="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp"
+                 width="352" height="352" aria-hidden="true">
+            <source src="/pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <span class="pain-button-text">Врат</span>
+      </a>
+
+      <!-- Карта 3 -->
+      <a href="/pain-shoulder.html" class="pain-button" aria-label="Рамо – най-чести болкови състояния">
+        <div class="pain-button-media image-container" tabindex="0">
+          <img src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp"
+               alt="Рамо" class="static-img" loading="lazy" decoding="async"
+               width="352" height="352">
+          <video class="hover-img" loop playsinline muted preload="none"
+                 poster="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp"
+                 width="352" height="352" aria-hidden="true">
+            <source src="/pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <span class="pain-button-text">Рамо</span>
+      </a>
+
+      <!-- Карта 4 -->
+      <a href="/pain-lower-back.html" class="pain-button" aria-label="Кръст – най-чести болкови състояния">
+        <div class="pain-button-media image-container" tabindex="0">
+          <img src="/pngs/pain-conditions/new/backpain-Thumbnail.webp"
+               alt="Кръст" class="static-img" loading="lazy" decoding="async"
+               width="352" height="352">
+          <video class="hover-img" loop playsinline muted preload="none"
+                 poster="/pngs/pain-conditions/new/backpain-Thumbnail.webp"
+                 width="352" height="352" aria-hidden="true">
+            <source src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
+          </video>
+        </div>
+        <span class="pain-button-text">Кръст</span>
+      </a>
+
+      <!-- Карта 5 -->
+      <a href="/pain-thigh-knee.html" class="pain-button" aria-label="Бедро и Коляно – най-чести болкови състояния">
+        <div class="pain-button-media image-container" tabindex="0">
+          <img src="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp"
+               alt="Бедро / Коляно" class="static-img" loading="lazy" decoding="async"
+               width="352" height="352">
+          <video class="hover-img" loop playsinline muted preload="none"
+                 poster="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp"
+                 width="352" height="352" aria-hidden="true">
+            <source src="/pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <span class="pain-button-text">Бедро / Коляно</span>
+      </a>
+
+      <!-- Карта 6 -->
+      <a href="/pain-lower-leg-ankle.html" class="pain-button" aria-label="Подбедрица и Стъпало – най-чести болкови състояния">
+        <div class="pain-button-media image-container" tabindex="0">
+          <img src="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp"
+               alt="Подбедрица / Стъпало" class="static-img" loading="lazy" decoding="async"
+               width="352" height="352">
+          <video class="hover-img" loop playsinline muted preload="none"
+                 poster="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp"
+                 width="352" height="352" aria-hidden="true">
+            <source src="/pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <span class="pain-button-text">Подбедрица / Стъпало</span>
+      </a>
+    </div>
   </aside>
 </main>
 
@@ -300,7 +424,7 @@
     <div class="contact-container">
       <div class="contact-left">
         <div class="map" aria-label="Локация на DM Physio в Google Maps">
-          <!-- Lazy iframe: src се подава при видимост -->
+          <!-- Lazy iframe: src се подава при видимост (мини JS по-долу) -->
           <iframe id="mapFrame"
             data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
             width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
@@ -311,7 +435,7 @@
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
         <div class="social-links" aria-label="Социални мрежи">
-          <!-- PNG икони: точни размери + lazy + нисък приоритет -->
+          <!-- PNG икони (остават PNG, но са lazy + low priority) -->
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
             <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32" loading="lazy" decoding="async" fetchpriority="low">
           </a>
@@ -346,8 +470,7 @@
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
-              Вижте на карта →
-            </a>
+              Вижте на карта →</a>
           </div>
         </div>
       </div>
@@ -359,149 +482,13 @@
   </section>
 </footer>
 
-<!-- ===== Скриптове (точно след </footer>) ===== -->
-
-<!-- Top bar -->
+<!-- ===== Скриптове ===== -->
 <script src="/js/topbar.js" defer></script>
-
-<!-- Видео енджин (само веднъж) -->
 <script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Мини праймър за новодобавени карти (за injected условия) -->
-<script>
-  // Прави базова подготовка и hover play/pause за всички .image-container / .pain-button-media
-  function attachHoverHandlers(scope){
-    const IS_TOUCH = typeof matchMedia==='function' && matchMedia('(hover:none) and (pointer:coarse)').matches;
-    (scope || document).querySelectorAll('.image-container, .pain-button-media').forEach(box => {
-      const vid = box.querySelector('video.hover-img, video');
-      const img = box.querySelector('img.static-img, img');
-      if (!vid || !img) return;
-
-      // базова подредба (ако няма в CSS)
-      const cs = getComputedStyle(box);
-      if (cs.position === 'static') box.style.position = 'relative';
-      if (cs.overflow === 'visible') box.style.overflow = 'hidden';
-
-      [vid, img].forEach(el => {
-        el.style.position = 'absolute';
-        el.style.inset = '0';
-        el.style.width = '100%';
-        el.style.height = '100%';
-        el.style.objectFit = 'cover';
-        if (!el.style.transition) el.style.transition = 'opacity .24s ease';
-      });
-      vid.style.opacity = '0';
-      img.style.opacity = '1';
-
-      // атрибути за autoplay на мобилни
-      vid.setAttribute('playsinline',''); vid.muted = true; vid.defaultMuted = true; vid.preload = 'none';
-      if (!vid.getAttribute('poster')) { vid.setAttribute('poster', img.currentSrc || img.src); }
-
-      const show = () => { try { if (vid.readyState < 2) vid.load(); } catch(e){} vid.style.opacity='1'; img.style.opacity='0'; const p=vid.play(); if(p&&p.catch)p.catch(()=>{}); };
-      const hide = () => { try { vid.pause(); vid.currentTime = 0; } catch(e){} vid.style.opacity='0'; img.style.opacity='1'; };
-
-      if (!IS_TOUCH) {
-        box.addEventListener('mouseenter', show, {passive:true});
-        box.addEventListener('mouseleave', hide, {passive:true});
-      } else if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(entries=>{
-          entries.forEach(en=>{ if (en.isIntersecting && en.intersectionRatio >= 0.6) show(); else hide(); });
-        }, {root:null, rootMargin:'200px 0px', threshold:[0,0.6,1]});
-        io.observe(box);
-      }
-    });
-  }
-</script>
-
-<!-- Loader за conditions.html + lazy map + въпросник UX -->
+<!-- Мини помощник: lazy map (без промяна на визията) -->
 <script>
 (function () {
-  /* 1) Lazy зареждане на random conditions */
-  const SRC_PAGE = '/conditions.html?v=3';
-  const MAX_ITEMS = 7;
-  const KEY = 'conditions_html_v3_cache';
-
-  function pickItems(root){
-    const all = Array.from(root.querySelectorAll('.pain-button'));
-    if (!all.length) return [];
-    const d = new Date();
-    let rnd = (d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate()) ^ 0x9E3779B1;
-    function rand(){ rnd ^= rnd<<13; rnd ^= rnd>>>17; rnd ^= rnd<<5; return (rnd>>>0)/4294967296; }
-    const arr = all.slice();
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(rand() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr.slice(0, MAX_ITEMS);
-  }
-
-  function prepareCard(card){
-    const box = card.querySelector('.image-container, .pain-button-media') || card;
-    const img = box.querySelector('img.static-img') || box.querySelector('img');
-    const vid = box.querySelector('video.hover-img') || box.querySelector('video');
-
-    if (box && !box.hasAttribute('tabindex')) box.setAttribute('tabindex','0');
-    if (img){ img.loading='lazy'; img.decoding='async'; }
-    if (vid){
-      vid.preload = 'none';
-      vid.setAttribute('playsinline',''); vid.muted = true; vid.defaultMuted = true;
-      if (!vid.getAttribute('poster') && img){ vid.setAttribute('poster', img.currentSrc || img.src); }
-    }
-    return card;
-  }
-
-  function inject(html){
-    const container = document.getElementById('conditions-container');
-    if (!container) return false;
-
-    const tmp = document.createElement('div');
-    tmp.innerHTML = html;
-    const scope = tmp.querySelector('#conditions-list') || tmp;
-    const picked = pickItems(scope);
-    if (!picked.length) return false;
-
-    container.innerHTML = '';
-    picked.forEach(node => {
-      const clone = node.cloneNode(true);
-      prepareCard(clone);
-      container.appendChild(clone);
-    });
-
-    attachHoverHandlers(container);
-    return true;
-  }
-
-  async function loadOnce(){
-    try {
-      const cached = sessionStorage.getItem(KEY);
-      if (cached && inject(cached)) return;
-      const res = await fetch(SRC_PAGE, { credentials:'same-origin', cache:'no-store' });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const text = await res.text();
-      sessionStorage.setItem(KEY, text);
-      inject(text);
-    } catch (e) {
-      console.warn('conditions loader error:', e);
-    }
-  }
-
-  function loadWhenVisible(){
-    const aside = document.getElementById('random-conditions');
-    if (!aside) { loadOnce(); return; }
-    const r = aside.getBoundingClientRect();
-    const inView = r.top < (innerHeight || document.documentElement.clientHeight) && r.bottom > 0;
-    if (inView) { loadOnce(); return; }
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(en => { if (en.isIntersecting) { io.disconnect(); loadOnce(); } });
-      }, { root: null, rootMargin: '200px 0px', threshold: 0 });
-      io.observe(aside);
-    } else {
-      setTimeout(loadOnce, 600);
-    }
-  }
-
-  /* 2) Lazy присвояване на src за Google Maps iframe */
   function lazyMap(){
     var iframe = document.getElementById('mapFrame') || document.querySelector('iframe[data-src]');
     if (!iframe) return;
@@ -516,54 +503,7 @@
     }, { rootMargin: '300px' });
     io.observe(iframe);
   }
-
-  /* 3) UX за „въпросника“ (open/close + промяна на текста) */
-  function setupAdviceDetails(){
-    const details = document.getElementById('adviceReveal');
-    if (!details) return;
-    const label = details.querySelector('.btn-text');
-    const cancelBtn = document.getElementById('cancelForm');
-
-    const refresh = () => {
-      if (!label) return;
-      const openText = label.getAttribute('data-open') || 'Отвори формата';
-      const closeText = label.getAttribute('data-close') || 'Скрий формата';
-      label.textContent = details.open ? closeText : openText;
-    };
-    details.addEventListener('toggle', refresh, {passive:true});
-    if (cancelBtn) cancelBtn.addEventListener('click', () => { details.open = false; }, {passive:true});
-    refresh();
-  }
-
-  /* 4) Мини защита срещу ботове + успешен банер */
-  function setupAdviceForm(){
-    const form = document.getElementById('adviceForm');
-    const success = document.getElementById('adviceSuccess');
-    if (!form) return;
-    const startedAt = Date.now();
-    let interacted = false;
-    const mark = () => { interacted = true; };
-    ['input','change','keydown','mousemove','touchstart','click','scroll']
-      .forEach(ev => window.addEventListener(ev, mark, { once:true, passive:true }));
-
-    form.addEventListener('submit', function(e){
-      const hp = document.getElementById('hp_website');
-      const tooFast = Date.now() - startedAt < 4000;
-      if ((hp && hp.value.trim() !== '') || tooFast || !interacted) {
-        e.preventDefault();
-        return;
-      }
-      // показваме банер за успех
-      setTimeout(()=>{ if (success) success.hidden = false; }, 500);
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    loadWhenVisible();
-    setupAdviceDetails();
-    setupAdviceForm();
-    lazyMap();
-  });
+  document.addEventListener('DOMContentLoaded', lazyMap, {once:true});
 })();
 </script>
 

@@ -754,3 +754,37 @@ html, body { max-width: 100%; overflow-x: hidden; }
   border-bottom: 2px solid #1ca463;
   transform: rotate(45deg);
 }
+/* ==== SIDEBAR MOBILE REALIGN (center + full width) ==== */
+@media (max-width: 768px){
+
+  /* самият grid-item (aside) да стои центриран в колоната */
+  .page-content { padding-left: 12px; padding-right: 12px; }
+  #random-conditions.sidebar-conditions{
+    justify-self: center;      /* центрира в grid-а на .page-content */
+    width: min(92vw, 480px);   /* безопасна ширина */
+    max-width: 100%;
+    margin: 0 auto;            /* backup за всякакви layout-и */
+  }
+
+  /* вътрешната мрежа – център и без дрейф */
+  #random-conditions .pain-buttons-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    justify-items: stretch;    /* плочките да са 100% от width-а на aside-а */
+  }
+
+  /* плочките стават 100% (без собствена фиксирана ширина) */
+  #random-conditions .pain-button,
+  #random-conditions .pain-button-media{
+    width: 100%;
+    margin: 0;
+  }
+
+  /* за всеки случай – медиата вътре */
+  #random-conditions .pain-button-media .image-container,
+  #random-conditions .image-container{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+}
