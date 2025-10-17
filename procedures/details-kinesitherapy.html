@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
 
-  <!-- Неблокиращо зареждане на стиловете (както е в оригинала) -->
+  <!-- Стилове (неблокиращо) -->
   <link rel="preload" href="../css/procedure.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="../css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
@@ -66,7 +66,7 @@
   }
   </script>
 
-  <!-- JSON-LD: Service (процедура) -->
+  <!-- JSON-LD: Service -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -81,7 +81,7 @@
   }
   </script>
 
-  <!-- JSON-LD: FAQ (огледално на съдържанието по-долу) -->
+  <!-- JSON-LD: FAQ -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -93,6 +93,17 @@
     ]
   }
   </script>
+
+  <!-- Малък критичен CSS: предотвратява CLS при overlay на видео/снимка -->
+  <style>
+    .image-container{position:relative;display:block;overflow:hidden}
+    .image-container>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .24s ease}
+    .image-container img{opacity:1}
+    .image-container video{opacity:0}
+    .image-container.video-ready video{opacity:1}
+    .image-container.video-ready img{opacity:0}
+    .sidebar-conditions .pain-buttons-grid{display:grid;gap:12px}
+  </style>
 </head>
 
 <body>
@@ -104,7 +115,7 @@
       <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" />
     </a>
 
-    <!-- Хамбургер (SVG – без Font Awesome) -->
+    <!-- Хамбургер -->
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
       <svg class="tb-burger-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
         <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -125,7 +136,7 @@
         </li>
 
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book">Свободни часове</a></li>
         <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
       </ul>
     </nav>
@@ -282,51 +293,53 @@
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-left">
-        <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
-                  width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map" aria-label="Локация на DM Physio в Google Maps">
+          <!-- Lazy iframe: src се задава само при видимост -->
+          <iframe id="mapFrame"
+            data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
+            width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
 
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
-        <div class="social-links">
-          <!-- във фуутъра иконите остават PNG/AVIF -->
-          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook">
+        <div class="social-links" aria-label="Социални мрежи">
+          <!-- PNG икони, лениви -->
+          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener">
+            <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32" loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram">
+          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener">
+            <img src="/pngs/social/instagram.png" alt="Instagram" width="32" height="32" loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube">
+          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" width="32" height="32" loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok">
+          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" width="32" height="32" loading="lazy" decoding="async" fetchpriority="low">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon">
-          <span>0883688414</span>
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" width="24" height="24" loading="lazy" decoding="async">
+          <span><a href="tel:0883688414">0883688414</a></span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" width="24" height="24" loading="lazy" decoding="async">
           <div>
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
             <span>Събота: 09:00 - 16:00</span><br>
-            </span>Неделя: Почивка</span>
+            <span>Неделя: Почивка</span>
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon" width="24" height="24" loading="lazy" decoding="async">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
-            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
+            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener" class="map-link">
               Вижте на карта →
             </a>
           </div>
@@ -340,7 +353,7 @@
   </section>
 </footer>
 
-<<!-- ===== Scripts (paste right after </footer>) ===== -->
+<!-- ===== Scripts ===== -->
 
 <!-- Top bar -->
 <script src="/js/topbar.js" defer></script>
@@ -358,7 +371,6 @@
       const img = box.querySelector('img.static-img, img');
       if (!vid || !img) return;
 
-      // базова подредба (ако няма в CSS)
       const cs = getComputedStyle(box);
       if (cs.position === 'static') box.style.position = 'relative';
       if (cs.overflow === 'visible') box.style.overflow = 'hidden';
@@ -374,7 +386,6 @@
       vid.style.opacity = '0';
       img.style.opacity = '1';
 
-      // атрибути, нужни за autoplay на мобилни
       vid.setAttribute('playsinline','');
       vid.muted = true; vid.defaultMuted = true;
       vid.preload = 'none';
@@ -382,14 +393,12 @@
         vid.setAttribute('poster', img.currentSrc || img.src);
       }
 
-      // функции за показване/скриване (сменя opacity + play/pause)
       const show = () => {
-        // ако има само <source>, load() е нужен в някои браузъри
         try { if (vid.readyState < 2) vid.load(); } catch(e){}
         vid.style.opacity = '1';
         img.style.opacity = '0';
         const p = vid.play();
-        if (p && p.catch) p.catch(()=>{ /* ignore */ });
+        if (p && p.catch) p.catch(()=>{});
       };
       const hide = () => {
         try { vid.pause(); vid.currentTime = 0; } catch(e){}
@@ -398,20 +407,16 @@
       };
 
       if (!IS_TOUCH) {
-        // десктоп hover
         box.addEventListener('mouseenter', show, {passive:true});
         box.addEventListener('mouseleave', hide, {passive:true});
-      } else {
-        // touch: автоматично в/из-плей в viewport
-        if ('IntersectionObserver' in window) {
-          const io = new IntersectionObserver(entries=>{
-            entries.forEach(en=>{
-              if (en.isIntersecting && en.intersectionRatio >= 0.6) show();
-              else hide();
-            });
-          }, {root:null, rootMargin:'200px 0px', threshold:[0,0.6,1]});
-          io.observe(box);
-        }
+      } else if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(entries=>{
+          entries.forEach(en=>{
+            if (en.isIntersecting && en.intersectionRatio >= 0.6) show();
+            else hide();
+          });
+        }, {root:null, rootMargin:'200px 0px', threshold:[0,0.6,1]});
+        io.observe(box);
       }
     });
   }
@@ -427,7 +432,6 @@
   function pickItems(root){
     const all = Array.from(root.querySelectorAll('.pain-button'));
     if (!all.length) return [];
-    // дневен детерминиран shuffle
     const d = new Date();
     let rnd = (d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate()) ^ 0x9E3779B1;
     function rand(){ rnd ^= rnd<<13; rnd ^= rnd>>>17; rnd ^= rnd<<5; return (rnd>>>0)/4294967296; }
@@ -474,7 +478,6 @@
       container.appendChild(clone);
     });
 
-    // ключово: праймваме новите карти за hover/видео + opacity swap
     attachHoverHandlers(container);
     return true;
   }
@@ -522,6 +525,30 @@
     loadOnce();
     loadWhenVisible();
   });
+})();
+</script>
+
+<!-- Lazy: Google Maps iframe (data-src -> src при видимост) -->
+<script>
+(function(){
+  var iframe = document.getElementById('mapFrame');
+  if (!iframe) return;
+
+  var dataSrc = iframe.getAttribute('data-src');
+  if (!dataSrc) return; // ако е вече със src – нищо не правим
+
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      if (entries.some(function(e){ return e.isIntersecting; })){
+        iframe.src = dataSrc;
+        io.disconnect();
+      }
+    }, { rootMargin: '400px 0px', threshold: 0 });
+    io.observe(iframe);
+  } else {
+    // Fallback за стари браузъри
+    setTimeout(function(){ iframe.src = dataSrc; }, 1500);
+  }
 })();
 </script>
 
