@@ -7,7 +7,7 @@
 
   <title>Кинезитерапевтична Процедура - ДМ ФИЗИО</title>
   <meta name="description" content="Как протича кинезитерапевтичната процедура в DM Physio: функционална оценка, мануална терапия и специализирани упражнения. Индивидуален план, безопасност и дългосрочна стабилизация." />
-  <link rel="canonical" href="https://dmphysi0.com/kinesitherapy-procedure.html" />
+  <link rel="canonical" href="https://dmphysi0.com/procedures/details-kinesitherapy.html" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <meta name="theme-color" content="#0E7C86" />
   <meta name="language" content="Bulgarian" />
@@ -15,8 +15,8 @@
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
 
   <!-- hreflang -->
-  <link rel="alternate" hreflang="bg" href="https://dmphysi0.com/kinesitherapy-procedure.html" />
-  <link rel="alternate" hreflang="x-default" href="https://dmphysi0.com/kinesitherapy-procedure.html" />
+  <link rel="alternate" hreflang="bg" href="https://dmphysi0.com/procedures/details-kinesitherapy.html" />
+  <link rel="alternate" hreflang="x-default" href="https://dmphysi0.com/procedures/details-kinesitherapy.html" />
 
   <!-- Икони -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -26,7 +26,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Кинезитерапевтична Процедура - ДМ ФИЗИО" />
   <meta property="og:description" content="Функционална оценка, мануална терапия и персонализирани упражнения – стъпка по стъпка в DM Physio, София." />
-  <meta property="og:url" content="https://dmphysi0.com/kinesitherapy-procedure.html" />
+  <meta property="og:url" content="https://dmphysi0.com/procedures/details-kinesitherapy.html" />
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="bg_BG" />
   <meta property="og:site_name" content="DM Physio" />
@@ -45,12 +45,12 @@
   <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
 
-  <!-- Неблокиращо зареждане на стиловете (както е в оригинала) -->
+  <!-- Неблокиращо зареждане на стиловете (без смяна на визията) -->
   <link rel="preload" href="../css/procedure.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="../css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="../css/procedure.css">
-    <link rel="stylesheet" href="../css/top-bar.css">
+    <link rel="stylesheet" href="/css/top-bar.css">
   </noscript>
 
   <!-- JSON-LD: Хлебни трохи -->
@@ -61,7 +61,7 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Начало","item":"https://dmphysi0.com/"},
       {"@type":"ListItem","position":2,"name":"Процедури","item":"https://dmphysi0.com/services.html"},
-      {"@type":"ListItem","position":3,"name":"Кинезитерапевтична Процедура","item":"https://dmphysi0.com/kinesitherapy-procedure.html"}
+      {"@type":"ListItem","position":3,"name":"Кинезитерапевтична Процедура","item":"https://dmphysi0.com/procedures/details-kinesitherapy.html"}
     ]
   }
   </script>
@@ -75,13 +75,13 @@
     "serviceType":"Physiotherapy",
     "provider":{"@type":"MedicalBusiness","name":"DM Physio","url":"https://dmphysi0.com/","telephone":"+359883688414"},
     "areaServed":{"@type":"City","name":"София"},
-    "offers":{"@type":"Offer","priceCurrency":"BGN","price":"80","url":"https://dmphysi0.com/kinesitherapy-procedure.html","availability":"https://schema.org/InStock"},
-    "url":"https://dmphysi0.com/kinesitherapy-procedure.html",
+    "offers":{"@type":"Offer","priceCurrency":"BGN","price":"80","url":"https://dmphysi0.com/procedures/details-kinesitherapy.html","availability":"https://schema.org/InStock"},
+    "url":"https://dmphysi0.com/procedures/details-kinesitherapy.html",
     "description":"Функционална оценка, мануална терапия и специализирани упражнения – три етапа за безопасно и ефективно възстановяване."
   }
   </script>
 
-  <!-- JSON-LD: FAQ (огледално на съдържанието по-долу) -->
+  <!-- JSON-LD: FAQ -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -93,6 +93,16 @@
     ]
   }
   </script>
+
+  <!-- Дребни критични фиксове за CLS (без промяна на визията) -->
+  <style>
+    /* Запазва място за 1:1 медийни карти */
+    .image-container{ aspect-ratio: 1 / 1; }
+    /* Лого размер за стабилен header (ако класът не задава width/height) */
+    .tb-logo{ width:64px;height:64px }
+    /* Без хор. скрол от абсолютни елементи */
+    html,body{ overflow-x:hidden }
+  </style>
 </head>
 
 <body>
@@ -101,8 +111,7 @@
   <div class="tb-inner">
     <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo"
-           width="64" height="64" loading="eager" decoding="async">
+      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" width="64" height="64" loading="eager" decoding="async">
     </a>
 
     <!-- Хамбургер (SVG – без Font Awesome) -->
@@ -126,7 +135,7 @@
         </li>
 
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        <li class="tb-item"><a class="tb-link" href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" target="_blank" rel="noopener">Свободни часове</a></li>
         <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
       </ul>
     </nav>
@@ -147,12 +156,11 @@
 
         <!-- Етап 1 -->
         <div class="journey-step left-aligned">
-          <div class="journey-image image-container" tabindex="0">
-            <!-- LCP: eager + fetchpriority + точни размери (1:1) -->
+          <div class="journey-image image-container" tabindex="0" style="aspect-ratio:1/1">
             <img src="../pngs/procedures/function.webp" alt="Функционална оценка и изследване"
                  class="static-img" decoding="async" loading="eager" fetchpriority="high"
                  width="640" height="640">
-            <video muted loop preload="none" class="hover-img" playsinline poster="../pngs/procedures/function.webp" aria-hidden="true">
+            <video muted loop preload="none" class="hover-img" playsinline poster="../pngs/procedures/function.webp" aria-hidden="true" width="640" height="640">
               <source src="../pngs/procedures/gif/funciton.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -177,10 +185,10 @@
 
         <!-- Етап 2 -->
         <div class="journey-step right-aligned">
-          <div class="journey-image image-container" tabindex="0">
+          <div class="journey-image image-container" tabindex="0" style="aspect-ratio:1/1">
             <img src="../pngs/procedures/posledni/manual therapy-Thumbnail.webp" alt="Мануална терапия"
                  class="static-img" decoding="async" loading="lazy" width="640" height="640">
-            <video muted loop preload="none" class="hover-img" playsinline poster="../pngs/procedures/posledni/manual therapy-Thumbnail.webp" aria-hidden="true">
+            <video muted loop preload="none" class="hover-img" playsinline poster="../pngs/procedures/posledni/manual therapy-Thumbnail.webp" aria-hidden="true" width="640" height="640">
               <source src="../pngs/procedures/posledni/manual therapy.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -202,10 +210,10 @@
 
         <!-- Етап 3 -->
         <div class="journey-step left-aligned">
-          <div class="journey-image image-container" tabindex="0">
+          <div class="journey-image image-container" tabindex="0" style="aspect-ratio:1/1">
             <img src="../pngs/procedures/exercises.webp" alt="Специализирани упражнения"
                  class="static-img" decoding="async" loading="lazy" width="640" height="640">
-            <video muted loop preload="none" class="hover-img" playsinline poster="../pngs/procedures/exercises.webp" aria-hidden="true">
+            <video muted loop preload="none" class="hover-img" playsinline poster="../pngs/procedures/exercises.webp" aria-hidden="true" width="640" height="640">
               <source src="../pngs/procedures/gif/exercieses.mp4" type="video/mp4">
               Вашият браузър не поддържа видео тага.
             </video>
@@ -275,6 +283,9 @@
         </div>
       </div>
     </section>
+
+    
+
   </section>
 
   <!-- Условно зареждани състояния -->
@@ -289,10 +300,10 @@
     <div class="contact-container">
       <div class="contact-left">
         <div class="map" aria-label="Локация на DM Physio в Google Maps">
-          <!-- Lazy iframe: src се задава при видимост -->
+          <!-- Lazy iframe: src се подава при видимост -->
           <iframe id="mapFrame"
             data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
-            width="360" height="260" style="border:0;" allowfullscreen="" loading="lazy"
+            width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
@@ -300,7 +311,7 @@
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
         <div class="social-links" aria-label="Социални мрежи">
-          <!-- PNG икони (остават PNG), фиксирани размери за стабилен layout -->
+          <!-- PNG икони: точни размери + lazy + нисък приоритет -->
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
             <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32" loading="lazy" decoding="async" fetchpriority="low">
           </a>
@@ -318,11 +329,11 @@
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" width="24" height="24" loading="lazy" decoding="async">
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" width="24" height="24" loading="lazy" decoding="async" fetchpriority="low">
           <span><a href="tel:0883688414">0883688414</a></span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" width="24" height="24" loading="lazy" decoding="async">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" width="24" height="24" loading="lazy" decoding="async" fetchpriority="low">
           <div>
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
@@ -331,7 +342,7 @@
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon" width="24" height="24" loading="lazy" decoding="async">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon" width="24" height="24" loading="lazy" decoding="async" fetchpriority="low">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -348,7 +359,7 @@
   </section>
 </footer>
 
-<!-- ===== Scripts (paste right after </footer>) ===== -->
+<!-- ===== Скриптове (точно след </footer>) ===== -->
 
 <!-- Top bar -->
 <script src="/js/topbar.js" defer></script>
@@ -361,7 +372,6 @@
   // Прави базова подготовка и hover play/pause за всички .image-container / .pain-button-media
   function attachHoverHandlers(scope){
     const IS_TOUCH = typeof matchMedia==='function' && matchMedia('(hover:none) and (pointer:coarse)').matches;
-
     (scope || document).querySelectorAll('.image-container, .pain-button-media').forEach(box => {
       const vid = box.querySelector('video.hover-img, video');
       const img = box.querySelector('img.static-img, img');
@@ -383,51 +393,30 @@
       vid.style.opacity = '0';
       img.style.opacity = '1';
 
-      // атрибути, нужни за autoplay на мобилни
-      vid.setAttribute('playsinline','');
-      vid.muted = true; vid.defaultMuted = true;
-      vid.preload = 'none';
-      if (!vid.getAttribute('poster')) {
-        vid.setAttribute('poster', img.currentSrc || img.src);
-      }
+      // атрибути за autoplay на мобилни
+      vid.setAttribute('playsinline',''); vid.muted = true; vid.defaultMuted = true; vid.preload = 'none';
+      if (!vid.getAttribute('poster')) { vid.setAttribute('poster', img.currentSrc || img.src); }
 
-      // функции за показване/скриване (сменя opacity + play/pause)
-      const show = () => {
-        try { if (vid.readyState < 2) vid.load(); } catch(e){}
-        vid.style.opacity = '1';
-        img.style.opacity = '0';
-        const p = vid.play();
-        if (p && p.catch) p.catch(()=>{ /* ignore */ });
-      };
-      const hide = () => {
-        try { vid.pause(); vid.currentTime = 0; } catch(e){}
-        vid.style.opacity = '0';
-        img.style.opacity = '1';
-      };
+      const show = () => { try { if (vid.readyState < 2) vid.load(); } catch(e){} vid.style.opacity='1'; img.style.opacity='0'; const p=vid.play(); if(p&&p.catch)p.catch(()=>{}); };
+      const hide = () => { try { vid.pause(); vid.currentTime = 0; } catch(e){} vid.style.opacity='0'; img.style.opacity='1'; };
 
       if (!IS_TOUCH) {
-        // десктоп hover
         box.addEventListener('mouseenter', show, {passive:true});
         box.addEventListener('mouseleave', hide, {passive:true});
-      } else {
-        // touch: автоматично в/из-плей в viewport
-        if ('IntersectionObserver' in window) {
-          const io = new IntersectionObserver(entries=>{
-            entries.forEach(en=>{
-              if (en.isIntersecting && en.intersectionRatio >= 0.6) show();
-              else hide();
-            });
-          }, {root:null, rootMargin:'200px 0px', threshold:[0,0.6,1]});
-          io.observe(box);
-        }
+      } else if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(entries=>{
+          entries.forEach(en=>{ if (en.isIntersecting && en.intersectionRatio >= 0.6) show(); else hide(); });
+        }, {root:null, rootMargin:'200px 0px', threshold:[0,0.6,1]});
+        io.observe(box);
       }
     });
   }
 </script>
 
-<!-- Loader за conditions.html + width/height при инжектиране + прикрепяне на hover логиката -->
+<!-- Loader за conditions.html + lazy map + въпросник UX -->
 <script>
 (function () {
+  /* 1) Lazy зареждане на random conditions */
   const SRC_PAGE = '/conditions.html?v=3';
   const MAX_ITEMS = 7;
   const KEY = 'conditions_html_v3_cache';
@@ -435,7 +424,6 @@
   function pickItems(root){
     const all = Array.from(root.querySelectorAll('.pain-button'));
     if (!all.length) return [];
-    // дневен детерминиран shuffle
     const d = new Date();
     let rnd = (d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate()) ^ 0x9E3779B1;
     function rand(){ rnd ^= rnd<<13; rnd ^= rnd>>>17; rnd ^= rnd<<5; return (rnd>>>0)/4294967296; }
@@ -452,23 +440,12 @@
     const img = box.querySelector('img.static-img') || box.querySelector('img');
     const vid = box.querySelector('video.hover-img') || box.querySelector('video');
 
-    // достъпност + lazy
     if (box && !box.hasAttribute('tabindex')) box.setAttribute('tabindex','0');
-    if (img){
-      // 1:1 миниатюри – задаваме размери за стабилен layout (не променя визията)
-      if (!img.hasAttribute('width'))  img.setAttribute('width','352');
-      if (!img.hasAttribute('height')) img.setAttribute('height','352');
-      img.loading='lazy'; img.decoding='async';
-    }
-
-    // нека video не прелоудва до hover/ин-вю
+    if (img){ img.loading='lazy'; img.decoding='async'; }
     if (vid){
       vid.preload = 'none';
-      vid.setAttribute('playsinline','');
-      vid.muted = true; vid.defaultMuted = true;
-      if (!vid.getAttribute('poster') && img){
-        vid.setAttribute('poster', img.currentSrc || img.src);
-      }
+      vid.setAttribute('playsinline',''); vid.muted = true; vid.defaultMuted = true;
+      if (!vid.getAttribute('poster') && img){ vid.setAttribute('poster', img.currentSrc || img.src); }
     }
     return card;
   }
@@ -490,7 +467,6 @@
       container.appendChild(clone);
     });
 
-    // ключово: праймваме новите карти за hover/видео + opacity swap
     attachHoverHandlers(container);
     return true;
   }
@@ -499,10 +475,8 @@
     try {
       const cached = sessionStorage.getItem(KEY);
       if (cached && inject(cached)) return;
-
       const res = await fetch(SRC_PAGE, { credentials:'same-origin', cache:'no-store' });
       if (!res.ok) throw new Error('HTTP ' + res.status);
-
       const text = await res.text();
       sessionStorage.setItem(KEY, text);
       inject(text);
@@ -514,19 +488,12 @@
   function loadWhenVisible(){
     const aside = document.getElementById('random-conditions');
     if (!aside) { loadOnce(); return; }
-
     const r = aside.getBoundingClientRect();
     const inView = r.top < (innerHeight || document.documentElement.clientHeight) && r.bottom > 0;
     if (inView) { loadOnce(); return; }
-
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries)=>{
-        entries.forEach(en => {
-          if (en.isIntersecting) {
-            io.disconnect();
-            loadOnce();
-          }
-        });
+        entries.forEach(en => { if (en.isIntersecting) { io.disconnect(); loadOnce(); } });
       }, { root: null, rootMargin: '200px 0px', threshold: 0 });
       io.observe(aside);
     } else {
@@ -534,31 +501,69 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    loadOnce();
-    loadWhenVisible();
-  });
-})();
-</script>
-
-<!-- Lazy map iframe src assignment -->
-<script>
-(function(){
-  var iframe = document.getElementById('mapFrame') || document.querySelector('iframe[data-src]');
-  if (!iframe) return;
-  var src = iframe.getAttribute('data-src');
-  if (!src) return; // ако вече е със src – нищо не правим
-
-  if ('IntersectionObserver' in window){
+  /* 2) Lazy присвояване на src за Google Maps iframe */
+  function lazyMap(){
+    var iframe = document.getElementById('mapFrame') || document.querySelector('iframe[data-src]');
+    if (!iframe) return;
+    var dataSrc = iframe.getAttribute('data-src');
+    if (!dataSrc) return; // вече има src
+    if (!('IntersectionObserver' in window)) { iframe.src = dataSrc; return; }
     var io = new IntersectionObserver(function(entries){
       if (entries.some(function(e){ return e.isIntersecting; })){
-        iframe.src = src; io.disconnect();
+        if (!iframe.src) iframe.src = dataSrc;
+        io.disconnect();
       }
     }, { rootMargin: '300px' });
     io.observe(iframe);
-  }else{
-    setTimeout(function(){ iframe.src = src; }, 1000);
   }
+
+  /* 3) UX за „въпросника“ (open/close + промяна на текста) */
+  function setupAdviceDetails(){
+    const details = document.getElementById('adviceReveal');
+    if (!details) return;
+    const label = details.querySelector('.btn-text');
+    const cancelBtn = document.getElementById('cancelForm');
+
+    const refresh = () => {
+      if (!label) return;
+      const openText = label.getAttribute('data-open') || 'Отвори формата';
+      const closeText = label.getAttribute('data-close') || 'Скрий формата';
+      label.textContent = details.open ? closeText : openText;
+    };
+    details.addEventListener('toggle', refresh, {passive:true});
+    if (cancelBtn) cancelBtn.addEventListener('click', () => { details.open = false; }, {passive:true});
+    refresh();
+  }
+
+  /* 4) Мини защита срещу ботове + успешен банер */
+  function setupAdviceForm(){
+    const form = document.getElementById('adviceForm');
+    const success = document.getElementById('adviceSuccess');
+    if (!form) return;
+    const startedAt = Date.now();
+    let interacted = false;
+    const mark = () => { interacted = true; };
+    ['input','change','keydown','mousemove','touchstart','click','scroll']
+      .forEach(ev => window.addEventListener(ev, mark, { once:true, passive:true }));
+
+    form.addEventListener('submit', function(e){
+      const hp = document.getElementById('hp_website');
+      const tooFast = Date.now() - startedAt < 4000;
+      if ((hp && hp.value.trim() !== '') || tooFast || !interacted) {
+        e.preventDefault();
+        return;
+      }
+      // показваме банер за успех
+      setTimeout(()=>{ if (success) success.hidden = false; }, 500);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadWhenVisible();
+    setupAdviceDetails();
+    setupAdviceForm();
+    lazyMap();
+  });
 })();
 </script>
 
