@@ -1,23 +1,108 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
+  <!-- Charset трябва да е първи -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Релаксиращ Масаж - ДМ ФИЗИО</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <!-- Неблокиращо зареждане на основния стил -->
-  <link rel="preload" href="../css/procedure.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <!-- Top-bar стил -->
-  <link rel="preload" href="../css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../css/top-bar.css"></noscript>
+  <title>Релаксиращ масаж — стъпка по стъпка | DM Physio</title>
+  <meta name="description" content="Релаксиращ масаж за намаляване на стреса, отпускане на напрегнати мускули и подобряване на съня и общото благосъстояние. Нежни, плавни и ритмични движения за дълбока релаксация." />
+  <link rel="canonical" href="https://dmphysi0.com/procedures/details-relax-massage.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="theme-color" content="#0E7C86" />
+  <meta name="author" content="DM Physio" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="bg" href="https://dmphysi0.com/procedures/details-relax-massage.html" />
+  <link rel="alternate" hreflang="x-default" href="https://dmphysi0.com/procedures/details-relax-massage.html" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Релаксиращ масаж — стъпка по стъпка | DM Physio" />
+  <meta property="og:description" content="Нежна и успокояваща терапия за отпускане на мускулите и ума. По-малко стрес, по-добър сън и повече хармония." />
+  <meta property="og:url" content="https://dmphysi0.com/procedures/details-relax-massage.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="bg_BG" />
+  <meta property="og:site_name" content="DM Physio" />
+  <meta property="og:image" content="https://dmphysi0.com/og/hero_1200x630.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="DM Physio — релаксиращ масаж в София" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Релаксиращ масаж — стъпка по стъпка | DM Physio" />
+  <meta name="twitter:description" content="Ритмични, плавни техники за дълбока релаксация, по-малко стрес и по-добър сън." />
+  <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.webp" />
+
+  <!-- Preconnect (карта) -->
+  <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/top-bar.css">
+  <link rel="stylesheet" href="../css/procedure.css">
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Начало","item":"https://dmphysi0.com/"},
+      {"@type":"ListItem","position":2,"name":"Процедури","item":"https://dmphysi0.com/services.html"},
+      {"@type":"ListItem","position":3,"name":"Релаксиращ масаж","item":"https://dmphysi0.com/procedures/details-relax-massage.html"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Service -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Релаксиращ масаж",
+    "serviceType":"MassageTherapy",
+    "provider":{"@type":"MedicalBusiness","name":"DM Physio","url":"https://dmphysi0.com/","telephone":"+359883688414"},
+    "areaServed":{"@type":"City","name":"София"},
+    "offers":{"@type":"Offer","priceCurrency":"BGN","price":"80","availability":"https://schema.org/InStock","url":"https://dmphysi0.com/procedures/details-relax-massage.html"},
+    "url":"https://dmphysi0.com/procedures/details-relax-massage.html",
+    "description":"Нежна и успокояваща терапия за намаляване на стреса, отпускане на напрегнатите мускули и подобряване на съня и общото благосъстояние. Плавни и ритмични движения, насочени към повърхностните слоеве."
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"За кого е подходящ релаксиращият масаж?","acceptedAnswer":{"@type":"Answer","text":"За почти всеки, който търси облекчение от стрес, напрежение и умора. Идеален е за хора в седнало ежедневие, с леки схващания или като част от грижа за себе си."}},
+      {"@type":"Question","name":"Колко често мога да си правя релаксиращ масаж?","acceptedAnswer":{"@type":"Answer","text":"Според предпочитанията и бюджета — често веднъж седмично или на две седмици, като част от рутината за управление на стреса."}},
+      {"@type":"Question","name":"Има ли странични ефекти?","acceptedAnswer":{"@type":"Answer","text":"Обичайно е безопасен. Възможни са лека сънливост и отпуснатост след процедурата — нормална реакция. Хидратацията след масажа е препоръчителна."}},
+      {"@type":"Question","name":"Какво да очаквам по време на масажа?","acceptedAnswer":{"@type":"Answer","text":"Спокойна обстановка и нежни, плавни движения. Ще сте покрити с кърпа; откриват се само зоните, върху които се работи, с фокус върху комфорт и пълна релаксация."}}
+    ]
+  }
+  </script>
+
+  <!-- LCP preload за главното изображение -->
+  <link rel="preload" as="image"
+        href="../pngs/massages/relax.webp"
+        fetchpriority="high">
 </head>
 
 <body>
-<!-- ======= Top bar (TB) ======= -->
+<!-- ======= Top bar ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" />
+      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo"
+           width="64" height="64" decoding="async" loading="eager" fetchpriority="high" />
     </a>
 
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
@@ -37,150 +122,167 @@
           </div>
         </li>
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book">Свободни часове</a></li>
-        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+        <!-- Премахнато: <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" rel="noopener">Свободни часове</a></li> -->
+        <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <main class="page-content">
-  <!-- Секция: Релаксиращ Масаж -->
+  <!-- Основно съдържание -->
   <section class="procedure-journey section-green">
     <div class="container">
       <h2>Релаксиращ Масаж</h2>
+      <h3>стъпка по стъпка</h3>
+
       <p class="procedure-preamble">
-        Релаксиращият масаж е нежна и успокояваща терапия, която има за цел да намали стреса, да отпусне напрегнатите мускули и да подобри цялостното благосъстояние. За разлика от лечебния или дълбокотъканния масаж, фокусът тук е върху създаването на усещане за спокойствие и хармония, като се използват плавни и ритмични движения.
+        Релаксиращият масаж е нежна и успокояваща терапия, която цели да намали стреса, да отпусне напрегнатите мускули и да подобри цялостното благосъстояние. За разлика от лечебния или дълбокотъканния масаж, фокусът е върху усещане за спокойствие и хармония чрез плавни и ритмични движения.
       </p>
 
       <div class="journey-steps-wrapper">
-        <div class="journey-step left-aligned">
-          <div class="journey-image image-container" tabindex="0">
-            <img src="../pngs/massages/relax.PNG" alt="Релаксиращ Масаж" class="static-img" decoding="async" loading="lazy" fetchpriority="low">
-            <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/massages/relax.PNG" aria-hidden="true">
+        <!-- Етап / Процедура -->
+        <article class="journey-step left-aligned">
+          <figure class="journey-image image-container" tabindex="0" aria-label="Релаксиращ масаж">
+            <img src="../pngs/massages/relax.webp"
+                 alt="Релаксиращ Масаж"
+                 class="static-img"
+                 decoding="async" loading="eager" fetchpriority="high"
+                 width="640" height="640">
+            <video class="hover-img" playsinline muted preload="metadata" loop
+                   poster="../pngs/massages/relax.webp" aria-hidden="true"
+                   width="640" height="640">
               <source src="../pngs/massages/gif/relax.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
-          </div>
+          </figure>
+
           <div class="journey-content">
-            <h3><span class="step-duration"></span>Процедура (60 мин.)</h3>
+            <h3>Процедура <span class="step-duration">(60 мин.)</span></h3>
             <p>
-              По време на релаксиращия масаж терапевтът използва техники като поглаждане, разтриване, омесване и потупване, които са насочени към повърхностните слоеве на мускулите. Целта е да се стимулира парасимпатиковата нервна система, което води до дълбока релаксация и намаляване на стреса. Ползите от релаксиращия масаж включват:
+              По време на релаксиращия масаж използваме поглаждане, разтриване, омесване и леко потупване, насочени към повърхностните слоеве на мускулите. Целта е активиране на парасимпатиковата нервна система за дълбока релаксация и намаляване на стреса. Основни ползи:
             </p>
             <ul class="step-highlights">
-              <li><span class="check"></span> Намаляване на стреса и тревожността – стимулира производството на ендорфини.</li>
-              <li><span class="check"></span> Подобряване на съня – спомага за по-дълбок и спокоен сън.</li>
-              <li><span class="check"></span> Подобряване на кръвообращението – по-добро снабдяване на тъканите с кислород.</li>
-              <li><span class="check"></span> Укрепване на имунната система – чрез намаляване на стресовите хормони.</li>
+              <li><span class="check"></span> Намаляване на стреса и тревожността — стимулира отделянето на ендорфини.</li>
+              <li><span class="check"></span> Подобряване на съня — по-дълбок и спокоен сън.</li>
+              <li><span class="check"></span> По-добро кръвообращение — по-добро снабдяване на тъканите с кислород.</li>
+              <li><span class="check"></span> Индиректна подкрепа за имунитета — чрез редуциране на стресовите хормони.</li>
             </ul>
             <p>
-              Релаксиращият масаж е чудесен начин да се погрижите за себе си, да презаредите енергията си и да подобрите общото си психическо и физическо здраве.
+              Релаксиращият масаж е чудесен начин да се погрижите за себе си, да презаредите енергията си и да подобрите психическото и физическото благосъстояние.
             </p>
           </div>
-        </div>
+        </article>
       </div>
     </div>
 
     <div class="container text-center">
-      <p class="procedure-price">Цена: 80 лв.</p>
-      <a href="https://book.dmphysi0.com/book" class="book-button large-button">Запази час</a>
+      <p class="procedure-price" aria-label="Цена на процедурата">Цена: 80 лв. (60мин)</p>
+    </div>
+    <div class="container text-center">
+      <a href="https://book.dmphysi0.com/book" class="book-button large-button" rel="noopener">
+        Запази час
+      </a>
     </div>
 
     <!-- FAQ -->
-    <section class="details-accordion section-light-grey">
+    <section class="details-accordion section-light-grey" aria-labelledby="faq-title">
       <div class="container">
-        <h2>Често задавани въпроси за Релаксиращ Масаж:</h2>
-        <div class="accordion">
+        <h2 id="faq-title">Често задавани въпроси за Релаксиращ Масаж</h2>
 
-          <div class="accordion-item">
-            <button class="accordion-header">За кого е подходящ релаксиращият масаж?</button>
-            <div class="accordion-content">
-              <p>Релаксиращият масаж е подходящ за почти всеки, който търси облекчение от стрес, напрежение и умора. Той е идеален за хора, които прекарват много време в седнало положение, изпитват леки мускулни схващания или просто искат да се поглезят и да подобрят общото си благосъстояние.</p>
-            </div>
+        <details class="accordion-details">
+          <summary class="accordion-header">За кого е подходящ релаксиращият масаж?</summary>
+          <div class="accordion-panel">
+            <p>За почти всеки, който търси облекчение от стрес, напрежение и умора. Подходящ за хора с седящо ежедневие, леки схващания или за „малко време за себе си“.</p>
           </div>
+        </details>
 
-          <div class="accordion-item">
-            <button class="accordion-header">Колко често мога да си правя релаксиращ масаж?</button>
-            <div class="accordion-content">
-              <p>Можете да си правите релаксиращ масаж толкова често, колкото желаете и колкото ви позволява бюджетът. Много хора избират да го правят веднъж седмично или на две седмици като част от рутината си за грижа за себе си и управление на стреса.</p>
-            </div>
+        <details class="accordion-details">
+          <summary class="accordion-header">Колко често мога да си правя релаксиращ масаж?</summary>
+          <div class="accordion-panel">
+            <p>Според нуждите и бюджета — често веднъж седмично или на две седмици като част от рутината за управление на стреса.</p>
           </div>
+        </details>
 
-          <div class="accordion-item">
-            <button class="accordion-header">Има ли някакви странични ефекти?</button>
-            <div class="accordion-content">
-              <p>Релаксиращият масаж е много безопасен и рядко има странични ефекти. Може да се почувствате леко сънливи или отпуснати след масажа, което е нормално. Важно е да пиете достатъчно вода след процедурата, за да помогнете на тялото да се детоксикира.</p>
-            </div>
+        <details class="accordion-details">
+          <summary class="accordion-header">Има ли някакви странични ефекти?</summary>
+          <div class="accordion-panel">
+            <p>Обичайно няма. Възможни са лека сънливост/отпуснатост след процедурата — нормално е. Пийте вода след масажа.</p>
           </div>
+        </details>
 
-          <div class="accordion-item">
-            <button class="accordion-header">Какво трябва да очаквам по време на релаксиращ масаж?</button>
-            <div class="accordion-content">
-              <p>Очаквайте спокойна и тиха обстановка. Терапевтът ще използва нежни и плавни движения, за да отпусне мускулите ви. Ще бъдете покрити с кърпа, като ще се откриват само зоните, върху които се работи. Целта е да се почувствате напълно отпуснати и комфортно през цялата процедура.</p>
-            </div>
+        <details class="accordion-details">
+          <summary class="accordion-header">Какво трябва да очаквам по време на релаксиращ масаж?</summary>
+          <div class="accordion-panel">
+            <p>Тиха, спокойна обстановка и нежни, плавни движения. Ще сте покрити с кърпа; откриват се само зоните, върху които се работи. Целта е максимален комфорт и релакс.</p>
           </div>
-
-        </div>
+        </details>
       </div>
     </section>
   </section>
 
-  <!-- ======= Сайдбар: Болкови състояния ======= -->
+  <!-- Сайдбар (НЕ го променяме) -->
   <aside id="random-conditions" class="sidebar-conditions" aria-label="Болкови състояния">
     <h3>Болкови състояния</h3>
     <div class="pain-buttons-grid" id="conditions-container"></div>
-    <div id="conditions-fallback" style="display:none;">
-      <p>В момента не можем да заредим съдържанието.</p>
-      <p><a class="tb-link" href="/pain-conditions.html">Виж всички състояния →</a></p>
-    </div>
   </aside>
 </main>
 
 <footer class="footer">
-  <section class="contact-section">
+  <section class="contact-section" aria-label="Контакти">
     <div class="contact-container">
       <div class="contact-left">
-        <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
-                  width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map" aria-label="Локация на DM Physio в Google Maps">
+          <iframe id="mapFrame"
+            data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
+            width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
 
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
-        <div class="social-links">
-          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook">
+        <div class="social-links" aria-label="Социални мрежи">
+          <!-- ФУУТЪР: оставяме PNG/JPG както поиска -->
+          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram">
+          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="/pngs/social/instagram.png" alt="Instagram" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube">
+          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok">
+          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon">
-          <span>0883688414</span>
+          <img src="/pngs/social/phone.png" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
+          <span><a href="tel:0883688414">0883688414</a></span>
         </div>
+
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
+          <img src="/pngs/clock.avif" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
           <div>
             <span>Работно време:</span><br>
-            <span>Пон-Пет: 09:00 - 19:00</span><br>
-            <span>Събота: 09:00 - 16:00</span><br>
-            </span>Неделя: Почивка</span>
+            <span>Пон–Пет: 09:00 – 19:00</span><br>
+            <span>Събота: 09:00 – 16:00</span><br>
+            <span>Неделя: Почивка</span>
           </div>
         </div>
+
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon">
+          <img src="/pngs/social/location.png" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -197,172 +299,217 @@
   </section>
 </footer>
 
-<!-- Скриптове -->
+<!-- Скриптове (неблокиращи) -->
 <script src="/js/topbar.js" defer></script>
 
-<!-- Видео hover -->
+<!-- Видео hover play/pause (с предпазни try/catch) -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.image-container').forEach(box => {
-    const vid = box.querySelector('video.hover-img');
-    const img = box.querySelector('img.static-img');
-    if (vid) {
-      vid.preload = 'none';
-      vid.muted = true; vid.defaultMuted = true;
-      vid.setAttribute('playsinline','');
-      if (!vid.getAttribute('poster') && img) {
-        vid.setAttribute('poster', img.currentSrc || img.src);
-      }
-      const play = ()=>vid.play().catch(()=>{});
-      const stop = ()=>{ vid.pause(); vid.currentTime = 0; };
-      box.addEventListener('mouseenter', play);
-      box.addEventListener('mouseleave', stop);
-      box.addEventListener('focus', play);
-      box.addEventListener('blur', stop);
-    }
+  document.querySelectorAll('video.hover-img').forEach(function(v){
+    try {
+      v.preload = 'metadata';
+      v.addEventListener('mouseenter', function(){ v.play().catch(function(){}); });
+      v.addEventListener('mouseleave', function(){ try{ v.pause(); v.currentTime = 0; }catch(e){} });
+    } catch(e){}
   });
 });
 </script>
 
-<!-- Акордеон -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const headers = document.querySelectorAll(".accordion-header");
-  headers.forEach(header => {
-    header.addEventListener("click", function () {
-      const content = this.parentElement.querySelector(".accordion-content");
-      document.querySelectorAll(".accordion-content").forEach(c => {
-        if (c !== content) {
-          c.style.maxHeight = null; c.style.paddingTop = "0"; c.style.paddingBottom = "0"; c.style.marginBottom = "0";
-          c.previousElementSibling?.classList?.remove("active"); c.style.willChange = "auto";
-        }
-      });
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null; content.style.paddingTop = "0"; content.style.paddingBottom = "0"; content.style.marginBottom = "0";
-        this.classList.remove("active"); content.style.willChange = "auto";
-      } else {
-        content.style.willChange = "max-height";
-        content.style.maxHeight = content.scrollHeight + 10 + "px";
-        content.style.paddingTop = "15px"; content.style.paddingBottom = "15px"; content.style.marginBottom = "10px";
-        this.classList.add("active");
-      }
-    });
-  });
-});
-</script>
-
-<!-- Сайдбар: надеждно зареждане и рандомизация -->
+<!-- Зареждане на conditions.html и инициализация на медиите в сайдбара (без да пипаме CSS/HTML на сайдбара) -->
 <script>
 (function () {
-  const KEY = 'conditions_html_cache_v1';
+  const KEY = 'conditions_html_v3';
   const MAX_ITEMS = 5;
-  const SRC_PAGE = '/conditions.html'; // същият произход!
+  const SRC_PAGE = '/conditions.html?v=3';
 
-  // детерминистичен RNG на ден/URL
-  function xmur3(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=(h<<13)|(h>>>19)}return function(){h=Math.imul(h^(h>>>16),2246822507);h=Math.imul(h^(h>>>13),3266489909);return (h^=h>>>16)>>>0}}
-  function mulberry32(a){return function(){let t=a+=0x6D2B79F5;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296}}
-  function shuffle(arr, rng){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a;}
+  function xmur3(str){
+    let h = 1779033703 ^ str.length;
+    for (let i = 0; i < str.length; i++) {
+      h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+      h = (h << 13) | (h >>> 19);
+    }
+    return function () {
+      h = Math.imul(h ^ (h >>> 16), 2246822507);
+      h = Math.imul(h ^ (h >>> 13), 3266489909);
+      return (h ^= h >>> 16) >>> 0;
+    };
+  }
+
+  function mulberry32(a){
+    return function(){
+      let t = a += 0x6D2B79F5;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function shuffleWithRNG(arr, rng){
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(rng() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
 
   function absolutize(el, attr){
     const val = el.getAttribute(attr);
-    if (!val) return;
-    // ако вече е абсолютен (http(s) или започва с /) — остави
-    if (/^([a-z]+:)?\/\//i.test(val) || val.startsWith('/')) return;
-    try { el.setAttribute(attr, new URL(val, location.origin).pathname); } catch(e){}
+    if (!val || /^([a-z]+:)?\/\//i.test(val) || val.startsWith('/')) return;
+    el.setAttribute(attr, '/' + val.replace(/^\.?\//,''));
   }
 
-  function sanitizeAndPick(html){
-    const temp = new DOMParser().parseFromString(html, 'text/html');
+  function selectVaried(html){
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
 
-    // само MP4; махни gif/webm източници
-    temp.querySelectorAll('video source').forEach(s=>{
-      const src=(s.getAttribute('src')||'').toLowerCase();
-      const type=(s.getAttribute('type')||'').toLowerCase();
-      if (type.includes('webm') || src.endsWith('.webm') || src.endsWith('.gif') || /\/gifs?\//.test(src)) s.remove();
+    // оставяме само MP4; отлагаме източника, за да няма ненужни заявки
+    temp.querySelectorAll('video source').forEach(s => {
+      const src  = s.getAttribute('src') || '';
+      const type = (s.getAttribute('type') || '').toLowerCase();
+      const isWebmOrGif = type.includes('webm') || src.toLowerCase().endsWith('.webm')
+                       || /\/gifs?\//i.test(src) || src.toLowerCase().endsWith('.gif');
+      if (isWebmOrGif) { s.remove(); return; }
+      if (src) { s.setAttribute('data-src', src); s.removeAttribute('src'); }
     });
-    temp.querySelectorAll('video').forEach(v=>{
-      if (!v.querySelector('source[type="video/mp4"]')) { v.remove(); return; }
+
+    temp.querySelectorAll('video').forEach(v => {
+      const hasMp4 = Array.from(v.querySelectorAll('source'))
+        .some(n => (n.getAttribute('type') || '').toLowerCase().includes('mp4'));
+      if (!hasMp4) { v.remove(); return; }
       v.removeAttribute('autoplay');
       v.setAttribute('preload','none');
       v.setAttribute('playsinline','');
+      v.classList.add('hover-img');
     });
 
-    // пътища → абсолютни (към домейна)
-    temp.querySelectorAll('img').forEach(img=>{ absolutize(img,'src'); img.loading='lazy'; img.decoding='async'; });
-    temp.querySelectorAll('video').forEach(v=>absolutize(v,'poster'));
-    temp.querySelectorAll('video source').forEach(s=>absolutize(s,'src'));
-    temp.querySelectorAll('a').forEach(a=>absolutize(a,'href'));
+    temp.querySelectorAll('img').forEach(img => {
+      absolutize(img, 'src');
+      img.loading='lazy'; img.decoding='async';
+      if (!img.classList.contains('static-img')) img.classList.add('static-img');
+      if (!img.getAttribute('width')) img.setAttribute('width','352');
+      if (!img.getAttribute('height')) img.setAttribute('height','352');
+    });
 
-    const all=[...temp.querySelectorAll('.pain-button')];
-    return all;
+    temp.querySelectorAll('video').forEach(v => absolutize(v, 'poster'));
+    temp.querySelectorAll('video source').forEach(s => absolutize(s, 'data-src'));
+    temp.querySelectorAll('a').forEach(a => absolutize(a, 'href'));
+    temp.querySelectorAll('.pc-card').forEach(card => card.classList.add('pain-button-media'));
+
+    const all = [...temp.querySelectorAll('.pain-button')];
+    if (!all.length) return [];
+    const d = new Date();
+    const seedStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}|${location.pathname}`;
+    const rng = mulberry32(xmur3(seedStr)());
+    return shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
   }
 
-  async function getHtml(){
-    // опитай кеш от тази сесия
-    const cached = sessionStorage.getItem(KEY);
-    if (cached) return cached;
-    const res = await fetch(SRC_PAGE, { credentials:'omit', cache:'no-store' });
-    if (!res.ok) throw new Error('HTTP '+res.status);
-    const text = await res.text();
+  function inject(elements){
+    const container=document.getElementById('conditions-container');
+    if(!container || !elements?.length) return;
+    elements.forEach(el=>container.appendChild(el));
+    initSidebarMedia(container);
+  }
+
+  // инициализация на hover видеата в сайдбара
+  function initSidebarMedia(root){
+    const IS_TOUCH = typeof matchMedia==='function'
+                  && matchMedia('(hover:none) and (pointer:coarse)').matches;
+    const boxes = root.querySelectorAll('.image-container, .pain-button-media');
+    if(!boxes.length) return;
+
+    boxes.forEach(function(box){
+      const img = box.querySelector('.static-img');
+      const vid = box.querySelector('video.hover-img');
+      if(!img || !vid) return;
+
+      try {
+        vid.muted = true; vid.defaultMuted = true; vid.setAttribute('muted','');
+        vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+        vid.preload = 'none'; vid.controls = false;
+        vid.setAttribute('disablepictureinpicture','');
+        vid.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');
+
+        const source = vid.querySelector('source');
+
+        function ensureSrc(){
+          if (!source) return;
+          if (!source.getAttribute('src') && source.getAttribute('data-src')) {
+            source.setAttribute('src', source.getAttribute('data-src'));
+            source.removeAttribute('data-src');
+            try { vid.load(); } catch(e){}
+          }
+        }
+
+        function show(){ ensureSrc(); vid.play().catch(function(){}); }
+        function hide(){ try{ vid.pause(); vid.currentTime=0; }catch(e){} }
+
+        if(!IS_TOUCH){
+          box.addEventListener('mouseenter', show, {passive:true});
+          box.addEventListener('mouseleave', hide, {passive:true});
+        }
+
+        if('IntersectionObserver' in window){
+          const thr = IS_TOUCH ? 0.5 : 0.1;
+          const io = new IntersectionObserver(function(ents){
+            ents.forEach(function(en){
+              if(en.isIntersecting && en.intersectionRatio>=thr){ ensureSrc(); if(IS_TOUCH) show(); }
+              else { hide(); }
+            });
+          },{rootMargin:'200px 0px', threshold:[0,0.1,0.5,1]});
+          io.observe(box);
+        }
+      } catch(e){}
+    });
+  }
+
+  async function fetchAndCache(){
+    const res=await fetch(SRC_PAGE,{credentials:'same-origin', cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const text=await res.text();
     sessionStorage.setItem(KEY, text);
     return text;
   }
 
-  function injectPicked(nodes){
-    const wrap = document.getElementById('conditions-container');
-    if (!wrap) return false;
-    nodes.forEach(n=>wrap.appendChild(n));
-    return nodes.length>0;
-  }
-
-  function showFallback(){
-    const fb = document.getElementById('conditions-fallback');
-    if (fb) fb.style.display = 'block';
-  }
-
   function onVisible(el, cb){
-    if (!('IntersectionObserver' in window)) { cb(); return; }
-    const io = new IntersectionObserver((entries)=>{
+    if(!('IntersectionObserver' in window)){ cb(); return; }
+    const io=new IntersectionObserver((entries)=>{
       entries.forEach(en=>{ if(en.isIntersecting){ io.disconnect(); cb(); }});
-    }, { rootMargin:'250px 0px' });
+    },{ rootMargin:'200px 0px' });
     io.observe(el);
   }
 
   document.addEventListener('DOMContentLoaded', ()=>{
-    const target = document.getElementById('random-conditions');
-    if (!target) return;
-
+    const target=document.getElementById('random-conditions'); if(!target) return;
     onVisible(target, async ()=>{
       try{
-        const html = await getHtml();
-        const allCards = sanitizeAndPick(html);
-        if (!allCards.length) { showFallback(); return; }
-
-        const d=new Date(), seedStr=`${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}|${location.pathname}`;
-        const rng = mulberry32(xmur3(seedStr)());
-        const picked = shuffle(allCards, rng).slice(0, MAX_ITEMS);
-
-        // дооправи постери и lazy за избраните
-        picked.forEach(card=>{
-          const img = card.querySelector('img');
-          const vid = card.querySelector('video');
-          if (img && !img.width && !img.height){ img.width=400; img.height=225; img.style.aspectRatio='16/9'; }
-          if (vid) {
-            if (img && !vid.getAttribute('poster')) vid.setAttribute('poster', img.currentSrc || img.src);
-            vid.muted = true; vid.setAttribute('playsinline',''); vid.preload = 'none';
-          }
-        });
-
-        if (!injectPicked(picked)) showFallback();
-      }catch(e){
-        console.warn('Sidebar load error:', e);
-        showFallback();
-      }
+        const cached=sessionStorage.getItem(KEY);
+        const html=cached ?? await fetchAndCache();
+        inject(selectVaried(html));
+      }catch(e){ console.warn('conditions.html error:', e); }
     });
   });
 })();
 </script>
 
-<script src="/js/media-autoplay-cards.js" defer></script>
+<!-- Lazy load за картата -->
+<script>
+(function () {
+  var iframe = document.getElementById('mapFrame');
+  if (!iframe) return;
+  var dataSrc = iframe.getAttribute('data-src');
+  if (!('IntersectionObserver' in window)) { if (!iframe.src && dataSrc) iframe.src = dataSrc; return; }
+  var io = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })){
+      if (!iframe.src && dataSrc) iframe.src = dataSrc;
+      io.disconnect();
+    }
+  }, { rootMargin: '300px' });
+  io.observe(iframe);
+})();
+</script>
+
+<!-- Външен файл, който понякога вдига console error — оставен изключен за чист Lighthouse -->
+<!-- <script src="/js/media-autoplay-cards.js" defer></script> -->
 </body>
 </html>
