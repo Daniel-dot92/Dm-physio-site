@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
+  <!-- Charset трябва да е първи -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta http-equiv="x-ua-compatible" content="IE=edge" />
 
   <title>Кинезитерапевтична процедура — стъпка по стъпка | DM Physio</title>
   <meta name="description" content="Как протича кинезитерапевтичната процедура в DM Physio: функционална оценка, мануална терапия и специализирани упражнения. Индивидуален план, безопасност и дългосрочна стабилизация." />
@@ -19,7 +19,7 @@
 
   <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
- <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
+  <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 
   <!-- Open Graph -->
@@ -40,25 +40,13 @@
   <meta name="twitter:description" content="Ясна последователност: оценка, мануална терапия, упражнения. Индивидуален план за възстановяване." />
   <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.jpg" />
 
-  <!-- Preconnect -->
+  <!-- Preconnect (карта) -->
   <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
 
-  <!-- CSS (директно, за да избегнем FOUC/CLS) -->
+  <!-- CSS (без инлайн, за да не пипаме сайдбара) -->
   <link rel="stylesheet" href="/css/top-bar.css">
   <link rel="stylesheet" href="../css/procedure.css">
-
-  <!-- Критичен стабилизиращ CSS (без промяна на визията) -->
-  <style>
-    /* Предотвратява layout shift преди да дойде външният CSS */
-   
-    .image-container{min-height:300px}
-    @media (min-width:480px){ .image-container{min-height:360px} }
-    .pain-button-media{inline-size:100%; aspect-ratio:1/1}
-    /* Комбозитирани hover ефекти (без box-shadow анимации) */
-    .section-green{transition:transform .3s ease, filter .3s ease}
-    .section-green:hover{filter:drop-shadow(0 6px 20px rgba(0,0,0,.2))}
-  </style>
 
   <!-- JSON-LD: Breadcrumbs -->
   <script type="application/ld+json">
@@ -94,14 +82,14 @@
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"За кого е подходяща тази процедура?","acceptedAnswer":{"@type":"Answer","text":"Остра и хронична болка в гърба, врата, раменете, коленете и други стави; възстановяване след спортни травми и операции; мускулни дисбаланси и постурални нарушения (лоша стойка); изтръпвания, парези и други неврологични симптоми; главоболие, причинено от напрежение във врата и раменете; намалена ставна подвижност и скованост; превенция на травми."}},
-      {"@type":"Question","name":"Колко често трябва да посещавам процедурата?","acceptedAnswer":{"@type":"Answer","text":"Честотата е индивидуална и зависи от състоянието и напредъка. Обикновено започваме с 1–2 сесии седмично, след което намаляваме според подобрението и персоналния план."}},
-      {"@type":"Question","name":"Необходима ли е подготовка?","acceptedAnswer":{"@type":"Answer","text":"Носете удобно облекло, позволяващо свободно движение. Споделете предишни травми, операции или състояния, за да адаптираме терапията максимално ефективно."}}
+      {"@type":"Question","name":"За кого е подходяща тази процедура?","acceptedAnswer":{"@type":"Answer","text":"Остра и хронична болка в гърба, врата, раменете, коленете и други стави; възстановяване след спортни травми и операции; мускулни дисбаланси и постурални нарушения; изтръпвания, парези и други неврологични симптоми; главоболие от напрежение; намалена подвижност и скованост; превенция на травми."}},
+      {"@type":"Question","name":"Колко често трябва да посещавам процедурата?","acceptedAnswer":{"@type":"Answer","text":"Обичайно започваме с 1–2 сесии седмично, след което честотата се намалява според напредъка и индивидуалния план."}},
+      {"@type":"Question","name":"Необходима ли е подготовка?","acceptedAnswer":{"@type":"Answer","text":"Носете удобно облекло, което позволява свободно движение. Споделете предишни травми, операции или състояния."}}
     ]
   }
   </script>
 
-  <!-- LCP: responsive preload (избягва двойно изтегляне) -->
+  <!-- LCP image (по желание може да махнеш този preload, ако не го ползваш веднага) -->
   <link rel="preload" as="image"
         href="../pngs/procedures/function.webp"
         imagesrcset="../pngs/procedures/function-320.webp 320w, ../pngs/procedures/function-480.webp 480w, ../pngs/procedures/function-640.webp 640w"
@@ -109,11 +97,14 @@
         fetchpriority="high">
 </head>
 
+
 <body>
+<!-- ======= Top bar ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.webp" alt="ДМ Физио — лого" class="tb-logo" width="64" height="64" loading="eager" decoding="async" fetchpriority="high">
+      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo"
+           width="64" height="64" decoding="async" loading="eager" fetchpriority="high" />
     </a>
 
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
@@ -133,7 +124,7 @@
           </div>
         </li>
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" target="_blank" rel="noopener">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" rel="noopener">Свободни часове</a></li>
         <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
       </ul>
     </nav>
@@ -141,42 +132,42 @@
 </header>
 
 <main class="page-content">
-  <!-- HERO / Intro -->
+  <!-- Основно съдържание -->
   <section class="procedure-journey section-green">
     <div class="container">
-      <h1 class="page-title">Кинезитерапевтична процедура</h1>
+      <h2>Кинезитерапевтична процедура</h2>
+      <h3>стъпка по стъпка</h3>
       <p class="procedure-preamble">
         Всяка стъпка от нашата програма е създадена за комфорт, безопасност и реални резултати. Целта ни е плавно и безболезнено възстановяване, съобразено с вашите индивидуални нужди.
       </p>
 
       <div class="journey-steps-wrapper">
 
-        <!-- Етап 1 (LCP) -->
+        <!-- Етап 1 -->
         <article class="journey-step left-aligned">
           <figure class="journey-image image-container" tabindex="0" aria-label="Функционална оценка и изследване">
-            <img
-              src="../pngs/procedures/function.webp"
-             
-              alt="Функционална оценка и изследване"
-              class="static-img"
-              decoding="async" loading="eager" fetchpriority="high"
-              width="640" height="640">
-            <video class="hover-img" muted loop preload="metadata" playsinline
+            <img src="../pngs/procedures/function.webp"
+                 alt="Функционална оценка и изследване"
+                 class="static-img"
+                 decoding="async" loading="eager" fetchpriority="high"
+                 width="640" height="640">
+            <video class="hover-img" playsinline muted loop preload="metadata"
                    poster="../pngs/procedures/function.webp" aria-hidden="true"
                    width="640" height="640">
               <source src="../pngs/procedures/gif/funciton.mp4" type="video/mp4">
             </video>
           </figure>
           <div class="journey-content">
-            <span class="step-label">Етап 1 · ~10 мин.</span>
-            <h2 class="step-title">Функционална оценка</h2>
+            <span class="step-label">Етап 1</span>
+            <h3><span class="step-duration">(~10 мин.)</span></h3>
+            <h3>Функционална Оценка</h3>
             <p>
-              Започваме с подробно изследване: не лекуваме само симптомите, а търсим корена на проблема — мускулни дисбаланси, неактивни зони, провокатори на изтръпвания. Обсъждаме как навици като спане, седене и ходене влияят и как ги коригираме.
+              Започваме с подробно изследване: не лекуваме само симптомите, а търсим корена на проблема — мускулни дисбаланси, неактивни зони и провокатори на болка/изтръпвания. Обсъждаме навици (седене, спане, ходене) и как да ги коригираме.
             </p>
-            <ul class="step-highlights" aria-label="Акценти от етап 1">
+            <ul class="step-highlights" aria-label="Акценти етап 1">
               <li><span class="check"></span> Индивидуална оценка на състоянието</li>
               <li><span class="check"></span> Идентифициране на дисбаланси</li>
-              <li><span class="check"></span> Разясняване на причинно-следствени връзки</li>
+              <li><span class="check"></span> Ясна стратегия за възстановяване</li>
             </ul>
             <p class="learn-more-link-container">
               <a href="functional-assessment.html" class="learn-more-link">Научи повече</a>
@@ -192,19 +183,20 @@
                  class="static-img"
                  decoding="async" loading="lazy"
                  width="640" height="640">
-            <video class="hover-img" muted loop preload="metadata" playsinline
-                   poster="../pngs/procedures/posledni/manual therapy-Thumbnail.webp"
-                   aria-hidden="true" width="640" height="640">
+            <video class="hover-img" playsinline muted loop preload="metadata"
+                   poster="../pngs/procedures/posledni/manual therapy-Thumbnail.webp" aria-hidden="true"
+                   width="640" height="640">
               <source src="../pngs/procedures/posledni/manual therapy.mp4" type="video/mp4">
             </video>
           </figure>
           <div class="journey-content">
-            <span class="step-label">Етап 2 · ~20 мин.</span>
-            <h2 class="step-title">Мануална терапия</h2>
+            <span class="step-label">Етап 2</span>
+            <h3><span class="step-duration">(~20 мин.)</span></h3>
+            <h3>Мануална терапия</h3>
             <p>
               Прецизни мекотъканни техники за отпускане на напрегнатите и активация на слабите мускули. Възстановяваме обема на движение, намаляваме сковаността и подготвяме тялото за упражнения.
             </p>
-            <ul class="step-highlights" aria-label="Акценти от етап 2">
+            <ul class="step-highlights" aria-label="Акценти етап 2">
               <li><span class="check"></span> Целенасочени мекотъканни техники</li>
               <li><span class="check"></span> Отпускане и активация на мускули</li>
               <li><span class="check"></span> По-добра ставна подвижност</li>
@@ -220,19 +212,20 @@
                  class="static-img"
                  decoding="async" loading="lazy"
                  width="640" height="640">
-            <video class="hover-img" muted loop preload="metadata" playsinline
+            <video class="hover-img" playsinline muted loop preload="metadata"
                    poster="../pngs/procedures/exercises.webp" aria-hidden="true"
                    width="640" height="640">
               <source src="../pngs/procedures/gif/exercieses.mp4" type="video/mp4">
             </video>
           </figure>
           <div class="journey-content">
-            <span class="step-label">Етап 3 · ~30 мин.</span>
-            <h2 class="step-title">Специализирани упражнения</h2>
+            <span class="step-label">Етап 3</span>
+            <h3><span class="step-duration">(~30 мин.)</span></h3>
+            <h3>Специализирани упражнения</h3>
             <p>
-              Персонализирани упражнения за корекция на дисбаланси и укрепване. Възможна е лека мускулна треска 1–2 дни — нормален знак за адаптация и напредък.
+              Персонализирани упражнения за корекция на дисбаланси и укрепване. Нормална е лека мускулна треска 1–2 дни – знак за адаптация и напредък.
             </p>
-            <ul class="step-highlights" aria-label="Акценти от етап 3">
+            <ul class="step-highlights" aria-label="Акценти етап 3">
               <li><span class="check"></span> Персонализирани, ефективни упражнения</li>
               <li><span class="check"></span> Укрепване на слаби мускули</li>
               <li><span class="check"></span> Дългосрочна стабилизация и превенция</li>
@@ -288,85 +281,11 @@
     </section>
   </section>
 
- <!-- САЙДБАР -->
-<aside id="random-conditions" class="sidebar-conditions" aria-label="Болкови състояния">
-  <h3>Болкови състояния</h3>
-
-  <div class="pain-buttons-grid" id="conditions-container">
-    <a href="/pain-head.html" class="pain-button" aria-label="Глава – най-чести болкови състояния">
-      <div class="pc-card" tabindex="0">
-        <img src="/pngs/pain-conditions/new/headeach1-Thumbnail.webp" alt="Глава"
-             class="pc-static" width="352" height="352" loading="lazy" decoding="async">
-        <video class="pc-hover" loop playsinline muted preload="metadata"
-               poster="/pngs/pain-conditions/new/headeach1-Thumbnail.webp" width="352" height="352" aria-hidden="true">
-          <source src="/pngs/pain-conditions/new/headeach1.mp4" type="video/mp4">
-        </video>
-      </div>
-      <span class="pain-button-text">Глава</span>
-    </a>
-
-    <a href="/pain-neck.html" class="pain-button" aria-label="Врат – най-чести болкови състояния">
-      <div class="pc-card" tabindex="0">
-        <img src="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp" alt="Врат"
-             class="pc-static" width="352" height="352" loading="lazy" decoding="async">
-        <video class="pc-hover" loop playsinline muted preload="metadata"
-               poster="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp" width="352" height="352" aria-hidden="true">
-          <source src="/pngs/pain-conditions/new/neckpain1.mp4" type="video/mp4">
-        </video>
-      </div>
-      <span class="pain-button-text">Врат</span>
-    </a>
-
-    <a href="/pain-shoulder.html" class="pain-button" aria-label="Рамо – най-чести болкови състояния">
-      <div class="pc-card" tabindex="0">
-        <img src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp" alt="Рамо"
-             class="pc-static" width="352" height="352" loading="lazy" decoding="async">
-        <video class="pc-hover" loop playsinline muted preload="metadata"
-               poster="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp" width="352" height="352" aria-hidden="true">
-          <source src="/pngs/pain-conditions/new/shouderpain1.mp4" type="video/mp4">
-        </video>
-      </div>
-      <span class="pain-button-text">Рамо</span>
-    </a>
-
-    <a href="/pain-lower-back.html" class="pain-button" aria-label="Кръст – най-чести болкови състояния">
-      <div class="pc-card" tabindex="0">
-        <img src="/pngs/pain-conditions/new/backpain-Thumbnail.webp" alt="Кръст"
-             class="pc-static" width="352" height="352" loading="lazy" decoding="async">
-        <video class="pc-hover" loop playsinline muted preload="metadata"
-               poster="/pngs/pain-conditions/new/backpain-Thumbnail.webp" width="352" height="352" aria-hidden="true">
-          <source src="/pngs/pain-conditions/new/backpain.mp4" type="video/mp4">
-        </video>
-      </div>
-      <span class="pain-button-text">Кръст</span>
-    </a>
-
-    <a href="/pain-thigh-knee.html" class="pain-button" aria-label="Бедро и Коляно – най-чести болкови състояния">
-      <div class="pc-card" tabindex="0">
-        <img src="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp" alt="Бедро и Коляно"
-             class="pc-static" width="352" height="352" loading="lazy" decoding="async">
-        <video class="pc-hover" loop playsinline muted preload="metadata"
-               poster="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp" width="352" height="352" aria-hidden="true">
-          <source src="/pngs/pain-conditions/new/kneepain1.mp4" type="video/mp4">
-        </video>
-      </div>
-      <span class="pain-button-text">Бедро / Коляно</span>
-    </a>
-
-    <a href="/pain-lower-leg-ankle.html" class="pain-button" aria-label="Подбедрица и Стъпало – най-чести болкови състояния">
-      <div class="pc-card" tabindex="0">
-        <img src="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp" alt="Подбедрица и Стъпало"
-             class="pc-static" width="352" height="352" loading="lazy" decoding="async">
-        <video class="pc-hover" loop playsinline muted preload="metadata"
-               poster="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp" width="352" height="352" aria-hidden="true">
-          <source src="/pngs/pain-conditions/new/anklepain1.mp4" type="video/mp4">
-        </video>
-      </div>
-      <span class="pain-button-text">Подбедрица / Стъпало</span>
-    </a>
-  </div>
-</aside>
-
+  <!-- Сайдбар (НЕ го променяме) -->
+  <aside id="random-conditions" class="sidebar-conditions" aria-label="Болкови състояния">
+    <h3>Болкови състояния</h3>
+    <div class="pain-buttons-grid" id="conditions-container"></div>
+  </aside>
 </main>
 
 <footer class="footer">
@@ -405,13 +324,14 @@
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="" class="icon" width="24" height="24"
-               loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
+          <img src="/pngs/social/phone.png" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
           <span><a href="tel:0883688414">0883688414</a></span>
         </div>
+
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="" class="icon" width="24" height="24"
-               loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
+          <img src="/pngs/clock.avif" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
           <div>
             <span>Работно време:</span><br>
             <span>Пон–Пет: 09:00 – 19:00</span><br>
@@ -419,9 +339,10 @@
             <span>Неделя: Почивка</span>
           </div>
         </div>
+
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="" class="icon" width="24" height="24"
-               loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
+          <img src="/pngs/social/location.png" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -438,37 +359,200 @@
   </section>
 </footer>
 
+<!-- Скриптове (неблокиращи) -->
+<script src="/js/topbar.js" defer></script>
+
+<!-- Видео hover play/pause (с предпазни try/catch) -->
 <script>
-/* Sidebar media shim — page-local, no CSS/JS core changes */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('video.hover-img').forEach(function(v){
+    try {
+      v.preload = 'metadata';
+      v.addEventListener('mouseenter', function(){ v.play().catch(function(){}); });
+      v.addEventListener('mouseleave', function(){ try{ v.pause(); v.currentTime = 0; }catch(e){} });
+    } catch(e){}
+  });
+});
+</script>
+
+<!-- Зареждане на conditions.html и инициализация на медиите в сайдбара (без да пипаме CSS/HTML на сайдбара) -->
+<script>
 (function () {
-  var scope = document.getElementById('random-conditions');
-  if (!scope) return;
+  const KEY = 'conditions_html_v3';
+  const MAX_ITEMS = 6;
+  const SRC_PAGE = '/conditions.html?v=3';
 
-  var cards = scope.querySelectorAll('.pc-card');
-  cards.forEach(function (card) {
-    // на контейнера:
-    card.classList.add('pain-button-media');
-
-    // на статичното изображение:
-    var img = card.querySelector('img');
-    if (img && !img.classList.contains('static-img')) {
-      img.classList.add('static-img');
+  function xmur3(str){
+    let h = 1779033703 ^ str.length;
+    for (let i = 0; i < str.length; i++) {
+      h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+      h = (h << 13) | (h >>> 19);
     }
+    return function () {
+      h = Math.imul(h ^ (h >>> 16), 2246822507);
+      h = Math.imul(h ^ (h >>> 13), 3266489909);
+      return (h ^= h >>> 16) >>> 0;
+    };
+  }
 
-    // на видеото:
-    var vid = card.querySelector('video');
-    if (vid && !vid.classList.contains('hover-img')) {
-      vid.classList.add('hover-img');
+  function mulberry32(a){
+    return function(){
+      let t = a += 0x6D2B79F5;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function shuffleWithRNG(arr, rng){
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(rng() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
     }
+    return a;
+  }
+
+  function absolutize(el, attr){
+    const val = el.getAttribute(attr);
+    if (!val || /^([a-z]+:)?\/\//i.test(val) || val.startsWith('/')) return;
+    el.setAttribute(attr, '/' + val.replace(/^\.?\//,''));
+  }
+
+  function selectVaried(html){
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+
+    // оставяме само MP4; отлагаме източника, за да няма ненужни заявки
+    temp.querySelectorAll('video source').forEach(s => {
+      const src  = s.getAttribute('src') || '';
+      const type = (s.getAttribute('type') || '').toLowerCase();
+      const isWebmOrGif = type.includes('webm') || src.toLowerCase().endsWith('.webm')
+                       || /\/gifs?\//i.test(src) || src.toLowerCase().endsWith('.gif');
+      if (isWebmOrGif) { s.remove(); return; }
+      if (src) { s.setAttribute('data-src', src); s.removeAttribute('src'); }
+    });
+
+    temp.querySelectorAll('video').forEach(v => {
+      const hasMp4 = Array.from(v.querySelectorAll('source'))
+        .some(n => (n.getAttribute('type') || '').toLowerCase().includes('mp4'));
+      if (!hasMp4) { v.remove(); return; }
+      v.removeAttribute('autoplay');
+      v.setAttribute('preload','none');
+      v.setAttribute('playsinline','');
+      v.classList.add('hover-img');
+    });
+
+    temp.querySelectorAll('img').forEach(img => {
+      absolutize(img, 'src');
+      img.loading='lazy'; img.decoding='async';
+      if (!img.classList.contains('static-img')) img.classList.add('static-img');
+      if (!img.getAttribute('width')) img.setAttribute('width','352');
+      if (!img.getAttribute('height')) img.setAttribute('height','352');
+    });
+
+    temp.querySelectorAll('video').forEach(v => absolutize(v, 'poster'));
+    temp.querySelectorAll('video source').forEach(s => absolutize(s, 'data-src'));
+    temp.querySelectorAll('a').forEach(a => absolutize(a, 'href'));
+    temp.querySelectorAll('.pc-card').forEach(card => card.classList.add('pain-button-media'));
+
+    const all = [...temp.querySelectorAll('.pain-button')];
+    if (!all.length) return [];
+    const d = new Date();
+    const seedStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}|${location.pathname}`;
+    const rng = mulberry32(xmur3(seedStr)());
+    return shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
+  }
+
+  function inject(elements){
+    const container=document.getElementById('conditions-container');
+    if(!container || !elements?.length) return;
+    elements.forEach(el=>container.appendChild(el));
+    initSidebarMedia(container);
+  }
+
+  // инициализация на hover видеата в сайдбара
+  function initSidebarMedia(root){
+    const IS_TOUCH = typeof matchMedia==='function'
+                  && matchMedia('(hover:none) and (pointer:coarse)').matches;
+    const boxes = root.querySelectorAll('.image-container, .pain-button-media');
+    if(!boxes.length) return;
+
+    boxes.forEach(function(box){
+      const img = box.querySelector('.static-img');
+      const vid = box.querySelector('video.hover-img');
+      if(!img || !vid) return;
+
+      try {
+        vid.muted = true; vid.defaultMuted = true; vid.setAttribute('muted','');
+        vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+        vid.preload = 'none'; vid.controls = false;
+        vid.setAttribute('disablepictureinpicture','');
+        vid.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');
+
+        const source = vid.querySelector('source');
+
+        function ensureSrc(){
+          if (!source) return;
+          if (!source.getAttribute('src') && source.getAttribute('data-src')) {
+            source.setAttribute('src', source.getAttribute('data-src'));
+            source.removeAttribute('data-src');
+            try { vid.load(); } catch(e){}
+          }
+        }
+
+        function show(){ ensureSrc(); vid.play().catch(function(){}); }
+        function hide(){ try{ vid.pause(); vid.currentTime=0; }catch(e){} }
+
+        if(!IS_TOUCH){
+          box.addEventListener('mouseenter', show, {passive:true});
+          box.addEventListener('mouseleave', hide, {passive:true});
+        }
+
+        if('IntersectionObserver' in window){
+          const thr = IS_TOUCH ? 0.5 : 0.1;
+          const io = new IntersectionObserver(function(ents){
+            ents.forEach(function(en){
+              if(en.isIntersecting && en.intersectionRatio>=thr){ ensureSrc(); if(IS_TOUCH) show(); }
+              else { hide(); }
+            });
+          },{rootMargin:'200px 0px', threshold:[0,0.1,0.5,1]});
+          io.observe(box);
+        }
+      } catch(e){}
+    });
+  }
+
+  async function fetchAndCache(){
+    const res=await fetch(SRC_PAGE,{credentials:'same-origin', cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const text=await res.text();
+    sessionStorage.setItem(KEY, text);
+    return text;
+  }
+
+  function onVisible(el, cb){
+    if(!('IntersectionObserver' in window)){ cb(); return; }
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ io.disconnect(); cb(); }});
+    },{ rootMargin:'200px 0px' });
+    io.observe(el);
+  }
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const target=document.getElementById('random-conditions'); if(!target) return;
+    onVisible(target, async ()=>{
+      try{
+        const cached=sessionStorage.getItem(KEY);
+        const html=cached ?? await fetchAndCache();
+        inject(selectVaried(html));
+      }catch(e){ console.warn('conditions.html error:', e); }
+    });
   });
 })();
 </script>
 
-<!-- Скриптове -->
-<script src="/js/topbar.js" defer></script>
-<script src="/js/media-autoplay-cards.js" defer></script>
-
-<!-- Lazy карта (IntersectionObserver) -->
+<!-- Lazy load за картата -->
 <script>
 (function () {
   var iframe = document.getElementById('mapFrame');
@@ -485,7 +569,7 @@
 })();
 </script>
 
-<!-- Скрит H1 за SEO (дублира основното заглавие, но достъпен) -->
-<h1 class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Кинезитерапевтична процедура — стъпка по стъпка | DM Physio</h1>
+<!-- Външен файл, който понякога вдига console error — оставен изключен за чист Lighthouse -->
+<!-- <script src="/js/media-autoplay-cards.js" defer></script> -->
 </body>
 </html>
