@@ -1,46 +1,117 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
+  <!-- Charset трябва да е първи -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Мануална терапия - ДМ ФИЗИО</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <!-- Неблокиращо зареждане на основния стил -->
-  <link rel="preload" href="../css/procedure.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <title>Мануална терапия — стъпка по стъпка | DM Physio</title>
+  <meta name="description" content="Мануална терапия за отпускане на меки тъкани, подобряване на кръвоснабдяването и възстановяване на плъзгането между фасция и мускул. Щадящи техники: миофасциално освобождаване, тригерни точки, надлъжни/напречни тъканни техники и постизометрична релаксация." />
+  <link rel="canonical" href="https://dmphysi0.com/procedures/details-manual-therapy.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="theme-color" content="#0E7C86" />
+  <meta name="author" content="DM Physio" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
 
-  <!-- Top-bar стил -->
-  <link rel="preload" href="../css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="../css/procedure.css">
-    <link rel="stylesheet" href="../css/top-bar.css">
-  </noscript>
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="bg" href="https://dmphysi0.com/procedures/details-manual-therapy.html" />
+  <link rel="alternate" hreflang="x-default" href="https://dmphysi0.com/procedures/details-manual-therapy.html" />
 
-  <!-- Преконект за Google Maps -->
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Мануална терапия — стъпка по стъпка | DM Physio" />
+  <meta property="og:description" content="Щадяща работа с меки тъкани за по-леко движение и устойчиво облекчаване: миофасциално освобождаване, тригерни точки, тъканни техники и постизометрична релаксация." />
+  <meta property="og:url" content="https://dmphysi0.com/procedures/details-manual-therapy.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="bg_BG" />
+  <meta property="og:site_name" content="DM Physio" />
+  <meta property="og:image" content="https://dmphysi0.com/og/hero_1200x630.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="DM Physio – мануална терапия в София" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Мануална терапия — стъпка по стъпка | DM Physio" />
+  <meta name="twitter:description" content="Отпускане на напрежение и по-леко движение с целенасочени щадящи техники." />
+  <meta name="twitter:image" content="https://dmphysi0.com/og/hero_1200x630.webp" />
+
+  <!-- Preconnect (карта) -->
   <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+
+  <!-- CSS (без инлайн, за да не пипаме сайдбара) -->
+  <link rel="stylesheet" href="/css/top-bar.css">
+  <link rel="stylesheet" href="../css/procedure.css">
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Начало","item":"https://dmphysi0.com/"},
+      {"@type":"ListItem","position":2,"name":"Процедури","item":"https://dmphysi0.com/services.html"},
+      {"@type":"ListItem","position":3,"name":"Мануална терапия","item":"https://dmphysi0.com/procedures/details-manual-therapy.html"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Service -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Мануална терапия",
+    "serviceType":"Physiotherapy",
+    "provider":{"@type":"MedicalBusiness","name":"DM Physio","url":"https://dmphysi0.com/","telephone":"+359883688414"},
+    "areaServed":{"@type":"City","name":"София"},
+    "url":"https://dmphysi0.com/procedures/details-manual-therapy.html",
+    "description":"Целенасочена работа с меки тъкани за намаляване на напрежението, подобряване на локалното кръвоснабдяване и възстановяване на плъзгането между фасция и мускул. Техники: миофасциално освобождаване, тригерни точки, надлъжни/напречни тъканни техники, постизометрична релаксация."
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Болезнена ли е мануалната терапия?","acceptedAnswer":{"@type":"Answer","text":"Техниките се изпълняват в диапазон на комфорт. Ако натискът е прекомерен, мускулите реагират със спазъм, затова натоварването се регулира така, че да е ефективно, но поносимо."}},
+      {"@type":"Question","name":"Прилага ли се изпуквания на стави?","acceptedAnswer":{"@type":"Answer","text":"Не. Процедурата е без манипулации и мобилизации. Работи се върху меки тъкани — мускули и фасции — за щадящо подобряване на подвижността."}},
+      {"@type":"Question","name":"Какви резултати да очаквам?","acceptedAnswer":{"@type":"Answer","text":"Намаляване на болката и стягането, по-леко движение и по-добра стойка. Ефектът се задълбочава при комбиниране с целенасочени упражнения."}}
+    ]
+  }
+  </script>
+
+  <!-- LCP preload за основното изображение -->
+  <link rel="preload" as="image"
+        href="../pngs/procedures/posledni/manual therapy-Thumbnail.webp"
+        fetchpriority="high">
 </head>
 
 <body>
-<!-- ======= Top bar (TB) ======= -->
+<!-- ======= Top bar ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
-    <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" />
+      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo"
+           width="64" height="64" decoding="async" loading="eager" fetchpriority="high" />
     </a>
 
-    <!-- Хамбургер (SVG – без иконични библиотеки) -->
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
       <svg class="tb-burger-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
         <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
 
-    <!-- Навигация -->
     <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
       <ul class="tb-menu">
         <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
-
         <li class="tb-item tb-dropdown">
           <a class="tb-link tb-drop-toggle" href="/services.html" data-dropdown="toggle">Процедури</a>
           <div class="tb-drop-menu">
@@ -48,19 +119,16 @@
             <a class="tb-drop-link" href="/massages.html">Масажи</a>
           </div>
         </li>
-
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        
-        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book">Свободни часове</a></li>
-        <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" rel="noopener">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <main class="page-content">
-
-  <!-- HERO / Интро за Мануална терапия -->
+  <!-- Основно съдържание -->
   <section class="procedure-journey section-green">
     <div class="container">
       <h2>Мануална терапия</h2>
@@ -70,30 +138,27 @@
       </p>
 
       <div class="journey-steps-wrapper">
-        <div class="journey-step left-aligned">
-
-          <div class="journey-image image-container" tabindex="0">
+        <!-- Етап / Сесия -->
+        <article class="journey-step left-aligned">
+          <figure class="journey-image image-container" tabindex="0" aria-label="Мануална терапия — мускули и фасция">
             <img
-              src="../pngs/procedures/posledni/manual therapy-Thumbnail.jpg"
+              src="../pngs/procedures/posledni/manual therapy-Thumbnail.webp"
               alt="Мануална терапия - мускули и фасция"
               class="static-img"
-              loading="lazy"
-              decoding="async"
-            >
-            <!-- Снимка → видео при hover; показва се poster до готовност -->
+              decoding="async" loading="eager" fetchpriority="high"
+              width="640" height="640">
             <video
               class="hover-img"
               playsinline
               muted
-              preload="none"
+              preload="metadata"
               loop
-              poster="../pngs/procedures/posledni/manual therapy-Thumbnail.jpg"
-              aria-label="Мануална терапия - демонстрация"
-            >
+              poster="../pngs/procedures/posledni/manual therapy-Thumbnail.webp"
+              aria-hidden="true"
+              width="640" height="640">
               <source src="../pngs/procedures/posledni/manual therapy.mp4" type="video/mp4">
-              Вашият браузър не поддържа видео тага.
             </video>
-          </div>
+          </figure>
 
           <div class="journey-content">
             <h3><span class="step-duration">(30–60 мин.)</span></h3>
@@ -101,102 +166,108 @@
               Сесията протича в спокоен темп и комбинира миофасциално освобождаване (за отпускане на залепналите слоеве), работа по тригерни точки с дозирано задържане, надлъжни и напречни тъканни техники за редукция на чувствителните зони, както и нежни техники за нормализиране на мускулния тонус (напр. постизометрична релаксация и фасциални разтягания). Чрез ритъм, дишане и постепенно увеличаване на толеранса тъканите възвръщат еластичност и координация, което води до по-ефективна походка, по-малко дърпане в уязвимите области и по-добър контрол в ежедневните движения.
             </p>
           </div>
-        </div>
+        </article>
       </div>
     </div>
 
     <div class="container text-center">
-     
-      <a href="https://book.dmphysi0.com/book"
-         class="book-button large-button">
+      <a href="https://book.dmphysi0.com/book" class="book-button large-button" rel="noopener">
         Запази час
       </a>
     </div>
 
-    <!-- FAQ / Акордеон -->
-    <section class="details-accordion section-light-grey">
+    <!-- FAQ -->
+    <section class="details-accordion section-light-grey" aria-labelledby="faq-title">
       <div class="container">
-        <h2>Често задавани въпроси:</h2>
+        <h2 id="faq-title">Често задавани въпроси</h2>
 
-        <div class="accordion">
-          <div class="accordion-item">
-            <button class="accordion-header">Болезнена ли е мануалната терапия?</button>
-            <div class="accordion-content">
-              <p>Техниките се изпълняват в диапазон, с който тялото ви се чувства спокойно. Целта е да няма болка — ако натискът е прекомерен, мускулите отговарят със спазъм. Затова натоварването се регулира така, че да е ефективно, но поносимо.</p>
-            </div>
+        <details class="accordion-details">
+          <summary class="accordion-header">Болезнена ли е мануалната терапия?</summary>
+          <div class="accordion-panel">
+            <p>Техниките се изпълняват в диапазон, с който тялото ви се чувства спокойно. Целта е да няма болка — ако натискът е прекомерен, мускулите отговарят със спазъм. Затова натоварването се регулира така, че да е ефективно, но поносимо.</p>
           </div>
+        </details>
 
-          <div class="accordion-item">
-            <button class="accordion-header">Прилага ли се изпуквания на стави?</button>
-            <div class="accordion-content">
-              <p><strong>Не.</strong> Тази процедура е <strong>без манипулации и мобилизации</strong>. Работим върху меки тъкани — мускули и фасции — за да намалим напрежението и да подобрим подвижността по щадящ начин.</p>
-            </div>
+        <details class="accordion-details">
+          <summary class="accordion-header">Прилага ли се изпуквания на стави?</summary>
+          <div class="accordion-panel">
+            <p><strong>Не.</strong> Тази процедура е <strong>без манипулации и мобилизации</strong>. Работим върху меки тъкани — мускули и фасции — за да намалим напрежението и да подобрим подвижността по щадящ начин.</p>
           </div>
+        </details>
 
-          <div class="accordion-item">
-            <button class="accordion-header">Какви резултати да очаквам?</button>
-            <div class="accordion-content">
-              <p>Най-често — намаляване на болката и усещането за стягане, по-леко движение и по-добра стойка. Ефектът се задълбочава, когато мануалната терапия се комбинира с целенасочени упражнения за активиране и баланс на мускулите.</p>
-            </div>
+        <details class="accordion-details">
+          <summary class="accordion-header">Какви резултати да очаквам?</summary>
+          <div class="accordion-panel">
+            <p>Най-често — намаляване на болката и усещането за стягане, по-леко движение и по-добра стойка. Ефектът се задълбочава, когато мануалната терапия се комбинира с целенасочени упражнения за активиране и баланс на мускулите.</p>
           </div>
-        </div>
+        </details>
       </div>
     </section>
   </section>
 
-  <!-- Сайдбар: Болкови състояния (условно зареждане) -->
-  <aside id="random-conditions" class="sidebar-conditions">
+  <!-- Сайдбар (НЕ го променяме) -->
+  <aside id="random-conditions" class="sidebar-conditions" aria-label="Болкови състояния">
     <h3>Чести болкови състояния</h3>
     <div class="pain-buttons-grid" id="conditions-container"></div>
   </aside>
-
 </main>
 
-  <footer class="footer">
-  <section class="contact-section">
+<footer class="footer">
+  <section class="contact-section" aria-label="Контакти">
     <div class="contact-container">
       <div class="contact-left">
-        <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" 
-                  width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map" aria-label="Локация на DM Physio в Google Maps">
+          <iframe id="mapFrame"
+            data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
+            width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
 
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
-        <div class="social-links">
-          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook">
+        <div class="social-links" aria-label="Социални мрежи">
+          <!-- ВЪВ ФУТЪРА ОСТАВЯМЕ PNG/JPG -->
+          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram">
+          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="/pngs/social/instagram.png" alt="Instagram" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube">
+          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok">
+          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon">
-          <span>0883688414</span>
+          <img src="/pngs/social/phone.png" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
+          <span><a href="tel:0883688414">0883688414</a></span>
         </div>
+
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
+          <img src="/pngs/clock.avif" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
           <div>
-             <span>Работно време:</span><br>
-            <span>Пон-Пет: 09:00 - 19:00</span><br>
-            <span>Събота: 09:00 - 16:00</span><br>
-            </span>Неделя: Почивка</span>
+            <span>Работно време:</span><br>
+            <span>Пон–Пет: 09:00 – 19:00</span><br>
+            <span>Събота: 09:00 – 16:00</span><br>
+            <span>Неделя: Почивка</span>
           </div>
         </div>
+
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon">
+          <img src="/pngs/social/location.png" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -213,73 +284,28 @@
   </section>
 </footer>
 
-<!-- Външни скриптове (неблокиращи) -->
+<!-- Скриптове (неблокиращи) -->
 <script src="/js/topbar.js" defer></script>
 
-<!-- Видео hover: снимка до готовност + play/pause при hover -->
+<!-- Видео hover play/pause (с предпазни try/catch) -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.image-container').forEach(box => {
-    const vid = box.querySelector('video.hover-img');
-    const img = box.querySelector('img.static-img');
-    if (vid) {
-      vid.setAttribute('playsinline','');
-      vid.muted = true; vid.defaultMuted = true;
-      if (!vid.getAttribute('poster') && img) {
-        vid.setAttribute('poster', img.currentSrc || img.src);
-      }
-      vid.preload = 'none';
-      vid.addEventListener('mouseenter', ()=>{ vid.play().catch(()=>{}); });
-      vid.addEventListener('mouseleave', ()=>{ vid.pause(); vid.currentTime = 0; });
-    }
-    if (img) { img.setAttribute('loading','lazy'); img.setAttribute('decoding','async'); }
+  document.querySelectorAll('video.hover-img').forEach(function(v){
+    try {
+      v.preload = 'metadata';
+      v.addEventListener('mouseenter', function(){ v.play().catch(function(){}); });
+      v.addEventListener('mouseleave', function(){ try{ v.pause(); v.currentTime = 0; }catch(e){} });
+    } catch(e){}
   });
 });
 </script>
 
-<!-- Акордеон -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const headers = document.querySelectorAll(".accordion-header");
-  headers.forEach(header => {
-    header.addEventListener("click", function () {
-      const content = this.parentElement.querySelector(".accordion-content");
-      document.querySelectorAll(".accordion-content").forEach(c => {
-        if (c !== content) {
-          c.style.maxHeight = null;
-          c.style.paddingTop = "0";
-          c.style.paddingBottom = "0";
-          c.style.marginBottom = "0";
-          c.previousElementSibling.classList.remove("active");
-          c.style.willChange = "auto";
-        }
-      });
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-        content.style.paddingTop = "0";
-        content.style.paddingBottom = "0";
-        content.style.marginBottom = "0";
-        this.classList.remove("active");
-        content.style.willChange = "auto";
-      } else {
-        content.style.willChange = "max-height";
-        content.style.maxHeight = content.scrollHeight + 10 + "px";
-        content.style.paddingTop = "15px";
-        content.style.paddingBottom = "15px";
-        content.style.marginBottom = "10px";
-        this.classList.add("active");
-      }
-    });
-  });
-});
-</script>
-
-<!-- Aside loader: дневно-случаен избор + снимка→видео при hover -->
+<!-- Зареждане на conditions.html и инициализация на медиите в сайдбара (без да пипаме CSS/HTML на сайдбара) -->
 <script>
 (function () {
-  const SRC_PAGE = '/conditions.html?v=3';
+  const KEY = 'conditions_html_v3';
   const MAX_ITEMS = 4;
-  const CACHE_KEY = 'conditions_html_v3_cache';
+  const SRC_PAGE = '/conditions.html?v=3';
 
   function xmur3(str){
     let h = 1779033703 ^ str.length;
@@ -287,12 +313,13 @@ document.addEventListener("DOMContentLoaded", function () {
       h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
       h = (h << 13) | (h >>> 19);
     }
-    return function(){
+    return function () {
       h = Math.imul(h ^ (h >>> 16), 2246822507);
       h = Math.imul(h ^ (h >>> 13), 3266489909);
       return (h ^= h >>> 16) >>> 0;
     };
   }
+
   function mulberry32(a){
     return function(){
       let t = a += 0x6D2B79F5;
@@ -301,7 +328,8 @@ document.addEventListener("DOMContentLoaded", function () {
       return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
   }
-  function shuffleWithRNG(arr,rng){
+
+  function shuffleWithRNG(arr, rng){
     const a = arr.slice();
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(rng() * (i + 1));
@@ -309,77 +337,125 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     return a;
   }
+
   function absolutize(el, attr){
     const val = el.getAttribute(attr);
     if (!val || /^([a-z]+:)?\/\//i.test(val) || val.startsWith('/')) return;
     el.setAttribute(attr, '/' + val.replace(/^\.?\//,''));
   }
-  function prepareCard(card){
-    const box = card.querySelector('.image-container, .pain-button-media') || card;
-    const img = box.querySelector('img.static-img') || box.querySelector('img');
-    const vid = box.querySelector('video.hover-img') || box.querySelector('video');
-    if (vid) {
-      vid.setAttribute('preload','none');
-      vid.setAttribute('playsinline','');
-      vid.muted = true; vid.defaultMuted = true;
-      if (!vid.getAttribute('poster') && img) vid.setAttribute('poster', img.currentSrc || img.src);
-      vid.addEventListener('mouseenter', ()=>{ vid.play().catch(()=>{}); });
-      vid.addEventListener('mouseleave', ()=>{ vid.pause(); vid.currentTime = 0; });
-    }
-    if (img) { img.loading='lazy'; img.decoding='async'; }
-    if (box && !box.hasAttribute('tabindex')) box.setAttribute('tabindex','0');
-    return card;
-  }
-  function pickRandomDaily(scope){
-    // махни webm/gif
-    scope.querySelectorAll('video source').forEach(s=>{
-      const src=(s.getAttribute('src')||'').toLowerCase();
-      const type=(s.getAttribute('type')||'').toLowerCase();
-      if (type.includes('webm') || src.endsWith('.webm') || /\/gifs?\//.test(src) || src.endsWith('.gif')) s.remove();
+
+  function selectVaried(html){
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+
+    // оставяме само MP4; отлагаме източника, за да няма ненужни заявки
+    temp.querySelectorAll('video source').forEach(s => {
+      const src  = s.getAttribute('src') || '';
+      const type = (s.getAttribute('type') || '').toLowerCase();
+      const isWebmOrGif = type.includes('webm') || src.toLowerCase().endsWith('.webm')
+                       || /\/gifs?\//i.test(src) || src.toLowerCase().endsWith('.gif');
+      if (isWebmOrGif) { s.remove(); return; }
+      if (src) { s.setAttribute('data-src', src); s.removeAttribute('src'); }
     });
-    // нормализиране на пътища
-    scope.querySelectorAll('img').forEach(img=>{ absolutize(img,'src'); img.loading='lazy'; img.decoding='async'; });
-    scope.querySelectorAll('video').forEach(v=>{ absolutize(v,'poster'); v.removeAttribute('autoplay'); v.setAttribute('preload','none'); v.setAttribute('playsinline',''); });
-    scope.querySelectorAll('video source').forEach(s=>absolutize(s,'src'));
-    scope.querySelectorAll('a').forEach(a=>absolutize(a,'href'));
 
-    const all = Array.from(scope.querySelectorAll('.pain-button'));
+    temp.querySelectorAll('video').forEach(v => {
+      const hasMp4 = Array.from(v.querySelectorAll('source'))
+        .some(n => (n.getAttribute('type') || '').toLowerCase().includes('mp4'));
+      if (!hasMp4) { v.remove(); return; }
+      v.removeAttribute('autoplay');
+      v.setAttribute('preload','none');
+      v.setAttribute('playsinline','');
+      v.classList.add('hover-img');
+    });
+
+    temp.querySelectorAll('img').forEach(img => {
+      absolutize(img, 'src');
+      img.loading='lazy'; img.decoding='async';
+      if (!img.classList.contains('static-img')) img.classList.add('static-img');
+      if (!img.getAttribute('width')) img.setAttribute('width','352');
+      if (!img.getAttribute('height')) img.setAttribute('height','352');
+    });
+
+    temp.querySelectorAll('video').forEach(v => absolutize(v, 'poster'));
+    temp.querySelectorAll('video source').forEach(s => absolutize(s, 'data-src'));
+    temp.querySelectorAll('a').forEach(a => absolutize(a, 'href'));
+    temp.querySelectorAll('.pc-card').forEach(card => card.classList.add('pain-button-media'));
+
+    const all = [...temp.querySelectorAll('.pain-button')];
     if (!all.length) return [];
-
     const d = new Date();
     const seedStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}|${location.pathname}`;
     const rng = mulberry32(xmur3(seedStr)());
     return shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
   }
-  function renderFromHTML(html){
-    const container = document.getElementById('conditions-container');
-    if (!container) return false;
-    const tmp = document.createElement('div');
-    tmp.innerHTML = html;
-    const scope = tmp.querySelector('#conditions-list') || tmp;
-    const picked = pickRandomDaily(scope);
-    container.innerHTML = '';
-    if (!picked.length) return false;
-    picked.forEach(node=>{
-      const clone = node.cloneNode(true);
-      prepareCard(clone);
-      container.appendChild(clone);
+
+  function inject(elements){
+    const container=document.getElementById('conditions-container');
+    if(!container || !elements?.length) return;
+    elements.forEach(el=>container.appendChild(el));
+    initSidebarMedia(container);
+  }
+
+  // инициализация на hover видеата в сайдбара
+  function initSidebarMedia(root){
+    const IS_TOUCH = typeof matchMedia==='function'
+                  && matchMedia('(hover:none) and (pointer:coarse)').matches;
+    const boxes = root.querySelectorAll('.image-container, .pain-button-media');
+    if(!boxes.length) return;
+
+    boxes.forEach(function(box){
+      const img = box.querySelector('.static-img');
+      const vid = box.querySelector('video.hover-img');
+      if(!img || !vid) return;
+
+      try {
+        vid.muted = true; vid.defaultMuted = true; vid.setAttribute('muted','');
+        vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
+        vid.preload = 'none'; vid.controls = false;
+        vid.setAttribute('disablepictureinpicture','');
+        vid.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');
+
+        const source = vid.querySelector('source');
+
+        function ensureSrc(){
+          if (!source) return;
+          if (!source.getAttribute('src') && source.getAttribute('data-src')) {
+            source.setAttribute('src', source.getAttribute('data-src'));
+            source.removeAttribute('data-src');
+            try { vid.load(); } catch(e){}
+          }
+        }
+
+        function show(){ ensureSrc(); vid.play().catch(function(){}); }
+        function hide(){ try{ vid.pause(); vid.currentTime=0; }catch(e){} }
+
+        if(!IS_TOUCH){
+          box.addEventListener('mouseenter', show, {passive:true});
+          box.addEventListener('mouseleave', hide, {passive:true});
+        }
+
+        if('IntersectionObserver' in window){
+          const thr = IS_TOUCH ? 0.5 : 0.1;
+          const io = new IntersectionObserver(function(ents){
+            ents.forEach(function(en){
+              if(en.isIntersecting && en.intersectionRatio>=thr){ ensureSrc(); if(IS_TOUCH) show(); }
+              else { hide(); }
+            });
+          },{rootMargin:'200px 0px', threshold:[0,0.1,0.5,1]});
+          io.observe(box);
+        }
+      } catch(e){}
     });
-    return true;
   }
-  async function fetchAndRender(){
-    try{
-      const cached = sessionStorage.getItem(CACHE_KEY);
-      if (cached && renderFromHTML(cached)) return;
-      const res = await fetch(SRC_PAGE, { credentials:'same-origin', cache:'no-store' });
-      if(!res.ok) throw new Error('HTTP '+res.status);
-      const html = await res.text();
-      sessionStorage.setItem(CACHE_KEY, html);
-      renderFromHTML(html);
-    }catch(e){
-      console.warn('conditions loader error:', e);
-    }
+
+  async function fetchAndCache(){
+    const res=await fetch(SRC_PAGE,{credentials:'same-origin', cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const text=await res.text();
+    sessionStorage.setItem(KEY, text);
+    return text;
   }
+
   function onVisible(el, cb){
     if(!('IntersectionObserver' in window)){ cb(); return; }
     const io=new IntersectionObserver((entries)=>{
@@ -387,16 +463,38 @@ document.addEventListener("DOMContentLoaded", function () {
     },{ rootMargin:'200px 0px' });
     io.observe(el);
   }
+
   document.addEventListener('DOMContentLoaded', ()=>{
-    const aside=document.getElementById('random-conditions');
-    if(!aside){ fetchAndRender(); return; }
-    const r=aside.getBoundingClientRect();
-    const inView = r.top < (window.innerHeight || document.documentElement.clientHeight) && r.bottom > 0;
-    if (inView) fetchAndRender(); else onVisible(aside, fetchAndRender);
+    const target=document.getElementById('random-conditions'); if(!target) return;
+    onVisible(target, async ()=>{
+      try{
+        const cached=sessionStorage.getItem(KEY);
+        const html=cached ?? await fetchAndCache();
+        inject(selectVaried(html));
+      }catch(e){ console.warn('conditions.html error:', e); }
+    });
   });
 })();
 </script>
 
-<script src="/js/media-autoplay-cards.js" defer></script>
+<!-- Lazy load за картата -->
+<script>
+(function () {
+  var iframe = document.getElementById('mapFrame');
+  if (!iframe) return;
+  var dataSrc = iframe.getAttribute('data-src');
+  if (!('IntersectionObserver' in window)) { if (!iframe.src && dataSrc) iframe.src = dataSrc; return; }
+  var io = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })){
+      if (!iframe.src && dataSrc) iframe.src = dataSrc;
+      io.disconnect();
+    }
+  }, { rootMargin: '300px' });
+  io.observe(iframe);
+})();
+</script>
+
+<!-- Външен файл, който понякога вдига console error — оставен изключен за чист Lighthouse -->
+<!-- <script src="/js/media-autoplay-cards.js" defer></script> -->
 </body>
 </html>
