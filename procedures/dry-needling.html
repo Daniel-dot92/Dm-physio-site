@@ -97,13 +97,11 @@
         fetchpriority="high">
 </head>
 
-
 <body>
 <!-- ======= Top bar ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <!-- width/height за стабилен layout -->
       <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo"
            width="64" height="64" decoding="async" loading="eager" fetchpriority="high" />
     </a>
@@ -267,7 +265,6 @@
     <div class="contact-container">
       <div class="contact-left">
         <div class="map" aria-label="Локация на DM Physio в Google Maps">
-          <!-- lazy: ще се зададе src когато е видим -->
           <iframe id="mapFrame"
             data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
             width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
@@ -278,7 +275,6 @@
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
         <div class="social-links" aria-label="Социални мрежи">
-          <!-- ВАЖНО: PNG + правилни имена/пътища -->
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32"
                  loading="lazy" decoding="async" fetchpriority="low">
@@ -338,175 +334,273 @@
 <!-- Скриптове (неблокиращи) -->
 <script src="/js/topbar.js" defer></script>
 
-<!-- Видео hover play/pause -->
+<!-- ВИДЕО hover: play/pause с guards -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('video.hover-img').forEach(function(v){
-    v.preload = 'metadata';
-    v.addEventListener('mouseenter', function(){ v.play().catch(function(){}); });
-    v.addEventListener('mouseleave', function(){ try{ v.pause(); v.currentTime = 0; }catch(e){} });
-  });
+"use strict";
+document.addEventListener("DOMContentLoaded", function () {
+  try {
+    var videos = document.querySelectorAll("video.hover-img");
+    if (!videos.length) return;
+    videos.forEach(function (v) {
+      try {
+        v.preload = "metadata";
+        v.muted = true;
+        v.defaultMuted = true;
+        v.setAttribute("muted", "");
+        v.playsInline = true;
+        v.setAttribute("playsinline", "");
+        v.setAttribute("webkit-playsinline", "");
+        v.controls = false;
+        v.setAttribute("disablepictureinpicture", "");
+        v.setAttribute("controlslist", "nodownload nofullscreen noremoteplayback");
+
+        v.addEventListener("mouseenter", function () {
+          v.play && v.play().catch(function () {});
+        }, { passive: true });
+
+        v.addEventListener("mouseleave", function () {
+          try { v.pause && v.pause(); v.currentTime = 0; } catch (_) {}
+        }, { passive: true });
+      } catch (_) {}
+    });
+  } catch (_) {}
 });
 </script>
 
-<!-- Акордеон (не е нужен JS за <details>, оставяме празно нарочно) -->
-
-<!-- Зареждане на conditions.html и инициализация на медиите в сайдбара -->
+<!-- Сайдбар: зареждане на conditions.html + инициализация на медии (safe/без логове в продукция) -->
 <script>
+"use strict";
 (function () {
-  const KEY = 'conditions_html_v3';
-  const MAX_ITEMS = 6;
-  const SRC_PAGE = '/conditions.html?v=3';
+  var IS_DEV = (function () {
+    try { return location.hostname === "localhost" || location.hostname === "127.0.0.1"; }
+    catch (_) { return false; }
+  })();
 
-  function xmur3(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=(h<<13)|(h>>>19)}return function(){h=Math.imul(h^(h>>>16),2246822507);h=Math.imul(h^(h>>>13),3266489909);return (h^=h>>>16)>>>0}}
-  function mulberry32(a){return function(){let t=a+=0x6D2B79F5;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296}}
-  function shuffleWithRNG(arr,rng){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a;}
+  var KEY = "conditions_html_v3";
+  var MAX_ITEMS = 6;
+  var SRC_PAGE = "/conditions.html?v=3";
 
-  function absolutize(el, attr){
-    const val = el.getAttribute(attr);
-    if (!val || /^([a-z]+:)?\/\//i.test(val) || val.startsWith('/')) return;
-    el.setAttribute(attr, '/' + val.replace(/^\.?\//,''));
+  function devWarn() {
+    if (!IS_DEV) return;
+    try { console.warn.apply(console, arguments); } catch (_) {}
   }
 
-  function selectVaried(html){
-    const temp = document.createElement('div');
-    temp.innerHTML = html;
-
-    // само MP4
-    temp.querySelectorAll('video source').forEach(s => {
-      const src = (s.getAttribute('src')||'').toLowerCase();
-      const type = (s.getAttribute('type')||'').toLowerCase();
-      if (type.includes('webm') || src.endsWith('.webm') || /\/gifs?\//.test(src) || src.endsWith('.gif')) s.remove();
-    });
-
-    temp.querySelectorAll('video').forEach(v => {
-      if (!v.querySelector('source[type="video/mp4"]')) { v.remove(); return; }
-      v.removeAttribute('autoplay');
-      v.setAttribute('preload','metadata');
-      v.setAttribute('playsinline','');
-      v.classList.add('hover-img');
-    });
-
-    temp.querySelectorAll('img').forEach(img => {
-      absolutize(img, 'src');
-      img.loading='lazy'; img.decoding='async';
-      if (!img.classList.contains('static-img')) img.classList.add('static-img');
-      if (!img.getAttribute('width')) img.setAttribute('width','352');
-      if (!img.getAttribute('height')) img.setAttribute('height','352');
-    });
-
-    temp.querySelectorAll('video').forEach(v => absolutize(v, 'poster'));
-    temp.querySelectorAll('video source').forEach(s => absolutize(s, 'src'));
-    temp.querySelectorAll('a').forEach(a => absolutize(a, 'href'));
-    temp.querySelectorAll('.pc-card').forEach(card => card.classList.add('pain-button-media'));
-
-    const all = [...temp.querySelectorAll('.pain-button')];
-    if (!all.length) return [];
-    const d = new Date(), seedStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}|${location.pathname}`;
-    const rng = mulberry32(xmur3(seedStr)());
-    const picked = shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
-
-    picked.forEach(el => el.querySelectorAll('img').forEach(img => {
-      if (!img.width && !img.height){ img.width = 352; img.height = 352; }
-    }));
-    return picked;
+  function xmur3(str) {
+    var h = 1779033703 ^ str.length;
+    for (var i = 0; i < str.length; i++) {
+      h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+      h = (h << 13) | (h >>> 19);
+    }
+    return function () {
+      h = Math.imul(h ^ (h >>> 16), 2246822507);
+      h = Math.imul(h ^ (h >>> 13), 3266489909);
+      return (h ^ (h >>> 16)) >>> 0;
+    };
+  }
+  function mulberry32(a) {
+    return function () {
+      var t = a += 0x6D2B79F5;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function shuffleWithRNG(arr, rng) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(rng() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
   }
 
-  function inject(elements){
-    const container=document.getElementById('conditions-container');
-    if(!container || !elements?.length) return;
-    elements.forEach(el=>container.appendChild(el));
-    initSidebarMedia(container);
+  function absolutize(el, attr) {
+    try {
+      var val = el.getAttribute(attr);
+      if (!val) return;
+      if (/^([a-z]+:)?\/\//i.test(val) || val.startsWith("/")) return;
+      el.setAttribute(attr, "/" + val.replace(/^\.?\//, ""));
+    } catch (_) {}
   }
 
-  // инициализация на hover видеата в сайдбара
-  function initSidebarMedia(root){
-    const IS_TOUCH = typeof matchMedia==='function' && matchMedia('(hover:none) and (pointer:coarse)').matches;
-    const boxes = root.querySelectorAll('.image-container, .pain-button-media');
-    if(!boxes.length) return;
+  function selectVaried(html) {
+    try {
+      var temp = document.createElement("div");
+      temp.innerHTML = html;
 
-    boxes.forEach(function(box){
-      const img = box.querySelector('.static-img');
-      const vid = box.querySelector('video.hover-img');
-      if(!img || !vid) return;
+      // само MP4
+      temp.querySelectorAll("video source").forEach(function (s) {
+        var src = (s.getAttribute("src") || "").toLowerCase();
+        var type = (s.getAttribute("type") || "").toLowerCase();
+        if (type.includes("webm") || src.endsWith(".webm") || /\/gifs?\//.test(src) || src.endsWith(".gif")) {
+          s.remove();
+        }
+      });
 
-      vid.muted = true; vid.defaultMuted = true; vid.setAttribute('muted','');
-      vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
-      vid.preload = 'metadata'; vid.controls = false;
-      vid.setAttribute('disablepictureinpicture','');
-      vid.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');
+      temp.querySelectorAll("video").forEach(function (v) {
+        if (!v.querySelector('source[type="video/mp4"]')) { v.remove(); return; }
+        v.removeAttribute("autoplay");
+        v.setAttribute("preload", "metadata");
+        v.setAttribute("playsinline", "");
+        v.classList.add("hover-img");
+      });
 
-      const s = vid.querySelector('source');
-      if(s && !vid.src){ try{ vid.src = s.src; }catch(e){} }
+      temp.querySelectorAll("img").forEach(function (img) {
+        absolutize(img, "src");
+        img.loading = "lazy";
+        img.decoding = "async";
+        if (!img.classList.contains("static-img")) img.classList.add("static-img");
+        if (!img.getAttribute("width")) img.setAttribute("width", "352");
+        if (!img.getAttribute("height")) img.setAttribute("height", "352");
+      });
 
-      const cs = getComputedStyle(box);
-      if(cs.position==='static') box.style.position='relative';
-      if(cs.overflow==='visible') box.style.overflow='hidden';
+      temp.querySelectorAll("video").forEach(function (v) { absolutize(v, "poster"); });
+      temp.querySelectorAll("video source").forEach(function (s) { absolutize(s, "src"); });
+      temp.querySelectorAll("a").forEach(function (a) { absolutize(a, "href"); });
+      temp.querySelectorAll(".pc-card").forEach(function (card) { card.classList.add("pain-button-media"); });
 
-      function show(){ vid.play().catch(function(){}); }
-      function hide(){ try{ vid.pause(); vid.currentTime=0; }catch(e){} }
+      var all = Array.prototype.slice.call(temp.querySelectorAll(".pain-button"));
+      if (!all.length) return [];
 
-      if(!IS_TOUCH){
-        box.addEventListener('mouseenter', show, {passive:true});
-        box.addEventListener('mouseleave', hide, {passive:true});
-      }
+      var d = new Date();
+      var seedStr = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0") + "|" + (location.pathname || "/");
+      var rng = mulberry32(xmur3(seedStr)());
+      var picked = shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
 
-      if('IntersectionObserver' in window){
-        const thr = IS_TOUCH ? 0.5 : 0.1;
-        const io = new IntersectionObserver(function(ents){
-          ents.forEach(function(en){
-            if(en.isIntersecting && en.intersectionRatio>=thr){ if(IS_TOUCH) show(); }
-            else { hide(); }
-          });
-        },{rootMargin:'200px 0px', threshold:[0,0.1,0.5,1]});
-        io.observe(box);
-      }
-    });
+      picked.forEach(function (el) {
+        el.querySelectorAll("img").forEach(function (img) {
+          if (!img.width && !img.height) { img.width = 352; img.height = 352; }
+        });
+      });
+      return picked;
+    } catch (_) { return []; }
   }
 
-  async function fetchAndCache(){
-    const res=await fetch(SRC_PAGE,{credentials:'same-origin', cache:'no-store'});
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const text=await res.text();
-    sessionStorage.setItem(KEY, text);
-    return text;
+  function initSidebarMedia(root) {
+    try {
+      var IS_TOUCH = (typeof matchMedia === "function" && matchMedia("(hover:none) and (pointer:coarse)").matches);
+      var boxes = root.querySelectorAll(".image-container, .pain-button-media");
+      if (!boxes.length) return;
+
+      boxes.forEach(function (box) {
+        try {
+          var img = box.querySelector(".static-img");
+          var vid = box.querySelector("video.hover-img");
+          if (!img || !vid) return;
+
+          vid.muted = true; vid.defaultMuted = true; vid.setAttribute("muted", "");
+          vid.playsInline = true; vid.setAttribute("playsinline", ""); vid.setAttribute("webkit-playsinline", "");
+          vid.preload = "metadata"; vid.controls = false;
+          vid.setAttribute("disablepictureinpicture", "");
+          vid.setAttribute("controlslist", "nodownload nofullscreen noremoteplayback");
+
+          var s = vid.querySelector("source");
+          if (s && !vid.src) { try { vid.src = s.src; } catch (_) {} }
+
+          var cs = getComputedStyle(box);
+          if (cs.position === "static") box.style.position = "relative";
+          if (cs.overflow === "visible") box.style.overflow = "hidden";
+
+          function show() { vid.play && vid.play().catch(function () {}); }
+          function hide() { try { vid.pause && vid.pause(); vid.currentTime = 0; } catch (_) {} }
+
+          if (!IS_TOUCH) {
+            box.addEventListener("mouseenter", show, { passive: true });
+            box.addEventListener("mouseleave", hide, { passive: true });
+          }
+
+          if ("IntersectionObserver" in window) {
+            var thr = IS_TOUCH ? 0.5 : 0.1;
+            var io = new IntersectionObserver(function (ents) {
+              ents.forEach(function (en) {
+                if (en.isIntersecting && en.intersectionRatio >= thr) { if (IS_TOUCH) show(); }
+                else { hide(); }
+              });
+            }, { rootMargin: "200px 0px", threshold: [0, 0.1, 0.5, 1] });
+            io.observe(box);
+          }
+        } catch (_) {}
+      });
+    } catch (_) {}
   }
 
-  function onVisible(el, cb){
-    if(!('IntersectionObserver' in window)){ cb(); return; }
-    const io=new IntersectionObserver((entries)=>{
-      entries.forEach(en=>{ if(en.isIntersecting){ io.disconnect(); cb(); }});
-    },{ rootMargin:'200px 0px' });
-    io.observe(el);
+  function inject(elements) {
+    try {
+      var container = document.getElementById("conditions-container");
+      if (!container || !elements || !elements.length) return;
+      elements.forEach(function (el) { container.appendChild(el); });
+      initSidebarMedia(container);
+    } catch (_) {}
   }
 
-  document.addEventListener('DOMContentLoaded', ()=>{
-    const target=document.getElementById('random-conditions'); if(!target) return;
-    onVisible(target, async ()=>{
-      try{
-        const cached=sessionStorage.getItem(KEY);
-        const html=cached ?? await fetchAndCache();
-        inject(selectVaried(html));
-      }catch(e){ console.warn('conditions.html error:', e); }
-    });
+  function safeGetSession(key) {
+    try { return sessionStorage.getItem(key); } catch (_) { return null; }
+  }
+  function safeSetSession(key, val) {
+    try { sessionStorage.setItem(key, val); } catch (_) {}
+  }
+
+  async function fetchAndCache() {
+    try {
+      var res = await fetch(SRC_PAGE, { credentials: "same-origin", cache: "no-store" });
+      if (!res || !res.ok) return "";
+      var text = await res.text();
+      safeSetSession(KEY, text);
+      return text;
+    } catch (_) { return ""; }
+  }
+
+  function onVisible(el, cb) {
+    try {
+      if (!("IntersectionObserver" in window)) { cb(); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { try { io.disconnect(); } catch (_) {} cb(); }
+        });
+      }, { rootMargin: "200px 0px" });
+      io.observe(el);
+    } catch (_) { cb(); }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    try {
+      var target = document.getElementById("random-conditions");
+      if (!target) return;
+
+      onVisible(target, async function () {
+        try {
+          var cached = safeGetSession(KEY);
+          var html = cached || (await fetchAndCache());
+          if (html) inject(selectVaried(html));
+        } catch (e) { devWarn("conditions.html error:", e); }
+      });
+    } catch (_) {}
   });
 })();
 </script>
 
 <!-- Lazy load за картата -->
 <script>
+"use strict";
 (function () {
-  var iframe = document.getElementById('mapFrame');
-  if (!iframe) return;
-  var dataSrc = iframe.getAttribute('data-src');
-  if (!('IntersectionObserver' in window)) { if (!iframe.src && dataSrc) iframe.src = dataSrc; return; }
-  var io = new IntersectionObserver(function(entries){
-    if (entries.some(function(e){ return e.isIntersecting; })){
-      if (!iframe.src && dataSrc) iframe.src = dataSrc;
-      io.disconnect();
+  try {
+    var iframe = document.getElementById("mapFrame");
+    if (!iframe) return;
+    var dataSrc = iframe.getAttribute("data-src");
+    if (!dataSrc) return;
+
+    if (!("IntersectionObserver" in window)) {
+      if (!iframe.src) iframe.src = dataSrc;
+      return;
     }
-  }, { rootMargin: '300px' });
-  io.observe(iframe);
+    var io = new IntersectionObserver(function(entries){
+      if (entries.some(function(e){ return e.isIntersecting; })){
+        if (!iframe.src) iframe.src = dataSrc;
+        try { io.disconnect(); } catch (_) {}
+      }
+    }, { rootMargin: "300px" });
+    io.observe(iframe);
+  } catch (_) {}
 })();
 </script>
 
