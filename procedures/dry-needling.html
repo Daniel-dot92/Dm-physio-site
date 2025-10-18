@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Терапия със Сухи Игли - ДМ ФИЗИО</title>
 
-  <!-- Неблокиращо зареждане на стиловете -->
+  <!-- Съществуващите ти CSS (не ги пипам) -->
   <link rel="preload" href="../css/procedure.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="../css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
@@ -13,33 +13,19 @@
     <link rel="stylesheet" href="../css/top-bar.css">
   </noscript>
 
-  <!-- Preconnect (външни ресурси) -->
+  <!-- Preconnect за картата -->
   <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://book.dmphysi0.com" crossorigin>
-
-  <!-- LCP: preload на основното hero изображение -->
-  <link rel="preload" as="image"
-        href="../pngs/procedures/function.webp"
-        imagesrcset="../pngs/procedures/function.webp 640w"
-        imagesizes="(max-width:768px) 90vw, 640px"
-        fetchpriority="high">
-
-  <!-- Лека иконка-фиксация (може да се премести в CSS) -->
-  <style>
-    .step-highlights{list-style:none;margin:0;padding:0}
-    .step-highlights li{position:relative;padding-left:30px;margin:8px 0}
-    .step-highlights .check{position:absolute;left:0;top:.25em;width:20px;height:20px;border-radius:50%;background:#1bb36b;display:inline-block;box-shadow:0 0 0 2px rgba(27,179,107,.15) inset}
-    .step-highlights .check::before{content:"";position:absolute;left:6px;top:3px;width:6px;height:10px;border:2px solid #fff;border-top:0;border-left:0;transform:rotate(45deg)}
-  </style>
 </head>
 
 <body>
-<!-- ======= Top bar (TB) ======= -->
+<!-- ======= Top bar ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" width="64" height="64" decoding="async" loading="eager" fetchpriority="low"/>
+      <!-- width/height за стабилен layout -->
+      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo"
+           width="64" height="64" decoding="async" loading="eager" fetchpriority="high" />
     </a>
 
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
@@ -59,7 +45,7 @@
           </div>
         </li>
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" rel="noopener">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book">Свободни часове</a></li>
         <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
       </ul>
     </nav>
@@ -77,15 +63,20 @@
       </p>
 
       <div class="journey-steps-wrapper">
-
         <!-- Етап 1 -->
-        <div class="journey-step left-aligned">
-          <div class="journey-image image-container media--cover" tabindex="0" aria-label="Функционална оценка и изследване">
-            <img src="../pngs/procedures/function.webp" alt="Функционална оценка и изследване" class="static-img" decoding="async" loading="eager" fetchpriority="high" width="640" height="640">
-            <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/procedures/function.webp" aria-hidden="true" width="640" height="640">
+        <article class="journey-step left-aligned">
+          <figure class="journey-image image-container" tabindex="0" aria-label="Функционална оценка и изследване">
+            <img src="../pngs/procedures/function.webp"
+                 alt="Функционална оценка и изследване"
+                 class="static-img"
+                 decoding="async" loading="eager" fetchpriority="high"
+                 width="640" height="640">
+            <video class="hover-img" playsinline muted loop preload="metadata"
+                   poster="../pngs/procedures/function.webp" aria-hidden="true"
+                   width="640" height="640">
               <source src="../pngs/procedures/gif/funciton.mp4" type="video/mp4">
             </video>
-          </div>
+          </figure>
           <div class="journey-content">
             <span class="step-label">Етап 1</span>
             <h3><span class="step-duration">(10 мин.)</span></h3>
@@ -98,29 +89,33 @@
               <li><span class="check"></span> Идентифициране на дисбаланси</li>
               <li><span class="check"></span> Ясна стратегия за възстановяване</li>
             </ul>
-            <div class="learn-more-link-container">
+            <p class="learn-more-link-container">
               <a href="functional-assessment.html" class="learn-more-link">Научи повече</a>
-            </div>
+            </p>
           </div>
-        </div>
+        </article>
 
         <!-- Етап 2 -->
-        <div class="journey-step right-aligned">
-          <div class="journey-image image-container media--cover" tabindex="0" aria-label="Апликация със сухи игли">
-            <img src="../pngs/procedures/dry-needling.webp" alt="Апликация със сухи игли" class="static-img" decoding="async" loading="lazy" width="640" height="640">
-            <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/procedures/dry-needling.webp" aria-hidden="true" width="640" height="640">
+        <article class="journey-step right-aligned">
+          <figure class="journey-image image-container" tabindex="0" aria-label="Апликация със сухи игли">
+            <img src="../pngs/procedures/dry-needling.webp"
+                 alt="Апликация със сухи игли"
+                 class="static-img"
+                 decoding="async" loading="lazy"
+                 width="640" height="640">
+            <video class="hover-img" playsinline muted loop preload="metadata"
+                   poster="../pngs/procedures/dry-needling.webp" aria-hidden="true"
+                   width="640" height="640">
               <source src="../pngs/procedures/gif/drineedling.mp4" type="video/mp4">
             </video>
-          </div>
+          </figure>
           <div class="journey-content">
             <span class="step-label">Етап 2</span>
             <h3><span class="step-duration">(20–30 мин.)</span></h3>
             <h3>Апликация със Сухи Игли</h3>
-
             <p>
               Сухото иглоубождане (dry needling) използва тънки, стерилни игли за еднократна употреба, които се въвеждат в пренапрегнати мускулни ленти и тригерни точки. Иглата предизвиква кратък „локален потрепващ отговор“, който ресетира мускулното влакно, понижава чувствителността на болковите рецептори и нормализира тонуса.
             </p>
-
             <ul class="step-highlights">
               <li><span class="check"></span> Стерилни игли за еднократна употреба</li>
               <li><span class="check"></span> Бързо редуциране на болката</li>
@@ -132,57 +127,59 @@
               Механизмът е двоен – локален и неврофизиологичен. Локално се подобрява микроциркулацията и се редуцира спазъмът в засегнатия сегмент. Неврофизиологично се модулира болковият сигнал и се нормализира мускулната активация в шаблона на движение.
             </p>
           </div>
-        </div>
-
-      <div class="container text-center">
-        <p class="procedure-price">Цена: 60 лв.</p>
-        <a href="https://book.dmphysi0.com/book" class="book-button large-button" rel="noopener">
-          Запази час
-        </a>
+        </article>
       </div>
+    </div>
 
-      <!-- FAQ -->
-      <section class="details-accordion section-light-grey" aria-labelledby="faq-title">
-        <div class="container">
-          <h2 id="faq-title">Често задавани въпроси</h2>
+    <div class="container text-center">
+      <p class="procedure-price">Цена: 60 лв.</p>
+      <a href="https://book.dmphysi0.com/book" class="book-button large-button" rel="noopener">
+        Запази час
+      </a>
+    </div>
 
-          <details class="accordion-details" id="faq1">
-            <summary class="accordion-header">За кого е подходяща тази процедура?</summary>
-            <div class="accordion-panel">
-              <ul>
-                <li>Остра и хронична болка в гърба, врата, раменете, коленете и други стави</li>
-                <li>Възстановяване след спортни травми и операции</li>
-                <li>Мускулни дисбаланси и постурални нарушения (лоша стойка)</li>
-                <li>Изтръпвания, парези и други неврологични симптоми</li>
-                <li>Главоболие от напрежение във врата и раменете</li>
-                <li>Намалена ставна подвижност и скованост</li>
-                <li>Превенция на травми и подобряване на форма</li>
-              </ul>
-            </div>
-          </details>
+    <!-- FAQ (native <details>) -->
+    <section class="details-accordion section-light-grey" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title">Често задавани въпроси</h2>
 
-          <details class="accordion-details" id="faq2">
-            <summary class="accordion-header">Колко често трябва да посещавам процедурата?</summary>
-            <div class="accordion-panel">
-              <p>Обичайно започваме с 1–2 сесии седмично, след което намаляваме според напредъка. Планираме индивидуално.</p>
-            </div>
-          </details>
+        <details class="accordion-details" id="faq1">
+          <summary class="accordion-header">За кого е подходяща тази процедура?</summary>
+          <div class="accordion-panel">
+            <ul>
+              <li>Остра и хронична болка в гърба, врата, раменете, коленете и други стави</li>
+              <li>Възстановяване след спортни травми и операции</li>
+              <li>Мускулни дисбаланси и постурални нарушения (лоша стойка)</li>
+              <li>Изтръпвания, парези и други неврологични симптоми</li>
+              <li>Главоболие от напрежение във врата и раменете</li>
+              <li>Намалена ставна подвижност и скованост</li>
+              <li>Превенция на травми и подобряване на форма</li>
+            </ul>
+          </div>
+        </details>
 
-          <details class="accordion-details" id="faq3">
-            <summary class="accordion-header">Необходима ли е подготовка?</summary>
-            <div class="accordion-panel">
-              <p>Носете удобно облекло, което позволява свободно движение. Споделете предишни травми, операции или състояния.</p>
-            </div>
-          </details>
-        </div>
-      </section>
+        <details class="accordion-details" id="faq2">
+          <summary class="accordion-header">Колко често трябва да посещавам процедурата?</summary>
+          <div class="accordion-panel">
+            <p>Обичайно започваме с 1–2 сесии седмично, след което намаляваме според напредъка. Планираме индивидуално.</p>
+          </div>
+        </details>
+
+        <details class="accordion-details" id="faq3">
+          <summary class="accordion-header">Необходима ли е подготовка?</summary>
+          <div class="accordion-panel">
+            <p>Носете удобно облекло, което позволява свободно движение. Споделете предишни травми, операции или състояния.</p>
+          </div>
+        </details>
+      </div>
     </section>
+  </section>
 
-    <!-- Условно зареждани състояния -->
-    <aside id="random-conditions" class="sidebar-conditions" aria-label="Болкови състояния">
-      <h3>Болкови състояния</h3>
-      <div class="pain-buttons-grid" id="conditions-container"></div>
-    </aside>
+  <!-- Сайдбар (динамично съдържание) -->
+  <aside id="random-conditions" class="sidebar-conditions" aria-label="Болкови състояния">
+    <h3>Болкови състояния</h3>
+    <div class="pain-buttons-grid" id="conditions-container"></div>
+  </aside>
 </main>
 
 <footer class="footer">
@@ -190,49 +187,58 @@
     <div class="contact-container">
       <div class="contact-left">
         <div class="map" aria-label="Локация на DM Physio в Google Maps">
-          <!-- Lazy map -->
+          <!-- lazy: ще се зададе src когато е видим -->
           <iframe id="mapFrame"
-                  data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
-                  width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
+            data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
+            width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
 
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
         <div class="social-links" aria-label="Социални мрежи">
-          <!-- PNG икони във футъра остават PNG -->
-          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32" loading="lazy" decoding="async">
+          <!-- ВАЖНО: PNG + правилни имена/пътища -->
+          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram" width="32" height="32" loading="lazy" decoding="async">
+          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="/pngs/social/instagram.png" alt="Instagram" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube" width="32" height="32" loading="lazy" decoding="async">
+          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
-          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok" width="32" height="32" loading="lazy" decoding="async">
+          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" width="32" height="32"
+                 loading="lazy" decoding="async" fetchpriority="low">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="" class="icon" width="24" height="24" loading="lazy" decoding="async" aria-hidden="true">
-          <span>0883688414</span>
+          <img src="/pngs/social/phone.png" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
+          <span><a href="tel:0883688414">0883688414</a></span>
         </div>
+
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="" class="icon" width="24" height="24" loading="lazy" decoding="async" aria-hidden="true">
+          <img src="/pngs/clock.avif" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
           <div>
             <span>Работно време:</span><br>
-            <span>Пон-Пет: 09:00 - 19:00</span><br>
-            <span>Събота: 09:00 - 16:00</span><br>
-            </span>Неделя: Почивка</span>
+            <span>Пон–Пет: 09:00 – 19:00</span><br>
+            <span>Събота: 09:00 – 16:00</span><br>
+            <span>Неделя: Почивка</span>
           </div>
         </div>
+
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="" class="icon" width="24" height="24" loading="lazy" decoding="async" aria-hidden="true">
+          <img src="/pngs/social/location.png" alt="" class="icon"
+               width="24" height="24" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -249,33 +255,23 @@
   </section>
 </footer>
 
-<!-- Външни скриптове (неблокиращи) -->
+<!-- Скриптове (неблокиращи) -->
 <script src="/js/topbar.js" defer></script>
-<script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Lazy карта + Условия (rand, видео hover/viewport) -->
+<!-- Видео hover play/pause -->
 <script>
-(function () {
-  // Lazy Google Map
-  var iframe = document.getElementById('mapFrame');
-  if (iframe) {
-    var dataSrc = iframe.getAttribute('data-src');
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function(entries){
-        if (entries.some(function(e){return e.isIntersecting;})) {
-          if (!iframe.src && dataSrc) iframe.src = dataSrc;
-          io.disconnect();
-        }
-      }, { rootMargin: '300px' });
-      io.observe(iframe);
-    } else {
-      if (!iframe.src && dataSrc) iframe.src = dataSrc;
-    }
-  }
-})();
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('video.hover-img').forEach(function(v){
+    v.preload = 'metadata';
+    v.addEventListener('mouseenter', function(){ v.play().catch(function(){}); });
+    v.addEventListener('mouseleave', function(){ try{ v.pause(); v.currentTime = 0; }catch(e){} });
+  });
+});
 </script>
 
-<!-- Зареждане на условия (conditions.html) – бързо и надеждно + hover класове за видео -->
+<!-- Акордеон (не е нужен JS за <details>, оставяме празно нарочно) -->
+
+<!-- Зареждане на conditions.html и инициализация на медиите в сайдбара -->
 <script>
 (function () {
   const KEY = 'conditions_html_v3';
@@ -296,35 +292,32 @@
     const temp = document.createElement('div');
     temp.innerHTML = html;
 
-    // махни webm/gif източници (ако някъде са останали)
+    // само MP4
     temp.querySelectorAll('video source').forEach(s => {
       const src = (s.getAttribute('src')||'').toLowerCase();
       const type = (s.getAttribute('type')||'').toLowerCase();
       if (type.includes('webm') || src.endsWith('.webm') || /\/gifs?\//.test(src) || src.endsWith('.gif')) s.remove();
     });
 
-    // ако видеото няма mp4 → махни го; иначе не preload-вай и добави класовете за hover
     temp.querySelectorAll('video').forEach(v => {
       if (!v.querySelector('source[type="video/mp4"]')) { v.remove(); return; }
       v.removeAttribute('autoplay');
-      v.setAttribute('preload','none');
+      v.setAttribute('preload','metadata');
       v.setAttribute('playsinline','');
       v.classList.add('hover-img');
     });
 
-    // абсолютни пътища + оптимизация на изображенията (конвертирай jpg/png → webp)
     temp.querySelectorAll('img').forEach(img => {
       absolutize(img, 'src');
-      const src = img.getAttribute('src')||'';
-      if (/\.(jpg|jpeg|png)$/i.test(src)) img.setAttribute('src', src.replace(/\.(jpg|jpeg|png)$/i, '.webp'));
       img.loading='lazy'; img.decoding='async';
       if (!img.classList.contains('static-img')) img.classList.add('static-img');
+      if (!img.getAttribute('width')) img.setAttribute('width','352');
+      if (!img.getAttribute('height')) img.setAttribute('height','352');
     });
 
     temp.querySelectorAll('video').forEach(v => absolutize(v, 'poster'));
     temp.querySelectorAll('video source').forEach(s => absolutize(s, 'src'));
     temp.querySelectorAll('a').forEach(a => absolutize(a, 'href'));
-
     temp.querySelectorAll('.pc-card').forEach(card => card.classList.add('pain-button-media'));
 
     const all = [...temp.querySelectorAll('.pain-button')];
@@ -334,7 +327,7 @@
     const picked = shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
 
     picked.forEach(el => el.querySelectorAll('img').forEach(img => {
-      if (!img.width && !img.height){ img.width = 400; img.height = 225; img.style.aspectRatio = '1/1'; }
+      if (!img.width && !img.height){ img.width = 352; img.height = 352; }
     }));
     return picked;
   }
@@ -346,7 +339,7 @@
     initSidebarMedia(container);
   }
 
-  // Локална инициализация за динамично добавените карти
+  // инициализация на hover видеата в сайдбара
   function initSidebarMedia(root){
     const IS_TOUCH = typeof matchMedia==='function' && matchMedia('(hover:none) and (pointer:coarse)').matches;
     const boxes = root.querySelectorAll('.image-container, .pain-button-media');
@@ -357,37 +350,21 @@
       const vid = box.querySelector('video.hover-img');
       if(!img || !vid) return;
 
-      // Prime
       vid.muted = true; vid.defaultMuted = true; vid.setAttribute('muted','');
       vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
-      vid.preload = 'none'; vid.controls = false;
+      vid.preload = 'metadata'; vid.controls = false;
       vid.setAttribute('disablepictureinpicture','');
       vid.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');
 
-      // Source -> video.src (минимум заявки)
       const s = vid.querySelector('source');
-      if(s && !vid.src){
-        vid.setAttribute('data-src', s.src);
-        try{ s.remove(); }catch(e){}
-        vid.src = vid.getAttribute('data-src');
-        try{ vid.load(); }catch(e){}
-      }
+      if(s && !vid.src){ try{ vid.src = s.src; }catch(e){} }
 
-      // Слоеве
       const cs = getComputedStyle(box);
       if(cs.position==='static') box.style.position='relative';
       if(cs.overflow==='visible') box.style.overflow='hidden';
-      img.style.position=vid.style.position='absolute';
-      img.style.inset=vid.style.inset='0';
-      img.style.width=vid.style.width='100%';
-      img.style.height=vid.style.height='100%';
-      img.style.objectFit=vid.style.objectFit='cover';
-      if(!vid.style.transition) vid.style.transition='opacity .24s ease';
-      if(!img.style.transition) img.style.transition='opacity .24s ease';
-      vid.style.opacity='0'; img.style.opacity='1';
 
-      function show(){ try{ vid.play().catch(function(){}); }catch(e){} vid.style.opacity='1'; img.style.opacity='0'; }
-      function hide(){ try{ vid.pause(); vid.currentTime=0; }catch(e){} vid.style.opacity='0'; img.style.opacity='1'; }
+      function show(){ vid.play().catch(function(){}); }
+      function hide(){ try{ vid.pause(); vid.currentTime=0; }catch(e){} }
 
       if(!IS_TOUCH){
         box.addEventListener('mouseenter', show, {passive:true});
@@ -435,5 +412,24 @@
   });
 })();
 </script>
+
+<!-- Lazy load за картата -->
+<script>
+(function () {
+  var iframe = document.getElementById('mapFrame');
+  if (!iframe) return;
+  var dataSrc = iframe.getAttribute('data-src');
+  if (!('IntersectionObserver' in window)) { if (!iframe.src && dataSrc) iframe.src = dataSrc; return; }
+  var io = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })){
+      if (!iframe.src && dataSrc) iframe.src = dataSrc;
+      io.disconnect();
+    }
+  }, { rootMargin: '300px' });
+  io.observe(iframe);
+})();
+</script>
+
+<script src="/js/media-autoplay-cards.js" defer></script>
 </body>
 </html>
