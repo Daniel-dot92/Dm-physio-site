@@ -89,7 +89,7 @@
   }
   </script>
 
-  <!-- LCP preload за главното изображение -->
+  <!-- LCP image (по желание може да махнеш този preload, ако не го ползваш веднага) -->
   <link rel="preload" as="image"
         href="../pngs/procedures/function.webp"
         imagesrcset="../pngs/procedures/function-320.webp 320w, ../pngs/procedures/function-480.webp 480w, ../pngs/procedures/function-640.webp 640w"
@@ -355,9 +355,36 @@ document.addEventListener('DOMContentLoaded', function () {
   const MAX_ITEMS = 6;
   const SRC_PAGE = '/conditions.html?v=3';
 
-  function xmur3(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=(h<<13)|(h>>>19)}return function(){h=Math.imul(h^(h>>>16),2246822507);h=Math.imul(h^(h>>>13),3266489909);return (h^=h>>>16)>>>0}}
-  function mulberry32(a){return function(){let t=a+=0x6D2B79F5;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296}}
-  function shuffleWithRNG(arr,rng){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a;}
+  function xmur3(str){
+    let h = 1779033703 ^ str.length;
+    for (let i = 0; i < str.length; i++) {
+      h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+      h = (h << 13) | (h >>> 19);
+    }
+    return function () {
+      h = Math.imul(h ^ (h >>> 16), 2246822507);
+      h = Math.imul(h ^ (h >>> 13), 3266489909);
+      return (h ^= h >>> 16) >>> 0;
+    };
+  }
+
+  function mulberry32(a){
+    return function(){
+      let t = a += 0x6D2B79F5;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function shuffleWithRNG(arr, rng){
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(rng() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
 
   function absolutize(el, attr){
     const val = el.getAttribute(attr);
@@ -369,17 +396,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const temp = document.createElement('div');
     temp.innerHTML = html;
 
-    // оставяме само MP4
+    // оставяме само MP4; отлагаме източника, за да няма ненужни заявки
     temp.querySelectorAll('video source').forEach(s => {
-      const src = (s.getAttribute('src')||'').toLowerCase();
-      const type = (s.getAttribute('type')||'').toLowerCase();
-      if (type.includes('webm') || src.endsWith('.webm') || /\/gifs?\//.test(src) || src.endsWith('.gif')) s.remove();
+      const src  = s.getAttribute('src') || '';
+      const type = (s.getAttribute('type') || '').toLowerCase();
+      const isWebmOrGif = type.includes('webm') || src.toLowerCase().endsWith('.webm')
+                       || /\/gifs?\//i.test(src) || src.toLowerCase().endsWith('.gif');
+      if (isWebmOrGif) { s.remove(); return; }
+      if (src) { s.setAttribute('data-src', src); s.removeAttribute('src'); }
     });
 
     temp.querySelectorAll('video').forEach(v => {
-      if (!v.querySelector('source[type="video/mp4"]')) { v.remove(); return; }
+      const hasMp4 = Array.from(v.querySelectorAll('source'))
+        .some(n => (n.getAttribute('type') || '').toLowerCase().includes('mp4'));
+      if (!hasMp4) { v.remove(); return; }
       v.removeAttribute('autoplay');
-      v.setAttribute('preload','metadata');
+      v.setAttribute('preload','none');
       v.setAttribute('playsinline','');
       v.classList.add('hover-img');
     });
@@ -393,20 +425,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     temp.querySelectorAll('video').forEach(v => absolutize(v, 'poster'));
-    temp.querySelectorAll('video source').forEach(s => absolutize(s, 'src'));
+    temp.querySelectorAll('video source').forEach(s => absolutize(s, 'data-src'));
     temp.querySelectorAll('a').forEach(a => absolutize(a, 'href'));
     temp.querySelectorAll('.pc-card').forEach(card => card.classList.add('pain-button-media'));
 
     const all = [...temp.querySelectorAll('.pain-button')];
     if (!all.length) return [];
-    const d = new Date(), seedStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}|${location.pathname}`;
+    const d = new Date();
+    const seedStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}|${location.pathname}`;
     const rng = mulberry32(xmur3(seedStr)());
-    const picked = shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
-
-    picked.forEach(el => el.querySelectorAll('img').forEach(img => {
-      if (!img.width && !img.height){ img.width = 352; img.height = 352; }
-    }));
-    return picked;
+    return shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
   }
 
   function inject(elements){
@@ -418,7 +446,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // инициализация на hover видеата в сайдбара
   function initSidebarMedia(root){
-    const IS_TOUCH = typeof matchMedia==='function' && matchMedia('(hover:none) and (pointer:coarse)').matches;
+    const IS_TOUCH = typeof matchMedia==='function'
+                  && matchMedia('(hover:none) and (pointer:coarse)').matches;
     const boxes = root.querySelectorAll('.image-container, .pain-button-media');
     if(!boxes.length) return;
 
@@ -430,18 +459,22 @@ document.addEventListener('DOMContentLoaded', function () {
       try {
         vid.muted = true; vid.defaultMuted = true; vid.setAttribute('muted','');
         vid.playsInline = true; vid.setAttribute('playsinline',''); vid.setAttribute('webkit-playsinline','');
-        vid.preload = 'metadata'; vid.controls = false;
+        vid.preload = 'none'; vid.controls = false;
         vid.setAttribute('disablepictureinpicture','');
         vid.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');
 
-        const s = vid.querySelector('source');
-        if(s && !vid.src){ try{ vid.src = s.src; }catch(e){} }
+        const source = vid.querySelector('source');
 
-        const cs = getComputedStyle(box);
-        if(cs.position==='static') box.style.position='relative';
-        if(cs.overflow==='visible') box.style.overflow='hidden';
+        function ensureSrc(){
+          if (!source) return;
+          if (!source.getAttribute('src') && source.getAttribute('data-src')) {
+            source.setAttribute('src', source.getAttribute('data-src'));
+            source.removeAttribute('data-src');
+            try { vid.load(); } catch(e){}
+          }
+        }
 
-        function show(){ vid.play().catch(function(){}); }
+        function show(){ ensureSrc(); vid.play().catch(function(){}); }
         function hide(){ try{ vid.pause(); vid.currentTime=0; }catch(e){} }
 
         if(!IS_TOUCH){
@@ -453,7 +486,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const thr = IS_TOUCH ? 0.5 : 0.1;
           const io = new IntersectionObserver(function(ents){
             ents.forEach(function(en){
-              if(en.isIntersecting && en.intersectionRatio>=thr){ if(IS_TOUCH) show(); }
+              if(en.isIntersecting && en.intersectionRatio>=thr){ ensureSrc(); if(IS_TOUCH) show(); }
               else { hide(); }
             });
           },{rootMargin:'200px 0px', threshold:[0,0.1,0.5,1]});
@@ -509,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 </script>
 
-<!-- Външен файл, който може да вдига console error — оставен коментиран поради Lighthouse -->
+<!-- Външен файл, който понякога вдига console error — оставен изключен за чист Lighthouse -->
 <!-- <script src="/js/media-autoplay-cards.js" defer></script> -->
 </body>
 </html>
