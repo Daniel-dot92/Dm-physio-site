@@ -464,35 +464,7 @@ footer .back-to-top:hover{ transform:translateY(-3px); }
 .sidebar-conditions .pc-card video{ background: transparent; border: 0; }
 .sidebar-conditions img.pc-static{ vertical-align: middle; }
 
-/* (по желание) ако искаш малко по-голям сайдбар */
-@media (min-width: 1024px){
-  .page-content{
-    grid-template-columns: minmax(0,1fr) clamp(360px, 34vw, 520px);
-  }
-  .sidebar-conditions{ top: 12px; } /* sticky offset */
-}
-/* ==== SIDEBAR — по-тънък, по-лек ==== */
-@media (min-width: 1100px){
-  .page-content{
-    /* основна колона | сайдбар ~300–360px, без да расте прекалено */
-    grid-template-columns: minmax(0,1fr) clamp(300px, 24vw, 360px);
-  }
-  .sidebar-conditions{
-    top: 10px;                 /* лек offset за sticky */
-    padding: 14px;             /* по-компактно */
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0,0,0,.06); /* по-лека сянка */
-  }
-  .pain-buttons-grid{
-    gap: 12px;                 /* по-малки разстояния между плочките */
-  }
-  .sidebar-conditions h3{
-    margin-bottom: 10px;
-    font-size: 16px;
-  }
-  /* медиите в плочките леко закръглени, но не огромни */
-  .sidebar-conditions .pc-card{ --pc-radius: 10px; }
-}
+
 
 /* На много големи екрани не разширяваме повече от нужното */
 @media (min-width: 1600px){
