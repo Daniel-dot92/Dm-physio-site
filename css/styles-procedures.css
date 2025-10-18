@@ -1258,3 +1258,45 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
 .pain-button-media{
   margin-bottom: 12px;
 }
+/* === LCP-friendly overrides за картите (постави най-отдолу) === */
+
+/* 1) Контейнерът на медията остава квадрат 1:1 */
+.page--massages .card__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+/* 2) Базовото <img> (без клас .img) е STATIC → рисува се веднага */
+.page--massages .card__media > img:not(.img) {
+  position: static !important;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity .25s ease; /* за да може да избледнява при hover */
+  z-index: 0;
+}
+
+/* 3) Само hover-слоевете (.img) и видеото са absolute */
+.page--massages .card__media .img,
+.page--massages .card__media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 4) По подразбиране показваме снимката; hover слоят е скрит */
+.page--massages .card__media .img--hover { opacity: 0; transition: opacity .25s ease, transform .3s ease; }
+.page--massages .card__media .img--static { opacity: 1; }
+
+/* 5) При hover: показваме hover-слоя (видео/втори кадър) и скриваме базовата снимка */
+.page--massages .card:hover .card__media .img--hover { opacity: 1; transform: scale(1.02); }
+.page--massages .card:hover .card__media > img:not(.img) { opacity: 0; }
+
+/* (по избор) лек zoom на статичното изображение при hover */
+.page--massages .card:hover .card__media .img--static { transform: scale(1.01); }
