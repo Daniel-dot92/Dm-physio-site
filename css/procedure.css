@@ -505,3 +505,31 @@ h1 {
   font-weight: 800;
   color: #166534; /* както ти е темата */
 }
+/* ==== SAFARI-SAFE SIDEBAR OVERRIDES (put at the very end) ==== */
+
+/* 1) В сайдбара медиите са cover (изпреварва глобалното contain !important) */
+.sidebar-conditions .pain-button-media > img,
+.sidebar-conditions .pain-button-media > video,
+.sidebar-conditions .pc-card > img,
+.sidebar-conditions .pc-card > video{
+  object-fit: cover !important;
+  object-position: center;
+  clip-path: none;                 /* избягваме странности при Safari */
+  border-radius: inherit;
+}
+
+/* 2) Гарантирано клипване на ъглите на видео в Safari */
+.sidebar-conditions .pc-card{
+  border-radius: 12px;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black); /* Safari clip hack */
+}
+
+/* 3) Закотвяне на ширината на сайдбара (еднакво в Safari) */
+:root{ --sidebar-width: 320px; }
+.page-content{
+  grid-template-columns: minmax(0,1fr) var(--sidebar-width) !important;
+}
+@media (max-width: 992px){
+  .page-content{ grid-template-columns: 1fr !important; }
+}
