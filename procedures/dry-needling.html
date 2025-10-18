@@ -5,22 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Терапия със Сухи Игли - ДМ ФИЗИО</title>
 
-  <!-- Неблокиращо зареждане на основния стил -->
+  <!-- Неблокиращо зареждане на стиловете -->
   <link rel="preload" href="../css/procedure.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <!-- Top-bar стил -->
   <link rel="preload" href="../css/top-bar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-  <!-- Fallback за потребители с изключен JS -->
   <noscript>
     <link rel="stylesheet" href="../css/procedure.css">
     <link rel="stylesheet" href="../css/top-bar.css">
   </noscript>
 
-  <!-- Преконект за Google Maps (ускорява iframe) -->
+  <!-- Preconnect (външни ресурси) -->
   <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://book.dmphysi0.com" crossorigin>
 
-  <!-- FIX: работещи check иконки (може да се премести в /css/procedure.css) -->
+  <!-- LCP: preload на основното hero изображение -->
+  <link rel="preload" as="image"
+        href="../pngs/procedures/function.webp"
+        imagesrcset="../pngs/procedures/function.webp 640w"
+        imagesizes="(max-width:768px) 90vw, 640px"
+        fetchpriority="high">
+
+  <!-- Лека иконка-фиксация (може да се премести в CSS) -->
   <style>
     .step-highlights{list-style:none;margin:0;padding:0}
     .step-highlights li{position:relative;padding-left:30px;margin:8px 0}
@@ -33,23 +38,19 @@
 <!-- ======= Top bar (TB) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
-    <!-- Лого -->
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" />
+      <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" width="64" height="64" decoding="async" loading="eager" fetchpriority="low"/>
     </a>
 
-    <!-- Хамбургер (SVG – без иконични библиотеки) -->
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
       <svg class="tb-burger-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
         <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
 
-    <!-- Навигация -->
     <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
       <ul class="tb-menu">
         <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
-
         <li class="tb-item tb-dropdown">
           <a class="tb-link tb-drop-toggle" href="/services.html" data-dropdown="toggle">Процедури</a>
           <div class="tb-drop-menu">
@@ -57,10 +58,8 @@
             <a class="tb-drop-link" href="/massages.html">Масажи</a>
           </div>
         </li>
-
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-       
-        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book">Свободни часове</a></li>
+        <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" rel="noopener">Свободни часове</a></li>
         <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
       </ul>
     </nav>
@@ -69,165 +68,162 @@
 
 <main class="page-content">
   <!-- HERO/Интро -->
-<section class="procedure-journey section-green">
-  <div class="container">
-    <h2>Терапия със Сухи Игли</h2>
-    <h3>стъпка по стъпка</h3>
-    <p class="procedure-preamble">
-      Терапията със сухи игли е съвременна техника за бързо намаляване на мускулна болка и освобождаване на тригерни точки. Чрез въвеждане на много тънки игли в специфични мускулни зони се предизвиква локален терапевтичен отговор, който отпуска тъканите, подобрява кръвоснабдяването и ускорява възстановяването.
-    </p>
+  <section class="procedure-journey section-green">
+    <div class="container">
+      <h2>Терапия със Сухи Игли</h2>
+      <h3>стъпка по стъпка</h3>
+      <p class="procedure-preamble">
+        Терапията със сухи игли е съвременна техника за бързо намаляване на мускулна болка и освобождаване на тригерни точки. Чрез въвеждане на много тънки игли в специфични мускулни зони се предизвиква локален терапевтичен отговор, който отпуска тъканите, подобрява кръвоснабдяването и ускорява възстановяването.
+      </p>
 
-    <div class="journey-steps-wrapper">
+      <div class="journey-steps-wrapper">
 
-      <!-- Етап 1 -->
-      <div class="journey-step left-aligned">
-        <div class="journey-image image-container" tabindex="0">
-          <img src="../pngs/procedures/function.webp" alt="Функционална оценка и изследване" class="static-img" decoding="async" fetchpriority="low" loading="lazy">
-          <!-- poster показва снимката до готовност на видеото -->
-          <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/procedures/function.webp" aria-hidden="true">
-            <source src="../pngs/procedures/gif/funciton.mp4" type="video/mp4">
-            Вашият браузър не поддържа видео тага.
-          </video>
-        </div>
-        <div class="journey-content">
-          <span class="step-label">Етап 1</span>
-          <h3><span class="step-duration">(10 мин.)</span></h3>
-          <h3>Функционална Оценка</h3>
-          <p>
-            Стартираме с прецизна оценка на стойка, обем на движение и мускулни дисбаланси, за да таргетираме правилните структури и да постигнем максимален ефект от терапията.
-          </p>
-          <ul class="step-highlights">
-            <li><span class="check"></span> Индивидуална оценка на състоянието</li>
-            <li><span class="check"></span> Идентифициране на дисбаланси</li>
-            <li><span class="check"></span> Ясна стратегия за възстановяване</li>
-          </ul>
-          <div class="learn-more-link-container">
-            <a href="functional-assessment.html" class="learn-more-link">Научи повече</a>
+        <!-- Етап 1 -->
+        <div class="journey-step left-aligned">
+          <div class="journey-image image-container media--cover" tabindex="0" aria-label="Функционална оценка и изследване">
+            <img src="../pngs/procedures/function.webp" alt="Функционална оценка и изследване" class="static-img" decoding="async" loading="eager" fetchpriority="high" width="640" height="640">
+            <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/procedures/function.webp" aria-hidden="true" width="640" height="640">
+              <source src="../pngs/procedures/gif/funciton.mp4" type="video/mp4">
+            </video>
           </div>
-        </div>
-      </div>
-
-      <!-- Етап 2 -->
-      <div class="journey-step right-aligned">
-        <div class="journey-image image-container" tabindex="0">
-          <img src="../pngs/procedures/dry-needling.webp" alt="Апликация със сухи игли" class="static-img" decoding="async" loading="lazy">
-          <!-- poster показва снимката до готовност на видеото -->
-          <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/procedures/dry-needling.webp" aria-hidden="true">
-            <source src="../pngs/procedures/gif/drineedling.mp4" type="video/mp4">
-            Вашият браузър не поддържа видео тага.
-          </video>
-        </div>
-        <div class="journey-content">
-          <span class="step-label">Етап 2</span>
-          <h3><span class="step-duration">(20–30 мин.)</span></h3>
-          <h3>Апликация със Сухи Игли</h3>
-
-          <p>
-            Сухото иглоубождане (dry needling) използва тънки, стерилни игли за еднократна употреба, които се въвеждат в пренапрегнати мускулни ленти и тригерни точки. Иглата предизвиква кратък „локален потрепващ отговор“, който ресетира мускулното влакно, понижава чувствителността на болковите рецептори и нормализира тонуса.
-          </p>
-
-          <ul class="step-highlights">
-            <li><span class="check"></span> Стерилни игли за еднократна употреба</li>
-            <li><span class="check"></span> Бързо редуциране на болката</li>
-            <li><span class="check"></span> Подобряване на локалната циркулация</li>
-          </ul>
-
-          <!-- Допълнителна информация за терапията -->
-          <h4>Как действа</h4>
-          <p>
-            Механизмът е двоен – локален и неврофизиологичен. Локално се подобрява микроциркулацията и се редуцира спазъмът в засегнатия сегмент. Неврофизиологично се модулира болковият сигнал и се нормализира мускулната активация в шаблона на движение.
-          </p>
-        </div>
-      </div>
-
-    <div class="container text-center">
-      <p class="procedure-price">Цена: 60 лв.</p>
-      <a href="https://book.dmphysi0.com/book" class="book-button large-button">
-        Запази час
-      </a>
-    </div>
-
-    <!-- FAQ -->
-    <section class="details-accordion section-light-grey" aria-labelledby="faq-title">
-      <div class="container">
-        <h2 id="faq-title">Често задавани въпроси</h2>
-
-        <details class="accordion-details" id="faq1">
-          <summary class="accordion-header">За кого е подходяща тази процедура?</summary>
-          <div class="accordion-panel">
-            <ul>
-              <li>Остра и хронична болка в гърба, врата, раменете, коленете и други стави</li>
-              <li>Възстановяване след спортни травми и операции</li>
-              <li>Мускулни дисбаланси и постурални нарушения (лоша стойка)</li>
-              <li>Изтръпвания, парези и други неврологични симптоми</li>
-              <li>Главоболие от напрежение във врата и раменете</li>
-              <li>Намалена ставна подвижност и скованост</li>
-              <li>Превенция на травми и подобряване на форма</li>
+          <div class="journey-content">
+            <span class="step-label">Етап 1</span>
+            <h3><span class="step-duration">(10 мин.)</span></h3>
+            <h3>Функционална Оценка</h3>
+            <p>
+              Стартираме с прецизна оценка на стойка, обем на движение и мускулни дисбаланси, за да таргетираме правилните структури и да постигнем максимален ефект от терапията.
+            </p>
+            <ul class="step-highlights">
+              <li><span class="check"></span> Индивидуална оценка на състоянието</li>
+              <li><span class="check"></span> Идентифициране на дисбаланси</li>
+              <li><span class="check"></span> Ясна стратегия за възстановяване</li>
             </ul>
+            <div class="learn-more-link-container">
+              <a href="functional-assessment.html" class="learn-more-link">Научи повече</a>
+            </div>
           </div>
-        </details>
+        </div>
 
-        <details class="accordion-details" id="faq2">
-          <summary class="accordion-header">Колко често трябва да посещавам процедурата?</summary>
-          <div class="accordion-panel">
-            <p>Обичайно започваме с 1–2 сесии седмично, след което намаляваме според напредъка. Планираме индивидуално.</p>
+        <!-- Етап 2 -->
+        <div class="journey-step right-aligned">
+          <div class="journey-image image-container media--cover" tabindex="0" aria-label="Апликация със сухи игли">
+            <img src="../pngs/procedures/dry-needling.webp" alt="Апликация със сухи игли" class="static-img" decoding="async" loading="lazy" width="640" height="640">
+            <video class="hover-img" playsinline muted loop preload="none" poster="../pngs/procedures/dry-needling.webp" aria-hidden="true" width="640" height="640">
+              <source src="../pngs/procedures/gif/drineedling.mp4" type="video/mp4">
+            </video>
           </div>
-        </details>
+          <div class="journey-content">
+            <span class="step-label">Етап 2</span>
+            <h3><span class="step-duration">(20–30 мин.)</span></h3>
+            <h3>Апликация със Сухи Игли</h3>
 
-        <details class="accordion-details" id="faq3">
-          <summary class="accordion-header">Необходима ли е подготовка?</summary>
-          <div class="accordion-panel">
-            <p>Носете удобно облекло, което позволява свободно движение. Споделете предишни травми, операции или състояния.</p>
+            <p>
+              Сухото иглоубождане (dry needling) използва тънки, стерилни игли за еднократна употреба, които се въвеждат в пренапрегнати мускулни ленти и тригерни точки. Иглата предизвиква кратък „локален потрепващ отговор“, който ресетира мускулното влакно, понижава чувствителността на болковите рецептори и нормализира тонуса.
+            </p>
+
+            <ul class="step-highlights">
+              <li><span class="check"></span> Стерилни игли за еднократна употреба</li>
+              <li><span class="check"></span> Бързо редуциране на болката</li>
+              <li><span class="check"></span> Подобряване на локалната циркулация</li>
+            </ul>
+
+            <h4>Как действа</h4>
+            <p>
+              Механизмът е двоен – локален и неврофизиологичен. Локално се подобрява микроциркулацията и се редуцира спазъмът в засегнатия сегмент. Неврофизиологично се модулира болковият сигнал и се нормализира мускулната активация в шаблона на движение.
+            </p>
           </div>
-        </details>
+        </div>
+
+      <div class="container text-center">
+        <p class="procedure-price">Цена: 60 лв.</p>
+        <a href="https://book.dmphysi0.com/book" class="book-button large-button" rel="noopener">
+          Запази час
+        </a>
       </div>
-    </section>
-  </section>
 
-  <!-- Условно зареждани състояния -->
-  <aside id="random-conditions" class="sidebar-conditions">
-    <h3>Болкови състояния</h3>
-    <div class="pain-buttons-grid" id="conditions-container"></div>
-  </aside>
+      <!-- FAQ -->
+      <section class="details-accordion section-light-grey" aria-labelledby="faq-title">
+        <div class="container">
+          <h2 id="faq-title">Често задавани въпроси</h2>
+
+          <details class="accordion-details" id="faq1">
+            <summary class="accordion-header">За кого е подходяща тази процедура?</summary>
+            <div class="accordion-panel">
+              <ul>
+                <li>Остра и хронична болка в гърба, врата, раменете, коленете и други стави</li>
+                <li>Възстановяване след спортни травми и операции</li>
+                <li>Мускулни дисбаланси и постурални нарушения (лоша стойка)</li>
+                <li>Изтръпвания, парези и други неврологични симптоми</li>
+                <li>Главоболие от напрежение във врата и раменете</li>
+                <li>Намалена ставна подвижност и скованост</li>
+                <li>Превенция на травми и подобряване на форма</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="accordion-details" id="faq2">
+            <summary class="accordion-header">Колко често трябва да посещавам процедурата?</summary>
+            <div class="accordion-panel">
+              <p>Обичайно започваме с 1–2 сесии седмично, след което намаляваме според напредъка. Планираме индивидуално.</p>
+            </div>
+          </details>
+
+          <details class="accordion-details" id="faq3">
+            <summary class="accordion-header">Необходима ли е подготовка?</summary>
+            <div class="accordion-panel">
+              <p>Носете удобно облекло, което позволява свободно движение. Споделете предишни травми, операции или състояния.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+    </section>
+
+    <!-- Условно зареждани състояния -->
+    <aside id="random-conditions" class="sidebar-conditions" aria-label="Болкови състояния">
+      <h3>Болкови състояния</h3>
+      <div class="pain-buttons-grid" id="conditions-container"></div>
+    </aside>
 </main>
 
-  <footer class="footer">
-  <section class="contact-section">
+<footer class="footer">
+  <section class="contact-section" aria-label="Контакти">
     <div class="contact-container">
       <div class="contact-left">
-        <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" 
-                  width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map" aria-label="Локация на DM Physio в Google Maps">
+          <!-- Lazy map -->
+          <iframe id="mapFrame"
+                  data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
+                  width="300" height="250" style="border:0;" allowfullscreen loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
 
       <div class="contact-center">
         <h2>Свържете се с нас:</h2>
-        <div class="social-links">
+        <div class="social-links" aria-label="Социални мрежи">
           <!-- PNG икони във футъра остават PNG -->
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/facebook.png" alt="Facebook">
+            <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32" loading="lazy" decoding="async">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/instagram.png" alt="Instagram">
+            <img src="/pngs/social/instagram.png" alt="Instagram" width="32" height="32" loading="lazy" decoding="async">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/Youtube.png" alt="YouTube">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" width="32" height="32" loading="lazy" decoding="async">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-            <img src="/pngs/social/tiktok.png" alt="TikTok">
+            <img src="/pngs/social/tiktok.png" alt="TikTok" width="32" height="32" loading="lazy" decoding="async">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon">
+          <img src="/pngs/social/phone.png" alt="" class="icon" width="24" height="24" loading="lazy" decoding="async" aria-hidden="true">
           <span>0883688414</span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon">
+          <img src="/pngs/clock.avif" alt="" class="icon" width="24" height="24" loading="lazy" decoding="async" aria-hidden="true">
           <div>
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
@@ -236,7 +232,7 @@
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon">
+          <img src="/pngs/social/location.png" alt="" class="icon" width="24" height="24" loading="lazy" decoding="async" aria-hidden="true">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
@@ -255,53 +251,28 @@
 
 <!-- Външни скриптове (неблокиращи) -->
 <script src="/js/topbar.js" defer></script>
+<script src="/js/media-autoplay-cards.js" defer></script>
 
-<!-- Видео: play/pause при hover вместо autoplay -->
+<!-- Lazy карта + Условия (rand, видео hover/viewport) -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('video.hover-img').forEach(v=>{
-    v.preload = 'none';
-    v.addEventListener('mouseenter', ()=>{ v.play().catch(()=>{}); });
-    v.addEventListener('mouseleave', ()=>{ v.pause(); v.currentTime = 0; });
-  });
-});
-</script>
-
-<!-- Акордеон -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const headers = document.querySelectorAll(".accordion-header");
-  headers.forEach(header => {
-    header.addEventListener("click", function () {
-      const content = this.parentElement.querySelector(".accordion-content");
-      document.querySelectorAll(".accordion-content").forEach(c => {
-        if (c !== content) {
-          c.style.maxHeight = null;
-          c.style.paddingTop = "0";
-          c.style.paddingBottom = "0";
-          c.style.marginBottom = "0";
-          c.previousElementSibling.classList.remove("active");
-          c.style.willChange = "auto";
+(function () {
+  // Lazy Google Map
+  var iframe = document.getElementById('mapFrame');
+  if (iframe) {
+    var dataSrc = iframe.getAttribute('data-src');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        if (entries.some(function(e){return e.isIntersecting;})) {
+          if (!iframe.src && dataSrc) iframe.src = dataSrc;
+          io.disconnect();
         }
-      });
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-        content.style.paddingTop = "0";
-        content.style.paddingBottom = "0";
-        content.style.marginBottom = "0";
-        this.classList.remove("active");
-        content.style.willChange = "auto";
-      } else {
-        content.style.willChange = "max-height";
-        content.style.maxHeight = content.scrollHeight + 10 + "px";
-        content.style.paddingTop = "15px";
-        content.style.paddingBottom = "15px";
-        content.style.marginBottom = "10px";
-        this.classList.add("active");
-      }
-    });
-  });
-});
+      }, { rootMargin: '300px' });
+      io.observe(iframe);
+    } else {
+      if (!iframe.src && dataSrc) iframe.src = dataSrc;
+    }
+  }
+})();
 </script>
 
 <!-- Зареждане на условия (conditions.html) – бързо и надеждно + hover класове за видео -->
@@ -354,7 +325,6 @@ document.addEventListener("DOMContentLoaded", function () {
     temp.querySelectorAll('video source').forEach(s => absolutize(s, 'src'));
     temp.querySelectorAll('a').forEach(a => absolutize(a, 'href'));
 
-    // добави клас за правилно съотношение и поведение като на страницата за кинезитерапия
     temp.querySelectorAll('.pc-card').forEach(card => card.classList.add('pain-button-media'));
 
     const all = [...temp.querySelectorAll('.pain-button')];
@@ -364,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const picked = shuffleWithRNG(all, rng).slice(0, MAX_ITEMS);
 
     picked.forEach(el => el.querySelectorAll('img').forEach(img => {
-      if (!img.width && !img.height){ img.width = 400; img.height = 225; img.style.aspectRatio = '16/9'; }
+      if (!img.width && !img.height){ img.width = 400; img.height = 225; img.style.aspectRatio = '1/1'; }
     }));
     return picked;
   }
@@ -373,13 +343,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const container=document.getElementById('conditions-container');
     if(!container || !elements?.length) return;
     elements.forEach(el=>container.appendChild(el));
-    // ИНИЦИАЛИЗАЦИЯ НА ВИДЕАТА СЛЕД ИНЖЕКЦИЯТА (за да работят с hover / viewport)
     initSidebarMedia(container);
   }
 
-  // --- НОВО: локална инициализация за динамично добавените карти ---
+  // Локална инициализация за динамично добавените карти
   function initSidebarMedia(root){
-    const UA = navigator.userAgent || '';
     const IS_TOUCH = typeof matchMedia==='function' && matchMedia('(hover:none) and (pointer:coarse)').matches;
     const boxes = root.querySelectorAll('.image-container, .pain-button-media');
     if(!boxes.length) return;
@@ -396,7 +364,7 @@ document.addEventListener("DOMContentLoaded", function () {
       vid.setAttribute('disablepictureinpicture','');
       vid.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');
 
-      // Hydrate: прехвърли <source> → video.src, за да избегнеш auto preload от <source>
+      // Source -> video.src (минимум заявки)
       const s = vid.querySelector('source');
       if(s && !vid.src){
         vid.setAttribute('data-src', s.src);
@@ -405,7 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try{ vid.load(); }catch(e){}
       }
 
-      // Слоева подредба
+      // Слоеве
       const cs = getComputedStyle(box);
       if(cs.position==='static') box.style.position='relative';
       if(cs.overflow==='visible') box.style.overflow='hidden';
@@ -418,22 +386,14 @@ document.addEventListener("DOMContentLoaded", function () {
       if(!img.style.transition) img.style.transition='opacity .24s ease';
       vid.style.opacity='0'; img.style.opacity='1';
 
-      function show(){
-        try{ vid.play().catch(function(){}); }catch(e){}
-        vid.style.opacity='1'; img.style.opacity='0';
-      }
-      function hide(){
-        try{ vid.pause(); vid.currentTime=0; }catch(e){}
-        vid.style.opacity='0'; img.style.opacity='1';
-      }
+      function show(){ try{ vid.play().catch(function(){}); }catch(e){} vid.style.opacity='1'; img.style.opacity='0'; }
+      function hide(){ try{ vid.pause(); vid.currentTime=0; }catch(e){} vid.style.opacity='0'; img.style.opacity='1'; }
 
-      // Десктоп hover
       if(!IS_TOUCH){
         box.addEventListener('mouseenter', show, {passive:true});
         box.addEventListener('mouseleave', hide, {passive:true});
       }
 
-      // Touch: auto-play в viewport, пауза извън него
       if('IntersectionObserver' in window){
         const thr = IS_TOUCH ? 0.5 : 0.1;
         const io = new IntersectionObserver(function(ents){
@@ -448,7 +408,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   async function fetchAndCache(){
-    // same-origin за надеждност при някои конфигурации
     const res=await fetch(SRC_PAGE,{credentials:'same-origin', cache:'no-store'});
     if(!res.ok) throw new Error('HTTP '+res.status);
     const text=await res.text();
@@ -476,7 +435,5 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 </script>
-
-<script src="/js/media-autoplay-cards.js" defer></script>
 </body>
 </html>
