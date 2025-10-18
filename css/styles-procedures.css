@@ -764,8 +764,7 @@ box-shadow:0 16px 36px rgba(2,6,23,.12);
 
 
 /* Media � fixed 1:1 like the screenshot */
-main .card__media{ position:relative; aspect-ratio:1/1; background:#f1f5f9; }
-main .card__media img, main .card__media video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+
 main .img{ transition: opacity .28s ease, transform .35s ease; }
 main .img--static{ opacity:1; }
 main .img--hover{ opacity:0; }
