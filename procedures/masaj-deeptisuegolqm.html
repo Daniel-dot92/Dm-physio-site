@@ -178,16 +178,16 @@
       </div>
     </div>
 
-    
     <div class="container text-center">
       <p class="procedure-price" aria-label="Цена на процедурата">Цена: 110 лв. (90мин)</p>
       <!-- Премахнато: <a href="https://book.dmphysi0.com/book" class="book-button large-button" rel="noopener">Запази час</a> -->
     </div>
- <div class="container text-center">
+    <div class="container text-center">
       <a href="https://book.dmphysi0.com/book" class="book-button large-button" rel="noopener">
         Запази час
       </a>
     </div>
+
     <!-- FAQ -->
     <section class="details-accordion section-light-grey" aria-labelledby="faq-title">
       <div class="container">
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 (function () {
   const KEY = 'conditions_html_v3';
-  const MAX_ITEMS = 6;
+  const MAX_ITEMS = 5;
   const SRC_PAGE = '/conditions.html?v=3';
 
   function xmur3(str){
@@ -493,6 +493,23 @@ document.addEventListener('DOMContentLoaded', function () {
       }catch(e){ console.warn('conditions.html error:', e); }
     });
   });
+})();
+</script>
+
+<!-- Lazy load за картата (както в референтната страница) -->
+<script>
+(function () {
+  var iframe = document.getElementById('mapFrame');
+  if (!iframe) return;
+  var dataSrc = iframe.getAttribute('data-src');
+  if (!('IntersectionObserver' in window)) { if (!iframe.src && dataSrc) iframe.src = dataSrc; return; }
+  var io = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })){
+      if (!iframe.src && dataSrc) iframe.src = dataSrc;
+      io.disconnect();
+    }
+  }, { rootMargin: '300px' });
+  io.observe(iframe);
 })();
 </script>
 
