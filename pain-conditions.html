@@ -11,9 +11,9 @@
   <meta name="theme-color" content="#0E7C86" />
   <meta name="language" content="Bulgarian" />
   <meta name="author" content="DM Physio" />
-<link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
+  <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Болкови състояния – Къде е болката? | DM Physio (ДМ ФИЗИО) София" />
   <meta property="og:description" content="Избери зоната, която те боли и виж причините, симптомите и решенията. Професионална кинезитерапия в София." />
   <meta property="og:url" content="https://dmphysi0.com/pain-conditions.html" />
@@ -30,7 +30,10 @@
   <meta name="twitter:description" content="Разгледай състоянията по зони и научи как да се възстановиш устойчиво." />
   <meta name="twitter:image" content="https://dmphysi0.com/pngs/pain-conditions/new/backpain-Thumbnail.webp" />
 
-  <!-- Local CSS (без промяна на имената/пътищата) -->
+  <!-- CSS: Оставям оригиналните файлове; добавям само безопасен preload -->
+  <link rel="preload" href="css/top-bar.css?v=4" as="style" />
+  <link rel="preload" href="css/styles-procedures.css?v=4" as="style" />
+
   <link rel="stylesheet" href="css/top-bar.css?v=4" />
   <link rel="stylesheet" href="css/styles-procedures.css?v=4" />
 
@@ -41,12 +44,12 @@
 
   <!-- Preload на вероятния LCP елемент (първата плочка) -->
   <link rel="preload" as="image"
-    href="/pngs/pain-conditions/new/tingling1-Thumbnail.webp"
-    imagesrcset="/pngs/pain-conditions/new/tingling1-Thumbnail.webp 640w"
-    imagesizes="(max-width: 900px) 100vw, 33vw"
-    fetchpriority="high">
+        href="/pngs/pain-conditions/new/tingling1-Thumbnail.webp"
+        imagesrcset="/pngs/pain-conditions/new/tingling1-Thumbnail.webp 640w"
+        imagesizes="(max-width: 900px) 100vw, 33vw"
+        fetchpriority="high" />
 
-  <!-- In-page critical tweaks -->
+  <!-- In-page critical tweaks (без промяна във визията) -->
   <style>
     .hero-pro__title, .pci-title, .reviews-title, h1, h2, h3, p {
       white-space: normal !important;
@@ -61,7 +64,6 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
 
-    /* маските off само на мобилно (ако се ползват) */
     @media (max-width: 900px){
       .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
     }
@@ -72,6 +74,9 @@
     html, body { scroll-padding-top: var(--tb-h); }
     #pain-conditions-intro { scroll-margin-top: var(--tb-h); }
     main { padding-top: var(--tb-h); }
+
+    /* Лек performance guard за offscreen секцията: не влияе на визия/функция */
+    .advice-reveal-block { content-visibility: auto; contain-intrinsic-size: 600px; }
   </style>
 
   <!-- JSON-LD -->
@@ -136,7 +141,7 @@
 <body>
 <a class="skip-link" href="#pain-conditions-intro">Към съдържанието</a>
 
-<!-- ======= Top bar ======= -->
+<!-- ======= Top bar (НЕ пипам стила) ======= -->
 <header class="tb-header" role="banner">
   <div class="tb-inner">
     <a href="/index.html" class="tb-logo-link" aria-label="Начало">
