@@ -5,28 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Мускулни болки в ръката: От пръстите до рамото</title>
 
-  <!-- Canonical & Preconnect -->
+  <!-- Canonical -->
   <link rel="canonical" href="https://dmphysio.bg/pain-conditions/arm-muscle-pain" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
 
   <!-- Local styles -->
   <link rel="stylesheet" href="../../css/top-bar.css" />
   <link rel="stylesheet" href="../../css/temple-headache.css" />
   <link rel="stylesheet" href="/css/muscle.css" />
 
-  <!-- External styles non-blocking + noscript fallback -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'" />
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-  </noscript>
-
-  <!-- Preload LCP image -->
-  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg" fetchpriority="high" />
+  <!-- Preload LCP image (WEBP) -->
+  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp" fetchpriority="high" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -50,6 +38,20 @@
     .intro-container > * { min-width: 0; }
     /* безопасност: без хоризонтален скрол при крайни случаи */
     html, body { overflow-x: hidden; }
+
+    /* Леки общи стилове за inline SVG икони, за да запазим визуалните размери като при FA */
+    .icon, .step-icon svg, .step-icon-circle svg, .hero-buttons .button svg,
+    .procedures-cta-icon, .arrow-separator {
+      width: 1em; height: 1em; display: inline-block; vertical-align: -0.125em; flex-shrink: 0;
+    }
+    .hero-buttons .button svg { margin-right: .5rem; }
+    .step-icon { display:flex; align-items:center; justify-content:center; }
+    .step-icon svg { width: 28px; height: 28px; }
+    .step-icon-circle { display:flex; align-items:center; justify-content:center; }
+    .step-icon-circle svg { width: 22px; height: 22px; }
+    .arrow-separator { width: 18px; height: 18px; align-self:center; }
+    .tb-burger svg { width: 20px; height: 20px; }
+    .block-header svg { width: .66em; height: .66em; margin-right: .5rem; }
   </style>
 </head>
 <body>
@@ -58,12 +60,12 @@
     <div class="tb-inner">
       <!-- Лого -->
       <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-        <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" width="120" height="36" loading="eager" decoding="async" fetchpriority="high" />
+        <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" width="120" height="36" loading="eager" decoding="async" fetchpriority="high" />
       </a>
 
-      <!-- Хамбургер -->
+      <!-- Хамбургер (SVG вместо Font Awesome) -->
       <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
-        <i class="fas fa-bars" aria-hidden="true"></i>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
       </button>
 
       <!-- Навигация -->
@@ -97,17 +99,21 @@
             Разберете причините за болката в ръката - от пръстите до лакътя, и как да се справите с нея.
           </p>
           <div class="hero-buttons">
-            <button class="button primary-button calendly-button" data-calendly-url="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book">
-              <i class="fas fa-stethoscope" aria-hidden="true"></i> Запазете час сега
+            <button class="button primary-button calendly-button">
+              <!-- стетоскоп -->
+              <svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M6 3v6a4 4 0 1 0 8 0V3h2v6a6 6 0 0 1-12 0V3h2zm10.5 7a3.5 3.5 0 1 1 3.5 3.5h-.5V18a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5v-3h2v3a3 3 0 0 0 3 3h1a3 3 0 0 0 3-3v-4.5h.5A1.5 1.5 0 1 0 16.5 10z" fill="currentColor"/></svg>
+              Запазете час сега
             </button>
             <a href="/services.html" class="button outline-button">
-              <i class="fas fa-lightbulb" aria-hidden="true"></i> Нашите процедури
+              <!-- крушка -->
+              <svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M9 21h6v-1H9v1zm3-19a7 7 0 0 0-4 12.9V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.1A7 7 0 0 0 12 2zm0 2a5 5 0 0 1 3 9.1l-.6.4V16h-4.8v-2.5l-.6-.4A5 5 0 0 1 12 4z" fill="currentColor"/></svg>
+              Нашите процедури
             </a>
           </div>
         </div>
         <div class="hero-image image-container">
-          <img src="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg" alt="Изображение на мускулите на ръката" class="static-img" width="720" height="405" loading="eager" decoding="async" fetchpriority="high" />
-          <video muted loop preload="metadata" class="hover-video" playsinline poster="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.jpg" aria-label="Видео: мускули на ръката">
+          <img src="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp" alt="Изображение на мускулите на ръката" class="static-img" width="720" height="405" loading="eager" decoding="async" fetchpriority="high" />
+          <video muted loop preload="metadata" class="hover-video" playsinline poster="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp" aria-label="Видео: мускули на ръката">
             <source src="/pngs/sustoqniq/muscles/arm muscles.mp4" type="video/mp4" />
             Вашият браузър не поддържа видео тага.
           </video>
@@ -123,14 +129,16 @@
             Болката в ръката може да бъде причинена от различни фактори - от повтарящи се движения на пръстите и китката, до претоварване на лакътя. Често срещана причина е възпалението на мускулите и техните сухожилия, което може да бъде резултат от неправилна техника, лоша стойка или травма.
           </p>
           <div class="info-box" role="note">
-            <i class="fas fa-info-circle" aria-hidden="true"></i> <p>
+            <!-- инфо кръг -->
+            <svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 4a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 6zm-1.5 4h3v8h-3v-8z" fill="currentColor"/></svg>
+            <p>
               Мускулната болка в ръката често може да се усеща като проблем в ставите, но всъщност е резултат от мускулна дисфункция. Правилната диагноза е ключова за ефективното лечение.
             </p>
           </div>
         </div>
         <div class="intro-image image-container">
-          <img src="/pngs/sustoqniq/muscles/arm muscles2-Thumbnail.jpg" alt="Анатомия на мускулите на ръката - статично изображение" class="static-img" width="720" height="405" loading="lazy" decoding="async" />
-          <video muted loop preload="metadata" class="hover-video" playsinline poster="/pngs/sustoqniq/muscles/arm muscles2-Thumbnail.jpg" aria-label="Видео: анатомия на мускулите на ръката">
+          <img src="/pngs/sustoqniq/muscles/arm muscles2-Thumbnail.webp" alt="Анатомия на мускулите на ръката - статично изображение" class="static-img" width="720" height="405" loading="lazy" decoding="async" />
+          <video muted loop preload="metadata" class="hover-video" playsinline poster="/pngs/sustoqniq/muscles/arm muscles2-Thumbnail.webp" aria-label="Видео: анатомия на мускулите на ръката">
             <source src="/pngs/sustoqniq/muscles/arm muscles2.mp4" type="video/mp4" />
             Вашият браузър не поддържа видео тага.
           </video>
@@ -151,11 +159,13 @@
               Продължително претоварване от повтарящи се движения (напр. при спорт или работа), неправилно повдигане на тежести или внезапна травма могат да доведат до микроразкъсвания в мускулните влакна.
             </p>
             <div class="step-icon">
-              <i class="fas fa-frown" aria-hidden="true"></i>
+              <!-- тъжно лице -->
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 1 0 20A10 10 0 0 1 12 2zm-3.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm7 0a1.5 1.5 0 1 0-.001 3.001A1.5 1.5 0 0 0 15.5 9zM8 17c1.2-1.5 3-2 4-2s2.8.5 4 2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
             </div>
           </div>
 
-          <i class="fas fa-arrow-right arrow-separator" aria-hidden="true"></i>
+          <!-- стрелка -->
+          <svg class="arrow-separator" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-7l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 
           <div class="step-card step-two">
             <div class="step-number">2</div>
@@ -164,11 +174,13 @@
               Микротравмите предизвикват възпалителна реакция, при която тялото изпраща кръв и имунни клетки в увредената област. Това води до подуване, болка и повишена чувствителност.
             </p>
             <div class="step-icon">
-              <i class="fas fa-heart-pulse" aria-hidden="true"></i>
+              <!-- сърце/пулс -->
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 13c0-3.314 2.686-6 6-6 1.89 0 3.57.88 4.65 2.25C15.43 7.88 17.11 7 19 7c3.314 0 6 2.686 6 6 0 7-10 10-12 12C13 23 3 20 3 13z" fill="currentColor" opacity=".25"/><path d="M2 12h4l2 4 3-8 3 10 2-6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </div>
 
-          <i class="fas fa-arrow-right arrow-separator" aria-hidden="true"></i>
+          <!-- стрелка -->
+          <svg class="arrow-separator" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-7l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 
           <div class="step-card step-three">
             <div class="step-number">3</div>
@@ -177,7 +189,8 @@
               За да се предпази от по-нататъшно увреждане, мускулът рефлекторно се свива и влиза в спазъм. Този спазъм ограничава движението и причинява постоянна, тъпа или остра болка.
             </p>
             <div class="step-icon">
-              <i class="fas fa-fire" aria-hidden="true"></i>
+              <!-- огън -->
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2s4 3 4 7c0 2-1 3-1 3s3 1 3 5-3 7-6 7-6-3-6-7 3-6 3-6-1-1-1-3c0-4 4-7 4-7z" fill="currentColor"/></svg>
             </div>
           </div>
         </div>
@@ -197,8 +210,8 @@
           <article class="muscle-item">
             <h3>m. flexor carpi ulnaris (лакътен сгъвач на китката)</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/flexor carpi ulnaris-Thumbnail.jpg" alt="Изображение на лакътен сгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/flexor carpi ulnaris-Thumbnail.jpg" aria-label="Видео: лакътен сгъвач на китката">
+              <img src="/pngs/sustoqniq/muscles/flexor carpi ulnaris-Thumbnail.webp" alt="Изображение на лакътен сгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/flexor carpi ulnaris-Thumbnail.webp" aria-label="Видео: лакътен сгъвач на китката">
                 <source src="/pngs/sustoqniq/muscles/flexor carpi ulnaris.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -207,7 +220,8 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <!-- малък кръг -->
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -219,7 +233,8 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <!-- предупредителен триъгълник -->
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -235,8 +250,8 @@
           <article class="muscle-item">
             <h3>m. flexor carpi radialis (лъчев сгъвач на китката)</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/flexor carpi radialis-1-Thumbnail.jpg" alt="Изображение на лъчев сгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/flexor carpi radialis-1-Thumbnail.jpg" aria-label="Видео: лъчев сгъвач на китката">
+              <img src="/pngs/sustoqniq/muscles/flexor carpi radialis-1-Thumbnail.webp" alt="Изображение на лъчев сгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/flexor carpi radialis-1-Thumbnail.webp" aria-label="Видео: лъчев сгъвач на китката">
                 <source src="/pngs/sustoqniq/muscles/flexor carpi radialis-1.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -245,7 +260,7 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -257,7 +272,7 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -273,8 +288,8 @@
           <article class="muscle-item">
             <h3>m. palmaris longus (дълъг дланен мускул)</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="../../pngs/sustoqniq/muscles/palmaris longus-Thumbnail.jpg" alt="Изображение на дълъг дланен мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="../../pngs/sustoqniq/muscles/palmaris longus-Thumbnail.jpg" aria-label="Видео: дълъг дланен мускул">
+              <img src="../../pngs/sustoqniq/muscles/palmaris longus-Thumbnail.webp" alt="Изображение на дълъг дланен мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="../../pngs/sustoqniq/muscles/palmaris longus-Thumbnail.webp" aria-label="Видео: дълъг дланен мускул">
                 <source src="../../pngs/sustoqniq/muscles/palmaris longus.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -283,7 +298,7 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -295,7 +310,7 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -316,8 +331,8 @@
           <article class="muscle-item">
             <h3>m. extensor carpi radialis (лъчев разгъвач на китката)</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/extensor carpi radialis-Thumbnail.jpg" alt="Изображение на лъчев разгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/extensor carpi radialis-Thumbnail.jpg" aria-label="Видео: лъчев разгъвач на китката">
+              <img src="/pngs/sustoqniq/muscles/extensor carpi radialis-Thumbnail.webp" alt="Изображение на лъчев разгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/extensor carpi radialis-Thumbnail.webp" aria-label="Видео: лъчев разгъвач на китката">
                 <source src="/pngs/sustoqniq/muscles/extensor carpi radialis.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -326,7 +341,7 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -338,7 +353,7 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -354,8 +369,8 @@
           <article class="muscle-item">
             <h3>m. extensor digitorum (разгъвач на пръстите)</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/extensor digitorum-Thumbnail.jpg" alt="Изображение на разгъвач на пръстите" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/extensor digitorum-Thumbnail.jpg" aria-label="Видео: разгъвач на пръстите">
+              <img src="/pngs/sustoqniq/muscles/extensor digitorum-Thumbnail.webp" alt="Изображение на разгъвач на пръстите" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/extensor digitorum-Thumbnail.webp" aria-label="Видео: разгъвач на пръстите">
                 <source src="/pngs/sustoqniq/muscles/extensor digitorum.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -364,7 +379,7 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -376,7 +391,7 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -397,8 +412,8 @@
           <article class="muscle-item">
             <h3>mm. pronator quadratus, pronator teres, supinator </h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/pronators-Thumbnail.jpg" alt="Изображение на кръгъл пронатор" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/pronators-Thumbnail.jpg" aria-label="Видео: пронатори и супинатор">
+              <img src="/pngs/sustoqniq/muscles/pronators-Thumbnail.webp" alt="Изображение на кръгъл пронатор" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/pronators-Thumbnail.webp" aria-label="Видео: пронатори и супинатор">
                 <source src="/pngs/sustoqniq/muscles/pronators.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -407,7 +422,7 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -419,7 +434,7 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -439,8 +454,8 @@
           <article class="muscle-item">
             <h3>Абдуктор на палеца и къс разгъвач на палеца</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/Abductor policis longus and brevis-Thumbnail.jpg" alt="Изображение на мускулите на палеца" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/Abductor policis longus and brevis-Thumbnail.jpg" aria-label="Видео: мускули на палеца">
+              <img src="/pngs/sustoqniq/muscles/Abductor policis longus and brevis-Thumbnail.webp" alt="Изображение на мускулите на палеца" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/Abductor policis longus and brevis-Thumbnail.webp" aria-label="Видео: мускули на палеца">
                 <source src="/pngs/sustoqniq/muscles/Abductor policis longus and brevis.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -449,7 +464,7 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -461,7 +476,7 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -482,8 +497,8 @@
           <article class="muscle-item">
             <h3>m. brachioradialis (брахиорадиалис)</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/brachioradialis-Thumbnail.jpg" alt="Изображение на брахиорадиалис" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/brachioradialis-Thumbnail.jpg" aria-label="Видео: брахиорадиалис">
+              <img src="/pngs/sustoqniq/muscles/brachioradialis-Thumbnail.webp" alt="Изображение на брахиорадиалис" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/brachioradialis-Thumbnail.webp" aria-label="Видео: брахиорадиалис">
                 <source src="/pngs/sustoqniq/muscles/brachioradialis.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -492,7 +507,7 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -504,7 +519,7 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -520,8 +535,8 @@
           <article class="muscle-item">
             <h3>m. anconeus (анконеус)</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/anconeus-Thumbnail.jpg" alt="Изображение на анконеус" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/anconeus-Thumbnail.jpg" aria-label="Видео: анконеус">
+              <img src="/pngs/sustoqniq/muscles/anconeus-Thumbnail.webp" alt="Изображение на анконеус" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/anconeus-Thumbnail.webp" aria-label="Видео: анконеус">
                 <source src="/pngs/sustoqniq/muscles/anconeus.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -530,7 +545,7 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -542,7 +557,7 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -558,8 +573,8 @@
           <article class="muscle-item">
             <h3>m. biceps brachii (бицепс)</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/biceps brahi-Thumbnail.jpg" alt="Изображение на бицепс мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/biceps brahi-Thumbnail.jpg" aria-label="Видео: бицепс">
+              <img src="/pngs/sustoqniq/muscles/biceps brahi-Thumbnail.webp" alt="Изображение на бицепс мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/biceps brahi-Thumbnail.webp" aria-label="Видео: бицепс">
                 <source src="/pngs/sustoqniq/muscles/biceps brahi.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -568,7 +583,7 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -580,7 +595,7 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -597,8 +612,8 @@
           <article class="muscle-item">
             <h3>m. brachialis (мишничен мускул)</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/brachialis-Thumbnail.jpg" alt="Изображение на мишничен мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/brachialis-Thumbnail.jpg" aria-label="Видео: мишничен мускул">
+              <img src="/pngs/sustoqniq/muscles/brachialis-Thumbnail.webp" alt="Изображение на мишничен мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/brachialis-Thumbnail.webp" aria-label="Видео: мишничен мускул">
                 <source src="/pngs/sustoqniq/muscles/brachialis.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -607,7 +622,7 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -619,7 +634,7 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -636,8 +651,8 @@
           <article class="muscle-item">
             <h3>m. triceps brachii (трицепс)</h3>
             <div class="muscle-media muscle-video-centered">
-              <img src="/pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.jpg" alt="Изображение на трицепс мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.jpg" aria-label="Видео: трицепс">
+              <img src="/pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.webp" alt="Изображение на трицепс мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
+              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.webp" aria-label="Видео: трицепс">
                 <source src="/pngs/sustoqniq/muscles/triceps  brachii.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -646,7 +661,7 @@
               <div class="muscle-info-grid">
                 <div class="info-block anatomy-block">
                   <div class="block-header">
-                    <i class="fas fa-circle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
                     <h4>Анатомия и захващане</h4>
                   </div>
                   <p>
@@ -658,7 +673,7 @@
                 </div>
                 <div class="info-block pain-char-block">
                   <div class="block-header">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 5l-1 7h2l-1-7zm0 10a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 12 18z" fill="currentColor"/></svg>
                     <h4>Характер на болката от тригерни точки</h4>
                   </div>
                   <ul>
@@ -682,21 +697,21 @@
 
         <div class="healing-steps-grid">
           <div class="healing-step">
-            <div class="step-icon-circle"><i class="fas fa-hand-sparkles" aria-hidden="true"></i></div>
+            
             <h3>1. Отпускане на напрегнатите мускули</h3>
             <p>
               Чрез мануални техники, масажи и мобилизация, ние отпускаме <span class="highlight">свитите мускулни влакна и тригерни точки</span>, за да възстановим нормалната им функция и да премахнем болката.
             </p>
           </div>
           <div class="healing-step">
-            <div class="step-icon-circle"><i class="fas fa-dumbbell" aria-hidden="true"></i></div>
+           
             <h3>2. Укрепване и балансиране</h3>
             <p>
               След като мускулите са отпуснати, фокусът е върху <span class="highlight">укрепването на слабите мускули</span> и възстановяването на баланса между тях. Това е ключово за стабилността на ставите.
             </p>
           </div>
           <div class="healing-step">
-            <div class="step-icon-circle"><i class="fas fa-running" aria-hidden="true"></i></div>
+            
             <h3>3. Корекция и превенция</h3>
             <p>
               Учим ви на специфични упражнения и съвети за <span class="highlight">правилна ергономия</span>, за да предотвратите бъдещи травми и да поддържате ръката си здрава и подвижна в дългосрочен план.
@@ -714,10 +729,10 @@
           <button class="slider-arrow prev-arrow" aria-label="Предишен слайд">❮</button>
 
           <div class="kinesitherapy-slider-track">
-            <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+            <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
-                <img src="../../pngs/procedures/KT.PNG" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/KT.PNG">
+                <img src="../../pngs/procedures/KT.webp" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/KT.webp">
                   <source src="../../pngs/procedures/gif/KT.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -725,10 +740,10 @@
               <span class="kinesitherapy-button-text">Кинезитерапевтична Процедура</span>
             </a>
 
-            <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me-3">
+            <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
-                <img src="../../pngs/massages/lecheben.PNG" alt="Лечебен Масаж" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/massages/lecheben.PNG">
+                <img src="../../pngs/massages/lecheben.webp" alt="Лечебен Масаж" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/massages/lecheben.webp">
                   <source src="../../pngs/massages/gif/lecheben.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -736,10 +751,10 @@
               <span class="kinesitherapy-button-text">Лечебен Масаж</span>
             </a>
 
-            <a href="../../procedures/masaj.deeptisue.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/1">
+            <a href="../../procedures/masaj.deeptisue.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
-                <img src="../../pngs/massages/deeptissue.PNG" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/massages/deeptissue.PNG">
+                <img src="../../pngs/massages/deeptissue.webp" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/massages/deeptissue.webp">
                   <source src="../../pngs/massages/gif/deeptisue.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -747,10 +762,10 @@
               <span class="kinesitherapy-button-text">Дълбокотъканен Масаж</span>
             </a>
 
-            <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-1">
+            <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
-                <img src="../../pngs/procedures/function.PNG" alt="Функционална оценка" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/function.PNG">
+                <img src="../../pngs/procedures/function.webp" alt="Функционална оценка" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/function.webp">
                   <source src="../../pngs/procedures/gif/funciton.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -758,10 +773,10 @@
               <span class="kinesitherapy-button-text">Функционална оценка</span>
             </a>
 
-            <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/70-clone-2">
+            <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
-                <img src="../../pngs/procedures/exercises.PNG" alt="Специализирани упражнения" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/exercises.PNG">
+                <img src="../../pngs/procedures/exercises.webp" alt="Специализирани упражнения" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/exercises.webp">
                   <source src="../../pngs/procedures/gif/exercieses.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -769,10 +784,10 @@
               <span class="kinesitherapy-button-text">Упражнения</span>
             </a>
 
-            <a href="../../procedures/dry-needling.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/50-clone">
+            <a href="../../procedures/dry-needling.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
-                <img src="../../pngs/procedures/gif/drineedling-Thumbnail.jpg" alt="Терапия със сухи игли" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/gif/drineedling-Thumbnail.jpg">
+                <img src="../../pngs/procedures/gif/drineedling-Thumbnail.webp" alt="Терапия със сухи игли" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/gif/drineedling-Thumbnail.webp">
                   <source src="../../pngs/procedures/gif/drineedling.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -780,10 +795,10 @@
               <span class="kinesitherapy-button-text">Терапия със сухи игли</span>
             </a>
 
-            <a href="../../procedures/kinesiotaping.html" class="kinesitherapy-button" data-calendly-url="https://calendly.com/voltermdfk/meet-with-me">
+            <a href="../../procedures/kinesiotaping.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
-                <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.jpg">
+                <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.webp" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.webp">
                   <source src="../../pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -819,6 +834,7 @@
         <div class="contact-center">
           <h2>Свържете се с нас:</h2>
           <div class="social-links">
+            <!-- Във футъра остават PNG/AVIF както е поискано -->
             <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer" aria-label="Facebook DM Physio">
               <img src="/pngs/social/facebook.png" alt="Facebook" width="32" height="32" loading="lazy" decoding="async" />
             </a>
