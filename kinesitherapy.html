@@ -33,10 +33,7 @@
   <link rel="stylesheet" href="css/styles-procedures.css">
   <link rel="stylesheet" href="css/top-bar.css">
 
-  <!-- Икони (неблокиращи) -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></noscript>
+  <!-- (Премахнати са: preconnect към cdnjs и двата линка към Font Awesome) -->
 
   <!-- Външни домейни за аналитики (отложено зареждане) -->
   <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
@@ -80,6 +77,10 @@
       .page-hero{ padding-top: clamp(56px, 8vw + env(safe-area-inset-top, 0px), 80px); }
       .page-hero h1{ scroll-margin-top: clamp(56px, 8vw + env(safe-area-inset-top, 0px), 80px); }
     }
+
+    /* SVG иконка за бургер бутона (заменя Font Awesome) */
+    .tb-burger svg{ width:22px; height:22px; display:inline-block; vertical-align:middle }
+    .tb-burger svg path{ fill: currentColor }
   </style>
 
   <!-- Contentsquare (lazy, след Hotjar) -->
@@ -156,7 +157,10 @@
     </a>
 
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
-      <i class="fas fa-bars" aria-hidden="true"></i>
+      <!-- заменя <i class="fas fa-bars"> -->
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"></path>
+      </svg>
     </button>
 
     <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
@@ -400,7 +404,7 @@
                     action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
                     method="POST" target="hidden_gform" novalidate>
 
-                <!-- Anti-bot honeypot -->
+                <!-- Anti-bот honeypot -->
                 <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0" aria-hidden="true">
                   <label for="hp_website">Оставете това поле празно</label>
                   <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
@@ -490,10 +494,10 @@
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener">
             <img src="./pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
           </a>
-          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener">
+          <a href="https://www.youtube.com/@dmphysi0" target="_blank" rel="noopener">
             <img src="./pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
           </a>
-          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener">
+          <a href="https://www.tiktok.com/@dmphysi0" target="_blank" rel="noopener">
             <img src="./pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
           </a>
         </div>
