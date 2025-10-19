@@ -11,7 +11,7 @@
   <meta name="theme-color" content="#0E7C86" />
   <meta name="language" content="Bulgarian" />
   <meta name="author" content="DM Physio" />
-  <link rel="icon" href="/logo.webp" />
+<link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Болкови състояния – Къде е болката? | DM Physio (ДМ ФИЗИО) София" />
@@ -30,15 +30,9 @@
   <meta name="twitter:description" content="Разгледай състоянията по зони и научи как да се възстановиш устойчиво." />
   <meta name="twitter:image" content="https://dmphysi0.com/pngs/pain-conditions/new/backpain-Thumbnail.webp" />
 
-  <!-- Local CSS (идентични пътища/имена) – non-blocking -->
-  <link rel="preload" as="style" href="css/top-bar.css?v=4">
-  <link rel="preload" as="style" href="css/styles-procedures.css?v=4">
-  <link rel="stylesheet" href="css/top-bar.css?v=4" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="css/styles-procedures.css?v=4" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="css/top-bar.css?v=4">
-    <link rel="stylesheet" href="css/styles-procedures.css?v=4">
-  </noscript>
+  <!-- Local CSS (без промяна на имената/пътищата) -->
+  <link rel="stylesheet" href="css/top-bar.css?v=4" />
+  <link rel="stylesheet" href="css/styles-procedures.css?v=4" />
 
   <!-- Preconnect (пасивно) -->
   <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
@@ -52,20 +46,32 @@
     imagesizes="(max-width: 900px) 100vw, 33vw"
     fetchpriority="high">
 
-  <!-- In-page critical tweaks (a11y/поведение; без визуални промени) -->
+  <!-- In-page critical tweaks -->
   <style>
-    .hero-pro__title,.pci-title,.reviews-title,h1,h2,h3,p{white-space:normal!important;overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
-    .hero-pro__wrap>*,.two-col__wrap>*,.pain-buttons-grid>*{min-width:0}
-    html,body{overflow-x:hidden}
-    img{height:auto}
-    a:focus,button:focus{outline:3px solid #18A558;outline-offset:2px}
-    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999}
-    @media (max-width:900px){.hero-pro__media img,.why__media img{-webkit-mask-image:none;mask-image:none}}
-    :root{--tb-h:72px} @media (max-width:900px){:root{--tb-h:64px}}
-    html,body{scroll-padding-top:var(--tb-h)}
-    #pain-conditions-intro{scroll-margin-top:var(--tb-h)}
-    main{padding-top:var(--tb-h)}
+    .hero-pro__title, .pci-title, .reviews-title, h1, h2, h3, p {
+      white-space: normal !important;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
+    }
+    .hero-pro__wrap > *, .two-col__wrap > *, .pain-buttons-grid > * { min-width: 0; }
+    html, body { overflow-x: hidden; }
+    img { height: auto; }
+    a:focus, button:focus { outline: 3px solid #18A558; outline-offset: 2px; }
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
+
+    /* маските off само на мобилно (ако се ползват) */
+    @media (max-width: 900px){
+      .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
+    }
+
+    :root{ --tb-h: 72px; }
+    @media (max-width:900px){ :root{ --tb-h: 64px; } }
+
+    html, body { scroll-padding-top: var(--tb-h); }
+    #pain-conditions-intro { scroll-margin-top: var(--tb-h); }
+    main { padding-top: var(--tb-h); }
   </style>
 
   <!-- JSON-LD -->
@@ -108,16 +114,20 @@
   (function(){
     function loadCS(){
       if (document.getElementById('csq-loader')) return;
-      var s=document.createElement('script');
-      s.id='csq-loader'; s.async=true;
-      s.src='https://static.hj.contentsquare.net/c/csq-6534654.js';
-      s.referrerPolicy='no-referrer-when-downgrade';
+      var s = document.createElement('script');
+      s.id='csq-loader';
+      s.async = true;
+      s.src = 'https://static.hj.contentsquare.net/c/csq-6534654.js';
+      s.referrerPolicy = 'no-referrer-when-downgrade';
       document.head.appendChild(s);
     }
-    function tryLoad(){ if (window._hjSettings && typeof window.hj==='function') loadCS(); else setTimeout(tryLoad,2000); }
+    function tryLoad() {
+      if (window._hjSettings && typeof window.hj === 'function') loadCS();
+      else setTimeout(tryLoad, 2000);
+    }
     window.addEventListener('load', function(){
-      if ('requestIdleCallback' in window) requestIdleCallback(tryLoad,{timeout:8000});
-      else setTimeout(tryLoad,8000);
+      if ('requestIdleCallback' in window) requestIdleCallback(tryLoad, {timeout: 8000});
+      else setTimeout(tryLoad, 8000);
     });
   })();
   </script>
@@ -174,7 +184,7 @@
       </p>
 
       <div class="pain-buttons-grid">
-        <!-- Невралгии (LCP) -->
+        <!-- Невралгии (LCP): eager + fetchpriority="high" -->
         <a href="/pain-neuralgia-general.html" class="pain-button" aria-label="Невралгии – най-чести болкови състояния">
           <div class="pain-button-media image-container">
             <img
@@ -523,7 +533,8 @@
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener" class="map-link">
-              Вижте на карта →</a>
+              Вижте на карта →
+            </a>
           </div>
         </div>
       </div>
@@ -544,35 +555,36 @@
 <script>
 /* 1) EmbedSocial – зареждане само при видимост (safe, ако widget липсва) */
 (function(){
-  var widget=document.querySelector('.embedsocial-widget');
-  if(!widget||!('IntersectionObserver'in window))return;
+  var widget = document.querySelector('.embedsocial-widget');
+  if (!widget || !('IntersectionObserver' in window)) return;
   function loadES(){
-    if(document.getElementById('EmbedSocialWidgetScript'))return;
-    var js=document.createElement('script');
-    js.id='EmbedSocialWidgetScript';
-    js.src='https://embedsocial.com/cdn/aht.js';
-    js.async=true;
+    if (document.getElementById('EmbedSocialWidgetScript')) return;
+    var js = document.createElement('script');
+    js.id = 'EmbedSocialWidgetScript';
+    js.src = 'https://embedsocial.com/cdn/aht.js';
+    js.async = true;
     document.head.appendChild(js);
   }
-  var io=new IntersectionObserver(function(entries){
-    if(entries.some(function(e){return e.isIntersecting;})){
+  var io = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })){
       loadES(); io.disconnect();
     }
-  },{rootMargin:'200px'});
+  }, { rootMargin: '200px' });
   io.observe(widget);
 })();
 
 /* 2) Google Maps iframe – lazy src */
 (function(){
-  var iframe=document.getElementById('mapFrame')||document.querySelector('iframe[data-src]');
-  if(!iframe||!('IntersectionObserver'in window))return;
-  var dataSrc=iframe.getAttribute('data-src'); if(!dataSrc)return;
-  var io=new IntersectionObserver(function(entries){
-    if(entries.some(function(e){return e.isIntersecting;})){
-      if(!iframe.src) iframe.src=dataSrc;
+  var iframe = document.getElementById('mapFrame') || document.querySelector('iframe[data-src]');
+  if (!iframe || !('IntersectionObserver' in window)) return;
+  var dataSrc = iframe.getAttribute('data-src');
+  if (!dataSrc) return;
+  var io = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })){
+      if (!iframe.src) iframe.src = dataSrc;
       io.disconnect();
     }
-  },{rootMargin:'300px'});
+  }, { rootMargin: '300px' });
   io.observe(iframe);
 })();
 </script>
