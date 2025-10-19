@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <!-- след <meta name="viewport" ...> и преди CSS -->
-<link rel="preload"
-      as="image"
-      href="./pngs/massages/gif/lecheben-Thumbnail.webp"
-      fetchpriority="high">
-
+  <link rel="preload"
+        as="image"
+        href="./pngs/massages/gif/lecheben-Thumbnail.webp"
+        fetchpriority="high">
 
   <title>Масажи в София – Видове и Цени | DM Physio (ДМ ФИЗИО)</title>
   <meta name="description" content="Масажи в София: лечебен, дълбокотъканен, релаксиращ, антицелулитен, спортен, Ергон IASTM и вендузи. Цени, продължителност и онлайн записване в DM Physio." />
@@ -41,20 +40,16 @@
   <link rel="stylesheet" href="css/styles-procedures.css" />
   <link rel="stylesheet" href="css/top-bar.css" />
 
-  <!-- Preconnect to externals -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <!-- Preconnect to externals (без cdnjs/font-awesome) -->
   <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://t.contentsquare.net" crossorigin>
   <link rel="preconnect" href="https://c.ba.contentsquare.net" crossorigin>
 
-  <!-- Icons (non-blocking) + noscript fallback -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  </noscript>
-
-  <!-- Preload likely LCP (first card image) -->
-  <link rel="preload" as="image" href="./pngs/massages/gif/lecheben-Thumbnail.webp" fetchpriority="high">
+  <!-- Мини стил за SVG иконата в бургер бутона -->
+  <style>
+    .tb-burger svg{ width:24px; height:24px; display:inline-block; vertical-align:middle }
+    .tb-burger svg path{ fill: currentColor }
+  </style>
 
   <!-- In-page critical tweaks (огледални с кинезитерапията) -->
   <style>
@@ -162,9 +157,11 @@
            width="64" height="64" decoding="async" loading="eager" fetchpriority="high" />
     </a>
 
-
     <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
-      <i class="fas fa-bars" aria-hidden="true"></i>
+      <!-- заменя <i class="fas fa-bars"> -->
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"></path>
+      </svg>
     </button>
 
     <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
