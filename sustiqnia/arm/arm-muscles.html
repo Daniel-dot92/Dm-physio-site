@@ -13,8 +13,12 @@
   <link rel="stylesheet" href="../../css/temple-headache.css" />
   <link rel="stylesheet" href="/css/muscle.css" />
 
-  <!-- Preload LCP image (WEBP) -->
-  <link rel="preload" as="image" href="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp" fetchpriority="high" />
+  <!-- Preload LCP image (WEBP) + responsive hints -->
+  <link rel="preload" as="image"
+        href="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp"
+        imagesrcset="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp 720w, /pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp 1080w"
+        imagesizes="(min-width: 1024px) 720px, 100vw"
+        fetchpriority="high" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -39,7 +43,21 @@
     /* безопасност: без хоризонтален скрол при крайни случаи */
     html, body { overflow-x: hidden; }
 
-    /* Леки общи стилове за inline SVG икони, за да запазим визуалните размери като при FA */
+    /* --- LCP FIXES --- */
+    /* 1) Никога не крий LCP изображението */
+    .hero-image .static-img { opacity: 1 !important; visibility: visible !important; }
+    /* 2) Видео да не покрива и да не блокира LCP преди ховър */
+    .hero-image { position: relative; }
+    .hero-image .hover-video {
+      opacity: 0; pointer-events: none; transition: opacity .2s ease;
+      position: absolute; inset: 0; width: 100%; height: 100%;
+    }
+    .hero-image:hover .hover-video,
+    .hero-image:focus-within .hover-video { opacity: 1; pointer-events: auto; }
+    /* 3) Не използваме content-visibility върху геро секцията (за да не забавя LCP) */
+    .hero-section { contain: layout style; } /* без paint/content-visibility */
+
+    /* Леки общи стилове за inline SVG икони */
     .icon, .step-icon svg, .step-icon-circle svg, .hero-buttons .button svg,
     .procedures-cta-icon, .arrow-separator {
       width: 1em; height: 1em; display: inline-block; vertical-align: -0.125em; flex-shrink: 0;
@@ -112,7 +130,17 @@
           </div>
         </div>
         <div class="hero-image image-container">
-          <img src="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp" alt="Изображение на мускулите на ръката" class="static-img" width="720" height="405" loading="eager" decoding="async" fetchpriority="high" />
+          <!-- LCP IMG — никога не е с opacity:0 -->
+          <img
+            src="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp"
+            srcset="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp 720w, /pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp 1080w"
+            sizes="(min-width:1024px) 720px, 100vw"
+            alt="Изображение на мускулите на ръката"
+            class="static-img"
+            width="720" height="405"
+            loading="eager" decoding="async" fetchpriority="high"
+            style="opacity:1; visibility:visible;"
+          />
           <video muted loop preload="metadata" class="hover-video" playsinline poster="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp" aria-label="Видео: мускули на ръката">
             <source src="/pngs/sustoqniq/muscles/arm muscles.mp4" type="video/mp4" />
             Вашият браузър не поддържа видео тага.
@@ -704,7 +732,7 @@
             </p>
           </div>
           <div class="healing-step">
-           
+            
             <h3>2. Укрепване и балансиране</h3>
             <p>
               След като мускулите са отпуснати, фокусът е върху <span class="highlight">укрепването на слабите мускули</span> и възстановяването на баланса между тях. Това е ключово за стабилността на ставите.
