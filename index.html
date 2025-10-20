@@ -71,7 +71,29 @@
       .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
     }
   </style>
-
+<!-- Contentsquare (lazy, след Hotjar) -->
+  <script>
+  (function(){
+    function loadCS(){
+      if (document.getElementById('csq-loader')) return;
+      var s = document.createElement('script');
+      s.id='csq-loader';
+      s.async = true;
+      s.src = 'https://static.hj.contentsquare.net/c/csq-6534654.js';
+      s.referrerPolicy = 'no-referrer-when-downgrade';
+      document.head.appendChild(s);
+    }
+    function tryLoad() {
+      if (window._hjSettings && typeof window.hj === 'function') loadCS();
+      else setTimeout(tryLoad, 2000);
+    }
+    window.addEventListener('load', function(){
+      if ('requestIdleCallback' in window) requestIdleCallback(tryLoad, {timeout: 8000});
+      else setTimeout(tryLoad, 8000);
+    });
+  })();
+  </script>
+  
   <!-- JSON-LD: LocalBusiness -->
   <script type="application/ld+json">
   {
@@ -116,28 +138,7 @@
   }
   </script>
 
-  <!-- Леко отложено Contentsquare -->
-  <script>
-  (function(){
-    function loadCS(){
-      if (document.getElementById('csq-loader')) return;
-      var s = document.createElement('script');
-      s.id='csq-loader';
-      s.async = true;
-      s.src = 'https://static.hj.contentsquare.net/c/csq-6534654.js';
-      s.referrerPolicy = 'no-referrer-when-downgrade';
-      document.head.appendChild(s);
-    }
-    function tryLoad() {
-      if (window._hjSettings && typeof window.hj === 'function') loadCS();
-      else setTimeout(tryLoad, 2000);
-    }
-    window.addEventListener('load', function(){
-      if ('requestIdleCallback' in window) requestIdleCallback(tryLoad, {timeout: 8000});
-      else setTimeout(tryLoad, 8000);
-    });
-  })();
-  </script>
+  
 </head>
 
 <body>
