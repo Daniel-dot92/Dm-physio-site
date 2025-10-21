@@ -8,17 +8,29 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://dmphysio.bg/pain-conditions/arm-muscle-pain" />
 
-  <!-- Local styles -->
+  <!-- ===== CSS loading strategy (reduce render‑blocking) ===== -->
+  <!-- Keep top-bar.css render-blocking (small & required for header) -->
   <link rel="stylesheet" href="../../css/top-bar.css" />
-  <link rel="stylesheet" href="../../css/temple-headache.css" />
-  <link rel="stylesheet" href="/css/muscle.css" />
+  
+  <!-- Async the non-critical CSS: temple-headache.css + muscle.css -->
+  <link rel="preload" as="style" href="../../css/temple-headache.css" />
+  <link rel="preload" as="style" href="/css/muscle.css" />
+  <link rel="stylesheet" href="../../css/temple-headache.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="/css/muscle.css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="../../css/temple-headache.css" />
+    <link rel="stylesheet" href="/css/muscle.css" />
+  </noscript>
 
   <!-- Preload LCP image (WEBP) + responsive hints -->
-  <link rel="preload" as="image"
-        href="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp"
-        imagesrcset="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp 720w, /pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp 1080w"
-        imagesizes="(min-width: 1024px) 720px, 100vw"
-        fetchpriority="high" />
+  <link
+    rel="preload"
+    as="image"
+    href="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp"
+    imagesrcset="/pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp 720w, /pngs/sustoqniq/muscles/arm muscles-Thumbnail.webp 1080w"
+    imagesizes="(min-width: 1024px) 720px, 100vw"
+    fetchpriority="high"
+  />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -73,7 +85,7 @@
   </style>
 </head>
 <body>
-  <!-- ======= Top bar (TB) ======= -->
+  <!-- ======= Top bar (TB) — оставен без промяна ======= -->
   <header class="tb-header" role="banner">
     <div class="tb-inner">
       <!-- Лого -->
@@ -239,7 +251,7 @@
             <h3>m. flexor carpi ulnaris (лакътен сгъвач на китката)</h3>
             <div class="muscle-media muscle-video-centered">
               <img src="/pngs/sustoqniq/muscles/flexor carpi ulnaris-Thumbnail.webp" alt="Изображение на лакътен сгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/flexor carpi ulnaris-Thumbnail.webp" aria-label="Видео: лакътен сгъвач на китката">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/flexor carpi ulnaris-Thumbnail.webp" aria-label="Видео: лакътен сгъвач на китката">
                 <source src="/pngs/sustoqniq/muscles/flexor carpi ulnaris.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -279,7 +291,7 @@
             <h3>m. flexor carpi radialis (лъчев сгъвач на китката)</h3>
             <div class="muscle-media muscle-video-centered">
               <img src="/pngs/sustoqniq/muscles/flexor carpi radialis-1-Thumbnail.webp" alt="Изображение на лъчев сгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/flexor carpi radialis-1-Thumbnail.webp" aria-label="Видео: лъчев сгъвач на китката">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/flexor carpi radialis-1-Thumbnail.webp" aria-label="Видео: лъчев сгъвач на китката">
                 <source src="/pngs/sustoqniq/muscles/flexor carpi radialis-1.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -317,7 +329,7 @@
             <h3>m. palmaris longus (дълъг дланен мускул)</h3>
             <div class="muscle-media muscle-video-centered">
               <img src="../../pngs/sustoqniq/muscles/palmaris longus-Thumbnail.webp" alt="Изображение на дълъг дланен мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="../../pngs/sustoqniq/muscles/palmaris longus-Thumbnail.webp" aria-label="Видео: дълъг дланен мускул">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="../../pngs/sustoqniq/muscles/palmaris longus-Thumbnail.webp" aria-label="Видео: дълъг дланен мускул">
                 <source src="../../pngs/sustoqniq/muscles/palmaris longus.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -360,7 +372,7 @@
             <h3>m. extensor carpi radialis (лъчев разгъвач на китката)</h3>
             <div class="muscle-media muscle-video-centered">
               <img src="/pngs/sustoqniq/muscles/extensor carpi radialis-Thumbnail.webp" alt="Изображение на лъчев разгъвач на китката" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/extensor carpi radialis-Thumbnail.webp" aria-label="Видео: лъчев разгъвач на китката">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/extensor carpi radialis-Thumbnail.webp" aria-label="Видео: лъчев разгъвач на китката">
                 <source src="/pngs/sustoqniq/muscles/extensor carpi radialis.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -398,7 +410,7 @@
             <h3>m. extensor digitorum (разгъвач на пръстите)</h3>
             <div class="muscle-media muscle-video-centered">
               <img src="/pngs/sustoqniq/muscles/extensor digitorum-Thumbnail.webp" alt="Изображение на разгъвач на пръстите" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/extensor digitorum-Thumbnail.webp" aria-label="Видео: разгъвач на пръстите">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/extensor digitorum-Thumbnail.webp" aria-label="Видео: разгъвач на пръстите">
                 <source src="/pngs/sustoqniq/muscles/extensor digitorum.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -441,7 +453,7 @@
             <h3>mm. pronator quadratus, pronator teres, supinator </h3>
             <div class="muscle-media muscle-video-centered">
               <img src="/pngs/sustoqniq/muscles/pronators-Thumbnail.webp" alt="Изображение на кръгъл пронатор" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/pronators-Thumbnail.webp" aria-label="Видео: пронатори и супинатор">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/pronators-Thumbnail.webp" aria-label="Видео: пронатори и супинатор">
                 <source src="/pngs/sustoqniq/muscles/pronators.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -483,7 +495,7 @@
             <h3>Абдуктор на палеца и къс разгъвач на палеца</h3>
             <div class="muscle-media muscle-video-centered">
               <img src="/pngs/sustoqniq/muscles/Abductor policis longus and brevis-Thumbnail.webp" alt="Изображение на мускулите на палеца" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/Abductor policis longus and brevis-Thumbnail.webp" aria-label="Видео: мускули на палеца">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/Abductor policis longus and brevis-Thumbnail.webp" aria-label="Видео: мускули на палеца">
                 <source src="/pngs/sustoqniq/muscles/Abductor policis longus and brevis.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -526,7 +538,7 @@
             <h3>m. brachioradialis (брахиорадиалис)</h3>
             <div class="muscle-media muscle-video-centered">
               <img src="/pngs/sustoqniq/muscles/brachioradialis-Thumbnail.webp" alt="Изображение на брахиорадиалис" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/brachioradialis-Thumbnail.webp" aria-label="Видео: брахиорадиалис">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/brachioradialis-Thumbnail.webp" aria-label="Видео: брахиорадиалис">
                 <source src="/pngs/sustoqniq/muscles/brachioradialis.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -564,7 +576,7 @@
             <h3>m. anconeus (анконеус)</h3>
             <div class="muscle-media muscle-video-centered">
               <img src="/pngs/sustoqniq/muscles/anconeus-Thumbnail.webp" alt="Изображение на анконеус" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/anconeus-Thumbnail.webp" aria-label="Видео: анконеус">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/anconeus-Thumbnail.webp" aria-label="Видео: анконеус">
                 <source src="/pngs/sustoqniq/muscles/anconeus.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -602,7 +614,7 @@
             <h3>m. biceps brachii (бицепс)</h3>
             <div class="muscle-media muscle-video-centered">
               <img src="/pngs/sustoqniq/muscles/biceps brahi-Thumbnail.webp" alt="Изображение на бицепс мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/biceps brahi-Thumbnail.webp" aria-label="Видео: бицепс">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/biceps brahi-Thumbnail.webp" aria-label="Видео: бицепс">
                 <source src="/pngs/sustoqniq/muscles/biceps brahi.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -641,7 +653,7 @@
             <h3>m. brachialis (мишничен мускул)</h3>
             <div class="muscle-media muscle-video-centered">
               <img src="/pngs/sustoqniq/muscles/brachialis-Thumbnail.webp" alt="Изображение на мишничен мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/brachialis-Thumbnail.webp" aria-label="Видео: мишничен мускул">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/brachialis-Thumbnail.webp" aria-label="Видео: мишничен мускул">
                 <source src="/pngs/sustoqniq/muscles/brachialis.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -680,7 +692,7 @@
             <h3>m. triceps brachii (трицепс)</h3>
             <div class="muscle-media muscle-video-centered">
               <img src="/pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.webp" alt="Изображение на трицепс мускул" class="static-muscle-img" width="720" height="405" loading="lazy" decoding="async" />
-              <video muted loop preload="metadata" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.webp" aria-label="Видео: трицепс">
+              <video muted loop preload="none" class="hover-muscle-video" playsinline poster="/pngs/sustoqniq/muscles/triceps  brachii-Thumbnail.webp" aria-label="Видео: трицепс">
                 <source src="/pngs/sustoqniq/muscles/triceps  brachii.mp4" type="video/mp4" />
                 Вашият браузър не поддържа видео тага.
               </video>
@@ -760,7 +772,7 @@
             <a href="../../procedures/details-kinesitherapy.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
                 <img src="../../pngs/procedures/KT.webp" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/KT.webp">
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="../../pngs/procedures/KT.webp">
                   <source src="../../pngs/procedures/gif/KT.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -771,7 +783,7 @@
             <a href="../../procedures/lecheben-masaj.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
                 <img src="../../pngs/massages/lecheben.webp" alt="Лечебен Масаж" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/massages/lecheben.webp">
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="../../pngs/massages/lecheben.webp">
                   <source src="../../pngs/massages/gif/lecheben.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -782,7 +794,7 @@
             <a href="../../procedures/masaj.deeptisue.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
                 <img src="../../pngs/massages/deeptissue.webp" alt="Дълбокотъканен Масаж" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/massages/deeptissue.webp">
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="../../pngs/massages/deeptissue.webp">
                   <source src="../../pngs/massages/gif/deeptisue.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -793,7 +805,7 @@
             <a href="../../procedures/functional-assessment.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
                 <img src="../../pngs/procedures/function.webp" alt="Функционална оценка" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/function.webp">
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="../../pngs/procedures/function.webp">
                   <source src="../../pngs/procedures/gif/funciton.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -804,7 +816,7 @@
             <a href="../../procedures/specialized-exercises.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
                 <img src="../../pngs/procedures/exercises.webp" alt="Специализирани упражнения" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/exercises.webp">
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="../../pngs/procedures/exercises.webp">
                   <source src="../../pngs/procedures/gif/exercieses.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -815,7 +827,7 @@
             <a href="../../procedures/dry-needling.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
                 <img src="../../pngs/procedures/gif/drineedling-Thumbnail.webp" alt="Терапия със сухи игли" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/gif/drineedling-Thumbnail.webp">
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="../../pngs/procedures/gif/drineedling-Thumbnail.webp">
                   <source src="../../pngs/procedures/gif/drineedling.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -826,7 +838,7 @@
             <a href="../../procedures/kinesiotaping.html" class="kinesitherapy-button">
               <div class="kinesitherapy-button-media">
                 <img src="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.webp" alt="Кинезитерапевтична Процедура" class="kinesitherapy-img" width="360" height="203" loading="lazy" decoding="async" />
-                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="metadata" poster="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.webp">
+                <video autoplay loop muted playsinline class="kinesitherapy-video" preload="none" poster="../../pngs/procedures/gif/kinesiotape-1-Thumbnail.webp">
                   <source src="../../pngs/procedures/gif/kinesiotape-1.mp4" type="video/mp4" />
                   Вашият браузър не поддържа видео тага.
                 </video>
@@ -889,7 +901,7 @@
               <span>Работно време:</span><br />
               <span>Пон-Пет: 09:00 - 19:00</span><br />
               <span>Събота: 09:00 - 16:00</span><br />
-              </span>Неделя: Почивка</span>
+              <span>Неделя: Почивка</span>
             </div>
           </div>
           <div class="contact-item address-item">
