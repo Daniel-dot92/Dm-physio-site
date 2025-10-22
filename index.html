@@ -16,6 +16,11 @@
   <link rel="icon" type="image/webp" href="/logo.webp" sizes="32x32">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<!-- По избор: помага когато скриптът ТРЯБВА да се зареди, но не влияе на initial render -->
+<link rel="preconnect" href="https://static.hotjar.com" crossorigin>
+<link rel="preconnect" href="https://script.hotjar.com" crossorigin>
+
+
 
   <!-- Open Graph -->
   <meta property="og:title" content="Кинезитерапия и Масаж в София – DM Physio" />
@@ -115,7 +120,33 @@
     ]
   }
   </script>
+<script>
+  // Минимална опашка + конфиг (евтина, < 1ms)
+  (function(w){
+    w.hj = w.hj || function(){ (w.hj.q = w.hj.q || []).push(arguments); };
+    w._hjSettings = { hjid: 6534654, hjsv: 6 };
+  })(window);
 
+  (function(w,d){
+    function loadHotjar(){
+      if (w.__hotjarLoaded) return; w.__hotjarLoaded = true;
+      var s = d.createElement('script');
+      s.async = 1;
+      s.src = 'https://static.hotjar.com/c/hotjar-' + w._hjSettings.hjid + '.js?sv=' + w._hjSettings.hjsv;
+      d.head.appendChild(s);
+    }
+
+    // Зареди чак когато всичко е готово и браузърът е “скучаещ”
+    w.addEventListener('load', function(){
+      if ('requestIdleCallback' in w) {
+        requestIdleCallback(loadHotjar, { timeout: 6000 });
+      } else {
+        // Фолбек: 3s след load
+        setTimeout(loadHotjar, 3000);
+      }
+    });
+  })(window, document);
+</script>
   
 </head>
 
@@ -814,15 +845,6 @@
   io.observe(iframe);
 })();
 </script>
-  <!-- Hotjar -->
-  <script>
-    (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:6534654,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  </script>
+ 
 </body>
 </html>
