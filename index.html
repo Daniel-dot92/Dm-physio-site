@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P9F5K3QT');</script>
-<!-- End Google Tag Manager -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
@@ -24,6 +18,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <!-- По избор: помага когато скриптът ТРЯБВА да се зареди, но не влияе на initial render -->
+<!-- Lazy-load Google Tag Manager -->
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script>
+  // dataLayer е наличен мигновено
+  window.dataLayer = window.dataLayer || [];
+
+  // Consent Mode по подразбиране (адаптирай спрямо банера ти)
+  window.dataLayer.push(['consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'granted' // или 'denied' до съгласие
+  }]);
+
+  // маркираме старт-а (по избор)
+  window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+
+  // функция за зареждане на GTM контейнера
+  function loadGTM(){
+    if (window.__gtmLoaded) return; window.__gtmLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-P9F5K3QT';
+    document.head.appendChild(s);
+  }
+
+  // 1) зареди след първо взаимодействие (най-бързо за LCP)
+  ['scroll','mousemove','touchstart','keydown','click'].forEach(function(ev){
+    window.addEventListener(ev, loadGTM, { once:true, passive:true });
+  });
+
+  // 2) резервно – след load в idle
+  window.addEventListener('load', function(){
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGTM, { timeout: 2000 });
+    } else {
+      setTimeout(loadGTM, 1500);
+    }
+  });
+</script>
 
 
 
