@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1LDXB377VQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-1LDXB377VQ');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
@@ -41,13 +32,6 @@
   <link rel="preload" href="css/styles-procedures.css" as="style">
   <link rel="stylesheet" href="css/styles-procedures.css">
   <link rel="stylesheet" href="css/top-bar.css">
-
-  <!-- (Премахнати са: preconnect към cdnjs и двата линка към Font Awesome) -->
-
-  <!-- Външни домейни за аналитики (отложено зареждане) -->
-  <link rel="preconnect" href="https://static.hj.contentsquare.net" crossorigin>
-  <link rel="preconnect" href="https://t.contentsquare.net" crossorigin>
-  <link rel="preconnect" href="https://c.ba.contentsquare.net" crossorigin>
 
   <!-- Preload на вероятния LCP (първата карта) -->
   <link rel="preload" as="image" href="./pngs/procedures/KT.webp" fetchpriority="high">
@@ -92,17 +76,6 @@
     .tb-burger svg path{ fill: currentColor }
   </style>
 
-  <!-- Hotjar -->
-  <script>
-    (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:6534654,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  </script>
-
   <!-- JSON-LD: Breadcrumbs -->
   <script type="application/ld+json">
   {
@@ -144,10 +117,6 @@
 </head>
 
 <body class="page--kinesitherapy">
-   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9F5K3QT"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <a class="skip-link" href="#main">Към съдържанието</a>
 
 <!-- ======= Top bar (TB) ======= -->
@@ -499,7 +468,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <img src="./pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.tiktok.com/@dmphysi0" target="_blank" rel="noopener">
-            <img src="./pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
+            <img src="./pngs/social/tiktok-min.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
           </a>
         </div>
       </div>
@@ -631,6 +600,80 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }, { threshold: 0.35 });
     vids.forEach(v => io.observe(v));
   }
+})();
+</script>
+
+<!-- LAZY HOTJAR (само Hotjar, без Google Tag / GTM) -->
+<script>
+(function(){
+  var hotjarLoaded = false;
+
+  function loadHotjar(){
+    if (hotjarLoaded) return; hotjarLoaded = true;
+
+    // Забави допълнително при бавни мрежи / Save-Data
+    var delay = 0;
+    try {
+      var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      if (conn && (conn.saveData || /2g/.test(conn.effectiveType))) {
+        delay = 3000; // още 3s забавяне на мобилни с ниска свързаност
+      }
+    } catch(e){}
+
+    setTimeout(function(){
+      (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6534654,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
+      // По желание: изпрати „тригър“, когато отворят формата (ползва се в Hotjar за сегментации)
+      document.addEventListener('toggle', function(e){
+        if (e.target && e.target.id === 'adviceReveal' && e.target.open && typeof hj === 'function') {
+          try { hj('trigger','opened_advice_form'); } catch(e){}
+        }
+      }, true);
+    }, delay);
+  }
+
+  // Зареждай на по-широки екрани автоматично след кратка пауза (не блокирай LCP)
+  function lazyDesktop(){
+    if (window.matchMedia('(min-width: 769px)').matches) {
+      setTimeout(loadHotjar, 6000); // desktop: след 6s
+    }
+  }
+
+  // Тригери за мобилни и общи случаи:
+  var fired = false;
+  function fireOnce(){
+    if (fired) return; fired = true;
+    loadHotjar();
+  }
+
+  // 1) Първо взаимодействие
+  ['click','touchstart','keydown','scroll'].forEach(function(ev){
+    window.addEventListener(ev, fireOnce, { once:true, passive:true });
+  });
+
+  // 2) Idle
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(function(){ fireOnce(); }, {timeout: 8000});
+  } else {
+    window.addEventListener('load', function(){ setTimeout(fireOnce, 8000); });
+  }
+
+  // 3) Safety таймер (ако няма взаимодействие)
+  setTimeout(fireOnce, 12000);
+
+  // 4) Отваряне на панела „Безплатни насоки“ – незабавно зареждане, дори на мобилни
+  document.addEventListener('toggle', function(e){
+    if (e.target && e.target.id === 'adviceReveal' && e.target.open) loadHotjar();
+  }, true);
+
+  // 5) Desktop „мързеливо“ зареждане
+  lazyDesktop();
 })();
 </script>
 </body>
