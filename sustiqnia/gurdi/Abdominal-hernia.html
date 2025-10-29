@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P9F5K3QT');</script>
-<!-- End Google Tag Manager -->
+   
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
@@ -57,7 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//book.dmphysi0.com">
   <link rel="dns-prefetch" href="//www.google.com">
-  <link rel="dns-prefetch" href="//static.hj.contentsquare.net">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://book.dmphysi0.com" crossorigin>
@@ -87,23 +81,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   </style>
 
-  <!-- Hotjar / Contentsquare (отложено зареждане) -->
-  <script>
-  (function(){
-    function loadCS(){
-      if (document.getElementById('csq-loader')) return;
-      var s = document.createElement('script');
-      s.id='csq-loader'; s.async = true;
-      s.src = 'https://static.hj.contentsquare.net/c/csq-6534654.js';
-      s.referrerPolicy = 'no-referrer-when-downgrade';
-      document.head.appendChild(s);
-    }
-    function tryLoad(){ if (window._hjSettings && typeof window.hj === 'function') loadCS(); else setTimeout(tryLoad,2000); }
-    window.addEventListener('load', function(){
-      if ('requestIdleCallback' in window) requestIdleCallback(tryLoad,{timeout:8000}); else setTimeout(tryLoad,8000);
-    });
-  })();
-  </script>
+  
 
   <!-- JSON-LD: Организация (MedicalClinic) -->
   <script type="application/ld+json">
@@ -201,10 +179,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body>
-   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9F5K3QT"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  
 <!-- ===== SVG SPRITE ===== -->
 <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
   <symbol id="i-bars" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
@@ -704,6 +679,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- Скрит H1 за SEO -->
 <h1 class="sr-only">Абдоминална херния: причини, симптоми и ефективно лечение | DM Physio София</h1>
+</script>
+ <!-- LAZY HOTJAR (единствен блок, постави точно преди </body>) -->
+<script>
+(function(){
+  var hotjarLoaded = false;
 
+  // Зарежда Hotjar скрипта
+  function loadHotjar(){
+    if (hotjarLoaded) return; hotjarLoaded = true;
+
+    // Уважи Do-Not-Track (по желание – махни този if, ако искаш да се зарежда винаги)
+    try {
+      var dnt = navigator.doNotTrack == "1" || window.doNotTrack == "1" || navigator.msDoNotTrack == "1";
+      if (dnt) return; // не зареждай при DNT
+    } catch(e){}
+
+    // Допълнително забавяне при бавни мрежи / Save-Data
+    var delay = 0;
+    try {
+      var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      if (conn && (conn.saveData || /2g/.test(conn.effectiveType))) delay = 3000;
+    } catch(e){}
+
+    setTimeout(function(){
+      (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6534654,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    }, delay);
+  }
+
+  // Еднократен „стартер“
+  var fired = false;
+  function fireOnce(){ if (fired) return; fired = true; loadHotjar(); }
+
+  // 1) Първо взаимодействие на потребителя
+  ['click','touchstart','keydown','scroll'].forEach(function(ev){
+    window.addEventListener(ev, fireOnce, { once:true, passive:true });
+  });
+
+  // 2) Когато нишката е свободна (или след onload)
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(function(){ fireOnce(); }, { timeout: 8000 });
+  } else {
+    window.addEventListener('load', function(){ setTimeout(fireOnce, 8000); });
+  }
+
+  // 3) Абсолютен safety таймер (ако няма взаимодействие)
+  setTimeout(fireOnce, 12000);
+
+  // 4) По избор: ако имаш „разгъващ се“ панел (пример: #adviceReveal), зареди Hotjar веднага при отварянето му:
+  document.addEventListener('toggle', function(e){
+    if (e.target && e.target.id === 'adviceReveal' && e.target.open) loadHotjar();
+  }, true);
+
+  // 5) По избор: на десктоп (>=769px) зареди малко по-рано, без да блокира LCP
+  if (window.matchMedia && window.matchMedia('(min-width: 769px)').matches) {
+    setTimeout(loadHotjar, 6000);
+  }
+})();
+</script>
 </body>
 </html>

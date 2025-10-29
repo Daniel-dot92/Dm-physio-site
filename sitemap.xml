@@ -1,27 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated for dmphysi0.com -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://dmphysi0.com/</loc><priority>1.0</priority><lastmod>2025-10-01</lastmod></url>
-  <url><loc>https://dmphysi0.com/services.html</loc><lastmod>2025-09-20</lastmod></url>
-  <url><loc>https://dmphysi0.com/kinesitherapy.html</loc></url>
-  <url><loc>https://dmphysi0.com/massages.html</loc></url>
-  <url><loc>https://dmphysi0.com/pain-conditions.html</loc></url>
-  <url><loc>https://dmphysi0.com/contacts.html</loc></url>
-  <url><loc>https://dmphysi0.com/privacy-policy.html</loc></url>
-  <url><loc>https://dmphysi0.com/terms.html</loc></url>
+  <!-- Основни страници -->
+  <url><loc>https://dmphysi0.com/</loc><lastmod>2025-10-29</lastmod><priority>1.0</priority></url>
+  <url><loc>https://dmphysi0.com/index.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/services.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/kinesitherapy.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/massages.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/physiology.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/Nerves-muscles.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/online-recovery.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/pain-conditions.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/contacts.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/privacy-policy.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/terms.html</loc><lastmod>2025-10-29</lastmod></url>
+
+  <!-- Болкови страници (root) -->
+  <url><loc>https://dmphysi0.com/pain-arm.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/pain-back.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/pain-buttocks-pelvis.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/pain-chest-abdomen.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/pain-head.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/pain-lower-back.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/pain-lower-leg-ankle.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/pain-neck.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/pain-neuralgia-general.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/pain-shoulder.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/pain-thigh-knee.html</loc><lastmod>2025-10-29</lastmod></url>
+
+  <!-- Доп. head/neck страници (root) -->
+  <url><loc>https://dmphysi0.com/head-dizziness.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/head-ocipital.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/head-slepoochie.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/neck-degeneracia.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/neck-diskova.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/neck-kamshichen.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/neck-muscle.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/neck-radiculupatia.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/neck-shipove.html</loc><lastmod>2025-10-29</lastmod></url>
 
   <!-- Процедури -->
-  <url><loc>https://dmphysi0.com/procedures/details-kinesitherapy.html</loc></url>
-  <url><loc>https://dmphysi0.com/procedures/functional-assessment.html</loc></url>
-  <url><loc>https://dmphysi0.com/procedures/specialized-exercises.html</loc></url>
-  <url><loc>https://dmphysi0.com/procedures/lecheben-masaj.html</loc></url>
-  <url><loc>https://dmphysi0.com/procedures/masaj.deeptisue.html</loc></url>
-  <url><loc>https://dmphysi0.com/procedures/masaj-celulit.html</loc></url>
-  <url><loc>https://dmphysi0.com/procedures/dry-needling.html</loc></url>
-  <url><loc>https://dmphysi0.com/procedures/kinesiotaping.html</loc></url>
+  <url><loc>https://dmphysi0.com/procedures/details-kinesitherapy.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/dry-needling.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/functional-assessment.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/kinesiotaping.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/lecheben-masaj.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/manual-therapy.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/masaj-celulit.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/masaj-deeptisuegolqm.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/masaj-ergon.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/masaj-relax.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/masaj-relaxgolqm.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/masaj-sport.html</loc><lastmod>2025-10-29</lastmod></url>
+  <!-- Оставям и файла с точка в името, защото го имаш реално -->
+  <url><loc>https://dmphysi0.com/procedures/masaj.deeptisue.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/masage-vendusa.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/online-5proceduri.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/online-konsultaciq.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/online-podrujka.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/online-sesiq.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/online-videos.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/procedures/specialized-exercises.html</loc><lastmod>2025-10-29</lastmod></url>
 
-  <!-- Примери от /sustiqnia/... -->
-  <url><loc>https://dmphysi0.com/sustiqnia/krust/piriformis.html</loc></url>
-  <url><loc>https://dmphysi0.com/sustiqnia/neck-radiculupatia.html</loc></url>
-  <url><loc>https://dmphysi0.com/sustiqnia/ramo/ramo-muskuli.html</loc></url>
-  <!-- …добави всички останали налични детайлни страници -->
+  <!-- sustiqnia/arm -->
+  <url><loc>https://dmphysi0.com/sustiqnia/arm/arm-muscles.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/arm/carpal.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/arm/golf.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/arm/kisti.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/arm/nevralgii.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/arm/tenis.html</loc><lastmod>2025-10-29</lastmod></url>
+
+  <!-- sustiqnia/dupe -->
+  <url><loc>https://dmphysi0.com/sustiqnia/dupe/coxartrosis.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/dupe/dupe-muscles.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/dupe/nevralgii.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/dupe/sacroiliacpain.html</loc><lastmod>2025-10-29</lastmod></url>
+
+  <!-- sustiqnia/grub -->
+  <url><loc>https://dmphysi0.com/sustiqnia/grub/diskova.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/grub/muskuli-grub.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/grub/nevralgii.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/grub/shipove.html</loc><lastmod>2025-10-29</lastmod></url>
+
+  <!-- sustiqnia/gurdi -->
+  <url><loc>https://dmphysi0.com/sustiqnia/gurdi/Abdominal-hernia.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/gurdi/gurdi-muscles.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/gurdi/gurdi-neuralgia.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/gurdi/outlet-syndrome.html</loc><lastmod>2025-10-29</lastmod></url>
+
+  <!-- sustiqnia/krak -->
+  <url><loc>https://dmphysi0.com/sustiqnia/krak/gonarthrosis.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/krak/meniscus.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/krak/muskuli.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/krak/nevralgii.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/krak/patelofemuralpain.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/krak/vruzki.html</loc><lastmod>2025-10-29</lastmod></url>
+
+  <!-- sustiqnia/krust -->
+  <url><loc>https://dmphysi0.com/sustiqnia/krust/diskova.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/krust/krust-muscles.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/krust/nevralgii.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/krust/piriformis.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/krust/shipove.html</loc><lastmod>2025-10-29</lastmod></url>
+
+  <!-- sustiqnia/ramo -->
+  <url><loc>https://dmphysi0.com/sustiqnia/ramo/dislocation.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/ramo/impigement.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/ramo/ramo-bursit.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/ramo/ramo-diskinesia.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/ramo/ramo-muskuli.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/ramo/ramo-zamruznalo.html</loc><lastmod>2025-10-29</lastmod></url>
+
+  <!-- sustiqnia/stupalo -->
+  <url><loc>https://dmphysi0.com/sustiqnia/stupalo/axiles.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/stupalo/muskuli.html</loc><lastmod>2025-10-29</lastmod></url>
+  <url><loc>https://dmphysi0.com/sustiqnia/stupalo/spred-ankle.html</loc><lastmod>2025-10-29</lastmod></url>
+
+  <!-- Поддомейн за записване на час -->
+  <url><loc>https://book.dmphysi0.com/book</loc><lastmod>2025-10-29</lastmod></url>
 </urlset>
