@@ -1,3 +1,23 @@
+// Temporary gate: keep unfinished online plan pages unavailable in production.
+(function () {
+  'use strict';
+  var blockedPaths = new Set([
+    '/online-recovery.html',
+    '/procedures/online-program-1.html',
+    '/procedures/online-program-2.html',
+    '/procedures/online-program-3.html',
+    '/procedures/online-5proceduri.html',
+    '/procedures/online-konsultaciq.html',
+    '/procedures/online-podrujka.html',
+    '/procedures/online-sesiq.html',
+    '/procedures/online-videos.html'
+  ]);
+  var currentPath = (window.location && window.location.pathname) || '';
+  if (blockedPaths.has(currentPath)) {
+    window.location.replace('/services.html');
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
