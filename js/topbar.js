@@ -43,6 +43,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   hideUnpublishedLinks();
 
+  // Keep booking navigation in the same tab across the site.
+  function normalizeBookingLinks() {
+    const bookingHrefs = new Set([
+      'https://www.dmphysi0.com/book',
+      'https://dmphysi0.com/book',
+      'https://book.dmphysi0.com/book',
+      '/book',
+      'book'
+    ]);
+
+    document.querySelectorAll('a[href]').forEach((a) => {
+      const href = (a.getAttribute('href') || '').trim();
+      if (!bookingHrefs.has(href)) return;
+      a.setAttribute('href', '/book');
+      a.removeAttribute('target');
+      a.removeAttribute('rel');
+    });
+  }
+  normalizeBookingLinks();
+
   /* ---------- SCROLL BEHAVIOR ----------
      - ��� y > 0 -> ����� ��������� (rgba 0.4)
      - ��� y === 0 -> ������� ������

@@ -9,12 +9,7 @@
       event.stopPropagation();
       const calendlyUrl = this.dataset.calendlyUrl;
       if (calendlyUrl) {
-        if (typeof Calendly !== 'undefined' && Calendly.initPopupWidget) {
-          Calendly.initPopupWidget({ url: calendlyUrl });
-        } else {
-          console.warn('Calendly script not fully loaded. Open in new tab.');
-          window.open(calendlyUrl, '_blank');
-        }
+        window.location.assign(calendlyUrl);
       } else {
         console.error('No Calendly URL defined for this button.');
       }
