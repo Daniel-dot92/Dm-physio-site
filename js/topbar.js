@@ -10,6 +10,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav      = document.querySelector('.tb-nav');
   const dropToggles = document.querySelectorAll('.tb-drop-toggle');
 
+  // Hide unfinished "Online plan" entries globally until they are ready.
+  function hideUnpublishedLinks() {
+    const blockedHrefs = new Set([
+      '/online-recovery.html',
+      'online-recovery.html',
+      '../online-recovery.html',
+      '/procedures/online-program-1.html',
+      '/procedures/online-program-2.html',
+      '/procedures/online-program-3.html',
+      '/procedures/online-5proceduri.html',
+      '/procedures/online-konsultaciq.html',
+      '/procedures/online-podrujka.html',
+      '/procedures/online-sesiq.html',
+      '/procedures/online-videos.html'
+    ]);
+
+    document.querySelectorAll('a[href]').forEach((a) => {
+      const href = (a.getAttribute('href') || '').trim();
+      if (!blockedHrefs.has(href)) return;
+      const wrapper = a.closest('.tb-drop-item, .tb-item, .chip, li');
+      if (wrapper) {
+        wrapper.remove();
+      } else {
+        a.remove();
+      }
+    });
+  }
+  hideUnpublishedLinks();
+
   /* ---------- SCROLL BEHAVIOR ----------
      - ��� y > 0 -> ����� ��������� (rgba 0.4)
      - ��� y === 0 -> ������� ������
