@@ -33,12 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href]').forEach((a) => {
       const href = (a.getAttribute('href') || '').trim();
       if (!blockedHrefs.has(href)) return;
-      const wrapper = a.closest('.tb-drop-item, .tb-item, .chip, li');
-      if (wrapper) {
-        wrapper.remove();
-      } else {
-        a.remove();
+      const dropdownItem = a.closest('.tb-drop-item');
+      if (dropdownItem) {
+        dropdownItem.remove();
+        return;
       }
+      a.remove();
     });
   }
   hideUnpublishedLinks();
