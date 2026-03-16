@@ -2,15 +2,7 @@
 (function () {
   'use strict';
   var blockedPaths = new Set([
-    '/online-recovery.html',
-    '/procedures/online-program-1.html',
-    '/procedures/online-program-2.html',
-    '/procedures/online-program-3.html',
-    '/procedures/online-5proceduri.html',
-    '/procedures/online-konsultaciq.html',
-    '/procedures/online-podrujka.html',
-    '/procedures/online-sesiq.html',
-    '/procedures/online-videos.html'
+    '/online-recovery.html'
   ]);
   var currentPath = (window.location && window.location.pathname) || '';
   if (blockedPaths.has(currentPath)) {
@@ -35,15 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const blockedHrefs = new Set([
       '/online-recovery.html',
       'online-recovery.html',
-      '../online-recovery.html',
-      '/procedures/online-program-1.html',
-      '/procedures/online-program-2.html',
-      '/procedures/online-program-3.html',
-      '/procedures/online-5proceduri.html',
-      '/procedures/online-konsultaciq.html',
-      '/procedures/online-podrujka.html',
-      '/procedures/online-sesiq.html',
-      '/procedures/online-videos.html'
+      '../online-recovery.html'
     ]);
 
     document.querySelectorAll('a[href]').forEach((a) => {

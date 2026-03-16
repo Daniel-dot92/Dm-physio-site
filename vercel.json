@@ -4,11 +4,6 @@
       "source": "/online-recovery.html",
       "destination": "/services.html",
       "permanent": false
-    },
-    {
-      "source": "/procedures/online-:slug*",
-      "destination": "/services.html",
-      "permanent": false
     }
   ],
   "rewrites": [
