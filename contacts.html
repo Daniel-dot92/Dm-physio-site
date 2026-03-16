@@ -63,14 +63,27 @@
 
     /* ===== Локални стилове ===== */
     main{ background:var(--pc-bg); color:var(--pc-text); }
-    .contact-hero{ position:relative; padding:64px 0 42px; border-bottom:1px solid var(--pc-line); }
+    .contact-hero{ position:relative; padding:64px 0 42px; border-bottom:1px solid var(--pc-line); overflow:hidden; }
     .contact-hero__bg{
-      position:absolute; inset:-10% -20% auto -20%; height:340px; z-index:-1; pointer-events:none;
+      position:absolute; inset:0 0 auto 0; height:340px; z-index:-1; pointer-events:none;
       background:
         radial-gradient(600px 260px at 15% 30%, rgba(14,165,233,.18), transparent 60%),
         radial-gradient(520px 260px at 85% 25%, rgba(34,197,94,.18), transparent 60%),
         linear-gradient(180deg, #f8fbff 0%, #ffffff 80%);
     }
+    .hp-trap{
+      position:absolute !important;
+      width:1px !important;
+      height:1px !important;
+      margin:-1px !important;
+      border:0 !important;
+      padding:0 !important;
+      overflow:hidden !important;
+      clip:rect(0 0 0 0) !important;
+      clip-path:inset(50%) !important;
+      white-space:nowrap !important;
+    }
+    .hp-trap label{ display:none !important; }
     .contact-hero__content{
       background:#fff; border:1px solid var(--pc-line); border-radius:var(--pc-radius);
       box-shadow:0 10px 30px rgba(2,6,23,.08); padding:32px 28px; text-align:center;
@@ -111,7 +124,7 @@
     .info-card .icon{ width:42px; height:42px; flex:0 0 42px; object-fit:contain; }
     .info-card .content{ line-height:1.4; }
     .info-card .content b{ display:block; font-size:15px; margin-bottom:6px; color:#0b3b6f; }
-    .info-card .content a{ color:var(--pc-blue); text-decoration:underline; }
+    .info-card .content a{ color:var(--pc-blue); text-decoration:underline; display:inline-flex; align-items:center; min-height:40px; }
     .info-card .content a:hover{ text-decoration:none; }
 
     .phone-list{ list-style:none; padding:0; margin:0; display:grid; gap:10px; }
@@ -130,6 +143,7 @@
     .social-strip a:hover img{ transform: translateY(-3px) scale(1.03); filter: drop-shadow(0 8px 18px rgba(11,102,255,.22)); }
 
     .map-embed iframe{ width:100%; height:320px; border:0; border-radius:14px; box-shadow:0 8px 24px rgba(2,6,23,.08); background:#e9eef3; }
+    .footer-links a{ display:inline-flex; align-items:center; min-height:40px; }
   </style>
 
   <!-- JSON-LD: LocalBusiness -->
@@ -195,6 +209,7 @@
           <div class="tb-drop-menu">
             <a class="tb-drop-link" href="/kinesitherapy.html">Кинезитерапия</a>
             <a class="tb-drop-link" href="/massages.html">Масажи</a>
+            <a class="tb-drop-link" href="/online-recovery.html">Онлайн план</a>
           </div>
         </li>
         <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
@@ -258,58 +273,154 @@
                   <form id="adviceForm"
                         class="advice-form"
                         action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
-                        method="POST" target="hidden_gform" novalidate>
+                        method="POST" target="hidden_gform">
 
                     <!-- Anti-bot honeypot -->
-                    <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0" aria-hidden="true">
+                    <div class="hp-trap" aria-hidden="true">
                       <label for="hp_website">Оставете това поле празно</label>
                       <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+                    <div class="hp-trap" aria-hidden="true">
+                      <label for="hp_company">Оставете това поле празно</label>
+                      <input type="text" id="hp_company" name="company" tabindex="-1" autocomplete="off">
                     </div>
 
                     <div class="form-row">
                       <div class="field">
                         <label for="fName">Име</label>
-                        <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required autocomplete="name">
+                        <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required minlength="2" maxlength="60" autocomplete="name">
                       </div>
                       <div class="field">
                         <label for="fPhone">Телефон</label>
-                        <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required autocomplete="tel">
+                        <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required minlength="7" maxlength="20" pattern="^[+0-9\s()-]{7,20}$" autocomplete="tel">
                       </div>
                     </div>
 
                     <div class="field">
                       <label for="fEmail">Имейл</label>
-                      <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required autocomplete="email">
+                      <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required maxlength="120" autocomplete="email">
                     </div>
 
                     <div class="field">
                       <label for="fSymptoms">Опишете симптомите си</label>
                       <textarea id="fSymptoms" name="entry.1298076648" rows="4"
                         placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
-                        required></textarea>
+                        required minlength="15" maxlength="1200"></textarea>
                     </div>
 
                     <div class="form-actions">
                       <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
                       <button type="submit" class="btn-submit">Изпрати</button>
                     </div>
+                    <p id="adviceBotMsg" style="display:none;margin-top:10px;color:#ef4444;font-weight:700;" aria-live="polite"></p>
                   </form>
 
                   <!-- анти-бот логика -->
                   <script>
                   (function(){
                     const form = document.getElementById('adviceForm');
-                    if (form){
-                      const startedAt = Date.now(); let interacted=false;
-                      const mark=()=>{interacted=true;};
-                      ['input','change','keydown','mousemove','touchstart','click','scroll']
-                        .forEach(ev=>window.addEventListener(ev,mark,{once:true,passive:true}));
-                      form.addEventListener('submit', function(e){
-                        const hp=document.getElementById('hp_website');
-                        const tooFast = Date.now()-startedAt < 4000;
-                        if ((hp && hp.value.trim()!=='') || tooFast || !interacted){ e.preventDefault(); }
-                      });
+                    if (!form) return;
+
+                    const hpWebsite = document.getElementById('hp_website');
+                    const hpCompany = document.getElementById('hp_company');
+                    const phoneInput = document.getElementById('fPhone');
+                    const symptomsInput = document.getElementById('fSymptoms');
+                    const submitBtn = form.querySelector('.btn-submit');
+                    const cancelBtn = document.getElementById('cancelForm');
+                    const botMsg = document.getElementById('adviceBotMsg');
+                    const reveal = document.getElementById('adviceReveal');
+                    const hiddenFrame = document.getElementById('hidden_gform');
+                    const successBox = document.getElementById('adviceSuccess');
+
+                    let openedAt = 0;
+                    let firstInputAt = 0;
+                    let interacted = false;
+                    let didSubmit = false;
+                    let isSubmitting = false;
+
+                    function setMsg(text){
+                      if (!botMsg) return;
+                      if (!text) {
+                        botMsg.textContent = '';
+                        botMsg.style.display = 'none';
+                        return;
+                      }
+                      botMsg.textContent = text;
+                      botMsg.style.display = 'block';
                     }
+
+                    reveal && reveal.addEventListener('toggle', function(){
+                      if (reveal.open && !openedAt) openedAt = Date.now();
+                    });
+
+                    form.addEventListener('focusin', function(){
+                      if (!openedAt) openedAt = Date.now();
+                    });
+
+                    ['input','change','keydown','pointerdown','touchstart','click']
+                      .forEach(function(ev){
+                        form.addEventListener(ev, function(){
+                          interacted = true;
+                          if (!firstInputAt) firstInputAt = Date.now();
+                        }, { passive:true });
+                      });
+
+                    form.addEventListener('submit', function(e){
+                      setMsg('');
+
+                      if (isSubmitting) {
+                        e.preventDefault();
+                        return;
+                      }
+
+                      const now = Date.now();
+                      const started = openedAt || now;
+                      const tooFast = (now - started) < 3500;
+                      const tooFastTyping = firstInputAt && (now - firstInputAt) < 1200;
+                      const hasLink = /(https?:\/\/|www\.)/i.test((symptomsInput && symptomsInput.value) || '');
+                      const hpFilled =
+                        (hpWebsite && hpWebsite.value.trim() !== '') ||
+                        (hpCompany && hpCompany.value.trim() !== '');
+                      const phoneValid = phoneInput ? /^[+0-9\s()-]{7,20}$/.test(phoneInput.value.trim()) : true;
+
+                      if (hpFilled || !interacted || tooFast || tooFastTyping || hasLink || !phoneValid) {
+                        e.preventDefault();
+                        setMsg('Моля, попълнете отново. Формата не беше приета поради защита от спам.');
+                        return;
+                      }
+
+                      didSubmit = true;
+                      isSubmitting = true;
+                      if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Изпращане...';
+                      }
+
+                      setTimeout(function(){
+                        isSubmitting = false;
+                        if (submitBtn) {
+                          submitBtn.disabled = false;
+                          submitBtn.textContent = 'Изпрати';
+                        }
+                      }, 12000);
+                    });
+
+                    hiddenFrame && hiddenFrame.addEventListener('load', function(){
+                      if (!didSubmit) return;
+                      didSubmit = false;
+                      setMsg('');
+                      if (successBox) successBox.hidden = false;
+                      form.reset();
+                      interacted = false;
+                      firstInputAt = 0;
+                      openedAt = Date.now();
+                      reveal && reveal.removeAttribute('open');
+                    });
+
+                    cancelBtn && cancelBtn.addEventListener('click', function(){
+                      setMsg('');
+                      reveal && reveal.removeAttribute('open');
+                    });
                   })();
                   </script>
 
@@ -370,7 +481,7 @@
           <img class="icon" src="/pngs/social/envelope-emoji-clipart-lg.png" alt="Имейл" loading="lazy" decoding="async" width="42" height="42">
           <div class="content">
             <b>Имейл</b>
-            <a href="mailto:askdmphysio@gmail.com">askdmphysio@gmail.com</a>
+            <a href="mailto:dmphysio369@gmail.com">dmphysio369@gmail.com</a>
           </div>
         </div>
 

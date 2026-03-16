@@ -151,6 +151,7 @@
           <div class="tb-drop-menu">
             <a class="tb-drop-link" href="/kinesitherapy.html">Кинезитерапия</a>
             <a class="tb-drop-link" href="/massages.html">Масажи</a>
+            <a class="tb-drop-link" href="/online-recovery.html">Онлайн план</a>
           </div>
         </li>
 
@@ -599,114 +600,7 @@
     </div>
   </section>
 
-  <!-- FREE ADVICE (REVEAL) -->
-  <section class="advice-reveal-block" id="free-advice">
-    <div class="advice-window" role="group" aria-label="Форма за безплатни насоки">
-      <div class="advice-window__titlebar">
-        <div class="win-dots" aria-hidden="true">
-          <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
-        </div>
-        <div class="title">Безплатни насоки</div>
-      </div>
-
-      <div class="advice-window__body">
-        <!-- Банер за успех -->
-        <div class="advice-success" id="adviceSuccess" aria-live="polite" hidden>
-          <strong>Благодарим!</strong> Получихме заявката ви. Ще се свържем с вас съвсем скоро.
-        </div>
-
-        <div class="advice-intro">
-          <h3>Не знаеш коя процедура е за теб?</h3>
-          <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
-        </div>
-
-        <!-- Скрит iframe (фолбек) -->
-        <iframe name="hidden_gform" id="hidden_gform" style="display:none;" title="Скрит формуларен приемник" loading="lazy" referrerpolicy="no-referrer"></iframe>
-
-        <!-- Разгъващ се панел -->
-        <details class="advice-reveal" id="adviceReveal">
-          <summary class="advice-summary-btn">
-            <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
-            <span class="chev" aria-hidden="true"></span>
-          </summary>
-
-          <div class="advice-panel">
-            <div class="form-card">
-              <h4 class="form-card__title">Безплатна консултация</h4>
-
-              <form id="adviceForm"
-                class="advice-form"
-                action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
-                method="POST" target="hidden_gform" novalidate>
-
-                <!-- Anti-bot honeypot -->
-                <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0"
-                    aria-hidden="true">
-                  <label for="hp_website">Оставете това поле празно</label>
-                  <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
-                </div>
-
-                <div class="form-row">
-                  <div class="field">
-                    <label for="fName">Име</label>
-                    <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required autocomplete="name">
-                  </div>
-                  <div class="field">
-                    <label for="fPhone">Телефон</label>
-                    <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required autocomplete="tel">
-                  </div>
-                </div>
-
-                <div class="field">
-                  <label for="fEmail">Имейл</label>
-                  <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required autocomplete="email">
-                </div>
-
-                <div class="field">
-                  <label for="fSymptoms">Опишете симптомите си</label>
-                  <textarea id="fSymptoms" name="entry.1298076648" rows="4"
-                    placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
-                    required></textarea>
-                </div>
-
-                <div class="form-actions">
-                  <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
-                  <button type="submit" class="btn-submit">Изпрати</button>
-                </div>
-              </form>
-
-              <!-- Минимална защита срещу ботове -->
-              <script>
-              (function(){
-                const form = document.getElementById('adviceForm');
-                if (form) {
-                  const startedAt = Date.now();
-                  let interacted = false;
-                  const mark = () => { interacted = true; };
-                  ['input','change','keydown','mousemove','touchstart','click','scroll']
-                    .forEach(ev => window.addEventListener(ev, mark, { once:true, passive:true }));
-
-                  form.addEventListener('submit', function(e){
-                    const hp = document.getElementById('hp_website');
-                    const tooFast = Date.now() - startedAt < 4000;
-                    if ((hp && hp.value.trim() !== '') || tooFast || !interacted) {
-                      e.preventDefault();
-                    }
-                  });
-                }
-
-                document.getElementById('cancelForm')?.addEventListener('click', function(){
-                  document.getElementById('adviceReveal')?.removeAttribute('open');
-                });
-              })();
-              </script>
-
-            </div>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
+  
 </main>
 
 <footer class="footer">

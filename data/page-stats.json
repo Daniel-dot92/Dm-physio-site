@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-03-16T12:00:00Z",
+  "source": "hotjar-manual",
+  "window_days": 30,
+  "notes": "Sessions from Hotjar top pages; engagement is estimated from avg time on page.",
+  "pages": {
+    "/": {
+      "views": 170,
+      "engagement_seconds": 68
+    },
+    "/services.html": {
+      "views": 78,
+      "engagement_seconds": 68
+    },
+    "/sustiqnia/stupalo/axiles.html": {
+      "views": 81,
+      "engagement_seconds": 68
+    },
+    "/sustiqnia/neck-radiculupatia.html": {
+      "views": 58,
+      "engagement_seconds": 68
+    },
+    "/sustiqnia/arm/kisti.html": {
+      "views": 43,
+      "engagement_seconds": 68
+    },
+    "/pain-buttocks-pelvis.html": {
+      "views": 36,
+      "engagement_seconds": 68
+    },
+    "/sustiqnia/arm/nevralgii.html": {
+      "views": 3,
+      "engagement_seconds": 68
+    },
+    "/sustiqnia/head-dizziness.html": {
+      "views": 3,
+      "engagement_seconds": 68
+    },
+    "/sustiqnia/arm/arm-muscles.html": {
+      "views": 2,
+      "engagement_seconds": 68
+    },
+    "/contacts.html": {
+      "views": 2,
+      "engagement_seconds": 68
+    }
+  }
+}

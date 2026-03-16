@@ -1556,8 +1556,29 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
     background: var(--f-bg);
     color: var(--f-ink);
   }
-  footer .footer-links a,
-  footer .map-link{ color: var(--f-accent); }
+footer .footer-links a,
+footer .map-link{ color: var(--f-accent); }
+
+/* Touch targets (mobile/tablet) */
+@media (max-width: 1024px){
+  footer .social-links a{
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  footer .map-link{
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  footer .footer-links a{
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 4px;
+  }
+}
   footer .social-links img{ filter: drop-shadow(0 2px 6px rgba(0,0,0,.6)); }
   footer .contact-item:hover{ background: rgba(11,102,255,.14); }
 }

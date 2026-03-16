@@ -8,13 +8,9 @@
   var $ = function(s, r){ return (r||document).querySelector(s); };
   var $$ = function(s, r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
 
-  var cards = $$('.image-container, .pain-button-media').map(function(box){
-
-    var img = $('.static-img', box);
-    var vid = $('video.hover-img', box);
-    return (img&&vid)?{box:box,img:img,vid:vid,ready:false,hydrated:false}:null;
-  }).filter(Boolean);
-  if(!cards.length) return;
+  var cards = [];
+  var byBox = new Map();
+  var io = null;
 
   function prime(v, auto){
     v.muted = true; v.defaultMuted = true; v.setAttribute('muted','');
@@ -26,14 +22,12 @@
     v.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');
   }
 
-  // Лека хидратация: предпочитаме video.src; ако има <source>, местим src -> data-src и задаваме на video.src
   function hydrate(m){
     if(m.hydrated) return;
     var v = m.vid;
     var direct = v.getAttribute('data-src');
     var s = $('source', v);
 
-    // опитай да предотвратиш прекален preload при следващи навигации
     try { v.preload = 'none'; } catch(e){}
 
     if(direct){
@@ -41,9 +35,8 @@
     }else if(s && s.getAttribute('data-src')){
       v.src = s.getAttribute('data-src');
     }else if(s && s.src){
-      // мигрираме само веднъж
       v.setAttribute('data-src', s.src);
-      v.removeAttribute('src'); // спира бъдещи авто-заявки от <source>
+      v.removeAttribute('src');
       v.src = v.getAttribute('data-src');
       try { s.parentNode && s.parentNode.removeChild(s); } catch(e){}
     }else if(v.src || v.currentSrc){
@@ -59,43 +52,66 @@
     v.addEventListener('loadeddata', on, {once:true});
     try{ v.load(); }catch(e){}
   }
-  function playTry(v,n){ var go=function(){ v.play().catch(function(){ if(n>0) setTimeout(function(){playTry(v,n-1);},80); }); }; (window.requestAnimationFrame||setTimeout)(go,0); }
-  function show(m){ hydrate(m); afterReady(m.vid,function(){ m.ready=true; m.box.classList.add('video-ready'); m.vid.style.opacity='1'; m.img.style.opacity='0'; var p=m.vid.play(); if(p&&p.catch)p.catch(function(){ NEED_UNLOCK=true; }); m.box.dataset.playing='1'; }); }
-  function hide(m){ try{m.vid.pause();}catch(e){} try{m.vid.currentTime=0;}catch(e){} m.vid.style.opacity='0'; m.img.style.opacity='1'; delete m.box.dataset.playing; }
 
-  // Инициализация на слоевете (минимално)
-  for(var i=0;i<cards.length;i++){
-    var c=cards[i], b=c.box, img=c.img, v=c.vid;
+  function show(m){
+    hydrate(m);
+    afterReady(m.vid,function(){
+      m.ready=true;
+      m.box.classList.add('video-ready');
+      m.vid.style.opacity='1';
+      m.img.style.opacity='0';
+      var p=m.vid.play();
+      if(p&&p.catch) p.catch(function(){ NEED_UNLOCK=true; });
+      m.box.dataset.playing='1';
+    });
+  }
+
+  function hide(m){
+    try{m.vid.pause();}catch(e){}
+    try{m.vid.currentTime=0;}catch(e){}
+    m.vid.style.opacity='0';
+    m.img.style.opacity='1';
+    delete m.box.dataset.playing;
+  }
+
+  function initBox(m){
+    var b=m.box, img=m.img, v=m.vid;
     prime(v, IS_TOUCH);
+
     var cs = getComputedStyle(b);
     if(cs.position==='static') b.style.position='relative';
     if(cs.overflow==='visible') b.style.overflow='hidden';
+
     img.style.position=v.style.position='absolute';
     img.style.inset=v.style.inset='0';
     img.style.width=v.style.width='100%';
     img.style.height=v.style.height='100%';
     img.style.objectFit=v.style.objectFit='cover';
+
     if(!v.style.transition) v.style.transition='opacity .24s ease';
     if(!img.style.transition) img.style.transition='opacity .24s ease';
     v.style.opacity='0'; img.style.opacity='1';
-    v.addEventListener('loadeddata', function(){ this.parentNode&&this.parentNode.classList.add('video-ready'); }, {passive:true});
+
+    v.addEventListener('loadeddata', function(){
+      this.parentNode&&this.parentNode.classList.add('video-ready');
+    }, {passive:true});
+
+    if(!b.dataset.mediaBound){
+      b.dataset.mediaBound = '1';
+      if(!IS_TOUCH){
+        b.addEventListener('mouseenter', function(){ show(m); }, {passive:true});
+        b.addEventListener('mouseleave', function(){ hide(m); }, {passive:true});
+      }
+    }
   }
 
-  // Десктоп hover
-  if(!IS_TOUCH){
-    cards.forEach(function(m){
-      m.box.addEventListener('mouseenter', function(){ show(m); }, {passive:true});
-      m.box.addEventListener('mouseleave', function(){ hide(m); }, {passive:true});
-    });
-  }
-
-  // Intersection Observer (лек)
-  if('IntersectionObserver' in window){
+  function ensureObserver(){
+    if(io || !('IntersectionObserver' in window)) return;
     var thr = IS_TOUCH ? (IS_IOS?0.6:0.5) : 0.1;
-    var io = new IntersectionObserver(function(ents){
+    io = new IntersectionObserver(function(ents){
       for(var i=0;i<ents.length;i++){
         var en=ents[i];
-        var m = cards.find(function(x){ return x.box===en.target; });
+        var m = byBox.get(en.target);
         if(!m) continue;
         if(IS_TOUCH){
           if(en.isIntersecting && en.intersectionRatio>=thr){ if(!m.box.dataset.playing) show(m); }
@@ -107,7 +123,28 @@
       }
     }, {rootMargin:'200px 0px', threshold:[0,0.1,0.5,0.6,1]});
     cards.forEach(function(m){ io.observe(m.box); });
-  }else if(IS_TOUCH){
+  }
+
+  function registerBox(box){
+    if(byBox.has(box)) return;
+    var img = $('.static-img', box);
+    var vid = $('video.hover-img', box);
+    if(!(img&&vid)) return;
+    var m = {box:box,img:img,vid:vid,ready:false,hydrated:false};
+    byBox.set(box, m);
+    cards.push(m);
+    initBox(m);
+    if(io) io.observe(box);
+  }
+
+  function scan(root){
+    $$('.image-container, .pain-button-media', root||document).forEach(registerBox);
+  }
+
+  scan(document);
+  ensureObserver();
+
+  if(!('IntersectionObserver' in window) && IS_TOUCH){
     var onL=function(){ cards.forEach(show); };
     if(document.readyState==='complete') onL(); else window.addEventListener('load', onL, {once:true});
   }
@@ -166,4 +203,18 @@
   }
   window.addEventListener('orientationchange', resume);
   window.addEventListener('resize', resume);
+
+  function refresh(root){
+    scan(root||document);
+    ensureObserver();
+    if(unlocked && IS_IOS_CHROME){
+      cards.forEach(function(m){ prime(m.vid, IS_TOUCH); });
+    }
+  }
+  window.mediaAutoplayCardsRefresh = refresh;
+
+  document.addEventListener('media-autoplay-cards:refresh', function(e){
+    var root = (e && e.detail && e.detail.root) ? e.detail.root : document;
+    refresh(root);
+  });
 })();

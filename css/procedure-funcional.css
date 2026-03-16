@@ -165,4 +165,61 @@
   align-items: flex-start;
 }
 
+/* Responsive hardening: keep layout stable on tablet/mobile */
+html, body {
+  overflow-x: hidden;
+}
+
+.page-content,
+.procedure-journey,
+.sidebar-conditions,
+.container,
+.journey-step,
+.journey-content {
+  min-width: 0;
+}
+
+@media (max-width: 992px){
+  .page-content{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    max-width: 100% !important;
+    padding: 24px 12px !important;
+  }
+
+  .sidebar-conditions{
+    position: static !important;
+    top: auto !important;
+    width: 100%;
+    flex: 1 1 auto;
+    padding: 16px;
+  }
+
+  .procedure-journey{
+    width: 100%;
+    padding: 20px 12px;
+  }
+
+  .journey-step{
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .journey-image,
+  .procedure-media{
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .journey-content{
+    margin-top: 0;
+  }
+
+  .step-time2{
+    width: 100%;
+  }
+}
+
 

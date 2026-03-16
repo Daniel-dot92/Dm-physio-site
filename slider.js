@@ -146,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function updateBookingState() {
+        if (!bookAppointmentBtn) return;
         // Условията за активиране на бутона може да са по-сложни, в зависимост от вашата логика
         // Например: да има избрана процедура, дата И час.
         if (selectedProcedure && selectedDate && selectedTime) {

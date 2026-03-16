@@ -562,7 +562,7 @@ section {
 .pain-story-text .pain-info-box p { margin: 0; font-size: 1rem; line-height: 1.5; color: #333; }
 .pain-story-media {
   position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,.1);
-  cursor: pointer; transition: transform .3s ease;
+  cursor: default; transition: transform .3s ease;
 }
 .pain-story-media:hover { transform: scale(1.02); }
 .pain-story-media img, .pain-story-media video { width: 100%; display: block; border-radius: 12px; }

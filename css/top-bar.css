@@ -39,12 +39,21 @@
 }
 
 /* ���� */
+.tb-logo-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:44px;
+  min-height:44px;
+}
 .tb-logo{ width: 60px; height: auto; display:block; }
 @media (max-width:768px){ .tb-logo{ width: 40px; } }
 
 /* ��������� */
 .tb-burger{
   position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  width:44px; height:44px;
+  align-items:center; justify-content:center;
   background: none; border: 0; color: #fff; font-size: 28px; cursor: pointer;
   display: none; line-height: 1;
 }
@@ -189,4 +198,22 @@
 /* разстояние отгоре + коректен офсет за скрол до anchor-и */
 html { scroll-padding-top: calc(var(--tb-h) + 0px); }
 .page-content { padding-top: calc(var(--tb-h) + 0px); }
+
+/* Rage-click mitigation: clearer tap/click feedback without UX flow changes */
+a[href],
+button,
+input[type="submit"],
+input[type="button"],
+[role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(24, 165, 88, 0.24);
+}
+
+a[href]:active,
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active,
+[role="button"]:active {
+  filter: brightness(0.96);
+}
 

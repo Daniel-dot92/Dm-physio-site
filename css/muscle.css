@@ -505,3 +505,272 @@ footer .back-to-top:hover{ transform: translateY(-3px); }
     left: 10px; top: 10px;
   }
 }
+/* =========================
+   CELLULITE PAGE – NEW CLASSES
+   ========================== */
+
+/* Hero badges */
+.cellulite-hero .hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(4px);
+}
+
+/* Intro tweaks */
+.cellulite-intro-section .info-box {
+  margin-top: 1.2rem;
+}
+
+/* Process section */
+.cellulite-process-section .cellulite-steps-grid {
+  align-items: stretch;
+}
+
+.section-note {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Approach section */
+.cellulite-approach-section .cellulite-approach-grid,
+.cellulite-exercises-type-section .cellulite-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.cellulite-approach-section .approach-item,
+.cellulite-exercises-type-section .approach-item {
+  background: var(--card-bg, #0f1823);
+  border-radius: 1.2rem;
+  padding: 1.3rem 1.4rem;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.cellulite-approach-section .approach-item h3,
+.cellulite-exercises-type-section .approach-item h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+}
+
+.cellulite-approach-section .approach-item p,
+.cellulite-exercises-type-section .approach-item p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Massage info grid */
+.cellulite-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.cellulite-info-block {
+  background: var(--card-bg, #0f1823);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+.cellulite-info-block h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+}
+
+.cellulite-info-block p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Benefits grid (exercises, water) */
+.cellulite-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.benefit-card {
+  background: var(--card-bg, #0f1823);
+  border-radius: 1.2rem;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.benefit-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.benefit-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Nutrition section */
+.cellulite-nutrition-section .pill-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.cellulite-nutrition-section .pill-list li {
+  position: relative;
+  padding: 0.6rem 0.8rem 0.6rem 1.9rem;
+  margin-bottom: 0.4rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  font-size: 0.9rem;
+}
+
+.cellulite-nutrition-section .pill-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+/* Frequency grid */
+.cellulite-frequency-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.8rem;
+}
+
+.frequency-block {
+  background: var(--card-bg, #0f1823);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.frequency-block h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+}
+
+.frequency-block p,
+.frequency-block ul {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.frequency-block ul {
+  padding-left: 1.1rem;
+  margin: 0.4rem 0 0.8rem;
+}
+
+/* DM Physio CTA */
+.dmphysio-cta-section .dmphysio-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cellulite-approach-section .cellulite-approach-grid,
+  .cellulite-exercises-type-section .cellulite-approach-grid,
+  .cellulite-benefits-grid,
+  .cellulite-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .cellulite-approach-section .cellulite-approach-grid,
+  .cellulite-exercises-type-section .cellulite-approach-grid,
+  .cellulite-benefits-grid,
+  .cellulite-info-grid,
+  .cellulite-frequency-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-badge {
+    font-size: 0.8rem;
+  }
+}
+/* =====================================
+   CELLULITE – STORY STYLE SECTIONS
+   ====================================== */
+
+.cellulite-section {
+  padding: 3.5rem 0;
+}
+
+.cellulite-section--narrow .container {
+  max-width: 800px;
+}
+
+.cellulite-text-block {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.cellulite-text-block p {
+  margin: 0;
+}
+
+.cellulite-highlight {
+  margin-top: 0.5rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-weight: 500;
+}
+
+/* DM Physio CTA part */
+.dmphysio-cta-section .dmphysio-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.dmphysio-cta-section .button {
+  min-width: 230px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cellulite-section {
+    padding: 2.5rem 0;
+  }
+
+  .cellulite-text-block {
+    font-size: 0.93rem;
+  }
+}
