@@ -8,6 +8,22 @@
   ],
   "rewrites": [
     {
+      "source": "/book",
+      "destination": "https://book.dmphysi0.com/book"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://book.dmphysi0.com/_next/:path*"
+    },
+    {
+      "source": "/api/availability",
+      "destination": "https://book.dmphysi0.com/api/availability"
+    },
+    {
+      "source": "/api/book",
+      "destination": "https://book.dmphysi0.com/api/book"
+    },
+    {
       "source": "/pngs/:path*",
       "destination": "https://pngs-worker.volter1996.workers.dev/pngs/:path*"
     }
@@ -25,8 +41,6 @@
         { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=60, stale-while-revalidate=300" }
       ]
     },
-
- 
     {
       "source": "/(.*)\\.(png|jpg|jpeg|webp|avif|gif|mp4|webm)",
       "headers": [
