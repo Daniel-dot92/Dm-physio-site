@@ -1,8 +1,16 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "dmphysi0.com" }
+      ],
+      "destination": "https://www.dmphysi0.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/online-recovery.html",
-      "destination": "/services.html",
+      "destination": "https://www.dmphysi0.com/services.html",
       "permanent": false
     }
   ],

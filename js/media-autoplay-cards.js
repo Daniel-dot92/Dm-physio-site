@@ -11,6 +11,7 @@
   var cards = [];
   var byBox = new Map();
   var io = null;
+  var activeTouchCard = null;
 
   function prime(v, auto){
     v.muted = true; v.defaultMuted = true; v.setAttribute('muted','');
@@ -54,6 +55,9 @@
   }
 
   function show(m){
+    if (IS_TOUCH && activeTouchCard && activeTouchCard !== m){
+      hide(activeTouchCard);
+    }
     hydrate(m);
     afterReady(m.vid,function(){
       m.ready=true;
@@ -63,6 +67,7 @@
       var p=m.vid.play();
       if(p&&p.catch) p.catch(function(){ NEED_UNLOCK=true; });
       m.box.dataset.playing='1';
+      if (IS_TOUCH) activeTouchCard = m;
     });
   }
 
@@ -72,6 +77,7 @@
     m.vid.style.opacity='0';
     m.img.style.opacity='1';
     delete m.box.dataset.playing;
+    if (IS_TOUCH && activeTouchCard === m) activeTouchCard = null;
   }
 
   function initBox(m){
@@ -109,19 +115,38 @@
     if(io || !('IntersectionObserver' in window)) return;
     var thr = IS_TOUCH ? (IS_IOS?0.6:0.5) : 0.1;
     io = new IntersectionObserver(function(ents){
-      for(var i=0;i<ents.length;i++){
-        var en=ents[i];
-        var m = byBox.get(en.target);
-        if(!m) continue;
-        if(IS_TOUCH){
-          if(en.isIntersecting && en.intersectionRatio>=thr){ if(!m.box.dataset.playing) show(m); }
-          else { hide(m); }
-        }else{
+      if (IS_TOUCH){
+        var best = null;
+        var bestRatio = 0;
+        for (var i=0;i<ents.length;i++){
+          var en1=ents[i];
+          var m1 = byBox.get(en1.target);
+          if(!m1) continue;
+          if(en1.isIntersecting && en1.intersectionRatio>=thr && en1.intersectionRatio>=bestRatio){
+            best = m1;
+            bestRatio = en1.intersectionRatio;
+          }
+        }
+        for (var j=0;j<ents.length;j++){
+          var en2=ents[j];
+          var m2 = byBox.get(en2.target);
+          if(!m2) continue;
+          if(best && m2 === best){
+            if(!m2.box.dataset.playing) show(m2);
+          } else if (!en2.isIntersecting || en2.intersectionRatio < thr || m2.box.dataset.playing){
+            hide(m2);
+          }
+        }
+      } else {
+        for (var k=0;k<ents.length;k++){
+          var en=ents[k];
+          var m = byBox.get(en.target);
+          if(!m) continue;
           if(!en.isIntersecting || en.intersectionRatio<0.1) hide(m);
           else hydrate(m);
         }
       }
-    }, {rootMargin:'200px 0px', threshold:[0,0.1,0.5,0.6,1]});
+    }, {rootMargin:'80px 0px', threshold:[0,0.1,0.5,0.6,1]});
     cards.forEach(function(m){ io.observe(m.box); });
   }
 
@@ -145,7 +170,7 @@
   ensureObserver();
 
   if(!('IntersectionObserver' in window) && IS_TOUCH){
-    var onL=function(){ cards.forEach(show); };
+    var onL=function(){ if(cards.length) show(cards[0]); };
     if(document.readyState==='complete') onL(); else window.addEventListener('load', onL, {once:true});
   }
 
@@ -169,10 +194,17 @@
     if(unlocked) return; unlocked=true;
     cards.forEach(function(m){ prime(m.vid, IS_TOUCH); });
     var targets = cards.filter(function(m){ return inViewport(m.box,0.5); });
-    targets.forEach(function(m){
-      hydrate(m);
-      try{ m.vid.muted=true; m.vid.setAttribute('muted',''); var p=m.vid.play(); if(p&&p.catch)p.catch(function(){}); }catch(e){}
-    });
+    var first = targets.length ? targets[0] : null;
+    if(first){
+      hydrate(first);
+      try{
+        first.vid.muted=true;
+        first.vid.setAttribute('muted','');
+        var p=first.vid.play();
+        if(p&&p.catch)p.catch(function(){});
+        activeTouchCard = first;
+      }catch(e){}
+    }
     setTimeout(function(){
       cards.forEach(function(m){ if(!m.box.dataset.playing || !inViewport(m.box,0.5)) hide(m); });
     },120);
