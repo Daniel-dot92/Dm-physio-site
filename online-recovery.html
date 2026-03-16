@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <script>window.location.replace('/services.html');</script>
+  <noscript><meta http-equiv="refresh" content="0; url=/services.html"></noscript>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Онлайн възстановяване — ДМ ФИЗИО</title>
+  <title>Онлайн план — ДМ Физио</title>
 
-  <!-- Локални стилове -->
   <link rel="stylesheet" href="/css/styles-procedures.css" />
   <link rel="stylesheet" href="/css/top-bar.css" />
 
-  <!-- Preconnect към външни ресурси -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
-  <!-- Външни стилове неблокиращо + noscript fallback -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  </noscript>
-
-  <!-- Preload на вероятното LCP изображение (първата карта) -->
-  <link rel="preload" as="image" href="pngs/online/gif/konsultaciq-Thumbnail.jpg" fetchpriority="high">
-
-  <!-- Offset за фиксиран top bar + безопасни текстови чупки -->
   <style>
     :root{ --topbar-h:76px; }
     html { scroll-padding-top: var(--topbar-h); }
     .page-content { padding-top: calc(var(--topbar-h) + 10px); }
     @media (max-width:768px){ :root{ --topbar-h:64px; } }
 
-    /* предотвратява преливане при дълги текстове */
     .section-title, .card__title, .card__text, .page-content p, .page-content h1, .page-content h2, .page-content h3 {
       white-space: normal !important;
       overflow-wrap: anywhere;
@@ -36,342 +24,227 @@
       hyphens: auto;
     }
 
-    /* за всеки grid елемент да не раздува контейнера */
     .container > *, .procedure-cards-container > * { min-width: 0; }
 
     html, body { overflow-x: hidden; }
   </style>
+  <link rel="canonical" href="https://dmphysi0.com/online-recovery.html" />
+  <meta property="og:url" content="https://dmphysi0.com/online-recovery.html" />
 </head>
-<body>
-  <!-- ======= Top bar (TB) ======= -->
+<body id="top">
   <header class="tb-header" role="banner">
     <div class="tb-inner">
-      <!-- Лого -->
       <a href="/index.html" class="tb-logo-link" aria-label="Начало">
-        <img src="/logo.png" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" fetchpriority="high" />
+        <img src="/logo.webp" alt="ДМ Физио Лого" class="tb-logo" loading="eager" decoding="async" width="64" height="64">
       </a>
-
-      <!-- Хамбургер -->
       <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">
-        <i class="fas fa-bars" aria-hidden="true"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
       </button>
-
-      <!-- Навигация -->
       <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
         <ul class="tb-menu">
           <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
-
           <li class="tb-item tb-dropdown">
-            <a class="tb-link tb-drop-toggle" href="/services.html" data-dropdown="toggle">Процедури и Цени</a>
-            <div class="tb-drop-menu" role="menu">
-              <a class="tb-drop-link" href="/kinesitherapy.html" role="menuitem">Кинезитерапия</a>
-              <a class="tb-drop-link" href="/massages.html" role="menuitem">Масажи</a>
-              <a class="tb-drop-link" href="/online-recovery.html" role="menuitem">Онлайн Процедури</a>
+            <a class="tb-link tb-drop-toggle" href="/services.html" data-dropdown="toggle">Процедури</a>
+            <div class="tb-drop-menu">
+              <a class="tb-drop-link" href="/kinesitherapy.html">Кинезитерапия</a>
+              <a class="tb-drop-link" href="/massages.html">Масажи</a>
+              <a class="tb-drop-link is-active" href="/online-recovery.html">Онлайн план</a>
             </div>
           </li>
-
           <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
-          <li class="tb-item"><a class="tb-link is-active" href="/contacts.html">Контакти</a></li>
+          <li class="tb-item"><a class="tb-link" href="https://book.dmphysi0.com/book" rel="noopener" target="_blank">Свободни часове</a></li>
+          <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="page-content">
-    <!-- ОНЛАЙН ВЪЗСТАНОВЯВАНЕ -->
-    <section id="online-recovery-procedures" class="procedures-list section-green section">
+  <main class="page-content page--online">
+    <section class="hero-minimal">
+      <div class="hero-minimal__bg" aria-hidden="true"></div>
       <div class="container">
-        <h2 class="section-title">Онлайн възстановяване</h2>
-
-        <div class="cards procedure-cards-container">
-          <!-- Индивидуална онлайн консултация -->
-          <article class="card procedure-card" data-price="60 лв" data-duration="30 мин" data-details-url="procedures/online-konsultaciq.html">
-            <a href="procedures/online-konsultaciq.html" class="card__media-link" aria-label="Индивидуална онлайн консултация — виж детайли">
-              <div class="card__media image-container">
-                <img class="img img--static static-img" src="pngs/online/gif/konsultaciq-Thumbnail.jpg" alt="Онлайн консултация" loading="eager" decoding="async" fetchpriority="high">
-                <video class="img img--hover hover-img" muted loop playsinline preload="metadata" poster="pngs/online/gif/konsultaciq-Thumbnail.jpg" aria-hidden="true">
-                  <source src="pngs/online/gif/konsultaciq.mp4" type="video/mp4">
-                </video>
-              </div>
-            </a>
-            <div class="card__body card-content">
-              <h3 class="card__title">Индивидуална онлайн консултация</h3>
-              <p class="card__text">
-                Видео среща с лицензиран терапевт — подробна анамнеза, бързи функционални тестове и ясни домашни насоки; получавате начален план, безопасни упражнения и приоритети...
-              </p>
-              <div class="card__actions price-booking-group">
-                <a href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book" class="btn btn--primary book-button">Запази час</a>
-                <a href="procedures/online-konsultaciq.html" class="btn btn--ghost learn-more-link">Научи повече</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Онлайн сесия: Консултация + Тренировка -->
-          <article class="card procedure-card" data-price="80 лв" data-duration="60 мин" data-details-url="procedures/online-sesiq.html">
-            <a href="procedures/online-sesiq.html" class="card__media-link" aria-label="Онлайн сесия — виж детайли">
-              <div class="card__media image-container">
-                <img class="img img--static static-img" src="pngs/online/gif/trenirovka-Thumbnail.jpg" alt="Онлайн тренировка" loading="lazy" decoding="async">
-                <video class="img img--hover hover-img" muted loop playsinline preload="metadata" poster="pngs/online/gif/trenirovka-Thumbnail.jpg" aria-hidden="true">
-                  <source src="pngs/online/gif/trenirovka.mp4" type="video/mp4">
-                </video>
-              </div>
-            </a>
-            <div class="card__body card-content">
-              <h3 class="card__title">Онлайн сесия: Консултация + Тренировка</h3>
-              <p class="card__text">
-                Комбо 30 мин оценка + 30 мин персонална тренировка на живо; преглеждаме симптомите, коригираме техниката в реално време и задаваме домашни задачи за...
-              </p>
-              <div class="card__actions price-booking-group">
-                <a href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book" class="btn btn--primary book-button">Запази час</a>
-                <a href="procedures/online-sesiq.html" class="btn btn--ghost learn-more-link">Научи повече</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- План с видео уроци -->
-          <article class="card procedure-card" data-price="150 лв" data-duration="30 мин" data-details-url="procedures/online-videos.html">
-            <a href="procedures/online-videos.html" class="card__media-link" aria-label="План за възстановяване с видео уроци — виж детайли">
-              <div class="card__media image-container">
-                <img src="pngs/online/onlineupr.png" alt="План за възстановяване с видео уроци" loading="lazy" decoding="async" class="img img--static static-img">
-                <img src="pngs/online/gif/onlineupr.gif" alt="" aria-hidden="true" class="img img--hover hover-img">
-              </div>
-            </a>
-            <div class="card__body card-content">
-              <h3 class="card__title">План за възстановяване с видео уроци</h3>
-              <p class="card__text">
-                Еднократна 30 мин консултация и персонална програма във видео формат; всеки урок показва точна техника, дозировка и чести грешки, за да тренирате самостоятелно и безопасно...
-              </p>
-              <div class="card__actions price-booking-group">
-                <a href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book" class="btn btn--primary book-button">Запази час</a>
-                <a href="procedures/online-videos.html" class="btn btn--ghost learn-more-link">Научи повече</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Видео уроци + Поддръжка -->
-          <article class="card procedure-card" data-price="250 лв" data-duration="3×30 мин" data-details-url="procedures/online-podrujka.html">
-            <a href="procedures/online-podrujka.html" class="card__media-link" aria-label="Видео уроци + поддръжка — виж детайли">
-              <div class="card__media image-container">
-                <img src="pngs/online/podrujka.png" alt="Видео уроци с поддръжка" loading="lazy" decoding="async" class="img img--static static-img">
-                <img src="pngs/online/gif/podrujka.gif" alt="" aria-hidden="true" class="img img--hover hover-img">
-              </div>
-            </a>
-            <div class="card__body card-content">
-              <h3 class="card__title">Видео уроци + поддръжка</h3>
-              <p class="card__text">
-                Видео програма с 3× последващи онлайн срещи по 30 мин; постоянна обратна връзка, корекции според симптомите и адаптация на натоварването...
-              </p>
-              <div class="card__actions price-booking-group">
-                <a href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book" class="btn btn--primary book-button">Запази час</a>
-                <a href="procedures/online-podrujka.html" class="btn btn--ghost learn-more-link">Научи повече</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Пакет 5 онлайн тренировки -->
-          <article class="card procedure-card" data-price="350 лв" data-duration="5×30 мин" data-details-url="procedures/online-5proceduri.html">
-            <a href="procedures/online-5proceduri.html" class="card__media-link" aria-label="Пакет 5 онлайн тренировки — виж детайли">
-              <div class="card__media image-container">
-                <img src="pngs/online/5proceduri.png" alt="Пакет 5 онлайн тренировки" loading="lazy" decoding="async" class="img img--static static-img">
-                <img src="pngs/online/gif/5proceduri.gif" alt="" aria-hidden="true" class="img img--hover hover-img">
-              </div>
-            </a>
-            <div class="card__body card-content">
-              <h3 class="card__title">Пакет 5 онлайн тренировки</h3>
-              <p class="card__text">
-                Пет последователни тренировки на живо по 30 мин + видео ресурси; фокус върху техника, прогресии и мотивация; проследяваме резултатите и надграждаме всяка седмица за...
-              </p>
-              <div class="card__actions price-booking-group">
-                <a href="https://bookings-git-main-daniels-projects-6392a804.vercel.app/book" class="btn btn--primary book-button">Запази час</a>
-                <a href="procedures/online-5proceduri.html" class="btn btn--ghost learn-more-link">Научи повече</a>
-              </div>
-            </div>
-          </article>
+        <div class="hero-minimal__content">
+          <span class="hero-eyebrow">Онлайн план</span>
+          <h1 class="hero-title">Онлайн програми за възстановяване</h1>
+          <p class="hero-lead">
+            Изберете подходяща програма според вашите симптоми и цели. След плащане ще получите ясни стъпки,
+            персонализирани упражнения и поддръжка според избрания пакет.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- FREE ADVICE (REVEAL) -->
-    <section class="advice-reveal-block" id="free-advice">
-      <div class="advice-window" role="group" aria-label="Форма за безплатни насоки">
-        <div class="advice-window__titlebar">
-          <div class="win-dots" aria-hidden="true"><span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span></div>
-          <div class="title">Безплатни насоки</div>
-        </div>
+    <section id="programs" class="section section-green">
+      <div class="container">
+        <h2 class="section-title">Избери програма</h2>
 
-        <div class="advice-window__body">
-          <div class="advice-success" id="adviceSuccess" aria-live="polite" hidden>
-            <strong>Благодарим!</strong> Получихме заявката ви. Ще се свържем с вас съвсем скоро.
-          </div>
+        <div class="cards procedure-cards-container">
+          <article class="card program-card" aria-labelledby="program-1">
+            <a href="/procedures/online-program-1.html" class="card__media-link" aria-label="Програма 1 — виж детайли">
+              <div class="card__media image-container">
+                <img class="img img--static static-img"
+                     src="/pngs/online/gif/konsultaciq-Thumbnail.jpg"
+                     alt="Онлайн въпросник и персонализирана програма"
+                     loading="lazy" decoding="async" width="640" height="360">
+                <video class="img img--hover hover-img" loop muted playsinline preload="none"
+                       poster="/pngs/online/gif/konsultaciq-Thumbnail.jpg" aria-hidden="true">
+                  <source src="/pngs/online/gif/konsultaciq.mp4" type="video/mp4">
+                </video>
+              </div>
+            </a>
+            <div class="card__body card-content">
+              <h3 class="card__title" id="program-1">Програма 1: Персонална програма по въпросник</h3>
+              <p class="card__text">
+                Попълвате кратък въпросник за симптомите и целите ви. Получавате индивидуална тренировъчна програма,
+                съобразена с вашето състояние.
+              </p>
+              <p class="card__meta-simple"><span class="meta-price">60 EUR</span> · <span class="meta-duration">Въпросник + план</span></p>
+              <div class="card__actions price-booking-group">
+                <a href="/online-questionnaire.html" class="btn btn--primary" aria-label="Купи Програма 1">Купи</a>
+                <a href="/procedures/online-program-1.html" class="btn btn--outline" aria-label="Виж детайли за Програма 1">Виж детайли</a>
+              </div>
+              <p class="card__note">След плащане попълни въпросника, за да изготвя програмата.</p>
+            </div>
+          </article>
 
-          <div class="advice-intro">
-            <h3>Не знаеш коя процедура е за теб?</h3>
-            <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
-          </div>
-
-          <iframe name="hidden_gform" id="hidden_gform" style="display:none;"></iframe>
-
-          <details class="advice-reveal" id="adviceReveal">
-            <summary class="advice-summary-btn">
-              <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
-              <span class="chev" aria-hidden="true"></span>
-            </summary>
-
-            <div class="advice-panel">
-              <div class="form-card">
-                <h4 class="form-card__title">Безплатна консултация</h4>
-
-                <form id="adviceForm" class="advice-form"
-                      action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
-                      method="POST" target="hidden_gform">
-                  <div class="form-row">
-                    <div class="field">
-                      <label for="fName">Име</label>
-                      <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required>
-                    </div>
-                    <div class="field">
-                      <label for="fPhone">Телефон</label>
-                      <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label for="fEmail">Имейл</label>
-                    <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required>
-                  </div>
-
-                  <div class="field">
-                    <label for="fSymptoms">Опишете симптомите си</label>
-                    <textarea id="fSymptoms" name="entry.1298076648" rows="4"
-                      placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
-                      required></textarea>
-                  </div>
-
-                  <div class="form-actions">
-                    <button type="button" class="btn-cancel" id="cancelForm">Отказ</button>
-                    <button type="submit" class="btn-submit">Изпрати</button>
-                  </div>
-
-                  <p class="form-note">Няма спам. Данните се използват само за консултация.</p>
-                </form>
+          <article class="card program-card" aria-labelledby="program-2">
+            <a href="/procedures/online-program-2.html" class="card__media-link" aria-label="Програма 2 — виж детайли">
+              <div class="card__media image-container">
+                <img class="img img--static static-img"
+                     src="/pngs/online/gif/trenirovka-Thumbnail.jpg"
+                     alt="Онлайн консултация и тренировъчна програма"
+                     loading="lazy" decoding="async" width="640" height="360">
+                <video class="img img--hover hover-img" loop muted playsinline preload="none"
+                       poster="/pngs/online/gif/trenirovka-Thumbnail.jpg" aria-hidden="true">
+                  <source src="/pngs/online/gif/trenirovka.mp4" type="video/mp4">
+                </video>
+              </div>
+            </a>
+            <div class="card__body card-content">
+              <h3 class="card__title" id="program-2">Програма 2: Онлайн консултация + програма</h3>
+              <p class="card__text">
+                Провеждаме онлайн консултация, оценяваме състоянието ви и изграждаме персонална тренировъчна програма
+                с ясни инструкции.
+              </p>
+              <p class="card__meta-simple"><span class="meta-price">100 EUR</span> · <span class="meta-duration">1 консултация</span></p>
+              <div class="card__actions price-booking-group">
+                <a href="https://buy.stripe.com/REPLACE_PROGRAM_2" class="btn btn--primary" aria-label="Купи Програма 2">Купи</a>
+                <a href="/procedures/online-program-2.html" class="btn btn--outline" aria-label="Виж детайли за Програма 2">Виж детайли</a>
               </div>
             </div>
-          </details>
+          </article>
+
+          <article class="card program-card" aria-labelledby="program-3">
+            <a href="/procedures/online-program-3.html" class="card__media-link" aria-label="Програма 3 — виж детайли">
+              <div class="card__media image-container">
+                <img class="img img--static static-img"
+                     src="/pngs/online/gif/tech-check-Thumbnail.jpg"
+                     alt="Три онлайн консултации с адаптация на програмата"
+                     loading="lazy" decoding="async" width="640" height="360">
+                <video class="img img--hover hover-img" loop muted playsinline preload="none"
+                       poster="/pngs/online/gif/tech-check-Thumbnail.jpg" aria-hidden="true">
+                  <source src="/pngs/online/gif/tech-check.mp4" type="video/mp4">
+                </video>
+              </div>
+            </a>
+            <div class="card__body card-content">
+              <h3 class="card__title" id="program-3">Програма 3: 3 консултации за 3 седмици</h3>
+              <p class="card__text">
+                Три онлайн консултации в рамките на 3 седмици. След всяка среща адаптираме тренировъчния режим
+                според напредъка ви.
+              </p>
+              <p class="card__meta-simple"><span class="meta-price">150 EUR</span> · <span class="meta-duration">3 консултации</span></p>
+              <div class="card__actions price-booking-group">
+                <a href="https://buy.stripe.com/REPLACE_PROGRAM_3" class="btn btn--primary" aria-label="Купи Програма 3">Купи</a>
+                <a href="/procedures/online-program-3.html" class="btn btn--outline" aria-label="Виж детайли за Програма 3">Виж детайли</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <section class="contact-section">
-      <div class="contact-container">
-        <div class="contact-left">
-          <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg" 
-                    width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>
-
-        <div class="contact-center">
-          <h2>Свържете се с нас:</h2>
-          <div class="social-links">
-            <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener noreferrer">
-              <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async">
-            </a>
-            <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener noreferrer">
-              <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async">
-            </a>
-            <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener noreferrer">
-              <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async">
-            </a>
-            <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener noreferrer">
-              <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async">
-            </a>
-          </div>
-        </div>
-
-        <div class="contact-right">
-          <div class="contact-item phone">
-            <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async">
-            <span>0883688414</span>
-          </div>
-          <div class="contact-item work-hours">
-            <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async">
-            <div>
-              <span>Работно време:</span><br>
-              <span>Пон-Пет: 09:00 - 19:00</span><br>
-              <span>Събота: 09:00 - 16:00</span><br>
-              </span>Неделя: Почивка</span>
-            </div>
-          </div>
-          <div class="contact-item address-item">
-            <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async">
-            <div>
-              <span>София, ул. „Проф. Христо Данов“ 19</span><br>
-              <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener noreferrer" class="map-link">
-                Вижте на карта →
-              </a>
-            </div>
-          </div>
+<footer class="footer">
+  <section class="contact-section">
+    <div class="contact-container">
+      <div class="contact-left">
+        <div class="map">
+          <iframe id="mapFrame"
+            data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1467.1224362949854!2d23.344392!3d42.656166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85f99bb08d7d%3A0x97edb5ec1f8fa66d!2zRE0gUEhZU0lPLyDQlNCcINCk0JjQl9CY0J4g0KHRgtGD0LTQuNC-INC30LAg0LvQtdGH0LXQsdC90Lgg0LzQsNGB0LDQttC4INC4INC60LjQvdC10LfQuNGC0LXRgNCw0L_QuNGP!5e0!3m2!1sbg!2sbg!4v1758308144619!5m2!1sbg!2sbg"
+            width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="DM Physio – локация София"></iframe>
         </div>
       </div>
 
-      <div class="footer-links">
-        <a href="/privacy-policy.html">Политика за поверителност</a> | <a href="/terms.html">Общи условия</a>
+      <div class="contact-center">
+        <h2>Свържете се с нас:</h2>
+        <div class="social-links">
+          <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener">
+            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
+          </a>
+          <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener">
+            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
+          </a>
+          <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener">
+            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
+          </a>
+          <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener">
+            <img src="/pngs/social/tiktok-min.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
+          </a>
+        </div>
       </div>
-    </section>
-  </footer>
 
-  <!-- Скриптове -->
-  <script src="/js/topbar.js" defer></script>
-  <script src="/js/media-autoplay-cards.js" defer></script>
-  <script src="/js/form.js" defer></script>
+      <div class="contact-right">
+        <div class="contact-item phone">
+          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <span><a href="tel:0883688414">088 368 8414</a></span>
+        </div>
+        <div class="contact-item work-hours">
+          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <div>
+            <span>Работно време:</span><br>
+            <span>Пон–Пет: 09:00 – 19:00</span><br>
+            <span>Събота: 09:00 – 16:00</span><br>
+            <span>Неделя: Почивка</span>
+          </div>
+        </div>
+        <div class="contact-item address-item">
+          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <div>
+            <span>София, ул. „Проф. Христо Данов“ 19</span><br>
+            <a href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener" class="map-link">Вижте на карта →</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- Card click behaviour (no Calendly) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Click anywhere on card (except booking buttons) to open details
-      document.querySelectorAll('.procedure-card').forEach(card => {
-        const detailsUrl = card.getAttribute('data-details-url');
-        if (!detailsUrl) return;
-        card.addEventListener('click', function (e) {
-          if (e.target.closest('.book-button')) return; // don't hijack booking button clicks
-          if (e.target.closest('a')) return; // avoid double navigation if clicked on the media anchor itself
-          window.location.href = detailsUrl;
-        });
-      });
-    });
-  </script>
+    <div class="footer-links">
+      <a href="/privacy-policy.html">Политика за поверителност</a> | <a href="/terms.html">Общи условия</a>
+    </div>
+  </section>
+</footer>
 
-  <!-- Inject price/time meta outside <a> (unified system) -->
-  <script>
-    (function(){
-      document.querySelectorAll('.card').forEach(card => {
-        const anchor = card.querySelector('.card__media-link');
-        const media  = card.querySelector('.card__media');
-        if (!media) return;
+<script src="/js/topbar.js" defer></script>
+<script src="/js/media-autoplay-cards.js" defer></script>
 
-        let price = (card.getAttribute('data-price')||'').trim();
-        let duration = (card.getAttribute('data-duration')||'').trim();
-
-        // cleanup duplicates
-        card.querySelectorAll('.price-tag, .card__meta-wrap, .card__meta').forEach(el => el.remove());
-
-        if (price || duration){
-          const wrap = document.createElement('div');
-          wrap.className = 'card__meta-wrap';
-          wrap.innerHTML = `
-            <div class="card__meta" role="group" aria-label="Цена и времетраене">
-              ${price ? `<span class="meta-item price">${price}</span>` : ''}
-              ${duration ? `<span class="meta-item duration">${duration}</span>` : ''}
-            </div>
-          `;
-          if (anchor){ anchor.insertAdjacentElement('afterend', wrap); }
-          else { media.insertAdjacentElement('afterend', wrap); }
-        }
-      });
-    })();
-  </script>
+<script>
+(function(){
+  var iframe = document.getElementById('mapFrame');
+  if (!iframe || !('IntersectionObserver' in window)) return;
+  var dataSrc = iframe.getAttribute('data-src');
+  if (!dataSrc) return;
+  var io = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })){
+      if (!iframe.src) iframe.src = dataSrc;
+      io.disconnect();
+    }
+  }, { rootMargin: '300px' });
+  io.observe(iframe);
+})();
+</script>
 </body>
 </html>
+
