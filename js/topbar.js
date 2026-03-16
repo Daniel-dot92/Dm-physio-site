@@ -499,11 +499,19 @@ if (dropToggles.length){
     io.observe(target);
   }
 
+  function scheduleRecommendations() {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(setupRecommendations, { timeout: 2500 });
+    } else {
+      setTimeout(setupRecommendations, 1200);
+    }
+  }
+
   setupLocalTracking();
   setupOptionalGA4Events();
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupRecommendations, { once: true });
+    document.addEventListener('DOMContentLoaded', scheduleRecommendations, { once: true });
   } else {
-    setupRecommendations();
+    scheduleRecommendations();
   }
 })();
