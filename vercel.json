@@ -16,6 +16,10 @@
       "destination": "https://book.dmphysi0.com/_next/:path*"
     },
     {
+      "source": "/booking-topbar.js",
+      "destination": "https://book.dmphysi0.com/booking-topbar.js"
+    },
+    {
       "source": "/api/availability",
       "destination": "https://book.dmphysi0.com/api/availability"
     },
