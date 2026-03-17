@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function normalizeBookingLinks() {
     const bookingHrefs = new Set([
       'https://www.dmphysi0.com/book',
-      'https://dmphysi0.com/book',
+      'https://www.dmphysi0.com/book',
       'https://book.dmphysi0.com/book',
       '/book',
       'book'

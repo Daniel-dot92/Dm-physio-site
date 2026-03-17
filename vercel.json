@@ -3,7 +3,10 @@
     {
       "source": "/:path*",
       "has": [
-        { "type": "host", "value": "dmphysi0.com" }
+        {
+          "type": "host",
+          "value": "dmphysi0.com"
+        }
       ],
       "destination": "https://www.dmphysi0.com/:path*",
       "permanent": true
@@ -12,6 +15,56 @@
       "source": "/online-recovery.html",
       "destination": "https://www.dmphysi0.com/services.html",
       "permanent": false
+    },
+    {
+      "source": "/head-dizziness.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/head-dizziness.html",
+      "permanent": true
+    },
+    {
+      "source": "/head-ocipital.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/head-ocipital.html",
+      "permanent": true
+    },
+    {
+      "source": "/head-slepoochie.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/head-slepoochie.html",
+      "permanent": true
+    },
+    {
+      "source": "/neck-degeneracia.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/neck-degeneracia.html",
+      "permanent": true
+    },
+    {
+      "source": "/neck-diskova.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/neck-diskova.html",
+      "permanent": true
+    },
+    {
+      "source": "/neck-kamshichen.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/neck-kamshichen.html",
+      "permanent": true
+    },
+    {
+      "source": "/neck-muscle.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/neck-muscle.html",
+      "permanent": true
+    },
+    {
+      "source": "/neck-radiculupatia.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/neck-radiculupatia.html",
+      "permanent": true
+    },
+    {
+      "source": "/neck-shipove.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/neck-shipove.html",
+      "permanent": true
+    },
+    {
+      "source": "/procedures/masage-vendusa.html",
+      "destination": "https://www.dmphysi0.com/procedures/massage-vendusa.html",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -44,19 +97,28 @@
     {
       "source": "/(.*)\\.(css|js|woff2|woff|svg|ico)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(html)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=60, stale-while-revalidate=300" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=60, stale-while-revalidate=300"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(png|jpg|jpeg|webp|avif|gif|mp4|webm)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ]
