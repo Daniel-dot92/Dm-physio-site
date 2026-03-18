@@ -273,7 +273,7 @@ module.exports = async (req, res) => {
     if (!serviceEmail || !privateKey) {
       return res.status(500).json({
         ok: false,
-        error: 'Missing Google credentials. Set GOOGLE_SHEETS_CLIENT_EMAIL and GOOGLE_SHEETS_PRIVATE_KEY in Vercel.'
+        error: 'Missing Google credentials. This endpoint checks GOOGLE_SHEETS_CLIENT_EMAIL/GOOGLE_SHEETS_PRIVATE_KEY first, then GA4_CLIENT_EMAIL/GA4_PRIVATE_KEY.'
       });
     }
 
