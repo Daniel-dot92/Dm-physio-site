@@ -257,9 +257,6 @@
               <p>Попълни формата и ще ти изпратим <strong>безплатни насоки</strong> спрямо твоето състояние.</p>
             </div>
 
-            <!-- скрит приемник -->
-            <iframe name="hidden_gform" id="hidden_gform" style="display:none;" title="Скрит формуларен приемник" loading="lazy" referrerpolicy="no-referrer"></iframe>
-
             <details class="advice-reveal" id="adviceReveal">
               <summary class="advice-summary-btn">
                 <span class="btn-text" data-open="Отвори формата" data-close="Скрий формата">Пусни запитване</span>
@@ -270,10 +267,7 @@
                 <div class="form-card">
                   <h4 class="form-card__title">Безплатна консултация</h4>
 
-                  <form id="adviceForm"
-                        class="advice-form"
-                        action="https://docs.google.com/forms/d/e/1FAIpQLSeKqeEGxL2IXQU_FJ4EpdqhdEN1yApx6ps4bjlwvP29KsaTcg/formResponse"
-                        method="POST" target="hidden_gform">
+                  <form id="adviceForm" class="advice-form">
 
                     <!-- Anti-bot honeypot -->
                     <div class="hp-trap" aria-hidden="true">
@@ -288,22 +282,22 @@
                     <div class="form-row">
                       <div class="field">
                         <label for="fName">Име</label>
-                        <input id="fName" name="entry.1518547723" type="text" placeholder="Вашето име" required minlength="2" maxlength="60" autocomplete="name">
+                        <input id="fName" name="name" type="text" placeholder="Вашето име" required minlength="2" maxlength="60" autocomplete="name">
                       </div>
                       <div class="field">
                         <label for="fPhone">Телефон</label>
-                        <input id="fPhone" name="entry.1044830549" type="tel" inputmode="tel" placeholder="0888 123 456" required minlength="7" maxlength="20" pattern="^[+0-9\s()-]{7,20}$" autocomplete="tel">
+                        <input id="fPhone" name="phone" type="tel" inputmode="tel" placeholder="0888 123 456" required minlength="7" maxlength="20" pattern="^[+0-9\s()-]{7,20}$" autocomplete="tel">
                       </div>
                     </div>
 
                     <div class="field">
                       <label for="fEmail">Имейл</label>
-                      <input id="fEmail" name="entry.347254781" type="email" placeholder="your@email.com" required maxlength="120" autocomplete="email">
+                      <input id="fEmail" name="email" type="email" placeholder="your@email.com" required maxlength="120" autocomplete="email">
                     </div>
 
                     <div class="field">
                       <label for="fSymptoms">Опишете симптомите си</label>
-                      <textarea id="fSymptoms" name="entry.1298076648" rows="4"
+                      <textarea id="fSymptoms" name="symptoms" rows="4"
                         placeholder="Опишете болката, местоположение/разпространение, от кога, кое усилва/облекчава, предишни травми/изследвания, цел…"
                         required minlength="15" maxlength="1200"></textarea>
                     </div>
@@ -317,28 +311,33 @@
 
                   <!-- анти-бот логика -->
                   <script>
-                  (function(){
+                  (function () {
                     const form = document.getElementById('adviceForm');
                     if (!form) return;
 
                     const hpWebsite = document.getElementById('hp_website');
                     const hpCompany = document.getElementById('hp_company');
+                    const nameInput = document.getElementById('fName');
                     const phoneInput = document.getElementById('fPhone');
+                    const emailInput = document.getElementById('fEmail');
                     const symptomsInput = document.getElementById('fSymptoms');
                     const submitBtn = form.querySelector('.btn-submit');
                     const cancelBtn = document.getElementById('cancelForm');
                     const botMsg = document.getElementById('adviceBotMsg');
                     const reveal = document.getElementById('adviceReveal');
-                    const hiddenFrame = document.getElementById('hidden_gform');
                     const successBox = document.getElementById('adviceSuccess');
+
+                    const endpoint =
+                      (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost')
+                        ? 'https://www.dmphysi0.com/api/free-advice-submit'
+                        : '/api/free-advice-submit';
 
                     let openedAt = 0;
                     let firstInputAt = 0;
                     let interacted = false;
-                    let didSubmit = false;
                     let isSubmitting = false;
 
-                    function setMsg(text){
+                    function setMsg(text) {
                       if (!botMsg) return;
                       if (!text) {
                         botMsg.textContent = '';
@@ -349,29 +348,28 @@
                       botMsg.style.display = 'block';
                     }
 
-                    reveal && reveal.addEventListener('toggle', function(){
+                    reveal && reveal.addEventListener('toggle', function () {
                       if (reveal.open && !openedAt) openedAt = Date.now();
                     });
 
-                    form.addEventListener('focusin', function(){
+                    form.addEventListener('focusin', function () {
                       if (!openedAt) openedAt = Date.now();
                     });
 
-                    ['input','change','keydown','pointerdown','touchstart','click']
-                      .forEach(function(ev){
-                        form.addEventListener(ev, function(){
+                    ['input', 'change', 'keydown', 'pointerdown', 'touchstart', 'click']
+                      .forEach(function (ev) {
+                        form.addEventListener(ev, function () {
                           interacted = true;
                           if (!firstInputAt) firstInputAt = Date.now();
-                        }, { passive:true });
+                        }, { passive: true });
                       });
 
-                    form.addEventListener('submit', function(e){
+                    form.addEventListener('submit', async function (e) {
+                      e.preventDefault();
                       setMsg('');
 
-                      if (isSubmitting) {
-                        e.preventDefault();
-                        return;
-                      }
+                      if (isSubmitting) return;
+                      if (!form.reportValidity()) return;
 
                       const now = Date.now();
                       const started = openedAt || now;
@@ -384,40 +382,58 @@
                       const phoneValid = phoneInput ? /^[+0-9\s()-]{7,20}$/.test(phoneInput.value.trim()) : true;
 
                       if (hpFilled || !interacted || tooFast || tooFastTyping || hasLink || !phoneValid) {
-                        e.preventDefault();
-                        setMsg('Моля, попълнете отново. Формата не беше приета поради защита от спам.');
+                        setMsg('\u041c\u043e\u043b\u044f, \u043f\u043e\u043f\u044a\u043b\u043d\u0435\u0442\u0435 \u043e\u0442\u043d\u043e\u0432\u043e. \u0424\u043e\u0440\u043c\u0430\u0442\u0430 \u043d\u0435 \u0431\u0435\u0448\u0435 \u043f\u0440\u0438\u0435\u0442\u0430 \u043f\u043e\u0440\u0430\u0434\u0438 \u0437\u0430\u0449\u0438\u0442\u0430 \u043e\u0442 \u0441\u043f\u0430\u043c.');
                         return;
                       }
 
-                      didSubmit = true;
                       isSubmitting = true;
                       if (submitBtn) {
                         submitBtn.disabled = true;
-                        submitBtn.textContent = 'Изпращане...';
+                        submitBtn.textContent = '\u0418\u0437\u043f\u0440\u0430\u0449\u0430\u043d\u0435...';
                       }
 
-                      setTimeout(function(){
+                      try {
+                        const payload = {
+                          name: (nameInput && nameInput.value || '').trim(),
+                          phone: (phoneInput && phoneInput.value || '').trim(),
+                          email: (emailInput && emailInput.value || '').trim(),
+                          symptoms: (symptomsInput && symptomsInput.value || '').trim(),
+                          website: (hpWebsite && hpWebsite.value || '').trim(),
+                          company: (hpCompany && hpCompany.value || '').trim(),
+                          source_page: window.location.href,
+                          submitted_at: new Date().toISOString()
+                        };
+
+                        const resp = await fetch(endpoint, {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(payload)
+                        });
+
+                        const result = await resp.json().catch(function () { return {}; });
+                        if (!resp.ok || !result.ok) {
+                          throw new Error(result.error || '\u0412\u044a\u0437\u043d\u0438\u043a\u043d\u0430 \u043f\u0440\u043e\u0431\u043b\u0435\u043c \u043f\u0440\u0438 \u0438\u0437\u043f\u0440\u0430\u0449\u0430\u043d\u0435\u0442\u043e. \u041e\u043f\u0438\u0442\u0430\u0439\u0442\u0435 \u043e\u0442\u043d\u043e\u0432\u043e.');
+                        }
+
+                        setMsg('');
+                        if (successBox) successBox.hidden = false;
+                        form.reset();
+                        interacted = false;
+                        firstInputAt = 0;
+                        openedAt = Date.now();
+                        reveal && reveal.removeAttribute('open');
+                      } catch (err) {
+                        setMsg((err && err.message) ? err.message : '\u0412\u044a\u0437\u043d\u0438\u043a\u043d\u0430 \u043f\u0440\u043e\u0431\u043b\u0435\u043c \u043f\u0440\u0438 \u0438\u0437\u043f\u0440\u0430\u0449\u0430\u043d\u0435\u0442\u043e.');
+                      } finally {
                         isSubmitting = false;
                         if (submitBtn) {
                           submitBtn.disabled = false;
-                          submitBtn.textContent = 'Изпрати';
+                          submitBtn.textContent = '\u0418\u0437\u043f\u0440\u0430\u0442\u0438';
                         }
-                      }, 12000);
+                      }
                     });
 
-                    hiddenFrame && hiddenFrame.addEventListener('load', function(){
-                      if (!didSubmit) return;
-                      didSubmit = false;
-                      setMsg('');
-                      if (successBox) successBox.hidden = false;
-                      form.reset();
-                      interacted = false;
-                      firstInputAt = 0;
-                      openedAt = Date.now();
-                      reveal && reveal.removeAttribute('open');
-                    });
-
-                    cancelBtn && cancelBtn.addEventListener('click', function(){
+                    cancelBtn && cancelBtn.addEventListener('click', function () {
                       setMsg('');
                       reveal && reveal.removeAttribute('open');
                     });
