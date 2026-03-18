@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keep booking navigation in the same tab across the site.
   function normalizeBookingLinks() {
     const bookingHrefs = new Set([
-      'https://www.dmphysi0.com/book',
-      'https://www.dmphysi0.com/book',
+      'https://book.dmphysi0.com/book',
+      'https://book.dmphysi0.com/book',
       'https://book.dmphysi0.com/book',
       '/book',
       'book'
