@@ -32,6 +32,22 @@ function normalizePrivateKey(raw) {
   return String(raw || '').replace(/\\n/g, '\n').trim();
 }
 
+function readServiceAccountFromBase64Env() {
+  const raw = String(process.env.GOOGLE_SERVICE_ACCOUNT_JSON_BASE64 || '').trim();
+  if (!raw) return null;
+
+  try {
+    const json = Buffer.from(raw, 'base64').toString('utf8');
+    const data = JSON.parse(json);
+    return {
+      clientEmail: String(data.client_email || '').trim(),
+      privateKey: normalizePrivateKey(data.private_key || '')
+    };
+  } catch (error) {
+    return null;
+  }
+}
+
 function signJwt(serviceEmail, privateKey, scope) {
   const now = Math.floor(Date.now() / 1000);
   const header = { alg: 'RS256', typ: 'JWT' };
@@ -265,15 +281,28 @@ module.exports = async (req, res) => {
       return res.status(400).json({ ok: false, error: 'Моля, премахнете линковете от описанието.' });
     }
 
-    const spreadsheetId = process.env.FREE_ADVICE_SPREADSHEET_ID || DEFAULT_SPREADSHEET_ID;
+    const spreadsheetId =
+      process.env.FREE_ADVICE_SPREADSHEET_ID ||
+      process.env.SHEETS_SPREADSHEET_ID ||
+      DEFAULT_SPREADSHEET_ID;
     const targetSheetGid = Number(process.env.FREE_ADVICE_SHEET_GID || DEFAULT_SHEET_GID);
-    const serviceEmail = process.env.GOOGLE_SHEETS_CLIENT_EMAIL || process.env.GA4_CLIENT_EMAIL || '';
-    const privateKey = normalizePrivateKey(process.env.GOOGLE_SHEETS_PRIVATE_KEY || process.env.GA4_PRIVATE_KEY || '');
+    const base64Account = readServiceAccountFromBase64Env();
+    const serviceEmail =
+      process.env.GOOGLE_SHEETS_CLIENT_EMAIL ||
+      process.env.GA4_CLIENT_EMAIL ||
+      (base64Account && base64Account.clientEmail) ||
+      '';
+    const privateKey = normalizePrivateKey(
+      process.env.GOOGLE_SHEETS_PRIVATE_KEY ||
+      process.env.GA4_PRIVATE_KEY ||
+      (base64Account && base64Account.privateKey) ||
+      ''
+    );
 
     if (!serviceEmail || !privateKey) {
       return res.status(500).json({
         ok: false,
-        error: 'Missing Google credentials. This endpoint checks GOOGLE_SHEETS_CLIENT_EMAIL/GOOGLE_SHEETS_PRIVATE_KEY first, then GA4_CLIENT_EMAIL/GA4_PRIVATE_KEY.'
+        error: 'Missing Google credentials. Checked GOOGLE_SHEETS_CLIENT_EMAIL/GOOGLE_SHEETS_PRIVATE_KEY, GA4_CLIENT_EMAIL/GA4_PRIVATE_KEY and GOOGLE_SERVICE_ACCOUNT_JSON_BASE64.'
       });
     }
 
@@ -304,7 +333,12 @@ module.exports = async (req, res) => {
     });
   } catch (error) {
     const message = String(error && error.message ? error.message : error);
-    const serviceEmail = process.env.GOOGLE_SHEETS_CLIENT_EMAIL || process.env.GA4_CLIENT_EMAIL || '';
+    const base64Account = readServiceAccountFromBase64Env();
+    const serviceEmail =
+      process.env.GOOGLE_SHEETS_CLIENT_EMAIL ||
+      process.env.GA4_CLIENT_EMAIL ||
+      (base64Account && base64Account.clientEmail) ||
+      '';
     const permissionHint = message.includes('PERMISSION_DENIED')
       ? ` Share the spreadsheet with service account: ${serviceEmail}`
       : '';
