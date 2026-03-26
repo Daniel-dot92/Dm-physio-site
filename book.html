@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Свободни часове | DM Physio</title>
+  <meta name="description" content="Провери свободните часове и изпрати заявка за записване към DM Physio." />
+  <link rel="canonical" href="https://www.dmphysi0.com/book" />
+  <link rel="stylesheet" href="/css/top-bar.css" />
+  <style>
+    :root {
+      --bg: #f4f8fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #52627a;
+      --brand: #0a7f4f;
+      --brand-2: #0b74c9;
+      --line: #d9e4ef;
+      --danger: #b91c1c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .page {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 108px 20px 40px;
+    }
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+    }
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+    }
+    .label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .input, .textarea {
+      width: 100%;
+      border: 1px solid #c8d8e8;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+    }
+    .textarea { min-height: 110px; resize: vertical; }
+    .slots {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+      gap: 10px;
+    }
+    .slot {
+      border-radius: 10px;
+      border: 1px solid #bed2e7;
+      background: #eef5fb;
+      color: #274567;
+      padding: 10px 8px;
+      font-weight: 700;
+      cursor: default;
+      text-align: center;
+      user-select: none;
+    }
+    .slot.available {
+      cursor: pointer;
+      background: #e8f8ef;
+      border-color: #8ad0ad;
+      color: #0d6a3d;
+    }
+    .slot.available:hover { filter: brightness(0.98); }
+    .slot.selected {
+      background: #0a7f4f;
+      border-color: #0a7f4f;
+      color: #fff;
+    }
+    .status {
+      margin-top: 10px;
+      color: var(--muted);
+      min-height: 22px;
+      font-size: 0.95rem;
+    }
+    .status.error { color: var(--danger); font-weight: 700; }
+    .summary {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #f4f9ff;
+      border: 1px dashed #b8cfe6;
+      color: #274567;
+      font-weight: 600;
+    }
+    .form-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .form-grid .full { grid-column: 1 / -1; }
+    .actions {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 11px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn.primary {
+      background: var(--brand-2);
+      color: #fff;
+    }
+    .btn.secondary {
+      background: #f0f5fb;
+      color: #1f3b5b;
+      border: 1px solid #bfd0e2;
+    }
+    .disclaimer {
+      margin-top: 12px;
+      color: #60728a;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .page { padding-top: 92px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="tb-header" role="banner">
+    <div class="tb-inner">
+      <a href="/index.html" class="tb-logo-link" aria-label="Начало">
+        <img src="/logo.webp" alt="DM Physio" class="tb-logo" loading="eager" />
+      </a>
+      <button class="tb-burger" aria-controls="tb-primary-nav" aria-expanded="false" aria-label="Отвори меню">☰</button>
+      <nav class="tb-nav" id="tb-primary-nav" aria-label="Основна навигация">
+        <ul class="tb-menu">
+          <li class="tb-item"><a class="tb-link" href="/index.html">Начало</a></li>
+          <li class="tb-item"><a class="tb-link" href="/services.html">Процедури</a></li>
+          <li class="tb-item"><a class="tb-link" href="/pain-conditions.html">Болкови състояния</a></li>
+          <li class="tb-item"><a class="tb-link is-active" href="/book">Свободни часове</a></li>
+          <li class="tb-item"><a class="tb-link" href="/contacts.html">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1>Свободни часове</h1>
+      <p>Избери дата и виж свободните слотове. След това изпрати заявка и ще потвърдим часа по телефон или имейл.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <label class="label" for="bookingDate">Избери дата</label>
+        <input class="input" id="bookingDate" type="date" />
+        <div id="slotsStatus" class="status">Зареждане на свободните часове...</div>
+        <div id="slotsGrid" class="slots" aria-live="polite"></div>
+        <div id="selectedSummary" class="summary">Избран час: няма</div>
+      </article>
+
+      <article class="card">
+        <form id="bookingRequestForm">
+          <div class="form-grid">
+            <div class="full">
+              <label class="label" for="reqName">Име</label>
+              <input class="input" id="reqName" required minlength="2" maxlength="80" />
+            </div>
+            <div>
+              <label class="label" for="reqPhone">Телефон</label>
+              <input class="input" id="reqPhone" required placeholder="0888 123 456" />
+            </div>
+            <div>
+              <label class="label" for="reqEmail">Имейл</label>
+              <input class="input" id="reqEmail" type="email" required placeholder="you@email.com" />
+            </div>
+            <div class="full">
+              <label class="label" for="reqNotes">Допълнително</label>
+              <textarea class="textarea" id="reqNotes" placeholder="Кратко описание (по желание)"></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn primary" id="sendRequestBtn" type="submit">Изпрати заявка</button>
+            <a class="btn secondary" href="tel:+359883688414">Обади се: 0883 688 414</a>
+          </div>
+          <div id="requestStatus" class="status"></div>
+          <p class="disclaimer">Това е заявка, не автоматично потвърждение. Свързваме се с теб за финално потвърждение на часа.</p>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <script src="/js/topbar.js" defer></script>
+  <script>
+    (function () {
+      const dateInput = document.getElementById('bookingDate');
+      const slotsGrid = document.getElementById('slotsGrid');
+      const slotsStatus = document.getElementById('slotsStatus');
+      const selectedSummary = document.getElementById('selectedSummary');
+      const form = document.getElementById('bookingRequestForm');
+      const requestStatus = document.getElementById('requestStatus');
+      const sendRequestBtn = document.getElementById('sendRequestBtn');
+
+      let selectedSlot = null;
+
+      function formatDateBg(isoDate) {
+        const d = new Date(isoDate + 'T00:00:00');
+        return d.toLocaleDateString('bg-BG');
+      }
+
+      function setStatus(text, isError) {
+        slotsStatus.textContent = text || '';
+        slotsStatus.classList.toggle('error', Boolean(isError));
+      }
+
+      function setRequestStatus(text, isError) {
+        requestStatus.textContent = text || '';
+        requestStatus.classList.toggle('error', Boolean(isError));
+      }
+
+      function updateSummary() {
+        if (!selectedSlot || !dateInput.value) {
+          selectedSummary.textContent = 'Избран час: няма';
+          return;
+        }
+        selectedSummary.textContent = 'Избран час: ' + formatDateBg(dateInput.value) + ' в ' + selectedSlot;
+      }
+
+      function renderSlots(slots) {
+        slotsGrid.innerHTML = '';
+        if (!Array.isArray(slots) || !slots.length) {
+          setStatus('Няма налични слотове за тази дата.', false);
+          selectedSlot = null;
+          updateSummary();
+          return;
+        }
+
+        const availableCount = slots.filter(function (slot) { return slot.available; }).length;
+        setStatus(availableCount ? ('Свободни часове: ' + availableCount) : 'Няма свободни часове за тази дата.', false);
+
+        slots.forEach(function (slot) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'slot' + (slot.available ? ' available' : '');
+          btn.textContent = slot.time;
+          if (!slot.available) {
+            btn.disabled = true;
+          } else {
+            btn.addEventListener('click', function () {
+              selectedSlot = slot.time;
+              slotsGrid.querySelectorAll('.slot.selected').forEach(function (el) { el.classList.remove('selected'); });
+              btn.classList.add('selected');
+              updateSummary();
+            });
+          }
+          slotsGrid.appendChild(btn);
+        });
+      }
+
+      async function loadSlotsForDate(dateIso) {
+        if (!dateIso) return;
+        setStatus('Зареждане на свободните часове...', false);
+        slotsGrid.innerHTML = '';
+        selectedSlot = null;
+        updateSummary();
+
+        try {
+          const resp = await fetch('/api/availability?date=' + encodeURIComponent(dateIso));
+          const data = await resp.json();
+          if (!resp.ok || !data || !Array.isArray(data.slots)) {
+            throw new Error('Неуспешно зареждане на свободните часове.');
+          }
+          renderSlots(data.slots);
+        } catch (error) {
+          setStatus((error && error.message) ? error.message : 'Грешка при зареждане.', true);
+          slotsGrid.innerHTML = '';
+        }
+      }
+
+      function defaultDateValue() {
+        const now = new Date();
+        const y = now.getFullYear();
+        const m = String(now.getMonth() + 1).padStart(2, '0');
+        const d = String(now.getDate()).padStart(2, '0');
+        return y + '-' + m + '-' + d;
+      }
+
+      dateInput.min = defaultDateValue();
+      dateInput.value = defaultDateValue();
+      loadSlotsForDate(dateInput.value);
+
+      dateInput.addEventListener('change', function () {
+        loadSlotsForDate(dateInput.value);
+      });
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        setRequestStatus('', false);
+
+        if (!selectedSlot) {
+          setRequestStatus('Моля, избери свободен час от календара.', true);
+          return;
+        }
+
+        const name = document.getElementById('reqName').value.trim();
+        const phone = document.getElementById('reqPhone').value.trim();
+        const email = document.getElementById('reqEmail').value.trim();
+        const notes = document.getElementById('reqNotes').value.trim();
+
+        if (!name || !phone || !email) {
+          setRequestStatus('Моля, попълни име, телефон и имейл.', true);
+          return;
+        }
+
+        const symptomsText =
+          'Booking request - Date: ' + dateInput.value +
+          ', Time: ' + selectedSlot +
+          (notes ? (', Notes: ' + notes) : '');
+
+        sendRequestBtn.disabled = true;
+        sendRequestBtn.textContent = 'Изпращане...';
+
+        try {
+          const resp = await fetch('/api/free-advice-submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: name,
+              phone: phone,
+              email: email,
+              symptoms: symptomsText,
+              website: '',
+              company: '',
+              source_page: window.location.href,
+              submitted_at: new Date().toISOString()
+            })
+          });
+
+          const result = await resp.json().catch(function () { return {}; });
+          if (!resp.ok || !result.ok) {
+            throw new Error(result.error || 'Неуспешно изпращане.');
+          }
+
+          form.reset();
+          selectedSlot = null;
+          updateSummary();
+          setRequestStatus('Заявката е изпратена успешно. Ще се свържем с теб за потвърждение.', false);
+          loadSlotsForDate(dateInput.value);
+        } catch (error) {
+          setRequestStatus((error && error.message) ? error.message : 'Грешка при изпращане.', true);
+        } finally {
+          sendRequestBtn.disabled = false;
+          sendRequestBtn.textContent = 'Изпрати заявка';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
