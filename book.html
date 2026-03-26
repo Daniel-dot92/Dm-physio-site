@@ -322,9 +322,44 @@
         return y + '-' + m + '-' + d;
       }
 
-      dateInput.min = defaultDateValue();
-      dateInput.value = defaultDateValue();
-      loadSlotsForDate(dateInput.value);
+      function addDays(dateIso, days) {
+        const d = new Date(dateIso + 'T00:00:00');
+        d.setDate(d.getDate() + days);
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return y + '-' + m + '-' + day;
+      }
+
+      async function findNearestDateWithAvailableSlots(startDateIso, daysAhead) {
+        let firstNonEmptyDate = null;
+        for (let i = 0; i <= daysAhead; i++) {
+          const checkDate = addDays(startDateIso, i);
+          try {
+            const resp = await fetch('/api/availability?date=' + encodeURIComponent(checkDate));
+            const data = await resp.json();
+            const slots = Array.isArray(data && data.slots) ? data.slots : [];
+            if (!firstNonEmptyDate && slots.length) firstNonEmptyDate = checkDate;
+            if (slots.some(function (slot) { return slot.available; })) {
+              return checkDate;
+            }
+          } catch (error) {
+            // Continue with next date; we fallback to start date below.
+          }
+        }
+        return firstNonEmptyDate || startDateIso;
+      }
+
+      async function initCalendar() {
+        const today = defaultDateValue();
+        dateInput.min = today;
+        setStatus('Търсене на най-близък свободен ден...', false);
+        const bestDate = await findNearestDateWithAvailableSlots(today, 14);
+        dateInput.value = bestDate;
+        await loadSlotsForDate(bestDate);
+      }
+
+      initCalendar();
 
       dateInput.addEventListener('change', function () {
         loadSlotsForDate(dateInput.value);
