@@ -70,7 +70,15 @@
   "rewrites": [
     {
       "source": "/book",
-      "destination": "/book.html"
+      "destination": "https://book.dmphysi0.com/book"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://book.dmphysi0.com/_next/:path*"
+    },
+    {
+      "source": "/booking-topbar.js",
+      "destination": "https://book.dmphysi0.com/booking-topbar.js"
     },
     {
       "source": "/api/availability",
