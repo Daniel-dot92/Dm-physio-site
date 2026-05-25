@@ -10,6 +10,210 @@
   }
 })();
 
+/* ---------- Cookie consent for analytics scripts ---------- */
+(function () {
+  'use strict';
+
+  var CONSENT_KEY = 'dm_cookie_consent_v1';
+  var HOTJAR_ID = 6534654;
+  var HOTJAR_VERSION = 6;
+  var blockedScriptHosts = [
+    'static.hotjar.com',
+    'script.hotjar.com',
+    'googletagmanager.com',
+    'google-analytics.com'
+  ];
+
+  function readConsent() {
+    try {
+      return JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null');
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function saveConsent(analyticsAllowed) {
+    var payload = {
+      analytics: Boolean(analyticsAllowed),
+      updatedAt: new Date().toISOString()
+    };
+    try {
+      localStorage.setItem(CONSENT_KEY, JSON.stringify(payload));
+    } catch (_) {}
+    window.dispatchEvent(new CustomEvent('dm-cookie-consent-change', { detail: payload }));
+    return payload;
+  }
+
+  function hasAnalyticsConsent() {
+    var consent = readConsent();
+    return Boolean(consent && consent.analytics === true);
+  }
+
+  window.dmHasAnalyticsConsent = hasAnalyticsConsent;
+
+  function isAnalyticsScript(node) {
+    if (!node || node.tagName !== 'SCRIPT') return false;
+    var src = String(node.src || node.getAttribute('src') || '').toLowerCase();
+    return blockedScriptHosts.some(function (host) { return src.indexOf(host) !== -1; });
+  }
+
+  function patchScriptInsertion() {
+    if (window.__dmCookieScriptPatch) return;
+    window.__dmCookieScriptPatch = true;
+
+    var originalAppendChild = Node.prototype.appendChild;
+    var originalInsertBefore = Node.prototype.insertBefore;
+
+    Node.prototype.appendChild = function (node) {
+      if (isAnalyticsScript(node) && !hasAnalyticsConsent()) {
+        return node;
+      }
+      return originalAppendChild.call(this, node);
+    };
+
+    Node.prototype.insertBefore = function (node, referenceNode) {
+      if (isAnalyticsScript(node) && !hasAnalyticsConsent()) {
+        return node;
+      }
+      return originalInsertBefore.call(this, node, referenceNode);
+    };
+  }
+
+  function respectsDoNotTrack() {
+    try {
+      return navigator.doNotTrack === '1' || window.doNotTrack === '1' || navigator.msDoNotTrack === '1';
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function loadHotjar() {
+    if (window.__dmHotjarLoaded || !hasAnalyticsConsent() || respectsDoNotTrack()) return;
+    window.__dmHotjarLoaded = true;
+
+    (function (h, o, t, j, a, r) {
+      h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments); };
+      h._hjSettings = { hjid: HOTJAR_ID, hjsv: HOTJAR_VERSION };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script');
+      r.async = true;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  }
+
+  function loadGA4() {
+    var GA4_ID = window.DM_GA4_ID || '';
+    if (!GA4_ID || window.__dmGA4Loaded || !hasAnalyticsConsent()) return;
+    window.__dmGA4Loaded = true;
+
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
+    document.head.appendChild(s);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA4_ID, { send_page_view: true });
+  }
+
+  window.dmLoadAnalytics = function () {
+    loadHotjar();
+    loadGA4();
+  };
+
+  function injectStyles() {
+    if (document.getElementById('dm-cookie-consent-style')) return;
+    var style = document.createElement('style');
+    style.id = 'dm-cookie-consent-style';
+    style.textContent = [
+      '.dm-cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;display:flex;gap:16px;align-items:center;justify-content:space-between;max-width:980px;margin:0 auto;padding:16px 18px;border:1px solid rgba(15,23,42,.14);border-radius:14px;background:#fff;color:#102033;box-shadow:0 18px 44px rgba(15,23,42,.18);font-family:inherit}',
+      '.dm-cookie-banner[hidden]{display:none}',
+      '.dm-cookie-text{font-size:14px;line-height:1.45;margin:0}',
+      '.dm-cookie-text strong{display:block;margin-bottom:3px;color:#063f3d;font-size:15px}',
+      '.dm-cookie-text a{color:#086f83;font-weight:700;text-decoration:underline;text-underline-offset:2px}',
+      '.dm-cookie-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;flex:0 0 auto}',
+      '.dm-cookie-btn{border:1px solid #c9d6df;border-radius:999px;background:#fff;color:#123;padding:10px 14px;font-weight:700;cursor:pointer;font-size:14px}',
+      '.dm-cookie-btn:hover{background:#f3f8fa}',
+      '.dm-cookie-btn--primary{background:#0e7c86;border-color:#0e7c86;color:#fff}',
+      '.dm-cookie-btn--primary:hover{background:#096670}',
+      '.dm-cookie-manage{position:fixed;left:14px;bottom:14px;z-index:99998;border:1px solid #c9d6df;border-radius:999px;background:#fff;color:#123;padding:8px 11px;font-size:12px;font-weight:700;box-shadow:0 8px 22px rgba(15,23,42,.14);cursor:pointer}',
+      '.dm-cookie-manage[hidden]{display:none}',
+      '@media (max-width:700px){.dm-cookie-banner{left:10px;right:10px;bottom:10px;display:block;padding:14px}.dm-cookie-actions{margin-top:12px;justify-content:stretch}.dm-cookie-btn{flex:1 1 auto}}'
+    ].join('');
+    document.head.appendChild(style);
+  }
+
+  function buildBanner() {
+    if (document.getElementById('dm-cookie-banner')) return;
+    injectStyles();
+
+    var banner = document.createElement('section');
+    banner.id = 'dm-cookie-banner';
+    banner.className = 'dm-cookie-banner';
+    banner.setAttribute('aria-label', 'Съгласие за бисквитки');
+    banner.hidden = Boolean(readConsent());
+    banner.innerHTML = [
+      '<p class="dm-cookie-text">',
+      '<strong>Използваме бисквитки за подобряване на сайта</strong>',
+      'Необходимите бисквитки пазят сайта работещ. С ваше съгласие използваме аналитични инструменти като Hotjar, за да разбираме кои страници са полезни и къде потребителите се затрудняват. ',
+      '<a href="/privacy-policy.html">Политика за поверителност</a>',
+      '</p>',
+      '<div class="dm-cookie-actions">',
+      '<button class="dm-cookie-btn" type="button" data-dm-cookie-reject>Само необходими</button>',
+      '<button class="dm-cookie-btn dm-cookie-btn--primary" type="button" data-dm-cookie-accept>Приемам</button>',
+      '</div>'
+    ].join('');
+
+    var manage = document.createElement('button');
+    manage.id = 'dm-cookie-manage';
+    manage.className = 'dm-cookie-manage';
+    manage.type = 'button';
+    manage.textContent = 'Бисквитки';
+    manage.hidden = !readConsent();
+
+    document.body.appendChild(banner);
+    document.body.appendChild(manage);
+
+    function closeWithChoice(analyticsAllowed) {
+      saveConsent(analyticsAllowed);
+      banner.hidden = true;
+      manage.hidden = false;
+      if (analyticsAllowed) window.dmLoadAnalytics();
+    }
+
+    banner.querySelector('[data-dm-cookie-accept]').addEventListener('click', function () {
+      closeWithChoice(true);
+    });
+
+    banner.querySelector('[data-dm-cookie-reject]').addEventListener('click', function () {
+      closeWithChoice(false);
+    });
+
+    manage.addEventListener('click', function () {
+      banner.hidden = false;
+      manage.hidden = true;
+    });
+  }
+
+  patchScriptInsertion();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildBanner, { once: true });
+  } else {
+    buildBanner();
+  }
+
+  if (hasAnalyticsConsent()) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', window.dmLoadAnalytics, { once: true });
+    } else {
+      window.dmLoadAnalytics();
+    }
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 

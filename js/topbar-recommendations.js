@@ -43,6 +43,8 @@
   }
 
   function setupLocalTracking() {
+    if (!window.dmHasAnalyticsConsent || !window.dmHasAnalyticsConsent()) return;
+
     var path = normalizePath(window.location.pathname);
     upsertLocalStats(path, 1, 0);
 
@@ -66,6 +68,8 @@
   }
 
   function setupOptionalGA4Events() {
+    if (!window.dmHasAnalyticsConsent || !window.dmHasAnalyticsConsent()) return;
+
     // Optional: set this once globally if you want automatic GA4 events.
     // Example: window.DM_GA4_ID = 'G-XXXXXXXXXX';
     var GA4_ID = window.DM_GA4_ID || '';
