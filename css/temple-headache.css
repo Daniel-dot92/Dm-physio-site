@@ -412,6 +412,7 @@ section {
 
 /* Media 1:1 inside timeline steps */
 .hernia-step-media {
+  display: block;
   position: relative;
   width: 100%;
   max-width: 400px;
@@ -1069,7 +1070,8 @@ a:hover{
 
 /* карта/медия */
 .dt-media{
-  position:relative; width:100%; aspect-ratio:1/1;
+  display:block;
+  position:relative; width:min(100%, 400px); aspect-ratio:1/1;
   border-radius:12px; overflow:hidden;
   box-shadow:0 8px 24px rgba(0,0,0,.15);
 }

@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://www.dmphysi0.com/sitemap.xml
+Sitemap: https://www.dmphysi0.com/video-sitemap.xml

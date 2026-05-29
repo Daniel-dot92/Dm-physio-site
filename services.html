@@ -92,190 +92,313 @@
   <!-- JSON-LD: WebPage + ItemList -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "@id":"https://www.dmphysi0.com/services.html#webpage",
-    "url":"https://www.dmphysi0.com/services.html",
-    "name":"Процедури и цени – кинезитерапия и масажи",
-    "description":"Кинезитерапия, функционална оценка, специализирани упражнения и масажи – цени и продължителност в DM Physio София.",
-    "isPartOf":{"@type":"WebSite","name":"DM Physio","url":"https://www.dmphysi0.com/"},
-    "primaryImageOfPage":{"@type":"ImageObject","url":"https://www.dmphysi0.com/pngs/procedures/KT.webp"},
-    "mainEntity":{
-      "@type":"ItemList",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"item":{"@type":"Service","name":"Кинезитерапевтична процедура","url":"https://www.dmphysi0.com/procedures/details-kinesitherapy.html","description":"30 мануална терапия + 30 активиране и стабилизация.","offers":{"@type":"Offer","price":"50","priceCurrency":"EUR"},"timeRequired":"PT60M"}},
-        {"@type":"ListItem","position":2,"item":{"@type":"Service","name":"Функционална оценка","url":"https://www.dmphysi0.com/procedures/functional-assessment.html","description":"Стойка, походка, модели на движение.","offers":{"@type":"Offer","price":"0","priceCurrency":"BGN"},"timeRequired":"PT10M"}},
-        {"@type":"ListItem","position":3,"item":{"@type":"Service","name":"Специализирани упражнения","url":"https://www.dmphysi0.com/procedures/specialized-exercises.html","description":"Персонална програма, техника и прогресия.","offers":{"@type":"Offer","price":"30","priceCurrency":"EUR"},"timeRequired":"PT30M"}},
-        {"@type":"ListItem","position":4,"item":{"@type":"Service","name":"Лечебен масаж","url":"https://www.dmphysi0.com/procedures/lecheben-masaj.html","description":"Техники за облекчаване на болка и напрежение.","offers":{"@type":"Offer","price":"50","priceCurrency":"EUR"},"timeRequired":"PT60M"}},
-        {"@type":"ListItem","position":5,"item":{"@type":"Service","name":"Дълбокотъканен масаж","url":"https://www.dmphysi0.com/procedures/masaj.deeptisue.html","description":"Интензивна работа в дълбочина.","offers":{"@type":"Offer","price":"50","priceCurrency":"EUR"},"timeRequired":"PT60M"}},
-        {"@type":"ListItem","position":6,"item":{"@type":"Service","name":"Антицелулитен масаж","url":"https://www.dmphysi0.com/procedures/masaj-celulit.html","description":"Лимфодренажни и тъканни техники.","offers":{"@type":"Offer","price":"50","priceCurrency":"EUR"},"timeRequired":"PT60M"}}
-      ]
-    }
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.dmphysi0.com/services.html#webpage",
+  "url": "https://www.dmphysi0.com/services.html",
+  "name": "Процедури и цени – кинезитерапия и масажи",
+  "description": "Кинезитерапия, функционална оценка, специализирани упражнения и масажи – цени и продължителност в DM Physio София.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DM Physio",
+    "url": "https://www.dmphysi0.com/"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://www.dmphysi0.com/pngs/procedures/KT.webp"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Service",
+          "name": "Кинезитерапевтична процедура",
+          "url": "https://www.dmphysi0.com/procedures/details-kinesitherapy.html",
+          "description": "30 мануална терапия + 30 активиране и стабилизация.",
+          "offers": {
+            "@type": "Offer",
+            "price": "50",
+            "priceCurrency": "EUR"
+          },
+          "timeRequired": "PT60M"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Service",
+          "name": "Функционална оценка",
+          "url": "https://www.dmphysi0.com/procedures/functional-assessment.html",
+          "description": "Стойка, походка, модели на движение.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BGN"
+          },
+          "timeRequired": "PT10M"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Service",
+          "name": "Специализирани упражнения",
+          "url": "https://www.dmphysi0.com/procedures/specialized-exercises.html",
+          "description": "Персонална програма, техника и прогресия.",
+          "offers": {
+            "@type": "Offer",
+            "price": "30",
+            "priceCurrency": "EUR"
+          },
+          "timeRequired": "PT30M"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Service",
+          "name": "Лечебен масаж",
+          "url": "https://www.dmphysi0.com/procedures/lecheben-masaj.html",
+          "description": "Техники за облекчаване на болка и напрежение.",
+          "offers": {
+            "@type": "Offer",
+            "price": "50",
+            "priceCurrency": "EUR"
+          },
+          "timeRequired": "PT60M"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "Service",
+          "name": "Дълбокотъканен масаж",
+          "url": "https://www.dmphysi0.com/procedures/masaj.дълбокотъканен масаж.html",
+          "description": "Интензивна работа в дълбочина.",
+          "offers": {
+            "@type": "Offer",
+            "price": "50",
+            "priceCurrency": "EUR"
+          },
+          "timeRequired": "PT60M"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "Service",
+          "name": "Антицелулитен масаж",
+          "url": "https://www.dmphysi0.com/procedures/masaj-celulit.html",
+          "description": "Лимфодренажни и тъканни техники.",
+          "offers": {
+            "@type": "Offer",
+            "price": "50",
+            "priceCurrency": "EUR"
+          },
+          "timeRequired": "PT60M"
+        }
+      }
+    ]
   }
+}
   </script>
   <!-- Enhanced media structured data for video and image recognition -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "VideoObject",
-        "@id": "https://www.dmphysi0.com/services.html#video-кинезиотеипинг-1",
-        "name": "Видео: кинезиотейпинг",
-        "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва кинезиотейпинг.",
-        "thumbnailUrl": "https://www.dmphysi0.com/pngs/procedures/KT.webp",
-        "uploadDate": "2025-10-06T00:00:00+03:00",
-        "contentUrl": "https://www.dmphysi0.com/pngs/procedures/gif/KT.mp4",
-        "url": "https://www.dmphysi0.com/services.html",
-        "inLanguage": "bg-BG",
-        "isPartOf": {
-          "@id": "https://www.dmphysi0.com/services.html#webpage"
-        },
-        "primaryImageOfPage": {
-          "@id": "https://www.dmphysi0.com/services.html#image-кинезиотеипинг-1"
-        }
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.dmphysi0.com/services.html#video-кинезиотеипинг-1",
+      "name": "Видео: кинезиотейпинг",
+      "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва кинезиотейпинг.",
+      "thumbnailUrl": "https://www.dmphysi0.com/pngs/procedures/KT.webp",
+      "uploadDate": "2025-10-06T00:00:00+03:00",
+      "contentUrl": "https://www.dmphysi0.com/pngs/procedures/gif/Kt.mp4",
+      "url": "https://www.dmphysi0.com/services.html",
+      "inLanguage": "bg-BG",
+      "isPartOf": {
+        "@id": "https://www.dmphysi0.com/services.html#webpage"
       },
-      {
-        "@type": "ImageObject",
-        "@id": "https://www.dmphysi0.com/services.html#image-кинезиотеипинг-1",
-        "url": "https://www.dmphysi0.com/pngs/procedures/KT.webp",
-        "contentUrl": "https://www.dmphysi0.com/pngs/procedures/KT.webp",
-        "caption": "Thumbnail: кинезиотейпинг",
-        "inLanguage": "bg-BG",
-        "representativeOfPage": true
-      },
-      {
-        "@type": "VideoObject",
-        "@id": "https://www.dmphysi0.com/services.html#video-функционална-оценка-2",
-        "name": "Видео: функционална оценка",
-        "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва функционална оценка.",
-        "thumbnailUrl": "https://www.dmphysi0.com/pngs/procedures/gif/function3-Thumbnail.webp",
-        "uploadDate": "2025-10-06T00:00:00+03:00",
-        "contentUrl": "https://www.dmphysi0.com/pngs/procedures/gif/funciton.mp4",
-        "url": "https://www.dmphysi0.com/services.html",
-        "inLanguage": "bg-BG",
-        "isPartOf": {
-          "@id": "https://www.dmphysi0.com/services.html#webpage"
-        },
-        "primaryImageOfPage": {
-          "@id": "https://www.dmphysi0.com/services.html#image-функционална-оценка-2"
-        }
-      },
-      {
-        "@type": "ImageObject",
-        "@id": "https://www.dmphysi0.com/services.html#image-функционална-оценка-2",
-        "url": "https://www.dmphysi0.com/pngs/procedures/gif/function3-Thumbnail.webp",
-        "contentUrl": "https://www.dmphysi0.com/pngs/procedures/gif/function3-Thumbnail.webp",
-        "caption": "Thumbnail: функционална оценка",
-        "inLanguage": "bg-BG",
-        "representativeOfPage": false
-      },
-      {
-        "@type": "VideoObject",
-        "@id": "https://www.dmphysi0.com/services.html#video-специализирани-упражнения-3",
-        "name": "Видео: специализирани упражнения",
-        "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва специализирани упражнения.",
-        "thumbnailUrl": "https://www.dmphysi0.com/pngs/procedures/exercises.webp",
-        "uploadDate": "2025-10-06T00:00:00+03:00",
-        "contentUrl": "https://www.dmphysi0.com/pngs/procedures/gif/exercieses.mp4",
-        "url": "https://www.dmphysi0.com/services.html",
-        "inLanguage": "bg-BG",
-        "isPartOf": {
-          "@id": "https://www.dmphysi0.com/services.html#webpage"
-        },
-        "primaryImageOfPage": {
-          "@id": "https://www.dmphysi0.com/services.html#image-специализирани-упражнения-3"
-        }
-      },
-      {
-        "@type": "ImageObject",
-        "@id": "https://www.dmphysi0.com/services.html#image-специализирани-упражнения-3",
-        "url": "https://www.dmphysi0.com/pngs/procedures/exercises.webp",
-        "contentUrl": "https://www.dmphysi0.com/pngs/procedures/exercises.webp",
-        "caption": "Thumbnail: специализирани упражнения",
-        "inLanguage": "bg-BG",
-        "representativeOfPage": false
-      },
-      {
-        "@type": "VideoObject",
-        "@id": "https://www.dmphysi0.com/services.html#video-лечебен-масаж-4",
-        "name": "Видео: лечебен масаж",
-        "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва лечебен масаж.",
-        "thumbnailUrl": "https://www.dmphysi0.com/pngs/massages/lecheben.webp",
-        "uploadDate": "2025-10-06T00:00:00+03:00",
-        "contentUrl": "https://www.dmphysi0.com/pngs/massages/gif/lecheben.mp4",
-        "url": "https://www.dmphysi0.com/services.html",
-        "inLanguage": "bg-BG",
-        "isPartOf": {
-          "@id": "https://www.dmphysi0.com/services.html#webpage"
-        },
-        "primaryImageOfPage": {
-          "@id": "https://www.dmphysi0.com/services.html#image-лечебен-масаж-4"
-        }
-      },
-      {
-        "@type": "ImageObject",
-        "@id": "https://www.dmphysi0.com/services.html#image-лечебен-масаж-4",
-        "url": "https://www.dmphysi0.com/pngs/massages/lecheben.webp",
-        "contentUrl": "https://www.dmphysi0.com/pngs/massages/lecheben.webp",
-        "caption": "Thumbnail: лечебен масаж",
-        "inLanguage": "bg-BG",
-        "representativeOfPage": false
-      },
-      {
-        "@type": "VideoObject",
-        "@id": "https://www.dmphysi0.com/services.html#video-дълбокотъканен-масаж-5",
-        "name": "Видео: дълбокотъканен масаж",
-        "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва дълбокотъканен масаж.",
-        "thumbnailUrl": "https://www.dmphysi0.com/pngs/massages/deeptissue.webp",
-        "uploadDate": "2025-10-06T00:00:00+03:00",
-        "contentUrl": "https://www.dmphysi0.com/pngs/massages/gif/deeptisue.mp4",
-        "url": "https://www.dmphysi0.com/services.html",
-        "inLanguage": "bg-BG",
-        "isPartOf": {
-          "@id": "https://www.dmphysi0.com/services.html#webpage"
-        },
-        "primaryImageOfPage": {
-          "@id": "https://www.dmphysi0.com/services.html#image-дълбокотъканен-масаж-5"
-        }
-      },
-      {
-        "@type": "ImageObject",
-        "@id": "https://www.dmphysi0.com/services.html#image-дълбокотъканен-масаж-5",
-        "url": "https://www.dmphysi0.com/pngs/massages/deeptissue.webp",
-        "contentUrl": "https://www.dmphysi0.com/pngs/massages/deeptissue.webp",
-        "caption": "Thumbnail: дълбокотъканен масаж",
-        "inLanguage": "bg-BG",
-        "representativeOfPage": false
-      },
-      {
-        "@type": "VideoObject",
-        "@id": "https://www.dmphysi0.com/services.html#video-антицелулитен-масаж-6",
-        "name": "Видео: антицелулитен масаж",
-        "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва антицелулитен масаж.",
-        "thumbnailUrl": "https://www.dmphysi0.com/pngs/massages/celulit.webp",
-        "uploadDate": "2025-10-06T00:00:00+03:00",
-        "contentUrl": "https://www.dmphysi0.com/pngs/massages/gif/celulit.mp4",
-        "url": "https://www.dmphysi0.com/services.html",
-        "inLanguage": "bg-BG",
-        "isPartOf": {
-          "@id": "https://www.dmphysi0.com/services.html#webpage"
-        },
-        "primaryImageOfPage": {
-          "@id": "https://www.dmphysi0.com/services.html#image-антицелулитен-масаж-6"
-        }
-      },
-      {
-        "@type": "ImageObject",
-        "@id": "https://www.dmphysi0.com/services.html#image-антицелулитен-масаж-6",
-        "url": "https://www.dmphysi0.com/pngs/massages/celulit.webp",
-        "contentUrl": "https://www.dmphysi0.com/pngs/massages/celulit.webp",
-        "caption": "Thumbnail: антицелулитен масаж",
-        "inLanguage": "bg-BG",
-        "representativeOfPage": false
+      "primaryImageOfPage": {
+        "@id": "https://www.dmphysi0.com/services.html#image-кинезиотеипинг-1"
       }
-    ]
-  }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.dmphysi0.com/services.html#image-кинезиотеипинг-1",
+      "url": "https://www.dmphysi0.com/pngs/procedures/KT.webp",
+      "contentUrl": "https://www.dmphysi0.com/pngs/procedures/KT.webp",
+      "caption": "кинезиотейпинг",
+      "inLanguage": "bg-BG",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.dmphysi0.com/services.html#video-функционална-оценка-2",
+      "name": "Видео: функционална оценка",
+      "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва функционална оценка.",
+      "thumbnailUrl": "https://www.dmphysi0.com/pngs/procedures/gif/function3-Thumbnail.webp",
+      "uploadDate": "2025-10-06T00:00:00+03:00",
+      "contentUrl": "https://www.dmphysi0.com/pngs/procedures/gif/функционална оценка.mp4",
+      "url": "https://www.dmphysi0.com/services.html",
+      "inLanguage": "bg-BG",
+      "isPartOf": {
+        "@id": "https://www.dmphysi0.com/services.html#webpage"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.dmphysi0.com/services.html#image-функционална-оценка-2"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.dmphysi0.com/services.html#image-функционална-оценка-2",
+      "url": "https://www.dmphysi0.com/pngs/procedures/gif/function3-Thumbnail.webp",
+      "contentUrl": "https://www.dmphysi0.com/pngs/procedures/gif/function3-Thumbnail.webp",
+      "caption": "функционална оценка",
+      "inLanguage": "bg-BG",
+      "representativeOfPage": false
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.dmphysi0.com/services.html#video-специализирани-упражнения-3",
+      "name": "Видео: специализирани упражнения",
+      "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва специализирани упражнения.",
+      "thumbnailUrl": "https://www.dmphysi0.com/pngs/procedures/exercises.webp",
+      "uploadDate": "2025-10-06T00:00:00+03:00",
+      "contentUrl": "https://www.dmphysi0.com/pngs/procedures/gif/упражнения.mp4",
+      "url": "https://www.dmphysi0.com/services.html",
+      "inLanguage": "bg-BG",
+      "isPartOf": {
+        "@id": "https://www.dmphysi0.com/services.html#webpage"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.dmphysi0.com/services.html#image-специализирани-упражнения-3"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.dmphysi0.com/services.html#image-специализирани-упражнения-3",
+      "url": "https://www.dmphysi0.com/pngs/procedures/exercises.webp",
+      "contentUrl": "https://www.dmphysi0.com/pngs/procedures/exercises.webp",
+      "caption": "специализирани упражнения",
+      "inLanguage": "bg-BG",
+      "representativeOfPage": false
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.dmphysi0.com/services.html#video-лечебен-масаж-4",
+      "name": "Видео: лечебен масаж",
+      "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва лечебен масаж.",
+      "thumbnailUrl": "https://www.dmphysi0.com/pngs/massages/lecheben.webp",
+      "uploadDate": "2025-10-06T00:00:00+03:00",
+      "contentUrl": "https://www.dmphysi0.com/pngs/massages/gif/Lecheben.mp4",
+      "url": "https://www.dmphysi0.com/services.html",
+      "inLanguage": "bg-BG",
+      "isPartOf": {
+        "@id": "https://www.dmphysi0.com/services.html#webpage"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.dmphysi0.com/services.html#image-лечебен-масаж-4"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.dmphysi0.com/services.html#image-лечебен-масаж-4",
+      "url": "https://www.dmphysi0.com/pngs/massages/lecheben.webp",
+      "contentUrl": "https://www.dmphysi0.com/pngs/massages/lecheben.webp",
+      "caption": "лечебен масаж",
+      "inLanguage": "bg-BG",
+      "representativeOfPage": false
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.dmphysi0.com/services.html#video-дълбокотъканен-масаж-5",
+      "name": "Видео: дълбокотъканен масаж",
+      "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва дълбокотъканен масаж.",
+      "thumbnailUrl": "https://www.dmphysi0.com/pngs/massages/deeptissue.webp",
+      "uploadDate": "2025-10-06T00:00:00+03:00",
+      "contentUrl": "https://www.dmphysi0.com/pngs/massages/gif/дълбокотъканен масаж.mp4",
+      "url": "https://www.dmphysi0.com/services.html",
+      "inLanguage": "bg-BG",
+      "isPartOf": {
+        "@id": "https://www.dmphysi0.com/services.html#webpage"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.dmphysi0.com/services.html#image-дълбокотъканен-масаж-5"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.dmphysi0.com/services.html#image-дълбокотъканен-масаж-5",
+      "url": "https://www.dmphysi0.com/pngs/massages/deeptissue.webp",
+      "contentUrl": "https://www.dmphysi0.com/pngs/massages/deeptissue.webp",
+      "caption": "дълбокотъканен масаж",
+      "inLanguage": "bg-BG",
+      "representativeOfPage": false
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.dmphysi0.com/services.html#video-антицелулитен-масаж-6",
+      "name": "Видео: антицелулитен масаж",
+      "description": "Визуално обяснение към страницата \"Видове процедури – кинезитерапия и масажи\", което показва антицелулитен масаж.",
+      "thumbnailUrl": "https://www.dmphysi0.com/pngs/massages/celulit.webp",
+      "uploadDate": "2025-10-06T00:00:00+03:00",
+      "contentUrl": "https://www.dmphysi0.com/pngs/massages/gif/Celulit.mp4",
+      "url": "https://www.dmphysi0.com/services.html",
+      "inLanguage": "bg-BG",
+      "isPartOf": {
+        "@id": "https://www.dmphysi0.com/services.html#webpage"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.dmphysi0.com/services.html#image-антицелулитен-масаж-6"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.dmphysi0.com/services.html#image-антицелулитен-масаж-6",
+      "url": "https://www.dmphysi0.com/pngs/massages/celulit.webp",
+      "contentUrl": "https://www.dmphysi0.com/pngs/massages/celulit.webp",
+      "caption": "антицелулитен масаж",
+      "inLanguage": "bg-BG",
+      "representativeOfPage": false
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json" id="breadcrumb">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Начало",
+      "item": "https://www.dmphysi0.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Процедури",
+      "item": "https://www.dmphysi0.com/services.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Преглед",
+      "item": "https://www.dmphysi0.com/services.html"
+    }
+  ]
+}
   </script>
 </head>
 
@@ -320,6 +443,7 @@
 </header>
 
 <main id="main" class="page-content">
+  <nav class="site-breadcrumb" aria-label="Път"><ol><li><a href="/index.html">Начало</a></li><li><a href="/services.html">Процедури</a></li><li><span aria-current="page">Преглед</span></li></ol></nav>
   <header class="page-hero">
     <div class="container">
       <h1>Видове процедури – кинезитерапия и масажи</h1>
@@ -348,7 +472,7 @@
                    loading="eager" decoding="async" width="640" height="360" fetchpriority="high">
               <video class="img img--hover hover-img" loop muted playsinline preload="none"
                      poster="/pngs/procedures/KT.webp" aria-hidden="true">
-                <source data-src="/pngs/procedures/gif/KT.mp4" type="video/mp4">
+                <source src="/pngs/procedures/gif/Kt.mp4" data-src="/pngs/procedures/gif/Kt.mp4" type="video/mp4">
               </video>
             </div>
           </a>
@@ -371,7 +495,7 @@
                    alt="Функционална оценка" loading="lazy" decoding="async" width="640" height="360">
               <video class="img img--hover hover-img" loop muted playsinline preload="none"
                      poster="/pngs/procedures/gif/function3-Thumbnail.webp" aria-hidden="true">
-                <source data-src="/pngs/procedures/gif/funciton.mp4" type="video/mp4">
+                <source src="/pngs/procedures/gif/Funciton.mp4" data-src="/pngs/procedures/gif/Funciton.mp4" type="video/mp4">
               </video>
             </div>
           </a>
@@ -394,7 +518,7 @@
                    alt="Специализирани упражнения" loading="lazy" decoding="async" width="640" height="360">
               <video class="img img--hover hover-img" loop muted playsinline preload="none"
                      poster="/pngs/procedures/exercises.webp" aria-hidden="true">
-                <source data-src="/pngs/procedures/gif/exercieses.mp4" type="video/mp4">
+                <source src="/pngs/procedures/gif/Exercieses.mp4" data-src="/pngs/procedures/gif/Exercieses.mp4" type="video/mp4">
               </video>
             </div>
           </a>
@@ -432,7 +556,7 @@
                    alt="Лечебен масаж" loading="lazy" decoding="async" width="640" height="360">
               <video class="img img--hover hover-img" loop muted playsinline preload="none"
                      poster="/pngs/massages/lecheben.webp" aria-hidden="true">
-                <source data-src="/pngs/massages/gif/lecheben.mp4" type="video/mp4">
+                <source src="/pngs/massages/gif/Lecheben.mp4" data-src="/pngs/massages/gif/Lecheben.mp4" type="video/mp4">
               </video>
             </div>
           </a>
@@ -455,7 +579,7 @@
                    alt="Дълбокотъканен масаж" loading="lazy" decoding="async" width="640" height="360">
               <video class="img img--hover hover-img" loop muted playsinline preload="none"
                      poster="/pngs/massages/deeptissue.webp" aria-hidden="true">
-                <source data-src="/pngs/massages/gif/deeptisue.mp4" type="video/mp4">
+                <source src="/pngs/massages/gif/Deeptisue.mp4" data-src="/pngs/massages/gif/Deeptisue.mp4" type="video/mp4">
               </video>
             </div>
           </a>
@@ -478,7 +602,7 @@
                    alt="Антицелулитен масаж" loading="lazy" decoding="async" width="640" height="360">
               <video class="img img--hover hover-img" loop muted playsinline preload="none"
                      poster="/pngs/massages/celulit.webp" aria-hidden="true">
-                <source data-src="/pngs/massages/gif/celulit.mp4" type="video/mp4">
+                <source src="/pngs/massages/gif/Celulit.mp4" data-src="/pngs/massages/gif/Celulit.mp4" type="video/mp4">
               </video>
             </div>
           </a>
