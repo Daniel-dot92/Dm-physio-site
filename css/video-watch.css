@@ -39,17 +39,39 @@ main.video-watch-page {
   padding: 34px 0 20px;
 }
 
+.site-breadcrumb,
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  align-items: center;
   margin: 0 0 18px;
   color: #5f6f72;
   font-size: 14px;
   font-weight: 700;
 }
 
+.site-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+}
+
 .breadcrumb a {
+  text-decoration: none;
+  color: #095c64;
+}
+
+.site-breadcrumb a {
   text-decoration: none;
   color: #095c64;
 }
@@ -58,6 +80,16 @@ main.video-watch-page {
   content: "/";
   margin-right: 8px;
   color: #9aabaa;
+}
+
+.site-breadcrumb li + li::before {
+  content: "/";
+  margin-right: 8px;
+  color: #9aabaa;
+}
+
+.site-breadcrumb [aria-current="page"] {
+  color: #3f4f52;
 }
 
 .watch {
