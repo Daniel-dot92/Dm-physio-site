@@ -12,6 +12,11 @@
       "permanent": true
     },
     {
+      "source": "/index.html",
+      "destination": "https://www.dmphysi0.com/",
+      "permanent": true
+    },
+    {
       "source": "/online-recovery.html",
       "destination": "https://www.dmphysi0.com/services.html",
       "permanent": false
