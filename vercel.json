@@ -22,6 +22,36 @@
       "permanent": false
     },
     {
+      "source": "/sustiqnia/raka/thoracic-outlet.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/gurdi/outlet-syndrome.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/raka/neuralgii.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/arm/nevralgii.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/raka/carpal-tunnel.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/arm/carpal.html",
+      "permanent": true
+    },
+    {
+      "source": "/pain-muscles-general.html",
+      "destination": "https://www.dmphysi0.com/physiology.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/krust/",
+      "destination": "https://www.dmphysi0.com/pain-lower-back.html",
+      "permanent": true
+    },
+    {
+      "source": "/начална-страница",
+      "destination": "https://www.dmphysi0.com/",
+      "permanent": true
+    },
+    {
       "source": "/head-dizziness.html",
       "destination": "https://www.dmphysi0.com/sustiqnia/head-dizziness.html",
       "permanent": true
