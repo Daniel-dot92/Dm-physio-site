@@ -10,6 +10,53 @@
   }
 })();
 
+/* ---------- Lazy footer maps ---------- */
+(function () {
+  'use strict';
+
+  function loadMapFrame(frame) {
+    var src = frame && frame.getAttribute('data-src');
+    if (!frame || !src || frame.getAttribute('src')) return;
+    frame.setAttribute('src', src);
+  }
+
+  function initLazyMaps() {
+    var frames = Array.prototype.slice.call(document.querySelectorAll('iframe[data-src]'));
+    if (!frames.length) return;
+
+    frames.forEach(function (frame) {
+      if (frame.dataset.dmMapBound === '1') return;
+      frame.dataset.dmMapBound = '1';
+
+      if (!('IntersectionObserver' in window)) {
+        loadMapFrame(frame);
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          loadMapFrame(frame);
+          observer.disconnect();
+        });
+      }, { rootMargin: '700px 0px', threshold: 0.01 });
+
+      observer.observe(frame);
+
+      setTimeout(function () {
+        if (!frame.getAttribute('src')) loadMapFrame(frame);
+      }, 2500);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLazyMaps, { once: true });
+  } else {
+    initLazyMaps();
+  }
+  window.addEventListener('load', initLazyMaps, { once: true });
+})();
+
 /* ---------- Cookie consent for analytics scripts ---------- */
 (function () {
   'use strict';
@@ -152,17 +199,35 @@
     var banner = document.createElement('section');
     banner.id = 'dm-cookie-banner';
     banner.className = 'dm-cookie-banner';
-    banner.setAttribute('aria-label', 'Съгласие за бисквитки');
+    var isEnglishPage = /^\/en(?:\/|$)/.test(window.location.pathname);
+    banner.setAttribute('aria-label', isEnglishPage ? 'Cookie consent' : 'Съгласие за бисквитки');
     banner.hidden = Boolean(readConsent());
+    var cookieText = isEnglishPage ? {
+      title: 'We use cookies to improve the website',
+      body: 'Necessary cookies keep the site working. With your consent, we use analytics tools such as Hotjar to understand which pages are useful and where visitors have difficulty. ',
+      privacy: 'Privacy Policy',
+      privacyUrl: '/privacy-policy.html',
+      reject: 'Necessary only',
+      accept: 'Accept',
+      manage: 'Cookies'
+    } : {
+      title: 'Използваме бисквитки за подобряване на сайта',
+      body: 'Необходимите бисквитки пазят сайта работещ. С ваше съгласие използваме аналитични инструменти като Hotjar, за да разбираме кои страници са полезни и къде потребителите се затрудняват. ',
+      privacy: 'Политика за поверителност',
+      privacyUrl: '/privacy-policy.html',
+      reject: 'Само необходими',
+      accept: 'Приемам',
+      manage: 'Бисквитки'
+    };
     banner.innerHTML = [
       '<p class="dm-cookie-text">',
-      '<strong>Използваме бисквитки за подобряване на сайта</strong>',
-      'Необходимите бисквитки пазят сайта работещ. С ваше съгласие използваме аналитични инструменти като Hotjar, за да разбираме кои страници са полезни и къде потребителите се затрудняват. ',
-      '<a href="/privacy-policy.html">Политика за поверителност</a>',
+      '<strong>' + cookieText.title + '</strong>',
+      cookieText.body,
+      '<a href="' + cookieText.privacyUrl + '">' + cookieText.privacy + '</a>',
       '</p>',
       '<div class="dm-cookie-actions">',
-      '<button class="dm-cookie-btn" type="button" data-dm-cookie-reject>Само необходими</button>',
-      '<button class="dm-cookie-btn dm-cookie-btn--primary" type="button" data-dm-cookie-accept>Приемам</button>',
+      '<button class="dm-cookie-btn" type="button" data-dm-cookie-reject>' + cookieText.reject + '</button>',
+      '<button class="dm-cookie-btn dm-cookie-btn--primary" type="button" data-dm-cookie-accept>' + cookieText.accept + '</button>',
       '</div>'
     ].join('');
 
@@ -170,7 +235,7 @@
     manage.id = 'dm-cookie-manage';
     manage.className = 'dm-cookie-manage';
     manage.type = 'button';
-    manage.textContent = 'Бисквитки';
+    manage.textContent = cookieText.manage;
     manage.hidden = !readConsent();
 
     document.body.appendChild(banner);

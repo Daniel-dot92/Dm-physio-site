@@ -434,7 +434,8 @@ section {
 .timeline-step:nth-child(even) { flex-direction: row-reverse; }
 
 /* ===== Kinesitherapy slider ===== */
-.kinesitherapy-slider-container {
+.kinesitherapy-slider-container,
+.physiotherapy-slider-container {
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
@@ -443,11 +444,13 @@ section {
   padding: 0;
   text-align: center;
 }
-.kinesitherapy-slider-track {
+.kinesitherapy-slider-track,
+.physiotherapy-slider-track {
   display: flex;
   transition: transform .3s ease-in-out;
 }
-.kinesitherapy-button {
+.kinesitherapy-button,
+.physiotherapy-button {
   flex: 0 0 calc(20% - 20px);
   margin: 0 10px;
   display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
@@ -457,12 +460,14 @@ section {
   box-shadow: 0 2px 5px rgba(0,0,0,.1);
   height: auto; min-height: 200px;
 }
-.kinesitherapy-button:hover {
+.kinesitherapy-button:hover,
+.physiotherapy-button:hover {
   background: #e0e0e0;
   box-shadow: 0 4px 10px rgba(0,0,0,.15);
   transform: translateY(-3px);
 }
-.kinesitherapy-button-media {
+.kinesitherapy-button-media,
+.physiotherapy-button-media {
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -476,16 +481,22 @@ section {
   margin-bottom: 10px;
 }
 .kinesitherapy-img,
-.kinesitherapy-video {
+.kinesitherapy-video,
+.physiotherapy-img,
+.physiotherapy-video {
   position: absolute; top: 0; left: 0;
   width: 100%; height: 100%;
   object-fit: contain;
   transition: opacity .3s ease;
 }
-.kinesitherapy-video { opacity: 0; }
-.kinesitherapy-button:hover .kinesitherapy-img { opacity: 0; }
-.kinesitherapy-button:hover .kinesitherapy-video { opacity: 1; }
-.kinesitherapy-button-text {
+.kinesitherapy-video,
+.physiotherapy-video { opacity: 0; }
+.kinesitherapy-button:hover .kinesitherapy-img,
+.physiotherapy-button:hover .physiotherapy-img { opacity: 0; }
+.kinesitherapy-button:hover .kinesitherapy-video,
+.physiotherapy-button:hover .physiotherapy-video { opacity: 1; }
+.kinesitherapy-button-text,
+.physiotherapy-button-text {
   font-weight: bold;
   font-size: 1.5em;
   line-height: 1.4;
@@ -647,6 +658,47 @@ section {
   font-size: 1.1rem; line-height: 1.7; color: #555; margin-bottom: 0;
 }
 .healing-section.alternative-style .highlight { font-weight: bold; color: #2ecc71; }
+
+/* English pages use translated class names; keep the same visual system. */
+.recovery-section.alternative-style {
+  padding: 0 20px;
+  background: #eef4f7;
+  text-align: center;
+}
+.recovery-section.alternative-style .section-title {
+  font-size: 2.8rem; font-weight: 800; color: #005662; margin-bottom: 15px;
+}
+.recovery-section.alternative-style .section-subtitle {
+  font-size: 1.3rem; color: #7f8c8d; margin-bottom: 20px;
+}
+.recovery-section.alternative-style .recovery-steps-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 30px; justify-items: center;
+}
+.recovery-section.alternative-style .recovery-step {
+  background: #fff; border-radius: 15px; box-shadow: 0 10px 30px rgba(44,62,80,.1);
+  padding: 20px 30px; text-align: center; transition: transform .4s ease, box-shadow .4s ease;
+  display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden;
+}
+.recovery-section.alternative-style .recovery-step::before{
+  content:''; position:absolute; top:-100%; left:0; width:100%; height:100%;
+  background: linear-gradient(135deg, rgba(46,204,113,.1) 0%, rgba(52,152,219,.1) 100%);
+  transition: all .5s ease; z-index: 0;
+}
+.recovery-section.alternative-style .recovery-step:hover::before{ top:0; }
+.recovery-section.alternative-style .recovery-step > * { position: relative; z-index: 1; }
+.recovery-section.alternative-style .step-icon-circle {
+  width: 80px; height: 80px; background: #3498db; border-radius: 50%;
+  display:flex; align-items:center; justify-content:center; margin-bottom:25px; transition: background-color .4s ease;
+}
+.recovery-section.alternative-style .recovery-step:hover .step-icon-circle { background:#2ecc71; }
+.recovery-section.alternative-style .step-icon-circle i { font-size: 2.5rem; color: #fff; }
+.recovery-section.alternative-style .recovery-step h3 {
+  font-size: 1.6rem; font-weight: 700; color: #333; margin-bottom: 15px;
+}
+.recovery-section.alternative-style .recovery-step p {
+  font-size: 1.1rem; line-height: 1.7; color: #555; margin-bottom: 0;
+}
+.recovery-section.alternative-style .highlight { font-weight: bold; color: #2ecc71; }
 
 /* ===== Typography tweaks (muscle cards headings) ===== */
 .muscle-anatomy-section .muscle-item h3{

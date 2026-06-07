@@ -3,8 +3,8 @@
     class KinesitherapySlider {
         constructor(container) {
             this.container = container;
-            this.sliderTrack = container.querySelector('.kinesitherapy-slider-track');
-            this.buttons = Array.from(this.sliderTrack.querySelectorAll('.kinesitherapy-button'));
+            this.sliderTrack = container.querySelector('.kinesitherapy-slider-track, .physiotherapy-slider-track');
+            this.buttons = Array.from(this.sliderTrack.querySelectorAll('.kinesitherapy-button, .physiotherapy-button'));
             this.totalButtons = this.buttons.length;
             this.prevArrow = container.querySelector('.prev-arrow');
             this.nextArrow = container.querySelector('.next-arrow');
@@ -127,7 +127,7 @@
 
     // ������������� �� ������ ��������
     const sliderInstances = [];
-    const sliderContainers = document.querySelectorAll('.kinesitherapy-slider-container');
+    const sliderContainers = document.querySelectorAll('.kinesitherapy-slider-container, .physiotherapy-slider-container');
     sliderContainers.forEach(container => {
         sliderInstances.push(new KinesitherapySlider(container));
     });

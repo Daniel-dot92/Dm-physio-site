@@ -5,7 +5,7 @@
   var LOCAL_STATS_KEY = 'dm_page_stats_v1';
   var GLOBAL_STATS_URL = window.DM_PAGE_STATS_URL || '/data/page-stats.json';
   var FALLBACK_STATS_URL = '/api/page-stats';
-  var CONDITIONS_URL = '/conditions.html';
+  var CONDITIONS_URL = /^\/en(?:\/|$)/.test(window.location.pathname) ? '/en/conditions.html' : '/conditions.html';
   var RECO_LIMIT = 6;
 
   function safeParse(json, fallback) {

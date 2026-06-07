@@ -113,6 +113,10 @@
       "destination": "https://book.dmphysi0.com/book"
     },
     {
+      "source": "/en/book",
+      "destination": "https://book.dmphysi0.com/en/book"
+    },
+    {
       "source": "/_next/:path*",
       "destination": "https://book.dmphysi0.com/_next/:path*"
     },

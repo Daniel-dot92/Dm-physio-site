@@ -179,6 +179,30 @@ html, body {
   min-width: 0;
 }
 
+.page-content:not(:has(.sidebar-conditions)) {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.page-content:has(.procedure-journey.section-green) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: start;
+}
+
+.page-content:has(.procedure-journey.section-green) > .site-breadcrumb,
+.page-content:has(.procedure-journey.section-green) > h1 {
+  grid-column: 1 / -1;
+}
+
+.page-content:has(.procedure-journey.section-green) > .procedure-journey {
+  grid-column: 1;
+}
+
+.page-content:has(.procedure-journey.section-green) > .sidebar-conditions {
+  grid-column: 2;
+}
+
 @media (max-width: 992px){
   .page-content{
     display: grid !important;
