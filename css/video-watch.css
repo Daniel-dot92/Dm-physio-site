@@ -145,6 +145,14 @@ main.video-watch-page {
   line-height: 1.55;
 }
 
+.watch-copy {
+  margin-top: 22px;
+}
+
+.watch-copy .lead {
+  margin-top: 0;
+}
+
 .actions,
 .video-nav,
 .watch-actions {
