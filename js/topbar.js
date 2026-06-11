@@ -291,6 +291,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav      = document.querySelector('.tb-nav');
   const dropToggles = document.querySelectorAll('.tb-drop-toggle');
 
+  function setupHeaderLanguageSwitch() {
+    if (!header || document.querySelector('.tb-header-lang')) return;
+    const inner = header.querySelector('.tb-inner');
+    const menuLang = header.querySelector('.tb-menu > .tb-lang-switch');
+    if (!inner || !menuLang) return;
+
+    const headerLang = document.createElement('div');
+    headerLang.className = 'tb-header-lang';
+    headerLang.setAttribute('aria-label', menuLang.getAttribute('aria-label') || 'Language');
+
+    menuLang.querySelectorAll('a').forEach((link) => {
+      const clone = link.cloneNode(true);
+      clone.classList.remove('tb-link');
+      headerLang.appendChild(clone);
+    });
+
+    inner.insertBefore(headerLang, burger || nav);
+  }
+  setupHeaderLanguageSwitch();
+
   // Hide unfinished "Online plan" entries globally until they are ready.
   function hideUnpublishedLinks() {
     const blockedHrefs = new Set([

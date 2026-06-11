@@ -93,7 +93,7 @@
 .tb-lang-switch{
   display:inline-flex;
   align-items:center;
-  gap:6px;
+  gap:8px;
 }
 .tb-flag,
 .lang-flag{
@@ -107,9 +107,9 @@
   font-size:0;
   line-height:1;
   font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.18);
-  transition:transform .16s ease, background .2s ease, border-color .2s ease;
+  background:rgba(255,255,255,.08);
+  border:2px solid rgba(255,255,255,.25);
+  transition:transform .18s ease, background .2s ease, border-color .18s ease, box-shadow .18s ease;
   overflow:hidden;
   padding:3px;
 }
@@ -129,7 +129,11 @@
 .tb-flag.is-active,
 .lang-flag.is-active{
   border-color:#18a558;
-  box-shadow:0 0 0 2px rgba(24,165,88,.28);
+  box-shadow:0 0 0 3px rgba(24,165,88,.18);
+}
+
+.tb-header-lang{
+  display:none;
 }
 
 .tb-link[href*="/book"],
@@ -199,6 +203,29 @@
    TB: Mobile menu panel
 ========================= */
 @media (max-width:768px){
+  .tb-inner{
+    padding-right:152px;
+  }
+
+  .tb-header-lang{
+    position:absolute;
+    right:64px;
+    top:50%;
+    transform:translateY(-50%);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .tb-header-lang .tb-flag{
+    width:40px;
+    height:40px;
+  }
+
+  .tb-menu > .tb-lang-switch{
+    display:none;
+  }
+
   .tb-nav{
     position: fixed;
     top: var(--tb-h); left: 0; right: 0;
