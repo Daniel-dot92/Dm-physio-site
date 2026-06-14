@@ -19,7 +19,17 @@
     {
       "source": "/online-recovery.html",
       "destination": "https://www.dmphysi0.com/services.html",
-      "permanent": false
+      "permanent": true
+    },
+    {
+      "source": "/conditions.html",
+      "destination": "https://www.dmphysi0.com/pain-conditions.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/conditions.html",
+      "destination": "https://www.dmphysi0.com/en/pain-conditions.html",
+      "permanent": true
     },
     {
       "source": "/sustiqnia/raka/thoracic-outlet.html",
