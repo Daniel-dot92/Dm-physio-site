@@ -10,6 +10,49 @@
   }
 })();
 
+/* ---------- User-triggered preview video hydration ---------- */
+(function () {
+  'use strict';
+
+  function hydratePreviewVideo(video) {
+    if (!video || video.dataset.dmPreviewHydrated === '1') return;
+    var source = video.querySelector('source[data-src]');
+    var direct = video.getAttribute('data-src');
+    if (direct && !video.getAttribute('src')) {
+      video.setAttribute('src', direct);
+    }
+    if (source && !source.getAttribute('src')) {
+      source.setAttribute('src', source.getAttribute('data-src'));
+    }
+    video.dataset.dmPreviewHydrated = '1';
+    try { video.load(); } catch (_) {}
+  }
+
+  function hydrateFromTarget(target) {
+    var box = target && target.closest && target.closest('.image-container, .pain-button-media, .kinesitherapy-button-media, .muscle-video-centered, .hernia-step-media, .journey-image, .card__media');
+    if (!box) return;
+    Array.prototype.forEach.call(box.querySelectorAll('video'), hydratePreviewVideo);
+  }
+
+  function initPreviewHydration() {
+    document.addEventListener('pointerenter', function (event) {
+      hydrateFromTarget(event.target);
+    }, true);
+    document.addEventListener('focusin', function (event) {
+      hydrateFromTarget(event.target);
+    }, true);
+    document.addEventListener('touchstart', function (event) {
+      hydrateFromTarget(event.target);
+    }, { passive: true, capture: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPreviewHydration, { once: true });
+  } else {
+    initPreviewHydration();
+  }
+})();
+
 /* ---------- Lazy footer maps ---------- */
 (function () {
   'use strict';

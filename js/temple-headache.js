@@ -83,7 +83,21 @@
   }
 
   // ��-�������� play: ������� ����� ��� ����� (iOS/Safari)
+  function hydrateVideoSource(v) {
+    if (!v) return;
+    const direct = v.getAttribute('data-src');
+    const source = v.querySelector('source');
+    if (direct && !v.getAttribute('src')) {
+      v.setAttribute('src', direct);
+    }
+    if (source && source.getAttribute('data-src') && !source.getAttribute('src')) {
+      source.setAttribute('src', source.getAttribute('data-src'));
+    }
+    try { v.load(); } catch (e) {}
+  }
+
   function safePlay(v) {
+    hydrateVideoSource(v);
     const doPlay = () => v.play().catch(() => {});
     if (v.readyState >= 2) {
       doPlay();

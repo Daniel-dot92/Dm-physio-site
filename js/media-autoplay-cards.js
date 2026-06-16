@@ -115,36 +115,11 @@
     if(io || !('IntersectionObserver' in window)) return;
     var thr = IS_TOUCH ? (IS_IOS?0.6:0.5) : 0.1;
     io = new IntersectionObserver(function(ents){
-      if (IS_TOUCH){
-        var best = null;
-        var bestRatio = 0;
-        for (var i=0;i<ents.length;i++){
-          var en1=ents[i];
-          var m1 = byBox.get(en1.target);
-          if(!m1) continue;
-          if(en1.isIntersecting && en1.intersectionRatio>=thr && en1.intersectionRatio>=bestRatio){
-            best = m1;
-            bestRatio = en1.intersectionRatio;
-          }
-        }
-        for (var j=0;j<ents.length;j++){
-          var en2=ents[j];
-          var m2 = byBox.get(en2.target);
-          if(!m2) continue;
-          if(best && m2 === best){
-            if(!m2.box.dataset.playing) show(m2);
-          } else if (!en2.isIntersecting || en2.intersectionRatio < thr || m2.box.dataset.playing){
-            hide(m2);
-          }
-        }
-      } else {
-        for (var k=0;k<ents.length;k++){
-          var en=ents[k];
-          var m = byBox.get(en.target);
-          if(!m) continue;
-          if(!en.isIntersecting || en.intersectionRatio<0.1) hide(m);
-          else hydrate(m);
-        }
+      for (var k=0;k<ents.length;k++){
+        var en=ents[k];
+        var m = byBox.get(en.target);
+        if(!m) continue;
+        if(!en.isIntersecting || en.intersectionRatio<thr) hide(m);
       }
     }, {rootMargin:'80px 0px', threshold:[0,0.1,0.5,0.6,1]});
     cards.forEach(function(m){ io.observe(m.box); });
