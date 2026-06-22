@@ -125,6 +125,141 @@
       "source": "/procedures/masage-vendusa.html",
       "destination": "https://www.dmphysi0.com/procedures/massage-vendusa.html",
       "permanent": true
+    },
+    {
+      "source": "/search",
+      "destination": "https://www.dmphysi0.com/",
+      "permanent": true
+    },
+    {
+      "source": "/procedures/details-dry-needling.html",
+      "destination": "https://www.dmphysi0.com/procedures/dry-needling.html",
+      "permanent": true
+    },
+    {
+      "source": "/procedures/details-relax-massage.html",
+      "destination": "https://www.dmphysi0.com/procedures/masaj-relax.html",
+      "permanent": true
+    },
+    {
+      "source": "/procedures/details-functional-assessment.html",
+      "destination": "https://www.dmphysi0.com/procedures/functional-assessment.html",
+      "permanent": true
+    },
+    {
+      "source": "/procedures/details-special-exercises.html",
+      "destination": "https://www.dmphysi0.com/procedures/specialized-exercises.html",
+      "permanent": true
+    },
+    {
+      "source": "/procedures/details-ergon-massage.html",
+      "destination": "https://www.dmphysi0.com/procedures/masaj-ergon.html",
+      "permanent": true
+    },
+    {
+      "source": "/procedures/details-deep-tissue-massage.html",
+      "destination": "https://www.dmphysi0.com/procedures/masaj-deeptisuegolqm.html",
+      "permanent": true
+    },
+    {
+      "source": "/procedures/details-therapeutic-massage.html",
+      "destination": "https://www.dmphysi0.com/procedures/lecheben-masaj.html",
+      "permanent": true
+    },
+    {
+      "source": "/procedures/details-kinesiotaping.html",
+      "destination": "https://www.dmphysi0.com/procedures/kinesiotaping.html",
+      "permanent": true
+    },
+    {
+      "source": "/procedures/details-anticellulite-massage.html",
+      "destination": "https://www.dmphysi0.com/procedures/masaj-celulit.html",
+      "permanent": true
+    },
+    {
+      "source": "/procedures/details-sport-massage.html",
+      "destination": "https://www.dmphysi0.com/procedures/masaj-sport.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/grub/pelvic-neuralgia.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/dupe/nevralgii.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/grb/",
+      "destination": "https://www.dmphysi0.com/pain-back.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/grub/",
+      "destination": "https://www.dmphysi0.com/pain-back.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/raka/kisti-ganglion.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/arm/kisti.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/neck-muscle-pain.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/neck-muscle.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/grb/disk-hernia.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/grub/diskova.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/raka/tennis-elbow.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/arm/tenis.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/grb/nevralgii.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/grub/nevralgii.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/temple-headache.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/head-slepoochie.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/occipital-pain.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/head-ocipital.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/raka/",
+      "destination": "https://www.dmphysi0.com/pain-arm.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/krak/",
+      "destination": "https://www.dmphysi0.com/pain-thigh-knee.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/dizziness.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/head-dizziness.html",
+      "permanent": true
+    },
+    {
+      "source": "/%D0%BA%D0%BB%D0%B8%D0%BF%D0%BE%D0%B2%D0%B5/%D0%B1%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%B5%D0%BD-%D0%B2%D1%80%D0%B0%D1%82-%D1%83%D0%BF%D1%80%D0%B0%D0%B6%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F",
+      "destination": "https://www.dmphysi0.com/pain-neck.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/stupalo/stupalo-muskuli.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/stupalo/muskuli.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/krak/nevragii.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/krak/nevralgii.html",
+      "permanent": true
     }
   ],
   "rewrites": [
