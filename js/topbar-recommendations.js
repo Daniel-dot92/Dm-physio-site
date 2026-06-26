@@ -268,6 +268,16 @@
 
       function playVideo() {
         try {
+          if (!vid.querySelector('source[src]') && !vid.getAttribute('src')) {
+            var preview = getPreviewSrc(vid);
+            if (preview) {
+              var source = document.createElement('source');
+              source.setAttribute('src', preview);
+              source.setAttribute('type', 'video/mp4');
+              vid.appendChild(source);
+              vid.load();
+            }
+          }
           var p = vid.play();
           if (p && typeof p.catch === 'function') p.catch(function(){});
         } catch (_) {}
@@ -284,6 +294,20 @@
       box.addEventListener('touchstart', playVideo, { passive: true });
       box.addEventListener('touchend', stopVideo, { passive: true });
     });
+  }
+
+  function getPreviewSrc(video) {
+    var preview = video.getAttribute('data-dm-preview-src');
+    if (preview) return preview;
+    var key = video.getAttribute('data-dm-preview-key');
+    if (!key) return '';
+    try {
+      var normalized = key.replace(/-/g, '+').replace(/_/g, '/');
+      normalized += '='.repeat((4 - normalized.length % 4) % 4);
+      return decodeURIComponent(escape(atob(normalized)));
+    } catch (_) {
+      return '';
+    }
   }
 
   function renderRecommendations(container, items) {

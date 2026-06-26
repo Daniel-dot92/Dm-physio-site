@@ -86,6 +86,7 @@
   function hydrateVideoSource(v) {
     if (!v) return;
     const direct = v.getAttribute('data-src');
+    const preview = getPreviewSrc(v);
     const source = v.querySelector('source');
     if (direct && !v.getAttribute('src')) {
       v.setAttribute('src', direct);
@@ -93,7 +94,27 @@
     if (source && source.getAttribute('data-src') && !source.getAttribute('src')) {
       source.setAttribute('src', source.getAttribute('data-src'));
     }
+    if (!source && preview && !v.querySelector('source[src]') && !v.getAttribute('src')) {
+      const created = document.createElement('source');
+      created.setAttribute('src', preview);
+      created.setAttribute('type', 'video/mp4');
+      v.appendChild(created);
+    }
     try { v.load(); } catch (e) {}
+  }
+
+  function getPreviewSrc(v) {
+    const preview = v.getAttribute('data-dm-preview-src');
+    if (preview) return preview;
+    const key = v.getAttribute('data-dm-preview-key');
+    if (!key) return '';
+    try {
+      let normalized = key.replace(/-/g, '+').replace(/_/g, '/');
+      normalized += '='.repeat((4 - normalized.length % 4) % 4);
+      return decodeURIComponent(escape(atob(normalized)));
+    } catch (e) {
+      return '';
+    }
   }
 
   function safePlay(v) {
@@ -108,42 +129,8 @@
     }
   }
 
-  // IO ����������
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const v = entry.target;
-      const css = window.getComputedStyle(v);
-      const visuallyHidden = (css.opacity === '0' || css.visibility === 'hidden');
-      const shouldPlay = entry.isIntersecting && entry.intersectionRatio >= 0.35; // ��-���� ����������
-
-      if (shouldPlay) {
-        // �� ������� ���������� ������� � �������� ����������
-        revealVideoOnMobile(v);
-
-        // �� ������� � ��� � ������ (���� hover), �� ������� ������
-        if (!isMobile && visuallyHidden) return;
-
-        safePlay(v);
-      } else {
-        if (!v.paused) v.pause();
-        // ��� ����� ����� ����� �� �� �� �������, ������ ���� ����. .no-reset-on-exit
-        if (!v.classList.contains('no-reset-on-exit')) v.currentTime = 0;
-        hideVideoOnMobile(v);
-      }
-    });
-  }, {
-    root: null,
-    rootMargin: '200px 0px',   // ��-������ �������� ��� �����
-    threshold: [0, 0.2, 0.35, 0.5, 0.75, 1]
-  });
-
-  function observeAll() {
-    observedVideos.forEach(v => io.observe(v));
-  }
-  function unobserveAll() {
-    observedVideos.forEach(v => io.unobserve(v));
-  }
-  observeAll();
+  function observeAll() {}
+  function unobserveAll() {}
 
   // ����� �� ������, ������ ����� � �����
   document.addEventListener('visibilitychange', () => {

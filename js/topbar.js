@@ -18,14 +18,35 @@
     if (!video || video.dataset.dmPreviewHydrated === '1') return;
     var source = video.querySelector('source[data-src]');
     var direct = video.getAttribute('data-src');
+    var preview = getPreviewSrc(video);
     if (direct && !video.getAttribute('src')) {
       video.setAttribute('src', direct);
     }
     if (source && !source.getAttribute('src')) {
       source.setAttribute('src', source.getAttribute('data-src'));
     }
+    if (!source && preview && !video.querySelector('source[src]') && !video.getAttribute('src')) {
+      source = document.createElement('source');
+      source.setAttribute('src', preview);
+      source.setAttribute('type', 'video/mp4');
+      video.appendChild(source);
+    }
     video.dataset.dmPreviewHydrated = '1';
     try { video.load(); } catch (_) {}
+  }
+
+  function getPreviewSrc(video) {
+    var preview = video.getAttribute('data-dm-preview-src');
+    if (preview) return preview;
+    var key = video.getAttribute('data-dm-preview-key');
+    if (!key) return '';
+    try {
+      var normalized = key.replace(/-/g, '+').replace(/_/g, '/');
+      normalized += '='.repeat((4 - normalized.length % 4) % 4);
+      return decodeURIComponent(escape(atob(normalized)));
+    } catch (_) {
+      return '';
+    }
   }
 
   function hydrateFromTarget(target) {

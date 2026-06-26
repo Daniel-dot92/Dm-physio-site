@@ -23,16 +23,32 @@
     v.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');
   }
 
+  function getPreviewSrc(v){
+    var direct = v.getAttribute('data-src');
+    if(direct) return direct;
+    var preview = v.getAttribute('data-dm-preview-src');
+    if(preview) return preview;
+    var key = v.getAttribute('data-dm-preview-key');
+    if(!key) return '';
+    try {
+      var normalized = key.replace(/-/g, '+').replace(/_/g, '/');
+      normalized += '='.repeat((4 - normalized.length % 4) % 4);
+      return decodeURIComponent(escape(atob(normalized)));
+    } catch(e) {
+      return '';
+    }
+  }
+
   function hydrate(m){
     if(m.hydrated) return;
     var v = m.vid;
-    var direct = v.getAttribute('data-src');
+    var preview = getPreviewSrc(v);
     var s = $('source', v);
 
     try { v.preload = 'none'; } catch(e){}
 
-    if(direct){
-      v.src = direct;
+    if(preview){
+      v.src = preview;
     }else if(s && s.getAttribute('data-src')){
       v.src = s.getAttribute('data-src');
     }else if(s && s.src){
