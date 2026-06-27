@@ -55,15 +55,61 @@
     Array.prototype.forEach.call(box.querySelectorAll('video'), hydratePreviewVideo);
   }
 
+  function findPreviewVideo(target) {
+    if (!target || !target.closest) return null;
+    var video = target.closest('video[data-dm-preview-key], video[data-dm-preview-src], video[data-src]');
+    if (video) return video;
+
+    var box = target.closest('.image-container, .pain-button-media, .kinesitherapy-button-media, .muscle-video-centered, .hernia-step-media, .journey-image, .card__media, .dt-media, .video-container, .journey-step');
+    if (!box) return null;
+    return box.querySelector('video[data-dm-preview-key], video[data-dm-preview-src], video[data-src]');
+  }
+
+  function playPreviewFromTarget(target) {
+    var video = findPreviewVideo(target);
+    if (!video) return;
+    hydratePreviewVideo(video);
+    try {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.setAttribute('muted', '');
+      video.playsInline = true;
+      video.setAttribute('playsinline', '');
+      video.style.opacity = '1';
+      var played = video.play();
+      if (played && typeof played.catch === 'function') played.catch(function () {});
+    } catch (_) {}
+  }
+
+  function pausePreviewFromTarget(target) {
+    var video = findPreviewVideo(target);
+    if (!video) return;
+    try {
+      video.pause();
+      video.currentTime = 0;
+    } catch (_) {}
+  }
+
   function initPreviewHydration() {
     document.addEventListener('pointerenter', function (event) {
       hydrateFromTarget(event.target);
     }, true);
+    document.addEventListener('pointerover', function (event) {
+      playPreviewFromTarget(event.target);
+    }, true);
+    document.addEventListener('pointerout', function (event) {
+      pausePreviewFromTarget(event.target);
+    }, true);
     document.addEventListener('focusin', function (event) {
       hydrateFromTarget(event.target);
+      playPreviewFromTarget(event.target);
+    }, true);
+    document.addEventListener('focusout', function (event) {
+      pausePreviewFromTarget(event.target);
     }, true);
     document.addEventListener('touchstart', function (event) {
       hydrateFromTarget(event.target);
+      playPreviewFromTarget(event.target);
     }, { passive: true, capture: true });
   }
 
