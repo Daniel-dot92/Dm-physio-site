@@ -27,6 +27,36 @@
       "permanent": true
     },
     {
+      "source": "/node_modules/:path*",
+      "destination": "https://www.dmphysi0.com/",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/gryden-korem/abdominal-hernia.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/gurdi/Abdominal-hernia.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/gryden-korem/",
+      "destination": "https://www.dmphysi0.com/pain-chest-abdomen.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/gruden-korem/abdominal-hernia.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/gurdi/Abdominal-hernia.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/gruden-korem/",
+      "destination": "https://www.dmphysi0.com/pain-chest-abdomen.html",
+      "permanent": true
+    },
+    {
+      "source": "/sustiqnia/gurdi/abdominal-hernia.html",
+      "destination": "https://www.dmphysi0.com/sustiqnia/gurdi/Abdominal-hernia.html",
+      "permanent": true
+    },
+    {
       "source": "/conditions.html",
       "destination": "https://www.dmphysi0.com/pain-conditions.html",
       "permanent": true
