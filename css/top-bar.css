@@ -328,7 +328,7 @@
     padding: 6px 0;
   }
   .tb-nav.tb-nav--open .tb-drop-menu,
-  .tb-dropdown.tb-open > .tb-drop-menu{ display: block; }
+  .tb-dropdown.tb-open > .tb-drop-menu{ display: none !important; }
 
   .tb-drop-link{
     display: block;

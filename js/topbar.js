@@ -145,6 +145,7 @@
     video.setAttribute('aria-hidden', placeholder.getAttribute('aria-hidden') || 'true');
     video.setAttribute('disablepictureinpicture', '');
     video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
+    video.style.setProperty('opacity', '0', 'important');
     if (poster) video.setAttribute('poster', poster);
     if (placeholder.getAttribute('width')) video.setAttribute('width', placeholder.getAttribute('width'));
     if (placeholder.getAttribute('height')) video.setAttribute('height', placeholder.getAttribute('height'));
@@ -156,7 +157,6 @@
 
     placeholder.dataset.dmPreviewVideoId = id;
     placeholder.setAttribute('aria-hidden', 'true');
-    placeholder.style.display = 'none';
     placeholder.insertAdjacentElement('afterend', video);
     var box = getPreviewBox(video);
     if (box) box.classList.add('video-ready');
@@ -172,9 +172,58 @@
   function setPreviewStillVisible(video, visible) {
     var box = getPreviewBox(video);
     if (!box) return;
-    Array.prototype.forEach.call(box.querySelectorAll('.static-img, .kinesitherapy-img, img:not(.dm-video-placeholder):not(.hover-img)'), function (img) {
+    Array.prototype.forEach.call(box.querySelectorAll('.static-img, .kinesitherapy-img, .dm-video-placeholder, img:not(.hover-img)'), function (img) {
       img.style.opacity = visible ? '' : '0';
     });
+  }
+
+  function whenPreviewReady(video, callback) {
+    if (!video || video.tagName !== 'VIDEO') return;
+    if (video.readyState >= 2) {
+      callback();
+      return;
+    }
+
+    var done = false;
+    function cleanup() {
+      video.removeEventListener('loadeddata', onReady);
+      video.removeEventListener('canplay', onReady);
+      video.removeEventListener('error', onError);
+    }
+    function onReady() {
+      if (done) return;
+      done = true;
+      cleanup();
+      callback();
+    }
+    function onError() {
+      if (done) return;
+      done = true;
+      cleanup();
+      video.style.removeProperty('opacity');
+      setPreviewStillVisible(video, true);
+      var box = getPreviewBox(video);
+      if (box) {
+        box.classList.remove('is-playing');
+        delete box.dataset.playing;
+      }
+    }
+
+    video.addEventListener('loadeddata', onReady, { once: true });
+    video.addEventListener('canplay', onReady, { once: true });
+    video.addEventListener('error', onError, { once: true });
+    try { video.load(); } catch (_) {}
+  }
+
+  function revealPlayingPreview(video, box) {
+    if (!video || video.tagName !== 'VIDEO') return;
+    if (box) {
+      box.classList.add('video-ready');
+      box.classList.add('is-playing');
+      box.dataset.playing = '1';
+    }
+    video.style.setProperty('opacity', '1', 'important');
+    setPreviewStillVisible(video, false);
   }
 
   function hydrateFromTarget(target) {
@@ -208,15 +257,23 @@
       video.setAttribute('muted', '');
       video.playsInline = true;
       video.setAttribute('playsinline', '');
-      video.style.opacity = '1';
-      setPreviewStillVisible(video, false);
-      if (box) {
-        box.classList.add('video-ready');
-        box.classList.add('is-playing');
-        box.dataset.playing = '1';
-      }
+      video.style.setProperty('opacity', '0', 'important');
+      setPreviewStillVisible(video, true);
       var played = video.play();
-      if (played && typeof played.catch === 'function') played.catch(function () {});
+      if (played && typeof played.then === 'function') {
+        played.then(function () {
+          whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+        }).catch(function () {
+          video.style.removeProperty('opacity');
+          setPreviewStillVisible(video, true);
+          if (box) {
+            box.classList.remove('is-playing');
+            delete box.dataset.playing;
+          }
+        });
+      } else {
+        whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+      }
     } catch (_) {}
   }
 
@@ -231,7 +288,7 @@
     try {
       video.pause();
       video.currentTime = 0;
-      video.style.opacity = '';
+      video.style.removeProperty('opacity');
       setPreviewStillVisible(video, true);
       var box = getPreviewBox(video);
       if (box) {
@@ -254,7 +311,7 @@
     try {
       video.pause();
       if (reset) video.currentTime = 0;
-      video.style.opacity = '';
+      video.style.removeProperty('opacity');
       setPreviewStillVisible(video, true);
       var box = getPreviewBox(video);
       if (box) box.classList.remove('is-playing');
@@ -271,15 +328,24 @@
       video.playsInline = true;
       video.setAttribute('playsinline', '');
       video.setAttribute('webkit-playsinline', '');
-      video.style.opacity = '1';
-      setPreviewStillVisible(video, false);
+      video.style.setProperty('opacity', '0', 'important');
+      setPreviewStillVisible(video, true);
       var box = getPreviewBox(video);
-      if (box) {
-        box.classList.add('video-ready');
-        box.classList.add('is-playing');
-      }
       var played = video.play();
-      if (played && typeof played.catch === 'function') played.catch(function () {});
+      if (played && typeof played.then === 'function') {
+        played.then(function () {
+          whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+        }).catch(function () {
+          video.style.removeProperty('opacity');
+          setPreviewStillVisible(video, true);
+          if (box) {
+            box.classList.remove('is-playing');
+            delete box.dataset.playing;
+          }
+        });
+      } else {
+        whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+      }
     } catch (_) {}
   }
 
@@ -1370,6 +1436,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Mobile dropdown toggle ---------- */
   document.addEventListener('click', (event) => {
+    if (isMobile()) return;
     const toggle = event.target.closest?.('.tb-drop-toggle');
     if (!toggle || !nav?.contains(toggle) || !isMobile()) return;
     const li = toggle.closest('.tb-dropdown');
@@ -1385,6 +1452,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   nav?.querySelectorAll('.tb-drop-toggle').forEach((toggle) => {
     toggle.addEventListener('click', (event) => {
+      if (isMobile()) return;
       if (!isMobile()) return;
       const li = toggle.closest('.tb-dropdown');
       const menu = li?.querySelector('.tb-drop-menu');
@@ -1399,6 +1467,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   nav?.addEventListener('click', (event) => {
+    if (isMobile()) return;
     const toggle = event.target.closest?.('.tb-drop-toggle');
     if (!toggle || !nav.contains(toggle) || !isMobile()) return;
     const li = toggle.closest('.tb-dropdown');
@@ -1414,7 +1483,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Close mobile menu after real navigation ---------- */  nav?.querySelectorAll('.tb-link, .tb-drop-link').forEach(link => {
     link.addEventListener('click', () => {
-      if (isMobile() && link.classList.contains('tb-drop-toggle')) return;
       if (isMobile() && nav.classList.contains('tb-nav--open')) {
         closeMobileMenu();
       }
