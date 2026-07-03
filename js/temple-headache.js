@@ -1,13 +1,10 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
-  /* =========================
-     Calendly (��� �������)
-  ========================== */
-  const calendlyButtons = document.querySelectorAll('.calendly-button');
-  calendlyButtons.forEach(button => {
+document.addEventListener('DOMContentLoaded', function () {
+  var calendlyButtons = document.querySelectorAll('.calendly-button');
+  calendlyButtons.forEach(function (button) {
     button.addEventListener('click', function (event) {
       event.preventDefault();
       event.stopPropagation();
-      const calendlyUrl = this.dataset.calendlyUrl;
+      var calendlyUrl = this.dataset.calendlyUrl;
       if (calendlyUrl) {
         window.location.assign(calendlyUrl);
       } else {
@@ -16,100 +13,56 @@
     });
   });
 
-  /* =====================================================
-     ����������� ��� �������� (������� + �������)
-  ====================================================== */
-  const MOBILE_QUERY = '(hover: none) and (pointer: coarse)';
-  const mql = window.matchMedia(MOBILE_QUERY);
-  let isMobile = mql.matches;
+  var MEDIA_BOX_SELECTOR = [
+    '.image-container',
+    '.muscle-video-centered',
+    '.kinesitherapy-button-media',
+    '.hernia-step-media',
+    '.dt-media',
+    '.pain-button-media',
+    '.journey-image',
+    '.card__media',
+    '.media-square',
+    '.video-container'
+  ].join(', ');
 
-  // ������ �����
-  const allVideos = Array.from(document.querySelectorAll('video'));
+  var STATIC_SELECTOR = [
+    '.static-img',
+    '.static-muscle-img',
+    '.kinesitherapy-img',
+    '.static-hernia-img',
+    '.dt-media__img',
+    'img:not(.dm-video-placeholder):not(.hover-video):not(.kinesitherapy-video):not(.hover-muscle-video):not(.hover-hernia-video)'
+  ].join(', ');
 
-  // ���������� �� iOS/Android + ��������� �������
-  allVideos.forEach(v => {
-    v.removeAttribute('autoplay');               // ��� ����������� autoplay
-    v.muted = true;                              // ����� �� ������� autoplay
-    v.defaultMuted = true;
-    v.setAttribute('muted', '');
-    v.playsInline = true;
-    v.setAttribute('playsinline', '');
-    v.setAttribute('webkit-playsinline', '');
-    if (!v.getAttribute('preload')) v.preload = 'metadata';
-  });
+  var PREVIEW_SELECTOR = [
+    'video[data-dm-preview-key]',
+    'video[data-dm-preview-src]',
+    'video[data-src]',
+    '.dm-video-placeholder[data-dm-preview-key]',
+    '.dm-video-placeholder[data-dm-preview-src]',
+    'img[data-dm-preview-key]',
+    'img[data-dm-preview-src]'
+  ].join(', ');
 
-  // ������� ���������
-  const isProceduresVideo = (v) => !!v.closest('.kinesitherapy-button-media');
+  var mql = window.matchMedia('(hover: none) and (pointer: coarse)');
+  var isMobile = mql.matches;
+  var items = [];
+  var activeItem = null;
+  var io = null;
+  var mobileScrollStarted = false;
 
-  // �� �������: �� ����������� ������� ��������� (�� �� ���� hover)
-  // �� �������: ����������� ������
-  let observedVideos = allVideos.filter(v => isMobile || !isProceduresVideo(v));
-
-  function containerOf(videoEl) {
-    return videoEl.closest(
-      '.image-container, .muscle-video-centered, .kinesitherapy-button-media, .hernia-step-media'
-    );
-  }
-
-  function staticImgFor(videoEl) {
-    const c = containerOf(videoEl);
-    if (!c) return null;
-    return c.querySelector(
-      '.static-img, .static-muscle-img, .kinesitherapy-img, .static-hernia-img'
-    );
-  }
-
-  // ��������� ���������/�������� �� ������� (� !important � ��������� hover CSS)
-  function revealVideoOnMobile(videoEl) {
-    if (!isMobile) return;
-    const img = staticImgFor(videoEl);
-    if (img) img.style.setProperty('opacity', '0', 'important');
-    videoEl.style.setProperty('opacity', '1', 'important');
-    videoEl.style.setProperty('visibility', 'visible', 'important');
-  }
-
-  function hideVideoOnMobile(videoEl) {
-    if (!isMobile) return;
-    const img = staticImgFor(videoEl);
-    if (img) img.style.setProperty('opacity', '1', 'important');
-    if (
-      videoEl.classList.contains('hover-video') ||
-      videoEl.classList.contains('hover-muscle-video') ||
-      videoEl.classList.contains('kinesitherapy-video') ||
-      videoEl.classList.contains('hover-hernia-video')
-    ) {
-      videoEl.style.setProperty('opacity', '0', 'important');
-    }
-  }
-
-  // ��-�������� play: ������� ����� ��� ����� (iOS/Safari)
-  function hydrateVideoSource(v) {
-    if (!v) return;
-    const direct = v.getAttribute('data-src');
-    const preview = getPreviewSrc(v);
-    const source = v.querySelector('source');
-    if (direct && !v.getAttribute('src')) {
-      v.setAttribute('src', direct);
-    }
-    if (source && source.getAttribute('data-src') && !source.getAttribute('src')) {
-      source.setAttribute('src', source.getAttribute('data-src'));
-    }
-    if (!source && preview && !v.querySelector('source[src]') && !v.getAttribute('src')) {
-      const created = document.createElement('source');
-      created.setAttribute('src', preview);
-      created.setAttribute('type', 'video/mp4');
-      v.appendChild(created);
-    }
-    try { v.load(); } catch (e) {}
-  }
-
-  function getPreviewSrc(v) {
-    const preview = v.getAttribute('data-dm-preview-src');
+  function getPreviewSrc(node) {
+    if (!node) return '';
+    var direct = node.getAttribute('data-src');
+    if (direct) return direct;
+    var preview = node.getAttribute('data-dm-preview-src');
     if (preview) return preview;
-    const key = v.getAttribute('data-dm-preview-key');
+    var key = node.getAttribute('data-dm-preview-key');
     if (!key) return '';
+
     try {
-      let normalized = key.replace(/-/g, '+').replace(/_/g, '/');
+      var normalized = key.replace(/-/g, '+').replace(/_/g, '/');
       normalized += '='.repeat((4 - normalized.length % 4) % 4);
       return decodeURIComponent(escape(atob(normalized)));
     } catch (e) {
@@ -117,75 +70,310 @@
     }
   }
 
-  function safePlay(v) {
-    hydrateVideoSource(v);
-    const doPlay = () => v.play().catch(() => {});
-    if (v.readyState >= 2) {
-      doPlay();
-    } else {
-      const onData = () => { v.removeEventListener('loadeddata', onData); doPlay(); };
-      v.addEventListener('loadeddata', onData, { once: true });
-      try { v.load(); } catch (e) {}
-    }
+  function primeVideo(video) {
+    if (!video || video.tagName !== 'VIDEO') return;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.autoplay = true;
+    video.preload = 'metadata';
+    video.controls = false;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('autoplay', '');
+    video.setAttribute('aria-hidden', 'true');
+    video.setAttribute('disablepictureinpicture', '');
+    video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
   }
 
-  function observeAll() {}
-  function unobserveAll() {}
+  function hydrateVideo(video) {
+    if (!video || video.tagName !== 'VIDEO') return null;
+    primeVideo(video);
+    if (video.dataset.dmPreviewHydrated === '1') return video;
 
-  // ����� �� ������, ������ ����� � �����
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      allVideos.forEach(v => { if (!v.paused) v.pause(); });
+    var source = video.querySelector('source[data-src]');
+    var direct = video.getAttribute('data-src');
+    var preview = getPreviewSrc(video);
+
+    if (direct && !video.getAttribute('src')) {
+      video.setAttribute('src', direct);
     }
-  }, { passive: true });
 
-  // ���������������� ��� resize � ��� ����� �������/������� ����������
-  function reconfigureObserver() {
-    unobserveAll();
-    isMobile = mql.matches;
-    observedVideos = allVideos.filter(v => isMobile || !isProceduresVideo(v));
-    observeAll();
+    if (source && !source.getAttribute('src')) {
+      source.setAttribute('src', source.getAttribute('data-src'));
+    }
+
+    if (!source && preview && !video.querySelector('source[src]') && !video.getAttribute('src')) {
+      source = document.createElement('source');
+      source.setAttribute('src', preview);
+      source.setAttribute('type', 'video/mp4');
+      video.appendChild(source);
+    }
+
+    video.dataset.dmPreviewHydrated = '1';
+    try { video.load(); } catch (e) {}
+    return video;
   }
-  window.addEventListener('resize', reconfigureObserver, { passive: true });
-  if (mql.addEventListener) mql.addEventListener('change', reconfigureObserver);
 
-  /* =====================================================
-     Hover ������ (���� �� �������)
-  ====================================================== */
+  function createVideoFromPlaceholder(placeholder) {
+    if (!placeholder) return null;
+    if (placeholder.tagName === 'VIDEO') return hydrateVideo(placeholder);
 
-  function addHover(containerSelector, imgSelector, videoSelector) {
-    document.querySelectorAll(containerSelector).forEach(container => {
-      const img = container.querySelector(imgSelector);
-      const vid = container.querySelector(videoSelector);
-      if (!img || !vid) return;
+    if (placeholder.dataset.dmPreviewVideoId) {
+      return hydrateVideo(document.getElementById(placeholder.dataset.dmPreviewVideoId));
+    }
 
-      container.addEventListener('mouseenter', () => {
-        if (isMobile) return;    // ��������� �� ���������� �� IO
-        img.style.opacity = '0';
-        vid.style.opacity = '1';
-        safePlay(vid);
-      });
-      container.addEventListener('mouseleave', () => {
-        if (isMobile) return;
-        img.style.opacity = '1';
-        vid.style.opacity = '0';
-        vid.pause();
-        vid.currentTime = 0;
-      });
+    var preview = getPreviewSrc(placeholder);
+    if (!preview) return null;
+
+    var video = document.createElement('video');
+    var id = 'dm-preview-video-' + Math.random().toString(36).slice(2);
+    var className = (placeholder.getAttribute('class') || '')
+      .replace(/\bdm-video-placeholder\b/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    var poster = placeholder.getAttribute('data-dm-preview-poster') ||
+      placeholder.getAttribute('src') ||
+      placeholder.getAttribute('poster') ||
+      '';
+
+    video.id = id;
+    video.className = className || 'hover-video';
+    if (poster) video.setAttribute('poster', poster);
+    if (placeholder.getAttribute('width')) video.setAttribute('width', placeholder.getAttribute('width'));
+    if (placeholder.getAttribute('height')) video.setAttribute('height', placeholder.getAttribute('height'));
+
+    var source = document.createElement('source');
+    source.setAttribute('src', preview);
+    source.setAttribute('type', 'video/mp4');
+    video.appendChild(source);
+
+    placeholder.dataset.dmPreviewVideoId = id;
+    placeholder.setAttribute('aria-hidden', 'true');
+    placeholder.style.display = 'none';
+    placeholder.insertAdjacentElement('afterend', video);
+
+    return hydrateVideo(video);
+  }
+
+  function ensureVideo(item) {
+    if (!item) return null;
+    if (item.video && item.video.tagName === 'VIDEO') return hydrateVideo(item.video);
+    item.video = createVideoFromPlaceholder(item.preview);
+    return item.video;
+  }
+
+  function reveal(item) {
+    if (!item) return;
+    var video = ensureVideo(item);
+    if (!video) return;
+
+    if (item.staticImg) item.staticImg.style.setProperty('opacity', '0', 'important');
+    video.style.setProperty('opacity', '1', 'important');
+    video.style.setProperty('visibility', 'visible', 'important');
+    video.style.setProperty('pointer-events', 'none', 'important');
+    item.box.classList.add('video-ready');
+    item.box.dataset.playing = '1';
+  }
+
+  function conceal(item, resetTime) {
+    if (!item) return;
+    var video = item.video;
+    if (video && typeof video.pause === 'function') {
+      try { video.pause(); } catch (e) {}
+      if (resetTime) {
+        try { video.currentTime = 0; } catch (e) {}
+      }
+      video.style.setProperty('opacity', '0', 'important');
+    }
+    if (item.staticImg) item.staticImg.style.setProperty('opacity', '1', 'important');
+    delete item.box.dataset.playing;
+    if (activeItem === item) activeItem = null;
+  }
+
+  function playItem(item) {
+    if (!item) return;
+
+    items.forEach(function (other) {
+      if (other !== item) conceal(other, false);
+    });
+
+    reveal(item);
+    var video = item.video;
+    if (!video || typeof video.play !== 'function') return;
+
+    function start() {
+      try {
+        video.muted = true;
+        video.defaultMuted = true;
+        video.setAttribute('muted', '');
+        var played = video.play();
+        if (played && typeof played.catch === 'function') played.catch(function () {});
+      } catch (e) {}
+    }
+
+    start();
+    if (video.readyState < 2) {
+      var onData = function () {
+        video.removeEventListener('loadeddata', onData);
+        if (activeItem === item && video.paused) start();
+      };
+      video.addEventListener('loadeddata', onData, { once: true });
+      try { video.load(); } catch (e) {}
+    }
+
+    activeItem = item;
+  }
+
+  function buildItem(box) {
+    if (!box || box.dataset.dmMobilePreviewBound === '1') return null;
+    var preview = box.querySelector(PREVIEW_SELECTOR);
+    if (!preview) return null;
+
+    var staticImg = box.querySelector(STATIC_SELECTOR);
+    var video = preview.tagName === 'VIDEO' ? preview : null;
+
+    box.dataset.dmMobilePreviewBound = '1';
+    if (getComputedStyle(box).position === 'static') box.style.position = 'relative';
+    if (getComputedStyle(box).overflow === 'visible') box.style.overflow = 'hidden';
+
+    if (staticImg) {
+      staticImg.style.transition = staticImg.style.transition || 'opacity .24s ease';
+    }
+
+    if (video) {
+      primeVideo(video);
+      video.style.transition = video.style.transition || 'opacity .24s ease';
+      video.style.setProperty('opacity', '0', 'important');
+    }
+
+    return { box: box, preview: preview, staticImg: staticImg, video: video, ratio: 0 };
+  }
+
+  function scan() {
+    items = [];
+    document.querySelectorAll(MEDIA_BOX_SELECTOR).forEach(function (box) {
+      var item = buildItem(box);
+      if (item) items.push(item);
     });
   }
 
-  // Hero / Intro
-  addHover('.image-container', '.static-img', '.hover-video');
+  function bestVisibleItem() {
+    var visible = items
+      .filter(function (item) { return item.ratio >= 0.45; })
+      .sort(function (a, b) { return b.ratio - a.ratio; });
+    return visible[0] || null;
+  }
 
-  // �������
-  addHover('.muscle-video-centered', '.static-muscle-img', '.hover-muscle-video');
+  function measureVisibility(item) {
+    if (!item || !item.box) return 0;
+    var rect = item.box.getBoundingClientRect();
+    var viewportH = window.innerHeight || document.documentElement.clientHeight || 1;
+    var viewportW = window.innerWidth || document.documentElement.clientWidth || 1;
+    if (rect.width <= 0 || rect.height <= 0) return 0;
 
-  // ������ ��������� � hover ���� �� ������� (�� ������� �� ����� IO)
-  addHover('.kinesitherapy-button-media', '.kinesitherapy-img', '.kinesitherapy-video');
+    var visibleX = Math.max(0, Math.min(rect.right, viewportW) - Math.max(rect.left, 0));
+    var visibleY = Math.max(0, Math.min(rect.bottom, viewportH) - Math.max(rect.top, 0));
+    return (visibleX * visibleY) / (rect.width * rect.height);
+  }
 
-  // Timeline / Hernia ������
-  addHover('.hernia-step-media', '.static-hernia-img', '.hover-hernia-video');
+  function refreshMeasuredRatios() {
+    items.forEach(function (item) {
+      item.ratio = measureVisibility(item);
+    });
+  }
+
+  function activateBestVisible() {
+    if (!isMobile || !mobileScrollStarted) return;
+    var best = bestVisibleItem();
+    if (best) {
+      if (activeItem !== best || !best.video || best.video.paused) playItem(best);
+    } else if (activeItem) {
+      conceal(activeItem, false);
+    }
+  }
+
+  function observeAll() {
+    if (!isMobile || !('IntersectionObserver' in window)) return;
+    io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var item = items.find(function (candidate) { return candidate.box === entry.target; });
+        if (item) item.ratio = entry.isIntersecting ? entry.intersectionRatio : 0;
+      });
+      window.requestAnimationFrame(activateBestVisible);
+    }, {
+      root: null,
+      rootMargin: '-8% 0px -12% 0px',
+      threshold: [0, 0.25, 0.45, 0.55, 0.7, 0.85, 1]
+    });
+
+    items.forEach(function (item) { io.observe(item.box); });
+  }
+
+  function unobserveAll() {
+    if (io) {
+      io.disconnect();
+      io = null;
+    }
+    items.forEach(function (item) { conceal(item, false); item.ratio = 0; });
+  }
+
+  function bindDesktopHover() {
+    items.forEach(function (item) {
+      if (item.box.dataset.dmDesktopPreviewBound === '1') return;
+      item.box.dataset.dmDesktopPreviewBound = '1';
+
+      item.box.addEventListener('mouseenter', function () {
+        if (isMobile) return;
+        playItem(item);
+      }, { passive: true });
+
+      item.box.addEventListener('mouseleave', function () {
+        if (isMobile) return;
+        conceal(item, true);
+      }, { passive: true });
+    });
+  }
+
+  function configure() {
+    unobserveAll();
+    isMobile = mql.matches || window.innerWidth <= 768;
+    mobileScrollStarted = false;
+    scan();
+    bindDesktopHover();
+    if (isMobile) observeAll();
+  }
+
+  function beginMobileScrollPlayback() {
+    if (!isMobile) return;
+    mobileScrollStarted = true;
+    refreshMeasuredRatios();
+    activateBestVisible();
+    window.setTimeout(function () {
+      refreshMeasuredRatios();
+      activateBestVisible();
+    }, 80);
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) items.forEach(function (item) { conceal(item, false); });
+  }, { passive: true });
+
+  window.addEventListener('pagehide', function () {
+    items.forEach(function (item) { conceal(item, false); });
+  }, { passive: true });
+
+  window.addEventListener('resize', configure, { passive: true });
+  window.addEventListener('scroll', beginMobileScrollPlayback, { passive: true });
+  window.addEventListener('touchmove', beginMobileScrollPlayback, { passive: true });
+  window.addEventListener('wheel', beginMobileScrollPlayback, { passive: true });
+  if (mql.addEventListener) {
+    mql.addEventListener('change', configure);
+  } else if (mql.addListener) {
+    mql.addListener(configure);
+  }
+
+  configure();
 });
-
-

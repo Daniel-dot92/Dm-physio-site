@@ -1,5 +1,7 @@
 ﻿/* media-autoplay-cards.js — light iOS-safe + CriOS unlock */
 (function () {
+  if (window.__dmPreviewHydrationActive) return;
+
   var UA = navigator.userAgent || '';
   var IS_IOS = /iPad|iPhone|iPod/.test(UA) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   var IS_IOS_CHROME = IS_IOS && /CriOS/.test(UA);
@@ -123,6 +125,14 @@
       if(!IS_TOUCH){
         b.addEventListener('mouseenter', function(){ show(m); }, {passive:true});
         b.addEventListener('mouseleave', function(){ hide(m); }, {passive:true});
+      } else {
+        b.addEventListener('click', function(e){
+          if(!b.dataset.playing){
+            e.preventDefault();
+            e.stopPropagation();
+            show(m);
+          }
+        }, true);
       }
     }
   }

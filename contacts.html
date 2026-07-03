@@ -59,8 +59,8 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#fff;color:#000;z-index:9999;}
 
-    :root{ --tb-h: 72px; }
-    @media (max-width:900px){ :root{ --tb-h: 64px; } }
+    :root{ --tb-h: 64px; }
+    @media (max-width:900px){ :root{ --tb-h: 56px; } }
     html, body { scroll-padding-top: var(--tb-h); }
     main { padding-top: var(--tb-h); }
 
@@ -140,6 +140,24 @@
     .phone-text .label{ font-weight:900; letter-spacing:.3px; font-size:18px; color:#0b3b6f; }
     .phone-text .name{ color:#475569; font-size:14px; }
     .phone-link i{ flex:0 0 auto; font-size:18px; color:var(--pc-blue); }
+    .contact-about-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      width:max-content;
+      min-height:40px;
+      margin-top:12px;
+      color:#0b3b6f;
+      font-weight:800;
+      text-decoration:none;
+      border-bottom:2px solid rgba(14,124,134,.28);
+    }
+    .contact-about-link:hover,
+    .contact-about-link:focus-visible{
+      color:var(--pc-green);
+      border-bottom-color:currentColor;
+      text-decoration:none;
+    }
 
     .social-strip{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
     .social-strip img{ width:44px; height:44px; object-fit:contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,.08)); border-radius:8px; transition: transform .25s ease, filter .25s ease; }
@@ -498,6 +516,7 @@
                 </a>
               </li>
             </ul>
+            <a class="contact-about-link" href="/about.html">Вижте повече за нас</a>
           </div>
         </div>
 
@@ -569,7 +588,7 @@
 </footer>
 
 <!-- JS -->
-<script src="/js/topbar.js" defer></script>
+<script src="/js/topbar.js?v=20260702-mobile-video" defer></script>
 
 <!-- Lazy Google Maps iframe -->
 <script>
@@ -652,3 +671,4 @@
 </script>
 </body>
 </html>
+
