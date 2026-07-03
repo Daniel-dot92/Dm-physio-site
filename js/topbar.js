@@ -433,7 +433,7 @@
           bestBox = box;
         }
       });
-      if (bestBox && touchPreviewHasUserIntent) playBestTouchPreview(bestBox);
+      if (bestBox) playBestTouchPreview(bestBox);
     }, {
       threshold: [0, 0.25, 0.45, 0.6, 0.8, 1],
       rootMargin: '-8% 0px -25% 0px'
