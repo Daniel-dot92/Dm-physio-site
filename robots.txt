@@ -17,7 +17,6 @@ Disallow: /trenirovka.html
 Disallow: /individualna-programa.html
 Disallow: /procedures/online-
 Disallow: /videos/procedures-online-
-Disallow: /node_modules/
 Sitemap: https://www.dmphysi0.com/sitemap.xml
 Sitemap: https://www.dmphysi0.com/sitemap-en.xml
 Sitemap: https://www.dmphysi0.com/video-sitemap.xml
