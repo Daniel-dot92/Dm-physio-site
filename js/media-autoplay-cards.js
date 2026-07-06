@@ -77,6 +77,16 @@
       hide(activeTouchCard);
     }
     hydrate(m);
+    if(!IS_TOUCH){
+      m.ready=true;
+      m.box.classList.add('video-ready');
+      m.vid.style.opacity='1';
+      m.img.style.opacity='0';
+      var desktopPlay=m.vid.play();
+      if(desktopPlay&&desktopPlay.catch) desktopPlay.catch(function(){});
+      m.box.dataset.playing='1';
+      return;
+    }
     afterReady(m.vid,function(){
       m.ready=true;
       m.box.classList.add('video-ready');

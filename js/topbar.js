@@ -259,10 +259,17 @@
       video.setAttribute('playsinline', '');
       video.style.setProperty('opacity', '0', 'important');
       setPreviewStillVisible(video, true);
+      if (!isTouchPreviewMode()) {
+        revealPlayingPreview(video, box);
+      }
       var played = video.play();
       if (played && typeof played.then === 'function') {
         played.then(function () {
-          whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+          if (isTouchPreviewMode()) {
+            whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+          } else {
+            revealPlayingPreview(video, box);
+          }
         }).catch(function () {
           video.style.removeProperty('opacity');
           setPreviewStillVisible(video, true);
@@ -272,7 +279,11 @@
           }
         });
       } else {
-        whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+        if (isTouchPreviewMode()) {
+          whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+        } else {
+          revealPlayingPreview(video, box);
+        }
       }
     } catch (_) {}
   }
@@ -331,10 +342,17 @@
       video.style.setProperty('opacity', '0', 'important');
       setPreviewStillVisible(video, true);
       var box = getPreviewBox(video);
+      if (!isTouchPreviewMode()) {
+        revealPlayingPreview(video, box);
+      }
       var played = video.play();
       if (played && typeof played.then === 'function') {
         played.then(function () {
-          whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+          if (isTouchPreviewMode()) {
+            whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+          } else {
+            revealPlayingPreview(video, box);
+          }
         }).catch(function () {
           video.style.removeProperty('opacity');
           setPreviewStillVisible(video, true);
@@ -344,7 +362,11 @@
           }
         });
       } else {
-        whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+        if (isTouchPreviewMode()) {
+          whenPreviewReady(video, function () { revealPlayingPreview(video, box); });
+        } else {
+          revealPlayingPreview(video, box);
+        }
       }
     } catch (_) {}
   }
@@ -469,6 +491,26 @@
     }, { passive: true });
   }
 
+  var touchScrollPreviewIntentArmed = false;
+  function armTouchScrollPreviewIntent() {
+    if (!isTouchPreviewMode() || touchScrollPreviewIntentArmed) return;
+    touchScrollPreviewIntentArmed = true;
+
+    function start(event) {
+      if (event && event.isTrusted === false) return;
+      window.removeEventListener('scroll', start, true);
+      window.removeEventListener('wheel', start, true);
+      window.removeEventListener('touchstart', start, true);
+      window.removeEventListener('pointerdown', start, true);
+      initTouchScrollPreviews();
+    }
+
+    window.addEventListener('scroll', start, { passive: true, capture: true });
+    window.addEventListener('wheel', start, { passive: true, capture: true });
+    window.addEventListener('touchstart', start, { passive: true, capture: true });
+    window.addEventListener('pointerdown', start, { passive: true, capture: true });
+  }
+
   function initPreviewHydration() {
     window.__dmPreviewHydrationActive = true;
     document.addEventListener('pointerenter', function (event) {
@@ -478,8 +520,34 @@
       hydrateFromTarget(event.target);
       playPreviewFromTarget(event.target);
     }, true);
+    document.addEventListener('mouseover', function (event) {
+      if (isTouchPreviewMode()) return;
+      var box = getPreviewBox(event.target);
+      if (!box) return;
+      hydrateFromTarget(event.target);
+      playPreviewFromTarget(event.target);
+    }, true);
+    var hoverFrame = 0;
+    document.addEventListener('mousemove', function (event) {
+      if (isTouchPreviewMode() || hoverFrame) return;
+      hoverFrame = window.requestAnimationFrame(function () {
+        hoverFrame = 0;
+        var target = document.elementFromPoint(event.clientX, event.clientY);
+        var box = getPreviewBox(target);
+        if (!box) return;
+        hydrateFromTarget(target);
+        playPreviewFromTarget(target);
+      });
+    }, { passive: true, capture: true });
     document.addEventListener('pointerout', function (event) {
       if (isTouchPreviewMode()) return;
+      pausePreviewFromTarget(event.target);
+    }, true);
+    document.addEventListener('mouseout', function (event) {
+      if (isTouchPreviewMode()) return;
+      var box = getPreviewBox(event.target);
+      var relatedBox = getPreviewBox(event.relatedTarget);
+      if (!box || box === relatedBox) return;
       pausePreviewFromTarget(event.target);
     }, true);
     document.addEventListener('focusin', function (event) {
@@ -513,7 +581,7 @@
       playBestTouchPreview(box);
     }, true);
 
-    initTouchScrollPreviews();
+    armTouchScrollPreviewIntent();
   }
 
   if (document.readyState === 'loading') {
@@ -984,6 +1052,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const inner = header.querySelector('.tb-inner');
     if (!inner) return;
 
+    function ensureFreshTopbarCss() {
+      const href = '/css/top-bar.css?v=20260704-searchfix';
+      if (document.querySelector('link[href="' + href + '"]')) return;
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      document.head.appendChild(link);
+    }
+    ensureFreshTopbarCss();
+
     const isEnglish = /^\/en(?:\/|$)/.test(window.location.pathname);
     const copy = isEnglish ? {
       open: 'Search',
@@ -1014,7 +1092,8 @@ document.addEventListener('DOMContentLoaded', () => {
     trigger.type = 'button';
     trigger.setAttribute('aria-expanded', 'false');
     trigger.setAttribute('aria-controls', 'dm-site-search-panel');
-    trigger.innerHTML = '<span aria-hidden="true">⌕</span><span>' + copy.open + '</span>';
+    trigger.setAttribute('aria-label', copy.open);
+    trigger.innerHTML = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m16 16 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><span>' + copy.open + '</span>';
 
     const bookItem = header.querySelector('.tb-link[href*="/book"]')?.closest('.tb-item');
     const langItem = header.querySelector('.tb-lang-item');
@@ -1040,8 +1119,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileTrigger = trigger.cloneNode(true);
     mobileTrigger.classList.remove('dm-search-trigger--menu');
     mobileTrigger.classList.add('dm-search-trigger--mobile');
+    mobileTrigger.setAttribute('aria-label', copy.open);
     const mobileLang = inner.querySelector('.tb-header-lang--mobile');
     inner.insertBefore(mobileTrigger, mobileLang || burger || nav || null);
+
+    function syncSearchTriggerVisibility() {
+      const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+      trigger.style.display = isMobile ? 'none' : '';
+      mobileTrigger.style.display = isMobile ? 'inline-flex' : 'none';
+    }
+    syncSearchTriggerVisibility();
+    window.addEventListener('resize', syncSearchTriggerVisibility, { passive: true });
 
     const panel = document.createElement('section');
     panel.id = 'dm-site-search-panel';
