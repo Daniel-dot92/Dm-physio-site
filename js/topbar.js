@@ -180,7 +180,7 @@
   function whenPreviewReady(video, callback) {
     if (!video || video.tagName !== 'VIDEO') return;
     if (video.readyState >= 2) {
-      callback();
+      waitForPreviewFrame(video, callback);
       return;
     }
 
@@ -194,7 +194,7 @@
       if (done) return;
       done = true;
       cleanup();
-      callback();
+      waitForPreviewFrame(video, callback);
     }
     function onError() {
       if (done) return;
@@ -213,6 +213,16 @@
     video.addEventListener('canplay', onReady, { once: true });
     video.addEventListener('error', onError, { once: true });
     try { video.load(); } catch (_) {}
+  }
+
+  function waitForPreviewFrame(video, callback) {
+    if (video && typeof video.requestVideoFrameCallback === 'function') {
+      video.requestVideoFrameCallback(function () { callback(); });
+      return;
+    }
+    requestAnimationFrame(function () {
+      requestAnimationFrame(callback);
+    });
   }
 
   function revealPlayingPreview(video, box) {

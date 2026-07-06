@@ -66,10 +66,46 @@
   }
 
   function afterReady(v, cb){
-    if(v.readyState>=2){ cb(); return; }
-    var on=function(){ v.removeEventListener('loadeddata',on); cb(); };
+    if(v.readyState>=2){ waitFrame(v, cb); return; }
+    var done=false;
+    function cleanup(){
+      v.removeEventListener('loadeddata',on);
+      v.removeEventListener('canplay',on);
+      v.removeEventListener('error',onError);
+    }
+    var on=function(){
+      if(done) return;
+      done=true;
+      cleanup();
+      waitFrame(v, cb);
+    };
+    function onError(){
+      if(done) return;
+      done=true;
+      cleanup();
+    }
     v.addEventListener('loadeddata', on, {once:true});
+    v.addEventListener('canplay', on, {once:true});
+    v.addEventListener('error', onError, {once:true});
     try{ v.load(); }catch(e){}
+  }
+
+  function waitFrame(v, cb){
+    if(v && typeof v.requestVideoFrameCallback === 'function'){
+      v.requestVideoFrameCallback(function(){ cb(); });
+      return;
+    }
+    requestAnimationFrame(function(){ requestAnimationFrame(cb); });
+  }
+
+  function reveal(m){
+    m.ready=true;
+    m.box.classList.add('video-ready');
+    m.box.classList.add('is-playing');
+    m.vid.style.opacity='1';
+    m.img.style.opacity='0';
+    m.box.dataset.playing='1';
+    if (IS_TOUCH) activeTouchCard = m;
   }
 
   function show(m){
@@ -87,16 +123,14 @@
       m.box.dataset.playing='1';
       return;
     }
-    afterReady(m.vid,function(){
-      m.ready=true;
-      m.box.classList.add('video-ready');
-      m.vid.style.opacity='1';
-      m.img.style.opacity='0';
-      var p=m.vid.play();
-      if(p&&p.catch) p.catch(function(){ NEED_UNLOCK=true; });
-      m.box.dataset.playing='1';
-      if (IS_TOUCH) activeTouchCard = m;
-    });
+    var p=m.vid.play();
+    if(p&&p.then){
+      p.then(function(){
+        afterReady(m.vid,function(){ reveal(m); });
+      }).catch(function(){ NEED_UNLOCK=true; });
+    }else{
+      afterReady(m.vid,function(){ reveal(m); });
+    }
   }
 
   function hide(m){
@@ -104,6 +138,7 @@
     try{m.vid.currentTime=0;}catch(e){}
     m.vid.style.opacity='0';
     m.img.style.opacity='1';
+    m.box.classList.remove('is-playing');
     delete m.box.dataset.playing;
     if (IS_TOUCH && activeTouchCard === m) activeTouchCard = null;
   }
