@@ -1,6 +1,7 @@
 ﻿/* media-autoplay-cards.js — light iOS-safe + CriOS unlock */
 (function () {
-  if (window.__dmPreviewHydrationActive) return;
+  if (window.__dmMediaAutoplayCardsActive) return;
+  window.__dmMediaAutoplayCardsActive = true;
 
   var UA = navigator.userAgent || '';
   var IS_IOS = /iPad|iPhone|iPod/.test(UA) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -14,6 +15,8 @@
   var byBox = new Map();
   var io = null;
   var activeTouchCard = null;
+  var visibleCards = new Map();
+  var scrollPlayTimer = null;
 
   function prime(v, auto){
     v.muted = true; v.defaultMuted = true; v.setAttribute('muted','');
@@ -39,6 +42,43 @@
     } catch(e) {
       return '';
     }
+  }
+
+  function createVideoFromPlaceholder(placeholder){
+    if(!placeholder) return null;
+    var existingId = placeholder.getAttribute('data-dm-preview-video-id');
+    if(existingId){
+      var existing = document.getElementById(existingId);
+      if(existing && existing.tagName === 'VIDEO') return existing;
+    }
+
+    var preview = getPreviewSrc(placeholder);
+    if(!preview) return null;
+
+    var video = document.createElement('video');
+    var id = existingId || ('dm-preview-' + Math.random().toString(36).slice(2));
+    video.id = id;
+    video.className = (placeholder.className || 'hover-img').replace(/\bdm-video-placeholder\b/g, '').trim() || 'hover-img';
+    video.setAttribute('aria-hidden', 'true');
+    video.setAttribute('data-dm-preview-src', preview);
+    video.poster = placeholder.getAttribute('data-dm-preview-poster') || placeholder.currentSrc || placeholder.src || '';
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+    video.controls = false;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('disablepictureinpicture', '');
+    video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
+
+    placeholder.setAttribute('data-dm-preview-video-id', id);
+    placeholder.style.display = 'none';
+    if(placeholder.parentNode){
+      placeholder.parentNode.insertBefore(video, placeholder.nextSibling);
+    }
+    return video;
   }
 
   function hydrate(m){
@@ -98,7 +138,10 @@
     requestAnimationFrame(function(){ requestAnimationFrame(cb); });
   }
 
-  function reveal(m){
+  function reveal(m, token, previous){
+    if(token && m.showToken !== token) return;
+    if(IS_TOUCH && activeTouchCard && activeTouchCard !== m) return;
+    if(previous && previous !== m) hide(previous);
     m.ready=true;
     m.box.classList.add('video-ready');
     m.box.classList.add('is-playing');
@@ -109,9 +152,11 @@
   }
 
   function show(m){
-    if (IS_TOUCH && activeTouchCard && activeTouchCard !== m){
-      hide(activeTouchCard);
-    }
+    if(m.hideTimer){ clearTimeout(m.hideTimer); m.hideTimer = null; }
+    var previous = IS_TOUCH && activeTouchCard && activeTouchCard !== m ? activeTouchCard : null;
+    var token = (m.showToken || 0) + 1;
+    m.showToken = token;
+    if(IS_TOUCH) activeTouchCard = m;
     hydrate(m);
     if(!IS_TOUCH){
       m.ready=true;
@@ -126,21 +171,76 @@
     var p=m.vid.play();
     if(p&&p.then){
       p.then(function(){
-        afterReady(m.vid,function(){ reveal(m); });
+        afterReady(m.vid,function(){ reveal(m, token, previous); });
       }).catch(function(){ NEED_UNLOCK=true; });
     }else{
-      afterReady(m.vid,function(){ reveal(m); });
+      afterReady(m.vid,function(){ reveal(m, token, previous); });
     }
   }
 
   function hide(m){
+    if(m.hideTimer){ clearTimeout(m.hideTimer); m.hideTimer = null; }
+    m.showToken = (m.showToken || 0) + 1;
     try{m.vid.pause();}catch(e){}
-    try{m.vid.currentTime=0;}catch(e){}
+    if(!IS_TOUCH){ try{m.vid.currentTime=0;}catch(e){} }
     m.vid.style.opacity='0';
     m.img.style.opacity='1';
     m.box.classList.remove('is-playing');
     delete m.box.dataset.playing;
     if (IS_TOUCH && activeTouchCard === m) activeTouchCard = null;
+  }
+
+  function visibleRatio(box){
+    if(!box || !box.getBoundingClientRect) return 0;
+    var r = box.getBoundingClientRect();
+    if(!r.width || !r.height) return 0;
+    var w = Math.max(0, Math.min(r.right, innerWidth || document.documentElement.clientWidth) - Math.max(r.left, 0));
+    var h = Math.max(0, Math.min(r.bottom, innerHeight || document.documentElement.clientHeight) - Math.max(r.top, 0));
+    return (w * h) / (r.width * r.height);
+  }
+
+  function playBestVisible(){
+    if(!IS_TOUCH) return;
+    if(activeTouchCard){
+      var activeRatio = visibleRatio(activeTouchCard.box);
+      if(activeRatio > 0.01){
+        if(activeTouchCard.vid.paused){
+          var activePlay = activeTouchCard.vid.play();
+          if(activePlay && activePlay.catch) activePlay.catch(function(){});
+        }
+        return;
+      }
+      hide(activeTouchCard);
+    }
+    var best = null;
+    var bestRatio = 0;
+    visibleCards.forEach(function(ratio, m){
+      var freshRatio = visibleRatio(m.box);
+      if(freshRatio > bestRatio){
+        bestRatio = freshRatio;
+        best = m;
+      }
+    });
+    if(best && bestRatio >= 0.35 && activeTouchCard !== best) show(best);
+  }
+
+  function scheduleBestVisible(){
+    if(!IS_TOUCH) return;
+    if(scrollPlayTimer) clearTimeout(scrollPlayTimer);
+    scrollPlayTimer = setTimeout(function(){
+      scrollPlayTimer = null;
+      playBestVisible();
+    }, 120);
+  }
+
+  function scheduleHide(m){
+    if(!IS_TOUCH){ hide(m); return; }
+    if(m.hideTimer) clearTimeout(m.hideTimer);
+    m.hideTimer = setTimeout(function(){
+      m.hideTimer = null;
+      if(visibleRatio(m.box) > 0.01) return;
+      if(activeTouchCard === m || m.box.dataset.playing) hide(m);
+    }, 180);
   }
 
   function initBox(m){
@@ -184,24 +284,33 @@
 
   function ensureObserver(){
     if(io || !('IntersectionObserver' in window)) return;
-    var thr = IS_TOUCH ? (IS_IOS?0.6:0.5) : 0.1;
+    var thr = IS_TOUCH ? 0.01 : 0.1;
     io = new IntersectionObserver(function(ents){
       for (var k=0;k<ents.length;k++){
         var en=ents[k];
         var m = byBox.get(en.target);
         if(!m) continue;
-        if(!en.isIntersecting || en.intersectionRatio<thr) hide(m);
+        if(en.isIntersecting && en.intersectionRatio >= thr){
+          visibleCards.set(m, en.intersectionRatio);
+          scheduleBestVisible();
+        }else{
+          visibleCards.delete(m);
+          scheduleHide(m);
+        }
       }
-    }, {rootMargin:'80px 0px', threshold:[0,0.1,0.5,0.6,1]});
+    }, {rootMargin:'0px', threshold:[0,0.01,0.1,0.35,0.5,0.6,1]});
     cards.forEach(function(m){ io.observe(m.box); });
   }
 
   function registerBox(box){
     if(byBox.has(box)) return;
     var img = $('.static-img', box);
-    var vid = $('video.hover-img', box);
+    var vid = $('video.hover-img, video.hover-video, video.hover-muscle-video, video.kinesitherapy-video', box);
+    if(!vid){
+      vid = createVideoFromPlaceholder($('.dm-video-placeholder[data-dm-preview-key], .dm-video-placeholder[data-dm-preview-src], img[data-dm-preview-key], img[data-dm-preview-src], img[data-src]', box));
+    }
     if(!(img&&vid)) return;
-    var m = {box:box,img:img,vid:vid,ready:false,hydrated:false};
+    var m = {box:box,img:img,vid:vid,ready:false,hydrated:false,showToken:0,hideTimer:null};
     byBox.set(box, m);
     cards.push(m);
     initBox(m);
