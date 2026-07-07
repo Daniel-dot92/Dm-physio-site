@@ -138,10 +138,8 @@
     requestAnimationFrame(function(){ requestAnimationFrame(cb); });
   }
 
-  function reveal(m, token, previous){
+  function reveal(m, token){
     if(token && m.showToken !== token) return;
-    if(IS_TOUCH && activeTouchCard && activeTouchCard !== m) return;
-    if(previous && previous !== m) hide(previous);
     m.ready=true;
     m.box.classList.add('video-ready');
     m.box.classList.add('is-playing');
@@ -153,7 +151,13 @@
 
   function show(m){
     if(m.hideTimer){ clearTimeout(m.hideTimer); m.hideTimer = null; }
-    var previous = IS_TOUCH && activeTouchCard && activeTouchCard !== m ? activeTouchCard : null;
+    if(IS_TOUCH && m.box.dataset.playing){
+      if(m.vid.paused){
+        var resume = m.vid.play();
+        if(resume && resume.catch) resume.catch(function(){});
+      }
+      return;
+    }
     var token = (m.showToken || 0) + 1;
     m.showToken = token;
     if(IS_TOUCH) activeTouchCard = m;
@@ -171,10 +175,10 @@
     var p=m.vid.play();
     if(p&&p.then){
       p.then(function(){
-        afterReady(m.vid,function(){ reveal(m, token, previous); });
+        afterReady(m.vid,function(){ reveal(m, token); });
       }).catch(function(){ NEED_UNLOCK=true; });
     }else{
-      afterReady(m.vid,function(){ reveal(m, token, previous); });
+      afterReady(m.vid,function(){ reveal(m, token); });
     }
   }
 
@@ -201,27 +205,19 @@
 
   function playBestVisible(){
     if(!IS_TOUCH) return;
-    if(activeTouchCard){
-      var activeRatio = visibleRatio(activeTouchCard.box);
-      if(activeRatio > 0.01){
-        if(activeTouchCard.vid.paused){
-          var activePlay = activeTouchCard.vid.play();
-          if(activePlay && activePlay.catch) activePlay.catch(function(){});
-        }
-        return;
-      }
-      hide(activeTouchCard);
-    }
-    var best = null;
-    var bestRatio = 0;
     visibleCards.forEach(function(ratio, m){
       var freshRatio = visibleRatio(m.box);
-      if(freshRatio > bestRatio){
-        bestRatio = freshRatio;
-        best = m;
+      if(freshRatio >= 0.35){
+        if(m.box.dataset.playing){
+          if(m.vid.paused){
+            var resume = m.vid.play();
+            if(resume && resume.catch) resume.catch(function(){});
+          }
+        }else{
+          show(m);
+        }
       }
     });
-    if(best && bestRatio >= 0.35 && activeTouchCard !== best) show(best);
   }
 
   function scheduleBestVisible(){

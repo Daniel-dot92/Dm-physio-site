@@ -234,13 +234,9 @@
     });
   }
 
-  function revealPlayingPreview(video, box, token, previousTouchVideo) {
+  function revealPlayingPreview(video, box, token) {
     if (!video || video.tagName !== 'VIDEO') return;
     if (token && video.__dmPreviewToken !== token) return;
-    if (isTouchPreviewMode() && activeTouchPreviewVideo && activeTouchPreviewVideo !== video) return;
-    if (previousTouchVideo && previousTouchVideo !== video) {
-      pausePreviewVideo(previousTouchVideo, false);
-    }
     if (box) {
       box.classList.add('video-ready');
       box.classList.add('is-playing');
@@ -278,13 +274,11 @@
     try {
       var token = (video.__dmPreviewToken || 0) + 1;
       video.__dmPreviewToken = token;
-      var previousTouchVideo = null;
       if (isTouchPreviewMode()) {
         if (video.__dmTouchPauseTimer) {
           clearTimeout(video.__dmTouchPauseTimer);
           video.__dmTouchPauseTimer = null;
         }
-        previousTouchVideo = activeTouchPreviewVideo && activeTouchPreviewVideo !== video ? activeTouchPreviewVideo : null;
         activeTouchPreviewVideo = video;
       }
       video.muted = true;
@@ -302,7 +296,7 @@
         played.then(function () {
           if (video.__dmPreviewToken !== token) return;
           if (isTouchPreviewMode()) {
-            whenPreviewReady(video, function () { revealPlayingPreview(video, box, token, previousTouchVideo); });
+            whenPreviewReady(video, function () { revealPlayingPreview(video, box, token); });
           } else {
             revealPlayingPreview(video, box, token);
           }
@@ -317,7 +311,7 @@
         });
       } else {
         if (isTouchPreviewMode()) {
-          whenPreviewReady(video, function () { revealPlayingPreview(video, box, token, previousTouchVideo); });
+          whenPreviewReady(video, function () { revealPlayingPreview(video, box, token); });
         } else {
           revealPlayingPreview(video, box, token);
         }
@@ -408,7 +402,7 @@
     }, 180);
   }
 
-  function playPreviewVideo(video, previousTouchVideo) {
+  function playPreviewVideo(video) {
     if (!video || video.tagName !== 'VIDEO') return;
     if (video.__dmTouchPauseTimer) {
       clearTimeout(video.__dmTouchPauseTimer);
@@ -435,7 +429,7 @@
         played.then(function () {
           if (video.__dmPreviewToken !== token) return;
           if (isTouchPreviewMode()) {
-            whenPreviewReady(video, function () { revealPlayingPreview(video, box, token, previousTouchVideo); });
+            whenPreviewReady(video, function () { revealPlayingPreview(video, box, token); });
           } else {
             revealPlayingPreview(video, box, token);
           }
@@ -450,7 +444,7 @@
         });
       } else {
         if (isTouchPreviewMode()) {
-          whenPreviewReady(video, function () { revealPlayingPreview(video, box, token, previousTouchVideo); });
+          whenPreviewReady(video, function () { revealPlayingPreview(video, box, token); });
         } else {
           revealPlayingPreview(video, box, token);
         }
@@ -470,7 +464,7 @@
     var video = media.tagName === 'VIDEO' ? media : createVideoFromPlaceholder(media);
     if (!video || video.tagName !== 'VIDEO') return;
 
-    if (activeTouchPreviewVideo === video) {
+    if (box.dataset.playing || activeTouchPreviewVideo === video) {
       if (video.paused) {
         var resumePlay = video.play();
         if (resumePlay && resumePlay.catch) resumePlay.catch(function () {});
@@ -478,9 +472,8 @@
       return;
     }
 
-    var previousTouchVideo = activeTouchPreviewVideo && activeTouchPreviewVideo !== video ? activeTouchPreviewVideo : null;
     activeTouchPreviewVideo = video;
-    playPreviewVideo(video, previousTouchVideo);
+    playPreviewVideo(video);
   }
 
   function initTouchScrollPreviews() {
@@ -493,25 +486,12 @@
     var touchPreviewHasUserIntent = false;
 
     function playBestVisiblePreview() {
-      if (activeTouchPreviewVideo && !isPreviewFullyOutside(activeTouchPreviewVideo)) {
-        if (activeTouchPreviewVideo.paused) {
-          var activePlay = activeTouchPreviewVideo.play();
-          if (activePlay && activePlay.catch) activePlay.catch(function () {});
-        }
-        return;
-      }
-      var bestBox = null;
-      var bestRatio = 0;
       observedList.forEach(function (box) {
         var ratio = previewVisibleRatio(box);
-        if (ratio > bestRatio) {
-          bestRatio = ratio;
-          bestBox = box;
+        if (ratio >= 0.35) {
+          playBestTouchPreview(box);
         }
       });
-      if (bestBox && bestRatio >= 0.35) {
-        playBestTouchPreview(bestBox);
-      }
     }
 
     function playTouchedBox(target) {
@@ -533,29 +513,18 @@
           visibleBoxes.delete(entry.target);
           var media = mediaFromBox(entry.target);
           var video = media && media.tagName === 'VIDEO' ? media : null;
-          if (video && activeTouchPreviewVideo === video) {
+          if (video && (video === activeTouchPreviewVideo || entry.target.dataset.playing || !video.paused)) {
             scheduleTouchPreviewPause(video);
           }
         }
       });
 
-      if (activeTouchPreviewVideo && !isPreviewFullyOutside(activeTouchPreviewVideo)) {
-        if (activeTouchPreviewVideo.paused) {
-          var activePlay = activeTouchPreviewVideo.play();
-          if (activePlay && activePlay.catch) activePlay.catch(function () {});
-        }
-        return;
-      }
-
-      var bestBox = null;
-      var bestRatio = 0;
       visibleBoxes.forEach(function (ratio, box) {
-        if (ratio > bestRatio) {
-          bestRatio = ratio;
-          bestBox = box;
+        var freshRatio = previewVisibleRatio(box);
+        if (freshRatio >= 0.35) {
+          playBestTouchPreview(box);
         }
       });
-      if (bestBox) playBestTouchPreview(bestBox);
     }, {
       threshold: [0, 0.01, 0.25, 0.45, 0.6, 0.8, 1],
       rootMargin: '0px'
