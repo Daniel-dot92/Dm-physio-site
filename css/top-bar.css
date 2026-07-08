@@ -236,6 +236,15 @@
 
 /* Dropdown (desktop) */
 .tb-dropdown{ position: relative; }
+.tb-dropdown::after{
+  content:"";
+  display:none;
+  position:absolute;
+  top:100%;
+  left:-8px;
+  right:-8px;
+  height:16px;
+}
 .tb-drop-menu{
   display: none;
   position: absolute; top: calc(100% + 8px); left: 0;
@@ -248,6 +257,11 @@
 
 /* ��������� �� dropdown ��� hover (desktop) ��� ������ JS ������ .tb-open */
 @media (min-width:769px){
+  .tb-dropdown:hover::after,
+  .tb-dropdown.tb-open::after{
+    display:block;
+  }
+
   .tb-dropdown:hover > .tb-drop-menu,
   .tb-dropdown.tb-open > .tb-drop-menu{
     display:block;
