@@ -77,7 +77,7 @@
 <script>
 (function(){ var frame = document.getElementById('mapFrame'); if (!frame || frame.src) return; function loadMap(){ if (!frame.src) frame.src = frame.dataset.src; } if ('IntersectionObserver' in window) { var io = new IntersectionObserver(function(entries){ if(entries.some(function(e){ return e.isIntersecting; })){ loadMap(); io.disconnect(); } }, { rootMargin: '200px' }); io.observe(frame); } else { window.addEventListener('load', loadMap, { once:true }); }
 })();
-</script> <script src="/js/topbar.js?v=20260706-mobile-flashfix" defer></script>
+</script> <script src="/js/topbar.js?v=20260707-preview-conflict-fix" defer></script>
 </body>
 </html>
 

@@ -17,6 +17,8 @@
   var activeTouchCard = null;
   var visibleCards = new Map();
   var scrollPlayTimer = null;
+  // Keep preview media out of the initial render. A real touch arms mobile scroll previews.
+  var touchPreviewIntentArmed = !IS_TOUCH;
 
   function prime(v, auto){
     v.muted = true; v.defaultMuted = true; v.setAttribute('muted','');
@@ -81,9 +83,42 @@
     return video;
   }
 
+  function prepareVideo(m, video){
+    if(!video) return null;
+    var b=m.box, img=m.img;
+    prime(video, IS_TOUCH);
+
+    video.style.position='absolute';
+    video.style.inset='0';
+    video.style.width='100%';
+    video.style.height='100%';
+    video.style.objectFit='cover';
+    video.style.opacity='0';
+    if(!video.style.transition) video.style.transition='opacity .24s ease';
+    if(img && img !== m.placeholder){
+      if(!img.style.transition) img.style.transition='opacity .24s ease';
+      img.style.opacity='1';
+    }
+
+    video.addEventListener('loadeddata', function(){
+      b.classList.add('video-ready');
+    }, {passive:true});
+    return video;
+  }
+
+  function ensureVideo(m){
+    if(m.vid) return m.vid;
+    if(!m.placeholder) return null;
+    var video=createVideoFromPlaceholder(m.placeholder);
+    if(!video) return null;
+    m.vid=prepareVideo(m, video);
+    return m.vid;
+  }
+
   function hydrate(m){
     if(m.hydrated) return;
-    var v = m.vid;
+    var v = ensureVideo(m);
+    if(!v) return;
     var preview = getPreviewSrc(v);
     var s = $('source', v);
 
@@ -151,6 +186,7 @@
 
   function show(m){
     if(m.hideTimer){ clearTimeout(m.hideTimer); m.hideTimer = null; }
+    if(!ensureVideo(m)) return;
     if(IS_TOUCH && m.box.dataset.playing){
       if(m.vid.paused){
         var resume = m.vid.play();
@@ -184,6 +220,7 @@
 
   function hide(m){
     if(m.hideTimer){ clearTimeout(m.hideTimer); m.hideTimer = null; }
+    if(!m.vid) return;
     m.showToken = (m.showToken || 0) + 1;
     try{m.vid.pause();}catch(e){}
     if(!IS_TOUCH){ try{m.vid.currentTime=0;}catch(e){} }
@@ -204,7 +241,7 @@
   }
 
   function playBestVisible(){
-    if(!IS_TOUCH) return;
+    if(!IS_TOUCH || !touchPreviewIntentArmed) return;
     visibleCards.forEach(function(ratio, m){
       var freshRatio = visibleRatio(m.box);
       if(freshRatio >= 0.35){
@@ -221,7 +258,7 @@
   }
 
   function scheduleBestVisible(){
-    if(!IS_TOUCH) return;
+    if(!IS_TOUCH || !touchPreviewIntentArmed) return;
     if(scrollPlayTimer) clearTimeout(scrollPlayTimer);
     scrollPlayTimer = setTimeout(function(){
       scrollPlayTimer = null;
@@ -241,25 +278,21 @@
 
   function initBox(m){
     var b=m.box, img=m.img, v=m.vid;
-    prime(v, IS_TOUCH);
 
     var cs = getComputedStyle(b);
     if(cs.position==='static') b.style.position='relative';
     if(cs.overflow==='visible') b.style.overflow='hidden';
 
-    img.style.position=v.style.position='absolute';
-    img.style.inset=v.style.inset='0';
-    img.style.width=v.style.width='100%';
-    img.style.height=v.style.height='100%';
-    img.style.objectFit=v.style.objectFit='cover';
-
-    if(!v.style.transition) v.style.transition='opacity .24s ease';
-    if(!img.style.transition) img.style.transition='opacity .24s ease';
-    v.style.opacity='0'; img.style.opacity='1';
-
-    v.addEventListener('loadeddata', function(){
-      this.parentNode&&this.parentNode.classList.add('video-ready');
-    }, {passive:true});
+    if(img && img !== m.placeholder){
+      img.style.position='absolute';
+      img.style.inset='0';
+      img.style.width='100%';
+      img.style.height='100%';
+      img.style.objectFit='cover';
+      if(!img.style.transition) img.style.transition='opacity .24s ease';
+      img.style.opacity='1';
+    }
+    if(v) prepareVideo(m, v);
 
     if(!b.dataset.mediaBound){
       b.dataset.mediaBound = '1';
@@ -302,11 +335,10 @@
     if(byBox.has(box)) return;
     var img = $('.static-img', box);
     var vid = $('video.hover-img, video.hover-video, video.hover-muscle-video, video.kinesitherapy-video', box);
-    if(!vid){
-      vid = createVideoFromPlaceholder($('.dm-video-placeholder[data-dm-preview-key], .dm-video-placeholder[data-dm-preview-src], img[data-dm-preview-key], img[data-dm-preview-src], img[data-src]', box));
-    }
-    if(!(img&&vid)) return;
-    var m = {box:box,img:img,vid:vid,ready:false,hydrated:false,showToken:0,hideTimer:null};
+    var placeholder = $('.dm-video-placeholder[data-dm-preview-key], .dm-video-placeholder[data-dm-preview-src], img[data-dm-preview-key], img[data-dm-preview-src], img[data-src]', box);
+    if(!img) img=placeholder;
+    if(!(img && (vid || placeholder))) return;
+    var m = {box:box,img:img,placeholder:placeholder,vid:vid,ready:false,hydrated:false,showToken:0,hideTimer:null};
     byBox.set(box, m);
     cards.push(m);
     initBox(m);
@@ -320,9 +352,23 @@
   scan(document);
   ensureObserver();
 
+  function armTouchPreviews(event){
+    if(!IS_TOUCH || touchPreviewIntentArmed) return;
+    if(event && event.isTrusted === false) return;
+    touchPreviewIntentArmed=true;
+    scheduleBestVisible();
+  }
+
+  window.addEventListener('touchstart', armTouchPreviews, {passive:true});
+  window.addEventListener('pointerdown', function(event){
+    if(!event.pointerType || event.pointerType !== 'mouse') armTouchPreviews(event);
+  }, {passive:true});
+
   if(!('IntersectionObserver' in window) && IS_TOUCH){
-    var onL=function(){ if(cards.length) show(cards[0]); };
-    if(document.readyState==='complete') onL(); else window.addEventListener('load', onL, {once:true});
+    var onL=function(){ if(touchPreviewIntentArmed && cards.length) show(cards[0]); };
+    window.addEventListener('touchstart', function(){
+      if(document.readyState==='complete') onL(); else window.addEventListener('load', onL, {once:true});
+    }, {once:true,passive:true});
   }
 
   document.addEventListener('visibilitychange', function(){ if(document.hidden) cards.forEach(hide); }, {passive:true});
@@ -343,11 +389,12 @@
 
   function doUnlock(){
     if(unlocked) return; unlocked=true;
-    cards.forEach(function(m){ prime(m.vid, IS_TOUCH); });
+    cards.forEach(function(m){ var video=ensureVideo(m); if(video) prime(video, IS_TOUCH); });
     var targets = cards.filter(function(m){ return inViewport(m.box,0.5); });
     var first = targets.length ? targets[0] : null;
     if(first){
       hydrate(first);
+      if(!first.vid) return;
       try{
         first.vid.muted=true;
         first.vid.setAttribute('muted','');
@@ -378,7 +425,7 @@
     clearTimeout(deb);
     deb=setTimeout(function(){
       cards.forEach(function(m){
-        if(m.box.dataset.playing && m.vid.paused && inViewport(m.box,0.5)){
+        if(m.vid && m.box.dataset.playing && m.vid.paused && inViewport(m.box,0.5)){
           var p=m.vid.play(); if(p&&p.catch)p.catch(function(){ NEED_UNLOCK=true; });
         }
       });
@@ -391,7 +438,7 @@
     scan(root||document);
     ensureObserver();
     if(unlocked && IS_IOS_CHROME){
-      cards.forEach(function(m){ prime(m.vid, IS_TOUCH); });
+      cards.forEach(function(m){ var video=ensureVideo(m); if(video) prime(video, IS_TOUCH); });
     }
   }
   window.mediaAutoplayCardsRefresh = refresh;

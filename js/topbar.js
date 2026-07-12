@@ -568,17 +568,17 @@
 
     function start(event) {
       if (event && event.isTrusted === false) return;
-      window.removeEventListener('scroll', start, true);
-      window.removeEventListener('wheel', start, true);
       window.removeEventListener('touchstart', start, true);
-      window.removeEventListener('pointerdown', start, true);
+      window.removeEventListener('pointerdown', onPointerDown, true);
       initTouchScrollPreviews();
     }
 
-    window.addEventListener('scroll', start, { passive: true, capture: true });
-    window.addEventListener('wheel', start, { passive: true, capture: true });
+    function onPointerDown(event) {
+      if (!event.pointerType || event.pointerType !== 'mouse') start(event);
+    }
+
     window.addEventListener('touchstart', start, { passive: true, capture: true });
-    window.addEventListener('pointerdown', start, { passive: true, capture: true });
+    window.addEventListener('pointerdown', onPointerDown, { passive: true, capture: true });
   }
 
   function initPreviewHydration() {
