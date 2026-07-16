@@ -1123,7 +1123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!inner) return;
 
     function ensureFreshTopbarCss() {
-      const href = '/css/top-bar.css?v=20260704-searchfix';
+      const href = '/css/top-bar.css?v=20260715-layoutfix';
       if (document.querySelector('link[href="' + href + '"]')) return;
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -1713,6 +1713,7 @@ document.addEventListener('DOMContentLoaded', () => {
       '<div class="contact-left dm-footer-mapless__col dm-footer-mapless__social-col">',
       '<h2>Свържете се с нас:</h2>',
       '<ul class="dm-footer-mapless__quicklinks">',
+      '<li><a href="/about.html">За нас</a></li>',
       '<li><a href="/contacts.html">Контакти</a></li>',
       '<li><a href="https://www.dmphysi0.com/book" rel="noopener">Запазете час</a></li>',
       '</ul>',
@@ -1736,7 +1737,7 @@ document.addEventListener('DOMContentLoaded', () => {
       '<address class="dm-footer-mapless__col dm-footer-mapless__contacts" aria-label="Контакти">',
       '<h3>Контакти</h3>',
       '<div class="contact-item phone">' + icon('phone') + '<span class="dm-footer-mapless__phone-list"><a href="tel:+359883688414">088 368 8414</a><a href="tel:+359876600498">087 660 0498</a></span></div>',
-      '<div class="contact-item address-item">' + icon('mapPin') + '<span>София, ул. „Проф. Христо Данов“ 19<br><a class="map-link" href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener">Вижте на карта</a></span></div>',
+      '<div class="contact-item address-item">' + icon('mapPin') + '<span>София, ул. „Проф. Христо Данов“ 19<br><a class="map-link" href="https://maps.app.goo.gl/y1kfJZZ591iYc3jf8" target="_blank" rel="noopener">Вижте на карта</a></span></div>',
       '<div class="contact-item email-item">' + icon('mail') + '<span><a href="mailto:dmphysio369@gmail.com">dmphysio369@gmail.com</a></span></div>',
       '</address>',
       '</div>',

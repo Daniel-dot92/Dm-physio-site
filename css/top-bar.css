@@ -197,8 +197,7 @@
   display:none;
 }
 
-.tb-link[href*="/book"],
-.tb-link[href*="book.dmphysi0.com"] {
+.tb-link[href*="/book"] {
   background: #18a558;
   color: #fff;
   border: 1px solid rgba(255,255,255,.18);
@@ -206,20 +205,17 @@
   transform-origin: center;
 }
 
-.tb-link[href*="/book"]:hover,
-.tb-link[href*="book.dmphysi0.com"]:hover {
+.tb-link[href*="/book"]:hover {
   background: #20bd66;
   color: #fff;
   box-shadow: 0 10px 22px rgba(24, 165, 88, .32);
 }
 
-.tb-link[href*="/book"]::before,
-.tb-link[href*="book.dmphysi0.com"]::before {
+.tb-link[href*="/book"]::before {
   background: rgba(255,255,255,.9);
 }
 
-.tb-header.tb--transparent .tb-link[href*="/book"],
-.tb-header.tb--transparent .tb-link[href*="book.dmphysi0.com"] {
+.tb-header.tb--transparent .tb-link[href*="/book"] {
   background: linear-gradient(180deg, rgba(24, 165, 88, .86), rgba(14, 124, 70, .72));
   border-color: rgba(105, 239, 164, .32);
   color: #fff;
@@ -227,8 +223,7 @@
   transform: translateY(1px) scale(.98);
 }
 
-.tb-header.tb--transparent .tb-link[href*="/book"]:hover,
-.tb-header.tb--transparent .tb-link[href*="book.dmphysi0.com"]:hover {
+.tb-header.tb--transparent .tb-link[href*="/book"]:hover {
   background: linear-gradient(180deg, rgba(32, 189, 102, .94), rgba(18, 145, 78, .82));
   box-shadow: 0 3px 0 rgba(105, 239, 164, .95), 0 10px 22px rgba(0, 0, 0, .24);
   transform: translateY(0) scale(.99);
@@ -693,7 +688,7 @@ main.container > .site-breadcrumb:first-child {
 .tb-lang-menu {
   position: absolute;
   right: 0;
-  top: calc(100% + 8px);
+  top: 100%;
   z-index: 5;
   display: none;
   min-width: 104px;
@@ -705,6 +700,12 @@ main.container > .site-breadcrumb:first-child {
 }
 
 .tb-header-lang.is-open .tb-lang-menu {
+  display: grid;
+  gap: 4px;
+}
+
+.tb-header-lang:hover .tb-lang-menu,
+.tb-header-lang:focus-within .tb-lang-menu {
   display: grid;
   gap: 4px;
 }
@@ -968,6 +969,7 @@ main.container > .site-breadcrumb:first-child {
 @media (max-width: 768px) {
   .tb-inner {
     padding-right: 186px;
+    height: var(--tb-h);
   }
 
   .tb-lang-item,
