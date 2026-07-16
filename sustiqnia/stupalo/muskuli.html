@@ -759,51 +759,7 @@
 })();
 </script>
 
-<!-- LAZY HOTJAR (единствен блок, постави точно преди
-</body>) -->
-<script>
-(function(){
-  var hotjarLoaded = false;
 
-  function loadHotjar(){
-    if (hotjarLoaded) return; hotjarLoaded = true;
-    try {
-      var dnt = navigator.doNotTrack == "1" || window.doNotTrack == "1" || navigator.msDoNotTrack == "1";
-      if (dnt) return;
-    } catch(e){}
 
-    var delay = 0;
-    try {
-      var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-      if (conn && (conn.saveData || /2g/.test(conn.effectiveType))) delay = 3000;
-    } catch(e){}
-
-    setTimeout(function(){
-      (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:6534654,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        if (window.dmHasAnalyticsConsent && window.dmHasAnalyticsConsent() && !window.__dmHotjarLoaded) { window.__dmHotjarLoaded = true; a.appendChild(r); }
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    }, delay);
-  }
-
-  var fired = false;
-  function fireOnce(){ if (fired) return; fired = true; loadHotjar(); }
-
-  ['click','touchstart','keydown','scroll'].forEach(function(ev){
-    window.addEventListener(ev, fireOnce, { once:true, passive:true });
-  });
-
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(function(){ fireOnce(); }, { timeout: 8000 });
-  } else {
-    window.addEventListener('load', function(){ setTimeout(fireOnce, 8000); });
-  }
-
-  setTimeout(fireOnce, 12000);
-})();
-</script>
 </body>
 </html>

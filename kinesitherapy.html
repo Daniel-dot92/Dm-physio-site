@@ -474,78 +474,7 @@
 })();
 </script>
 
-<!-- LAZY HOTJAR (само Hotjar, без Google Tag / GTM) -->
-<script>
-(function(){
-  var hotjarLoaded = false;
 
-  function loadHotjar(){
-    if (hotjarLoaded) return; hotjarLoaded = true;
 
-    // Забави допълнително при бавни мрежи / Save-Data
-    var delay = 0;
-    try {
-      var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-      if (conn && (conn.saveData || /2g/.test(conn.effectiveType))) {
-        delay = 3000; // още 3s забавяне на мобилни с ниска свързаност
-      }
-    } catch(e){}
-
-    setTimeout(function(){
-      (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:6534654,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        if (window.dmHasAnalyticsConsent && window.dmHasAnalyticsConsent() && !window.__dmHotjarLoaded) { window.__dmHotjarLoaded = true; a.appendChild(r); }
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-
-      // По желание: изпрати „тригър“, когато отворят формата (ползва се в Hotjar за сегментации)
-      document.addEventListener('toggle', function(e){
-        if (e.target && e.target.id === 'adviceReveal' && e.target.open && typeof hj === 'function') {
-          try { hj('trigger','opened_advice_form'); } catch(e){}
-        }
-      }, true);
-    }, delay);
-  }
-
-  // Зареждай на по-широки екрани автоматично след кратка пауза (не блокирай LCP)
-  function lazyDesktop(){
-    if (window.matchMedia('(min-width: 769px)').matches) {
-      setTimeout(loadHotjar, 6000); // desktop: след 6s
-    }
-  }
-
-  // Тригери за мобилни и общи случаи:
-  var fired = false;
-  function fireOnce(){
-    if (fired) return; fired = true;
-    loadHotjar();
-  }
-
-  // 1) Първо взаимодействие
-  ['click','touchstart','keydown','scroll'].forEach(function(ev){
-    window.addEventListener(ev, fireOnce, { once:true, passive:true });
-  });
-
-  // 2) Idle
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(function(){ fireOnce(); }, {timeout: 8000});
-  } else {
-    window.addEventListener('load', function(){ setTimeout(fireOnce, 8000); });
-  }
-
-  // 3) Safety таймер (ако няма взаимодействие)
-  setTimeout(fireOnce, 12000);
-
-  // 4) Отваряне на панела „Безплатни насоки“ – незабавно зареждане, дори на мобилни
-  document.addEventListener('toggle', function(e){
-    if (e.target && e.target.id === 'adviceReveal' && e.target.open) loadHotjar();
-  }, true);
-
-  // 5) Desktop „мързеливо“ зареждане
-  lazyDesktop();
-})();
-</script>
 </body>
 </html>
