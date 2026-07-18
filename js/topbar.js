@@ -62,6 +62,30 @@
       '</ul></nav>',
       '</div>'
     ].join('');
+
+    // Legacy pages declare their real BG/EN pair in the document head.
+    // Keep the fallback header linked to that pair rather than to the home page.
+    var alternateLinks = Array.prototype.slice.call(document.querySelectorAll('link[rel="alternate"][hreflang]'));
+    function findAlternateHref(language) {
+      for (var i = 0; i < alternateLinks.length; i += 1) {
+        var hreflang = (alternateLinks[i].getAttribute('hreflang') || '').toLowerCase();
+        if (hreflang === language || hreflang.indexOf(language + '-') === 0) return alternateLinks[i].href;
+      }
+      return '';
+    }
+
+    var fallbackBgLink = header.querySelector('.tb-lang-switch a[hreflang^="bg"]');
+    var fallbackEnLink = header.querySelector('.tb-lang-switch a[hreflang="en"]');
+    var fallbackBgHref = findAlternateHref('bg');
+    var fallbackEnHref = findAlternateHref('en');
+    var fallbackIsEnglish = /^\/en(?:\/|$)/.test(window.location.pathname);
+    if (fallbackBgLink && fallbackBgHref) fallbackBgLink.href = fallbackBgHref;
+    if (fallbackEnLink && fallbackEnHref) fallbackEnLink.href = fallbackEnHref;
+    if (fallbackBgLink && fallbackEnLink) {
+      fallbackBgLink.classList.toggle('is-active', !fallbackIsEnglish);
+      fallbackEnLink.classList.toggle('is-active', fallbackIsEnglish);
+    }
+
     document.body.insertBefore(header, document.body.firstChild);
     if (!document.querySelector('main.page-content')) {
       var main = document.querySelector('main');
@@ -973,6 +997,68 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   ensurePainConditionsDropdown();
 
+  function ensureLanguageSwitchFromAlternates() {
+    if (!header || !nav || header.querySelector('.tb-menu > .tb-lang-switch')) return;
+
+    const menu = nav.querySelector('.tb-menu');
+    if (!menu) return;
+
+    const alternates = Array.from(document.querySelectorAll('link[rel="alternate"][hreflang]'));
+    const findAlternate = (language) => alternates.find((link) => {
+      const hreflang = (link.getAttribute('hreflang') || '').toLowerCase();
+      return hreflang === language || hreflang.indexOf(language + '-') === 0;
+    });
+    const bulgarian = findAlternate('bg');
+    const english = findAlternate('en');
+    if (!bulgarian || !english) return;
+
+    const isEnglish = /^\/en(?:\/|$)/.test(window.location.pathname);
+    const createLanguageLink = (alternate, hreflang, language, label, image, imageAlt, active) => {
+      const link = document.createElement('a');
+      link.className = 'tb-flag' + (active ? ' is-active' : '');
+      link.href = alternate.href;
+      link.hreflang = hreflang;
+      link.lang = language;
+      link.setAttribute('aria-label', label);
+
+      const flag = document.createElement('img');
+      flag.src = image;
+      flag.alt = imageAlt;
+      flag.width = 28;
+      flag.height = 28;
+      flag.loading = 'eager';
+      flag.decoding = 'async';
+      link.appendChild(flag);
+      return link;
+    };
+
+    // Older templates already declare their language pair in the document head.
+    // Reuse those canonical alternate URLs instead of inventing a route in the header.
+    const languageItem = document.createElement('li');
+    languageItem.className = 'tb-item tb-lang-switch';
+    languageItem.setAttribute('aria-label', 'Language');
+    languageItem.appendChild(createLanguageLink(
+      bulgarian,
+      'bg-BG',
+      'bg',
+      'Bulgarian version',
+      '/bulgaria-flag.webp',
+      'Bulgarian',
+      !isEnglish
+    ));
+    languageItem.appendChild(createLanguageLink(
+      english,
+      'en',
+      'en',
+      'English version',
+      '/great-britain-flag.webp',
+      'English',
+      isEnglish
+    ));
+    menu.appendChild(languageItem);
+  }
+  ensureLanguageSwitchFromAlternates();
+
   function setupHeaderLanguageSwitch() {
     if (!header || document.querySelector('.tb-header-lang')) return;
     const inner = header.querySelector('.tb-inner');
@@ -1523,18 +1609,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initSiteSearch();
 
-  /* ---------- SCROLL BEHAVIOR ----------
-     - ��� y > 0 -> ����� ��������� (rgba 0.4)
-     - ��� y === 0 -> ������� ������
-  -------------------------------------- */
+  /* Keep the shared navigation readable over every page background. */
   function applyHeaderBg(){
     if (!header) return;
-    const y = window.scrollY || 0;
-    if (y > 0) {
-      header.classList.add('tb--transparent');
-    } else {
-      header.classList.remove('tb--transparent');
-    }
+    header.classList.remove('tb--transparent');
   }
 
   // init + on scroll (� rAF)
