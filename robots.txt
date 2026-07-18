@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /node_modules/
 Disallow: /online-recovery.html
 Disallow: /online-questionnaire.html
 Disallow: /uprazhnenia.html
