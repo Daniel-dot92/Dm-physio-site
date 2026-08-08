@@ -1,0 +1,259 @@
+.procedure-main-title {
+  margin: 0 0 12px;
+  color: #166534;
+  font-size: clamp(30px, 5vw, 42px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.5px;
+  text-align: center;
+}
+
+.procedure-subtitle {
+  max-width: 850px;
+  margin: 0 auto 18px;
+  color: #0ea5e9;
+  font-size: clamp(19px, 3vw, 25px);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.procedure-intro-copy {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #24323a;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.procedure-intro-copy p {
+  margin: 0 0 12px;
+}
+
+.procedure-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px auto 10px;
+}
+
+.procedure-hero-actions .book-button,
+.procedure-secondary-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+}
+
+.procedure-secondary-button {
+  border: 2px solid #0e7c86;
+  background: #fff;
+  color: #0b6670;
+}
+
+.procedure-secondary-button:hover,
+.procedure-secondary-button:focus-visible {
+  background: #e9f8f8;
+}
+
+.procedure-journey h2.seo-section-title {
+  max-width: 900px;
+  margin: 54px auto 12px;
+  font-size: clamp(26px, 4vw, 34px);
+  line-height: 1.25;
+}
+
+.procedure-video-link {
+  isolation: isolate;
+}
+
+.procedure-video-link::after {
+  content: "▶ Видео";
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 4;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, .86);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  pointer-events: none;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, .2);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.procedure-video-link:hover::after,
+.procedure-video-link:focus-visible::after,
+.procedure-video-link.is-playing::after {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.procedure-video-link:focus-visible {
+  outline: 3px solid #0ea5e9;
+  outline-offset: 4px;
+}
+
+.procedure-safety-note {
+  max-width: 900px;
+  margin: 34px auto 0;
+  padding: 18px 20px;
+  border-left: 5px solid #0ea5e9;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #1e3a5f;
+  line-height: 1.65;
+  text-align: left;
+}
+
+.procedure-safety-note p {
+  margin: 0 0 10px;
+}
+
+.procedure-safety-note p:last-child {
+  margin-bottom: 0;
+}
+
+.procedure-safety-note ul {
+  margin: 10px 0 14px;
+  padding-left: 22px;
+}
+
+.procedure-safety-note li + li {
+  margin-top: 6px;
+}
+
+.procedure-process-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.procedure-process-shell .procedure-process-only {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.procedure-process-only .journey-content {
+  width: 100%;
+  max-width: none;
+}
+
+.procedure-process-step {
+  padding: 16px 18px;
+  border: 1px solid #cfe7e9;
+  border-radius: 12px;
+  background: #f7fcfc;
+}
+
+.procedure-process-step h4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  color: #155e63;
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+.procedure-process-step h4 > span {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #0e7c86;
+  color: #fff;
+  font-size: 15px;
+}
+
+.procedure-process-step h4 small {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.procedure-process-step p {
+  margin: 0 0 10px;
+}
+
+.procedure-process-step ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.procedure-price-panel {
+  margin-top: 38px;
+  margin-bottom: 38px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  border-radius: 16px;
+  background: #f0fafa;
+}
+
+.procedure-price-panel h2 {
+  margin-top: 0;
+}
+
+.procedure-updated {
+  margin: 18px 0 0;
+  color: #64748b;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .procedure-main-title {
+    font-size: clamp(29px, 9vw, 38px);
+  }
+
+  .procedure-subtitle {
+    font-size: 20px;
+  }
+
+  .procedure-journey h2.seo-section-title {
+    margin-top: 42px;
+    font-size: 27px;
+  }
+
+  .procedure-video-link::after {
+    right: 10px;
+    bottom: 10px;
+    padding: 7px 11px;
+    font-size: 13px;
+  }
+
+  .procedure-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .procedure-hero-actions .book-button,
+  .procedure-secondary-button {
+    width: 100%;
+  }
+
+  .procedure-process-step {
+    padding: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .procedure-video-link::after {
+    transition: none;
+  }
+}

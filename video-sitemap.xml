@@ -7993,4 +7993,16 @@
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
   </url>
+  <url>
+    <loc>https://www.dmphysi0.com/procedures/masaj-glavobolie-svetovartezh.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.dmphysi0.com/assets/procedures/head-massage-thumbnail.jpg</video:thumbnail_loc>
+      <video:title>Масаж при главоболие и замайване от напрежение във врата</video:title>
+      <video:description>Кратко видео с масаж на тила, врата и зоните около главата при главоболие и замайване, свързани с мускулно напрежение.</video:description>
+      <video:content_loc>https://www.dmphysi0.com/assets/procedures/head-massage.mp4</video:content_loc>
+      <video:duration>11</video:duration>
+      <video:publication_date>2026-08-08T22:02:00+03:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
 </urlset>
