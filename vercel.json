@@ -310,6 +310,1221 @@
       "source": "/sustiqnia/krak/nevragii.html",
       "destination": "/sustiqnia/krak/nevralgii.html",
       "permanent": true
+    },
+    {
+      "source": "/en/videos/arm-golf-flexor-carpi-radialis-1.html",
+      "destination": "/en/videos/arm-arm-muscles-flexor-carpi-radialis-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/arm-golf-flexor-carpi-ulnaris.html",
+      "destination": "/en/videos/arm-arm-muscles-flexor-carpi-ulnaris.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/arm-golf-palmaris-longus.html",
+      "destination": "/en/videos/arm-arm-muscles-palmaris-longus.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/arm-golf-pronators.html",
+      "destination": "/en/videos/arm-arm-muscles-pronators.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/arm-tenis-anconeus.html",
+      "destination": "/en/videos/arm-arm-muscles-anconeus.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/arm-tenis-arm-muscles2.html",
+      "destination": "/en/videos/arm-arm-muscles-arm-muscles2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/arm-tenis-brachioradialis.html",
+      "destination": "/en/videos/arm-arm-muscles-brachioradialis.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/arm-tenis-extensor-carpi-radialis.html",
+      "destination": "/en/videos/arm-arm-muscles-extensor-carpi-radialis.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/arm-tenis-tenis-elbow-muscles.html",
+      "destination": "/en/videos/arm-golf-tenis-elbow-muscles.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/arm-tenis-triceps-brachii.html",
+      "destination": "/en/videos/arm-arm-muscles-triceps-brachii.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-coxartrosis-glut-max.html",
+      "destination": "/en/videos/dupe-dupe-muscles-glut-max.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-coxartrosis-hamstrings.html",
+      "destination": "/en/videos/krak-muskuli-hamstrings.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-coxartrosis-sacrum-tilt.html",
+      "destination": "/en/videos/dupe-nevralgii-sacrum-tilt.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-dupe-muscles-adductors.html",
+      "destination": "/en/videos/krak-muskuli-adductors.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-dupe-muscles-hamstrings.html",
+      "destination": "/en/videos/krak-muskuli-hamstrings.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-dupe-muscles-quadriceps.html",
+      "destination": "/en/videos/krak-muskuli-quadriceps.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-dupe-muscles-tfl.html",
+      "destination": "/en/videos/krak-muskuli-tfl.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-nevralgii-dermatoms-legs.html",
+      "destination": "/en/videos/lumbar-dermatomes.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-nevralgii-piriformis2.html",
+      "destination": "/en/videos/dupe-dupe-muscles-piriformis2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-nevralgii-sciatica2.html",
+      "destination": "/en/videos/sciatica.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-nevralgii-sitting.html",
+      "destination": "/en/videos/sitting-pressure.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-sacroiliacpain-erector-spinae.html",
+      "destination": "/en/videos/grub-muskuli-grub-erector-spinae.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-sacroiliacpain-glut-max.html",
+      "destination": "/en/videos/dupe-dupe-muscles-glut-max.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/dupe-sacroiliacpain-sacrum-tilt.html",
+      "destination": "/en/videos/dupe-nevralgii-sacrum-tilt.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/grub-shipove-imbalance.html",
+      "destination": "/en/videos/grub-diskova-imbalance.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/gurdi-abdominal-hernia-rectus-abdominis.html",
+      "destination": "/en/videos/gurdi-gurdi-muscles-rectus-abdominis.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/gurdi-abdominal-hernia-transversus-abdominis.html",
+      "destination": "/en/videos/gurdi-gurdi-muscles-transversus-abdominis.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/gurdi-gurdi-muscles-diaphragma-2.html",
+      "destination": "/en/videos/gurdi-gurdi-muscles-diaphragma.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/gurdi-gurdi-muscles-pecturalis-major1.html",
+      "destination": "/en/videos/ramo-ramo-muskuli-pecturalis-major1.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/gurdi-gurdi-muscles-sarratus-anterior.html",
+      "destination": "/en/videos/ramo-ramo-muskuli-sarratus-anterior.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/gurdi-gurdi-neuralgia-thoracic-nerve-compression-2.html",
+      "destination": "/en/videos/grub-nevralgii-thoracic-nerve-compression.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/gurdi-gurdi-neuralgia-thoracic-nerve-compression.html",
+      "destination": "/en/videos/grub-nevralgii-thoracic-nerve-compression.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/gurdi-outlet-syndrome-thoracic-outlet-scalene.html",
+      "destination": "/en/videos/arm-nevralgii-thoracic-outlet-scalene.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/gurdi-outlet-syndrome-trapezius2.html",
+      "destination": "/en/videos/neck-muscle-trapezius2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-dizziness-digastricus.html",
+      "destination": "/en/videos/neck-muscle-digastricus.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-dizziness-scalene.html",
+      "destination": "/en/videos/neck-muscle-scalene.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-dizziness-scm.html",
+      "destination": "/en/videos/neck-muscle-scm.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-ocipital-levator-scapulae-1.html",
+      "destination": "/en/videos/ramo-ramo-muskuli-levator-scapulae-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-ocipital-scm.html",
+      "destination": "/en/videos/neck-muscle-scm.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-ocipital-splenus-capitis-26-cervicis.html",
+      "destination": "/en/videos/neck-muscle-splenus-capitis-cervicis.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-ocipital-subocipital2-2.html",
+      "destination": "/en/videos/neck-muscle-subocipital2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-ocipital-subocipital2.html",
+      "destination": "/en/videos/neck-muscle-subocipital2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-ocipital-trapezius2.html",
+      "destination": "/en/videos/neck-muscle-trapezius2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-slepoochie-masseter2.html",
+      "destination": "/en/videos/neck-muscle-masseter2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-slepoochie-scm.html",
+      "destination": "/en/videos/neck-muscle-scm.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-slepoochie-subocipital2.html",
+      "destination": "/en/videos/neck-muscle-subocipital2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/head-slepoochie-temporalis2-1.html",
+      "destination": "/en/videos/neck-muscle-temporalis2-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krak-gonarthrosis-knee-pain-walking.html",
+      "destination": "/en/videos/krak-meniscus-knee-pain-walking.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krak-nevralgii-dermatoms-legs.html",
+      "destination": "/en/videos/lumbar-dermatomes.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krak-nevralgii-wrong-sitting-position2.html",
+      "destination": "/en/videos/dupe-dupe-muscles-wrong-sitting-position2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krak-patelofemuralpain-wrong-sitting-position2.html",
+      "destination": "/en/videos/dupe-dupe-muscles-wrong-sitting-position2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-diskova-disk-herniation-back.html",
+      "destination": "/en/videos/grub-diskova-disk-herniation-back.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-diskova-disk-herniation-how-it-happen.html",
+      "destination": "/en/videos/grub-diskova-disk-herniation-how-it-happen.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-diskova-imbalance.html",
+      "destination": "/en/videos/grub-diskova-imbalance.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-krust-muscles-erector-spinae.html",
+      "destination": "/en/videos/grub-muskuli-grub-erector-spinae.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-krust-muscles-glut-max.html",
+      "destination": "/en/videos/dupe-dupe-muscles-glut-max.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-krust-muscles-gluteus-med-and-mid.html",
+      "destination": "/en/videos/dupe-dupe-muscles-gluteus-med-and-mid.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-krust-muscles-iliopsoas-1.html",
+      "destination": "/en/videos/dupe-dupe-muscles-iliopsoas-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-krust-muscles-latisimus-dorsi2.html",
+      "destination": "/en/videos/grub-muskuli-grub-latisimus-dorsi2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-krust-muscles-piriformis2.html",
+      "destination": "/en/videos/dupe-dupe-muscles-piriformis2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-krust-muscles-quadratus-lumborum2.html",
+      "destination": "/en/videos/grub-muskuli-grub-quadratus-lumborum2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-krust-muscles-transversus-abdominis.html",
+      "destination": "/en/videos/gurdi-gurdi-muscles-transversus-abdominis.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-piriformis-piriformis2.html",
+      "destination": "/en/videos/dupe-dupe-muscles-piriformis2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-piriformis-sitting.html",
+      "destination": "/en/videos/sitting-pressure.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-piriformis-wrong-sitting-position2.html",
+      "destination": "/en/videos/dupe-dupe-muscles-wrong-sitting-position2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-shipove-bone-spurs-2.html",
+      "destination": "/en/videos/grub-shipove-bone-spurs.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-shipove-bone-spurs-compress-nerve.html",
+      "destination": "/en/videos/grub-shipove-bone-spurs-compress-nerve.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-shipove-bone-spurs.html",
+      "destination": "/en/videos/grub-shipove-bone-spurs.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-shipove-neck-shipove.html",
+      "destination": "/en/videos/grub-shipove-neck-shipove.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/krust-shipove-neck-shipove2.html",
+      "destination": "/en/videos/grub-shipove-neck-shipove2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/lumbar-disc-herniation-nerve.html",
+      "destination": "/en/videos/krust-diskova-lower-bacl-disk-herniation.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/neck-degeneracia-neck-upper-cross-imbalance.html",
+      "destination": "/en/videos/neck-diskova-neck-upper-cross-imbalance.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/neck-diskova-disk-herniation-how-it-happen-2.html",
+      "destination": "/en/videos/grub-diskova-disk-herniation-how-it-happen.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/neck-diskova-disk-herniation-how-it-happen.html",
+      "destination": "/en/videos/grub-diskova-disk-herniation-how-it-happen.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/neck-kamshichen-dizziness.html",
+      "destination": "/en/videos/head-dizziness-dizziness.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/neck-kamshichen-ocipital-pain.html",
+      "destination": "/en/videos/head-ocipital-ocipital-pain.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/neck-kamshichen-shipove1.html",
+      "destination": "/en/videos/neck-shipove-shipove1.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/neck-muscle-levator-scapulae-1.html",
+      "destination": "/en/videos/ramo-ramo-muskuli-levator-scapulae-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/neck-muscle-scm-2.html",
+      "destination": "/en/videos/neck-muscle-scm.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/neck-shipove-neck-shipove.html",
+      "destination": "/en/videos/grub-shipove-neck-shipove.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/neck-shipove-neck-shipove2.html",
+      "destination": "/en/videos/grub-shipove-neck-shipove2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/neck-shipove-neck-upper-cross-imbalance.html",
+      "destination": "/en/videos/neck-diskova-neck-upper-cross-imbalance.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/posture-nerve-pressure.html",
+      "destination": "/en/videos/dupe-dupe-muscles-wrong-sitting-position2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-details-kinesitherapy-funciton.html",
+      "destination": "/en/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-details-kinesitherapy-manual-therapy.html",
+      "destination": "/en/videos/procedures-manual-therapy-manual-therapy.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-dry-needling-funciton.html",
+      "destination": "/en/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-functional-assessment-funciton.html",
+      "destination": "/en/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-kinesiotaping-funciton.html",
+      "destination": "/en/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-masaj-deeptisuegolqm-deeptisue.html",
+      "destination": "/en/videos/procedures-masaj.deeptisue-deeptisue.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-masaj-relaxgolqm-relax.html",
+      "destination": "/en/videos/procedures-masaj-relax-relax.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-masaj-sport-funciton.html",
+      "destination": "/en/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-masaj.deeptisue-funciton.html",
+      "destination": "/en/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-massage-vendusa-funciton.html",
+      "destination": "/en/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-specialized-exercises-exercieses.html",
+      "destination": "/en/videos/procedures-details-kinesitherapy-exercieses.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/procedures-specialized-exercises-funciton.html",
+      "destination": "/en/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-dislocation-scapulae.html",
+      "destination": "/en/videos/ramo-ramo-muskuli-scapulae.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-impigement-luxation.html",
+      "destination": "/en/videos/ramo-dislocation-luxation.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-impigement-luxation2.html",
+      "destination": "/en/videos/ramo-dislocation-luxation2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-impigement-luxation3-1.html",
+      "destination": "/en/videos/ramo-dislocation-luxation3-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-impigement-luxation4.html",
+      "destination": "/en/videos/ramo-dislocation-luxation4.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-impigement-scapulae.html",
+      "destination": "/en/videos/ramo-ramo-muskuli-scapulae.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-ramo-diskinesia-muscle-rhomboids.html",
+      "destination": "/en/videos/grub-muskuli-grub-muscle-rhomboids.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-ramo-diskinesia-sarratus-anterior.html",
+      "destination": "/en/videos/ramo-ramo-muskuli-sarratus-anterior.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-ramo-diskinesia-scapulae.html",
+      "destination": "/en/videos/ramo-ramo-muskuli-scapulae.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-ramo-muskuli-biceps-brahi.html",
+      "destination": "/en/videos/arm-arm-muscles-biceps-brahi.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-ramo-muskuli-latisimus-dorsi2.html",
+      "destination": "/en/videos/grub-muskuli-grub-latisimus-dorsi2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-ramo-muskuli-muscle-rhomboids.html",
+      "destination": "/en/videos/grub-muskuli-grub-muscle-rhomboids.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-ramo-muskuli-triceps-brachii.html",
+      "destination": "/en/videos/arm-arm-muscles-triceps-brachii.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-ramo-zamruznalo-frozen2-2.html",
+      "destination": "/en/videos/ramo-ramo-zamruznalo-frozen2.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/ramo-ramo-zamruznalo-scapulae.html",
+      "destination": "/en/videos/ramo-ramo-muskuli-scapulae.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/stupalo-muskuli-gastrocnemius.html",
+      "destination": "/en/videos/krak-muskuli-gastrocnemius.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/stupalo-muskuli-peroneus-longus.html",
+      "destination": "/en/videos/krak-muskuli-peroneus-longus.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/stupalo-muskuli-popliteus.html",
+      "destination": "/en/videos/krak-muskuli-popliteus.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/videos/stupalo-muskuli-tibialis-anterior-and-extensor-digitorum.html",
+      "destination": "/en/videos/krak-muskuli-tibialis-anterior-and-extensor-digitorum.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/arm-golf-flexor-carpi-radialis-1.html",
+      "destination": "/videos/arm-arm-muscles-flexor-carpi-radialis-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/arm-golf-flexor-carpi-ulnaris.html",
+      "destination": "/videos/arm-arm-muscles-flexor-carpi-ulnaris.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/arm-golf-palmaris-longus.html",
+      "destination": "/videos/arm-arm-muscles-palmaris-longus.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/arm-golf-pronators.html",
+      "destination": "/videos/arm-arm-muscles-pronators.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/arm-tenis-anconeus.html",
+      "destination": "/videos/arm-arm-muscles-anconeus.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/arm-tenis-arm-muscles2.html",
+      "destination": "/videos/arm-arm-muscles-arm-muscles2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/arm-tenis-brachioradialis.html",
+      "destination": "/videos/arm-arm-muscles-brachioradialis.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/arm-tenis-extensor-carpi-radialis.html",
+      "destination": "/videos/arm-arm-muscles-extensor-carpi-radialis.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/arm-tenis-tenis-elbow-muscles.html",
+      "destination": "/videos/arm-golf-tenis-elbow-muscles.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/arm-tenis-triceps-brachii.html",
+      "destination": "/videos/arm-arm-muscles-triceps-brachii.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-coxartrosis-glut-max.html",
+      "destination": "/videos/dupe-dupe-muscles-glut-max.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-coxartrosis-hamstrings.html",
+      "destination": "/videos/krak-muskuli-hamstrings.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-coxartrosis-sacrum-tilt.html",
+      "destination": "/videos/dupe-nevralgii-sacrum-tilt.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-dupe-muscles-adductors.html",
+      "destination": "/videos/krak-muskuli-adductors.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-dupe-muscles-hamstrings.html",
+      "destination": "/videos/krak-muskuli-hamstrings.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-dupe-muscles-quadriceps.html",
+      "destination": "/videos/krak-muskuli-quadriceps.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-dupe-muscles-tfl.html",
+      "destination": "/videos/krak-muskuli-tfl.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-nevralgii-dermatoms-legs.html",
+      "destination": "/videos/lumbar-dermatomes.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-nevralgii-piriformis2.html",
+      "destination": "/videos/dupe-dupe-muscles-piriformis2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-nevralgii-sciatica2.html",
+      "destination": "/videos/sciatica.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-nevralgii-sitting.html",
+      "destination": "/videos/sitting-pressure.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-sacroiliacpain-erector-spinae.html",
+      "destination": "/videos/grub-muskuli-grub-erector-spinae.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-sacroiliacpain-glut-max.html",
+      "destination": "/videos/dupe-dupe-muscles-glut-max.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/dupe-sacroiliacpain-sacrum-tilt.html",
+      "destination": "/videos/dupe-nevralgii-sacrum-tilt.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/grub-shipove-imbalance.html",
+      "destination": "/videos/grub-diskova-imbalance.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/gurdi-abdominal-hernia-rectus-abdominis.html",
+      "destination": "/videos/gurdi-gurdi-muscles-rectus-abdominis.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/gurdi-abdominal-hernia-transversus-abdominis.html",
+      "destination": "/videos/gurdi-gurdi-muscles-transversus-abdominis.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/gurdi-gurdi-muscles-diaphragma-2.html",
+      "destination": "/videos/gurdi-gurdi-muscles-diaphragma.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/gurdi-gurdi-muscles-pecturalis-major1.html",
+      "destination": "/videos/ramo-ramo-muskuli-pecturalis-major1.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/gurdi-gurdi-muscles-sarratus-anterior.html",
+      "destination": "/videos/ramo-ramo-muskuli-sarratus-anterior.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/gurdi-gurdi-neuralgia-thoracic-nerve-compression-2.html",
+      "destination": "/videos/grub-nevralgii-thoracic-nerve-compression.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/gurdi-gurdi-neuralgia-thoracic-nerve-compression.html",
+      "destination": "/videos/grub-nevralgii-thoracic-nerve-compression.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/gurdi-outlet-syndrome-thoracic-outlet-scalene.html",
+      "destination": "/videos/arm-nevralgii-thoracic-outlet-scalene.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/gurdi-outlet-syndrome-trapezius2.html",
+      "destination": "/videos/neck-muscle-trapezius2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-dizziness-digastricus.html",
+      "destination": "/videos/neck-muscle-digastricus.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-dizziness-scalene.html",
+      "destination": "/videos/neck-muscle-scalene.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-dizziness-scm.html",
+      "destination": "/videos/neck-muscle-scm.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-ocipital-levator-scapulae-1.html",
+      "destination": "/videos/ramo-ramo-muskuli-levator-scapulae-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-ocipital-scm.html",
+      "destination": "/videos/neck-muscle-scm.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-ocipital-splenus-capitis-26-cervicis.html",
+      "destination": "/videos/neck-muscle-splenus-capitis-cervicis.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-ocipital-subocipital2-2.html",
+      "destination": "/videos/neck-muscle-subocipital2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-ocipital-subocipital2.html",
+      "destination": "/videos/neck-muscle-subocipital2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-ocipital-trapezius2.html",
+      "destination": "/videos/neck-muscle-trapezius2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-slepoochie-masseter2.html",
+      "destination": "/videos/neck-muscle-masseter2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-slepoochie-scm.html",
+      "destination": "/videos/neck-muscle-scm.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-slepoochie-subocipital2.html",
+      "destination": "/videos/neck-muscle-subocipital2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/head-slepoochie-temporalis2-1.html",
+      "destination": "/videos/neck-muscle-temporalis2-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krak-gonarthrosis-knee-pain-walking.html",
+      "destination": "/videos/krak-meniscus-knee-pain-walking.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krak-nevralgii-dermatoms-legs.html",
+      "destination": "/videos/lumbar-dermatomes.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krak-nevralgii-wrong-sitting-position2.html",
+      "destination": "/videos/dupe-dupe-muscles-wrong-sitting-position2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krak-patelofemuralpain-wrong-sitting-position2.html",
+      "destination": "/videos/dupe-dupe-muscles-wrong-sitting-position2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-diskova-disk-herniation-back.html",
+      "destination": "/videos/grub-diskova-disk-herniation-back.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-diskova-disk-herniation-how-it-happen.html",
+      "destination": "/videos/grub-diskova-disk-herniation-how-it-happen.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-diskova-imbalance.html",
+      "destination": "/videos/grub-diskova-imbalance.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-krust-muscles-erector-spinae.html",
+      "destination": "/videos/grub-muskuli-grub-erector-spinae.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-krust-muscles-glut-max.html",
+      "destination": "/videos/dupe-dupe-muscles-glut-max.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-krust-muscles-gluteus-med-and-mid.html",
+      "destination": "/videos/dupe-dupe-muscles-gluteus-med-and-mid.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-krust-muscles-iliopsoas-1.html",
+      "destination": "/videos/dupe-dupe-muscles-iliopsoas-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-krust-muscles-latisimus-dorsi2.html",
+      "destination": "/videos/grub-muskuli-grub-latisimus-dorsi2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-krust-muscles-piriformis2.html",
+      "destination": "/videos/dupe-dupe-muscles-piriformis2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-krust-muscles-quadratus-lumborum2.html",
+      "destination": "/videos/grub-muskuli-grub-quadratus-lumborum2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-krust-muscles-transversus-abdominis.html",
+      "destination": "/videos/gurdi-gurdi-muscles-transversus-abdominis.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-piriformis-piriformis2.html",
+      "destination": "/videos/dupe-dupe-muscles-piriformis2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-piriformis-sitting.html",
+      "destination": "/videos/sitting-pressure.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-piriformis-wrong-sitting-position2.html",
+      "destination": "/videos/dupe-dupe-muscles-wrong-sitting-position2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-shipove-bone-spurs-2.html",
+      "destination": "/videos/grub-shipove-bone-spurs.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-shipove-bone-spurs-compress-nerve.html",
+      "destination": "/videos/grub-shipove-bone-spurs-compress-nerve.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-shipove-bone-spurs.html",
+      "destination": "/videos/grub-shipove-bone-spurs.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-shipove-neck-shipove.html",
+      "destination": "/videos/grub-shipove-neck-shipove.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/krust-shipove-neck-shipove2.html",
+      "destination": "/videos/grub-shipove-neck-shipove2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/lumbar-disc-herniation-nerve.html",
+      "destination": "/videos/krust-diskova-lower-bacl-disk-herniation.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/neck-degeneracia-neck-upper-cross-imbalance.html",
+      "destination": "/videos/neck-diskova-neck-upper-cross-imbalance.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/neck-diskova-disk-herniation-how-it-happen-2.html",
+      "destination": "/videos/grub-diskova-disk-herniation-how-it-happen.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/neck-diskova-disk-herniation-how-it-happen.html",
+      "destination": "/videos/grub-diskova-disk-herniation-how-it-happen.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/neck-kamshichen-dizziness.html",
+      "destination": "/videos/head-dizziness-dizziness.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/neck-kamshichen-ocipital-pain.html",
+      "destination": "/videos/head-ocipital-ocipital-pain.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/neck-kamshichen-shipove1.html",
+      "destination": "/videos/neck-shipove-shipove1.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/neck-muscle-levator-scapulae-1.html",
+      "destination": "/videos/ramo-ramo-muskuli-levator-scapulae-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/neck-muscle-scm-2.html",
+      "destination": "/videos/neck-muscle-scm.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/neck-shipove-neck-shipove.html",
+      "destination": "/videos/grub-shipove-neck-shipove.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/neck-shipove-neck-shipove2.html",
+      "destination": "/videos/grub-shipove-neck-shipove2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/neck-shipove-neck-upper-cross-imbalance.html",
+      "destination": "/videos/neck-diskova-neck-upper-cross-imbalance.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/posture-nerve-pressure.html",
+      "destination": "/videos/dupe-dupe-muscles-wrong-sitting-position2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-details-kinesitherapy-funciton.html",
+      "destination": "/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-details-kinesitherapy-manual-therapy.html",
+      "destination": "/videos/procedures-manual-therapy-manual-therapy.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-dry-needling-funciton.html",
+      "destination": "/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-functional-assessment-funciton.html",
+      "destination": "/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-kinesiotaping-funciton.html",
+      "destination": "/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-masaj-deeptisuegolqm-deeptisue.html",
+      "destination": "/videos/procedures-masaj.deeptisue-deeptisue.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-masaj-relaxgolqm-relax.html",
+      "destination": "/videos/procedures-masaj-relax-relax.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-masaj-sport-funciton.html",
+      "destination": "/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-masaj.deeptisue-funciton.html",
+      "destination": "/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-massage-vendusa-funciton.html",
+      "destination": "/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-5proceduri-trenirovka.html",
+      "destination": "/videos/procedures-online-sesiq-trenirovka.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-5proceduri-videoupr.html",
+      "destination": "/videos/procedures-online-videos-videoupr.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-konsultaciq-konsultaciq.html",
+      "destination": "/videos/procedures-online-sesiq-konsultaciq.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-konsultaciq-tech-check.html",
+      "destination": "/videos/procedures-online-sesiq-tech-check.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-podrujka-konsultaciq.html",
+      "destination": "/videos/procedures-online-sesiq-konsultaciq.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-program-1-konsultaciq.html",
+      "destination": "/videos/procedures-online-sesiq-konsultaciq.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-program-1-trenirovka.html",
+      "destination": "/videos/procedures-online-sesiq-trenirovka.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-program-1-videoupr.html",
+      "destination": "/videos/procedures-online-videos-videoupr.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-program-2-konsultaciq2.html",
+      "destination": "/videos/procedures-online-podrujka-konsultaciq2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-program-2-trenirovka.html",
+      "destination": "/videos/procedures-online-sesiq-trenirovka.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-program-2-videoupr.html",
+      "destination": "/videos/procedures-online-videos-videoupr.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-program-3-konsultaciq2.html",
+      "destination": "/videos/procedures-online-podrujka-konsultaciq2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-program-3-tech-check.html",
+      "destination": "/videos/procedures-online-sesiq-tech-check.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-program-3-videoupr2.html",
+      "destination": "/videos/procedures-online-podrujka-videoupr2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-online-videos-konsultaciq.html",
+      "destination": "/videos/procedures-online-sesiq-konsultaciq.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-specialized-exercises-exercieses.html",
+      "destination": "/videos/procedures-details-kinesitherapy-exercieses.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/procedures-specialized-exercises-funciton.html",
+      "destination": "/videos/procedures-masaj-ergon-funciton.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-dislocation-scapulae.html",
+      "destination": "/videos/ramo-ramo-muskuli-scapulae.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-impigement-luxation.html",
+      "destination": "/videos/ramo-dislocation-luxation.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-impigement-luxation2.html",
+      "destination": "/videos/ramo-dislocation-luxation2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-impigement-luxation3-1.html",
+      "destination": "/videos/ramo-dislocation-luxation3-1.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-impigement-luxation4.html",
+      "destination": "/videos/ramo-dislocation-luxation4.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-impigement-scapulae.html",
+      "destination": "/videos/ramo-ramo-muskuli-scapulae.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-ramo-diskinesia-muscle-rhomboids.html",
+      "destination": "/videos/grub-muskuli-grub-muscle-rhomboids.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-ramo-diskinesia-sarratus-anterior.html",
+      "destination": "/videos/ramo-ramo-muskuli-sarratus-anterior.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-ramo-diskinesia-scapulae.html",
+      "destination": "/videos/ramo-ramo-muskuli-scapulae.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-ramo-muskuli-biceps-brahi.html",
+      "destination": "/videos/arm-arm-muscles-biceps-brahi.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-ramo-muskuli-latisimus-dorsi2.html",
+      "destination": "/videos/grub-muskuli-grub-latisimus-dorsi2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-ramo-muskuli-muscle-rhomboids.html",
+      "destination": "/videos/grub-muskuli-grub-muscle-rhomboids.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-ramo-muskuli-triceps-brachii.html",
+      "destination": "/videos/arm-arm-muscles-triceps-brachii.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-ramo-zamruznalo-frozen2-2.html",
+      "destination": "/videos/ramo-ramo-zamruznalo-frozen2.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/ramo-ramo-zamruznalo-scapulae.html",
+      "destination": "/videos/ramo-ramo-muskuli-scapulae.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/stupalo-muskuli-gastrocnemius.html",
+      "destination": "/videos/krak-muskuli-gastrocnemius.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/stupalo-muskuli-peroneus-longus.html",
+      "destination": "/videos/krak-muskuli-peroneus-longus.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/stupalo-muskuli-popliteus.html",
+      "destination": "/videos/krak-muskuli-popliteus.html",
+      "permanent": true
+    },
+    {
+      "source": "/videos/stupalo-muskuli-tibialis-anterior-and-extensor-digitorum.html",
+      "destination": "/videos/krak-muskuli-tibialis-anterior-and-extensor-digitorum.html",
+      "permanent": true
     }
   ],
   "rewrites": [

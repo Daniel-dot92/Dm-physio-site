@@ -50,13 +50,45 @@
 
   <!-- Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
-    "name": "Мускулни болки в ръката: От пръстите до рамото",
-    "about": {"@type": "MedicalCondition","name": "Мускулни болки в ръката"},
-    "publisher": {"@type": "Organization","name": "DM Physio","logo": {"@type": "ImageObject","url": "https://www.dmphysi0.com/logo.png"}}
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "Мускулни болки в ръката: От пръстите до рамото",
+  "about": {
+    "@type": "MedicalCondition",
+    "name": "Мускулни болки в ръката"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "DM Physio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.dmphysi0.com/logo.png"
+    }
+  },
+  "@id": "https://www.dmphysi0.com/sustiqnia/arm/arm-muscles.html#webpage",
+  "url": "https://www.dmphysi0.com/sustiqnia/arm/arm-muscles.html",
+  "datePublished": "2025-09-25",
+  "dateModified": "2026-07-16",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.dmphysi0.com/therapists/daniel-mitev.html#person",
+    "name": "Даниел Митев",
+    "jobTitle": "Кинезитерапевт",
+    "description": "Кинезитерапевт с 10 години практически опит в работата с мускулно-скелетни, периферни нервни и ортопедични проблеми.",
+    "url": "https://www.dmphysi0.com/therapists/daniel-mitev.html",
+    "image": "https://www.dmphysi0.com/assets/therapists/daniel.jpg",
+    "worksFor": {
+      "@id": "https://www.dmphysi0.com/#org"
+    },
+    "knowsAbout": [
+      "Кинезитерапия",
+      "Мускулно-скелетни проблеми",
+      "Периферни нервни увреди",
+      "Ортопедични проблеми"
+    ]
   }
+}
   </script>
 
   <style>
@@ -101,6 +133,11 @@
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Начало","item":"https://www.dmphysi0.com/"},{"@type":"ListItem","position":2,"name":"Болкови състояния","item":"https://www.dmphysi0.com/pain-conditions.html"},{"@type":"ListItem","position":3,"name":"Ръка","item":"https://www.dmphysi0.com/pain-arm.html"},{"@type":"ListItem","position":4,"name":"Мускулни болки в ръката","item":"https://www.dmphysi0.com/sustiqnia/arm/arm-muscles.html"}]}</script>
   <link rel="icon" href="/favicon-original.ico?v=20260717" sizes="any">
+
+  <meta name="author" content="Даниел Митев">
+  <meta property="article:published_time" content="2025-09-25">
+  <meta property="article:modified_time" content="2026-07-16">
+  <link rel="stylesheet" href="/css/health-author.css?v=20260811">
 </head>
 <body>
 
@@ -818,7 +855,21 @@
         </div>
       </div>
     </section>
-  </main>
+  <!-- health-author:start -->
+  <aside class="health-author" aria-label="Автор на здравната информация">
+    <div class="health-author__inner">
+      <img class="health-author__photo" src="/assets/therapists/daniel.jpg" alt="Даниел Митев, кинезитерапевт" width="82" height="82" loading="lazy" decoding="async">
+      <div>
+        <p class="health-author__label">Автор на здравната информация</p>
+        <h2 class="health-author__name">Даниел Митев · кинезитерапевт</h2>
+        <p class="health-author__bio">Кинезитерапевт с 10 години практически опит в работата с мускулно-скелетни, периферни нервни, ортопедични и свързани двигателни проблеми.</p>
+        <p class="health-author__meta"><span>Публикувано: <time datetime="2025-09-25">25.09.2025</time></span><span>Последна редакция: <time datetime="2026-07-16">16.07.2026</time></span></p>
+        <a class="health-author__profile" href="/therapists/daniel-mitev.html">Виж опита, квалификацията и подхода на Даниел <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </aside>
+  <!-- health-author:end -->
+</main>
 
   <footer class="footer">
     <section class="contact-section">
@@ -926,8 +977,8 @@
     }
   })();
   </script>
-  
- 
+
+
 
 </body>
 </html>
