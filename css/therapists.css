@@ -472,6 +472,121 @@ body.team-site {
   margin-bottom: 0;
 }
 
+.profile-content-grid--detailed {
+  grid-template-columns: 1fr;
+  max-width: 1060px;
+  margin-inline: auto;
+}
+
+.profile-section--full {
+  grid-column: 1 / -1;
+}
+
+.profile-section h3 {
+  margin: 28px 0 14px;
+  color: var(--team-forest-dark);
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.profile-kicker {
+  margin-bottom: 8px !important;
+  color: var(--team-sand) !important;
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  line-height: 1.2 !important;
+  text-transform: uppercase;
+}
+
+.profile-method-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-method-list li {
+  position: relative;
+  padding: 11px 12px 11px 34px;
+  border: 1px solid rgba(31, 75, 70, .11);
+  border-radius: 12px;
+  background: rgba(239, 247, 245, .68);
+  color: var(--team-forest-dark);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.profile-method-list li::before {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  color: var(--team-sand);
+  content: "✓";
+  font-weight: 900;
+}
+
+.profile-note {
+  margin: 28px 0;
+  padding: 20px 22px;
+  border-left: 4px solid var(--team-sand);
+  border-radius: 0 14px 14px 0;
+  background: #f7eee5;
+  color: var(--team-forest-dark);
+}
+
+.profile-note strong {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 1.02rem;
+}
+
+.profile-note p {
+  margin: 0;
+  color: #536763;
+  line-height: 1.65;
+}
+
+.profile-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.profile-focus-grid article {
+  padding: 20px;
+  border: 1px solid rgba(31, 75, 70, .12);
+  border-radius: 16px;
+  background: #f8fbfa;
+}
+
+.profile-focus-grid article:last-child {
+  grid-column: 1 / -1;
+}
+
+.profile-focus-grid h3 {
+  margin: 0 0 8px;
+  font-size: 1.06rem;
+}
+
+.profile-focus-grid p {
+  margin: 0;
+  font-size: .96rem;
+  line-height: 1.62;
+}
+
+.profile-training-note {
+  margin-top: 24px !important;
+}
+
+.profile-updated {
+  margin-top: 22px !important;
+  color: #71817e !important;
+  font-size: .82rem;
+}
+
 .expertise-list {
   display: flex;
   flex-wrap: wrap;
@@ -697,6 +812,15 @@ body.team-site {
 
   .profile-section {
     border-radius: 22px;
+  }
+
+  .profile-method-list,
+  .profile-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-focus-grid article:last-child {
+    grid-column: auto;
   }
 
   .team-footer-inner {
