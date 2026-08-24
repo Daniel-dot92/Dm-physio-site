@@ -73,6 +73,7 @@
     // Optional: set this once globally if you want automatic GA4 events.
     // Example: window.DM_GA4_ID = 'G-XXXXXXXXXX';
     var GA4_ID = window.DM_GA4_ID || '';
+    if (!GA4_ID) return;
     if (GA4_ID && !window.gtag) {
       var s = document.createElement('script');
       s.async = true;

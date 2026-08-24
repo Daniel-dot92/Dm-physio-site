@@ -737,6 +737,7 @@
   'use strict';
 
   var CONSENT_KEY = 'dm_cookie_consent_v1';
+  var GOOGLE_ADS_ID = 'AW-18404594469';
   var HOTJAR_ID = 6534654;
   var HOTJAR_VERSION = 6;
   var blockedScriptHosts = [
@@ -772,6 +773,50 @@
   }
 
   window.dmHasAnalyticsConsent = hasAnalyticsConsent;
+
+  function ensureGoogleTagQueue() {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  }
+
+  function googleConsentState(consent) {
+    return {
+      ad_storage: 'denied',
+      analytics_storage: consent && consent.analytics === true ? 'granted' : 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    };
+  }
+
+  function updateGoogleConsent(consent) {
+    ensureGoogleTagQueue();
+    window.gtag('consent', 'update', googleConsentState(consent));
+  }
+
+  function initializeGoogleAdsTag() {
+    if (window.__dmGoogleAdsTagLoaded) return;
+    window.__dmGoogleAdsTagLoaded = true;
+
+    // Consent Mode must be queued before gtag.js is requested.
+    ensureGoogleTagQueue();
+    window.gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    var existingConsent = readConsent();
+    if (existingConsent) updateGoogleConsent(existingConsent);
+
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GOOGLE_ADS_ID);
+    document.head.appendChild(script);
+
+    window.gtag('js', new Date());
+    window.gtag('config', GOOGLE_ADS_ID);
+  }
 
   function isAnalyticsScript(node) {
     if (!node || node.tagName !== 'SCRIPT') return false;
@@ -811,15 +856,7 @@
     var GA4_ID = window.DM_GA4_ID || '';
     if (!GA4_ID || window.__dmGA4Loaded || !hasAnalyticsConsent()) return;
     window.__dmGA4Loaded = true;
-
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
-    document.head.appendChild(s);
-
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
+    ensureGoogleTagQueue();
     window.gtag('config', GA4_ID, { send_page_view: true });
   }
 
@@ -900,7 +937,8 @@
     document.body.appendChild(manage);
 
     function closeWithChoice(analyticsAllowed) {
-      saveConsent(analyticsAllowed);
+      var consent = saveConsent(analyticsAllowed);
+      updateGoogleConsent(consent);
       banner.hidden = true;
       manage.hidden = false;
       if (analyticsAllowed) window.dmLoadAnalytics();
@@ -921,6 +959,7 @@
   }
 
   patchScriptInsertion();
+  initializeGoogleAdsTag();
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', buildBanner, { once: true });
