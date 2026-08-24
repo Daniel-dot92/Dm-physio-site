@@ -6,6 +6,11 @@
       "statusCode": 302
     },
     {
+      "source": "/pngs/sustoqniq/deep-tissue-pricing-update(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
