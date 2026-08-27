@@ -134,7 +134,7 @@ function urlsFromSitemap(file) {
 
 function htmlUrlsFromFiles() {
   const urls = [];
-  const blockedDirs = new Set(['.git', 'backup-before-seo-fixes', 'backups', 'node_modules', 'videos']);
+  const blockedDirs = new Set(['.git', '.codex-deploy-clean', 'backup-before-seo-fixes', 'backups', 'node_modules', 'videos']);
   const blockedFiles = new Set([
     'about.html',
     'footer-preview.html',
@@ -210,7 +210,11 @@ function buildPage(url) {
 
   return {
     title,
-    url: parsed.pathname === '/index.html' ? '/' : parsed.pathname,
+    url: parsed.pathname === '/index.html'
+      ? '/'
+      : parsed.pathname === '/en/index.html'
+        ? '/en/'
+        : parsed.pathname,
     excerpt,
     thumbnail,
     images: pageImages,
