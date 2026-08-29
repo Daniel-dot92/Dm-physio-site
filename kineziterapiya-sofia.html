@@ -88,6 +88,43 @@
       border-radius:999px;background:rgba(14,124,134,.07);line-height:1.2;
     }
     .hero-pro__location svg{width:16px;height:16px;flex:0 0 auto;}
+    .hero-office-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:24px;
+    }
+    .hero-office-card{
+      display:grid;grid-template-columns:102px minmax(0,1fr);overflow:hidden;
+      border:1px solid rgba(14,124,134,.2);border-radius:16px;
+      background:#fff;box-shadow:0 8px 22px rgba(15,23,42,.08);
+    }
+    .hero-office-card__image{
+      position:relative;display:block;overflow:hidden;min-height:136px;background:#dcebed;
+    }
+    .hero-office-card__image img{
+      display:block;width:100%;height:100%;object-fit:cover;transition:transform .22s ease;
+    }
+    .hero-office-card:hover .hero-office-card__image img{transform:scale(1.025);}
+    .hero-office-card__body{display:flex;min-width:0;flex-direction:column;padding:13px 13px 12px;}
+    .hero-office-card__body h2{margin:0 0 5px;color:#073b43;font-size:1rem;line-height:1.2;}
+    .hero-office-card__body address{
+      margin:0;color:#475569;font-size:.82rem;font-style:normal;line-height:1.4;
+    }
+    .hero-office-card__actions{display:grid;grid-template-columns:auto 1fr;gap:7px;margin-top:auto;padding-top:10px;}
+    .hero-office-card__map,
+    .hero-office-card__book{
+      display:inline-flex;align-items:center;justify-content:center;min-height:36px;border-radius:9px;
+      padding:7px 6px;font-size:.74rem;font-weight:800;text-decoration:none;white-space:nowrap;
+    }
+    .hero-office-card__map{border:1px solid rgba(14,124,134,.25);color:#0b6670;background:#fff;}
+    .hero-office-card__book{background:#16a34a;color:#fff;}
+    .hero-office-card__map:hover{background:#edf9f8;}
+    .hero-office-card__book:hover{background:#15803d;color:#fff;}
+    .hero-office-experience{
+      display:flex;align-items:center;gap:8px;margin:13px 0 0;color:#475569;font-size:.92rem;
+    }
+    .hero-office-experience::before{
+      content:"";width:9px;height:9px;border-radius:50%;background:#16a34a;box-shadow:0 0 0 4px rgba(22,163,74,.12);
+    }
+    .hero-office-experience strong{color:#0f172a;}
     .dm-footer-mapless .dm-footer-location-panel{
       margin-top:28px;padding-top:24px;border-top:1px solid rgba(14,124,134,.2);
     }
@@ -122,6 +159,10 @@
       .hero-pro__media img, .why__media img{ -webkit-mask-image:none; mask-image:none; }
     }
     @media (max-width: 720px){
+      .hero-office-grid{grid-template-columns:1fr;}
+      .hero-office-card{grid-template-columns:104px minmax(0,1fr);}
+      .hero-office-card__image{min-height:138px;}
+      .hero-office-card__actions{grid-template-columns:auto 1fr;}
       .dm-footer-mapless .dm-footer-location-grid{grid-template-columns:1fr;}
       .dm-footer-mapless .dm-footer-location-card{padding:16px;}
       .dm-footer-mapless .dm-footer-location-card__actions{align-items:stretch;flex-direction:column;}
@@ -238,25 +279,36 @@
           Първо оценяваме движението и проблема, след което избираме подходящите техники и упражнения.
         </p>
 
-        <div class="hero-pro__cta">
-          <a href="/book" class="btn btn-primary">Виж свободните часове</a>
-          <a href="#work" class="btn btn-outline">Как протича първото посещение</a>
-        </div>
+        <div class="hero-office-grid" aria-label="Кабинети на DM Physio в София">
+          <article class="hero-office-card">
+            <a class="hero-office-card__image" href="/book/hristo-danov" aria-label="Виж свободните часове в Студентски град">
+              <img src="/assets/locations/studentski-grad.webp" alt="Входът на кабинета на DM Physio в Студентски град" width="960" height="720" loading="lazy" decoding="async">
+            </a>
+            <div class="hero-office-card__body">
+              <h2>Студентски град</h2>
+              <address>София, ул. „Проф. Христо Данов“ 19</address>
+              <div class="hero-office-card__actions">
+                <a class="hero-office-card__map" href="https://maps.app.goo.gl/y1kfJZZ591iYc3jf8" target="_blank" rel="noopener">Карта ↗</a>
+                <a class="hero-office-card__book" href="/book/hristo-danov">Запази час</a>
+              </div>
+            </div>
+          </article>
 
-        <div class="hero-pro__stats">
-          <div class="stat">
-            <div class="stat__value">Оценка</div>
-            <div class="stat__label">На движението</div>
-          </div>
-          <div class="stat">
-            <div class="stat__value">План</div>
-            <div class="stat__label">Според случая</div>
-          </div>
-          <div class="stat">
-            <div class="stat__value">10+</div>
-            <div class="stat__label">Години опит</div>
-          </div>
+          <article class="hero-office-card">
+            <a class="hero-office-card__image" href="/book/mladost" aria-label="Виж свободните часове в Младост 1А">
+              <img src="/assets/locations/mladost-1a.webp" alt="Входът на кабинета на DM Physio в Младост 1А" width="960" height="720" loading="lazy" decoding="async">
+            </a>
+            <div class="hero-office-card__body">
+              <h2>Младост 1А</h2>
+              <address>София, ул. „Кръстьо Раковски“ 12</address>
+              <div class="hero-office-card__actions">
+                <a class="hero-office-card__map" href="https://maps.app.goo.gl/xYi2heoA2kY44wLq5" target="_blank" rel="noopener">Карта ↗</a>
+                <a class="hero-office-card__book" href="/book/mladost">Запази час</a>
+              </div>
+            </div>
+          </article>
         </div>
+        <p class="hero-office-experience"><strong>10+ години опит</strong> в работата с движение, болка и възстановяване.</p>
       </div>
 
       <!-- Дясно: hero изображение (LCP) -->
@@ -750,7 +802,7 @@
         '<article class="dm-footer-location-card">' +
           '<span class="dm-footer-location-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>' +
           '<div><h4>Младост 1А</h4><address>София, ул. „Кръстьо Раковски“ 12</address>' +
-          '<div class="dm-footer-location-card__actions"><a class="map-link" href="https://maps.app.goo.gl/QsERnvvAdoY1nRXp6?g_st=ipc" target="_blank" rel="noopener">Вижте на карта ↗</a>' +
+          '<div class="dm-footer-location-card__actions"><a class="map-link" href="https://maps.app.goo.gl/xYi2heoA2kY44wLq5" target="_blank" rel="noopener">Вижте на карта ↗</a>' +
           '<a class="dm-location-booking" data-dm-location-booking href="/book/mladost">Виж часовете в Младост</a></div></div>' +
         '</article>' +
       '</div>';
