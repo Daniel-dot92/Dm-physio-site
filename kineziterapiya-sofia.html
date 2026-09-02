@@ -45,20 +45,17 @@
   <meta name="twitter:image" content="https://www.dmphysi0.com/og/hero_1200x630.jpg" />
 
   <!-- CSS -->
-  <link rel="preload" href="/css/top-bar.css?v=home-check-20260701" as="style">
   <link rel="stylesheet" href="/css/top-bar.css?v=home-check-20260701" />
-  <link rel="preload" href="/style.css?v=home-check-20260701" as="style">
   <link rel="stylesheet" href="/style.css?v=home-check-20260701" />
 
 
 
   <!-- Прелоуд на LCP изображението с srcset -->
-  <link rel="preload" as="image"
-    href="/pngs/glavna2-1200.webp"
-    imagesrcset="/pngs/glavna2-480.webp 480w,
-                 /pngs/glavna2-768.webp 768w,
-                 /pngs/glavna2-1200.webp 1200w,
-                 /pngs/glavna2-1600.webp 1600w"
+  <link rel="preload" as="image" type="image/avif"
+    href="/assets/performance/hero/glavna2-768.avif"
+    imagesrcset="/assets/performance/hero/glavna2-480.avif 480w,
+                 /assets/performance/hero/glavna2-768.avif 768w,
+                 /assets/performance/hero/glavna2-1080.avif 1080w"
     imagesizes="(max-width: 900px) 100vw, 50vw"
     fetchpriority="high">
 
@@ -282,7 +279,7 @@
         <div class="hero-office-grid" aria-label="Кабинети на DM Physio в София">
           <article class="hero-office-card">
             <a class="hero-office-card__image" href="/book/hristo-danov" aria-label="Виж свободните часове в Студентски град">
-              <img src="/assets/locations/studentski-grad.webp" alt="Входът на кабинета на DM Physio в Студентски град" width="960" height="720" loading="lazy" decoding="async">
+              <img src="/assets/performance/locations/studentski-grad.webp" alt="Входът на кабинета на DM Physio в Студентски град" width="480" height="360" loading="lazy" decoding="async">
             </a>
             <div class="hero-office-card__body">
               <h2>Студентски град</h2>
@@ -296,7 +293,7 @@
 
           <article class="hero-office-card">
             <a class="hero-office-card__image" href="/book/mladost" aria-label="Виж свободните часове в Младост 1А">
-              <img src="/assets/locations/mladost-1a.webp" alt="Входът на кабинета на DM Physio в Младост 1А" width="960" height="720" loading="lazy" decoding="async">
+              <img src="/assets/performance/locations/mladost-1a.webp" alt="Входът на кабинета на DM Physio в Младост 1А" width="480" height="360" loading="lazy" decoding="async">
             </a>
             <div class="hero-office-card__body">
               <h2>Младост 1А</h2>
@@ -314,16 +311,20 @@
       <!-- Дясно: hero изображение (LCP) -->
       <figure class="hero-pro__media">
         <picture>
+          <source type="image/avif"
+            srcset="/assets/performance/hero/glavna2-480.avif 480w,
+                    /assets/performance/hero/glavna2-768.avif 768w,
+                    /assets/performance/hero/glavna2-1080.avif 1080w"
+            sizes="(max-width: 900px) 100vw, 50vw">
           <source type="image/webp"
-            srcset="/pngs/glavna2-480.webp 480w,
-                    /pngs/glavna2-768.webp 768w,
-                    /pngs/glavna2-1200.webp 1200w,
-                    /pngs/glavna2-1600.webp 1600w"
+            srcset="/assets/performance/hero/glavna2-480.webp 480w,
+                    /assets/performance/hero/glavna2-768.webp 768w,
+                    /assets/performance/hero/glavna2-1080.webp 1080w"
             sizes="(max-width: 900px) 100vw, 50vw">
           <img
-            src="/pngs/glavna2-1200.webp"
+            src="/assets/performance/hero/glavna2-768.webp"
             alt="Физиотерапевтичен кабинет DM Physio в София"
-            width="1600" height="1067"
+            width="1080" height="1080"
             loading="eager" decoding="async" fetchpriority="high">
         </picture>
       </figure>
@@ -455,12 +456,12 @@
           <a href="/sustiqnia/head-slepoochie.html" class="pain-button">
             <div class="pain-button-media image-container">
               <img
-                src="/pngs/sustoqniq/headeach2-Thumbnail.webp"
+                src="/assets/performance/cards/headache-anatomy.webp"
                 alt="Болка в слепоочието и скалпа"
                 class="static-img"
                 loading="lazy" decoding="async"
                 width="352" height="352">
-              <img class="hover-img dm-video-placeholder" src="/pngs/sustoqniq/headeach2-Thumbnail.webp" data-dm-preview-poster="/pngs/sustoqniq/headeach2-Thumbnail.webp" data-dm-preview-key="L3BuZ3Mvc3VzdG9xbmlxL0hlYWRlYWNoMi5tcDQ" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/headache-anatomy.webp" data-dm-preview-poster="/assets/performance/cards/headache-anatomy.webp" data-dm-preview-key="L3BuZ3Mvc3VzdG9xbmlxL0hlYWRlYWNoMi5tcDQ" alt="" aria-hidden="true" loading="lazy" decoding="async">
             </div>
             <span class="pain-button-text">Болка в слепоочието</span>
             <p class="pain-button-hook">
@@ -472,12 +473,12 @@
           <a href="/sustiqnia/neck-diskova.html" class="pain-button">
             <div class="pain-button-media image-container">
               <img
-                src="/pngs/sustoqniq/muscles/disk-herniation-how-it-happen-Thumbnail.webp"
+                src="/assets/performance/cards/disk-herniation.webp"
                 alt="Дискова херния на врата"
                 class="static-img"
                 loading="lazy" decoding="async"
                 width="352" height="352">
-              <img class="hover-img dm-video-placeholder" src="/pngs/sustoqniq/muscles/disk-herniation-how-it-happen-Thumbnail.webp" data-dm-preview-poster="/pngs/sustoqniq/muscles/disk-herniation-how-it-happen-Thumbnail.webp" data-dm-preview-key="L3BuZ3Mvc3VzdG9xbmlxL211c2NsZXMvRGlzay1IZXJuaWF0aW9uLTEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async" width="352" height="352">
+              <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/disk-herniation.webp" data-dm-preview-poster="/assets/performance/cards/disk-herniation.webp" data-dm-preview-key="L3BuZ3Mvc3VzdG9xbmlxL211c2NsZXMvRGlzay1IZXJuaWF0aW9uLTEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async" width="352" height="352">
             </div>
             <span class="pain-button-text">Дискова херния (врат)</span>
             <p class="pain-button-hook">
@@ -489,12 +490,12 @@
           <a href="/sustiqnia/krust/piriformis.html" class="pain-button">
             <div class="pain-button-media image-container">
               <img
-                src="/pngs/sustoqniq/muscles/piriformis-Thumbnail.webp"
+                src="/assets/performance/cards/piriformis.webp"
                 alt="Пириформис синдром"
                 class="static-img"
                 loading="lazy" decoding="async"
                 width="352" height="352">
-              <img class="hover-img dm-video-placeholder" src="/pngs/sustoqniq/muscles/piriformis-Thumbnail.webp" data-dm-preview-poster="/pngs/sustoqniq/muscles/piriformis-Thumbnail.webp" data-dm-preview-key="L3BuZ3Mvc3VzdG9xbmlxL211c2NsZXMvUGlyaWZvcm1pcy5tcDQ" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/piriformis.webp" data-dm-preview-poster="/assets/performance/cards/piriformis.webp" data-dm-preview-key="L3BuZ3Mvc3VzdG9xbmlxL211c2NsZXMvUGlyaWZvcm1pcy5tcDQ" alt="" aria-hidden="true" loading="lazy" decoding="async">
             </div>
             <span class="pain-button-text">Пириформис синдром</span>
             <p class="pain-button-hook">
@@ -506,12 +507,12 @@
           <a href="/pain-lower-back.html" class="pain-button">
             <div class="pain-button-media image-container">
               <img
-                src="/pngs/pain-conditions/new/backpain-Thumbnail.webp"
+                src="/assets/performance/cards/pain-lower-back.webp"
                 alt="Болка в кръста"
                 class="static-img"
                 loading="lazy" decoding="async"
                 width="352" height="352">
-              <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/backpain-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/backpain-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9CYWNrcGFpbi5tcDQ" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-lower-back.webp" data-dm-preview-poster="/assets/performance/cards/pain-lower-back.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9CYWNrcGFpbi5tcDQ" alt="" aria-hidden="true" loading="lazy" decoding="async">
             </div>
             <span class="pain-button-text">Болка в кръста</span>
             <p class="pain-button-hook">
@@ -556,8 +557,8 @@
         <!-- Глава -->
         <a href="/pain-head.html" class="pain-button" aria-label="Глава – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/headeach1-Thumbnail.webp" alt="Глава" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/headeach1-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/headeach1-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9IZWFkZWFjaDEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/pain-head.webp" alt="Глава" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-head.webp" data-dm-preview-poster="/assets/performance/cards/pain-head.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9IZWFkZWFjaDEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Глава</span>
         </a>
@@ -565,8 +566,8 @@
         <!-- Врат -->
         <a href="/pain-neck.html" class="pain-button" aria-label="Врат – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp" alt="Врат" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/neckpain1-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9OZWNrcGFpbjEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/pain-neck.webp" alt="Врат" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-neck.webp" data-dm-preview-poster="/assets/performance/cards/pain-neck.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9OZWNrcGFpbjEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Врат</span>
         </a>
@@ -574,9 +575,9 @@
         <!-- Рамо -->
         <a href="/pain-shoulder.html" class="pain-button" aria-label="Рамо – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp"
-                 alt="Рамо" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/shouderpain1-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9TaG91ZGVycGFpbjEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/pain-shoulder.webp"
+                 alt="Рамо" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-shoulder.webp" data-dm-preview-poster="/assets/performance/cards/pain-shoulder.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9TaG91ZGVycGFpbjEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Рамо</span>
         </a>
@@ -584,8 +585,8 @@
         <!-- Ръка -->
         <a href="/pain-arm.html" class="pain-button" aria-label="Ръка – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/armpain-Thumbnail.webp" alt="Ръка" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/armpain-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/armpain-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9Bcm1wYWluLm1wNA" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/pain-arm.webp" alt="Ръка" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-arm.webp" data-dm-preview-poster="/assets/performance/cards/pain-arm.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9Bcm1wYWluLm1wNA" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Ръка</span>
         </a>
@@ -593,8 +594,8 @@
         <!-- Гърди и Корем -->
         <a href="/pain-chest-abdomen.html" class="pain-button" aria-label="Гърди и Корем – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/chestpain-Thumbnail.webp" alt="Гърди и Корем" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/chestpain-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/chestpain-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9DaGVzdHBhaW4ubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/pain-chest.webp" alt="Гърди и Корем" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-chest.webp" data-dm-preview-poster="/assets/performance/cards/pain-chest.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9DaGVzdHBhaW4ubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Гърди и Корем</span>
         </a>
@@ -602,8 +603,8 @@
         <!-- Гръб -->
         <a href="/pain-back.html" class="pain-button" aria-label="Гръб – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp" alt="Гръб" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/midbackpain1-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9NaWRiYWNrcGFpbjEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/pain-mid-back.webp" alt="Гръб" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-mid-back.webp" data-dm-preview-poster="/assets/performance/cards/pain-mid-back.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9NaWRiYWNrcGFpbjEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Гръб</span>
         </a>
@@ -611,8 +612,8 @@
         <!-- Кръст -->
         <a href="/pain-lower-back.html" class="pain-button" aria-label="Кръст – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/backpain-Thumbnail.webp" alt="Кръст" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/backpain-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/backpain-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9CYWNrcGFpbi5tcDQ" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/pain-lower-back.webp" alt="Кръст" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-lower-back.webp" data-dm-preview-poster="/assets/performance/cards/pain-lower-back.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9CYWNrcGFpbi5tcDQ" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Кръст</span>
         </a>
@@ -620,8 +621,8 @@
         <!-- Дупе / Таз -->
         <a href="/pain-buttocks-pelvis.html" class="pain-button" aria-label="Дупе и Таз – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/hippain1-Thumbnail.webp" alt="Дупе / Таз" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/hippain1-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/hippain1-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9IaXBwYWluMS5tcDQ" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/pain-hip.webp" alt="Дупе / Таз" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-hip.webp" data-dm-preview-poster="/assets/performance/cards/pain-hip.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9IaXBwYWluMS5tcDQ" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Дупе / Таз</span>
         </a>
@@ -629,8 +630,8 @@
         <!-- Бедро / Коляно -->
         <a href="/pain-thigh-knee.html" class="pain-button" aria-label="Бедро и Коляно – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp" alt="Бедро / Коляно" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/kneepain1-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9LbmVlcGFpbjEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/pain-knee.webp" alt="Бедро / Коляно" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-knee.webp" data-dm-preview-poster="/assets/performance/cards/pain-knee.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9LbmVlcGFpbjEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Бедро / Коляно</span>
         </a>
@@ -638,8 +639,8 @@
         <!-- Подбедрица / Стъпало -->
         <a href="/pain-lower-leg-ankle.html" class="pain-button" aria-label="Подбедрица и Стъпало – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp" alt="Подбедрица / Стъпало" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/anklepain1-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9BbmtsZXBhaW4xLm1wNA" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/pain-ankle.webp" alt="Подбедрица / Стъпало" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-ankle.webp" data-dm-preview-poster="/assets/performance/cards/pain-ankle.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9BbmtsZXBhaW4xLm1wNA" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Подбедрица / Стъпало</span>
         </a>
@@ -647,8 +648,8 @@
         <!-- Невралгии -->
         <a href="/pain-neuralgia-general.html" class="pain-button" aria-label="Невралгии – най-чести болкови състояния">
           <div class="pain-button-media image-container">
-            <img src="/pngs/pain-conditions/new/tingling1-Thumbnail.webp" alt="Невралгии" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/pain-conditions/new/tingling1-Thumbnail.webp" data-dm-preview-poster="/pngs/pain-conditions/new/tingling1-Thumbnail.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9UaW5nbGluZzEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/pain-neuralgia.webp" alt="Невралгии" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/pain-neuralgia.webp" data-dm-preview-poster="/assets/performance/cards/pain-neuralgia.webp" data-dm-preview-key="L3BuZ3MvcGFpbi1jb25kaXRpb25zL25ldy9UaW5nbGluZzEubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Невралгии</span>
         </a>
@@ -656,8 +657,8 @@
         <!-- Физиология / Мускули -->
         <a href="/physiology.html" class="pain-button physiology-button" aria-label="Физиология – образователна секция">
           <div class="pain-button-media image-container">
-            <img src="/pngs/sustoqniq/muscles/Muscles%20main-Thumbnail.webp" alt="Мускули – образователна секция" class="static-img" loading="lazy" decoding="async" width="640" height="360">
-            <img class="hover-img dm-video-placeholder" src="/pngs/sustoqniq/muscles/Muscles%20main-Thumbnail.webp" data-dm-preview-poster="/pngs/sustoqniq/muscles/Muscles%20main-Thumbnail.webp" data-dm-preview-key="L3BuZ3Mvc3VzdG9xbmlxL211c2NsZXMvTXVzY2xlcyUyME1haW4ubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/performance/cards/muscles-main.webp" alt="Мускули – образователна секция" class="static-img" loading="lazy" decoding="async" width="640" height="640">
+            <img class="hover-img dm-video-placeholder" src="/assets/performance/cards/muscles-main.webp" data-dm-preview-poster="/assets/performance/cards/muscles-main.webp" data-dm-preview-key="L3BuZ3Mvc3VzdG9xbmlxL211c2NsZXMvTXVzY2xlcyUyME1haW4ubXA0" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </div>
           <span class="pain-button-text">Мускули</span>
         </a>
@@ -685,27 +686,27 @@
         <h2>Свържете се с нас:</h2>
         <div class="social-links">
           <a href="https://www.facebook.com/dmphysio03" target="_blank" rel="noopener">
-            <img src="/pngs/social/facebook.png" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
+            <img src="/assets/performance/icons/facebook.webp" alt="Facebook" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.instagram.com/dm.physio/" target="_blank" rel="noopener">
-            <img src="/pngs/social/instagram.png" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
+            <img src="/assets/performance/icons/instagram.webp" alt="Instagram" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.youtube.com/@dmphysio3352" target="_blank" rel="noopener">
-            <img src="/pngs/social/Youtube.png" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
+            <img src="/assets/performance/icons/youtube.webp" alt="YouTube" loading="lazy" decoding="async" width="32" height="32">
           </a>
           <a href="https://www.tiktok.com/@dmphysio" target="_blank" rel="noopener">
-            <img src="/pngs/social/tiktok.png" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
+            <img src="/assets/performance/icons/tiktok.webp" alt="TikTok" loading="lazy" decoding="async" width="32" height="32">
           </a>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="contact-item phone">
-          <img src="/pngs/social/phone.png" alt="Телефон" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="/assets/performance/icons/phone.webp" alt="Телефон" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <span><a href="tel:0883688414">088 368 8414</a></span>
         </div>
         <div class="contact-item work-hours">
-          <img src="/pngs/clock.avif" alt="Работно Време" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="/assets/performance/icons/clock.webp" alt="Работно Време" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>Работно време:</span><br>
             <span>Пон-Пет: 09:00 - 19:00</span><br>
@@ -714,7 +715,7 @@
           </div>
         </div>
         <div class="contact-item address-item">
-          <img src="/pngs/social/location.png" alt="Адрес" class="icon" loading="lazy" decoding="async" width="24" height="24">
+          <img src="/assets/performance/icons/location.webp" alt="Адрес" class="icon" loading="lazy" decoding="async" width="24" height="24">
           <div>
             <span>София, ул. „Проф. Христо Данов“ 19</span><br>
             <a href="https://maps.app.goo.gl/y1kfJZZ591iYc3jf8" target="_blank" rel="noopener" class="map-link">
@@ -732,7 +733,6 @@
 </footer>
 
 <!-- JS -->
-<script src="/js/form.js" defer></script>
 <script src="/js/topbar.js?v=20260715-layoutfix" defer></script>
 
 <!-- Lazy: EmbedSocial, Map iframe -->
