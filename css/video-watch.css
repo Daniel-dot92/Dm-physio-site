@@ -421,7 +421,6 @@ main.video-watch-page.video-watch-page--focus {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: auto;
   object-fit: contain;
   background: #071416;
 }
