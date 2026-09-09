@@ -32,6 +32,31 @@
       "permanent": true
     },
     {
+      "source": "/sustiqnia/whiplash.html",
+      "destination": "/sustiqnia/neck-kamshichen.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/sustiqnia/ramo/импинджмънт.html",
+      "destination": "/sustiqnia/ramo/impigement.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/sustiqnia/arm/neuralgii.html",
+      "destination": "/sustiqnia/arm/nevralgii.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/sustiqnia/arm/golf-elbow.html",
+      "destination": "/sustiqnia/arm/golf.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/sustiqnia.html",
+      "destination": "/pain-conditions.html",
+      "statusCode": 301
+    },
+    {
       "source": "/sustiqnia/grub/sacroiliac-pain.html",
       "destination": "/sustiqnia/dupe/sacroiliacpain.html",
       "permanent": true
