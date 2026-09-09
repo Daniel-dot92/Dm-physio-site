@@ -42,6 +42,11 @@
       "statusCode": 301
     },
     {
+      "source": "/sustiqnia/ramo/%D0%B8%D0%BC%D0%BF%D0%B8%D0%BD%D0%B4%D0%B6%D0%BC%D1%8A%D0%BD%D1%82.html",
+      "destination": "/sustiqnia/ramo/impigement.html",
+      "statusCode": 301
+    },
+    {
       "source": "/sustiqnia/arm/neuralgii.html",
       "destination": "/sustiqnia/arm/nevralgii.html",
       "statusCode": 301
